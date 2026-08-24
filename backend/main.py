@@ -1105,7 +1105,22 @@ def pk_analytics(authorization: str | None = Header(default=None)):
         for r in rows[:60]
     ]
 
+    from collections import Counter as _Counter
+    tl_plays = _Counter()
+    tl_err = {}
+    for r in rows:
+        day = str(r["finished_at"] or "")[:10]
+        if not day:
+            continue
+        tl_plays[day] += 1
+        tl_err.setdefault(day, []).append(r["total_errors"] or 0)
+    timeline = [
+        {"day": d, "plays": tl_plays[d], "avg_errors": avg(tl_err[d])}
+        for d in sorted(tl_plays)
+    ]
+
     return {
+        "timeline": timeline,
         "summary": {
             "total_plays": total_plays,
             "unique_players": len(players),

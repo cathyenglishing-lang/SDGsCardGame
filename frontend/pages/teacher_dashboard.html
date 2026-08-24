@@ -572,6 +572,38 @@ textarea {
 .ok-pill{background:rgba(34,197,94,.18);color:#86efac;}
 .off-pill{background:rgba(148,163,184,.18);color:#cbd5e1;}
 .chart-3d{overflow-x:auto;padding:6px 0 2px;}
+
+/* ===== dataviz design system (dark, validated palette) ===== */
+:root{
+  --viz-ink:#ffffff; --viz-ink2:#c3c2b7; --viz-muted:#898781;
+  --viz-grid:#2c2c2a; --viz-base:#3a3a37;
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500; --s5:#d55181; --s6:#37a137; --s7:#9085e9; --s8:#e66767;
+  --seq1:#1a2b45; --seq2:#1c5cab; --seq3:#2a78d6; --seq4:#5598e7; --seq5:#9ec5f4;
+  --good:#0ca30c; --warn:#fab219; --crit:#d03b3b;
+}
+.viz{width:100%;overflow-x:auto;}
+.viz svg{display:block;max-width:100%;height:auto;}
+.viz .mk{transition:opacity .12s;}
+.viz .mk:hover{opacity:.82;}
+.viz-legend{display:flex;flex-wrap:wrap;gap:14px;margin-top:12px;font-size:12.5px;color:var(--viz-ink2);}
+.viz-legend .li{display:inline-flex;align-items:center;gap:7px;}
+.viz-legend .sw{width:12px;height:12px;border-radius:3px;}
+.viz-tip{position:fixed;z-index:9999;pointer-events:none;background:#0a0d14;border:1px solid rgba(255,255,255,.16);
+  border-radius:10px;padding:8px 11px;box-shadow:0 14px 34px rgba(0,0,0,.55);opacity:0;transition:opacity .1s;max-width:260px;}
+.viz-tip.on{opacity:1;}
+.viz-tip .tl{color:var(--viz-muted);font-size:11.5px;}
+.viz-tip .tv{font-weight:800;font-size:16px;font-variant-numeric:tabular-nums;}
+.viz-tip .tr{font-size:12px;color:var(--viz-ink2);margin-top:2px;}
+.stat-tile{position:relative;border:1px solid var(--line);border-radius:16px;padding:16px 18px;overflow:hidden;
+  background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.012));}
+.stat-tile .lab{color:var(--muted);font-size:12.5px;margin-bottom:7px;}
+.stat-tile .val{font-size:32px;font-weight:750;line-height:1;letter-spacing:-.6px;}
+.stat-tile.hero .val{font-size:46px;}
+.stat-tile .sub{color:var(--muted);font-size:12px;margin-top:7px;}
+.stat-tile .accent{position:absolute;left:0;top:0;bottom:0;width:4px;}
+.tile-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:12px;margin:14px 0 4px;}
+.chart-card h4{display:flex;align-items:center;gap:8px;}
+.chart-card .cap{color:var(--muted);font-size:12px;font-weight:400;margin:-4px 0 10px;}
 </style>
 </head>
 <body>
@@ -678,15 +710,17 @@ textarea {
         </div>
       </div>
       <p style="color:var(--muted);margin:6px 0 0;">學生完成 Pecha Kucha 卡牌遊戲後自動回傳的成績。含用時、錯誤數、聽力重播次數，並依主題 / 難度 / Part 分析。</p>
-      <div id="pkKpis" class="pk-kpi-row"></div>
+      <div id="pkKpis" class="kpi-row"></div>
     </section>
 
+    <section class="panel chart-card"><h4>每日完成次數</h4><div class="cap">Pecha Kucha 遊戲每日完成數趨勢</div><div id="pkChartTime"></div></section>
+
     <div class="pk-grid2">
-      <section class="panel chart-card"><h4>各主題 · 平均用時（秒）</h4><div id="pkChartTopic"></div></section>
+      <section class="panel chart-card"><h4>各主題 · 平均用時</h4><div id="pkChartTopic"></div></section>
       <section class="panel chart-card"><h4>各難度 · 平均錯誤</h4><div id="pkChartLevel"></div></section>
     </div>
 
-    <section class="panel chart-card"><h4>各 Part · 平均用時與錯誤</h4><div id="pkChartPart" class="pk-scroll"></div></section>
+    <section class="panel chart-card"><h4>各 Part · 難度熱圖（平均錯誤）</h4><div class="cap">顏色越深＝該段落越容易出錯</div><div id="pkChartPart" class="pk-scroll"></div></section>
 
     <div class="pk-grid2">
       <section class="panel chart-card"><h4>活躍學生（依完成次數）</h4><div id="pkTopPlayers" class="pk-scroll"></div></section>
@@ -1059,28 +1093,24 @@ async function loadPkAnalytics(){
 }
 function renderPk(){
   const d = pkData || {}, s = d.summary || {};
-  $("pkKpis").innerHTML = [
+  $("pkKpis").innerHTML = kpiHtml([
     ["總遊玩次數", s.total_plays||0],
     ["不重複學生", s.unique_players||0],
     ["平均用時", pkFmtSecs(s.avg_seconds)],
     ["平均錯誤", s.avg_errors||0],
     ["聽力重播總數", s.total_repeats||0],
-  ].map(([k,v])=>'<div class="pk-kpi"><b>'+safeText(v)+'</b><span>'+k+'</span></div>').join("");
+  ]);
 
-  $("pkChartTopic").innerHTML = pkBars((d.by_topic||[]).map(t=>({
-    label: "SDG "+(t.sdg_level||"?")+" · "+t.topic_id+"（"+t.plays+"）",
-    value: t.avg_seconds, valText: pkFmtSecs(t.avg_seconds)
-  })));
-  $("pkChartLevel").innerHTML = pkBars((d.by_level||[]).map(l=>({
-    label: l.level+"（"+l.plays+" 次）", value: l.avg_errors, valText: l.avg_errors
-  })), {color:"linear-gradient(90deg,#fbbf24,#fb7185)"});
+  $("pkChartTime").innerHTML = chartLine((d.timeline||[]).map(t=>({ label:String(t.day).slice(5), value:t.plays })));
+  $("pkChartTopic").innerHTML = barsHtml((d.by_topic||[]).map(t=>({
+    label: "SDG "+(t.sdg_level||"?")+" · "+t.topic_id, value: t.avg_seconds, valText: pkFmtSecs(t.avg_seconds)
+  })), {hex:"#3987e5"});
+  $("pkChartLevel").innerHTML = barsHtml((d.by_level||[]).map(l=>({
+    label: l.level+"（"+l.plays+"）", value: l.avg_errors, valText: l.avg_errors
+  })), {hex:"#d95926"});
 
   const pp = d.per_part || [];
-  $("pkChartPart").innerHTML = pp.length ? (
-    '<table class="pk-tbl"><thead><tr><th>Part</th><th>平均用時</th><th>平均錯誤</th><th>樣本數</th></tr></thead><tbody>'
-    + pp.map(p=>'<tr><td>Part '+safeText(p.part_no)+'</td><td>'+pkFmtSecs(p.avg_seconds)+'</td><td>'+safeText(p.avg_errors)+'</td><td>'+safeText(p.samples)+'</td></tr>').join("")
-    + '</tbody></table>'
-  ) : '<div class="pk-empty">尚無資料</div>';
+  $("pkChartPart").innerHTML = chartHeatmap(pp.map(p=>({ label:"Part "+p.part_no, value:p.avg_errors })));
 
   const tp = d.top_players || [];
   $("pkTopPlayers").innerHTML = tp.length ? (
@@ -1110,59 +1140,141 @@ function exportPkCsv(){
   URL.revokeObjectURL(a.href);
 }
 
-/* ===== Admin console — shared chart helpers ===== */
-const PALETTE = ["#2dd4bf","#3b82f6","#a855f7","#fbbf24","#fb7185","#22c55e","#0ea5e9","#f97316"];
+/* ===== Admin console — professional chart library (dataviz specs, validated palette) ===== */
+const SERIES_HUES = ["#3987e5","#d95926","#199e70","#c98500","#d55181","#37a137","#9085e9","#e66767"];
+const SEQ_RAMP = ["#1a2b45","#1c5cab","#2a78d6","#5598e7","#9ec5f4"];
+const RING = "#12151d";
+function SERIES(i){ return SERIES_HUES[i % SERIES_HUES.length]; }
+function niceMax(v){ if(!(v>0)) return 1; const p=Math.pow(10,Math.floor(Math.log10(v))); const n=v/p; const s=n<=1?1:n<=2?2:n<=5?5:10; return s*p; }
+function axisTicks(max,n){ n=n||4; const out=[]; for(let i=0;i<=n;i++) out.push(Math.round(max*i/n*100)/100); return out; }
+function clip(s,n){ s=String(s); return s.length>n ? s.slice(0,n-1)+"…" : s; }
+function roundR(x,y,w,h,r){ r=Math.max(0,Math.min(r,h/2,w));
+  return "M"+x+" "+y+" H"+(x+w-r)+" Q"+(x+w)+" "+y+" "+(x+w)+" "+(y+r)+" V"+(y+h-r)+" Q"+(x+w)+" "+(y+h)+" "+(x+w-r)+" "+(y+h)+" H"+x+" Z"; }
+
+/* horizontal bar chart: gridlines, axis, 4px rounded data-end, direct labels, hover */
 function barsHtml(items, opt){
-  opt = opt || {};
-  if(!items.length) return '<div class="empty">尚無資料</div>';
-  const max = Math.max(1, ...items.map(i=>i.value||0));
-  return '<div class="bars">' + items.map(i=>{
-    const w = Math.round((i.value||0)/max*100);
-    const fill = opt.color ? (";background:"+opt.color) : "";
-    return '<div class="bar-row"><span class="bar-lab" title="'+safeText(i.label)+'">'+safeText(i.label)+'</span>'
-      + '<span class="bar-track"><span class="bar-fill" style="width:'+w+'%'+fill+'"></span></span>'
-      + '<span class="bar-val">'+safeText(i.valText!=null?i.valText:i.value)+'</span></div>';
-  }).join("") + '</div>';
+  opt=opt||{}; if(!items.length) return '<div class="empty">尚無資料</div>';
+  const hex=opt.hex||"#3987e5";
+  const rowH=34, top=14, labelW=opt.labelW||150, rightW=56;
+  const plotW=Math.max(200,(opt.width||560)-labelW-rightW);
+  const bandBottom=top+items.length*rowH, H=bandBottom+30, W=labelW+plotW+rightW;
+  const max=niceMax(Math.max(...items.map(i=>i.value||0)));
+  let s='<div class="viz"><svg viewBox="0 0 '+W+' '+H+'" width="'+W+'" style="min-width:'+Math.min(W,620)+'px">';
+  axisTicks(max,4).forEach(t=>{ const x=labelW+(max?t/max*plotW:0);
+    s+='<line x1="'+x+'" y1="'+top+'" x2="'+x+'" y2="'+bandBottom+'" stroke="var(--viz-grid)" stroke-width="1"/>'
+      +'<text x="'+x+'" y="'+(bandBottom+16)+'" text-anchor="middle" font-size="10.5" fill="var(--viz-muted)" style="font-variant-numeric:tabular-nums">'+t+'</text>'; });
+  s+='<line x1="'+labelW+'" y1="'+top+'" x2="'+labelW+'" y2="'+bandBottom+'" stroke="var(--viz-base)" stroke-width="1"/>';
+  items.forEach((it,i)=>{ const cy=top+i*rowH+rowH/2, th=18, y=cy-th/2, w=max?(it.value||0)/max*plotW:0;
+    const vt=it.valText!=null?String(it.valText):String(it.value);
+    s+='<text x="'+(labelW-10)+'" y="'+(cy+4)+'" text-anchor="end" font-size="12" fill="var(--viz-ink2)">'+safeText(clip(it.label,16))+'</text>'
+      +'<path class="mk" data-tip data-tl="'+safeText(it.label)+'" data-tv="'+safeText(vt)+'" d="'+roundR(labelW,y,Math.max(w,1.5),th,4)+'" fill="'+hex+'"><title>'+safeText(it.label)+': '+safeText(vt)+'</title></path>'
+      +'<text x="'+(labelW+w+8)+'" y="'+(cy+4)+'" font-size="12" fill="var(--viz-ink)" style="font-variant-numeric:tabular-nums">'+safeText(vt)+'</text>';
+  });
+  return s+'</svg></div>';
 }
+
+/* line/area chart over time */
+function chartLine(items, opt){
+  opt=opt||{}; if(!items.length) return '<div class="empty">尚無資料</div>';
+  const hex=opt.hex||"#3987e5", top=14, left=42, right=16, plotH=150;
+  const W=Math.max(320,(opt.width||580)), plotW=W-left-right, H=top+plotH+30, n=items.length;
+  const max=niceMax(Math.max(...items.map(i=>i.value||0)));
+  const X=i=> n<=1? left+plotW/2 : left+i/(n-1)*plotW, Y=v=> top+plotH-(max?v/max*plotH:0);
+  let s='<div class="viz"><svg viewBox="0 0 '+W+' '+H+'" width="'+W+'" style="min-width:'+Math.min(W,620)+'px">';
+  axisTicks(max,4).forEach(t=>{ const y=Y(t);
+    s+='<line x1="'+left+'" y1="'+y+'" x2="'+(W-right)+'" y2="'+y+'" stroke="var(--viz-grid)" stroke-width="1"/>'
+      +'<text x="'+(left-8)+'" y="'+(y+3.5)+'" text-anchor="end" font-size="10.5" fill="var(--viz-muted)" style="font-variant-numeric:tabular-nums">'+t+'</text>'; });
+  let area="M"+X(0)+" "+(top+plotH); items.forEach((it,i)=>area+=" L"+X(i)+" "+Y(it.value||0)); area+=" L"+X(n-1)+" "+(top+plotH)+" Z";
+  s+='<path d="'+area+'" fill="'+hex+'" opacity="0.10"/>';
+  let line=""; items.forEach((it,i)=>line+=(i?" L":"M")+X(i)+" "+Y(it.value||0));
+  s+='<path d="'+line+'" fill="none" stroke="'+hex+'" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>';
+  const step=Math.max(1,Math.ceil(n/6));
+  items.forEach((it,i)=>{ const x=X(i), y=Y(it.value||0), vt=it.valText!=null?it.valText:it.value;
+    s+='<circle class="mk" data-tip data-tl="'+safeText(it.label)+'" data-tv="'+safeText(vt)+'" cx="'+x+'" cy="'+y+'" r="4" fill="'+hex+'" stroke="'+RING+'" stroke-width="2"><title>'+safeText(it.label)+': '+safeText(vt)+'</title></circle>';
+    if(i%step===0||i===n-1) s+='<text x="'+x+'" y="'+(top+plotH+16)+'" text-anchor="middle" font-size="10" fill="var(--viz-muted)">'+safeText(clip(it.label,10))+'</text>';
+  });
+  return s+'</svg></div>';
+}
+
+/* single-row heatmap (sequential blue by magnitude) */
+function chartHeatmap(items, opt){
+  opt=opt||{}; if(!items.length) return '<div class="empty">尚無資料</div>';
+  const max=Math.max(...items.map(i=>i.value||0))||1, cw=opt.cw||92, ch=64, gap=6, top=6;
+  const W=items.length*(cw+gap)-gap+2, H=top+ch+22;
+  const col=v=>{ const t=max?v/max:0; return SEQ_RAMP[Math.min(SEQ_RAMP.length-1,Math.floor(t*(SEQ_RAMP.length-1)+1e-6))]; };
+  let s='<div class="viz"><svg viewBox="0 0 '+W+' '+H+'" width="'+W+'" style="min-width:'+Math.min(W,620)+'px">';
+  items.forEach((it,i)=>{ const x=i*(cw+gap), v=it.value||0, ink=v>max*0.6?"#08101f":"#e8eefc", vt=it.valText!=null?it.valText:v;
+    s+='<rect class="mk" data-tip data-tl="'+safeText(it.label)+'" data-tv="'+safeText(vt)+'" x="'+x+'" y="'+top+'" width="'+cw+'" height="'+ch+'" rx="8" fill="'+col(v)+'"><title>'+safeText(it.label)+': '+safeText(vt)+'</title></rect>'
+      +'<text x="'+(x+cw/2)+'" y="'+(top+ch/2+7)+'" text-anchor="middle" font-size="18" font-weight="750" fill="'+ink+'" style="font-variant-numeric:tabular-nums">'+safeText(vt)+'</text>'
+      +'<text x="'+(x+cw/2)+'" y="'+(top+ch+15)+'" text-anchor="middle" font-size="11" fill="var(--viz-muted)">'+safeText(clip(it.label,12))+'</text>';
+  });
+  return s+'</svg></div>';
+}
+
+/* donut with center total + legend */
 function donutSvg(items){
-  const total = items.reduce((a,i)=>a+(i.value||0),0);
+  const total=items.reduce((a,i)=>a+(i.value||0),0);
   if(!total) return '<div class="empty">尚無資料</div>';
-  let a0=-Math.PI/2; const cx=70,cy=70,r=58,rin=34; let paths="";
-  items.forEach((it,idx)=>{
-    const frac=(it.value||0)/total, a1=a0+frac*2*Math.PI, large=frac>0.5?1:0;
-    const x0=cx+r*Math.cos(a0), y0=cy+r*Math.sin(a0), x1=cx+r*Math.cos(a1), y1=cy+r*Math.sin(a1);
-    const xi0=cx+rin*Math.cos(a0), yi0=cy+rin*Math.sin(a0), xi1=cx+rin*Math.cos(a1), yi1=cy+rin*Math.sin(a1);
-    paths += '<path d="M'+x0+' '+y0+' A'+r+' '+r+' 0 '+large+' 1 '+x1+' '+y1+' L'+xi1+' '+yi1+' A'+rin+' '+rin+' 0 '+large+' 0 '+xi0+' '+yi0+' Z" fill="'+PALETTE[idx%PALETTE.length]+'"></path>';
+  let a0=-Math.PI/2; const cx=80,cy=80,r=66,rin=44; let paths="";
+  items.forEach((it,idx)=>{ const frac=(it.value||0)/total; if(frac<=0) return;
+    const a1=a0+frac*2*Math.PI, large=frac>0.5?1:0, c=SERIES(idx), pct=Math.round(frac*100);
+    const x0=cx+r*Math.cos(a0),y0=cy+r*Math.sin(a0),x1=cx+r*Math.cos(a1),y1=cy+r*Math.sin(a1);
+    const xi0=cx+rin*Math.cos(a0),yi0=cy+rin*Math.sin(a0),xi1=cx+rin*Math.cos(a1),yi1=cy+rin*Math.sin(a1);
+    paths+='<path class="mk" data-tip data-tl="'+safeText(it.label)+'" data-tv="'+safeText(it.value)+'" data-ts="'+pct+'%" d="M'+x0+' '+y0+' A'+r+' '+r+' 0 '+large+' 1 '+x1+' '+y1+' L'+xi1+' '+yi1+' A'+rin+' '+rin+' 0 '+large+' 0 '+xi0+' '+yi0+' Z" fill="'+c+'"><title>'+safeText(it.label)+': '+safeText(it.value)+' ('+pct+'%)</title></path>';
     a0=a1;
   });
-  const legend = items.map((it,idx)=>'<div><i style="background:'+PALETTE[idx%PALETTE.length]+'"></i>'+safeText(it.label)+' · <b>'+safeText(it.value)+'</b></div>').join("");
-  return '<div class="donut-wrap"><svg width="140" height="140" viewBox="0 0 140 140">'+paths+'</svg><div class="legend">'+legend+'</div></div>';
+  const legend=items.map((it,idx)=>'<span class="li"><span class="sw" style="background:'+SERIES(idx)+'"></span>'+safeText(it.label)+' · <b style="color:var(--viz-ink)">'+safeText(it.value)+'</b></span>').join("");
+  return '<div class="donut-wrap"><svg width="160" height="160" viewBox="0 0 160 160">'+paths
+    +'<text x="80" y="76" text-anchor="middle" font-size="30" font-weight="750" fill="var(--viz-ink)">'+total+'</text>'
+    +'<text x="80" y="96" text-anchor="middle" font-size="11.5" fill="var(--viz-muted)">總計</text></svg>'
+    +'<div class="viz-legend" style="flex-direction:column;gap:9px">'+legend+'</div></div>';
 }
+
+/* isometric 3D column chart (kept per request; validated palette + hover) */
 function bar3dSvg(items){
   if(!items.length) return '<div class="empty">尚無資料</div>';
-  const max=Math.max(1, ...items.map(i=>i.value||0));
-  const bw=42, gap=30, d=16, maxH=150, padL=20, padTop=26, padBottom=44;
-  const baseY=maxH+padTop;
-  const W=padL*2 + items.length*bw + (items.length-1)*gap + d;
-  const H=baseY+padBottom;
-  let s='<svg width="'+W+'" height="'+H+'" viewBox="0 0 '+W+' '+H+'" style="min-width:'+W+'px">';
-  items.forEach((it,idx)=>{
-    const x=padL+idx*(bw+gap);
-    const h=Math.max(4, Math.round((it.value||0)/max*maxH));
-    const yTop=baseY-h, c=PALETTE[idx%PALETTE.length];
-    s+='<rect x="'+x+'" y="'+yTop+'" width="'+bw+'" height="'+h+'" fill="'+c+'"/>';
-    s+='<polygon points="'+x+','+yTop+' '+(x+bw)+','+yTop+' '+(x+bw+d)+','+(yTop-d)+' '+(x+d)+','+(yTop-d)+'" fill="'+c+'"/>';
-    s+='<polygon points="'+x+','+yTop+' '+(x+bw)+','+yTop+' '+(x+bw+d)+','+(yTop-d)+' '+(x+d)+','+(yTop-d)+'" fill="#ffffff" opacity="0.22"/>';
-    s+='<polygon points="'+(x+bw)+','+yTop+' '+(x+bw+d)+','+(yTop-d)+' '+(x+bw+d)+','+(baseY-d)+' '+(x+bw)+','+baseY+'" fill="'+c+'"/>';
-    s+='<polygon points="'+(x+bw)+','+yTop+' '+(x+bw+d)+','+(yTop-d)+' '+(x+bw+d)+','+(baseY-d)+' '+(x+bw)+','+baseY+'" fill="#000000" opacity="0.30"/>';
-    s+='<text x="'+(x+bw/2)+'" y="'+(yTop-d-6)+'" text-anchor="middle" font-size="12" fill="#cbd5e1">'+safeText(it.value)+'</text>';
-    s+='<text x="'+(x+bw/2)+'" y="'+(baseY+18)+'" text-anchor="middle" font-size="11" fill="#93a2bd">'+safeText(it.label)+'</text>';
+  const max=Math.max(1,...items.map(i=>i.value||0));
+  const bw=42,gap=30,d=16,maxH=150,padL=20,padTop=26,padBottom=44,baseY=maxH+padTop;
+  const W=padL*2+items.length*bw+(items.length-1)*gap+d, H=baseY+padBottom;
+  let s='<div class="viz"><svg viewBox="0 0 '+W+' '+H+'" width="'+W+'" style="min-width:'+Math.min(W,620)+'px">';
+  items.forEach((it,idx)=>{ const x=padL+idx*(bw+gap), h=Math.max(4,Math.round((it.value||0)/max*maxH)), yTop=baseY-h, c=SERIES(idx);
+    s+='<g class="mk" data-tip data-tl="'+safeText(it.label)+'" data-tv="'+safeText(it.value)+'"><title>'+safeText(it.label)+': '+safeText(it.value)+'</title>'
+      +'<rect x="'+x+'" y="'+yTop+'" width="'+bw+'" height="'+h+'" fill="'+c+'"/>'
+      +'<polygon points="'+x+','+yTop+' '+(x+bw)+','+yTop+' '+(x+bw+d)+','+(yTop-d)+' '+(x+d)+','+(yTop-d)+'" fill="'+c+'"/>'
+      +'<polygon points="'+x+','+yTop+' '+(x+bw)+','+yTop+' '+(x+bw+d)+','+(yTop-d)+' '+(x+d)+','+(yTop-d)+'" fill="#ffffff" opacity="0.22"/>'
+      +'<polygon points="'+(x+bw)+','+yTop+' '+(x+bw+d)+','+(yTop-d)+' '+(x+bw+d)+','+(baseY-d)+' '+(x+bw)+','+baseY+'" fill="'+c+'"/>'
+      +'<polygon points="'+(x+bw)+','+yTop+' '+(x+bw+d)+','+(yTop-d)+' '+(x+bw+d)+','+(baseY-d)+' '+(x+bw)+','+baseY+'" fill="#000000" opacity="0.30"/></g>'
+      +'<text x="'+(x+bw/2)+'" y="'+(yTop-d-6)+'" text-anchor="middle" font-size="12" fill="var(--viz-ink2)" style="font-variant-numeric:tabular-nums">'+safeText(it.value)+'</text>'
+      +'<text x="'+(x+bw/2)+'" y="'+(baseY+18)+'" text-anchor="middle" font-size="11" fill="var(--viz-muted)">'+safeText(clip(it.label,10))+'</text>';
   });
-  return s + '</svg>';
+  return s+'</svg></div>';
 }
+
+/* stat tiles (hero numbers) */
 function kpiHtml(pairs, small){
-  return pairs.map(([k,v])=>'<div class="kpi"><b'+(small?' style="font-size:16px;word-break:break-all"':'')+'>'+safeText(v)+'</b><span>'+safeText(k)+'</span></div>').join("");
+  return pairs.map((p,i)=>'<div class="stat-tile"><div class="accent" style="background:'+SERIES(i)+'"></div>'
+    +'<div class="lab">'+safeText(p[0])+'</div>'
+    +'<div class="val"'+(small?' style="font-size:20px;word-break:break-all"':'')+'>'+safeText(p[1])+'</div></div>').join("");
 }
+
+/* shared hover tooltip (values lead; untrusted labels via textContent) */
+function vizTipEl(){ let t=document.getElementById("vizTip"); if(!t){ t=document.createElement("div"); t.id="vizTip"; t.className="viz-tip"; document.body.appendChild(t); } return t; }
+document.addEventListener("pointermove", (e)=>{
+  const m = e.target.closest ? e.target.closest("[data-tip]") : null;
+  const t = vizTipEl();
+  if(!m){ t.classList.remove("on"); return; }
+  t.textContent = "";
+  const l=document.createElement("div"); l.className="tl"; l.textContent=m.getAttribute("data-tl")||"";
+  const v=document.createElement("div"); v.className="tv"; v.textContent=m.getAttribute("data-tv")||"";
+  t.appendChild(l); t.appendChild(v);
+  const sub=m.getAttribute("data-ts"); if(sub){ const r=document.createElement("div"); r.className="tr"; r.textContent=sub; t.appendChild(r); }
+  t.classList.add("on");
+  const rect=t.getBoundingClientRect(), pad=14;
+  let x=e.clientX+pad, y=e.clientY+pad;
+  if(x+rect.width>window.innerWidth) x=e.clientX-rect.width-pad;
+  if(y+rect.height>window.innerHeight) y=e.clientY-rect.height-pad;
+  t.style.left=x+"px"; t.style.top=y+"px";
+});
 function loadingKpi(id){ $(id).innerHTML='<div class="empty" style="grid-column:1/-1">載入中…</div>'; }
 function failKpi(id,e){ $(id).innerHTML='<div class="empty" style="grid-column:1/-1">載入失敗：'+safeText(e&&e.message||e)+'</div>'; }
 
@@ -1191,9 +1303,11 @@ async function loadUserAnalytics(){
   const s=d.summary;
   $("uaKpis").innerHTML = kpiHtml([["帳號總數",s.total_users],["已驗證",s.verified],["未驗證",s.unverified],["登入次數",s.total_logins]]);
   $("uaRoles").innerHTML = donutSvg((d.by_role||[]).map(r=>({label:r.role, value:r.count})));
-  $("uaReg").innerHTML = barsHtml((d.registrations||[]).map(r=>({label:r.month, value:r.count})));
+  $("uaReg").innerHTML = (d.registrations||[]).length
+    ? chartLine(d.registrations.map(r=>({label:String(r.month).slice(2), value:r.count})), {hex:"#199e70"})
+    : '<div class="empty">尚無資料</div>';
   $("uaLogins").innerHTML = (d.logins||[]).length
-    ? barsHtml(d.logins.map(l=>({label:l.day, value:l.count})), {color:"linear-gradient(90deg,#a855f7,#3b82f6)"})
+    ? chartLine(d.logins.map(l=>({label:String(l.day).slice(5), value:l.count})), {hex:"#9085e9"})
     : '<div class="empty">尚無登入資料（自本功能部署後開始記錄）</div>';
   const rl=d.recent_logins||[];
   $("uaRecent").innerHTML = rl.length
