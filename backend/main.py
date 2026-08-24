@@ -422,6 +422,26 @@ def init_db():
         """
     )
 
+    # Standalone Pecha Kucha card game results (self-contained frontend game).
+    cur.execute(
+        f"""
+        CREATE TABLE IF NOT EXISTS pk_results (
+            id {auto_pk_sql()},
+            user_id INTEGER,
+            username TEXT,
+            game TEXT NOT NULL DEFAULT 'pecha_kucha',
+            topic_id TEXT NOT NULL,
+            sdg_level INTEGER,
+            difficulty_code TEXT NOT NULL,
+            total_seconds INTEGER NOT NULL DEFAULT 0,
+            total_errors INTEGER NOT NULL DEFAULT 0,
+            total_repeats INTEGER NOT NULL DEFAULT 0,
+            parts_json TEXT,
+            finished_at TEXT NOT NULL
+        )
+        """
+    )
+
     # Older app.db files may not have the role column yet.
     # Add it automatically for legacy tables.
     columns = table_columns(cur, "users")
@@ -829,6 +849,24 @@ class GameStartIn(BaseModel):
     level: str
 
 
+class PkPartIn(BaseModel):
+    part_no: int
+    errors: int = 0
+    seconds: int = 0
+    repeats: int = 0
+
+
+class PkResultIn(BaseModel):
+    topic_id: str
+    sdg_level: int | None = None
+    difficulty: str
+    total_seconds: int = 0
+    total_errors: int = 0
+    total_repeats: int = 0
+    parts: list[PkPartIn] = []
+    username: str | None = None
+
+
 class GamePartIn(BaseModel):
     session_id: int
     part_id: int
@@ -913,6 +951,159 @@ def health_check():
         "database": "postgresql" if USE_POSTGRES else str(DB_PATH),
         "rate_limit": "redis" if RATE_LIMIT_ENABLED else "disabled",
         "time": now_taipei().isoformat(),
+    }
+
+
+# -------------------------
+# PECHA KUCHA CARD GAME — result collection + analytics
+# -------------------------
+@app.post("/game/pk-result")
+def submit_pk_result(data: PkResultIn, authorization: str | None = Header(default=None)):
+    user_id = None
+    username = (data.username or "").strip() or "anonymous"
+    if authorization:
+        try:
+            u = get_current_user(authorization)
+            user_id = u["id"]
+            username = u.get("name") or u.get("email") or username
+        except HTTPException:
+            pass  # anonymous submission still allowed
+
+    parts = [
+        {"part_no": p.part_no, "errors": p.errors, "seconds": p.seconds, "repeats": p.repeats}
+        for p in data.parts
+    ]
+
+    conn = get_db()
+    cur = conn.cursor()
+    execute_with_retry(
+        cur,
+        """
+        INSERT INTO pk_results
+            (user_id, username, game, topic_id, sdg_level, difficulty_code,
+             total_seconds, total_errors, total_repeats, parts_json, finished_at)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        """,
+        (
+            user_id, username, "pecha_kucha", data.topic_id, data.sdg_level,
+            data.difficulty, data.total_seconds, data.total_errors,
+            data.total_repeats, json.dumps(parts, ensure_ascii=False),
+            now_taipei().isoformat(),
+        ),
+    )
+    conn.commit()
+    conn.close()
+    return {"ok": True}
+
+
+@app.get("/teacher/pk-analytics")
+def pk_analytics(authorization: str | None = Header(default=None)):
+    require_teacher(authorization)
+
+    conn = get_db()
+    cur = conn.cursor()
+    cur.execute(
+        """
+        SELECT id, user_id, username, topic_id, sdg_level, difficulty_code,
+               total_seconds, total_errors, total_repeats, parts_json, finished_at
+        FROM pk_results
+        ORDER BY finished_at DESC
+        """
+    )
+    rows = [dict(r) for r in cur.fetchall()]
+    conn.close()
+
+    def avg(nums):
+        nums = [n for n in nums if n is not None]
+        return round(sum(nums) / len(nums), 1) if nums else 0
+
+    total_plays = len(rows)
+    players = {r["username"] for r in rows if r["username"]}
+
+    by_topic, by_level, by_player = {}, {}, {}
+    part_time, part_err = {}, {}
+
+    for r in rows:
+        t = r["topic_id"] or "?"
+        bt = by_topic.setdefault(t, {"topic_id": t, "sdg_level": r["sdg_level"],
+                                     "plays": 0, "seconds": [], "errors": []})
+        bt["plays"] += 1
+        bt["seconds"].append(r["total_seconds"])
+        bt["errors"].append(r["total_errors"])
+
+        lv = r["difficulty_code"] or "?"
+        bl = by_level.setdefault(lv, {"level": lv, "plays": 0, "seconds": [], "errors": []})
+        bl["plays"] += 1
+        bl["seconds"].append(r["total_seconds"])
+        bl["errors"].append(r["total_errors"])
+
+        p = r["username"] or "anonymous"
+        bp = by_player.setdefault(p, {"username": p, "plays": 0, "seconds": [],
+                                      "errors": [], "last": r["finished_at"]})
+        bp["plays"] += 1
+        bp["seconds"].append(r["total_seconds"])
+        bp["errors"].append(r["total_errors"])
+
+        try:
+            for part in json.loads(r["parts_json"] or "[]"):
+                pn = part.get("part_no")
+                if pn is None:
+                    continue
+                part_time.setdefault(pn, []).append(part.get("seconds", 0))
+                part_err.setdefault(pn, []).append(part.get("errors", 0))
+        except (ValueError, TypeError):
+            pass
+
+    def finalize(d):
+        out = []
+        for v in d.values():
+            v = dict(v)
+            v["avg_seconds"] = avg(v.pop("seconds"))
+            v["avg_errors"] = avg(v.pop("errors"))
+            out.append(v)
+        return out
+
+    by_topic_list = sorted(finalize(by_topic), key=lambda x: (-x["plays"], x["topic_id"]))
+    by_level_list = sorted(finalize(by_level), key=lambda x: x["level"])
+    top_players = sorted(finalize(by_player), key=lambda x: -x["plays"])[:15]
+
+    per_part = [
+        {
+            "part_no": pn,
+            "avg_seconds": avg(part_time.get(pn, [])),
+            "avg_errors": avg(part_err.get(pn, [])),
+            "samples": len(part_time.get(pn, [])),
+        }
+        for pn in sorted(part_time.keys())
+    ]
+
+    recent = [
+        {
+            "username": r["username"],
+            "topic_id": r["topic_id"],
+            "sdg_level": r["sdg_level"],
+            "level": r["difficulty_code"],
+            "total_seconds": r["total_seconds"],
+            "total_errors": r["total_errors"],
+            "total_repeats": r["total_repeats"],
+            "finished_at": r["finished_at"],
+        }
+        for r in rows[:60]
+    ]
+
+    return {
+        "summary": {
+            "total_plays": total_plays,
+            "unique_players": len(players),
+            "avg_seconds": avg([r["total_seconds"] for r in rows]),
+            "avg_errors": avg([r["total_errors"] for r in rows]),
+            "total_repeats": sum(r["total_repeats"] or 0 for r in rows),
+        },
+        "by_topic": by_topic_list,
+        "by_level": by_level_list,
+        "per_part": per_part,
+        "top_players": top_players,
+        "recent": recent,
     }
 
 # -------------------------

@@ -7,3 +7,6 @@ dist/
 sql/*.db
 sql/*.db-*
 ~$*.docx
+
+.vercel
+.env*

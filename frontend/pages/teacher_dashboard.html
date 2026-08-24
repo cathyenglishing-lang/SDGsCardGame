@@ -547,10 +547,60 @@ textarea {
       <h2>Other Games</h2>
       <p>Future listening, reading, and mission-based activities can have separate settings here.</p>
     </button>
+    <button class="module-card" type="button" data-module="pk_analytics">
+      <h2>Pecha Kucha Analytics</h2>
+      <p>Live results from the Pecha Kucha card game — time, errors, listening replays, broken down by topic, level, and part.</p>
+    </button>
     <button class="module-card" type="button" data-module="users">
       <h2>User Management</h2>
       <p>View registered accounts, adjust student, teacher, and admin roles, and remove unused accounts.</p>
     </button>
+  </section>
+
+  <section id="pkAnalyticsModule" hidden>
+    <style>
+      #pkAnalyticsModule .pk-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;}
+      #pkAnalyticsModule .pk-head .row{display:flex;gap:8px;flex-wrap:wrap;}
+      #pkAnalyticsModule .pk-kpi-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:16px 0 6px;}
+      #pkAnalyticsModule .pk-kpi{border:1px solid var(--line,#26314a);border-radius:14px;padding:14px 16px;background:rgba(255,255,255,0.03);}
+      #pkAnalyticsModule .pk-kpi b{display:block;font-size:26px;line-height:1.1;}
+      #pkAnalyticsModule .pk-kpi span{color:var(--muted,#93a2bd);font-size:12.5px;}
+      #pkAnalyticsModule .pk-grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:14px;margin-top:14px;}
+      #pkAnalyticsModule .pk-bars{display:flex;flex-direction:column;gap:9px;}
+      #pkAnalyticsModule .pk-bar-row{display:grid;grid-template-columns:150px 1fr auto;align-items:center;gap:10px;font-size:13px;}
+      #pkAnalyticsModule .pk-bar-lab{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--muted,#93a2bd);}
+      #pkAnalyticsModule .pk-bar-track{height:14px;border-radius:999px;background:rgba(255,255,255,0.08);overflow:hidden;}
+      #pkAnalyticsModule .pk-bar-fill{height:100%;border-radius:999px;background:linear-gradient(90deg,#2dd4bf,#3b82f6);}
+      #pkAnalyticsModule .pk-bar-val{font-variant-numeric:tabular-nums;font-weight:700;min-width:56px;text-align:right;}
+      #pkAnalyticsModule table.pk-tbl{width:100%;border-collapse:collapse;font-size:13px;}
+      #pkAnalyticsModule table.pk-tbl th,#pkAnalyticsModule table.pk-tbl td{padding:8px 10px;border-bottom:1px solid var(--line,#26314a);text-align:left;white-space:nowrap;}
+      #pkAnalyticsModule table.pk-tbl th{color:var(--muted,#93a2bd);font-weight:700;}
+      #pkAnalyticsModule .pk-scroll{overflow-x:auto;}
+      #pkAnalyticsModule .pk-empty{color:var(--muted,#93a2bd);padding:26px;text-align:center;}
+    </style>
+    <section class="panel">
+      <div class="pk-head">
+        <h2>Pecha Kucha Card Game · 數據分析</h2>
+        <div class="row">
+          <button class="btn" type="button" onclick="loadPkAnalytics()">↻ 重新整理</button>
+          <button class="btn" type="button" onclick="exportPkCsv()">⬇ 匯出 CSV</button>
+        </div>
+      </div>
+      <p style="color:var(--muted);margin:6px 0 0;">學生完成 Pecha Kucha 卡牌遊戲後自動回傳的成績。含用時、錯誤數、聽力重播次數，並依主題 / 難度 / Part 分析。</p>
+      <div id="pkKpis" class="pk-kpi-row"></div>
+    </section>
+
+    <div class="pk-grid2">
+      <section class="panel chart-card"><h4>各主題 · 平均用時（秒）</h4><div id="pkChartTopic"></div></section>
+      <section class="panel chart-card"><h4>各難度 · 平均錯誤</h4><div id="pkChartLevel"></div></section>
+    </div>
+
+    <section class="panel chart-card"><h4>各 Part · 平均用時與錯誤</h4><div id="pkChartPart" class="pk-scroll"></div></section>
+
+    <div class="pk-grid2">
+      <section class="panel chart-card"><h4>活躍學生（依完成次數）</h4><div id="pkTopPlayers" class="pk-scroll"></div></section>
+      <section class="panel chart-card"><h4>最近完成紀錄</h4><div id="pkRecent" class="pk-scroll"></div></section>
+    </div>
   </section>
 
   <section id="sdgsCardGameModule">
@@ -853,12 +903,16 @@ function setModule(moduleName) {
 
   const isGameModule = moduleName === "sdgs_card_game";
   const isUsersModule = moduleName === "users";
+  const isPkModule = moduleName === "pk_analytics";
   $("sdgsCardGameModule").hidden = !isGameModule;
   $("usersModule").hidden = !isUsersModule;
-  $("placeholderModule").hidden = isGameModule || isUsersModule;
+  $("pkAnalyticsModule").hidden = !isPkModule;
+  $("placeholderModule").hidden = isGameModule || isUsersModule || isPkModule;
 
   if (isUsersModule) {
     loadUsers();
+  } else if (isPkModule) {
+    loadPkAnalytics();
   } else if (!isGameModule) {
     $("placeholderTitle").textContent = "Other Games";
   }
@@ -872,6 +926,85 @@ function setGameTab(tabName) {
   $("cardsModule").hidden = tabName !== "cards";
   $("reportsModule").hidden = tabName !== "reports";
   if (tabName === "reports") loadGameRecords();
+}
+
+/* ===== Pecha Kucha analytics ===== */
+let pkData = null;
+function pkFmtSecs(s){ s=Math.round(s||0); return String(Math.floor(s/60)).padStart(2,"0")+":"+String(s%60).padStart(2,"0"); }
+function pkBars(items, opt){
+  opt = opt || {};
+  if(!items.length) return '<div class="pk-empty">尚無資料</div>';
+  const max = Math.max(1, ...items.map(i=>i.value||0));
+  return '<div class="pk-bars">' + items.map(i=>{
+    const w = Math.round((i.value||0)/max*100);
+    const fill = opt.color ? (";background:"+opt.color) : "";
+    return '<div class="pk-bar-row"><span class="pk-bar-lab" title="'+safeText(i.label)+'">'+safeText(i.label)+'</span>'
+      + '<span class="pk-bar-track"><span class="pk-bar-fill" style="width:'+w+'%'+fill+'"></span></span>'
+      + '<span class="pk-bar-val">'+safeText(i.valText!=null?i.valText:i.value)+'</span></div>';
+  }).join("") + '</div>';
+}
+async function loadPkAnalytics(){
+  const kpi = $("pkKpis");
+  kpi.innerHTML = '<div class="pk-empty" style="grid-column:1/-1">載入中…</div>';
+  try {
+    pkData = await api.teacher.pkAnalytics();
+  } catch (e) {
+    kpi.innerHTML = '<div class="pk-empty" style="grid-column:1/-1">載入失敗：'+safeText(e.message||e)+'</div>';
+    return;
+  }
+  renderPk();
+}
+function renderPk(){
+  const d = pkData || {}, s = d.summary || {};
+  $("pkKpis").innerHTML = [
+    ["總遊玩次數", s.total_plays||0],
+    ["不重複學生", s.unique_players||0],
+    ["平均用時", pkFmtSecs(s.avg_seconds)],
+    ["平均錯誤", s.avg_errors||0],
+    ["聽力重播總數", s.total_repeats||0],
+  ].map(([k,v])=>'<div class="pk-kpi"><b>'+safeText(v)+'</b><span>'+k+'</span></div>').join("");
+
+  $("pkChartTopic").innerHTML = pkBars((d.by_topic||[]).map(t=>({
+    label: "SDG "+(t.sdg_level||"?")+" · "+t.topic_id+"（"+t.plays+"）",
+    value: t.avg_seconds, valText: pkFmtSecs(t.avg_seconds)
+  })));
+  $("pkChartLevel").innerHTML = pkBars((d.by_level||[]).map(l=>({
+    label: l.level+"（"+l.plays+" 次）", value: l.avg_errors, valText: l.avg_errors
+  })), {color:"linear-gradient(90deg,#fbbf24,#fb7185)"});
+
+  const pp = d.per_part || [];
+  $("pkChartPart").innerHTML = pp.length ? (
+    '<table class="pk-tbl"><thead><tr><th>Part</th><th>平均用時</th><th>平均錯誤</th><th>樣本數</th></tr></thead><tbody>'
+    + pp.map(p=>'<tr><td>Part '+safeText(p.part_no)+'</td><td>'+pkFmtSecs(p.avg_seconds)+'</td><td>'+safeText(p.avg_errors)+'</td><td>'+safeText(p.samples)+'</td></tr>').join("")
+    + '</tbody></table>'
+  ) : '<div class="pk-empty">尚無資料</div>';
+
+  const tp = d.top_players || [];
+  $("pkTopPlayers").innerHTML = tp.length ? (
+    '<table class="pk-tbl"><thead><tr><th>學生</th><th>完成次數</th><th>平均用時</th><th>平均錯誤</th></tr></thead><tbody>'
+    + tp.map(p=>'<tr><td>'+safeText(p.username)+'</td><td>'+safeText(p.plays)+'</td><td>'+pkFmtSecs(p.avg_seconds)+'</td><td>'+safeText(p.avg_errors)+'</td></tr>').join("")
+    + '</tbody></table>'
+  ) : '<div class="pk-empty">尚無資料</div>';
+
+  const rc = d.recent || [];
+  $("pkRecent").innerHTML = rc.length ? (
+    '<table class="pk-tbl"><thead><tr><th>時間</th><th>學生</th><th>主題</th><th>難度</th><th>用時</th><th>錯誤</th><th>重播</th></tr></thead><tbody>'
+    + rc.map(r=>'<tr><td>'+safeText(String(r.finished_at||"").replace("T"," ").slice(0,16))+'</td><td>'+safeText(r.username)+'</td><td>'+safeText((r.sdg_level?("SDG "+r.sdg_level+" · "):"")+r.topic_id)+'</td><td>'+safeText(r.level)+'</td><td>'+pkFmtSecs(r.total_seconds)+'</td><td>'+safeText(r.total_errors)+'</td><td>'+safeText(r.total_repeats)+'</td></tr>').join("")
+    + '</tbody></table>'
+  ) : '<div class="pk-empty">尚無資料</div>';
+}
+function exportPkCsv(){
+  const rc = (pkData && pkData.recent) || [];
+  if(!rc.length){ alert("尚無資料可匯出"); return; }
+  const head = ["finished_at","username","sdg_level","topic_id","level","total_seconds","total_errors","total_repeats"];
+  const esc = v => '"'+String(v==null?"":v).replace(/"/g,'""')+'"';
+  const csv = [head.join(",")].concat(rc.map(r=>head.map(k=>esc(r[k])).join(","))).join("\r\n");
+  const blob = new Blob(["﻿"+csv], {type:"text/csv;charset=utf-8"});
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "pecha_kucha_results.csv";
+  a.click();
+  URL.revokeObjectURL(a.href);
 }
 
 function renderSelects() {

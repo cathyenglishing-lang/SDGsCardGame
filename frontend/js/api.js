@@ -312,6 +312,13 @@ window.api = {
       });
     },
 
+    pkAnalytics() {
+      return request("/teacher/pk-analytics", {
+        method: "GET",
+        auth: true
+      });
+    },
+
     deleteGameRecord(sessionId) {
       return request(`/teacher/game-records/${encodeURIComponent(sessionId)}`, {
         method: "DELETE",

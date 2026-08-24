@@ -8,3 +8,15 @@ Procfile
 railway.json
 dev/
 *.docx
+
+# Heavy / generated / non-build dirs — must not be uploaded (they stall the CLI).
+# The build (`npm run build`) only needs frontend/, scripts/, package.json.
+.venv/
+node_modules/
+.git/
+dist/
+Online Boardgame/
+docs/
+mono_game/
+.claude/
+*.zip
