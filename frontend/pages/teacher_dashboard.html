@@ -523,6 +523,55 @@ textarea {
     grid-template-columns: 1fr;
   }
 }
+
+/* ===== Admin console: sidebar nav + shared widgets ===== */
+.side-nav{position:fixed;top:74px;left:0;bottom:0;width:232px;overflow-y:auto;padding:16px 12px 30px;
+  border-right:1px solid var(--line);background:rgba(6,12,24,.6);display:flex;flex-direction:column;gap:3px;z-index:4;}
+.side-brand{font-weight:900;font-size:15px;padding:4px 12px 12px;display:flex;flex-direction:column;}
+.side-brand span{font-size:11px;color:var(--muted);font-weight:700;letter-spacing:.05em;}
+.side-sep{font-size:10.5px;text-transform:uppercase;color:var(--muted);padding:14px 12px 6px;letter-spacing:.09em;font-weight:800;}
+.nav-item{display:flex;align-items:center;gap:11px;width:100%;text-align:left;border:0;background:transparent;color:var(--text,#e8eefc);
+  padding:10px 12px;border-radius:10px;cursor:pointer;font-weight:650;font-size:13.5px;font-family:inherit;transition:background .15s;}
+.nav-item:hover{background:rgba(255,255,255,.06);}
+.nav-item.active{background:linear-gradient(135deg,rgba(45,212,191,.22),rgba(59,130,246,.22));box-shadow:inset 0 0 0 1px rgba(255,255,255,.12);}
+.nav-item .ni{width:20px;text-align:center;font-size:15px;}
+.console-main{padding-left:252px;}
+@media(max-width:900px){
+  .side-nav{position:static;width:auto;flex-direction:row;flex-wrap:wrap;bottom:auto;border-right:0;border-bottom:1px solid var(--line);gap:6px;padding:12px;}
+  .side-brand,.side-sep{display:none;}
+  .nav-item{width:auto;}
+  .console-main{padding-left:0;}
+}
+.section-h{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:4px;}
+.section-h .row{display:flex;gap:8px;flex-wrap:wrap;}
+.kpi-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:14px 0 4px;}
+.kpi{border:1px solid var(--line);border-radius:14px;padding:14px 16px;background:rgba(255,255,255,.03);}
+.kpi b{display:block;font-size:26px;line-height:1.1;}
+.kpi span{color:var(--muted);font-size:12.5px;}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:14px;}
+.bars{display:flex;flex-direction:column;gap:9px;}
+.bar-row{display:grid;grid-template-columns:140px 1fr auto;align-items:center;gap:10px;font-size:13px;}
+.bar-lab{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--muted);}
+.bar-track{height:14px;border-radius:999px;background:rgba(255,255,255,.08);overflow:hidden;}
+.bar-fill{height:100%;border-radius:999px;background:linear-gradient(90deg,#2dd4bf,#3b82f6);}
+.bar-val{font-variant-numeric:tabular-nums;font-weight:700;min-width:52px;text-align:right;}
+.mini-tbl{width:100%;border-collapse:collapse;font-size:13px;}
+.mini-tbl th,.mini-tbl td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left;white-space:nowrap;}
+.mini-tbl th{color:var(--muted);font-weight:700;}
+.scrollx{overflow-x:auto;}
+.empty{color:var(--muted);padding:24px;text-align:center;}
+.donut-wrap{display:flex;align-items:center;gap:20px;flex-wrap:wrap;}
+.legend{display:flex;flex-direction:column;gap:7px;font-size:13px;}
+.legend i{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:8px;vertical-align:middle;}
+.schema-table{border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-bottom:12px;}
+.schema-table .st-head{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:11px 14px;background:rgba(255,255,255,.04);cursor:pointer;}
+.schema-table .st-head b{font-family:ui-monospace,monospace;}
+.schema-table .st-head small{color:var(--muted);}
+.schema-cols{padding:0 14px 12px;}
+.badge-pill{display:inline-block;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:700;}
+.ok-pill{background:rgba(34,197,94,.18);color:#86efac;}
+.off-pill{background:rgba(148,163,184,.18);color:#cbd5e1;}
+.chart-3d{overflow-x:auto;padding:6px 0 2px;}
 </style>
 </head>
 <body>
@@ -538,23 +587,65 @@ textarea {
 </nav>
 
 <main class="container">
-  <section class="module-grid">
-    <button class="module-card active" type="button" data-module="sdgs_card_game">
-      <h2>sdgs_card_game</h2>
-      <p>Manage the SDGs Card Game content bank, parts, subtopics, attempt records, and statistics.</p>
-    </button>
-    <button class="module-card" type="button" data-module="future_games">
-      <h2>Other Games</h2>
-      <p>Future listening, reading, and mission-based activities can have separate settings here.</p>
-    </button>
-    <button class="module-card" type="button" data-module="pk_analytics">
-      <h2>Pecha Kucha Analytics</h2>
-      <p>Live results from the Pecha Kucha card game — time, errors, listening replays, broken down by topic, level, and part.</p>
-    </button>
-    <button class="module-card" type="button" data-module="users">
-      <h2>User Management</h2>
-      <p>View registered accounts, adjust student, teacher, and admin roles, and remove unused accounts.</p>
-    </button>
+  <aside class="side-nav">
+    <div class="side-brand">主控台<span>Admin Console</span></div>
+    <button class="nav-item active" type="button" data-module="overview"><span class="ni">📊</span>總覽 Overview</button>
+    <div class="side-sep">數據分析 Analytics</div>
+    <button class="nav-item" type="button" data-module="pk_analytics"><span class="ni">🎤</span>遊戲數據 Game</button>
+    <button class="nav-item" type="button" data-module="user_analytics"><span class="ni">👥</span>使用者/登入 Users</button>
+    <div class="side-sep">內容 Content</div>
+    <button class="nav-item" type="button" data-module="sdgs_card_game"><span class="ni">🃏</span>題庫管理 Card Bank</button>
+    <button class="nav-item" type="button" data-module="users"><span class="ni">🔑</span>帳號管理 Accounts</button>
+    <div class="side-sep">系統 System</div>
+    <button class="nav-item" type="button" data-module="system"><span class="ni">⚙️</span>系統設定 Settings</button>
+    <button class="nav-item" type="button" data-module="database"><span class="ni">🗄️</span>資料庫 Database</button>
+  </aside>
+  <div class="console-main">
+
+  <section id="overviewModule">
+    <section class="panel">
+      <div class="section-h"><h2>總覽 Overview</h2><div class="row"><button class="btn" type="button" onclick="loadOverview()">↻ 重新整理</button></div></div>
+      <p style="color:var(--muted);margin:4px 0 0;">整體使用與遊戲數據摘要。</p>
+      <div id="ovKpis" class="kpi-row"></div>
+    </section>
+    <div class="grid2">
+      <section class="panel chart-card"><h4>各主題遊玩次數（3D）</h4><div id="ovChart3d" class="chart-3d"></div></section>
+      <section class="panel chart-card"><h4>帳號角色分布</h4><div id="ovRoles"></div></section>
+    </div>
+  </section>
+
+  <section id="userAnalyticsModule" hidden>
+    <section class="panel">
+      <div class="section-h"><h2>使用者 / 登入分析</h2><div class="row"><button class="btn" type="button" onclick="loadUserAnalytics()">↻ 重新整理</button></div></div>
+      <div id="uaKpis" class="kpi-row"></div>
+    </section>
+    <div class="grid2">
+      <section class="panel chart-card"><h4>角色分布</h4><div id="uaRoles"></div></section>
+      <section class="panel chart-card"><h4>每月註冊人數</h4><div id="uaReg"></div></section>
+    </div>
+    <section class="panel chart-card"><h4>每日登入次數（近 30 天有資料）</h4><div id="uaLogins" class="scrollx"></div></section>
+    <section class="panel chart-card"><h4>最近登入</h4><div id="uaRecent" class="scrollx"></div></section>
+  </section>
+
+  <section id="systemModule" hidden>
+    <section class="panel">
+      <div class="section-h"><h2>系統設定 System Settings</h2><div class="row"><button class="btn" type="button" onclick="loadSystem()">↻ 重新整理</button></div></div>
+      <p style="color:var(--muted);margin:4px 0 0;">執行環境與設定狀態（唯讀；實際設定透過部署環境變數）。</p>
+      <div id="sysApp" class="kpi-row"></div>
+    </section>
+    <div class="grid2">
+      <section class="panel chart-card"><h4>功能設定狀態</h4><div id="sysConfig"></div></section>
+      <section class="panel chart-card"><h4>CORS 允許來源</h4><div id="sysCors"></div></section>
+    </div>
+  </section>
+
+  <section id="databaseModule" hidden>
+    <section class="panel">
+      <div class="section-h"><h2>資料庫 Database</h2><div class="row"><button class="btn" type="button" onclick="loadDatabase()">↻ 重新整理</button></div></div>
+      <div id="dbConn" class="kpi-row"></div>
+    </section>
+    <section class="panel chart-card"><h4>資料表結構（欄位、型別、筆數）</h4><div id="dbTables"></div></section>
+    <section class="panel chart-card"><h4>資料表關聯</h4><div id="dbRels" class="scrollx"></div></section>
   </section>
 
   <section id="pkAnalyticsModule" hidden>
@@ -792,6 +883,7 @@ textarea {
     <h2 id="placeholderTitle">Coming soon</h2>
     <p style="color:var(--muted);">This area is reserved for future dashboard features outside the card bank.</p>
   </section>
+  </div>
 </main>
 
 <div id="toast" class="toast"></div>
@@ -901,22 +993,33 @@ function setModule(moduleName) {
     card.classList.toggle("active", card.dataset.module === moduleName);
   });
 
-  const isGameModule = moduleName === "sdgs_card_game";
-  const isUsersModule = moduleName === "users";
-  const isPkModule = moduleName === "pk_analytics";
-  $("sdgsCardGameModule").hidden = !isGameModule;
-  $("usersModule").hidden = !isUsersModule;
-  $("pkAnalyticsModule").hidden = !isPkModule;
-  $("placeholderModule").hidden = isGameModule || isUsersModule || isPkModule;
-
-  if (isUsersModule) {
-    loadUsers();
-  } else if (isPkModule) {
-    loadPkAnalytics();
-  } else if (!isGameModule) {
-    $("placeholderTitle").textContent = "Other Games";
-  }
+  Object.entries(MODULE_SECTIONS).forEach(([name, id]) => {
+    const el = $(id);
+    if (el) el.hidden = name !== moduleName;
+  });
+  const ph = $("placeholderModule");
+  if (ph) ph.hidden = true;
+  const loader = MODULE_LOADERS[moduleName];
+  if (loader) loader();
 }
+
+const MODULE_SECTIONS = {
+  overview: "overviewModule",
+  pk_analytics: "pkAnalyticsModule",
+  user_analytics: "userAnalyticsModule",
+  sdgs_card_game: "sdgsCardGameModule",
+  users: "usersModule",
+  system: "systemModule",
+  database: "databaseModule",
+};
+const MODULE_LOADERS = {
+  overview: () => loadOverview(),
+  pk_analytics: () => loadPkAnalytics(),
+  user_analytics: () => loadUserAnalytics(),
+  users: () => loadUsers(),
+  system: () => loadSystem(),
+  database: () => loadDatabase(),
+};
 
 function setGameTab(tabName) {
   document.querySelectorAll("[data-game-tab]").forEach((tab) => {
@@ -1005,6 +1108,146 @@ function exportPkCsv(){
   a.download = "pecha_kucha_results.csv";
   a.click();
   URL.revokeObjectURL(a.href);
+}
+
+/* ===== Admin console — shared chart helpers ===== */
+const PALETTE = ["#2dd4bf","#3b82f6","#a855f7","#fbbf24","#fb7185","#22c55e","#0ea5e9","#f97316"];
+function barsHtml(items, opt){
+  opt = opt || {};
+  if(!items.length) return '<div class="empty">尚無資料</div>';
+  const max = Math.max(1, ...items.map(i=>i.value||0));
+  return '<div class="bars">' + items.map(i=>{
+    const w = Math.round((i.value||0)/max*100);
+    const fill = opt.color ? (";background:"+opt.color) : "";
+    return '<div class="bar-row"><span class="bar-lab" title="'+safeText(i.label)+'">'+safeText(i.label)+'</span>'
+      + '<span class="bar-track"><span class="bar-fill" style="width:'+w+'%'+fill+'"></span></span>'
+      + '<span class="bar-val">'+safeText(i.valText!=null?i.valText:i.value)+'</span></div>';
+  }).join("") + '</div>';
+}
+function donutSvg(items){
+  const total = items.reduce((a,i)=>a+(i.value||0),0);
+  if(!total) return '<div class="empty">尚無資料</div>';
+  let a0=-Math.PI/2; const cx=70,cy=70,r=58,rin=34; let paths="";
+  items.forEach((it,idx)=>{
+    const frac=(it.value||0)/total, a1=a0+frac*2*Math.PI, large=frac>0.5?1:0;
+    const x0=cx+r*Math.cos(a0), y0=cy+r*Math.sin(a0), x1=cx+r*Math.cos(a1), y1=cy+r*Math.sin(a1);
+    const xi0=cx+rin*Math.cos(a0), yi0=cy+rin*Math.sin(a0), xi1=cx+rin*Math.cos(a1), yi1=cy+rin*Math.sin(a1);
+    paths += '<path d="M'+x0+' '+y0+' A'+r+' '+r+' 0 '+large+' 1 '+x1+' '+y1+' L'+xi1+' '+yi1+' A'+rin+' '+rin+' 0 '+large+' 0 '+xi0+' '+yi0+' Z" fill="'+PALETTE[idx%PALETTE.length]+'"></path>';
+    a0=a1;
+  });
+  const legend = items.map((it,idx)=>'<div><i style="background:'+PALETTE[idx%PALETTE.length]+'"></i>'+safeText(it.label)+' · <b>'+safeText(it.value)+'</b></div>').join("");
+  return '<div class="donut-wrap"><svg width="140" height="140" viewBox="0 0 140 140">'+paths+'</svg><div class="legend">'+legend+'</div></div>';
+}
+function bar3dSvg(items){
+  if(!items.length) return '<div class="empty">尚無資料</div>';
+  const max=Math.max(1, ...items.map(i=>i.value||0));
+  const bw=42, gap=30, d=16, maxH=150, padL=20, padTop=26, padBottom=44;
+  const baseY=maxH+padTop;
+  const W=padL*2 + items.length*bw + (items.length-1)*gap + d;
+  const H=baseY+padBottom;
+  let s='<svg width="'+W+'" height="'+H+'" viewBox="0 0 '+W+' '+H+'" style="min-width:'+W+'px">';
+  items.forEach((it,idx)=>{
+    const x=padL+idx*(bw+gap);
+    const h=Math.max(4, Math.round((it.value||0)/max*maxH));
+    const yTop=baseY-h, c=PALETTE[idx%PALETTE.length];
+    s+='<rect x="'+x+'" y="'+yTop+'" width="'+bw+'" height="'+h+'" fill="'+c+'"/>';
+    s+='<polygon points="'+x+','+yTop+' '+(x+bw)+','+yTop+' '+(x+bw+d)+','+(yTop-d)+' '+(x+d)+','+(yTop-d)+'" fill="'+c+'"/>';
+    s+='<polygon points="'+x+','+yTop+' '+(x+bw)+','+yTop+' '+(x+bw+d)+','+(yTop-d)+' '+(x+d)+','+(yTop-d)+'" fill="#ffffff" opacity="0.22"/>';
+    s+='<polygon points="'+(x+bw)+','+yTop+' '+(x+bw+d)+','+(yTop-d)+' '+(x+bw+d)+','+(baseY-d)+' '+(x+bw)+','+baseY+'" fill="'+c+'"/>';
+    s+='<polygon points="'+(x+bw)+','+yTop+' '+(x+bw+d)+','+(yTop-d)+' '+(x+bw+d)+','+(baseY-d)+' '+(x+bw)+','+baseY+'" fill="#000000" opacity="0.30"/>';
+    s+='<text x="'+(x+bw/2)+'" y="'+(yTop-d-6)+'" text-anchor="middle" font-size="12" fill="#cbd5e1">'+safeText(it.value)+'</text>';
+    s+='<text x="'+(x+bw/2)+'" y="'+(baseY+18)+'" text-anchor="middle" font-size="11" fill="#93a2bd">'+safeText(it.label)+'</text>';
+  });
+  return s + '</svg>';
+}
+function kpiHtml(pairs, small){
+  return pairs.map(([k,v])=>'<div class="kpi"><b'+(small?' style="font-size:16px;word-break:break-all"':'')+'>'+safeText(v)+'</b><span>'+safeText(k)+'</span></div>').join("");
+}
+function loadingKpi(id){ $(id).innerHTML='<div class="empty" style="grid-column:1/-1">載入中…</div>'; }
+function failKpi(id,e){ $(id).innerHTML='<div class="empty" style="grid-column:1/-1">載入失敗：'+safeText(e&&e.message||e)+'</div>'; }
+
+/* ===== Overview ===== */
+async function loadOverview(){
+  loadingKpi("ovKpis");
+  let sys,pk,ua;
+  try { [sys,pk,ua] = await Promise.all([api.teacher.systemInfo(), api.teacher.pkAnalytics(), api.teacher.userAnalytics()]); }
+  catch(e){ failKpi("ovKpis",e); return; }
+  $("ovKpis").innerHTML = kpiHtml([
+    ["帳號總數", ua.summary.total_users],
+    ["遊戲完成次數", pk.summary.total_plays],
+    ["遊玩學生數", pk.summary.unique_players],
+    ["登入次數", ua.summary.total_logins],
+    ["資料表", sys.database.table_count],
+    ["資料總筆數", sys.database.total_rows],
+  ]);
+  $("ovChart3d").innerHTML = bar3dSvg((pk.by_topic||[]).slice(0,8).map(t=>({label:t.topic_id, value:t.plays})));
+  $("ovRoles").innerHTML = donutSvg((ua.by_role||[]).map(r=>({label:r.role, value:r.count})));
+}
+
+/* ===== User / login analytics ===== */
+async function loadUserAnalytics(){
+  loadingKpi("uaKpis");
+  let d; try { d = await api.teacher.userAnalytics(); } catch(e){ failKpi("uaKpis",e); return; }
+  const s=d.summary;
+  $("uaKpis").innerHTML = kpiHtml([["帳號總數",s.total_users],["已驗證",s.verified],["未驗證",s.unverified],["登入次數",s.total_logins]]);
+  $("uaRoles").innerHTML = donutSvg((d.by_role||[]).map(r=>({label:r.role, value:r.count})));
+  $("uaReg").innerHTML = barsHtml((d.registrations||[]).map(r=>({label:r.month, value:r.count})));
+  $("uaLogins").innerHTML = (d.logins||[]).length
+    ? barsHtml(d.logins.map(l=>({label:l.day, value:l.count})), {color:"linear-gradient(90deg,#a855f7,#3b82f6)"})
+    : '<div class="empty">尚無登入資料（自本功能部署後開始記錄）</div>';
+  const rl=d.recent_logins||[];
+  $("uaRecent").innerHTML = rl.length
+    ? '<table class="mini-tbl"><thead><tr><th>時間</th><th>使用者</th><th>角色</th><th>IP</th></tr></thead><tbody>'
+      + rl.map(r=>'<tr><td>'+safeText(String(r.at||"").replace("T"," ").slice(0,16))+'</td><td>'+safeText(r.username)+'</td><td>'+safeText(r.role)+'</td><td>'+safeText(r.ip)+'</td></tr>').join("")
+      + '</tbody></table>'
+    : '<div class="empty">尚無登入資料</div>';
+}
+
+/* ===== System settings ===== */
+async function loadSystem(){
+  loadingKpi("sysApp");
+  let d; try { d = await api.teacher.systemInfo(); } catch(e){ failKpi("sysApp",e); return; }
+  $("sysApp").innerHTML = kpiHtml([
+    ["應用", d.app.name],
+    ["資料庫", d.database.engine],
+    ["Python", d.app.python],
+    ["伺服器時間", String(d.app.server_time||"").replace("T"," ").slice(0,19)],
+  ], true);
+  const c=d.config, pill=on=> on?'<span class="badge-pill ok-pill">啟用</span>':'<span class="badge-pill off-pill">未啟用</span>';
+  $("sysConfig").innerHTML = '<table class="mini-tbl"><tbody>'
+    + '<tr><td>速率限制 Rate limit</td><td>'+pill(c.rate_limit_enabled)+'</td></tr>'
+    + '<tr><td>Redis</td><td>'+pill(c.redis_configured)+'</td></tr>'
+    + '<tr><td>Email 寄送</td><td>'+pill(c.email_configured)+'</td></tr>'
+    + '<tr><td>資料庫連線</td><td>'+pill(d.database.connected)+'</td></tr>'
+    + '</tbody></table>';
+  $("sysCors").innerHTML = (c.cors_origins||[]).length
+    ? '<table class="mini-tbl"><tbody>'+c.cors_origins.map(o=>'<tr><td>'+safeText(o)+'</td></tr>').join("")+'</tbody></table>'
+    : '<div class="empty">未設定</div>';
+}
+
+/* ===== Database overview ===== */
+async function loadDatabase(){
+  loadingKpi("dbConn");
+  let info, schema;
+  try { [info,schema] = await Promise.all([api.teacher.systemInfo(), api.teacher.dbSchema()]); }
+  catch(e){ failKpi("dbConn",e); return; }
+  $("dbConn").innerHTML = kpiHtml([
+    ["引擎", info.database.engine],
+    ["位置", info.database.location||"—"],
+    ["資料表", info.database.table_count],
+    ["總筆數", info.database.total_rows],
+  ], true);
+  $("dbTables").innerHTML = (schema.tables||[]).map(t=>
+    '<div class="schema-table"><div class="st-head" onclick="var c=this.parentNode.querySelector(\'.schema-cols\');c.hidden=!c.hidden">'
+    + '<div><b>'+safeText(t.table)+'</b> <small>· '+safeText(t.doc)+'</small></div>'
+    + '<small>'+safeText(t.rows)+' 筆 · '+t.columns.length+' 欄</small></div>'
+    + '<div class="schema-cols scrollx"><table class="mini-tbl"><thead><tr><th>欄位</th><th>型別</th><th>可為空</th></tr></thead><tbody>'
+    + t.columns.map(c=>'<tr><td>'+safeText(c.name)+'</td><td>'+safeText(c.type)+'</td><td>'+(c.nullable?"✓":"✗")+'</td></tr>').join("")
+    + '</tbody></table></div></div>'
+  ).join("");
+  $("dbRels").innerHTML = '<table class="mini-tbl"><thead><tr><th>從</th><th>參照到</th></tr></thead><tbody>'
+    + (schema.relationships||[]).map(r=>'<tr><td>'+safeText(r.from)+'</td><td>→ '+safeText(r.to)+'</td></tr>').join("")
+    + '</tbody></table>';
 }
 
 function renderSelects() {
@@ -1575,8 +1818,8 @@ async function init() {
     bindGameTabs();
     bindForms();
     await loadContent();
-    setModule("sdgs_card_game");
     setGameTab("cards");
+    setModule("overview");
   } catch (error) {
     alert(error.message || "Failed to load the teacher dashboard.");
     window.location.href = "/pages/member_index.html";

@@ -319,6 +319,18 @@ window.api = {
       });
     },
 
+    systemInfo() {
+      return request("/teacher/system-info", { method: "GET", auth: true });
+    },
+
+    dbSchema() {
+      return request("/teacher/db-schema", { method: "GET", auth: true });
+    },
+
+    userAnalytics() {
+      return request("/teacher/user-analytics", { method: "GET", auth: true });
+    },
+
     deleteGameRecord(sessionId) {
       return request(`/teacher/game-records/${encodeURIComponent(sessionId)}`, {
         method: "DELETE",

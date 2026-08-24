@@ -442,6 +442,20 @@ def init_db():
         """
     )
 
+    # Login events, for the admin console's user/login analytics.
+    cur.execute(
+        f"""
+        CREATE TABLE IF NOT EXISTS login_events (
+            id {auto_pk_sql()},
+            user_id INTEGER,
+            username TEXT,
+            role TEXT,
+            ip TEXT,
+            at TEXT NOT NULL
+        )
+        """
+    )
+
     # Older app.db files may not have the role column yet.
     # Add it automatically for legacy tables.
     columns = table_columns(cur, "users")
@@ -1106,6 +1120,185 @@ def pk_analytics(authorization: str | None = Header(default=None)):
         "recent": recent,
     }
 
+
+# -------------------------
+# ADMIN CONSOLE — system info, DB schema, user/login analytics
+# -------------------------
+CONSOLE_TABLES = [
+    "users", "login_events", "game_sessions", "game_part_records", "pk_results",
+    "sdg_options", "difficulty_options", "tbl_sdg_parts", "tbl_sdg_sub_topics",
+    "tbl_sdg_cards", "email_otps",
+]
+
+TABLE_DOCS = {
+    "users": "Registered accounts (student / teacher / admin).",
+    "login_events": "One row per successful sign-in (for login analytics).",
+    "game_sessions": "Legacy SDG card-game attempts (backend-driven flow).",
+    "game_part_records": "Per-part results for legacy game_sessions.",
+    "pk_results": "Pecha Kucha card-game completions (self-contained game).",
+    "sdg_options": "SDG topics available for play.",
+    "difficulty_options": "CEFR difficulty levels (A1/A2/B1/B2).",
+    "tbl_sdg_parts": "Parts (1–6) within an SDG topic.",
+    "tbl_sdg_sub_topics": "Slides/sub-topics within a part.",
+    "tbl_sdg_cards": "The sentence card text, keyed by sub-topic + difficulty.",
+    "email_otps": "One-time codes for email verification.",
+}
+
+DB_RELATIONSHIPS = [
+    {"from": "game_sessions.user_id", "to": "users.id"},
+    {"from": "game_part_records.session_id", "to": "game_sessions.session_id"},
+    {"from": "tbl_sdg_parts.sdg_level", "to": "sdg_options.sdg_level"},
+    {"from": "tbl_sdg_sub_topics.part_id", "to": "tbl_sdg_parts.part_id"},
+    {"from": "tbl_sdg_cards.sub_topic_id", "to": "tbl_sdg_sub_topics.sub_topic_id"},
+    {"from": "tbl_sdg_cards.difficulty_code", "to": "difficulty_options.code"},
+    {"from": "pk_results.user_id", "to": "users.id"},
+    {"from": "login_events.user_id", "to": "users.id"},
+]
+
+
+def _mask_db_url(url: str):
+    if not url:
+        return ""
+    return re.sub(r"://([^:@/]+)(:[^@/]+)?@", lambda m: "://" + m.group(1) + ":****@", url)
+
+
+def _table_counts(cur):
+    counts = {}
+    for t in CONSOLE_TABLES:
+        try:
+            cur.execute(f"SELECT COUNT(*) AS c FROM {t}")
+            counts[t] = cur.fetchone()["c"]
+        except Exception:
+            counts[t] = None
+    return counts
+
+
+@app.get("/teacher/system-info")
+def system_info(authorization: str | None = Header(default=None)):
+    require_teacher(authorization)
+    import platform
+
+    conn = get_db()
+    cur = conn.cursor()
+    counts = _table_counts(cur)
+    conn.close()
+
+    return {
+        "app": {
+            "name": "CardLearn SDGs",
+            "server_time": now_taipei().isoformat(),
+            "python": platform.python_version(),
+            "platform": platform.system(),
+        },
+        "database": {
+            "engine": "PostgreSQL" if USE_POSTGRES else "SQLite",
+            "location": _mask_db_url(DATABASE_URL) if USE_POSTGRES else str(DB_PATH),
+            "connected": True,
+            "table_count": len([v for v in counts.values() if v is not None]),
+            "total_rows": sum(v for v in counts.values() if v),
+            "row_counts": counts,
+        },
+        "config": {
+            "rate_limit_enabled": bool(RATE_LIMIT_ENABLED),
+            "redis_configured": bool(os.getenv("REDIS_URL")),
+            "email_configured": bool(os.getenv("SMTP_HOST") or os.getenv("EMAIL_HOST") or os.getenv("MAIL_SERVER")),
+            "cors_origins": FRONTEND_ORIGINS,
+        },
+    }
+
+
+@app.get("/teacher/db-schema")
+def db_schema(authorization: str | None = Header(default=None)):
+    require_teacher(authorization)
+
+    conn = get_db()
+    cur = conn.cursor()
+    tables = []
+    for t in CONSOLE_TABLES:
+        cols = []
+        rows = None
+        try:
+            if USE_POSTGRES:
+                cur.execute(
+                    """
+                    SELECT column_name, data_type, is_nullable
+                    FROM information_schema.columns
+                    WHERE table_schema = 'public' AND table_name = ?
+                    ORDER BY ordinal_position
+                    """,
+                    (t,),
+                )
+                for r in cur.fetchall():
+                    cols.append({"name": r["column_name"], "type": r["data_type"],
+                                 "nullable": r["is_nullable"] == "YES"})
+            else:
+                cur.execute(f"PRAGMA table_info({t})")
+                for r in cur.fetchall():
+                    cols.append({"name": r["name"], "type": r["type"], "nullable": not r["notnull"]})
+            cur.execute(f"SELECT COUNT(*) AS c FROM {t}")
+            rows = cur.fetchone()["c"]
+        except Exception:
+            pass
+        if cols:
+            tables.append({"table": t, "rows": rows,
+                           "doc": TABLE_DOCS.get(t, ""), "columns": cols})
+    conn.close()
+
+    return {
+        "engine": "PostgreSQL" if USE_POSTGRES else "SQLite",
+        "tables": tables,
+        "relationships": DB_RELATIONSHIPS,
+    }
+
+
+@app.get("/teacher/user-analytics")
+def user_analytics(authorization: str | None = Header(default=None)):
+    require_teacher(authorization)
+    from collections import Counter
+
+    conn = get_db()
+    cur = conn.cursor()
+    cur.execute("SELECT id, name, email, role, email_verified, created_at FROM users")
+    users = [dict(r) for r in cur.fetchall()]
+    logins = []
+    try:
+        cur.execute("SELECT username, role, ip, at FROM login_events ORDER BY at DESC")
+        logins = [dict(r) for r in cur.fetchall()]
+    except Exception:
+        pass
+    conn.close()
+
+    by_role = Counter((u["role"] or "student") for u in users)
+    verified = sum(1 for u in users if u["email_verified"])
+
+    reg = Counter()
+    for u in users:
+        month = str(u["created_at"] or "")[:7]
+        if month:
+            reg[month] += 1
+    reg_series = [{"month": k, "count": reg[k]} for k in sorted(reg)]
+
+    login_day = Counter()
+    for l in logins:
+        day = str(l["at"] or "")[:10]
+        if day:
+            login_day[day] += 1
+    login_series = [{"day": k, "count": login_day[k]} for k in sorted(login_day)][-30:]
+
+    return {
+        "summary": {
+            "total_users": len(users),
+            "verified": verified,
+            "unverified": len(users) - verified,
+            "total_logins": len(logins),
+            "roles": dict(by_role),
+        },
+        "by_role": [{"role": k, "count": v} for k, v in sorted(by_role.items())],
+        "registrations": reg_series,
+        "logins": login_series,
+        "recent_logins": logins[:40],
+    }
+
 # -------------------------
 # SEND OTP
 # -------------------------
@@ -1277,6 +1470,20 @@ def login(data: LoginIn, request: Request):
         raise HTTPException(status_code=400, detail="Incorrect password.")
 
     token = create_jwt(user["id"])
+
+    # Best-effort login logging (never blocks sign-in).
+    try:
+        lconn = get_db()
+        lcur = lconn.cursor()
+        execute_with_retry(
+            lcur,
+            "INSERT INTO login_events (user_id, username, role, ip, at) VALUES (?, ?, ?, ?, ?)",
+            (user["id"], user["name"], user["role"], get_client_ip(request), now_taipei().isoformat()),
+        )
+        lconn.commit()
+        lconn.close()
+    except Exception:
+        pass
 
     return {
         "access_token": token,
