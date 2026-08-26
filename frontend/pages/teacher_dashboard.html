@@ -525,16 +525,18 @@ textarea {
 }
 
 /* ===== Admin console: sidebar nav + shared widgets ===== */
-.side-nav{position:fixed;top:74px;left:0;bottom:0;width:232px;overflow-y:auto;padding:16px 12px 30px;
-  border-right:1px solid var(--line);background:rgba(6,12,24,.6);display:flex;flex-direction:column;gap:3px;z-index:4;}
-.side-brand{font-weight:900;font-size:15px;padding:4px 12px 12px;display:flex;flex-direction:column;}
-.side-brand span{font-size:11px;color:var(--muted);font-weight:700;letter-spacing:.05em;}
-.side-sep{font-size:10.5px;text-transform:uppercase;color:var(--muted);padding:14px 12px 6px;letter-spacing:.09em;font-weight:800;}
-.nav-item{display:flex;align-items:center;gap:11px;width:100%;text-align:left;border:0;background:transparent;color:var(--text,#e8eefc);
-  padding:10px 12px;border-radius:10px;cursor:pointer;font-weight:650;font-size:13.5px;font-family:inherit;transition:background .15s;}
-.nav-item:hover{background:rgba(255,255,255,.06);}
-.nav-item.active{background:linear-gradient(135deg,rgba(45,212,191,.22),rgba(59,130,246,.22));box-shadow:inset 0 0 0 1px rgba(255,255,255,.12);}
-.nav-item .ni{width:20px;text-align:center;font-size:15px;}
+.side-nav{position:fixed;top:74px;left:0;bottom:0;width:236px;overflow-y:auto;padding:18px 12px 30px;
+  border-right:1px solid var(--navy-2);background:var(--navy);display:flex;flex-direction:column;gap:2px;z-index:4;}
+.side-brand{font-weight:900;font-size:15px;padding:4px 12px 14px;display:flex;flex-direction:column;color:#fff;}
+.side-brand span{font-size:11px;color:var(--nav-mut);font-weight:700;letter-spacing:.05em;margin-top:2px;}
+.side-sep{font-size:10.5px;text-transform:uppercase;color:var(--nav-mut);padding:16px 12px 6px;letter-spacing:.1em;font-weight:800;}
+.nav-item{display:flex;align-items:center;gap:11px;width:100%;text-align:left;border:0;background:transparent;color:var(--nav-txt);
+  padding:10px 12px;border-radius:9px;cursor:pointer;font-weight:650;font-size:13.5px;font-family:inherit;transition:background .15s,color .15s;}
+.nav-item:hover{background:rgba(255,255,255,.08);color:#fff;}
+.nav-item.active{background:var(--accent);color:#fff;box-shadow:inset 3px 0 0 var(--gold);}
+.nav-item .ni{width:20px;height:20px;flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;opacity:.9;}
+.nav-item .ni svg{width:18px;height:18px;}
+.nav-item.active .ni{opacity:1;}
 .console-main{padding-left:252px;}
 @media(max-width:900px){
   .side-nav{position:static;width:auto;flex-direction:row;flex-wrap:wrap;bottom:auto;border-right:0;border-bottom:1px solid var(--line);gap:6px;padding:12px;}
@@ -545,7 +547,7 @@ textarea {
 .section-h{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:4px;}
 .section-h .row{display:flex;gap:8px;flex-wrap:wrap;}
 .kpi-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:14px 0 4px;}
-.kpi{border:1px solid var(--line);border-radius:14px;padding:14px 16px;background:rgba(255,255,255,.03);}
+.kpi{border:1px solid var(--line);border-radius:14px;padding:14px 16px;background:var(--card);box-shadow:0 1px 2px rgba(31,45,61,.05);}
 .kpi b{display:block;font-size:26px;line-height:1.1;}
 .kpi span{color:var(--muted);font-size:12.5px;}
 .grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:14px;}
@@ -573,14 +575,18 @@ textarea {
 .off-pill{background:rgba(148,163,184,.18);color:#cbd5e1;}
 .chart-3d{overflow-x:auto;padding:6px 0 2px;}
 
-/* ===== dataviz design system (dark, validated palette) ===== */
+/* ===== enterprise design system (light content + navy nav, validated light palette) ===== */
 :root{
-  --viz-ink:#ffffff; --viz-ink2:#c3c2b7; --viz-muted:#898781;
-  --viz-grid:#2c2c2a; --viz-base:#3a3a37;
-  --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500; --s5:#d55181; --s6:#37a137; --s7:#9085e9; --s8:#e66767;
-  --seq1:#1a2b45; --seq2:#1c5cab; --seq3:#2a78d6; --seq4:#5598e7; --seq5:#9ec5f4;
-  --good:#0ca30c; --warn:#fab219; --crit:#d03b3b;
+  --navy:#1f3a5f; --navy-2:#183049; --nav-txt:#cfe0f5; --nav-mut:#8fa6c4;
+  --accent:#2c6fbf; --accent-hi:#6ba3dd; --gold:#ffd85b; --gold-d:#d4a017;
+  --page:#eef1f5; --line-strong:#c4cfdb;
+  --viz-ink:#1f2d3d; --viz-ink2:#3d4d5c; --viz-muted:#7a8896;
+  --viz-grid:#e6ecf2; --viz-base:#c4cfdb;
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a; --s4:#eda100; --s5:#e87ba4; --s6:#008300; --s7:#4a3aa7; --s8:#e34948;
+  --seq1:#eaf2fc; --seq2:#9ec5f4; --seq3:#5598e7; --seq4:#2a78d6; --seq5:#184f95;
+  --good:#1a7f4b; --warn:#d4a017; --crit:#d03b3b;
 }
+body{ background:var(--page); }
 .viz{width:100%;overflow-x:auto;}
 .viz svg{display:block;max-width:100%;height:auto;}
 .viz .mk{transition:opacity .12s;}
@@ -595,15 +601,69 @@ textarea {
 .viz-tip .tv{font-weight:800;font-size:16px;font-variant-numeric:tabular-nums;}
 .viz-tip .tr{font-size:12px;color:var(--viz-ink2);margin-top:2px;}
 .stat-tile{position:relative;border:1px solid var(--line);border-radius:16px;padding:16px 18px;overflow:hidden;
-  background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.012));}
+  background:var(--card);box-shadow:0 1px 2px rgba(31,45,61,.05),0 12px 26px -20px rgba(31,45,61,.35);}
 .stat-tile .lab{color:var(--muted);font-size:12.5px;margin-bottom:7px;}
-.stat-tile .val{font-size:32px;font-weight:750;line-height:1;letter-spacing:-.6px;}
+.stat-tile .val{font-size:32px;font-weight:750;line-height:1;letter-spacing:-.6px;color:var(--ink,#1f2d3d);}
 .stat-tile.hero .val{font-size:46px;}
 .stat-tile .sub{color:var(--muted);font-size:12px;margin-top:7px;}
 .stat-tile .accent{position:absolute;left:0;top:0;bottom:0;width:4px;}
 .tile-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:12px;margin:14px 0 4px;}
 .chart-card h4{display:flex;align-items:center;gap:8px;}
 .chart-card .cap{color:var(--muted);font-size:12px;font-weight:400;margin:-4px 0 10px;}
+
+/* ===== Card Bank (題庫) ===== */
+.cb-toolbar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:14px;}
+.cb-search{flex:1;min-width:220px;border:1px solid var(--line);background:var(--card);color:var(--ink,#1f2d3d);
+  border-radius:12px;padding:11px 14px;font:inherit;font-size:14px;}
+.cb-search:focus{outline:2px solid var(--s1);outline-offset:-1px;}
+.cb-tree{display:flex;flex-direction:column;gap:12px;}
+.cb-sdg{border:1px solid var(--line);border-radius:14px;background:var(--card);overflow:hidden;box-shadow:0 1px 2px rgba(31,45,61,.05);}
+.cb-sdg>summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:10px;
+  padding:13px 16px;background:#eef2f7;font-weight:800;color:var(--ink,#1f2d3d);}
+.cb-sdg>summary::-webkit-details-marker{display:none;}
+.cb-sdg-t{display:inline-flex;align-items:center;gap:8px;}
+.cb-part{margin:10px 14px;border-left:2px solid var(--line);padding-left:14px;}
+.cb-part-h{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:8px;}
+.cb-part-h h4{margin:0;font-size:14px;}
+.cb-topic{border:1px solid var(--line);border-radius:12px;padding:11px 13px;margin-bottom:9px;background:#fbfcfe;}
+.cb-topic-h{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:9px;font-size:13.5px;}
+.cb-slots{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:9px;}
+.cb-slot{border:1px solid var(--line);border-radius:10px;padding:9px 11px;background:var(--card);}
+.cb-slot.empty{border-style:dashed;background:#f6f8fb;}
+.cb-slot-h{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:5px;}
+.cb-slot-h b{font-size:12px;color:var(--ink,#1f2d3d);}
+.cb-slot-txt{font-size:12.5px;color:var(--muted);line-height:1.5;}
+.cb-slot.has{border-left:3px solid var(--good);}
+.cb-mini{border:1px solid var(--line);background:#eef2f7;color:var(--ink,#1f2d3d);border-radius:8px;
+  padding:4px 9px;font-size:11.5px;font-weight:700;cursor:pointer;}
+.cb-mini:hover{background:#dde6f0;}
+.cb-mini.add{border-color:color-mix(in srgb,var(--s1),transparent 50%);color:#9ec5f4;}
+.cb-mini.danger:hover{background:rgba(208,59,59,.25);border-color:var(--crit);}
+.cb-row-btns,.cb-slot-btns{display:inline-flex;gap:6px;flex-wrap:wrap;}
+.cov-tbl{width:100%;border-collapse:separate;border-spacing:0 6px;font-size:13px;}
+.cov-tbl th{color:var(--muted);font-weight:700;text-align:center;padding:4px 8px;}
+.cov-tbl th:first-child{text-align:left;}
+.cov-tbl td{padding:6px 8px;}
+.cov-tbl td:first-child{white-space:nowrap;}
+.cov-cell{display:inline-block;min-width:64px;padding:6px 10px;border-radius:8px;font-weight:800;font-variant-numeric:tabular-nums;}
+.cb-drop{border:1.6px dashed var(--line);border-radius:14px;padding:22px;text-align:center;color:var(--muted);background:rgba(255,255,255,.02);}
+.cb-modal-scrim{position:fixed;inset:0;z-index:9998;display:flex;align-items:center;justify-content:center;padding:18px;
+  background:rgba(2,6,18,.72);backdrop-filter:blur(6px);}
+.cb-modal-scrim.hidden{display:none;}
+.cb-modal{width:min(560px,100%);background:var(--card);border:1px solid var(--line);border-radius:18px;
+  box-shadow:0 40px 100px rgba(15,30,50,.35);max-height:88vh;overflow:auto;}
+.cb-modal-h{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:16px 18px;border-bottom:1px solid var(--line);}
+.cb-modal-h h3{margin:0;font-size:17px;}
+.cb-modal-b{padding:18px;}
+.cb-lab{display:block;color:var(--muted);font-size:12.5px;margin:12px 0 5px;}
+.cb-lab:first-child{margin-top:0;}
+.cb-in,.cb-ta{width:100%;border:1px solid var(--line);background:var(--card);color:var(--ink,#1f2d3d);border-radius:10px;
+  padding:10px 12px;font:inherit;font-size:14px;}
+.cb-ta{resize:vertical;line-height:1.6;}
+.cb-in:focus,.cb-ta:focus{outline:2px solid var(--accent);outline-offset:-1px;}
+.cb-modal-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:18px;}
+.close-btn{width:36px;height:36px;border-radius:10px;border:1px solid var(--line);background:#eef2f7;
+  color:var(--ink,#1f2d3d);font-size:18px;font-weight:900;cursor:pointer;}
 </style>
 </head>
 <body>
@@ -620,17 +680,17 @@ textarea {
 
 <main class="container">
   <aside class="side-nav">
-    <div class="side-brand">主控台<span>Admin Console</span></div>
-    <button class="nav-item active" type="button" data-module="overview"><span class="ni">📊</span>總覽 Overview</button>
+    <div class="side-brand">CardLearn SDGs<span>Admin Console 主控台</span></div>
+    <button class="nav-item active" type="button" data-module="overview"><span class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><rect x="7" y="11" width="3" height="6"/><rect x="12" y="7" width="3" height="10"/><rect x="17" y="13" width="3" height="4"/></svg></span>總覽 Overview</button>
     <div class="side-sep">數據分析 Analytics</div>
-    <button class="nav-item" type="button" data-module="pk_analytics"><span class="ni">🎤</span>遊戲數據 Game</button>
-    <button class="nav-item" type="button" data-module="user_analytics"><span class="ni">👥</span>使用者/登入 Users</button>
+    <button class="nav-item" type="button" data-module="pk_analytics"><span class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2 6 4-15 2 9h6"/></svg></span>遊戲數據 Game</button>
+    <button class="nav-item" type="button" data-module="user_analytics"><span class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>使用者/登入 Users</button>
     <div class="side-sep">內容 Content</div>
-    <button class="nav-item" type="button" data-module="sdgs_card_game"><span class="ni">🃏</span>題庫管理 Card Bank</button>
-    <button class="nav-item" type="button" data-module="users"><span class="ni">🔑</span>帳號管理 Accounts</button>
+    <button class="nav-item" type="button" data-module="sdgs_card_game"><span class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></span>題庫管理 Card Bank</button>
+    <button class="nav-item" type="button" data-module="users"><span class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>帳號管理 Accounts</button>
     <div class="side-sep">系統 System</div>
-    <button class="nav-item" type="button" data-module="system"><span class="ni">⚙️</span>系統設定 Settings</button>
-    <button class="nav-item" type="button" data-module="database"><span class="ni">🗄️</span>資料庫 Database</button>
+    <button class="nav-item" type="button" data-module="system"><span class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></span>系統設定 Settings</button>
+    <button class="nav-item" type="button" data-module="database"><span class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.66 3.58 3 8 3s8-1.34 8-3V5"/><path d="M4 12c0 1.66 3.58 3 8 3s8-1.34 8-3"/></svg></span>資料庫 Database</button>
   </aside>
   <div class="console-main">
 
@@ -730,17 +790,37 @@ textarea {
 
   <section id="sdgsCardGameModule">
     <section class="panel">
-      <h2>SDGs Card Game</h2>
-      <p style="color:var(--muted);margin-bottom:14px;">This area is for SDGs Card Game settings. Future games can be added as separate entries above.</p>
+      <div class="section-h"><h2>題庫管理 Card Bank</h2><div class="row"><button class="btn" type="button" onclick="loadContent()">↻ 重新整理</button></div></div>
+      <p style="color:var(--muted);margin:4px 0 12px;">SDGs Pecha Kucha 卡牌題庫：瀏覽與編輯內容、檢視涵蓋率、匯入教材。</p>
       <div class="game-tabs">
-        <button class="game-tab active" type="button" data-game-tab="cards">Card Bank</button>
-        <button class="game-tab" type="button" data-game-tab="reports">Attempts & Stats</button>
+        <button class="game-tab active" type="button" data-game-tab="browse">瀏覽編輯 Browse</button>
+        <button class="game-tab" type="button" data-game-tab="coverage">涵蓋率 Coverage</button>
+        <button class="game-tab" type="button" data-game-tab="import">匯入 Import</button>
       </div>
     </section>
 
-  <section id="cardsModule" class="workflow">
+  <section id="cbBrowse">
+    <section class="panel">
+      <div class="cb-toolbar">
+        <input id="cbSearch" class="cb-search" type="search" placeholder="🔍 搜尋 SDG / Part / 子題 / 卡片內文…" oninput="cardSearch=this.value;renderBrowse();">
+        <button class="btn btn-primary" type="button" onclick="openSdgEditor()">＋ 新增 SDG</button>
+      </div>
+      <div id="cbTree" class="cb-tree"></div>
+    </section>
+  </section>
+
+  <section id="cbCoverage" hidden>
+    <section class="panel">
+      <div class="section-h"><h2>內容涵蓋率 Coverage</h2></div>
+      <p style="color:var(--muted);margin:4px 0 12px;">每個 SDG × 難度：已建卡片數 / 應有數（Σ 子題）。綠＝完整、黃＝部分、紅＝缺口。</p>
+      <div id="cbCovMatrix" class="scrollx"></div>
+    </section>
+  </section>
+
+  <section id="cbImport" hidden>
+    <div class="grid2">
     <section class="panel import-panel">
-      <h2>Import Question Bank Excel</h2>
+      <h2>匯入題庫 Excel</h2>
       <p style="color:var(--muted);margin-bottom:14px;">Upload the shared SDGs Pecha Kucha workbook. Sheets named like SDG 4 / SDG 5 / SDG 13 will be imported into the card bank.</p>
       <form id="excelImportForm" class="form-grid">
         <div id="excelImportNotice" class="notice"></div>
@@ -772,103 +852,15 @@ textarea {
       </form>
     </section>
 
-    <aside class="stack">
-      <section class="panel">
-        <h2>1. Add / Update SDG</h2>
-        <form id="sdgForm" class="form-grid">
-          <div id="sdgNotice" class="notice"></div>
-          <div class="field">
-            <label>SDG Number</label>
-            <input name="sdg_level" type="number" placeholder="4" required>
-          </div>
-          <div class="field">
-            <label>English Name</label>
-            <input name="title" placeholder="Quality Education" required>
-          </div>
-          <div class="field">
-            <label>Status</label>
-            <select name="active">
-              <option value="true">Active</option>
-              <option value="false">Inactive</option>
-            </select>
-          </div>
-          <div class="field full">
-            <label>Display Name / Description</label>
-            <textarea name="description" placeholder="Quality Education"></textarea>
-          </div>
-          <div class="field full">
-            <button class="btn btn-primary" type="submit">Save SDG</button>
-          </div>
-        </form>
-      </section>
-
-      <section class="panel">
-        <h2>2. Add / Update Part</h2>
-        <form id="partForm" class="form-grid">
-          <div id="partNotice" class="notice"></div>
-          <div class="field">
-            <label>Parent SDG</label>
-            <select name="sdg_level" id="partSdgSelect"></select>
-          </div>
-          <div class="field">
-            <label>Part Number</label>
-            <input name="part_no" type="number" min="1" max="6" placeholder="1" required>
-          </div>
-          <div class="field full">
-            <label>Part Description</label>
-            <textarea name="part_description" placeholder="Introduction / Problem Identification / Solutions..." required></textarea>
-          </div>
-          <div class="field full">
-            <button class="btn btn-primary" type="submit">Save Part</button>
-          </div>
-        </form>
-      </section>
-
-      <section class="panel">
-        <h2>3. Add Subtopic and Level Cards</h2>
-        <form id="topicCardForm" class="form-grid">
-          <div id="topicNotice" class="notice"></div>
-          <div class="field">
-            <label>Parent Part</label>
-            <select name="part_id" id="topicPartSelect"></select>
-          </div>
-          <div class="field">
-            <label>Subtopic Number</label>
-            <input name="sub_topic_no" type="number" placeholder="1" required>
-          </div>
-          <div class="field full">
-            <label>Subtopic Description</label>
-            <textarea name="sub_topic_description" placeholder="The target subtopic students should match the card to" required></textarea>
-          </div>
-
-          <div class="difficulty-grid">
-            <div class="difficulty-card">
-              <label>A2 Sentence Card</label>
-              <textarea name="card_A2" placeholder="A2 level sentence"></textarea>
-            </div>
-            <div class="difficulty-card">
-              <label>A1 Sentence Card</label>
-              <textarea name="card_A1" placeholder="A1 level sentence"></textarea>
-            </div>
-            <div class="difficulty-card">
-              <label>B1 Sentence Card</label>
-              <textarea name="card_B1" placeholder="B1 level sentence"></textarea>
-            </div>
-          </div>
-
-          <div class="field full">
-            <button class="btn btn-green" type="submit">Save Subtopic and Cards</button>
-          </div>
-        </form>
-      </section>
-    </aside>
-
-    <section class="panel">
-      <h2>Current Content Structure</h2>
-      <p style="color:var(--muted);margin-bottom:14px;">The structure is SDG -> Part -> Subtopic -> sentence cards by level. Green labels mean that level already has a card.</p>
-      <div id="contentTree" class="tree"></div>
-    </section>
+    </div>
   </section>
+
+  <div id="cbModal" class="cb-modal-scrim hidden" onclick="if(event.target===this)closeCbModal()">
+    <div class="cb-modal">
+      <div class="cb-modal-h"><h3 id="cbModalTitle">編輯</h3><button class="close-btn" type="button" onclick="closeCbModal()">×</button></div>
+      <div id="cbModalBody" class="cb-modal-b"></div>
+    </div>
+  </div>
 
   <section id="reportsModule" class="panel" hidden>
     <h2>SDGs Card Game Records</h2>
@@ -1060,9 +1052,10 @@ function setGameTab(tabName) {
     tab.classList.toggle("active", tab.dataset.gameTab === tabName);
   });
 
-  $("cardsModule").hidden = tabName !== "cards";
-  $("reportsModule").hidden = tabName !== "reports";
-  if (tabName === "reports") loadGameRecords();
+  $("cbBrowse").hidden = tabName !== "browse";
+  $("cbCoverage").hidden = tabName !== "coverage";
+  $("cbImport").hidden = tabName !== "import";
+  if (tabName === "coverage") renderCoverage();
 }
 
 /* ===== Pecha Kucha analytics ===== */
@@ -1141,9 +1134,9 @@ function exportPkCsv(){
 }
 
 /* ===== Admin console — professional chart library (dataviz specs, validated palette) ===== */
-const SERIES_HUES = ["#3987e5","#d95926","#199e70","#c98500","#d55181","#37a137","#9085e9","#e66767"];
-const SEQ_RAMP = ["#1a2b45","#1c5cab","#2a78d6","#5598e7","#9ec5f4"];
-const RING = "#12151d";
+const SERIES_HUES = ["#2a78d6","#eb6834","#1baf7a","#eda100","#e87ba4","#008300","#4a3aa7","#e34948"];
+const SEQ_RAMP = ["#eaf2fc","#9ec5f4","#5598e7","#2a78d6","#184f95"];
+const RING = "#ffffff";
 function SERIES(i){ return SERIES_HUES[i % SERIES_HUES.length]; }
 function niceMax(v){ if(!(v>0)) return 1; const p=Math.pow(10,Math.floor(Math.log10(v))); const n=v/p; const s=n<=1?1:n<=2?2:n<=5?5:10; return s*p; }
 function axisTicks(max,n){ n=n||4; const out=[]; for(let i=0;i<=n;i++) out.push(Math.round(max*i/n*100)/100); return out; }
@@ -1203,7 +1196,7 @@ function chartHeatmap(items, opt){
   const W=items.length*(cw+gap)-gap+2, H=top+ch+22;
   const col=v=>{ const t=max?v/max:0; return SEQ_RAMP[Math.min(SEQ_RAMP.length-1,Math.floor(t*(SEQ_RAMP.length-1)+1e-6))]; };
   let s='<div class="viz"><svg viewBox="0 0 '+W+' '+H+'" width="'+W+'" style="min-width:'+Math.min(W,620)+'px">';
-  items.forEach((it,i)=>{ const x=i*(cw+gap), v=it.value||0, ink=v>max*0.6?"#08101f":"#e8eefc", vt=it.valText!=null?it.valText:v;
+  items.forEach((it,i)=>{ const x=i*(cw+gap), v=it.value||0, ink=v>max*0.5?"#ffffff":"#12324f", vt=it.valText!=null?it.valText:v;
     s+='<rect class="mk" data-tip data-tl="'+safeText(it.label)+'" data-tv="'+safeText(vt)+'" x="'+x+'" y="'+top+'" width="'+cw+'" height="'+ch+'" rx="8" fill="'+col(v)+'"><title>'+safeText(it.label)+': '+safeText(vt)+'</title></rect>'
       +'<text x="'+(x+cw/2)+'" y="'+(top+ch/2+7)+'" text-anchor="middle" font-size="18" font-weight="750" fill="'+ink+'" style="font-variant-numeric:tabular-nums">'+safeText(vt)+'</text>'
       +'<text x="'+(x+cw/2)+'" y="'+(top+ch+15)+'" text-anchor="middle" font-size="11" fill="var(--viz-muted)">'+safeText(clip(it.label,12))+'</text>';
@@ -1492,10 +1485,176 @@ function updateDuplicateHints() {
 
 async function loadContent() {
   content = await api.teacher.content();
-  renderSelects();
-  renderTree();
-  updateDuplicateHints();
+  renderCardBank();
 }
+
+/* ===== Card Bank: browse / edit / coverage ===== */
+let cardSearch = "";
+function cbDiffCodes() {
+  return (content.difficulties && content.difficulties.length)
+    ? content.difficulties.map((d) => d.code)
+    : difficultyCodes;
+}
+function findTopicById(id) {
+  for (const p of content.parts) {
+    const t = (p.sub_topics || []).find((x) => Number(x.sub_topic_id) === Number(id));
+    if (t) return t;
+  }
+  return null;
+}
+function findPartById(id) { return content.parts.find((p) => Number(p.part_id) === Number(id)); }
+
+function renderCardBank() { renderBrowse(); renderCoverage(); }
+
+function renderBrowse() {
+  const host = $("cbTree");
+  if (!host) return;
+  if (!content.sdgs.length) {
+    host.innerHTML = '<div class="empty">尚無 SDG。點右上「＋ 新增 SDG」建立第一個主題。</div>';
+    return;
+  }
+  const q = cardSearch.trim().toLowerCase();
+  const hit = (...vals) => !q || vals.some((v) => String(v == null ? "" : v).toLowerCase().includes(q));
+  const codes = cbDiffCodes();
+  let out = "";
+
+  content.sdgs.forEach((sdg) => {
+    const parts = content.parts.filter((p) => Number(p.sdg_level) === Number(sdg.sdg_level));
+    const sdgSelfHit = hit(sdg.sdg_level, sdg.title, sdg.description);
+    let partsHtml = "";
+
+    parts.forEach((part) => {
+      let topicsHtml = "";
+      (part.sub_topics || []).forEach((topic) => {
+        const cards = topic.cards || [];
+        const topicHit = hit(sdg.sdg_level, sdg.title, sdg.description, part.part_description,
+          topic.sub_topic_description) || cards.some((c) => hit(c.card_text));
+        if (q && !topicHit) return;
+        const slots = codes.map((code) => {
+          const card = cards.find((c) => c.difficulty_code === code && c.card_text);
+          if (card) {
+            return '<div class="cb-slot has"><div class="cb-slot-h"><b>' + safeText(code) + '</b>'
+              + '<span class="cb-slot-btns"><button class="cb-mini" onclick="openCardEditor(' + topic.sub_topic_id + ',\'' + code + '\')">編輯</button>'
+              + '<button class="cb-mini danger" onclick="cbDelCard(' + card.card_id + ')">刪</button></span></div>'
+              + '<div class="cb-slot-txt">' + safeText(clip(card.card_text, 120)) + '</div></div>';
+          }
+          return '<div class="cb-slot empty"><div class="cb-slot-h"><b>' + safeText(code) + '</b></div>'
+            + '<button class="cb-mini add" onclick="openCardEditor(' + topic.sub_topic_id + ',\'' + code + '\')">＋ 新增卡片</button></div>';
+        }).join("");
+        topicsHtml += '<div class="cb-topic"><div class="cb-topic-h"><strong>' + safeText(part.part_no) + '.' + safeText(topic.sub_topic_no) + ' ' + safeText(topic.sub_topic_description) + '</strong>'
+          + '<span class="cb-row-btns"><button class="cb-mini" onclick="openSubtopicEditor(' + part.part_id + ',' + topic.sub_topic_id + ')">改</button>'
+          + '<button class="cb-mini danger" onclick="cbDelSubtopic(' + topic.sub_topic_id + ')">刪</button></span></div>'
+          + '<div class="cb-slots">' + slots + '</div></div>';
+      });
+      if (q && !topicsHtml && !hit(part.part_description)) return;
+      partsHtml += '<div class="cb-part"><div class="cb-part-h"><h4>Part ' + safeText(part.part_no) + ' · ' + safeText(clip(part.part_description, 64)) + '</h4>'
+        + '<span class="cb-row-btns"><button class="cb-mini add" onclick="openSubtopicEditor(' + part.part_id + ')">＋ 子題</button>'
+        + '<button class="cb-mini" onclick="openPartEditor(' + sdg.sdg_level + ',' + part.part_id + ')">改</button>'
+        + '<button class="cb-mini danger" onclick="cbDelPart(' + part.part_id + ')">刪</button></span></div>'
+        + (topicsHtml || '<div class="empty" style="padding:8px">此 Part 尚無子題</div>') + '</div>';
+    });
+
+    if (q && !sdgSelfHit && !partsHtml) return;
+    out += '<details class="cb-sdg" open><summary><span class="cb-sdg-t">SDG ' + safeText(sdg.sdg_level) + ' · ' + safeText(sdg.description || sdg.title) + '</span>'
+      + '<span class="cb-row-btns"><button class="cb-mini add" onclick="event.preventDefault();openPartEditor(' + sdg.sdg_level + ')">＋ Part</button>'
+      + '<button class="cb-mini" onclick="event.preventDefault();openSdgEditor(' + sdg.sdg_level + ')">改</button>'
+      + '<button class="cb-mini danger" onclick="event.preventDefault();cbDelSdg(' + sdg.sdg_level + ')">刪</button></span></summary>'
+      + (partsHtml || '<div class="empty" style="padding:10px">此 SDG 尚無 Part</div>') + '</details>';
+  });
+
+  host.innerHTML = out || '<div class="empty">找不到符合「' + safeText(cardSearch) + '」的內容。</div>';
+}
+
+function renderCoverage() {
+  const host = $("cbCovMatrix");
+  if (!host) return;
+  const codes = cbDiffCodes();
+  if (!content.sdgs.length) { host.innerHTML = '<div class="empty">尚無資料</div>'; return; }
+  let html = '<table class="cov-tbl"><thead><tr><th>SDG</th>' + codes.map((c) => '<th>' + safeText(c) + '</th>').join("") + '<th>子題</th></tr></thead><tbody>';
+  content.sdgs.forEach((sdg) => {
+    const parts = content.parts.filter((p) => Number(p.sdg_level) === Number(sdg.sdg_level));
+    const subs = parts.reduce((a, p) => a + (p.sub_topics || []).length, 0);
+    const cells = codes.map((code) => {
+      let have = 0;
+      parts.forEach((p) => (p.sub_topics || []).forEach((t) => {
+        if ((t.cards || []).some((c) => c.difficulty_code === code && c.card_text)) have++;
+      }));
+      const pct = subs ? have / subs : 0;
+      const bg = subs === 0 ? "rgba(255,255,255,.05)" : (pct >= 1 ? "var(--good)" : pct >= 0.5 ? "var(--warn)" : "var(--crit)");
+      const ink = subs === 0 ? "var(--muted)" : "#08101f";
+      return '<td style="text-align:center"><span class="cov-cell" style="background:' + bg + ';color:' + ink + '">' + have + " / " + subs + "</span></td>";
+    }).join("");
+    html += '<tr><td><b>SDG ' + safeText(sdg.sdg_level) + "</b> " + safeText(clip(sdg.description || sdg.title, 26)) + "</td>" + cells + '<td style="text-align:center">' + subs + "</td></tr>";
+  });
+  host.innerHTML = html + "</tbody></table>";
+}
+
+/* ----- editor modal ----- */
+function openCbModal(title, body) { $("cbModalTitle").textContent = title; $("cbModalBody").innerHTML = body; $("cbModal").classList.remove("hidden"); }
+function closeCbModal() { $("cbModal").classList.add("hidden"); }
+
+function openCardEditor(subTopicId, code) {
+  const t = findTopicById(subTopicId);
+  const existing = t ? (t.cards || []).find((c) => c.difficulty_code === code) : null;
+  openCbModal((existing ? "編輯" : "新增") + " 句子卡 · " + code,
+    '<label class="cb-lab">句子卡內文（' + code + " 難度，配對時朗讀）</label>"
+    + '<textarea id="cbCardText" class="cb-ta" rows="5">' + safeText(existing ? existing.card_text : "") + "</textarea>"
+    + '<div class="cb-modal-actions"><button class="btn" type="button" onclick="closeCbModal()">取消</button>'
+    + '<button class="btn btn-primary" type="button" onclick="cbSaveCard(' + subTopicId + ",'" + code + "')\">儲存</button></div>");
+}
+async function cbSaveCard(subTopicId, code) {
+  const text = $("cbCardText").value.trim();
+  if (!text) { showToast("內容不可空白"); return; }
+  try { await api.teacher.saveCard({ sub_topic_id: subTopicId, difficulty_code: code, card_text: text, active: true }); showToast("卡片已儲存"); closeCbModal(); await loadContent(); }
+  catch (e) { showToast(e.message || "儲存失敗"); }
+}
+function openSubtopicEditor(partId, subTopicId) {
+  const t = subTopicId ? findTopicById(subTopicId) : null;
+  openCbModal((t ? "編輯" : "新增") + " 子題 Subtopic",
+    '<label class="cb-lab">子題編號</label><input id="cbStNo" class="cb-in" type="number" value="' + (t ? safeText(t.sub_topic_no) : "") + '">'
+    + '<label class="cb-lab">子題標題（顯示在配對的標題卡上）</label><textarea id="cbStDesc" class="cb-ta" rows="2">' + safeText(t ? t.sub_topic_description : "") + "</textarea>"
+    + '<div class="cb-modal-actions"><button class="btn" type="button" onclick="closeCbModal()">取消</button>'
+    + '<button class="btn btn-primary" type="button" onclick="cbSaveSubtopic(' + partId + ')">儲存</button></div>');
+}
+async function cbSaveSubtopic(partId) {
+  const no = Number($("cbStNo").value), desc = $("cbStDesc").value.trim();
+  if (!no || !desc) { showToast("請填子題編號與標題"); return; }
+  try { await api.teacher.saveSubTopic({ part_id: partId, sub_topic_no: no, sub_topic_description: desc }); showToast("子題已儲存"); closeCbModal(); await loadContent(); }
+  catch (e) { showToast(e.message || "儲存失敗"); }
+}
+function openPartEditor(sdgLevel, partId) {
+  const p = partId ? findPartById(partId) : null;
+  openCbModal((p ? "編輯" : "新增") + " Part",
+    '<label class="cb-lab">Part 編號（1–6）</label><input id="cbPartNo" class="cb-in" type="number" min="1" max="6" value="' + (p ? safeText(p.part_no) : "") + '">'
+    + '<label class="cb-lab">Part 說明</label><textarea id="cbPartDesc" class="cb-ta" rows="2">' + safeText(p ? p.part_description : "") + "</textarea>"
+    + '<div class="cb-modal-actions"><button class="btn" type="button" onclick="closeCbModal()">取消</button>'
+    + '<button class="btn btn-primary" type="button" onclick="cbSavePart(' + sdgLevel + ')">儲存</button></div>');
+}
+async function cbSavePart(sdgLevel) {
+  const no = Number($("cbPartNo").value), desc = $("cbPartDesc").value.trim();
+  if (!no || no < 1 || no > 6) { showToast("Part 編號需 1–6"); return; }
+  try { await api.teacher.savePart({ sdg_level: sdgLevel, part_no: no, part_description: desc }); showToast("Part 已儲存"); closeCbModal(); await loadContent(); }
+  catch (e) { showToast(e.message || "儲存失敗"); }
+}
+function openSdgEditor(sdgLevel) {
+  const s = (sdgLevel != null) ? content.sdgs.find((x) => Number(x.sdg_level) === Number(sdgLevel)) : null;
+  openCbModal((s ? "編輯" : "新增") + " SDG",
+    '<label class="cb-lab">SDG 編號</label><input id="cbSdgNo" class="cb-in" type="number" value="' + (s ? safeText(s.sdg_level) : "") + '"' + (s ? " readonly" : "") + ">"
+    + '<label class="cb-lab">英文名稱</label><input id="cbSdgTitle" class="cb-in" value="' + safeText(s ? s.title : "") + '">'
+    + '<label class="cb-lab">顯示名稱 / 描述</label><textarea id="cbSdgDesc" class="cb-ta" rows="2">' + safeText(s ? s.description : "") + "</textarea>"
+    + '<div class="cb-modal-actions"><button class="btn" type="button" onclick="closeCbModal()">取消</button>'
+    + '<button class="btn btn-primary" type="button" onclick="cbSaveSdg()">儲存</button></div>');
+}
+async function cbSaveSdg() {
+  const no = Number($("cbSdgNo").value), title = $("cbSdgTitle").value.trim(), desc = $("cbSdgDesc").value.trim();
+  if (!no || !title) { showToast("請填 SDG 編號與英文名稱"); return; }
+  try { await api.teacher.saveSdg({ sdg_level: no, title: title, description: desc || title, active: true }); showToast("SDG 已儲存"); closeCbModal(); await loadContent(); }
+  catch (e) { showToast(e.message || "儲存失敗"); }
+}
+async function cbDelCard(id) { if (!confirm("刪除此卡片？")) return; try { await api.teacher.deleteCard(id); showToast("已刪除"); await loadContent(); } catch (e) { showToast(e.message || "刪除失敗"); } }
+async function cbDelSubtopic(id) { if (!confirm("刪除此子題及其所有卡片？")) return; try { await api.teacher.deleteSubTopic(id); showToast("已刪除"); await loadContent(); } catch (e) { showToast(e.message || "刪除失敗"); } }
+async function cbDelPart(id) { if (!confirm("刪除此 Part 及其所有子題？")) return; try { await api.teacher.deletePart(id); showToast("已刪除"); await loadContent(); } catch (e) { showToast(e.message || "刪除失敗"); } }
+async function cbDelSdg(level) { if (!confirm("刪除此 SDG 及其所有內容？")) return; try { await api.teacher.deleteSdg(level); showToast("已刪除"); await loadContent(); } catch (e) { showToast(e.message || "刪除失敗"); } }
 
 function formatTime(seconds) {
   const value = Number(seconds || 0);
@@ -1787,11 +1946,6 @@ function bindDeleteButtons() {
 }
 
 function bindForms() {
-  ["sdgForm", "partForm", "topicCardForm"].forEach((formId) => {
-    $(formId).addEventListener("input", updateDuplicateHints);
-    $(formId).addEventListener("change", updateDuplicateHints);
-  });
-
   $("jsonTemplateBtn").addEventListener("click", downloadMaterialJsonTemplate);
 
   $("excelImportForm").addEventListener("submit", async (event) => {
@@ -1860,68 +2014,6 @@ function bindForms() {
     }
   });
 
-  $("sdgForm").addEventListener("submit", async (event) => {
-    event.preventDefault();
-    const data = formObject(event.currentTarget);
-    await api.teacher.saveSdg({
-      sdg_level: Number(data.sdg_level),
-      title: data.title,
-      description: data.description,
-      active: boolValue(data.active)
-    });
-    showToast("SDG saved.");
-    event.currentTarget.reset();
-    await loadContent();
-  });
-
-  $("partForm").addEventListener("submit", async (event) => {
-    event.preventDefault();
-    const data = formObject(event.currentTarget);
-    const partNo = Number(data.part_no);
-    if (partNo < 1 || partNo > 6) {
-      showToast("Part number must be between 1 and 6.");
-      return;
-    }
-    await api.teacher.savePart({
-      sdg_level: Number(data.sdg_level),
-      part_no: partNo,
-      part_description: data.part_description
-    });
-    showToast("Part saved.");
-    event.currentTarget.reset();
-    await loadContent();
-  });
-
-  $("topicCardForm").addEventListener("submit", async (event) => {
-    event.preventDefault();
-    const data = formObject(event.currentTarget);
-
-    const topic = await api.teacher.saveSubTopic({
-      part_id: Number(data.part_id),
-      sub_topic_no: Number(data.sub_topic_no),
-      sub_topic_description: data.sub_topic_description
-    });
-
-    const cardInputs = [
-      ["A2", data.card_A2],
-      ["A1", data.card_A1],
-      ["B1", data.card_B1]
-    ];
-
-    for (const [difficultyCode, cardText] of cardInputs) {
-      if (!cardText || !cardText.trim()) continue;
-      await api.teacher.saveCard({
-        sub_topic_id: topic.sub_topic_id,
-        difficulty_code: difficultyCode,
-        card_text: cardText,
-        active: true
-      });
-    }
-
-    showToast("Subtopic and sentence cards saved.");
-    event.currentTarget.reset();
-    await loadContent();
-  });
 }
 
 async function init() {
@@ -1932,7 +2024,7 @@ async function init() {
     bindGameTabs();
     bindForms();
     await loadContent();
-    setGameTab("cards");
+    setGameTab("browse");
     setModule("overview");
   } catch (error) {
     alert(error.message || "Failed to load the teacher dashboard.");
