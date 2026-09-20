@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+<html lang="zh-Hant"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mission Engine UI/UX 線框圖</title><link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&family=Noto+Serif:ital@0;1&family=Noto+Sans+TC:wght@400;500;600&family=Noto+Serif+TC:wght@400&display=swap" rel="stylesheet"><style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{background:#f5f5f5;color:#2d3142;font-family:'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif;line-height:1.6}
+.wrap{max-width:1360px;margin:0 auto;padding:3rem 1.5rem 4rem}
+.eyebrow{font:500 .66rem 'Geist Mono',ui-monospace,monospace;letter-spacing:.18em;text-transform:uppercase;color:#4f5d75;margin-bottom:.5rem}
+h1{font:400 clamp(1.6rem,2.4vw + .8rem,2.2rem)/1.15 'Instrument Serif','Noto Serif','Noto Serif TC',serif;margin-bottom:.75rem}
+h2{font:400 1.45rem/1.25 'Instrument Serif','Noto Serif','Noto Serif TC',serif;margin-bottom:.35rem}
+.sub{color:#4f5d75;max-width:64ch;margin-bottom:1.5rem}
+section{padding:2.25rem 0;border-bottom:1px solid rgba(45,49,66,.12)}
+.job{color:#4f5d75;margin-bottom:1rem}
+.fig{overflow-x:auto;border:1px solid rgba(45,49,66,.12);border-radius:8px;background:#ffffff}
+.fig svg{display:block;min-width:1100px;width:100%}
+.meta{display:grid;grid-template-columns:1.2fr 1fr;gap:1.5rem;margin-top:1rem}
+.meta h3{font:600 .8rem 'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif;letter-spacing:.02em;margin-bottom:.4rem}
+.meta ol,.meta ul{color:#4f5d75;font-size:.86rem;padding-left:1.1rem}
+.meta li{margin-bottom:.3rem}
+.tag{display:inline-block;font:500 .66rem 'Geist Mono',ui-monospace,monospace;letter-spacing:.14em;text-transform:uppercase;
+  color:#7a8399;border:1px solid rgba(45,49,66,.18);border-radius:3px;padding:.15rem .45rem;margin-left:.5rem}
+.toc{list-style:none;display:grid;grid-template-columns:repeat(2,1fr);gap:.25rem 2rem;
+  padding:1rem 0;border-top:1px solid rgba(45,49,66,.12);border-bottom:1px solid rgba(45,49,66,.12);margin-bottom:2rem}
+.toc a{color:#2d3142;text-decoration:none;font-size:.9rem} .toc a:hover{color:#eb6c36}
+footer{margin-top:2rem;font:400 .7rem 'Geist Mono',ui-monospace,monospace;color:#7a8399}
+@media(max-width:820px){.meta,.toc{grid-template-columns:1fr}}
+</style></head>
+<body><main class="wrap">
+<p class="eyebrow">UI/UX Wireframes · v1 · 待審</p>
+<h1>Mission Engine 每一個畫面</h1>
+<p class="sub">11 個學生畫面 + 5 個教師畫面，1280×800 桌機版。畫面清單已依 Gemini 的 UX 審查合併：
+任務簡報收進地圖抽屜、情境卡改成 Overlay、決策後果就地翻面、小測與結算同頁、排行榜降級為報告分頁。</p>
+<ul class="toc"><li><a href="#s01">S1 登入與班級代碼</a></li><li><a href="#s02">S2 Mission Map（含任務簡報抽屜）</a></li><li><a href="#s03">S3 分級前測</a></li><li><a href="#s04">S4 Stage 情境卡（Overlay）</a></li><li><a href="#s05">S5 單字暖身（3 題）</a></li><li><a href="#s06">S6 卡牌工作台（核心畫面）</a></li><li><a href="#s07">S7 決策卡（Stage 4）與後果</a></li><li><a href="#s08">S8 Stage 小測與結算（同一頁）</a></li><li><a href="#s09">S9 Showtime（20 秒節奏 + 錄音）</a></li><li><a href="#s10">S10 Mission 報告（含排行榜分頁）</a></li><li><a href="#s11">S11 個人化複習路徑</a></li><li><a href="#t01">T1 班級總覽</a></li><li><a href="#t02">T2 學生個人頁</a></li><li><a href="#t03">T3 單字與題目分析</a></li><li><a href="#t04">T4 錄音清單</a></li><li><a href="#t05">T5 匯出</a></li></ul>
+
+<section id="s01">
+  <h2>S1 登入與班級代碼<span class="tag">student</span></h2>
+  <p class="job">讓學生用 Email 登入並綁定班級，最短路徑進到 Mission Map。</p>
+  <div class="fig"><svg viewBox="0 0 1280 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="s01-t s01-d"><title id="s01-t">S1 登入與班級代碼</title><desc id="s01-d">讓學生用 Email 登入並綁定班級，最短路徑進到 Mission Map。</desc><rect width="1280" height="800" fill="#f5f5f5"/><rect x="0" y="0" width="1280" height="800" rx="0" fill="#f5f5f5"/>
+<rect x="0" y="0" width="1280" height="36" rx="0" fill="#e7e9ec"/>
+<circle cx="20" cy="18" r="5" fill="#d9dde2"/>
+<circle cx="38" cy="18" r="5" fill="#d9dde2"/>
+<circle cx="56" cy="18" r="5" fill="#d9dde2"/>
+<rect x="78" y="8" width="1170" height="20" rx="10" fill="#ffffff"/>
+<text x="90" y="22" fill="#7a8399" font-size="10" font-weight="400" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">cardlearn-sdgs.vercel.app/pages/login.html</text>
+<rect x="0" y="36" width="520" height="764" rx="0" fill="#eef0f3"/>
+<text x="56" y="150" fill="#2d3142" font-size="30" font-weight="600" font-family="'Instrument Serif','Noto Serif','Noto Serif TC',serif" text-anchor="start">CardLearn SDGs</text>
+<text x="56" y="186" fill="#4f5d75" font-size="15" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">用英文完成一場 SDGs 演講任務</text>
+<text x="56" y="250" fill="#4f5d75" font-size="13" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">—  9 個 SDG 任務 · A2 / B1 / B2 三種難度</text>
+<text x="56" y="280" fill="#4f5d75" font-size="13" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">—  每場 30 分鐘：讀、聽、決策、上台</text>
+<text x="56" y="310" fill="#4f5d75" font-size="13" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">—  手機、平板、電腦都能玩</text>
+<rect x="56" y="380" width="408" height="220" rx="6" fill="#f4f5f7" stroke="#c9ccd4" stroke-width="1" stroke-dasharray="4,3"/>
+<text x="260" y="494" fill="#7a8399" font-size="11" font-weight="400" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="middle">插圖：任務地圖預覽</text>
+<rect x="632" y="150" width="480" height="460" rx="10" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="664" y="200" fill="#2d3142" font-size="20" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">登入</text>
+<text x="664" y="240" fill="#4f5d75" font-size="11" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">Email</text>
+<rect x="664" y="250" width="416" height="44" rx="6" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="680" y="278" fill="#7a8399" font-size="13" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">student@example.edu.tw</text>
+<text x="664" y="322" fill="#4f5d75" font-size="11" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">密碼</text>
+<rect x="664" y="332" width="416" height="44" rx="6" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="680" y="360" fill="#7a8399" font-size="13" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">••••••••</text>
+<text x="664" y="404" fill="#4f5d75" font-size="11" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">班級代碼（老師給的，可略過）</text>
+<rect x="664" y="414" width="416" height="44" rx="6" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="680" y="442" fill="#7a8399" font-size="13" font-weight="400" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">C2026A</text>
+<rect x="664" y="486" width="416" height="48" rx="6" fill="#eb6c36" stroke="#eb6c36" stroke-width="1"/>
+<text x="872" y="515" fill="#ffffff" font-size="14" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">登入並進入任務地圖</text>
+<text x="872" y="566" fill="#4f5d75" font-size="12" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">還沒有帳號？註冊（需 Email 驗證）</text>
+<circle cx="1096" cy="436" r="10" fill="#eb6c36"/>
+<text x="1096" y="440" fill="#ffffff" font-size="11" font-weight="600" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="middle">1</text>
+<circle cx="1096" cy="510" r="10" fill="#eb6c36"/>
+<text x="1096" y="514" fill="#ffffff" font-size="11" font-weight="600" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="middle">2</text></svg></div>
+  <div class="meta">
+    <div><h3>標註說明</h3><ol><li>班級代碼只綁班級，不影響個人資料；沒有代碼也能玩，之後可在設定補填。</li><li>登入後一律直達 Mission Map，不再有中間頁。</li></ol></div>
+    <div><h3>狀態與邊界</h3><ul><li>錯誤：密碼錯誤時錯誤訊息貼在欄位下方，不跳彈窗。</li><li>已登入：自動導向，不顯示此頁。</li><li>手機／平板：單欄；左側說明收成標題 + 一行；表單滿版，按鈕固定在底部安全區上方。</li></ul></div>
+  </div>
+</section>
+<section id="s02">
+  <h2>S2 Mission Map（含任務簡報抽屜）<span class="tag">student</span></h2>
+  <p class="job">消除選擇焦慮：一眼看到推薦的下一關與 9 個任務的進度。</p>
+  <div class="fig"><svg viewBox="0 0 1280 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="s02-t s02-d"><title id="s02-t">S2 Mission Map（含任務簡報抽屜）</title><desc id="s02-d">消除選擇焦慮：一眼看到推薦的下一關與 9 個任務的進度。</desc><rect width="1280" height="800" fill="#f5f5f5"/><rect x="0" y="0" width="1280" height="800" rx="0" fill="#f5f5f5"/>
+<rect x="0" y="0" width="1280" height="36" rx="0" fill="#e7e9ec"/>
+<circle cx="20" cy="18" r="5" fill="#d9dde2"/>
+<circle cx="38" cy="18" r="5" fill="#d9dde2"/>
+<circle cx="56" cy="18" r="5" fill="#d9dde2"/>
+<rect x="78" y="8" width="1170" height="20" rx="10" fill="#ffffff"/>
+<text x="90" y="22" fill="#7a8399" font-size="10" font-weight="400" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">cardlearn-sdgs.vercel.app/pages/mission_map.html</text>
+<rect x="0" y="36" width="1280" height="56" rx="0" fill="#ffffff"/>
+<line x1="0" y1="92" x2="1280" y2="92" stroke="#c9ccd4" stroke-width="1"/>
+<text x="24" y="70" fill="#2d3142" font-size="16" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">任務地圖</text>
+<rect x="1180" y="50" width="76" height="30" rx="6" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="1218" y="70" fill="#2d3142" font-size="13" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">我的成就</text>
+<rect x="1055.2" y="50" width="116.8" height="30" rx="6" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="1113.6" y="70" fill="#2d3142" font-size="13" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">待複習 12 個字</text>
+<text x="24" y="128" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">已解鎖 3 / 9 個任務</text>
+<rect x="24" y="140" width="500" height="8" rx="4" fill="#eceef1"/>
+<rect x="24" y="140" width="166" height="8" rx="4" fill="#eb6c36"/>
+<text x="24" y="182" fill="#7a8399" font-size="11" font-weight="500" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">推薦下一關</text>
+<text x="24" y="212" fill="#4f5d75" font-size="12" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">SDG 4 · 教育</text>
+<rect x="190" y="188" width="190" height="76" rx="8" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="204" y="210" fill="#2d3142" font-size="13" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">4-1 </text>
+<text x="204" y="228" fill="#7a8399" font-size="11" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">Quality Education</text>
+<text x="204" y="250" fill="#2f7d63" font-size="12" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">★★★</text>
+<text x="356" y="250" fill="#7a8399" font-size="9" font-weight="500" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="end">A2 B1 B2</text>
+<rect x="396" y="188" width="190" height="76" rx="8" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="410" y="210" fill="#2d3142" font-size="13" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">4-2 </text>
+<text x="410" y="228" fill="#7a8399" font-size="11" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">Digital Equity</text>
+<text x="410" y="250" fill="#7a8399" font-size="12" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">☆☆☆</text>
+<text x="562" y="250" fill="#7a8399" font-size="9" font-weight="500" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="end">A2 B1 B2</text>
+<text x="24" y="312" fill="#4f5d75" font-size="12" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">SDG 5 · 性別平權</text>
+<rect x="190" y="288" width="190" height="76" rx="8" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="204" y="310" fill="#2d3142" font-size="13" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">5-1 </text>
+<text x="204" y="328" fill="#7a8399" font-size="11" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">A Fair World</text>
+<text x="204" y="350" fill="#7a8399" font-size="12" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">☆☆☆</text>
+<text x="356" y="350" fill="#7a8399" font-size="9" font-weight="500" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="end">A2 B1 B2</text>
+<rect x="396" y="288" width="190" height="76" rx="8" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="410" y="310" fill="#2d3142" font-size="13" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">5-2 </text>
+<text x="410" y="328" fill="#7a8399" font-size="11" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">Sports &amp; Media</text>
+<text x="410" y="350" fill="#7a8399" font-size="12" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">☆☆☆</text>
+<text x="562" y="350" fill="#7a8399" font-size="9" font-weight="500" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="end">A2 B1 B2</text>
+<text x="24" y="412" fill="#4f5d75" font-size="12" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">SDG 13 · 氣候</text>
+<rect x="190" y="388" width="190" height="76" rx="8" fill="#fdeee7" stroke="#eb6c36" stroke-width="1.4"/>
+<text x="204" y="410" fill="#eb6c36" font-size="13" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">13-1</text>
+<text x="204" y="428" fill="#7a8399" font-size="11" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">Net Zero</text>
+<text x="204" y="450" fill="#7a8399" font-size="12" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">★☆☆</text>
+<text x="356" y="450" fill="#7a8399" font-size="9" font-weight="500" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="end">A2 B1 B2</text>
+<rect x="396" y="388" width="190" height="76" rx="8" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="410" y="410" fill="#2d3142" font-size="13" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">13-2</text>
+<text x="410" y="428" fill="#7a8399" font-size="11" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">Climate Resilience</text>
+<text x="410" y="450" fill="#7a8399" font-size="12" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">☆☆☆</text>
+<text x="562" y="450" fill="#7a8399" font-size="9" font-weight="500" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="end">A2 B1 B2</text>
+<text x="24" y="512" fill="#4f5d75" font-size="12" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">SDG 9 · AI 素養</text>
+<rect x="190" y="488" width="190" height="76" rx="8" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="204" y="510" fill="#2d3142" font-size="13" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">9-1 </text>
+<text x="204" y="528" fill="#7a8399" font-size="11" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">Trust AI</text>
+<text x="204" y="550" fill="#7a8399" font-size="12" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">☆☆☆</text>
+<text x="356" y="550" fill="#7a8399" font-size="9" font-weight="500" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="end">A2 B1 B2</text>
+<rect x="396" y="488" width="190" height="76" rx="8" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="410" y="510" fill="#2d3142" font-size="13" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">9-2 </text>
+<text x="410" y="528" fill="#7a8399" font-size="11" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">Better Prompts</text>
+<text x="410" y="550" fill="#7a8399" font-size="12" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">☆☆☆</text>
+<text x="562" y="550" fill="#7a8399" font-size="9" font-weight="500" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="end">A2 B1 B2</text>
+<rect x="602" y="488" width="190" height="76" rx="8" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="616" y="510" fill="#2d3142" font-size="13" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">9-3 </text>
+<text x="616" y="528" fill="#7a8399" font-size="11" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">Human Edge</text>
+<text x="616" y="550" fill="#7a8399" font-size="12" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">☆☆☆</text>
+<text x="768" y="550" fill="#7a8399" font-size="9" font-weight="500" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="end">A2 B1 B2</text>
+<rect x="852" y="110" width="404" height="660" rx="10" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="880" y="150" fill="#2d3142" font-size="17" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">SDG 13-1 · Net Zero</text>
+<text x="880" y="172" fill="#eb6c36" font-size="12" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">你的角色：城市能源規劃師</text>
+<text x="880" y="202" fill="#4f5d75" font-size="12" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">台灣要在 2050 年達成淨零。你要在有限預算下，</text>
+<text x="880" y="222" fill="#4f5d75" font-size="12" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">決定先投資哪些能源方案，並在最後用英文</text>
+<text x="880" y="242" fill="#4f5d75" font-size="12" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">向市民說明你的理由。</text>
+<line x1="880" y1="276" x2="1228" y2="276" stroke="#c9ccd4" stroke-width="1"/>
+<text x="880" y="302" fill="#4f5d75" font-size="11" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">選擇難度</text>
+<rect x="880" y="314" width="108" height="58" rx="8" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="934" y="340" fill="#2d3142" font-size="15" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">A2</text>
+<text x="934" y="358" fill="#7a8399" font-size="10" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">句子短、提示多</text>
+<rect x="996" y="314" width="108" height="58" rx="8" fill="#fdeee7" stroke="#eb6c36" stroke-width="1"/>
+<text x="1050" y="340" fill="#eb6c36" font-size="15" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">B1</text>
+<text x="1050" y="358" fill="#7a8399" font-size="10" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">標準</text>
+<rect x="1112" y="314" width="108" height="58" rx="8" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="1166" y="340" fill="#2d3142" font-size="15" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">B2</text>
+<text x="1166" y="358" fill="#7a8399" font-size="10" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">有干擾選項</text>
+<text x="880" y="410" fill="#4f5d75" font-size="11" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">這一關包含</text>
+<text x="880" y="436" fill="#4f5d75" font-size="12" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">·  6 個 Stage · 20 張 slide</text>
+<text x="880" y="460" fill="#4f5d75" font-size="12" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">·  36 個目標單字</text>
+<text x="880" y="484" fill="#4f5d75" font-size="12" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">·  1 次能源投資決策</text>
+<text x="880" y="508" fill="#4f5d75" font-size="12" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">·  約 30 分鐘</text>
+<rect x="880" y="546" width="348" height="58" rx="8" fill="#f4f5f7" stroke="#c9ccd4" stroke-width="1" stroke-dasharray="4,3"/>
+<text x="896" y="570" fill="#4f5d75" font-size="12" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">上次進度：Stage 2 未完成</text>
+<text x="896" y="590" fill="#7a8399" font-size="11" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">可以接續，或重新開始</text>
+<rect x="880" y="626" width="348" height="52" rx="6" fill="#eb6c36" stroke="#eb6c36" stroke-width="1"/>
+<text x="1054" y="657" fill="#ffffff" font-size="14" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">接續任務 · Stage 2</text>
+<rect x="880" y="690" width="348" height="40" rx="6" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="1054" y="715" fill="#2d3142" font-size="13" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">從頭開始</text>
+<circle cx="372" cy="396" r="10" fill="#eb6c36"/>
+<text x="372" y="400" fill="#ffffff" font-size="11" font-weight="600" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="middle">1</text>
+<circle cx="1236" cy="130" r="10" fill="#eb6c36"/>
+<text x="1236" y="134" fill="#ffffff" font-size="11" font-weight="600" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="middle">2</text></svg></div>
+  <div class="meta">
+    <div><h3>標註說明</h3><ol><li>推薦關卡用底色與外框標示，永遠只有一個；其餘任務維持中性樣式。</li><li>Gemini 建議：任務簡報不另開頁，點卡片就從右側滑出抽屜（含難度選擇與開始鈕）。</li></ol></div>
+    <div><h3>狀態與邊界</h3><ul><li>未解鎖任務：卡片灰階 + 鎖頭，點擊顯示解鎖條件。</li><li>全部完成：頂部進度條換成「挑戰更高難度」提示。</li><li>手機／平板：抽屜改為由下往上的 Bottom Sheet；任務卡改單欄列表，分組標題吸頂。</li></ul></div>
+  </div>
+</section>
+<section id="s03">
+  <h2>S3 分級前測<span class="tag">student</span></h2>
+  <p class="job">15 分鐘內給出建議難度，同時留下研究用的基準線。</p>
+  <div class="fig"><svg viewBox="0 0 1280 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="s03-t s03-d"><title id="s03-t">S3 分級前測</title><desc id="s03-d">15 分鐘內給出建議難度，同時留下研究用的基準線。</desc><rect width="1280" height="800" fill="#f5f5f5"/><rect x="0" y="0" width="1280" height="800" rx="0" fill="#f5f5f5"/>
+<rect x="0" y="0" width="1280" height="36" rx="0" fill="#e7e9ec"/>
+<circle cx="20" cy="18" r="5" fill="#d9dde2"/>
+<circle cx="38" cy="18" r="5" fill="#d9dde2"/>
+<circle cx="56" cy="18" r="5" fill="#d9dde2"/>
+<rect x="78" y="8" width="1170" height="20" rx="10" fill="#ffffff"/>
+<text x="90" y="22" fill="#7a8399" font-size="10" font-weight="400" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">cardlearn-sdgs.vercel.app/pages/placement.html</text>
+<rect x="0" y="36" width="1280" height="56" rx="0" fill="#ffffff"/>
+<line x1="0" y1="92" x2="1280" y2="92" stroke="#c9ccd4" stroke-width="1"/>
+<text x="24" y="70" fill="#2d3142" font-size="16" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">分級前測</text>
+<rect x="1180" y="50" width="76" height="30" rx="6" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="1218" y="70" fill="#2d3142" font-size="13" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">稍後再測</text>
+<text x="24" y="128" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">第 8 題 / 共 30 題</text>
+<rect x="24" y="140" width="1232" height="6" rx="3" fill="#eceef1"/>
+<rect x="24" y="140" width="328" height="6" rx="3" fill="#eb6c36"/>
+<text x="24" y="170" fill="#7a8399" font-size="12" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">沒有時間限制，不確定就按「跳過」。</text>
+<rect x="240" y="200" width="800" height="420" rx="10" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="272" y="244" fill="#7a8399" font-size="10" font-weight="500" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start" letter-spacing="0.14em">READING · 細節</text>
+<text x="272" y="286" fill="#2d3142" font-size="18" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">In 1990, there were 300,000 births in Taiwan,</text>
+<text x="272" y="316" fill="#2d3142" font-size="18" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">but recently it dropped to under 140,000.</text>
+<text x="272" y="356" fill="#2d3142" font-size="15" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">How many births were there recently?</text>
+<rect x="272" y="386" width="736" height="44" rx="8" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="292" y="414" fill="#7a8399" font-size="12" font-weight="600" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">A</text>
+<text x="320" y="414" fill="#2d3142" font-size="14" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">300,000</text>
+<rect x="272" y="438" width="736" height="44" rx="8" fill="#fdeee7" stroke="#eb6c36" stroke-width="1"/>
+<text x="292" y="466" fill="#eb6c36" font-size="12" font-weight="600" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">B</text>
+<text x="320" y="466" fill="#2d3142" font-size="14" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">under 140,000</text>
+<rect x="272" y="490" width="736" height="44" rx="8" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="292" y="518" fill="#7a8399" font-size="12" font-weight="600" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">C</text>
+<text x="320" y="518" fill="#2d3142" font-size="14" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">30%</text>
+<rect x="272" y="542" width="736" height="44" rx="8" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="292" y="570" fill="#7a8399" font-size="12" font-weight="600" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">D</text>
+<text x="320" y="570" fill="#2d3142" font-size="14" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">1990</text>
+<rect x="240" y="650" width="380" height="52" rx="6" fill="#eb6c36" stroke="#eb6c36" stroke-width="1"/>
+<text x="430" y="681" fill="#ffffff" font-size="14" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">下一題</text>
+<rect x="660" y="650" width="380" height="52" rx="6" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="850" y="681" fill="#2d3142" font-size="13" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">跳過這題</text>
+<circle cx="1020" cy="222" r="10" fill="#eb6c36"/>
+<text x="1020" y="226" fill="#ffffff" font-size="11" font-weight="600" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="middle">1</text></svg></div>
+  <div class="meta">
+    <div><h3>標註說明</h3><ol><li>前測題不會出現在遊戲裡（錨題），避免練習效果污染成效比較。</li></ol></div>
+    <div><h3>狀態與邊界</h3><ul><li>結束頁：顯示建議難度與各技能雷達，學生可自行改級別。</li><li>中途離開：進度保留，下次接續。</li><li>手機／平板：題幹與選項同為單欄；下一題按鈕固定底部。</li></ul></div>
+  </div>
+</section>
+<section id="s04">
+  <h2>S4 Stage 情境卡（Overlay）<span class="tag">student</span></h2>
+  <p class="job">10 秒內建立角色身分與這個 Stage 的任務目標。</p>
+  <div class="fig"><svg viewBox="0 0 1280 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="s04-t s04-d"><title id="s04-t">S4 Stage 情境卡（Overlay）</title><desc id="s04-d">10 秒內建立角色身分與這個 Stage 的任務目標。</desc><rect width="1280" height="800" fill="#f5f5f5"/><rect x="0" y="0" width="1280" height="800" rx="0" fill="#f5f5f5"/>
+<rect x="0" y="0" width="1280" height="36" rx="0" fill="#e7e9ec"/>
+<circle cx="20" cy="18" r="5" fill="#d9dde2"/>
+<circle cx="38" cy="18" r="5" fill="#d9dde2"/>
+<circle cx="56" cy="18" r="5" fill="#d9dde2"/>
+<rect x="78" y="8" width="1170" height="20" rx="10" fill="#ffffff"/>
+<text x="90" y="22" fill="#7a8399" font-size="10" font-weight="400" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">cardlearn-sdgs.vercel.app/pages/mission.html</text>
+<rect x="0" y="36" width="1280" height="56" rx="0" fill="#ffffff"/>
+<line x1="0" y1="92" x2="1280" y2="92" stroke="#c9ccd4" stroke-width="1"/>
+<rect x="16" y="50" width="84" height="28" rx="6" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="58" y="69" fill="#2d3142" font-size="13" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">暫停 / 離開</text>
+<text x="112" y="62" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">SDG 13-1 · Taiwan&#x27;s Path to Net Zero</text>
+<text x="112" y="80" fill="#7a8399" font-size="10" font-weight="500" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">Stage 3/6 · Problem</text>
+<rect x="300" y="72" width="12" height="6" rx="3" fill="#2d3142"/>
+<rect x="318" y="72" width="12" height="6" rx="3" fill="#2d3142"/>
+<rect x="336" y="72" width="12" height="6" rx="3" fill="#eb6c36"/>
+<rect x="354" y="72" width="12" height="6" rx="3" fill="#eceef1"/>
+<rect x="372" y="72" width="12" height="6" rx="3" fill="#eceef1"/>
+<rect x="390" y="72" width="12" height="6" rx="3" fill="#eceef1"/>
+<text x="452" y="58" fill="#7a8399" font-size="9" font-weight="500" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start" letter-spacing="0.12em">ENERGY</text>
+<text x="452" y="78" fill="#2d3142" font-size="16" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">⚡ 7</text>
+<text x="528" y="58" fill="#7a8399" font-size="9" font-weight="500" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start" letter-spacing="0.12em">EVIDENCE</text>
+<text x="528" y="78" fill="#2d3142" font-size="16" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">📄 2</text>
+<text x="628" y="58" fill="#4f5d75" font-size="10" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">排放</text>
+<rect x="628" y="64" width="104" height="8" rx="4" fill="#eceef1"/>
+<rect x="628" y="64" width="41.6" height="8" rx="4" fill="#eb6c36"/>
+<text x="738" y="72" fill="#7a8399" font-size="10" font-weight="600" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">4</text>
+<text x="760" y="58" fill="#4f5d75" font-size="10" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">能源安全</text>
+<rect x="760" y="64" width="104" height="8" rx="4" fill="#eceef1"/>
+<rect x="760" y="64" width="62.4" height="8" rx="4" fill="#2d3142"/>
+<text x="870" y="72" fill="#7a8399" font-size="10" font-weight="600" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">6</text>
+<text x="892" y="58" fill="#4f5d75" font-size="10" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">經濟</text>
+<rect x="892" y="64" width="104" height="8" rx="4" fill="#eceef1"/>
+<rect x="892" y="64" width="52" height="8" rx="4" fill="#2d3142"/>
+<text x="1002" y="72" fill="#7a8399" font-size="10" font-weight="600" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">5</text>
+<rect x="1070" y="50" width="88" height="28" rx="6" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="1114" y="69" fill="#2d3142" font-size="13" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">字彙表</text>
+<rect x="1166" y="50" width="98" height="28" rx="6" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="1215" y="69" fill="#2d3142" font-size="13" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">🔊 語音 開</text>
+<rect x="0" y="92" width="1280" height="708" rx="0" fill="#f0f1f3"/>
+<rect x="120" y="140" width="1040" height="560" rx="6" fill="#f4f5f7" stroke="#c9ccd4" stroke-width="1" stroke-dasharray="4,3"/>
+<text x="640" y="424" fill="#7a8399" font-size="11" font-weight="400" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="middle">下層：卡牌工作台（暫時變暗）</text>
+<rect x="0" y="92" width="1280" height="708" rx="0" fill="#2d3142" opacity="0.62"/>
+<rect x="300" y="200" width="680" height="400" rx="12" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="332" y="246" fill="#7a8399" font-size="10" font-weight="500" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start" letter-spacing="0.14em">STAGE 3 / 6 · ACHIEVEMENTS</text>
+<rect x="332" y="262" width="152" height="26" rx="13.0" fill="#fdeee7"/>
+<text x="408" y="279" fill="#eb6c36" font-size="11" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">你的角色：城市能源規劃師</text>
+<text x="332" y="340" fill="#2d3142" font-size="21" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">Taiwan already cut coal use and grew solar power.</text>
+<text x="332" y="374" fill="#2d3142" font-size="21" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">Find the evidence you can quote in your talk.</text>
+<text x="332" y="452" fill="#4f5d75" font-size="13" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">找出可以引用的三項成果，並收集數據卡。</text>
+<rect x="332" y="500" width="400" height="52" rx="6" fill="#eb6c36" stroke="#eb6c36" stroke-width="1"/>
+<text x="532" y="531" fill="#ffffff" font-size="14" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">開始這個 Stage（空白鍵）</text>
+<rect x="748" y="500" width="200" height="52" rx="6" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="848" y="531" fill="#2d3142" font-size="13" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">中 / EN 對照</text>
+<circle cx="960" cy="216" r="10" fill="#eb6c36"/>
+<text x="960" y="220" fill="#ffffff" font-size="11" font-weight="600" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="middle">1</text>
+<circle cx="332" cy="580" r="10" fill="#eb6c36"/>
+<text x="332" y="584" fill="#ffffff" font-size="11" font-weight="600" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="middle">2</text></svg></div>
+  <div class="meta">
+    <div><h3>標註說明</h3><ol><li>Gemini 建議：情境不另開頁，改成半透明 Overlay，關掉就直接開始，避免多一次換頁。</li><li>永遠可以切中文；A2 預設同時顯示中文一行。</li></ol></div>
+    <div><h3>狀態與邊界</h3><ul><li>第二次進入同一 Stage：Overlay 縮成一行提示，不再全屏。</li><li>手機／平板：Overlay 改為滿版卡片，按鈕置底。</li></ul></div>
+  </div>
+</section>
+<section id="s05">
+  <h2>S5 單字暖身（3 題）<span class="tag">student</span></h2>
+  <p class="job">先掃除本 Stage 的生詞，用答對換 Energy 建立資源感。</p>
+  <div class="fig"><svg viewBox="0 0 1280 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="s05-t s05-d"><title id="s05-t">S5 單字暖身（3 題）</title><desc id="s05-d">先掃除本 Stage 的生詞，用答對換 Energy 建立資源感。</desc><rect width="1280" height="800" fill="#f5f5f5"/><rect x="0" y="0" width="1280" height="800" rx="0" fill="#f5f5f5"/>
+<rect x="0" y="0" width="1280" height="36" rx="0" fill="#e7e9ec"/>
+<circle cx="20" cy="18" r="5" fill="#d9dde2"/>
+<circle cx="38" cy="18" r="5" fill="#d9dde2"/>
+<circle cx="56" cy="18" r="5" fill="#d9dde2"/>
+<rect x="78" y="8" width="1170" height="20" rx="10" fill="#ffffff"/>
+<text x="90" y="22" fill="#7a8399" font-size="10" font-weight="400" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">cardlearn-sdgs.vercel.app/pages/mission.html</text>
+<rect x="0" y="36" width="1280" height="56" rx="0" fill="#ffffff"/>
+<line x1="0" y1="92" x2="1280" y2="92" stroke="#c9ccd4" stroke-width="1"/>
+<rect x="16" y="50" width="84" height="28" rx="6" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="58" y="69" fill="#2d3142" font-size="13" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">暫停 / 離開</text>
+<text x="112" y="62" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">SDG 13-1 · Taiwan&#x27;s Path to Net Zero</text>
+<text x="112" y="80" fill="#7a8399" font-size="10" font-weight="500" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">Stage 3/6 · Problem</text>
+<rect x="300" y="72" width="12" height="6" rx="3" fill="#2d3142"/>
+<rect x="318" y="72" width="12" height="6" rx="3" fill="#2d3142"/>
+<rect x="336" y="72" width="12" height="6" rx="3" fill="#eb6c36"/>
+<rect x="354" y="72" width="12" height="6" rx="3" fill="#eceef1"/>
+<rect x="372" y="72" width="12" height="6" rx="3" fill="#eceef1"/>
+<rect x="390" y="72" width="12" height="6" rx="3" fill="#eceef1"/>
+<text x="452" y="58" fill="#7a8399" font-size="9" font-weight="500" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start" letter-spacing="0.12em">ENERGY</text>
+<text x="452" y="78" fill="#2d3142" font-size="16" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">⚡ 8</text>
+<text x="528" y="58" fill="#7a8399" font-size="9" font-weight="500" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start" letter-spacing="0.12em">EVIDENCE</text>
+<text x="528" y="78" fill="#2d3142" font-size="16" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">📄 2</text>
+<text x="628" y="58" fill="#4f5d75" font-size="10" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">排放</text>
+<rect x="628" y="64" width="104" height="8" rx="4" fill="#eceef1"/>
+<rect x="628" y="64" width="41.6" height="8" rx="4" fill="#eb6c36"/>
+<text x="738" y="72" fill="#7a8399" font-size="10" font-weight="600" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">4</text>
+<text x="760" y="58" fill="#4f5d75" font-size="10" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">能源安全</text>
+<rect x="760" y="64" width="104" height="8" rx="4" fill="#eceef1"/>
+<rect x="760" y="64" width="62.4" height="8" rx="4" fill="#2d3142"/>
+<text x="870" y="72" fill="#7a8399" font-size="10" font-weight="600" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">6</text>
+<text x="892" y="58" fill="#4f5d75" font-size="10" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">經濟</text>
+<rect x="892" y="64" width="104" height="8" rx="4" fill="#eceef1"/>
+<rect x="892" y="64" width="52" height="8" rx="4" fill="#2d3142"/>
+<text x="1002" y="72" fill="#7a8399" font-size="10" font-weight="600" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">5</text>
+<rect x="1070" y="50" width="88" height="28" rx="6" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="1114" y="69" fill="#2d3142" font-size="13" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">字彙表</text>
+<rect x="1166" y="50" width="98" height="28" rx="6" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="1215" y="69" fill="#2d3142" font-size="13" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">🔊 語音 開</text>
+<text x="24" y="126" fill="#2d3142" font-size="15" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">單字暖身</text>
+<text x="110" y="126" fill="#7a8399" font-size="11" font-weight="500" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">第 2 題 / 3</text>
+<rect x="24" y="138" width="22" height="6" rx="3" fill="#eb6c36"/>
+<rect x="54" y="138" width="22" height="6" rx="3" fill="#eb6c36"/>
+<rect x="84" y="138" width="22" height="6" rx="3" fill="#eceef1"/>
+<rect x="160" y="176" width="420" height="420" rx="10" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="192" y="244" fill="#2d3142" font-size="34" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">efficient</text>
+<text x="192" y="274" fill="#7a8399" font-size="12" font-weight="400" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">/ɪˈfɪʃ(ə)nt/ · adj. · B1</text>
+<rect x="192" y="300" width="200" height="56" rx="8" fill="#fdeee7" stroke="#eb6c36" stroke-width="1"/>
+<text x="292" y="334" fill="#eb6c36" font-size="15" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">🔊 聽發音</text>
+<text x="192" y="396" fill="#4f5d75" font-size="11" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">中文</text>
+<text x="192" y="420" fill="#2d3142" font-size="16" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">有效率的</text>
+<text x="192" y="460" fill="#4f5d75" font-size="11" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">常見搭配</text>
+<text x="192" y="484" fill="#4f5d75" font-size="13" font-weight="400" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">energy efficient · efficient system</text>
+<rect x="620" y="176" width="500" height="420" rx="10" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="652" y="216" fill="#2d3142" font-size="13" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">把字放回講稿原句</text>
+<text x="652" y="262" fill="#2d3142" font-size="17" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">This STEM solution reduces waste and makes</text>
+<text x="652" y="290" fill="#2d3142" font-size="17" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">our energy system much more ______ .</text>
+<rect x="652" y="344" width="436" height="50" rx="8" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="672" y="375" fill="#7a8399" font-size="12" font-weight="600" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">A</text>
+<text x="700" y="375" fill="#2d3142" font-size="15" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">efficient</text>
+<rect x="652" y="406" width="436" height="50" rx="8" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="672" y="437" fill="#7a8399" font-size="12" font-weight="600" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">B</text>
+<text x="700" y="437" fill="#2d3142" font-size="15" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">expensive</text>
+<rect x="652" y="468" width="436" height="50" rx="8" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="672" y="499" fill="#7a8399" font-size="12" font-weight="600" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">C</text>
+<text x="700" y="499" fill="#2d3142" font-size="15" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">electric</text>
+<text x="652" y="556" fill="#7a8399" font-size="11" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">答錯不扣分，會自動加入複習清單。</text>
+<rect x="1000" y="110" width="232" height="44" rx="8" fill="#eef5f2" stroke="#2f7d63" stroke-width="1"/>
+<text x="1016" y="138" fill="#2f7d63" font-size="14" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">✓  +1 Energy</text>
+<circle cx="1220" cy="132" r="10" fill="#eb6c36"/>
+<text x="1220" y="136" fill="#ffffff" font-size="11" font-weight="600" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="middle">1</text>
+<circle cx="392" cy="328" r="10" fill="#eb6c36"/>
+<text x="392" y="332" fill="#ffffff" font-size="11" font-weight="600" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="middle">2</text></svg></div>
+  <div class="meta">
+    <div><h3>標註說明</h3><ol><li>答對：綠框 + 卡片微彈 + 「+1 Energy」飛向頂部 HUD（吵雜教室以視覺為主，音效可關）。</li><li>TTS 按鈕做大；語速可切 0.8x / 1.0x。沒有英文語音的裝置改播預先產生的音檔。</li></ol></div>
+    <div><h3>狀態與邊界</h3><ul><li>答錯：琥珀色外框 + 橫向微震 + 「已加入複習 📋」，不扣分、不擋前進。</li><li>全部答完：自動滑入卡牌工作台。</li><li>手機／平板：上下堆疊：單字卡在上、填空與選項在下；選項高度 48px。</li></ul></div>
+  </div>
+</section>
+<section id="s06">
+  <h2>S6 卡牌工作台（核心畫面）<span class="tag">student</span></h2>
+  <p class="job">聽讀句子卡並指派到對應的 slide 標題，順手收集數據卡。</p>
+  <div class="fig"><svg viewBox="0 0 1280 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="s06-t s06-d"><title id="s06-t">S6 卡牌工作台（核心畫面）</title><desc id="s06-d">聽讀句子卡並指派到對應的 slide 標題，順手收集數據卡。</desc><rect width="1280" height="800" fill="#f5f5f5"/><rect x="0" y="0" width="1280" height="800" rx="0" fill="#f5f5f5"/>
+<rect x="0" y="0" width="1280" height="36" rx="0" fill="#e7e9ec"/>
+<circle cx="20" cy="18" r="5" fill="#d9dde2"/>
+<circle cx="38" cy="18" r="5" fill="#d9dde2"/>
+<circle cx="56" cy="18" r="5" fill="#d9dde2"/>
+<rect x="78" y="8" width="1170" height="20" rx="10" fill="#ffffff"/>
+<text x="90" y="22" fill="#7a8399" font-size="10" font-weight="400" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">cardlearn-sdgs.vercel.app/pages/mission.html</text>
+<rect x="0" y="36" width="1280" height="56" rx="0" fill="#ffffff"/>
+<line x1="0" y1="92" x2="1280" y2="92" stroke="#c9ccd4" stroke-width="1"/>
+<rect x="16" y="50" width="84" height="28" rx="6" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="58" y="69" fill="#2d3142" font-size="13" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">暫停 / 離開</text>
+<text x="112" y="62" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">SDG 13-1 · Taiwan&#x27;s Path to Net Zero</text>
+<text x="112" y="80" fill="#7a8399" font-size="10" font-weight="500" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">Stage 3/6 · Problem</text>
+<rect x="300" y="72" width="12" height="6" rx="3" fill="#2d3142"/>
+<rect x="318" y="72" width="12" height="6" rx="3" fill="#2d3142"/>
+<rect x="336" y="72" width="12" height="6" rx="3" fill="#eb6c36"/>
+<rect x="354" y="72" width="12" height="6" rx="3" fill="#eceef1"/>
+<rect x="372" y="72" width="12" height="6" rx="3" fill="#eceef1"/>
+<rect x="390" y="72" width="12" height="6" rx="3" fill="#eceef1"/>
+<text x="452" y="58" fill="#7a8399" font-size="9" font-weight="500" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start" letter-spacing="0.12em">ENERGY</text>
+<text x="452" y="78" fill="#2d3142" font-size="16" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">⚡ 8</text>
+<text x="528" y="58" fill="#7a8399" font-size="9" font-weight="500" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start" letter-spacing="0.12em">EVIDENCE</text>
+<text x="528" y="78" fill="#2d3142" font-size="16" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">📄 2</text>
+<text x="628" y="58" fill="#4f5d75" font-size="10" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">排放</text>
+<rect x="628" y="64" width="104" height="8" rx="4" fill="#eceef1"/>
+<rect x="628" y="64" width="41.6" height="8" rx="4" fill="#eb6c36"/>
+<text x="738" y="72" fill="#7a8399" font-size="10" font-weight="600" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">4</text>
+<text x="760" y="58" fill="#4f5d75" font-size="10" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">能源安全</text>
+<rect x="760" y="64" width="104" height="8" rx="4" fill="#eceef1"/>
+<rect x="760" y="64" width="62.4" height="8" rx="4" fill="#2d3142"/>
+<text x="870" y="72" fill="#7a8399" font-size="10" font-weight="600" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">6</text>
+<text x="892" y="58" fill="#4f5d75" font-size="10" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">經濟</text>
+<rect x="892" y="64" width="104" height="8" rx="4" fill="#eceef1"/>
+<rect x="892" y="64" width="52" height="8" rx="4" fill="#2d3142"/>
+<text x="1002" y="72" fill="#7a8399" font-size="10" font-weight="600" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">5</text>
+<rect x="1070" y="50" width="88" height="28" rx="6" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="1114" y="69" fill="#2d3142" font-size="13" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">字彙表</text>
+<rect x="1166" y="50" width="98" height="28" rx="6" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="1215" y="69" fill="#2d3142" font-size="13" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">🔊 語音 開</text>
+<text x="24" y="126" fill="#2d3142" font-size="15" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">把句子放進正確的投影片</text>
+<text x="1256" y="126" fill="#7a8399" font-size="11" font-weight="500" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="end">Card 3 of 8</text>
+<rect x="24" y="148" width="286" height="290" rx="10" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="40" y="176" fill="#7a8399" font-size="10" font-weight="500" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start" letter-spacing="0.12em">Slide 7</text>
+<text x="40" y="200" fill="#2d3142" font-size="14" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">Government Action</text>
+<text x="294" y="176" fill="#7a8399" font-size="10" font-weight="600" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="end">1/2</text>
+<rect x="40" y="220" width="254" height="44" rx="6" fill="#eef5f2" stroke="#2f7d63" stroke-width="1"/>
+<text x="52" y="248" fill="#4f5d75" font-size="11" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">✓ Taiwan set a 2050 net-zero goal…</text>
+<rect x="330" y="148" width="286" height="290" rx="10" fill="#fdeee7" stroke="#eb6c36" stroke-width="1.4" stroke-dasharray="5,4"/>
+<text x="346" y="176" fill="#7a8399" font-size="10" font-weight="500" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start" letter-spacing="0.12em">Slide 8</text>
+<text x="346" y="200" fill="#2d3142" font-size="14" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">Renewable Energy Growth</text>
+<text x="600" y="176" fill="#eb6c36" font-size="10" font-weight="600" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="end">0/2</text>
+<text x="473" y="330" fill="#eb6c36" font-size="13" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">放這裡（按 2）</text>
+<rect x="636" y="148" width="286" height="290" rx="10" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="652" y="176" fill="#7a8399" font-size="10" font-weight="500" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start" letter-spacing="0.12em">Slide 9</text>
+<text x="652" y="200" fill="#2d3142" font-size="14" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">Public Awareness</text>
+<text x="906" y="176" fill="#7a8399" font-size="10" font-weight="600" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="end">1/1</text>
+<rect x="652" y="220" width="254" height="44" rx="6" fill="#eef5f2" stroke="#2f7d63" stroke-width="1"/>
+<text x="664" y="248" fill="#4f5d75" font-size="11" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">✓ Taiwan set a 2050 net-zero goal…</text>
+<rect x="942" y="148" width="314" height="290" rx="10" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="958" y="176" fill="#7a8399" font-size="10" font-weight="500" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start" letter-spacing="0.12em">數據卡 EVIDENCE</text>
+<rect x="958" y="196" width="282" height="56" rx="8" fill="#ffffff" stroke="#2f7d63" stroke-width="1"/>
+<text x="974" y="220" fill="#2d3142" font-size="15" font-weight="600" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">300,000 → 140,000</text>
+<text x="974" y="240" fill="#7a8399" font-size="11" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">出生數</text>
+<rect x="958" y="264" width="282" height="56" rx="8" fill="#ffffff" stroke="#2f7d63" stroke-width="1"/>
+<text x="974" y="288" fill="#2d3142" font-size="15" font-weight="600" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">30%</text>
+<text x="974" y="308" fill="#7a8399" font-size="11" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">城鄉資源差距</text>
+<rect x="958" y="332" width="282" height="56" rx="8" fill="#f4f5f7" stroke="#c9ccd4" stroke-width="1" stroke-dasharray="4,3"/>
+<text x="974" y="356" fill="#7a8399" font-size="15" font-weight="600" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">?</text>
+<text x="974" y="376" fill="#7a8399" font-size="11" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">尚未取得</text>
+<text x="958" y="424" fill="#7a8399" font-size="10" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">數據卡可解鎖更強的決策選項</text>
+<rect x="24" y="462" width="902" height="156" rx="10" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="48" y="494" fill="#7a8399" font-size="10" font-weight="500" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start" letter-spacing="0.14em">SENTENCE CARD</text>
+<rect x="180" y="478" width="154.2" height="22" rx="11.0" fill="#eef5f2"/>
+<text x="257.1" y="493" fill="#2f7d63" font-size="11" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">含數據 · 可得 Evidence</text>
+<text x="48" y="536" fill="#2d3142" font-size="19" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">Renewable energy is growing fast: solar power in Taiwan</text>
+<text x="48" y="566" fill="#2d3142" font-size="19" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">grew to 12 GW, and offshore wind farms keep expanding.</text>
+<rect x="48" y="578" width="120" height="36" rx="6" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="108" y="601" fill="#2d3142" font-size="13" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">🔊 重播</text>
+<rect x="176" y="578" width="120" height="36" rx="6" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="236" y="601" fill="#2d3142" font-size="13" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">語速 0.8x</text>
+<rect x="304" y="578" width="132" height="36" rx="6" fill="#eceef1"/>
+<text x="370" y="601" fill="#4f5d75" font-size="13" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">提示（1 ⚡）</text>
+<rect x="942" y="462" width="314" height="46" rx="8" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<rect x="954" y="473" width="24" height="24" rx="4" fill="#eceef1"/>
+<text x="966" y="490" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="middle">1</text>
+<text x="990" y="490" fill="#2d3142" font-size="13" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">放到「Government Action」</text>
+<rect x="942" y="516" width="314" height="46" rx="8" fill="#ffffff" stroke="#eb6c36" stroke-width="1.4"/>
+<rect x="954" y="527" width="24" height="24" rx="4" fill="#eceef1"/>
+<text x="966" y="544" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="middle">2</text>
+<text x="990" y="544" fill="#2d3142" font-size="13" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">放到「Renewable Growth」</text>
+<rect x="942" y="570" width="314" height="46" rx="8" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<rect x="954" y="581" width="24" height="24" rx="4" fill="#eceef1"/>
+<text x="966" y="598" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="middle">3</text>
+<text x="990" y="598" fill="#2d3142" font-size="13" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">放到「Public Awareness」</text>
+<text x="24" y="648" fill="#4f5d75" font-size="12" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">沒有拖曳：點卡片再點槽位，或直接按鍵盤 1–3。</text>
+<text x="24" y="672" fill="#7a8399" font-size="12" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">答錯不扣分，該句會回到牌堆並加入複習清單。</text>
+<circle cx="906" cy="480" r="10" fill="#eb6c36"/>
+<text x="906" y="484" fill="#ffffff" font-size="11" font-weight="600" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="middle">1</text>
+<circle cx="1240" cy="470" r="10" fill="#eb6c36"/>
+<text x="1240" y="474" fill="#ffffff" font-size="11" font-weight="600" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="middle">2</text>
+<circle cx="320" cy="660" r="10" fill="#eb6c36"/>
+<text x="320" y="664" fill="#ffffff" font-size="11" font-weight="600" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="middle">3</text></svg></div>
+  <div class="meta">
+    <div><h3>標註說明</h3><ol><li>句子卡字級 19–20px、一行 ≤ 40 字元；含數字的卡標示「可得 Evidence」，把閱讀動機接到決策。</li><li>Gemini 的關鍵修正：平板拖曳容易失誤，改成「點卡片 → 點槽位 / 按數字鍵」。</li><li>永遠先聽後看不強制；但先聽再指派會多 +1 Talk Strength（有耳機時才提示）。</li></ol></div>
+    <div><h3>狀態與邊界</h3><ul><li>答對：卡片沿弧線飛進槽位、綠框、槽位計數 +1。</li><li>答錯：橫向微震 + 琥珀框 + 「已加入複習」；卡片回牌堆。</li><li>槽位滿：外框變實線並鎖定，防止誤點。</li><li>手機／平板：槽位改成頂部水平輪播，句子卡在中間，指派改為底部 Bottom Sheet 的三個大按鈕。</li></ul></div>
+  </div>
+</section>
+<section id="s07">
+  <h2>S7 決策卡（Stage 4）與後果<span class="tag">student</span></h2>
+  <p class="job">讀懂三個英文方案，用 Energy 與 Evidence 換取 SDG 指標變化。</p>
+  <div class="fig"><svg viewBox="0 0 1280 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="s07-t s07-d"><title id="s07-t">S7 決策卡（Stage 4）與後果</title><desc id="s07-d">讀懂三個英文方案，用 Energy 與 Evidence 換取 SDG 指標變化。</desc><rect width="1280" height="800" fill="#f5f5f5"/><rect x="0" y="0" width="1280" height="800" rx="0" fill="#f5f5f5"/>
+<rect x="0" y="0" width="1280" height="36" rx="0" fill="#e7e9ec"/>
+<circle cx="20" cy="18" r="5" fill="#d9dde2"/>
+<circle cx="38" cy="18" r="5" fill="#d9dde2"/>
+<circle cx="56" cy="18" r="5" fill="#d9dde2"/>
+<rect x="78" y="8" width="1170" height="20" rx="10" fill="#ffffff"/>
+<text x="90" y="22" fill="#7a8399" font-size="10" font-weight="400" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">cardlearn-sdgs.vercel.app/pages/mission.html</text>
+<rect x="0" y="36" width="1280" height="56" rx="0" fill="#ffffff"/>
+<line x1="0" y1="92" x2="1280" y2="92" stroke="#c9ccd4" stroke-width="1"/>
+<rect x="16" y="50" width="84" height="28" rx="6" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="58" y="69" fill="#2d3142" font-size="13" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">暫停 / 離開</text>
+<text x="112" y="62" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">SDG 13-1 · Taiwan&#x27;s Path to Net Zero</text>
+<text x="112" y="80" fill="#7a8399" font-size="10" font-weight="500" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">Stage 4/6 · Problem</text>
+<rect x="300" y="72" width="12" height="6" rx="3" fill="#2d3142"/>
+<rect x="318" y="72" width="12" height="6" rx="3" fill="#2d3142"/>
+<rect x="336" y="72" width="12" height="6" rx="3" fill="#2d3142"/>
+<rect x="354" y="72" width="12" height="6" rx="3" fill="#eb6c36"/>
+<rect x="372" y="72" width="12" height="6" rx="3" fill="#eceef1"/>
+<rect x="390" y="72" width="12" height="6" rx="3" fill="#eceef1"/>
+<text x="452" y="58" fill="#7a8399" font-size="9" font-weight="500" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start" letter-spacing="0.12em">ENERGY</text>
+<text x="452" y="78" fill="#2d3142" font-size="16" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">⚡ 6</text>
+<text x="528" y="58" fill="#7a8399" font-size="9" font-weight="500" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start" letter-spacing="0.12em">EVIDENCE</text>
+<text x="528" y="78" fill="#2d3142" font-size="16" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">📄 3</text>
+<text x="628" y="58" fill="#4f5d75" font-size="10" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">排放</text>
+<rect x="628" y="64" width="104" height="8" rx="4" fill="#eceef1"/>
+<rect x="628" y="64" width="41.6" height="8" rx="4" fill="#eb6c36"/>
+<text x="738" y="72" fill="#7a8399" font-size="10" font-weight="600" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">4</text>
+<text x="760" y="58" fill="#4f5d75" font-size="10" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">能源安全</text>
+<rect x="760" y="64" width="104" height="8" rx="4" fill="#eceef1"/>
+<rect x="760" y="64" width="62.4" height="8" rx="4" fill="#2d3142"/>
+<text x="870" y="72" fill="#7a8399" font-size="10" font-weight="600" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">6</text>
+<text x="892" y="58" fill="#4f5d75" font-size="10" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">經濟</text>
+<rect x="892" y="64" width="104" height="8" rx="4" fill="#eceef1"/>
+<rect x="892" y="64" width="52" height="8" rx="4" fill="#2d3142"/>
+<text x="1002" y="72" fill="#7a8399" font-size="10" font-weight="600" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">5</text>
+<rect x="1070" y="50" width="88" height="28" rx="6" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="1114" y="69" fill="#2d3142" font-size="13" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">字彙表</text>
+<rect x="1166" y="50" width="98" height="28" rx="6" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="1215" y="69" fill="#2d3142" font-size="13" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">🔊 語音 開</text>
+<text x="24" y="132" fill="#2d3142" font-size="20" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">今年的預算只夠投資兩項。你要先做哪些？</text>
+<text x="24" y="160" fill="#4f5d75" font-size="13" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">You can fund two of these this year. Read the trade-offs before you choose.</text>
+<rect x="24" y="200" width="316" height="404" rx="10" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<rect x="24" y="200" width="316" height="44" rx="10" fill="#fdeee7"/>
+<rect x="24" y="232" width="316" height="12" rx="0" fill="#ffffff"/>
+<text x="40" y="228" fill="#eb6c36" font-size="13" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">⚡ 3</text>
+<text x="324" y="228" fill="#7a8399" font-size="11" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="end">需要 📄 1</text>
+<text x="40" y="280" fill="#2d3142" font-size="17" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">Smart grids</text>
+<text x="40" y="312" fill="#4f5d75" font-size="13" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">Use AI to balance the grid and cut</text>
+<text x="40" y="332" fill="#4f5d75" font-size="13" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">waste.</text>
+<line x1="40" y1="366" x2="324" y2="366" stroke="#c9ccd4" stroke-width="1"/>
+<text x="40" y="392" fill="#4f5d75" font-size="11" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">預期影響</text>
+<text x="40" y="418" fill="#4f5d75" font-size="12" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">排放</text>
+<text x="324" y="418" fill="#2f7d63" font-size="12" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="end">▼ 2</text>
+<text x="40" y="444" fill="#4f5d75" font-size="12" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">能源安全</text>
+<text x="324" y="444" fill="#2f7d63" font-size="12" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="end">▲ 2</text>
+<text x="40" y="470" fill="#4f5d75" font-size="12" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">經濟</text>
+<text x="324" y="470" fill="#7a8399" font-size="12" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="end">— </text>
+<rect x="40" y="508" width="284" height="44" rx="6" fill="#eb6c36" stroke="#eb6c36" stroke-width="1"/>
+<text x="182" y="535" fill="#ffffff" font-size="14" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">選這個方案</text>
+<text x="182" y="574" fill="#7a8399" font-size="11" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">選擇後會立刻看到後果</text>
+<rect x="360" y="200" width="316" height="404" rx="10" fill="#f4f5f7" stroke="#c9ccd4" stroke-width="1"/>
+<rect x="360" y="200" width="316" height="44" rx="10" fill="#eceef1"/>
+<rect x="360" y="232" width="316" height="12" rx="0" fill="#f4f5f7"/>
+<text x="376" y="228" fill="#7a8399" font-size="13" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">⚡ 4</text>
+<text x="660" y="228" fill="#7a8399" font-size="11" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="end">需要 📄 2</text>
+<text x="376" y="280" fill="#7a8399" font-size="17" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">Carbon capture</text>
+<text x="376" y="312" fill="#4f5d75" font-size="13" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">Catch CO2 at factory chimneys and</text>
+<text x="376" y="332" fill="#4f5d75" font-size="13" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">store it.</text>
+<line x1="376" y1="366" x2="660" y2="366" stroke="#c9ccd4" stroke-width="1"/>
+<text x="376" y="392" fill="#4f5d75" font-size="11" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">預期影響</text>
+<text x="376" y="418" fill="#4f5d75" font-size="12" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">排放</text>
+<text x="660" y="418" fill="#2f7d63" font-size="12" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="end">▼ 3</text>
+<text x="376" y="444" fill="#4f5d75" font-size="12" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">能源安全</text>
+<text x="660" y="444" fill="#7a8399" font-size="12" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="end">— </text>
+<text x="376" y="470" fill="#4f5d75" font-size="12" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">經濟</text>
+<text x="660" y="470" fill="#b8891f" font-size="12" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="end">▼ 1</text>
+<rect x="376" y="508" width="284" height="44" rx="8" fill="#eceef1"/>
+<text x="518" y="536" fill="#7a8399" font-size="12" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">需要 2 張數據卡才能解鎖</text>
+<text x="518" y="574" fill="#7a8399" font-size="11" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">回到 Stage 3 收集排放數據</text>
+<rect x="696" y="200" width="316" height="404" rx="10" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<rect x="696" y="200" width="316" height="44" rx="10" fill="#fdeee7"/>
+<rect x="696" y="232" width="316" height="12" rx="0" fill="#ffffff"/>
+<text x="712" y="228" fill="#eb6c36" font-size="13" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">⚡ 2</text>
+<text x="996" y="228" fill="#7a8399" font-size="11" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="end">無門檻</text>
+<text x="712" y="280" fill="#2d3142" font-size="17" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">Electric scooters</text>
+<text x="712" y="312" fill="#4f5d75" font-size="13" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">Swappable batteries for crowded</text>
+<text x="712" y="332" fill="#4f5d75" font-size="13" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">cities.</text>
+<line x1="712" y1="366" x2="996" y2="366" stroke="#c9ccd4" stroke-width="1"/>
+<text x="712" y="392" fill="#4f5d75" font-size="11" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">預期影響</text>
+<text x="712" y="418" fill="#4f5d75" font-size="12" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">排放</text>
+<text x="996" y="418" fill="#2f7d63" font-size="12" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="end">▼ 1</text>
+<text x="712" y="444" fill="#4f5d75" font-size="12" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">能源安全</text>
+<text x="996" y="444" fill="#7a8399" font-size="12" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="end">— </text>
+<text x="712" y="470" fill="#4f5d75" font-size="12" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">經濟</text>
+<text x="996" y="470" fill="#2f7d63" font-size="12" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="end">▲ 2</text>
+<rect x="712" y="508" width="284" height="44" rx="6" fill="#eb6c36" stroke="#eb6c36" stroke-width="1"/>
+<text x="854" y="535" fill="#ffffff" font-size="14" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">選這個方案</text>
+<text x="854" y="574" fill="#7a8399" font-size="11" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">選擇後會立刻看到後果</text>
+<rect x="24" y="624" width="1232" height="96" rx="10" fill="#ffffff" stroke="#c9ccd4" stroke-width="1" stroke-dasharray="5,4"/>
+<text x="48" y="654" fill="#2d3142" font-size="13" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">選擇後：卡片原地翻面 → 顯示後果敘述 → 三個指標動畫變化（不換頁）</text>
+<text x="48" y="680" fill="#4f5d75" font-size="12" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">例：You funded smart grids. Peak-hour blackouts fell, but factories complained about the cost.</text>
+<text x="48" y="702" fill="#eb6c36" font-size="12" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">排放 ▼2 · 能源安全 ▲2 · 經濟 —</text>
+<circle cx="664" cy="252" r="10" fill="#eb6c36"/>
+<text x="664" y="256" fill="#ffffff" font-size="11" font-weight="600" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="middle">1</text>
+<circle cx="1240" cy="640" r="10" fill="#eb6c36"/>
+<text x="1240" y="644" fill="#ffffff" font-size="11" font-weight="600" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="middle">2</text></svg></div>
+  <div class="meta">
+    <div><h3>標註說明</h3><ol><li>鎖定條件寫在卡面上，讓 Stage 3 的努力與這裡的收益產生因果連結（Gemini 指出的重點）。</li><li>後果就地翻面，不另開頁；指標變化用填色條掃過 + 浮動標籤 1.2 秒。</li></ol></div>
+    <div><h3>狀態與邊界</h3><ul><li>Energy 不足：便宜方案仍可選，昂貴方案顯示「Energy 不足」。</li><li>Stage 5 事件卡沿用同一版面，只有兩個選項。</li><li>手機／平板：三張卡改為垂直堆疊，可左右滑動；影響區固定在卡片底部。</li></ul></div>
+  </div>
+</section>
+<section id="s08">
+  <h2>S8 Stage 小測與結算（同一頁）<span class="tag">student</span></h2>
+  <p class="job">兩題檢查理解，答完就地解鎖 slide 並給下一步。</p>
+  <div class="fig"><svg viewBox="0 0 1280 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="s08-t s08-d"><title id="s08-t">S8 Stage 小測與結算（同一頁）</title><desc id="s08-d">兩題檢查理解，答完就地解鎖 slide 並給下一步。</desc><rect width="1280" height="800" fill="#f5f5f5"/><rect x="0" y="0" width="1280" height="800" rx="0" fill="#f5f5f5"/>
+<rect x="0" y="0" width="1280" height="36" rx="0" fill="#e7e9ec"/>
+<circle cx="20" cy="18" r="5" fill="#d9dde2"/>
+<circle cx="38" cy="18" r="5" fill="#d9dde2"/>
+<circle cx="56" cy="18" r="5" fill="#d9dde2"/>
+<rect x="78" y="8" width="1170" height="20" rx="10" fill="#ffffff"/>
+<text x="90" y="22" fill="#7a8399" font-size="10" font-weight="400" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">cardlearn-sdgs.vercel.app/pages/mission.html</text>
+<rect x="0" y="36" width="1280" height="56" rx="0" fill="#ffffff"/>
+<line x1="0" y1="92" x2="1280" y2="92" stroke="#c9ccd4" stroke-width="1"/>
+<rect x="16" y="50" width="84" height="28" rx="6" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="58" y="69" fill="#2d3142" font-size="13" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">暫停 / 離開</text>
+<text x="112" y="62" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">SDG 13-1 · Taiwan&#x27;s Path to Net Zero</text>
+<text x="112" y="80" fill="#7a8399" font-size="10" font-weight="500" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">Stage 3/6 · Problem</text>
+<rect x="300" y="72" width="12" height="6" rx="3" fill="#2d3142"/>
+<rect x="318" y="72" width="12" height="6" rx="3" fill="#2d3142"/>
+<rect x="336" y="72" width="12" height="6" rx="3" fill="#eb6c36"/>
+<rect x="354" y="72" width="12" height="6" rx="3" fill="#eceef1"/>
+<rect x="372" y="72" width="12" height="6" rx="3" fill="#eceef1"/>
+<rect x="390" y="72" width="12" height="6" rx="3" fill="#eceef1"/>
+<text x="452" y="58" fill="#7a8399" font-size="9" font-weight="500" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start" letter-spacing="0.12em">ENERGY</text>
+<text x="452" y="78" fill="#2d3142" font-size="16" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">⚡ 9</text>
+<text x="528" y="58" fill="#7a8399" font-size="9" font-weight="500" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start" letter-spacing="0.12em">EVIDENCE</text>
+<text x="528" y="78" fill="#2d3142" font-size="16" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">📄 3</text>
+<text x="628" y="58" fill="#4f5d75" font-size="10" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">排放</text>
+<rect x="628" y="64" width="104" height="8" rx="4" fill="#eceef1"/>
+<rect x="628" y="64" width="41.6" height="8" rx="4" fill="#eb6c36"/>
+<text x="738" y="72" fill="#7a8399" font-size="10" font-weight="600" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">4</text>
+<text x="760" y="58" fill="#4f5d75" font-size="10" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">能源安全</text>
+<rect x="760" y="64" width="104" height="8" rx="4" fill="#eceef1"/>
+<rect x="760" y="64" width="62.4" height="8" rx="4" fill="#2d3142"/>
+<text x="870" y="72" fill="#7a8399" font-size="10" font-weight="600" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">6</text>
+<text x="892" y="58" fill="#4f5d75" font-size="10" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">經濟</text>
+<rect x="892" y="64" width="104" height="8" rx="4" fill="#eceef1"/>
+<rect x="892" y="64" width="52" height="8" rx="4" fill="#2d3142"/>
+<text x="1002" y="72" fill="#7a8399" font-size="10" font-weight="600" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">5</text>
+<rect x="1070" y="50" width="88" height="28" rx="6" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="1114" y="69" fill="#2d3142" font-size="13" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">字彙表</text>
+<rect x="1166" y="50" width="98" height="28" rx="6" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="1215" y="69" fill="#2d3142" font-size="13" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">🔊 語音 開</text>
+<text x="24" y="128" fill="#2d3142" font-size="15" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">Stage 小測</text>
+<text x="110" y="128" fill="#7a8399" font-size="11" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">2 題 · 答對加 Talk Strength</text>
+<rect x="24" y="152" width="760" height="150" rx="10" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="48" y="182" fill="#7a8399" font-size="10" font-weight="500" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start" letter-spacing="0.14em">Q1 · 理解</text>
+<text x="48" y="212" fill="#2d3142" font-size="15" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">Why does Taiwan need smart grids?</text>
+<rect x="48" y="232" width="712" height="44" rx="8" fill="#eef5f2" stroke="#2f7d63" stroke-width="1"/>
+<text x="68" y="260" fill="#2d3142" font-size="14" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">✓  To manage electricity and reduce waste</text>
+<text x="48" y="292" fill="#2f7d63" font-size="11" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">答對 · +1 Talk Strength</text>
+<rect x="24" y="318" width="760" height="286" rx="10" fill="#ffffff" stroke="#eb6c36" stroke-width="1.4"/>
+<text x="48" y="348" fill="#eb6c36" font-size="10" font-weight="500" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start" letter-spacing="0.14em">Q2 · 語言形式（Part 5 條件句）</text>
+<text x="48" y="380" fill="#2d3142" font-size="16" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">If we don&#x27;t fix the grid, blackouts ______ more often.</text>
+<rect x="48" y="404" width="712" height="46" rx="8" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="68" y="433" fill="#7a8399" font-size="12" font-weight="600" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">A</text>
+<text x="96" y="433" fill="#2d3142" font-size="15" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">will happen</text>
+<rect x="48" y="460" width="712" height="46" rx="8" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="68" y="489" fill="#7a8399" font-size="12" font-weight="600" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">B</text>
+<text x="96" y="489" fill="#2d3142" font-size="15" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">happened</text>
+<rect x="48" y="516" width="712" height="46" rx="8" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="68" y="545" fill="#7a8399" font-size="12" font-weight="600" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">C</text>
+<text x="96" y="545" fill="#2d3142" font-size="15" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">are happening</text>
+<text x="48" y="588" fill="#7a8399" font-size="11" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">這一題對應 Part 5 的語言功能：用條件句推論後果。</text>
+<rect x="808" y="152" width="448" height="452" rx="10" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="836" y="186" fill="#2d3142" font-size="16" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">Stage 3 結算</text>
+<rect x="836" y="206" width="392" height="150" rx="6" fill="#f4f5f7" stroke="#c9ccd4" stroke-width="1" stroke-dasharray="4,3"/>
+<text x="1032" y="285" fill="#7a8399" font-size="11" font-weight="400" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="middle">解鎖的 slide 縮圖：Renewable Energy Growth</text>
+<text x="836" y="396" fill="#4f5d75" font-size="12" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">Talk Strength</text>
+<text x="1228" y="396" fill="#2d3142" font-size="13" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="end">+2 ★</text>
+<text x="836" y="430" fill="#4f5d75" font-size="12" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">Evidence</text>
+<text x="1228" y="430" fill="#2d3142" font-size="13" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="end">+1 📄</text>
+<text x="836" y="464" fill="#4f5d75" font-size="12" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">Energy</text>
+<text x="1228" y="464" fill="#2d3142" font-size="13" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="end">+3 ⚡（下個 Stage）</text>
+<line x1="836" y1="500" x2="1228" y2="500" stroke="#c9ccd4" stroke-width="1"/>
+<text x="836" y="528" fill="#4f5d75" font-size="12" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">已加入複習：efficient、grid</text>
+<rect x="836" y="546" width="392" height="48" rx="6" fill="#eb6c36" stroke="#eb6c36" stroke-width="1"/>
+<text x="1032" y="575" fill="#ffffff" font-size="14" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">前往 Stage 4 · 決策</text>
+<circle cx="800" cy="168" r="10" fill="#eb6c36"/>
+<text x="800" y="172" fill="#ffffff" font-size="11" font-weight="600" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="middle">1</text>
+<circle cx="1240" cy="560" r="10" fill="#eb6c36"/>
+<text x="1240" y="564" fill="#ffffff" font-size="11" font-weight="600" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="middle">2</text></svg></div>
+  <div class="meta">
+    <div><h3>標註說明</h3><ol><li>Gemini 建議合併：小測與結算同頁，右欄即時更新，不再多一次換頁。</li><li>結算只講三件事：解鎖了什麼、拿到什麼、下一步是什麼。不列秒數與點擊數。</li></ol></div>
+    <div><h3>狀態與邊界</h3><ul><li>兩題都答完才顯示「前往下一個 Stage」；答錯不擋，只加入複習。</li><li>第 6 個 Stage 完成後，按鈕變成「進入 Showtime」。</li><li>手機／平板：右欄結算移到題目下方，隨答題即時展開。</li></ul></div>
+  </div>
+</section>
+<section id="s09">
+  <h2>S9 Showtime（20 秒節奏 + 錄音）<span class="tag">student</span></h2>
+  <p class="job">用真實 Pecha Kucha 節奏講完自己組出來的演講。</p>
+  <div class="fig"><svg viewBox="0 0 1280 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="s09-t s09-d"><title id="s09-t">S9 Showtime（20 秒節奏 + 錄音）</title><desc id="s09-d">用真實 Pecha Kucha 節奏講完自己組出來的演講。</desc><rect width="1280" height="800" fill="#f5f5f5"/><rect x="0" y="0" width="1280" height="800" rx="0" fill="#f5f5f5"/>
+<rect x="0" y="0" width="1280" height="36" rx="0" fill="#e7e9ec"/>
+<circle cx="20" cy="18" r="5" fill="#d9dde2"/>
+<circle cx="38" cy="18" r="5" fill="#d9dde2"/>
+<circle cx="56" cy="18" r="5" fill="#d9dde2"/>
+<rect x="78" y="8" width="1170" height="20" rx="10" fill="#ffffff"/>
+<text x="90" y="22" fill="#7a8399" font-size="10" font-weight="400" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">cardlearn-sdgs.vercel.app/pages/showtime.html</text>
+<rect x="0" y="36" width="1280" height="764" rx="0" fill="#1f2230"/>
+<text x="24" y="70" fill="#f5f5f5" font-size="13" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">Showtime · SDG 13-1</text>
+<text x="1256" y="70" fill="#aab0bd" font-size="12" font-weight="500" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="end">Slide 7 / 20</text>
+<rect x="140" y="96" width="1000" height="496" rx="10" fill="#2b2f3d" stroke="#3b4050" stroke-width="1"/>
+<text x="180" y="160" fill="#ffffff" font-size="30" font-weight="600" font-family="'Instrument Serif','Noto Serif','Noto Serif TC',serif" text-anchor="start">Renewable Energy Growth</text>
+<rect x="180" y="190" width="920" height="250" rx="6" fill="#333848" stroke="#454b5e" stroke-width="1" stroke-dasharray="4,3"/>
+<text x="640" y="320" fill="#8891a3" font-size="12" font-weight="400" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="middle">投影片視覺（教材圖或 SDG 圖示）</text>
+<rect x="180" y="462" width="920" height="100" rx="8" fill="#242837"/>
+<text x="200" y="494" fill="#7a8399" font-size="10" font-weight="500" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start" letter-spacing="0.14em">提詞機</text>
+<text x="200" y="524" fill="#ffffff" font-size="17" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">Renewable energy is growing fast: solar power grew to 12 GW,</text>
+<text x="200" y="548" fill="#8891a3" font-size="17" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">and offshore wind farms keep expanding.</text>
+<circle cx="228" cy="660" r="44" fill="none" stroke="#3b4050" stroke-width="8"/>
+<path d="M228 616 A44 44 0 1 1 186 672" fill="none" stroke="#eb6c36" stroke-width="8" stroke-linecap="round"/>
+<text x="228" y="668" fill="#ffffff" font-size="18" font-weight="600" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="middle">12s</text>
+<text x="228" y="726" fill="#8891a3" font-size="11" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">這張還有</text>
+<rect x="300" y="620" width="420" height="80" rx="10" fill="#242837"/>
+<text x="320" y="648" fill="#eb6c36" font-size="12" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">錄音中</text>
+<path d="M320 676 l10 -14 l10 26 l10 -32 l10 22 l10 -18 l10 24 l10 -28 l10 16 l10 -10 l10 18 l10 -22 l10 12" fill="none" stroke="#8891a3" stroke-width="2"/>
+<text x="700" y="648" fill="#aab0bd" font-size="13" font-weight="500" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="end">01:42</text>
+<text x="700" y="676" fill="#8891a3" font-size="11" font-weight="400" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="end">語速 118 wpm</text>
+<rect x="740" y="620" width="150" height="80" rx="10" fill="#242837"/>
+<text x="815" y="654" fill="#ffffff" font-size="22" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">⏸</text>
+<text x="815" y="682" fill="#aab0bd" font-size="11" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">暫停</text>
+<rect x="906" y="620" width="150" height="80" rx="10" fill="#242837"/>
+<text x="981" y="654" fill="#ffffff" font-size="22" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">⏭</text>
+<text x="981" y="682" fill="#aab0bd" font-size="11" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">下一張</text>
+<rect x="1072" y="620" width="168" height="80" rx="10" fill="#242837"/>
+<text x="1156" y="654" fill="#ffffff" font-size="13" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">🎙 關閉錄音</text>
+<text x="1156" y="682" fill="#aab0bd" font-size="11" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">改成靜音排練</text>
+<circle cx="268" cy="612" r="10" fill="#eb6c36"/>
+<text x="268" y="616" fill="#ffffff" font-size="11" font-weight="600" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="middle">1</text>
+<circle cx="1240" cy="604" r="10" fill="#eb6c36"/>
+<text x="1240" y="608" fill="#ffffff" font-size="11" font-weight="600" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="middle">2</text></svg></div>
+  <div class="meta">
+    <div><h3>標註說明</h3><ol><li>Gemini 的提醒：一定要有暫停鍵。20 秒到了不強制切頁，只提示「可以進下一張」。</li><li>沒有麥克風或不想錄音：切成靜音排練，完成後用 3 題自評，仍可完成任務。</li></ol></div>
+    <div><h3>狀態與邊界</h3><ul><li>錄音權限被拒：直接切靜音排練模式，不顯示錯誤彈窗。</li><li>錄完：上傳（永久保存）並顯示時長與語速；教師端可聽。</li><li>手機／平板：橫向優先；直向時投影片在上、控制列在下，提詞機字級不縮。</li></ul></div>
+  </div>
+</section>
+<section id="s10">
+  <h2>S10 Mission 報告（含排行榜分頁）<span class="tag">student</span></h2>
+  <p class="job">揭曉結局、指出弱點，然後把學生推向複習。</p>
+  <div class="fig"><svg viewBox="0 0 1280 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="s10-t s10-d"><title id="s10-t">S10 Mission 報告（含排行榜分頁）</title><desc id="s10-d">揭曉結局、指出弱點，然後把學生推向複習。</desc><rect width="1280" height="800" fill="#f5f5f5"/><rect x="0" y="0" width="1280" height="800" rx="0" fill="#f5f5f5"/>
+<rect x="0" y="0" width="1280" height="36" rx="0" fill="#e7e9ec"/>
+<circle cx="20" cy="18" r="5" fill="#d9dde2"/>
+<circle cx="38" cy="18" r="5" fill="#d9dde2"/>
+<circle cx="56" cy="18" r="5" fill="#d9dde2"/>
+<rect x="78" y="8" width="1170" height="20" rx="10" fill="#ffffff"/>
+<text x="90" y="22" fill="#7a8399" font-size="10" font-weight="400" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">cardlearn-sdgs.vercel.app/pages/mission_report.html</text>
+<rect x="0" y="36" width="1280" height="56" rx="0" fill="#ffffff"/>
+<line x1="0" y1="92" x2="1280" y2="92" stroke="#c9ccd4" stroke-width="1"/>
+<text x="24" y="70" fill="#2d3142" font-size="16" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">任務報告 · SDG 13-1</text>
+<rect x="1168" y="50" width="88" height="30" rx="6" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="1212" y="70" fill="#2d3142" font-size="13" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">回任務地圖</text>
+<text x="64" y="124" fill="#2d3142" font-size="13" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">結果</text>
+<rect x="24" y="134" width="80" height="3" rx="2" fill="#eb6c36"/>
+<text x="174" y="124" fill="#4f5d75" font-size="13" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">排行榜</text>
+<text x="284" y="124" fill="#4f5d75" font-size="13" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">成就</text>
+<line x1="24" y1="137" x2="1256" y2="137" stroke="#c9ccd4" stroke-width="1"/>
+<rect x="24" y="160" width="560" height="440" rx="10" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<rect x="56" y="192" width="496" height="180" rx="6" fill="#f4f5f7" stroke="#c9ccd4" stroke-width="1" stroke-dasharray="4,3"/>
+<text x="304" y="286" fill="#7a8399" font-size="11" font-weight="400" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="middle">結局插圖：穩健轉型的城市</text>
+<text x="56" y="408" fill="#7a8399" font-size="10" font-weight="500" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start" letter-spacing="0.14em">ENDING 2 / 3</text>
+<text x="56" y="438" fill="#2d3142" font-size="24" font-weight="600" font-family="'Instrument Serif','Noto Serif','Noto Serif TC',serif" text-anchor="start">穩健轉型</text>
+<text x="56" y="470" fill="#4f5d75" font-size="13" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">你把預算放在智慧電網與電動運輸，排放下降，</text>
+<text x="56" y="492" fill="#4f5d75" font-size="13" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">但產業轉型的成本讓部分企業抱怨。</text>
+<text x="56" y="514" fill="#4f5d75" font-size="13" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">2030 年的台北，空氣變好了，電價也高了一點。</text>
+<text x="56" y="546" fill="#4f5d75" font-size="11" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">排放</text>
+<rect x="56" y="554" width="140" height="8" rx="4" fill="#eceef1"/>
+<rect x="56" y="554" width="42" height="8" rx="4" fill="#2f7d63"/>
+<text x="56" y="580" fill="#7a8399" font-size="10" font-weight="500" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">3/10</text>
+<text x="226" y="546" fill="#4f5d75" font-size="11" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">能源安全</text>
+<rect x="226" y="554" width="140" height="8" rx="4" fill="#eceef1"/>
+<rect x="226" y="554" width="98" height="8" rx="4" fill="#2d3142"/>
+<text x="226" y="580" fill="#7a8399" font-size="10" font-weight="500" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">7/10</text>
+<text x="396" y="546" fill="#4f5d75" font-size="11" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">經濟</text>
+<rect x="396" y="554" width="140" height="8" rx="4" fill="#eceef1"/>
+<rect x="396" y="554" width="70" height="8" rx="4" fill="#2d3142"/>
+<text x="396" y="580" fill="#7a8399" font-size="10" font-weight="500" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">5/10</text>
+<rect x="608" y="160" width="648" height="200" rx="10" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="640" y="196" fill="#4f5d75" font-size="12" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">Talk Strength</text>
+<text x="640" y="232" fill="#eb6c36" font-size="26" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">★★★★☆</text>
+<text x="800" y="232" fill="#2d3142" font-size="14" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">A 級 · 共 18 / 24 分</text>
+<text x="640" y="268" fill="#4f5d75" font-size="13" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">六段結構都完成了，轉折詞用得不錯；</text>
+<text x="640" y="290" fill="#4f5d75" font-size="13" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">數據引用還可以再精準一點。</text>
+<rect x="608" y="376" width="648" height="224" rx="10" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="640" y="412" fill="#4f5d75" font-size="12" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">這場的弱點</text>
+<text x="640" y="440" fill="#4f5d75" font-size="12" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">Reading 細節</text>
+<rect x="800" y="431" width="300" height="8" rx="4" fill="#eceef1"/>
+<rect x="800" y="431" width="180" height="8" rx="4" fill="#b8891f"/>
+<text x="1224" y="440" fill="#2d3142" font-size="11" font-weight="600" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="end">60%</text>
+<text x="640" y="474" fill="#4f5d75" font-size="12" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">Vocabulary</text>
+<rect x="800" y="465" width="300" height="8" rx="4" fill="#eceef1"/>
+<rect x="800" y="465" width="240" height="8" rx="4" fill="#2d3142"/>
+<text x="1224" y="474" fill="#2d3142" font-size="11" font-weight="600" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="end">80%</text>
+<text x="640" y="508" fill="#4f5d75" font-size="12" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">Language pattern</text>
+<rect x="800" y="499" width="300" height="8" rx="4" fill="#eceef1"/>
+<rect x="800" y="499" width="270" height="8" rx="4" fill="#2f7d63"/>
+<text x="1224" y="508" fill="#2d3142" font-size="11" font-weight="600" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="end">90%</text>
+<text x="640" y="560" fill="#4f5d75" font-size="12" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">最常錯的字：efficient · grid · capture</text>
+<rect x="608" y="624" width="400" height="56" rx="6" fill="#eb6c36" stroke="#eb6c36" stroke-width="1"/>
+<text x="808" y="657" fill="#ffffff" font-size="14" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">開始針對性複習（8 分鐘）</text>
+<rect x="1024" y="624" width="232" height="56" rx="6" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="1140" y="657" fill="#2d3142" font-size="13" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">用 B2 再挑戰</text>
+<text x="24" y="640" fill="#4f5d75" font-size="12" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">下一個推薦任務：SDG 13-2 氣候韌性</text>
+<text x="24" y="664" fill="#7a8399" font-size="12" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">本關排行榜（匿名）：你在前 25%</text>
+<circle cx="1240" cy="176" r="10" fill="#eb6c36"/>
+<text x="1240" y="180" fill="#ffffff" font-size="11" font-weight="600" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="middle">1</text>
+<circle cx="1024" cy="612" r="10" fill="#eb6c36"/>
+<text x="1024" y="616" fill="#ffffff" font-size="11" font-weight="600" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="middle">2</text></svg></div>
+  <div class="meta">
+    <div><h3>標註說明</h3><ol><li>只留三件事：結局、實力、弱點。不列秒數、點擊數等沒有行動意義的統計。</li><li>主要 CTA 永遠是複習；排行榜被降級成分頁，避免競爭壓過學習。</li></ol></div>
+    <div><h3>狀態與邊界</h3><ul><li>未完成即離開：報告顯示「未完成」，仍給弱點與複習入口。</li><li>同一關重玩：顯示與上次的差異（進步幅度）。</li><li>手機／平板：單欄：結局 → 實力 → 弱點 → CTA；排行榜分頁維持。</li></ul></div>
+  </div>
+</section>
+<section id="s11">
+  <h2>S11 個人化複習路徑<span class="tag">student</span></h2>
+  <p class="job">8 分鐘的微複習：弱點 → 單字 → 迷你挑戰，過關才回遊戲。</p>
+  <div class="fig"><svg viewBox="0 0 1280 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="s11-t s11-d"><title id="s11-t">S11 個人化複習路徑</title><desc id="s11-d">8 分鐘的微複習：弱點 → 單字 → 迷你挑戰，過關才回遊戲。</desc><rect width="1280" height="800" fill="#f5f5f5"/><rect x="0" y="0" width="1280" height="800" rx="0" fill="#f5f5f5"/>
+<rect x="0" y="0" width="1280" height="36" rx="0" fill="#e7e9ec"/>
+<circle cx="20" cy="18" r="5" fill="#d9dde2"/>
+<circle cx="38" cy="18" r="5" fill="#d9dde2"/>
+<circle cx="56" cy="18" r="5" fill="#d9dde2"/>
+<rect x="78" y="8" width="1170" height="20" rx="10" fill="#ffffff"/>
+<text x="90" y="22" fill="#7a8399" font-size="10" font-weight="400" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">cardlearn-sdgs.vercel.app/pages/review.html</text>
+<rect x="0" y="36" width="1280" height="56" rx="0" fill="#ffffff"/>
+<line x1="0" y1="92" x2="1280" y2="92" stroke="#c9ccd4" stroke-width="1"/>
+<text x="24" y="70" fill="#2d3142" font-size="16" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">針對性複習</text>
+<rect x="1180" y="50" width="76" height="30" rx="6" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="1218" y="70" fill="#2d3142" font-size="13" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">稍後再做</text>
+<text x="24" y="128" fill="#2d3142" font-size="13" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">系統判斷：Reading 細節是這場最弱的一項（60%）</text>
+<text x="24" y="152" fill="#7a8399" font-size="12" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">預估 8 分鐘 · 完成可獲得 1 張 Evidence 帶進下一場</text>
+<rect x="280" y="196" width="720" height="300" rx="10" fill="#ffffff" stroke="#eb6c36" stroke-width="1.4"/>
+<circle cx="316" cy="238" r="16" fill="#eb6c36"/>
+<text x="316" y="243" fill="#ffffff" font-size="13" font-weight="600" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="middle">1</text>
+<text x="348" y="234" fill="#2d3142" font-size="15" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">弱點回顧</text>
+<text x="348" y="256" fill="#7a8399" font-size="12" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">重讀有數據的兩張 slide，附中文註解</text>
+<rect x="316" y="284" width="652" height="120" rx="8" fill="#f4f5f7" stroke="#c9ccd4" stroke-width="1"/>
+<text x="336" y="312" fill="#7a8399" font-size="10" font-weight="500" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start" letter-spacing="0.12em">原句</text>
+<text x="336" y="340" fill="#2d3142" font-size="15" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">Solar power grew to 12 GW, and offshore wind keeps expanding.</text>
+<text x="336" y="368" fill="#4f5d75" font-size="12" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">太陽能達到 12 GW，離岸風電持續擴張。</text>
+<text x="316" y="434" fill="#4f5d75" font-size="12" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">剛才你把「12 GW」看成了成本數字。這一題再試一次：</text>
+<rect x="316" y="448" width="300" height="40" rx="6" fill="#eb6c36" stroke="#eb6c36" stroke-width="1"/>
+<text x="466" y="473" fill="#ffffff" font-size="14" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">再試一次這一題</text>
+<rect x="632" y="448" width="160" height="40" rx="6" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="712" y="473" fill="#2d3142" font-size="13" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">我懂了</text>
+<rect x="280" y="512" width="720" height="84" rx="10" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<circle cx="316" cy="554" r="16" fill="#eceef1"/>
+<text x="316" y="559" fill="#7a8399" font-size="13" font-weight="600" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="middle">2</text>
+<text x="348" y="550" fill="#2d3142" font-size="15" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">單字複習</text>
+<text x="348" y="572" fill="#7a8399" font-size="12" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">efficient · grid · capture（Leitner 第 1 格）</text>
+<text x="972" y="560" fill="#7a8399" font-size="11" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="end">接下來</text>
+<rect x="280" y="612" width="720" height="84" rx="10" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<circle cx="316" cy="654" r="16" fill="#eceef1"/>
+<text x="316" y="659" fill="#7a8399" font-size="13" font-weight="600" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="middle">3</text>
+<text x="348" y="650" fill="#7a8399" font-size="15" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">迷你挑戰</text>
+<text x="348" y="672" fill="#7a8399" font-size="12" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">5 題混合題，答對 4 題過關</text>
+<text x="972" y="660" fill="#7a8399" font-size="14" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="end">🔒</text>
+<circle cx="1012" cy="238" r="10" fill="#eb6c36"/>
+<text x="1012" y="242" fill="#ffffff" font-size="11" font-weight="600" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="middle">1</text></svg></div>
+  <div class="meta">
+    <div><h3>標註說明</h3><ol><li>Gemini 的提醒：不要把所有錯題打包成一張長考卷；一次只展開一步，過了才往下。</li></ol></div>
+    <div><h3>狀態與邊界</h3><ul><li>迷你挑戰沒過：回到步驟 1，但題目換一組，不重複同一題。</li><li>全部完成：回到任務地圖並帶著 +1 Evidence。</li><li>手機／平板：步驟卡滿版；展開的練習題佔整個視窗高度。</li></ul></div>
+  </div>
+</section>
+<section id="t01">
+  <h2>T1 班級總覽<span class="tag">teacher</span></h2>
+  <p class="job">巡堂 5 秒內看出誰卡住、全班共同的弱點是什麼。</p>
+  <div class="fig"><svg viewBox="0 0 1280 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t01-t t01-d"><title id="t01-t">T1 班級總覽</title><desc id="t01-d">巡堂 5 秒內看出誰卡住、全班共同的弱點是什麼。</desc><rect width="1280" height="800" fill="#f5f5f5"/><rect x="0" y="0" width="1280" height="800" rx="0" fill="#f5f5f5"/>
+<rect x="0" y="0" width="1280" height="36" rx="0" fill="#e7e9ec"/>
+<circle cx="20" cy="18" r="5" fill="#d9dde2"/>
+<circle cx="38" cy="18" r="5" fill="#d9dde2"/>
+<circle cx="56" cy="18" r="5" fill="#d9dde2"/>
+<rect x="78" y="8" width="1170" height="20" rx="10" fill="#ffffff"/>
+<text x="90" y="22" fill="#7a8399" font-size="10" font-weight="400" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">cardlearn-sdgs.vercel.app/pages/teacher_dashboard.html#class</text>
+<rect x="0" y="36" width="200" height="764" rx="0" fill="#eef0f3"/>
+<line x1="200" y1="36" x2="200" y2="800" stroke="#c9ccd4" stroke-width="1"/>
+<text x="24" y="70" fill="#2d3142" font-size="15" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">CardLearn</text>
+<text x="24" y="88" fill="#7a8399" font-size="11" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">教師後台</text>
+<rect x="12" y="100" width="176" height="32" rx="6" fill="#ffffff"/>
+<rect x="12" y="100" width="3" height="32" rx="2" fill="#eb6c36"/>
+<text x="28" y="120" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">班級總覽</text>
+<text x="28" y="160" fill="#4f5d75" font-size="12" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">學生個人</text>
+<text x="28" y="200" fill="#4f5d75" font-size="12" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">單字 / 題目分析</text>
+<text x="28" y="240" fill="#4f5d75" font-size="12" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">錄音</text>
+<text x="28" y="280" fill="#4f5d75" font-size="12" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">匯出</text>
+<text x="28" y="320" fill="#4f5d75" font-size="12" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">題庫（現行）</text>
+<text x="24" y="760" fill="#7a8399" font-size="10" font-weight="400" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">教師可見學生真名</text>
+<rect x="200" y="36" width="1080" height="56" rx="0" fill="#ffffff"/>
+<line x1="200" y1="92" x2="1280" y2="92" stroke="#c9ccd4" stroke-width="1"/>
+<text x="224" y="70" fill="#2d3142" font-size="16" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">班級總覽</text>
+<rect x="1020" y="50" width="112" height="30" rx="6" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="1076" y="70" fill="#2d3142" font-size="13" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">2026 秋 · 三年甲班</text>
+<rect x="1140" y="50" width="116" height="30" rx="6" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="1198" y="70" fill="#2d3142" font-size="13" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">匯出 CSV</text>
+<rect x="224" y="116" width="190" height="84" rx="10" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="240" y="146" fill="#4f5d75" font-size="11" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">上線中</text>
+<text x="240" y="178" fill="#2d3142" font-size="20" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">23 / 30</text>
+<rect x="422" y="116" width="190" height="84" rx="10" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="438" y="146" fill="#4f5d75" font-size="11" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">平均進度</text>
+<text x="438" y="178" fill="#2d3142" font-size="20" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">Stage 3.4</text>
+<rect x="620" y="116" width="190" height="84" rx="10" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="636" y="146" fill="#4f5d75" font-size="11" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">平均 Talk Strength</text>
+<text x="636" y="178" fill="#2d3142" font-size="20" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">3.6 ★</text>
+<rect x="818" y="116" width="190" height="84" rx="10" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="834" y="146" fill="#4f5d75" font-size="11" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">卡關警示</text>
+<text x="834" y="178" fill="#eb6c36" font-size="20" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">4 人</text>
+<text x="224" y="234" fill="#2d3142" font-size="13" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">學生進度（依停留時間排序）</text>
+<rect x="608" y="216" width="96" height="28" rx="6" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="656" y="235" fill="#2d3142" font-size="13" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">依姓名</text>
+<rect x="712" y="216" width="96" height="28" rx="6" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="760" y="235" fill="#2d3142" font-size="13" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">依進度</text>
+<rect x="224" y="260" width="184" height="88" rx="8" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<circle cx="242" cy="284" r="5" fill="#b8891f"/>
+<text x="256" y="288" fill="#2d3142" font-size="13" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">王小明</text>
+<text x="240" y="312" fill="#4f5d75" font-size="11" font-weight="500" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">Stage 3</text>
+<text x="240" y="332" fill="#b8891f" font-size="11" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">卡 8 分鐘</text>
+<rect x="420" y="260" width="184" height="88" rx="8" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<circle cx="438" cy="284" r="5" fill="#2f7d63"/>
+<text x="452" y="288" fill="#2d3142" font-size="13" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">李佳穎</text>
+<text x="436" y="312" fill="#4f5d75" font-size="11" font-weight="500" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">Stage 5</text>
+<text x="436" y="332" fill="#2f7d63" font-size="11" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">順利</text>
+<rect x="616" y="260" width="184" height="88" rx="8" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<circle cx="634" cy="284" r="5" fill="#b8891f"/>
+<text x="648" y="288" fill="#2d3142" font-size="13" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">陳建宏</text>
+<text x="632" y="312" fill="#4f5d75" font-size="11" font-weight="500" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">Stage 2</text>
+<text x="632" y="332" fill="#b8891f" font-size="11" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">卡 12 分鐘</text>
+<rect x="812" y="260" width="184" height="88" rx="8" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<circle cx="830" cy="284" r="5" fill="#2f7d63"/>
+<text x="844" y="288" fill="#2d3142" font-size="13" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">林宜蓁</text>
+<text x="828" y="312" fill="#4f5d75" font-size="11" font-weight="500" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">Showtime</text>
+<text x="828" y="332" fill="#2f7d63" font-size="11" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">錄音中</text>
+<rect x="224" y="364" width="184" height="88" rx="8" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<circle cx="242" cy="388" r="5" fill="#2f7d63"/>
+<text x="256" y="392" fill="#2d3142" font-size="13" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">張雅婷</text>
+<text x="240" y="416" fill="#4f5d75" font-size="11" font-weight="500" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">Stage 4</text>
+<text x="240" y="436" fill="#2f7d63" font-size="11" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">順利</text>
+<rect x="420" y="364" width="184" height="88" rx="8" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<circle cx="438" cy="388" r="5" fill="#7a8399"/>
+<text x="452" y="392" fill="#2d3142" font-size="13" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">黃冠廷</text>
+<text x="436" y="416" fill="#4f5d75" font-size="11" font-weight="500" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">未開始</text>
+<text x="436" y="436" fill="#7a8399" font-size="11" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">未登入</text>
+<rect x="616" y="364" width="184" height="88" rx="8" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<circle cx="634" cy="388" r="5" fill="#2f7d63"/>
+<text x="648" y="392" fill="#2d3142" font-size="13" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">吳思妤</text>
+<text x="632" y="416" fill="#4f5d75" font-size="11" font-weight="500" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">Stage 6</text>
+<text x="632" y="436" fill="#2f7d63" font-size="11" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">順利</text>
+<rect x="812" y="364" width="184" height="88" rx="8" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<circle cx="830" cy="388" r="5" fill="#b8891f"/>
+<text x="844" y="392" fill="#2d3142" font-size="13" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">鄭承翰</text>
+<text x="828" y="416" fill="#4f5d75" font-size="11" font-weight="500" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">Stage 3</text>
+<text x="828" y="436" fill="#b8891f" font-size="11" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">重試 3 次</text>
+<rect x="224" y="484" width="784" height="120" rx="10" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="248" y="514" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">課堂提示</text>
+<text x="248" y="542" fill="#4f5d75" font-size="12" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">· 全班最常錯的字：efficient（62%）、capture（54%）、grid（41%）</text>
+<text x="248" y="566" fill="#4f5d75" font-size="12" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">· 最常錯的題型：Part 5 條件句（58%）——建議上課帶一次</text>
+<rect x="224" y="624" width="240" height="44" rx="6" fill="#eb6c36" stroke="#eb6c36" stroke-width="1"/>
+<text x="344" y="651" fill="#ffffff" font-size="14" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">全班暫停並廣播</text>
+<rect x="480" y="624" width="200" height="44" rx="6" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="580" y="651" fill="#2d3142" font-size="13" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">開啟班級排行榜</text>
+<rect x="1032" y="116" width="224" height="552" rx="10" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="1056" y="146" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">需要關注</text>
+<rect x="1056" y="180" width="176" height="56" rx="8" fill="#fdf6ee" stroke="#b8891f" stroke-width="1"/>
+<text x="1072" y="204" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">陳建宏</text>
+<text x="1072" y="222" fill="#4f5d75" font-size="11" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">同一張卡錯 4 次</text>
+<rect x="1056" y="252" width="176" height="56" rx="8" fill="#fdf6ee" stroke="#b8891f" stroke-width="1"/>
+<text x="1072" y="276" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">王小明</text>
+<text x="1072" y="294" fill="#4f5d75" font-size="11" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">8 分鐘沒有動作</text>
+<rect x="1056" y="324" width="176" height="56" rx="8" fill="#fdf6ee" stroke="#b8891f" stroke-width="1"/>
+<text x="1072" y="348" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">鄭承翰</text>
+<text x="1072" y="366" fill="#4f5d75" font-size="11" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">連續 3 場低於 60%</text>
+<rect x="1056" y="396" width="176" height="56" rx="8" fill="#fdf6ee" stroke="#b8891f" stroke-width="1"/>
+<text x="1072" y="420" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">黃冠廷</text>
+<text x="1072" y="438" fill="#4f5d75" font-size="11" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">本週未登入</text>
+<text x="1056" y="520" fill="#7a8399" font-size="11" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">教師可見真名；研究匯出一律去識別化。</text>
+<circle cx="1246" cy="132" r="10" fill="#eb6c36"/>
+<text x="1246" y="136" fill="#ffffff" font-size="11" font-weight="600" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="middle">1</text></svg></div>
+  <div class="meta">
+    <div><h3>標註說明</h3><ol><li>重點是「誰需要幫忙」，不是資料表；警示卡片永遠固定在右欄。</li></ol></div>
+    <div><h3>狀態與邊界</h3><ul><li>未開課：顯示班級代碼與加入人數。</li><li>排行榜預設關閉，老師按下才開。</li><li>手機／平板：教師端以平板橫向為主；直向時警示欄移到最上方。</li></ul></div>
+  </div>
+</section>
+<section id="t02">
+  <h2>T2 學生個人頁<span class="tag">teacher</span></h2>
+  <p class="job">看一個學生的技能、任務歷程與錄音。</p>
+  <div class="fig"><svg viewBox="0 0 1280 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t02-t t02-d"><title id="t02-t">T2 學生個人頁</title><desc id="t02-d">看一個學生的技能、任務歷程與錄音。</desc><rect width="1280" height="800" fill="#f5f5f5"/><rect x="0" y="0" width="1280" height="800" rx="0" fill="#f5f5f5"/>
+<rect x="0" y="0" width="1280" height="36" rx="0" fill="#e7e9ec"/>
+<circle cx="20" cy="18" r="5" fill="#d9dde2"/>
+<circle cx="38" cy="18" r="5" fill="#d9dde2"/>
+<circle cx="56" cy="18" r="5" fill="#d9dde2"/>
+<rect x="78" y="8" width="1170" height="20" rx="10" fill="#ffffff"/>
+<text x="90" y="22" fill="#7a8399" font-size="10" font-weight="400" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">cardlearn-sdgs.vercel.app/pages/teacher_dashboard.html#student</text>
+<rect x="0" y="36" width="200" height="764" rx="0" fill="#eef0f3"/>
+<line x1="200" y1="36" x2="200" y2="800" stroke="#c9ccd4" stroke-width="1"/>
+<text x="24" y="70" fill="#2d3142" font-size="15" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">CardLearn</text>
+<text x="24" y="88" fill="#7a8399" font-size="11" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">教師後台</text>
+<text x="28" y="120" fill="#4f5d75" font-size="12" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">班級總覽</text>
+<rect x="12" y="140" width="176" height="32" rx="6" fill="#ffffff"/>
+<rect x="12" y="140" width="3" height="32" rx="2" fill="#eb6c36"/>
+<text x="28" y="160" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">學生個人</text>
+<text x="28" y="200" fill="#4f5d75" font-size="12" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">單字 / 題目分析</text>
+<text x="28" y="240" fill="#4f5d75" font-size="12" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">錄音</text>
+<text x="28" y="280" fill="#4f5d75" font-size="12" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">匯出</text>
+<text x="28" y="320" fill="#4f5d75" font-size="12" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">題庫（現行）</text>
+<text x="24" y="760" fill="#7a8399" font-size="10" font-weight="400" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">教師可見學生真名</text>
+<rect x="200" y="36" width="1080" height="56" rx="0" fill="#ffffff"/>
+<line x1="200" y1="92" x2="1280" y2="92" stroke="#c9ccd4" stroke-width="1"/>
+<text x="224" y="70" fill="#2d3142" font-size="16" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">學生個人</text>
+<rect x="1020" y="50" width="112" height="30" rx="6" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="1076" y="70" fill="#2d3142" font-size="13" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">2026 秋 · 三年甲班</text>
+<rect x="1140" y="50" width="116" height="30" rx="6" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="1198" y="70" fill="#2d3142" font-size="13" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">匯出 CSV</text>
+<text x="224" y="128" fill="#2d3142" font-size="22" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">王小明</text>
+<text x="300" y="128" fill="#7a8399" font-size="12" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">三年甲班 · 目前級別 B1 · 最近上線 10 分鐘前</text>
+<rect x="224" y="152" width="500" height="300" rx="10" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="248" y="184" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">六項技能</text>
+<text x="248" y="216" fill="#4f5d75" font-size="12" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">Vocabulary</text>
+<rect x="420" y="207" width="240" height="8" rx="4" fill="#eceef1"/>
+<rect x="420" y="207" width="192" height="8" rx="4" fill="#2d3142"/>
+<text x="700" y="216" fill="#2d3142" font-size="11" font-weight="600" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="end">80%</text>
+<text x="248" y="252" fill="#4f5d75" font-size="12" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">Reading</text>
+<rect x="420" y="243" width="240" height="8" rx="4" fill="#eceef1"/>
+<rect x="420" y="243" width="144" height="8" rx="4" fill="#b8891f"/>
+<text x="700" y="252" fill="#2d3142" font-size="11" font-weight="600" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="end">60%</text>
+<text x="248" y="288" fill="#4f5d75" font-size="12" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">Listening</text>
+<rect x="420" y="279" width="240" height="8" rx="4" fill="#eceef1"/>
+<rect x="420" y="279" width="172.8" height="8" rx="4" fill="#2d3142"/>
+<text x="700" y="288" fill="#2d3142" font-size="11" font-weight="600" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="end">72%</text>
+<text x="248" y="324" fill="#4f5d75" font-size="12" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">Discourse</text>
+<rect x="420" y="315" width="240" height="8" rx="4" fill="#eceef1"/>
+<rect x="420" y="315" width="163.2" height="8" rx="4" fill="#2d3142"/>
+<text x="700" y="324" fill="#2d3142" font-size="11" font-weight="600" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="end">68%</text>
+<text x="248" y="360" fill="#4f5d75" font-size="12" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">Language pattern</text>
+<rect x="420" y="351" width="240" height="8" rx="4" fill="#eceef1"/>
+<rect x="420" y="351" width="216" height="8" rx="4" fill="#2d3142"/>
+<text x="700" y="360" fill="#2d3142" font-size="11" font-weight="600" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="end">90%</text>
+<text x="248" y="396" fill="#4f5d75" font-size="12" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">Speaking</text>
+<rect x="420" y="387" width="240" height="8" rx="4" fill="#eceef1"/>
+<rect x="420" y="387" width="132" height="8" rx="4" fill="#b8891f"/>
+<text x="700" y="396" fill="#2d3142" font-size="11" font-weight="600" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="end">55%</text>
+<rect x="748" y="152" width="508" height="300" rx="10" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="772" y="184" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">任務歷程</text>
+<rect x="772" y="210" width="460" height="60" rx="8" fill="#f4f5f7"/>
+<text x="788" y="234" fill="#2d3142" font-size="13" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">13-1 Net Zero</text>
+<text x="788" y="254" fill="#4f5d75" font-size="11" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">B1 · 穩健轉型 · ★★★★☆</text>
+<text x="1216" y="234" fill="#7a8399" font-size="11" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="end">今天</text>
+<rect x="772" y="282" width="460" height="60" rx="8" fill="#f4f5f7"/>
+<text x="788" y="306" fill="#2d3142" font-size="13" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">4-1 Quality Education</text>
+<text x="788" y="326" fill="#4f5d75" font-size="11" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">B1 · ★★★☆☆</text>
+<text x="1216" y="306" fill="#7a8399" font-size="11" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="end">上週</text>
+<rect x="772" y="354" width="460" height="60" rx="8" fill="#f4f5f7"/>
+<text x="788" y="378" fill="#2d3142" font-size="13" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">9-1 Trust AI</text>
+<text x="788" y="398" fill="#4f5d75" font-size="11" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">A2 · ★★★★★</text>
+<text x="1216" y="378" fill="#7a8399" font-size="11" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="end">上週</text>
+<rect x="224" y="476" width="1032" height="192" rx="10" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="248" y="508" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">最近錯題與錄音</text>
+<text x="248" y="540" fill="#2d3142" font-size="12" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">Part 5 條件句</text>
+<text x="560" y="540" fill="#4f5d75" font-size="12" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">錯 3 次 · 最後答對</text>
+<text x="248" y="580" fill="#2d3142" font-size="12" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">efficient（單字）</text>
+<text x="560" y="580" fill="#4f5d75" font-size="12" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">Leitner 第 1 格</text>
+<text x="248" y="620" fill="#2d3142" font-size="12" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">Showtime 錄音 · Slide 7</text>
+<text x="560" y="620" fill="#4f5d75" font-size="12" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">01:42 · 118 wpm</text>
+<rect x="1100" y="600" width="132" height="30" rx="6" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="1166" y="620" fill="#2d3142" font-size="13" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">▶ 播放</text>
+<circle cx="700" cy="140" r="10" fill="#eb6c36"/>
+<text x="700" y="144" fill="#ffffff" font-size="11" font-weight="600" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="middle">1</text></svg></div>
+  <div class="meta">
+    <div><h3>標註說明</h3><ol><li>教師端顯示真名，匯出研究檔時換成匿名 ID。</li></ol></div>
+    <div><h3>狀態與邊界</h3><ul><li>學生無錄音：該區顯示「尚未錄音」。</li><li>手機／平板：三塊區域改為垂直堆疊。</li></ul></div>
+  </div>
+</section>
+<section id="t03">
+  <h2>T3 單字與題目分析<span class="tag">teacher</span></h2>
+  <p class="job">找出全班共同的弱點，以及該退役的題目。</p>
+  <div class="fig"><svg viewBox="0 0 1280 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t03-t t03-d"><title id="t03-t">T3 單字與題目分析</title><desc id="t03-d">找出全班共同的弱點，以及該退役的題目。</desc><rect width="1280" height="800" fill="#f5f5f5"/><rect x="0" y="0" width="1280" height="800" rx="0" fill="#f5f5f5"/>
+<rect x="0" y="0" width="1280" height="36" rx="0" fill="#e7e9ec"/>
+<circle cx="20" cy="18" r="5" fill="#d9dde2"/>
+<circle cx="38" cy="18" r="5" fill="#d9dde2"/>
+<circle cx="56" cy="18" r="5" fill="#d9dde2"/>
+<rect x="78" y="8" width="1170" height="20" rx="10" fill="#ffffff"/>
+<text x="90" y="22" fill="#7a8399" font-size="10" font-weight="400" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">cardlearn-sdgs.vercel.app/pages/teacher_dashboard.html#analysis</text>
+<rect x="0" y="36" width="200" height="764" rx="0" fill="#eef0f3"/>
+<line x1="200" y1="36" x2="200" y2="800" stroke="#c9ccd4" stroke-width="1"/>
+<text x="24" y="70" fill="#2d3142" font-size="15" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">CardLearn</text>
+<text x="24" y="88" fill="#7a8399" font-size="11" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">教師後台</text>
+<text x="28" y="120" fill="#4f5d75" font-size="12" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">班級總覽</text>
+<text x="28" y="160" fill="#4f5d75" font-size="12" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">學生個人</text>
+<rect x="12" y="180" width="176" height="32" rx="6" fill="#ffffff"/>
+<rect x="12" y="180" width="3" height="32" rx="2" fill="#eb6c36"/>
+<text x="28" y="200" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">單字 / 題目分析</text>
+<text x="28" y="240" fill="#4f5d75" font-size="12" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">錄音</text>
+<text x="28" y="280" fill="#4f5d75" font-size="12" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">匯出</text>
+<text x="28" y="320" fill="#4f5d75" font-size="12" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">題庫（現行）</text>
+<text x="24" y="760" fill="#7a8399" font-size="10" font-weight="400" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">教師可見學生真名</text>
+<rect x="200" y="36" width="1080" height="56" rx="0" fill="#ffffff"/>
+<line x1="200" y1="92" x2="1280" y2="92" stroke="#c9ccd4" stroke-width="1"/>
+<text x="224" y="70" fill="#2d3142" font-size="16" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">單字 / 題目分析</text>
+<rect x="1020" y="50" width="112" height="30" rx="6" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="1076" y="70" fill="#2d3142" font-size="13" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">2026 秋 · 三年甲班</text>
+<rect x="1140" y="50" width="116" height="30" rx="6" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="1198" y="70" fill="#2d3142" font-size="13" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">匯出 CSV</text>
+<text x="224" y="128" fill="#2d3142" font-size="13" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">單字弱點 Top 10</text>
+<rect x="224" y="148" width="620" height="480" rx="10" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="248" y="178" fill="#7a8399" font-size="11" font-weight="500" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">單字</text>
+<text x="398" y="178" fill="#7a8399" font-size="11" font-weight="500" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">錯誤率</text>
+<text x="548" y="178" fill="#7a8399" font-size="11" font-weight="500" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">出現在</text>
+<text x="698" y="178" fill="#7a8399" font-size="11" font-weight="500" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">動作</text>
+<line x1="248" y1="190" x2="820" y2="190" stroke="#c9ccd4" stroke-width="1"/>
+<text x="248" y="220" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">efficient</text>
+<text x="398" y="220" fill="#b8891f" font-size="12" font-weight="400" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">62%</text>
+<text x="548" y="220" fill="#4f5d75" font-size="12" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">13-1 Stage 3</text>
+<text x="698" y="220" fill="#eb6c36" font-size="12" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">加入全班複習</text>
+<line x1="248" y1="234" x2="820" y2="234" stroke="#eceef1" stroke-width="1"/>
+<text x="248" y="266" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">capture</text>
+<text x="398" y="266" fill="#b8891f" font-size="12" font-weight="400" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">54%</text>
+<text x="548" y="266" fill="#4f5d75" font-size="12" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">13-1 Stage 4</text>
+<text x="698" y="266" fill="#eb6c36" font-size="12" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">加入全班複習</text>
+<line x1="248" y1="280" x2="820" y2="280" stroke="#eceef1" stroke-width="1"/>
+<text x="248" y="312" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">subsidy</text>
+<text x="398" y="312" fill="#b8891f" font-size="12" font-weight="400" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">51%</text>
+<text x="548" y="312" fill="#4f5d75" font-size="12" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">4-1 Stage 3</text>
+<text x="698" y="312" fill="#eb6c36" font-size="12" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">加入全班複習</text>
+<line x1="248" y1="326" x2="820" y2="326" stroke="#eceef1" stroke-width="1"/>
+<text x="248" y="358" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">stereotype</text>
+<text x="398" y="358" fill="#4f5d75" font-size="12" font-weight="400" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">47%</text>
+<text x="548" y="358" fill="#4f5d75" font-size="12" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">5-1 Stage 5</text>
+<text x="698" y="358" fill="#4f5d75" font-size="12" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">—</text>
+<line x1="248" y1="372" x2="820" y2="372" stroke="#eceef1" stroke-width="1"/>
+<text x="248" y="404" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">hallucination</text>
+<text x="398" y="404" fill="#4f5d75" font-size="12" font-weight="400" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">44%</text>
+<text x="548" y="404" fill="#4f5d75" font-size="12" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">9-1 Stage 2</text>
+<text x="698" y="404" fill="#4f5d75" font-size="12" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">—</text>
+<line x1="248" y1="418" x2="820" y2="418" stroke="#eceef1" stroke-width="1"/>
+<text x="868" y="128" fill="#2d3142" font-size="13" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">題目健康度</text>
+<rect x="868" y="148" width="388" height="480" rx="10" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<rect x="892" y="188" width="340" height="68" rx="8" fill="#f4f5f7" stroke="#c9ccd4" stroke-width="1"/>
+<text x="912" y="216" fill="#2d3142" font-size="12" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">太難（答對率 &lt; 30%）</text>
+<text x="1212" y="216" fill="#b8891f" font-size="14" font-weight="600" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="end">6 題</text>
+<text x="912" y="238" fill="#7a8399" font-size="11" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">點擊查看題目清單</text>
+<rect x="892" y="280" width="340" height="68" rx="8" fill="#f4f5f7" stroke="#c9ccd4" stroke-width="1"/>
+<text x="912" y="308" fill="#2d3142" font-size="12" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">太簡單（&gt; 90%）</text>
+<text x="1212" y="308" fill="#7a8399" font-size="14" font-weight="600" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="end">11 題</text>
+<text x="912" y="330" fill="#7a8399" font-size="11" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">點擊查看題目清單</text>
+<rect x="892" y="372" width="340" height="68" rx="8" fill="#f4f5f7" stroke="#c9ccd4" stroke-width="1"/>
+<text x="912" y="400" fill="#2d3142" font-size="12" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">鑑別度低</text>
+<text x="1212" y="400" fill="#b8891f" font-size="14" font-weight="600" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="end">3 題</text>
+<text x="912" y="422" fill="#7a8399" font-size="11" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">點擊查看題目清單</text>
+<rect x="892" y="464" width="340" height="68" rx="8" fill="#f4f5f7" stroke="#c9ccd4" stroke-width="1"/>
+<text x="912" y="492" fill="#2d3142" font-size="12" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">待審核的 AI 草稿</text>
+<text x="1212" y="492" fill="#eb6c36" font-size="14" font-weight="600" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="end">24 題</text>
+<text x="912" y="514" fill="#7a8399" font-size="11" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">點擊查看題目清單</text>
+<rect x="868" y="640" width="388" height="44" rx="6" fill="#eb6c36" stroke="#eb6c36" stroke-width="1"/>
+<text x="1062" y="667" fill="#ffffff" font-size="14" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">審核 AI 草稿題目</text>
+<circle cx="836" cy="164" r="10" fill="#eb6c36"/>
+<text x="836" y="168" fill="#ffffff" font-size="11" font-weight="600" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="middle">1</text></svg></div>
+  <div class="meta">
+    <div><h3>標註說明</h3><ol><li>AI 產生的題目一律先進「草稿」，教師按過才會出現在遊戲裡。</li></ol></div>
+    <div><h3>狀態與邊界</h3><ul><li>資料不足（&lt; 30 次作答）時顯示「樣本不足」而不是假的百分比。</li><li>手機／平板：表格改為卡片列表。</li></ul></div>
+  </div>
+</section>
+<section id="t04">
+  <h2>T4 錄音清單<span class="tag">teacher</span></h2>
+  <p class="job">聽學生的 Showtime 錄音並給分。</p>
+  <div class="fig"><svg viewBox="0 0 1280 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t04-t t04-d"><title id="t04-t">T4 錄音清單</title><desc id="t04-d">聽學生的 Showtime 錄音並給分。</desc><rect width="1280" height="800" fill="#f5f5f5"/><rect x="0" y="0" width="1280" height="800" rx="0" fill="#f5f5f5"/>
+<rect x="0" y="0" width="1280" height="36" rx="0" fill="#e7e9ec"/>
+<circle cx="20" cy="18" r="5" fill="#d9dde2"/>
+<circle cx="38" cy="18" r="5" fill="#d9dde2"/>
+<circle cx="56" cy="18" r="5" fill="#d9dde2"/>
+<rect x="78" y="8" width="1170" height="20" rx="10" fill="#ffffff"/>
+<text x="90" y="22" fill="#7a8399" font-size="10" font-weight="400" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">cardlearn-sdgs.vercel.app/pages/teacher_dashboard.html#recordings</text>
+<rect x="0" y="36" width="200" height="764" rx="0" fill="#eef0f3"/>
+<line x1="200" y1="36" x2="200" y2="800" stroke="#c9ccd4" stroke-width="1"/>
+<text x="24" y="70" fill="#2d3142" font-size="15" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">CardLearn</text>
+<text x="24" y="88" fill="#7a8399" font-size="11" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">教師後台</text>
+<text x="28" y="120" fill="#4f5d75" font-size="12" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">班級總覽</text>
+<text x="28" y="160" fill="#4f5d75" font-size="12" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">學生個人</text>
+<text x="28" y="200" fill="#4f5d75" font-size="12" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">單字 / 題目分析</text>
+<rect x="12" y="220" width="176" height="32" rx="6" fill="#ffffff"/>
+<rect x="12" y="220" width="3" height="32" rx="2" fill="#eb6c36"/>
+<text x="28" y="240" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">錄音</text>
+<text x="28" y="280" fill="#4f5d75" font-size="12" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">匯出</text>
+<text x="28" y="320" fill="#4f5d75" font-size="12" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">題庫（現行）</text>
+<text x="24" y="760" fill="#7a8399" font-size="10" font-weight="400" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">教師可見學生真名</text>
+<rect x="200" y="36" width="1080" height="56" rx="0" fill="#ffffff"/>
+<line x1="200" y1="92" x2="1280" y2="92" stroke="#c9ccd4" stroke-width="1"/>
+<text x="224" y="70" fill="#2d3142" font-size="16" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">錄音</text>
+<rect x="1020" y="50" width="112" height="30" rx="6" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="1076" y="70" fill="#2d3142" font-size="13" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">2026 秋 · 三年甲班</text>
+<rect x="1140" y="50" width="116" height="30" rx="6" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="1198" y="70" fill="#2d3142" font-size="13" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">匯出 CSV</text>
+<text x="224" y="128" fill="#2d3142" font-size="13" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">Showtime 錄音 · 本週 34 筆</text>
+<rect x="1000" y="112" width="120" height="30" rx="6" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="1060" y="132" fill="#2d3142" font-size="13" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">只看未評分</text>
+<rect x="1128" y="112" width="128" height="30" rx="6" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="1192" y="132" fill="#2d3142" font-size="13" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">下載全部</text>
+<rect x="224" y="168" width="1032" height="100" rx="10" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="248" y="200" fill="#2d3142" font-size="14" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">王小明</text>
+<text x="248" y="224" fill="#7a8399" font-size="11" font-weight="400" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">13-1 · Slide 7</text>
+<path d="M360 218 l6 10 l6 -10 l6 -14 l6 12 l6 -14 l6 -10 l6 10 l6 12 l6 -14 l6 -10 l6 -14 l6 12 l6 10 l6 -10 l6 -14 l6 12 l6 -14 l6 -10 l6 10 l6 12 l6 -14 l6 -10 l6 -14 l6 12 l6 10 l6 -10 l6 -14 l6 12 l6 -14 l6 -10 l6 10 l6 12" fill="none" stroke="#c9ccd4" stroke-width="2"/>
+<rect x="776" y="202" width="90" height="32" rx="6" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="821" y="223" fill="#2d3142" font-size="13" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">▶ 播放</text>
+<text x="890" y="208" fill="#4f5d75" font-size="12" font-weight="500" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">01:42</text>
+<text x="956" y="208" fill="#7a8399" font-size="12" font-weight="400" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">118 wpm</text>
+<rect x="1060" y="194" width="172" height="40" rx="6" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="1146" y="219" fill="#2d3142" font-size="13" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">評分 1 / 2 / 3</text>
+<rect x="224" y="284" width="1032" height="100" rx="10" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="248" y="316" fill="#2d3142" font-size="14" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">李佳穎</text>
+<text x="248" y="340" fill="#7a8399" font-size="11" font-weight="400" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">13-1 · 全場</text>
+<path d="M360 334 l6 10 l6 -10 l6 -14 l6 12 l6 -14 l6 -10 l6 10 l6 12 l6 -14 l6 -10 l6 -14 l6 12 l6 10 l6 -10 l6 -14 l6 12 l6 -14 l6 -10 l6 10 l6 12 l6 -14 l6 -10 l6 -14 l6 12 l6 10 l6 -10 l6 -14 l6 12 l6 -14 l6 -10 l6 10 l6 12" fill="none" stroke="#c9ccd4" stroke-width="2"/>
+<rect x="776" y="318" width="90" height="32" rx="6" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="821" y="339" fill="#2d3142" font-size="13" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">▶ 播放</text>
+<text x="890" y="324" fill="#4f5d75" font-size="12" font-weight="500" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">06:38</text>
+<text x="956" y="324" fill="#7a8399" font-size="12" font-weight="400" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">132 wpm</text>
+<rect x="1060" y="310" width="72.8" height="26" rx="13.0" fill="#eef5f2"/>
+<text x="1096.4" y="327" fill="#2f7d63" font-size="11" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">已評 3 分</text>
+<rect x="224" y="400" width="1032" height="100" rx="10" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="248" y="432" fill="#2d3142" font-size="14" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">陳建宏</text>
+<text x="248" y="456" fill="#7a8399" font-size="11" font-weight="400" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">4-1 · Slide 3</text>
+<path d="M360 450 l6 10 l6 -10 l6 -14 l6 12 l6 -14 l6 -10 l6 10 l6 12 l6 -14 l6 -10 l6 -14 l6 12 l6 10 l6 -10 l6 -14 l6 12 l6 -14 l6 -10 l6 10 l6 12 l6 -14 l6 -10 l6 -14 l6 12 l6 10 l6 -10 l6 -14 l6 12 l6 -14 l6 -10 l6 10 l6 12" fill="none" stroke="#c9ccd4" stroke-width="2"/>
+<rect x="776" y="434" width="90" height="32" rx="6" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="821" y="455" fill="#2d3142" font-size="13" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">▶ 播放</text>
+<text x="890" y="440" fill="#4f5d75" font-size="12" font-weight="500" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">00:22</text>
+<text x="956" y="440" fill="#7a8399" font-size="12" font-weight="400" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">96 wpm</text>
+<rect x="1060" y="426" width="172" height="40" rx="6" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="1146" y="451" fill="#2d3142" font-size="13" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">評分 1 / 2 / 3</text>
+<rect x="224" y="516" width="1032" height="100" rx="10" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="248" y="548" fill="#2d3142" font-size="14" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">林宜蓁</text>
+<text x="248" y="572" fill="#7a8399" font-size="11" font-weight="400" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">9-1 · 全場</text>
+<path d="M360 566 l6 10 l6 -10 l6 -14 l6 12 l6 -14 l6 -10 l6 10 l6 12 l6 -14 l6 -10 l6 -14 l6 12 l6 10 l6 -10 l6 -14 l6 12 l6 -14 l6 -10 l6 10 l6 12 l6 -14 l6 -10 l6 -14 l6 12 l6 10 l6 -10 l6 -14 l6 12 l6 -14 l6 -10 l6 10 l6 12" fill="none" stroke="#c9ccd4" stroke-width="2"/>
+<rect x="776" y="550" width="90" height="32" rx="6" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="821" y="571" fill="#2d3142" font-size="13" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">▶ 播放</text>
+<text x="890" y="556" fill="#4f5d75" font-size="12" font-weight="500" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">04:05</text>
+<text x="956" y="556" fill="#7a8399" font-size="12" font-weight="400" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">124 wpm</text>
+<rect x="1060" y="542" width="72.8" height="26" rx="13.0" fill="#eef5f2"/>
+<text x="1096.4" y="559" fill="#2f7d63" font-size="11" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">已評 2 分</text>
+<text x="224" y="660" fill="#7a8399" font-size="11" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">錄音永久保存（你的決定 D9）；學生可在設定頁要求刪除自己的錄音。</text>
+<circle cx="1246" cy="184" r="10" fill="#eb6c36"/>
+<text x="1246" y="188" fill="#ffffff" font-size="11" font-weight="600" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="middle">1</text></svg></div>
+  <div class="meta">
+    <div><h3>標註說明</h3><ol><li>AI 自動評分未啟用時，這裡只顯示時長與語速；設定 AI_API_KEY 後才會多一欄建議分數。</li></ol></div>
+    <div><h3>狀態與邊界</h3><ul><li>檔案損毀或格式不支援：顯示下載連結而不是壞掉的播放器。</li><li>手機／平板：每筆錄音改為兩行卡片，播放鍵放大。</li></ul></div>
+  </div>
+</section>
+<section id="t05">
+  <h2>T5 匯出<span class="tag">teacher</span></h2>
+  <p class="job">把資料帶走：教學用含姓名，研究用去識別化。</p>
+  <div class="fig"><svg viewBox="0 0 1280 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="t05-t t05-d"><title id="t05-t">T5 匯出</title><desc id="t05-d">把資料帶走：教學用含姓名，研究用去識別化。</desc><rect width="1280" height="800" fill="#f5f5f5"/><rect x="0" y="0" width="1280" height="800" rx="0" fill="#f5f5f5"/>
+<rect x="0" y="0" width="1280" height="36" rx="0" fill="#e7e9ec"/>
+<circle cx="20" cy="18" r="5" fill="#d9dde2"/>
+<circle cx="38" cy="18" r="5" fill="#d9dde2"/>
+<circle cx="56" cy="18" r="5" fill="#d9dde2"/>
+<rect x="78" y="8" width="1170" height="20" rx="10" fill="#ffffff"/>
+<text x="90" y="22" fill="#7a8399" font-size="10" font-weight="400" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">cardlearn-sdgs.vercel.app/pages/teacher_dashboard.html#export</text>
+<rect x="0" y="36" width="200" height="764" rx="0" fill="#eef0f3"/>
+<line x1="200" y1="36" x2="200" y2="800" stroke="#c9ccd4" stroke-width="1"/>
+<text x="24" y="70" fill="#2d3142" font-size="15" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">CardLearn</text>
+<text x="24" y="88" fill="#7a8399" font-size="11" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">教師後台</text>
+<text x="28" y="120" fill="#4f5d75" font-size="12" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">班級總覽</text>
+<text x="28" y="160" fill="#4f5d75" font-size="12" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">學生個人</text>
+<text x="28" y="200" fill="#4f5d75" font-size="12" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">單字 / 題目分析</text>
+<text x="28" y="240" fill="#4f5d75" font-size="12" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">錄音</text>
+<rect x="12" y="260" width="176" height="32" rx="6" fill="#ffffff"/>
+<rect x="12" y="260" width="3" height="32" rx="2" fill="#eb6c36"/>
+<text x="28" y="280" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">匯出</text>
+<text x="28" y="320" fill="#4f5d75" font-size="12" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">題庫（現行）</text>
+<text x="24" y="760" fill="#7a8399" font-size="10" font-weight="400" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="start">教師可見學生真名</text>
+<rect x="200" y="36" width="1080" height="56" rx="0" fill="#ffffff"/>
+<line x1="200" y1="92" x2="1280" y2="92" stroke="#c9ccd4" stroke-width="1"/>
+<text x="224" y="70" fill="#2d3142" font-size="16" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">匯出</text>
+<rect x="1020" y="50" width="112" height="30" rx="6" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="1076" y="70" fill="#2d3142" font-size="13" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">2026 秋 · 三年甲班</text>
+<rect x="1140" y="50" width="116" height="30" rx="6" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="1198" y="70" fill="#2d3142" font-size="13" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">匯出 CSV</text>
+<rect x="224" y="128" width="640" height="420" rx="10" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="248" y="162" fill="#2d3142" font-size="13" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">要匯出什麼</text>
+<rect x="248" y="196" width="24" height="24" rx="4" fill="#eb6c36" stroke="#eb6c36" stroke-width="1"/>
+<text x="260" y="213" fill="#ffffff" font-size="13" font-weight="700" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">✓</text>
+<text x="288" y="208" fill="#2d3142" font-size="13" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">班級成績總表（含姓名）</text>
+<text x="288" y="228" fill="#7a8399" font-size="11" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">CSV · 每人一列</text>
+<rect x="248" y="258" width="24" height="24" rx="4" fill="#eb6c36" stroke="#eb6c36" stroke-width="1"/>
+<text x="260" y="275" fill="#ffffff" font-size="13" font-weight="700" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">✓</text>
+<text x="288" y="270" fill="#2d3142" font-size="13" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">逐題作答紀錄</text>
+<text x="288" y="290" fill="#7a8399" font-size="11" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">CSV · 每題一列，含作答時間</text>
+<rect x="248" y="320" width="24" height="24" rx="4" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="288" y="332" fill="#2d3142" font-size="13" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">遊戲決策與結局</text>
+<text x="288" y="352" fill="#7a8399" font-size="11" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">CSV · 每場一列</text>
+<rect x="248" y="382" width="24" height="24" rx="4" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="288" y="394" fill="#2d3142" font-size="13" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">學習事件日誌</text>
+<text x="288" y="414" fill="#7a8399" font-size="11" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">JSONL · 研究用，量大</text>
+<rect x="248" y="444" width="24" height="24" rx="4" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="288" y="456" fill="#2d3142" font-size="13" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">錄音檔</text>
+<text x="288" y="476" fill="#7a8399" font-size="11" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">ZIP · 依學生分資料夾</text>
+<line x1="248" y1="508" x2="840" y2="508" stroke="#c9ccd4" stroke-width="1"/>
+<rect x="224" y="568" width="640" height="100" rx="10" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="248" y="600" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">去識別化</text>
+<text x="248" y="626" fill="#4f5d75" font-size="12" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">研究用匯出會把姓名換成該研究專用的雜湊 ID，</text>
+<text x="248" y="648" fill="#4f5d75" font-size="12" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">並移除 Email、班級代碼與錄音檔名中的姓名。</text>
+<rect x="888" y="128" width="368" height="300" rx="10" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="912" y="162" fill="#2d3142" font-size="13" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">範圍</text>
+<text x="912" y="200" fill="#4f5d75" font-size="11" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">班級</text>
+<rect x="912" y="210" width="320" height="40" rx="6" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="928" y="236" fill="#2d3142" font-size="12" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">三年甲班</text>
+<text x="912" y="262" fill="#4f5d75" font-size="11" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">期間</text>
+<rect x="912" y="272" width="320" height="40" rx="6" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="928" y="298" fill="#2d3142" font-size="12" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">2026-09-01 ～ 今天</text>
+<text x="912" y="324" fill="#4f5d75" font-size="11" font-weight="500" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">任務</text>
+<rect x="912" y="334" width="320" height="40" rx="6" fill="#ffffff" stroke="#c9ccd4" stroke-width="1"/>
+<text x="928" y="360" fill="#2d3142" font-size="12" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">全部 9 個</text>
+<rect x="888" y="448" width="368" height="52" rx="6" fill="#eb6c36" stroke="#eb6c36" stroke-width="1"/>
+<text x="1072" y="479" fill="#ffffff" font-size="14" font-weight="600" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="middle">產生並下載</text>
+<text x="888" y="524" fill="#7a8399" font-size="11" font-weight="400" font-family="'Geist','Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif" text-anchor="start">上次匯出：2026-09-13 · 由你</text>
+<circle cx="856" cy="588" r="10" fill="#eb6c36"/>
+<text x="856" y="592" fill="#ffffff" font-size="11" font-weight="600" font-family="'Geist Mono',ui-monospace,monospace" text-anchor="middle">1</text></svg></div>
+  <div class="meta">
+    <div><h3>標註說明</h3><ol><li>教學用與研究用是兩個按鈕，避免不小心把姓名帶進研究檔。</li></ol></div>
+    <div><h3>狀態與邊界</h3><ul><li>資料量大時：背景產生，完成後寄連結到教師 Email。</li><li>手機／平板：選項改為單欄核取清單。</li></ul></div>
+  </div>
+</section>
+<footer>Generated by docs/ux/build_wireframes.py · 2026-09-20</footer>
+</main></body></html>
