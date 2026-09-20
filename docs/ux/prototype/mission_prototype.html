@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SDG 13-1 · Night Shift — 可玩原型</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#020617; --panel:rgba(9,15,29,.82); --glass:rgba(255,255,255,.06); --glass-2:rgba(255,255,255,.10);
+  --line:rgba(255,255,255,.12); --line-strong:rgba(255,255,255,.22);
+  --text:#f8fafc; --muted:#93a2bd;
+  --blue:#3b82f6; --green:#22c55e; --teal:#2dd4bf; --purple:#a855f7; --yellow:#fbbf24; --pink:#fb7185; --orange:#fb923c;
+  --disp:"Archivo Black","Noto Sans TC",sans-serif;
+  --body:"Space Grotesk","Noto Sans TC",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,monospace;
+  --card-w:240px; --card-h:336px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%}
+body{
+  background:
+    radial-gradient(1100px 700px at 12% -10%, rgba(45,212,191,.16), transparent 60%),
+    radial-gradient(900px 620px at 88% 8%, rgba(168,85,247,.16), transparent 58%),
+    var(--bg);
+  color:var(--text); font-family:var(--body); overflow:hidden;
+}
+.app{height:100vh;display:flex;flex-direction:column}
+
+/* ---------- top bar ---------- */
+.hud{display:flex;align-items:center;gap:18px;padding:12px 20px;background:var(--panel);
+  border-bottom:1px solid var(--line);backdrop-filter:blur(14px)}
+.hud .brand{display:flex;flex-direction:column;min-width:190px}
+.hud .brand b{font-family:var(--disp);font-size:15px;letter-spacing:.2px}
+.hud .brand span{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.12em}
+.pips{display:flex;gap:6px}
+.pip{width:22px;height:6px;border-radius:3px;background:rgba(255,255,255,.14)}
+.pip.done{background:var(--teal)} .pip.cur{background:var(--yellow);box-shadow:0 0 12px rgba(251,191,36,.6)}
+.res{display:flex;gap:16px;margin-left:8px}
+.res .item{display:flex;flex-direction:column;align-items:flex-start;min-width:78px}
+.res .k{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;color:var(--muted)}
+.res .v{font-family:var(--disp);font-size:18px;line-height:1.1}
+.res .v small{font-family:var(--body);font-size:11px;color:var(--muted);font-weight:500}
+.spacer{flex:1}
+.ghost{background:var(--glass);border:1px solid var(--line);color:var(--text);border-radius:10px;
+  padding:8px 12px;font:600 12px var(--body);cursor:pointer}
+.ghost:hover{background:var(--glass-2);border-color:var(--line-strong)}
+
+/* ---------- layout ---------- */
+.stage{flex:1;display:grid;grid-template-columns:minmax(0,1.32fr) minmax(360px,.68fr);gap:16px;padding:16px 20px;min-height:0}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:18px;backdrop-filter:blur(14px)}
+.left{display:flex;flex-direction:column;min-height:0;overflow:hidden}
+.left .head{display:flex;align-items:center;gap:12px;padding:14px 18px;border-bottom:1px solid var(--line)}
+.left .head .tag{font:600 10px var(--mono);letter-spacing:.16em;color:var(--teal);
+  border:1px solid rgba(45,212,191,.4);border-radius:999px;padding:4px 10px}
+.left .head h2{margin:0;font-family:var(--disp);font-size:18px;font-weight:400}
+.left .body{padding:22px;overflow:auto;flex:1;min-height:0;display:flex;flex-direction:column;justify-content:center}
+
+/* ---------- city ---------- */
+.city{position:relative;overflow:hidden;display:flex;flex-direction:column}
+.city svg{display:block;width:100%;flex:1;min-height:0}
+.meters{padding:14px 18px 16px;display:flex;flex-direction:column;gap:12px;border-top:1px solid var(--line)}
+.meter .row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px}
+.meter .row b{font:600 12px var(--body)} .meter .row span{font:500 11px var(--mono);color:var(--muted)}
+.bar{height:9px;border-radius:5px;background:rgba(255,255,255,.10);overflow:hidden}
+.bar i{display:block;height:100%;border-radius:5px;transition:width .9s cubic-bezier(.4,0,.2,1)}
+.delta{font:700 11px var(--mono);margin-left:8px;opacity:0;transition:opacity .3s}
+.delta.show{opacity:1}
+
+/* ---------- dialogue ---------- */
+.talk{display:flex;gap:14px;align-items:flex-start;margin:0 20px 16px;padding:14px 16px;
+  background:var(--panel);border:1px solid var(--line);border-radius:16px;backdrop-filter:blur(14px)}
+.avatar{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;flex:none;
+  font-family:var(--disp);font-size:17px}
+.talk .who{font:600 11px var(--mono);letter-spacing:.14em;color:var(--muted);margin-bottom:4px}
+.talk .line{font-size:16px;line-height:1.5;min-height:24px}
+.talk .zh{font-size:12.5px;color:var(--muted);margin-top:4px;display:none}
+body.zh .talk .zh{display:block}
+
+/* ---------- cards ---------- */
+.slots{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:16px}
+.slot{background:var(--glass);border:1px dashed var(--line-strong);border-radius:14px;padding:12px;min-height:126px;
+  cursor:pointer;transition:.18s}
+.slot:hover{background:var(--glass-2);border-color:var(--teal)}
+.slot .n{font:600 10px var(--mono);letter-spacing:.14em;color:var(--muted)}
+.slot .t{font:700 13.5px var(--body);margin-top:6px;line-height:1.35}
+.slot .key{float:right;font:600 11px var(--mono);color:var(--yellow);border:1px solid rgba(251,191,36,.35);
+  border-radius:6px;padding:1px 7px}
+.slot.filled{border-style:solid;border-color:rgba(34,197,94,.6);background:rgba(34,197,94,.08);cursor:default}
+.slot.filled .done{margin-top:10px;font:500 11.5px var(--body);color:#86efac;line-height:1.4}
+.slot.bad{animation:shake .32s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+
+.hand{display:flex;gap:18px;align-items:center}
+.poker{width:var(--card-w);height:var(--card-h);perspective:1400px;flex:none}
+.inner{position:relative;width:100%;height:100%;transition:transform .6s cubic-bezier(.4,0,.2,1);
+  transform-style:preserve-3d;border-radius:14px;box-shadow:0 18px 34px rgba(0,0,0,.5)}
+.poker.flip .inner{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;border-radius:14px;backface-visibility:hidden;padding:14px;display:flex;flex-direction:column}
+.back{background:
+   repeating-conic-gradient(from 45deg,#1e3a8a 0 25%,#1e40af 0 50%) 0 0/22px 22px;
+   border:3px solid rgba(255,255,255,.9);display:grid;place-items:center}
+.back b{font-family:var(--disp);font-size:13px;color:rgba(255,255,255,.85);letter-spacing:.14em}
+.front{background:linear-gradient(160deg,#f8fafc,#e2e8f0);color:#0f172a;transform:rotateY(180deg)}
+.front .kick{font:600 9.5px var(--mono);letter-spacing:.16em;color:#64748b}
+.front .txt{font-size:14.5px;line-height:1.45;margin-top:8px;flex:1}
+.front .ev{font:600 10px var(--mono);color:#047857;background:#d1fae5;border-radius:6px;padding:3px 7px;align-self:flex-start}
+.handside{flex:1;min-width:0}
+.handside .hint{font-size:12.5px;color:var(--muted);margin-top:10px;line-height:1.6}
+.btnrow{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.btn{background:linear-gradient(135deg,#6366f1,#a855f7);border:0;color:#fff;border-radius:12px;
+  padding:11px 18px;font:700 13.5px var(--body);cursor:pointer;box-shadow:0 10px 22px rgba(99,102,241,.3)}
+.btn:hover{filter:brightness(1.08)} .btn:disabled{opacity:.45;cursor:not-allowed;box-shadow:none}
+.btn.teal{background:linear-gradient(135deg,#0ea5a4,#22c55e);box-shadow:0 10px 22px rgba(34,197,94,.25)}
+
+/* ---------- choices / quiz ---------- */
+.opts{display:flex;flex-direction:column;gap:10px;margin-top:14px}
+.opt{display:flex;gap:12px;align-items:flex-start;background:var(--glass);border:1px solid var(--line);
+  border-radius:12px;padding:12px 14px;cursor:pointer;transition:.16s;font-size:14.5px;line-height:1.45}
+.opt:hover{background:var(--glass-2);border-color:var(--teal)}
+.opt .k{font:600 11px var(--mono);color:var(--yellow);border:1px solid rgba(251,191,36,.35);border-radius:6px;
+  padding:2px 7px;flex:none}
+.opt.ok{border-color:rgba(34,197,94,.7);background:rgba(34,197,94,.12)}
+.opt.no{border-color:rgba(251,113,133,.7);background:rgba(251,113,133,.10)}
+
+.deck{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:6px}
+.plan{background:var(--glass);border:1px solid var(--line);border-radius:16px;padding:16px;display:flex;
+  flex-direction:column;gap:10px;cursor:pointer;transition:.18s;position:relative;overflow:hidden}
+.plan:hover{transform:translateY(-3px);border-color:var(--teal);background:var(--glass-2)}
+.plan.locked{opacity:.55;cursor:not-allowed;filter:grayscale(.4)}
+.plan .cost{display:flex;justify-content:space-between;font:600 11px var(--mono);color:var(--yellow)}
+.plan h4{margin:0;font-family:var(--disp);font-size:15px;font-weight:400}
+.plan p{margin:0;font-size:13px;color:#cbd5e1;line-height:1.5}
+.plan .fx{display:flex;gap:10px;font:600 11px var(--mono);margin-top:auto}
+.up{color:#4ade80} .down{color:#4ade80} .bad{color:#fda4af} .flat{color:var(--muted)}
+.plan .lock{font:600 11px var(--mono);color:var(--pink)}
+
+.report{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.report .box{background:var(--glass);border:1px solid var(--line);border-radius:16px;padding:18px}
+.report h3{margin:0 0 8px;font-family:var(--disp);font-size:20px;font-weight:400}
+.stars{font-size:22px;color:var(--yellow);letter-spacing:2px}
+.small{font-size:12.5px;color:var(--muted);line-height:1.6}
+
+.toast{position:fixed;top:78px;right:24px;display:flex;flex-direction:column;gap:8px;z-index:40}
+.toast div{background:rgba(9,15,29,.92);border:1px solid var(--line-strong);border-radius:12px;padding:10px 14px;
+  font:600 13px var(--body);animation:pop .35s ease-out}
+@keyframes pop{from{opacity:0;transform:translateY(-8px) scale(.96)}to{opacity:1;transform:none}}
+.flash{position:fixed;inset:0;background:rgba(251,191,36,.16);pointer-events:none;opacity:0;transition:opacity .25s}
+.flash.on{opacity:1}
+@media (max-width:1100px){
+  .stage{grid-template-columns:1fr;grid-template-rows:auto auto}
+  .city{order:-1}
+  .deck{grid-template-columns:1fr}
+  .hand{flex-direction:column;align-items:stretch}
+  .poker{align-self:center}
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="hud">
+    <div class="brand"><b>SDG 13-1 · NIGHT SHIFT</b><span id="hudStage">STAGE 1 / 6 · 台北能源控制中心</span></div>
+    <div class="pips" id="pips"></div>
+    <div class="res">
+      <div class="item"><span class="k">ENERGY</span><span class="v" id="energy">10 <small>⚡</small></span></div>
+      <div class="item"><span class="k">EVIDENCE</span><span class="v" id="evid">0 <small>📄</small></span></div>
+      <div class="item"><span class="k">TALK</span><span class="v" id="talkv">0 <small>★</small></span></div>
+    </div>
+    <div class="spacer"></div>
+    <button class="ghost" id="zhBtn">中文對照：關</button>
+    <button class="ghost" id="restart">重新開始</button>
+  </div>
+
+  <div class="stage">
+    <div class="panel left">
+      <div class="head"><span class="tag" id="sceneTag">BRIEFING</span><h2 id="sceneTitle">Control room, 21:40</h2></div>
+      <div class="body" id="scene"></div>
+    </div>
+
+    <div class="panel city">
+      <svg viewBox="0 0 520 330" preserveAspectRatio="xMidYMax slice" id="citySvg" aria-label="Taipei skyline reacting to your decisions">
+        <defs>
+          <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#0b1a3a"/><stop offset="100%" stop-color="#132a4d"/>
+          </linearGradient>
+          <linearGradient id="smog" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#b45309" stop-opacity="0"/><stop offset="100%" stop-color="#b45309" stop-opacity=".85"/>
+          </linearGradient>
+          <linearGradient id="bldg" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#1e293b"/><stop offset="100%" stop-color="#0b1220"/>
+          </linearGradient>
+        </defs>
+        <rect width="520" height="330" fill="url(#sky)"/>
+        <circle cx="430" cy="62" r="26" fill="#fbbf24" opacity=".22"/>
+        <circle cx="430" cy="62" r="14" fill="#fde68a" opacity=".5"/>
+        <g id="stars"></g>
+        <rect id="smogLayer" x="0" y="140" width="520" height="190" fill="url(#smog)" opacity=".55"/>
+        <g id="turbines"></g>
+        <g id="skyline"></g>
+        <rect x="0" y="300" width="520" height="30" fill="#060c18"/>
+        <g id="road"></g>
+        <text x="16" y="24" fill="#93a2bd" font-family="IBM Plex Mono" font-size="10" letter-spacing="2">TAIPEI · 2030</text>
+        <text id="cityStatus" x="504" y="24" text-anchor="end" fill="#fbbf24" font-family="IBM Plex Mono" font-size="10" letter-spacing="1">HEAT ALERT</text>
+      </svg>
+      <div class="meters" id="meters"></div>
+    </div>
+  </div>
+
+  <div class="talk">
+    <div class="avatar" id="av" style="background:linear-gradient(135deg,#3b82f6,#a855f7)">C</div>
+    <div style="flex:1">
+      <div class="who" id="who">DIRECTOR CHEN · 控制中心主任</div>
+      <div class="line" id="line"></div>
+      <div class="zh" id="zhline"></div>
+    </div>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+<div class="flash" id="flash"></div>
+
+<script>
+/* ============================ content (real SDG 13-1 B1 script lines) */
+const CAST = {
+  chen:{name:"DIRECTOR CHEN · 控制中心主任", ini:"C", grad:"linear-gradient(135deg,#3b82f6,#a855f7)"},
+  atlas:{name:"ATLAS · 控制中心 AI", ini:"A", grad:"linear-gradient(135deg,#0ea5a4,#22c55e)"},
+  lin:{name:"REPORTER LIN · 市政記者", ini:"L", grad:"linear-gradient(135deg,#fb7185,#fbbf24)"}
+};
+const SLOTS = [
+  {n:"SLIDE 10", t:"Smart Power Grids"},
+  {n:"SLIDE 11", t:"Carbon Capture Technology"},
+  {n:"SLIDE 12", t:"Electric Transportation"}
+];
+const CARDS = [
+  {slot:0, ev:null, txt:"In Taiwan we are developing smart grids: they use AI to decide where and when power is needed, so less energy is wasted."},
+  {slot:1, ev:"CO2 from chimneys", txt:"Scientists here catch CO2 from factory chimneys before it reaches the air, and then store it safely underground."},
+  {slot:2, ev:"Gogoro · swappable", txt:"Taiwan is famous for electric scooters with swappable batteries, which cut pollution and noise in crowded cities."}
+];
+const PLANS = [
+  {id:"grid", name:"Smart grids", cost:3, need:0,
+   desc:"Use AI to balance the grid so peak-hour blackouts stop.",
+   fx:{em:-2, sec:+3, eco:0}, after:"The grid held through the heatwave. Factories kept running; nobody lost power."},
+  {id:"capture", name:"Carbon capture", cost:4, need:2,
+   desc:"Catch CO2 at factory chimneys and store it underground.",
+   fx:{em:-3, sec:0, eco:-1}, after:"Emissions fell fast, but three factories said the cost was too high."},
+  {id:"scooter", name:"Electric scooters", cost:2, need:0,
+   desc:"More swappable batteries for scooters in crowded districts.",
+   fx:{em:-1, sec:0, eco:+2}, after:"The streets got quieter and battery shops opened everywhere."}
+];
+const VOCAB = [
+  {w:"efficient", zh:"有效率的", q:"This smart system reduces waste and makes our energy much more ______.",
+   opts:["efficient","expensive","electric"], a:0},
+  {w:"capture", zh:"捕捉、封存", q:"Carbon ______ means catching CO2 before it reaches the air.",
+   opts:["capture","capital","carpet"], a:0}
+];
+const PRESS = {
+  q:"Reporter Lin: “Your slides say smart grids cut waste. Which number in tonight's data actually supports that?”",
+  zh:"記者林：「你的投影片說智慧電網減少浪費。今晚的數據裡，哪一個數字真的支持這個說法？」",
+  opts:["Peak-hour demand dropped 12% after the grid switched.",
+        "Taiwan has 23 million people.",
+        "The heat index will reach 38°C tomorrow."],
+  a:0
+};
+
+/* ============================ state */
+const S0 = () => ({scene:0, stage:1, energy:10, evidence:0, talk:0,
+  em:7, sec:4, eco:5, placed:[false,false,false], cardIdx:0, picked:[], zh:false});
+let S = S0();
+const $ = id => document.getElementById(id);
+
+/* ============================ city drawing */
+function buildCity(){
+  const sky=$("skyline"), tb=$("turbines"), rd=$("road"), st=$("stars");
+  st.innerHTML = Array.from({length:40},()=>{
+    const x=Math.random()*520, y=Math.random()*130;
+    return `<circle cx="${x.toFixed(0)}" cy="${y.toFixed(0)}" r="${(Math.random()*1.1+.4).toFixed(1)}" fill="#e2e8f0" opacity="${(Math.random()*.5+.2).toFixed(2)}"/>`;
+  }).join("");
+  const B=[[18,196],[62,168],[104,214],[140,150],[188,186],[232,120],[276,176],[318,206],[352,160],[398,200],[444,178],[484,208]];
+  sky.innerHTML = B.map(([x,y],i)=>{
+    const w=i%3===1?38:30, h=300-y;
+    let win="";
+    for(let r=0;r<Math.floor(h/22);r++) for(let c=0;c<Math.floor(w/12);c++)
+      win+=`<rect class="win" data-i="${i}-${r}-${c}" x="${x+6+c*12}" y="${y+10+r*22}" width="6" height="9" fill="#fde68a" opacity=".18"/>`;
+    return `<g><rect x="${x}" y="${y}" width="${w}" height="${h}" fill="url(#bldg)"/>${win}
+      <rect class="solar" data-i="${i}" x="${x+3}" y="${y-4}" width="${w-6}" height="5" rx="1" fill="#38bdf8" opacity="0"/></g>`;
+  }).join("");
+  tb.innerHTML = [60,150,240].map((x,i)=>`
+    <g class="turb" data-i="${i}" opacity="0" transform="translate(${100+i*150},150) scale(.72)">
+      <rect x="-1.5" y="0" width="3" height="66" fill="#94a3b8"/>
+      <g class="blades"><rect x="-1.5" y="-26" width="3" height="26" fill="#e2e8f0"/>
+        <rect x="-1.5" y="-26" width="3" height="26" fill="#e2e8f0" transform="rotate(120)"/>
+        <rect x="-1.5" y="-26" width="3" height="26" fill="#e2e8f0" transform="rotate(240)"/></g>
+      <animateTransform attributeName="transform" type="rotate" values="0;0" dur="1s"/>
+    </g>`).join("");
+  rd.innerHTML = Array.from({length:9},(_,i)=>
+    `<g class="scoot" data-i="${i}" opacity="0"><rect x="${10+i*58}" y="309" width="18" height="5" rx="2.5" fill="#22d3ee"/><circle cx="${14+i*58}" cy="316" r="3" fill="#0ea5a4"/><circle cx="${24+i*58}" cy="316" r="3" fill="#0ea5a4"/></g>`).join("");
+  document.querySelectorAll(".blades").forEach((b,i)=>{
+    let a=0; setInterval(()=>{ if(b.parentNode.getAttribute("opacity")==="1"){ a=(a+4)%360; b.setAttribute("transform",`rotate(${a})`);} },40);
+  });
+}
+function paintCity(){
+  $("smogLayer").setAttribute("opacity", (0.12+S.em*0.075).toFixed(2));
+  const lit = Math.round(S.sec*9);
+  document.querySelectorAll(".win").forEach((w,i)=> w.setAttribute("opacity", i%11 < (lit/9) ? ".85" : ".15"));
+  document.querySelectorAll(".turb").forEach((t,i)=> t.setAttribute("opacity", S.picked.includes("grid") && i<3 ? "1":"0"));
+  document.querySelectorAll(".solar").forEach((p,i)=> p.setAttribute("opacity", S.picked.includes("capture") && i%2===0 ? ".8":"0"));
+  document.querySelectorAll(".scoot").forEach((p,i)=> p.setAttribute("opacity", S.picked.includes("scooter") && i<9 ? ".9":"0"));
+  $("cityStatus").textContent = S.em>=7 ? "HEAT ALERT" : S.em>=4 ? "STABLE" : "CLEAR SKY";
+  $("cityStatus").setAttribute("fill", S.em>=7 ? "#fbbf24" : S.em>=4 ? "#93a2bd" : "#4ade80");
+  const M=[["排放 Emissions","em",S.em,"#fb923c",true],["能源安全 Security","sec",S.sec,"#38bdf8",false],["經濟 Economy","eco",S.eco,"#4ade80",false]];
+  $("meters").innerHTML = M.map(([label,key,v,c,lowGood])=>`
+    <div class="meter"><div class="row"><b>${label}</b><span>${v}/10 ${lowGood?"· 越低越好":""}</span></div>
+    <div class="bar"><i style="width:${v*10}%;background:${c}"></i></div></div>`).join("");
+}
+
+/* ============================ helpers */
+function hud(){
+  $("energy").innerHTML = S.energy+' <small>⚡</small>';
+  $("evid").innerHTML = S.evidence+' <small>📄</small>';
+  $("talkv").innerHTML = S.talk+' <small>★</small>';
+  $("pips").innerHTML = [1,2,3,4,5,6].map(i=>`<div class="pip ${i<S.stage?'done':i===S.stage?'cur':''}"></div>`).join("");
+  $("hudStage").textContent = `STAGE ${S.stage} / 6 · 台北能源控制中心`;
+}
+function toast(msg){
+  const d=document.createElement("div"); d.textContent=msg; $("toast").appendChild(d);
+  setTimeout(()=>d.remove(),2200);
+}
+let typing;
+function say(who, en, zh){
+  const c=CAST[who]; $("who").textContent=c.name; $("av").textContent=c.ini; $("av").style.background=c.grad;
+  $("zhline").textContent = zh||"";
+  clearInterval(typing); const el=$("line"); el.textContent="";
+  let i=0; typing=setInterval(()=>{ el.textContent = en.slice(0,++i); if(i>=en.length) clearInterval(typing); }, 16);
+}
+function flash(){ $("flash").classList.add("on"); setTimeout(()=>$("flash").classList.remove("on"),220); }
+function meterChange(fx){
+  S.em=Math.max(0,Math.min(10,S.em+fx.em)); S.sec=Math.max(0,Math.min(10,S.sec+fx.sec)); S.eco=Math.max(0,Math.min(10,S.eco+fx.eco));
+  paintCity();
+  const parts=[]; if(fx.em) parts.push(`排放 ${fx.em<0?"▼":"▲"}${Math.abs(fx.em)}`);
+  if(fx.sec) parts.push(`能源安全 ${fx.sec>0?"▲":"▼"}${Math.abs(fx.sec)}`);
+  if(fx.eco) parts.push(`經濟 ${fx.eco>0?"▲":"▼"}${Math.abs(fx.eco)}`);
+  if(parts.length) toast(parts.join(" · "));
+}
+
+/* ============================ scenes */
+const scenes = [brief, vocab, table, press, decide, ending];
+function go(n){ S.scene=n; scenes[n](); hud(); paintCity(); }
+
+function brief(){
+  S.stage=1;
+  $("sceneTag").textContent="BRIEFING"; $("sceneTitle").textContent="Control room · 21:40";
+  say("chen","A heatwave hits Taipei tomorrow. The mayor speaks to the city in 6 minutes 40 seconds — twenty slides, twenty seconds each. You build that talk tonight.",
+      "明天熱浪來襲。市長要用 6 分 40 秒、20 張投影片向市民說明。今晚由你把這場演講組出來。");
+  $("scene").innerHTML = `
+    <p style="font-size:15px;line-height:1.7;margin:0 0 14px">
+      你是控制中心的夜班分析師。今晚要做三件事：<b>看懂進來的資料</b>、<b>把句子放進正確的投影片</b>、
+      <b>決定市府明年先投資什麼</b>。你的每一個決定，右邊的城市會立刻反應。</p>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0">
+      ${[["⚡ Energy","答對題目會得到行動點，決策要花掉它"],
+         ["📄 Evidence","讀懂數據卡才拿得到，能解鎖更強的方案"],
+         ["★ Talk Strength","決定市長演講最後講得好不好"]].map(([t,d])=>`
+        <div style="background:var(--glass);border:1px solid var(--line);border-radius:14px;padding:14px">
+          <div style="font-family:var(--disp);font-size:14px;margin-bottom:6px">${t}</div>
+          <div style="font-size:12.5px;color:var(--muted);line-height:1.5">${d}</div></div>`).join("")}
+    </div>
+    <div class="btnrow"><button class="btn" onclick="go(1)">開始夜班 →</button>
+      <button class="ghost" onclick="document.getElementById('zhBtn').click()">先開中文對照</button></div>
+    <p style="font-size:12px;color:var(--muted);margin-top:16px">
+      這是原型：只包含 SDG 13-1 的一個片段（Stage 1 → Stage 5），用來判斷玩法與風格，內容尚未完整。</p>`;
+}
+
+let vIdx=0;
+function vocab(){
+  S.stage=2; vIdx=0; $("sceneTag").textContent="WARM-UP"; $("sceneTitle").textContent="ATLAS boots up · 21:46";
+  say("atlas","Two words first. You will meet them again in the mayor's slides.",
+      "先兩個字。等一下市長的投影片裡會再遇到。");
+  renderVocab();
+}
+function renderVocab(){
+  if(vIdx>=VOCAB.length){ go(2); return; }
+  const v=VOCAB[vIdx];
+  $("scene").innerHTML = `
+    <div style="display:flex;gap:20px;flex-wrap:wrap">
+      <div style="background:var(--glass);border:1px solid var(--line);border-radius:16px;padding:18px;min-width:220px">
+        <div style="font-family:var(--disp);font-size:30px">${v.w}</div>
+        <div style="font-family:var(--mono);font-size:12px;color:var(--muted);margin-top:4px">${v.zh}</div>
+        <button class="ghost" style="margin-top:14px" onclick="speak('${v.w}')">🔊 聽發音</button>
+      </div>
+      <div style="flex:1;min-width:300px">
+        <div style="font:600 10px var(--mono);letter-spacing:.16em;color:var(--muted)">FILL THE GAP · ${vIdx+1} / ${VOCAB.length}</div>
+        <div style="font-size:16px;line-height:1.6;margin:10px 0 4px">${v.q}</div>
+        <div class="opts">${v.opts.map((o,i)=>`<div class="opt" data-i="${i}"><span class="k">${i+1}</span><span>${o}</span></div>`).join("")}</div>
+      </div>
+    </div>`;
+  document.querySelectorAll(".opt").forEach(el=>el.onclick=()=>answerVocab(+el.dataset.i,el));
+}
+function answerVocab(i,el){
+  const v=VOCAB[vIdx];
+  if(i===v.a){ el.classList.add("ok"); S.energy++; hud(); toast("+1 ⚡ Energy");
+    setTimeout(()=>{vIdx++; renderVocab();},520); }
+  else { el.classList.add("no"); toast("已加入複習 📋 · 不扣分");
+    say("atlas","Not this one. Read the sentence again — which word is about using less energy?","不是這個。再讀一次句子——哪一個字跟「少用能源」有關？"); }
+}
+
+function table(){
+  S.stage=3; $("sceneTag").textContent="CARD TABLE"; $("sceneTitle").textContent="Build the mayor's slides · 22:05";
+  say("chen","Three sentences came back from the science team. Put each one on the slide it belongs to.",
+      "科學組送回三句話。把每一句放到它該去的投影片上。");
+  renderTable();
+}
+function renderTable(){
+  const c = CARDS[S.cardIdx];
+  $("scene").innerHTML = `
+    <div class="slots">${SLOTS.map((s,i)=>`
+      <div class="slot ${S.placed[i]?'filled':''}" data-i="${i}">
+        <span class="key">${i+1}</span><div class="n">${s.n}</div><div class="t">${s.t}</div>
+        ${S.placed[i]?`<div class="done">✓ ${CARDS[i].txt.slice(0,58)}…</div>`:""}
+      </div>`).join("")}</div>
+    ${c ? `<div class="hand">
+      <div class="poker" id="poker"><div class="inner">
+        <div class="face back"><b>SDG 13</b></div>
+        <div class="face front">
+          <div class="kick">SENTENCE CARD ${S.cardIdx+1}/3</div>
+          <div class="txt">${c.txt}</div>
+          ${c.ev?`<div class="ev">DATA · ${c.ev}</div>`:""}
+        </div></div></div>
+      <div class="handside">
+        <div style="font:600 10px var(--mono);letter-spacing:.16em;color:var(--muted)">WHAT TO DO</div>
+        <div class="hint">先聽一次，再點右邊的投影片，或直接按鍵盤 <b>1 / 2 / 3</b>。<br>
+          沒有拖曳。答錯不扣分，只是那張卡會回到牌堆。</div>
+        <div class="btnrow">
+          <button class="btn teal" onclick="speak(CARDS[${S.cardIdx}].txt)">🔊 聽這張卡</button>
+          <button class="ghost" onclick="hintCard()">提示（1 ⚡）</button>
+        </div>
+      </div></div>` : ""}`;
+  setTimeout(()=>{const p=$("poker"); if(p) p.classList.add("flip");},120);
+  document.querySelectorAll(".slot").forEach(el=>el.onclick=()=>place(+el.dataset.i,el));
+}
+function place(i,el){
+  const c=CARDS[S.cardIdx]; if(!c || S.placed[i]) return;
+  if(c.slot===i){
+    S.placed[i]=true; S.talk++; flash();
+    if(c.ev){ S.evidence++; toast("📄 +1 Evidence · "+c.ev); }
+    toast("✓ 放對了 · +1 ★");
+    say("atlas","Filed. That line now sits on slide "+(i+10)+".","歸檔完成。這句話進了第 "+(i+10)+" 張投影片。");
+    S.cardIdx++;
+    if(S.cardIdx>=CARDS.length){ hud(); setTimeout(()=>go(3),900); return; }
+  } else {
+    el.classList.add("bad"); setTimeout(()=>el.classList.remove("bad"),340);
+    toast("這張不是放這裡 · 已加入複習 📋");
+    say("chen","Read the first half of the sentence again. What is it actually about?","再讀一次句子的前半段。它到底在講什麼？");
+  }
+  hud(); renderTable();
+}
+function hintCard(){
+  if(S.energy<1){ toast("Energy 不夠"); return; }
+  S.energy--; hud();
+  const c=CARDS[S.cardIdx];
+  say("atlas","Simpler version: "+({0:"AI decides where power goes, so less is wasted.",
+    1:"They catch CO2 from chimneys and store it underground.",
+    2:"Electric scooters with batteries you can swap."}[c.slot]),
+    "（降一級的英文提示）");
+}
+
+function press(){
+  S.stage=4; $("sceneTag").textContent="PRESS"; $("sceneTitle").textContent="A reporter calls · 22:30";
+  say("lin","One question before you publish those slides.","在你發佈投影片前，我有一個問題。");
+  $("scene").innerHTML = `
+    <div style="background:var(--glass);border:1px solid var(--line);border-left:3px solid var(--pink);
+      border-radius:14px;padding:16px;font-size:15.5px;line-height:1.6">${PRESS.q}
+      <div style="font-size:12.5px;color:var(--muted);margin-top:8px" class="zhq">${PRESS.zh}</div></div>
+    <div class="opts">${PRESS.opts.map((o,i)=>`<div class="opt" data-i="${i}"><span class="k">${i+1}</span><span>${o}</span></div>`).join("")}</div>`;
+  document.querySelectorAll(".opt").forEach(el=>el.onclick=()=>{
+    const i=+el.dataset.i;
+    if(i===PRESS.a){ el.classList.add("ok"); S.talk++; hud(); toast("+1 ★ · 記者買單了");
+      say("lin","Fair enough. I'll quote that number.","可以，我就引用這個數字。");
+      setTimeout(()=>go(4),1100);
+    } else { el.classList.add("no"); meterChange({em:0,sec:0,eco:-1});
+      say("lin","That doesn't answer my question. People will notice.","這沒有回答我的問題。市民會發現的。"); }
+  });
+}
+
+function decide(){
+  S.stage=5; $("sceneTag").textContent="DECISION"; $("sceneTitle").textContent="Budget meeting · 23:10";
+  say("chen","Next year's budget funds two of these. Read them, then choose. The city will show you what happens.",
+      "明年的預算只夠兩項。讀完再選，城市會直接讓你看到結果。");
+  renderPlans();
+}
+function renderPlans(){
+  $("scene").innerHTML = `
+    <div style="font-size:14.5px;color:#cbd5e1;margin-bottom:12px">已選 ${S.picked.length} / 2 · Energy ${S.energy} ⚡ · Evidence ${S.evidence} 📄</div>
+    <div class="deck">${PLANS.map(p=>{
+      const locked = p.need>S.evidence || p.cost>S.energy || S.picked.includes(p.id);
+      return `<div class="plan ${locked?'locked':''}" data-id="${p.id}">
+        <div class="cost"><span>⚡ ${p.cost}</span><span>${p.need?`需要 📄 ${p.need}`:"無門檻"}</span></div>
+        <h4>${p.name}</h4><p>${p.desc}</p>
+        <div class="fx">
+          <span class="${p.fx.em<0?'down':p.fx.em>0?'bad':'flat'}">排放 ${p.fx.em<0?'▼':p.fx.em>0?'▲':'—'}${p.fx.em?Math.abs(p.fx.em):''}</span>
+          <span class="${p.fx.sec>0?'up':p.fx.sec<0?'bad':'flat'}">安全 ${p.fx.sec>0?'▲':p.fx.sec<0?'▼':'—'}${p.fx.sec?Math.abs(p.fx.sec):''}</span>
+          <span class="${p.fx.eco>0?'up':p.fx.eco<0?'bad':'flat'}">經濟 ${p.fx.eco>0?'▲':p.fx.eco<0?'▼':'—'}${p.fx.eco?Math.abs(p.fx.eco):''}</span>
+        </div>
+        ${S.picked.includes(p.id)?'<div class="lock">已選</div>':
+          p.need>S.evidence?`<div class="lock">缺 ${p.need-S.evidence} 張數據卡</div>`:
+          p.cost>S.energy?'<div class="lock">Energy 不足</div>':''}
+      </div>`;}).join("")}</div>`;
+  document.querySelectorAll(".plan:not(.locked)").forEach(el=>el.onclick=()=>pick(el.dataset.id));
+}
+function pick(id){
+  const p=PLANS.find(x=>x.id===id);
+  S.energy-=p.cost; S.picked.push(id); meterChange(p.fx); hud();
+  say("chen",p.after, "");
+  if(S.picked.length>=2){ setTimeout(()=>go(5),1400); } else renderPlans();
+}
+
+function ending(){
+  S.stage=6; $("sceneTag").textContent="NEXT MORNING"; $("sceneTitle").textContent="The heatwave arrives · 06:20";
+  const good = S.em<=5 && S.sec>=6;
+  const mid = S.em<=6;
+  const e = good ? {t:"淨零先驅", s:"The grid held, the air was clearer, and the mayor's talk made the evening news."}
+    : mid ? {t:"穩健轉型", s:"The city coped. Emissions fell, but some districts still ran hot."}
+    : {t:"停電的早晨", s:"Two districts lost power at 14:00. The mayor's talk did not mention the risk."};
+  say("chen", e.s, "");
+  $("scene").innerHTML = `
+    <div class="report">
+      <div class="box">
+        <div style="font:600 10px var(--mono);letter-spacing:.16em;color:var(--muted)">ENDING</div>
+        <h3>${e.t}</h3>
+        <p class="small">${e.s}</p>
+        <div style="margin-top:14px;display:flex;gap:16px;font:600 12px var(--mono)">
+          <span>排放 ${S.em}/10</span><span>安全 ${S.sec}/10</span><span>經濟 ${S.eco}/10</span></div>
+      </div>
+      <div class="box">
+        <div style="font:600 10px var(--mono);letter-spacing:.16em;color:var(--muted)">TALK STRENGTH</div>
+        <div class="stars">${"★".repeat(Math.min(5,S.talk))}${"☆".repeat(Math.max(0,5-S.talk))}</div>
+        <p class="small">你組出的投影片撐起了市長的前半場。<br>
+          複習清單：${S.talk>=4?"（沒有錯題）":"efficient · capture"}</p>
+        <div class="btnrow">
+          <button class="btn teal" onclick="go(0);S=S0();buildCity();">再玩一次</button>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:18px;background:var(--glass);border:1px solid var(--line);border-radius:14px;padding:16px">
+      <div style="font-family:var(--disp);font-size:15px;margin-bottom:8px">接下來真正的版本會有</div>
+      <div class="small">Showtime：把你解鎖的 20 張 slide 用 20 秒一張播出來，你跟著唸並錄音 ·
+        個人化複習：只練你錯的那幾個字與句型 · 9 個 Mission 各有不同角色與結局 ·
+        匿名排行榜與班級共同指標。</div>
+    </div>`;
+}
+
+/* ============================ misc */
+function speak(t){
+  try{ const u=new SpeechSynthesisUtterance(t); u.lang="en-US"; u.rate=.95; speechSynthesis.cancel(); speechSynthesis.speak(u);}catch(e){}
+}
+document.addEventListener("keydown",e=>{
+  if(!/^[1-3]$/.test(e.key)) return;
+  const i=+e.key-1;
+  if(S.scene===2){ const el=document.querySelector(`.slot[data-i="${i}"]`); if(el) place(i,el); }
+  else { const el=document.querySelector(`.opt[data-i="${i}"]`); if(el) el.click(); }
+});
+$("zhBtn").onclick = ()=>{ S.zh=!S.zh; document.body.classList.toggle("zh",S.zh);
+  $("zhBtn").textContent = "中文對照："+(S.zh?"開":"關"); };
+$("restart").onclick = ()=>{ S=S0(); buildCity(); go(0); };
+buildCity(); go(0);
+</script>
+</body>
+</html>
