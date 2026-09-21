@@ -1,0 +1,1063 @@
+{
+  "mission_id": "sdg5-2",
+  "sdg": 5,
+  "title": {
+    "en": "Leveling the Playing Field (Women in Sports & Media)",
+    "zh": null
+  },
+  "shape": "wide",
+  "source": {
+    "workbook": "SDGs Pecha Kucha (公用)_new.xlsx",
+    "sheet": "SDG 5-2",
+    "level_columns": {
+      "A2": "F",
+      "B1": "H",
+      "B2": "J"
+    },
+    "extra_level_columns": [],
+    "zh_title_column": null
+  },
+  "narrative_brief": "任務：SDG 5 —— 性別平權演說大拼圖\nCan you balance the world in 6 minutes and 40 seconds? The world is unfair, and your script is scrambled! Before you can deliver your powerful Pecha Kucha talk, you need to fix the \"Equality Gap.\"\n你能用 6 分 40 秒讓世界變得更公平嗎？世界充滿了不平等，而你的講稿卻亂成一團！在你發表震撼人心的 Pecha Kucha 演說之前，你需要先修復這道「平權裂痕」。\n\nStep 1: Know Your Battle Plan (熟悉你的作戰計畫)\nEvery hero needs a map. To defeat gender bias, your speech must pass through these 6 Zones:\n每個英雄都需要地圖。要打敗性別偏見，你的演說必須經過這 6 個關卡：\nPart 1: The Hook (引言) Wake them up! (喚醒聽眾！)\nPart 2: The Root Cause (問題根源) Old ideas! (舊觀念怪獸！) \nPart 3: The Reality Check (現實挑戰) The hard truth. (殘酷的真相。) =\nPart 4: The Daily Life (日常實踐) Start at home! (從家裡開始！) \nPart 5: The Nerd Power (未來創新) Tech for all! (科技救平權！) \nPart 6: The Mic Drop (結語與行動) Be the change! (成為改變的力量！)\n\nStep 2: The Logic Clue Search (邏輯線索大搜索)\nBased on the Keywords, guess which \"Zone\" the script card belongs to.\n根據關鍵字，猜猜這張演講片屬於哪個「關卡」。\n\nStep 3: Level Up Your Brain (腦力大升級)\nWhen the puzzle is finished, don't leave yet! Ask yourself:\n拼圖完成後，先別急著走！問問自己：\n✔ Why this piece? (為什麼是這片？)\n✔ The Flow (流暢度): 講者如何從「嚴重的問題指認」轉向「重要的解決方案與行動」（第五關）而不讓聽眾感到沉重或分心？",
+  "stages": [
+    {
+      "part_no": 1,
+      "source_description": "The Context & The \"Why\" 背景脈絡與核心價值",
+      "function_en": "Introduction",
+      "function_zh": "引言：破題與定義",
+      "language_pattern": "rhetorical questions / X is about ...",
+      "slides": [
+        {
+          "slide_no": 1,
+          "title": {
+            "en": "The Definition of SDG 5",
+            "zh": null
+          },
+          "scripts": {
+            "A2": {
+              "text": "Hello everyone! Welcome to my presentation. Today, we are exploring SDG 5: Gender Equality, but through a new lens: sports and media. Sports teach us about teamwork and rules. Everyone deserves a fair chance to play, win, and shine.",
+              "words": 38,
+              "sentences": 5,
+              "avg_sentence_words": 7.6,
+              "fk_grade": 6.0,
+              "long_word_pct": 18.4,
+              "speak_seconds_est": 17.5,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "Welcome to my presentation. Today, we are exploring SDG 5: Gender Equality through the exciting world of sports and media. Sports teach us valuable lessons about teamwork, respect, and rules. Therefore, everyone deserves a fair opportunity to compete, improve, and shine on the global stage.",
+              "words": 44,
+              "sentences": 4,
+              "avg_sentence_words": 11.0,
+              "fk_grade": 9.6,
+              "long_word_pct": 22.7,
+              "speak_seconds_est": 20.3,
+              "fits_20s": false,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "Welcome, everyone. Today, we confront a vital cornerstone of human development: SDG 5, Gender Equality, through the dynamic lens of sports and media. Far from being mere entertainment, sports embody global values. Everyone deserves an equitable opportunity to compete, develop potential, and excel.",
+              "words": 42,
+              "sentences": 4,
+              "avg_sentence_words": 10.5,
+              "fk_grade": 12.4,
+              "long_word_pct": 26.2,
+              "speak_seconds_est": 19.4,
+              "fits_20s": true,
+              "provenance": "workbook"
+            }
+          },
+          "numbers": [],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 2,
+          "title": {
+            "en": "Why It Matters to Everyone",
+            "zh": null
+          },
+          "scripts": {
+            "A2": {
+              "text": "Why does this matter? Because sports reflect our society. When we see strong female athletes on television, it inspires millions of girls. Equality in sports means that physical talent and hard work are respected, regardless of biological gender.",
+              "words": 38,
+              "sentences": 4,
+              "avg_sentence_words": 9.5,
+              "fk_grade": 8.9,
+              "long_word_pct": 23.7,
+              "speak_seconds_est": 17.5,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "Why does this matter? Because sports are a mirror of our society. When the media shows strong, successful female athletes on television, it inspires millions of young girls. Equality in sports proves that hard work and physical talent matter more than your gender.",
+              "words": 43,
+              "sentences": 4,
+              "avg_sentence_words": 10.8,
+              "fk_grade": 7.8,
+              "long_word_pct": 16.3,
+              "speak_seconds_est": 19.8,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "Why prioritize this narrative? Because sports directly reflect social structures. When media platforms broadcast elite female athletes, they dismantle prejudices and inspire younger generations. Equity in sports proves that dedication and physical excellence transcend traditional gender boundaries, fostering global inclusivity.",
+              "words": 40,
+              "sentences": 4,
+              "avg_sentence_words": 10.0,
+              "fk_grade": 15.7,
+              "long_word_pct": 45.0,
+              "speak_seconds_est": 18.5,
+              "fits_20s": true,
+              "provenance": "workbook"
+            }
+          },
+          "numbers": [],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 3,
+          "title": {
+            "en": "The Power of Balance",
+            "zh": null
+          },
+          "scripts": {
+            "A2": {
+              "text": "Think about the Olympic Games. It takes both men and women to make a country proud. If we only support one group, we lose half of our global talent. Let’s look at how we can build a balanced sports world.",
+              "words": 41,
+              "sentences": 4,
+              "avg_sentence_words": 10.2,
+              "fk_grade": 3.9,
+              "long_word_pct": 2.4,
+              "speak_seconds_est": 18.9,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "Consider the Olympic Games. It takes both male and female athletes to make a nation truly proud. If we only support one group, we lose half of our creative and athletic talent. We must work together to build a balanced sports community.",
+              "words": 42,
+              "sentences": 4,
+              "avg_sentence_words": 10.5,
+              "fk_grade": 7.6,
+              "long_word_pct": 16.7,
+              "speak_seconds_est": 19.4,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "Consider the Olympic Games. Achieving national pride requires the synchronized excellence of both male and female athletes. Margaining either group compromises half of our global talent pool. To architect a resilient future, we must establish a balanced athletic community rooted in equal opportunity.",
+              "words": 43,
+              "sentences": 4,
+              "avg_sentence_words": 10.8,
+              "fk_grade": 13.8,
+              "long_word_pct": 37.2,
+              "speak_seconds_est": 19.8,
+              "fits_20s": true,
+              "provenance": "workbook"
+            }
+          },
+          "numbers": [],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        }
+      ]
+    },
+    {
+      "part_no": 2,
+      "source_description": "The Root Cause & Early Impact 原因與影響",
+      "function_en": "Problem",
+      "function_zh": "問題指認：趨勢與因果",
+      "language_pattern": "present progressive for trends / this causes ...",
+      "slides": [
+        {
+          "slide_no": 4,
+          "title": {
+            "en": "Traditional Mindsets",
+            "zh": null
+          },
+          "scripts": {
+            "A2": {
+              "text": "In the past, sports were considered \"only for men.\" Women were told they were too weak to run marathons or play football. These old traditions created a huge gap, stopping women from joining professional competitions for many decades.",
+              "words": 38,
+              "sentences": 2,
+              "avg_sentence_words": 19.0,
+              "fk_grade": 10.8,
+              "long_word_pct": 18.4,
+              "speak_seconds_est": 17.5,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "In the past, professional sports were considered \"only for men.\" Women were often told they were too weak for heavy training or long marathons. These old traditions created huge barriers, stopping female players from joining major international competitions for many decades.",
+              "words": 41,
+              "sentences": 2,
+              "avg_sentence_words": 20.5,
+              "fk_grade": 13.4,
+              "long_word_pct": 22.0,
+              "speak_seconds_est": 18.9,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "Historically, systemic bias restricted professional sports exclusively to men. Societal narratives falsely claimed women were physically too weak for rigorous athletic training. These deeply rooted traditions created institutional barriers, systematically excluding female competitors from major international arenas for decades.",
+              "words": 39,
+              "sentences": 3,
+              "avg_sentence_words": 13.0,
+              "fk_grade": 20.3,
+              "long_word_pct": 46.2,
+              "speak_seconds_est": 18.0,
+              "fits_20s": true,
+              "provenance": "workbook"
+            }
+          },
+          "numbers": [],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 5,
+          "title": {
+            "en": "Impact on Childhood",
+            "zh": null
+          },
+          "scripts": {
+            "A2": {
+              "text": "These biases start during early childhood. Society often encourages boys to play outside and be aggressive. Meanwhile, girls are told to be quiet and careful. This subtle conditioning limits a girl’s confidence in her own physical strength.",
+              "words": 38,
+              "sentences": 4,
+              "avg_sentence_words": 9.5,
+              "fk_grade": 8.0,
+              "long_word_pct": 21.1,
+              "speak_seconds_est": 17.5,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "These unfair biases usually start during early childhood socialization. Society often encourages boys to play rough sports outside, while girls are expected to be quiet and careful indoors. This subtle conditioning limits a girl’s confidence in her own physical strength and abilities.",
+              "words": 43,
+              "sentences": 3,
+              "avg_sentence_words": 14.3,
+              "fk_grade": 11.7,
+              "long_word_pct": 20.9,
+              "speak_seconds_est": 19.8,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "These disparities are heavily reinforced through early childhood socialization. Infancy marketing routinely prescribes outdoor, competitive toys to boys, while assigning passive roles to girls. This subtle conditioning effectively stifles cognitive and physical confidence, limiting girls' belief in their own athletic capabilities.",
+              "words": 41,
+              "sentences": 3,
+              "avg_sentence_words": 13.7,
+              "fk_grade": 17.4,
+              "long_word_pct": 41.5,
+              "speak_seconds_est": 18.9,
+              "fits_20s": true,
+              "provenance": "workbook"
+            }
+          },
+          "numbers": [],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 6,
+          "title": {
+            "en": "Education Barriers",
+            "zh": null
+          },
+          "scripts": {
+            "A2": {
+              "text": "Furthermore, school playgrounds often mirror these old ideas. Boys usually take up the big football fields, while girls play in small corners. This early social gap makes girls believe that sports are not truly meant for them.",
+              "words": 37,
+              "sentences": 3,
+              "avg_sentence_words": 12.3,
+              "fk_grade": 6.1,
+              "long_word_pct": 8.1,
+              "speak_seconds_est": 17.1,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "Furthermore, school playground environments often mirror these old stereotypes. Boys usually occupy the large football fields, while girls are pushed into small corners. This early social gap makes young girls believe that competitive sports are not genuinely meant for them.",
+              "words": 40,
+              "sentences": 3,
+              "avg_sentence_words": 13.3,
+              "fk_grade": 10.3,
+              "long_word_pct": 17.5,
+              "speak_seconds_est": 18.5,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "Furthermore, school playground dynamics frequently mirror these historical stereotypes. Boys typically dominate expansive sports fields, forcing girls into restricted, peripheral spaces. This early social gap conditions young girls to assume that competitive environments are fundamentally designed for male participation.",
+              "words": 39,
+              "sentences": 3,
+              "avg_sentence_words": 13.0,
+              "fk_grade": 16.7,
+              "long_word_pct": 43.6,
+              "speak_seconds_est": 18.0,
+              "fits_20s": true,
+              "provenance": "workbook"
+            }
+          },
+          "numbers": [],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        }
+      ]
+    },
+    {
+      "part_no": 3,
+      "source_description": "Challenges & Real-world Status 挑戰與現況",
+      "function_en": "Achievements",
+      "function_zh": "成果：舉證與比較",
+      "language_pattern": "present perfect / comparatives",
+      "slides": [
+        {
+          "slide_no": 7,
+          "title": {
+            "en": "The Wage Gap Challenge",
+            "zh": null
+          },
+          "scripts": {
+            "A2": {
+              "text": "Let’s look at the financial reality. Professional female athletes often earn much less money than men. In many famous tournaments, the prize money gap is shocking, even though women practice just as hard as their male counterparts.",
+              "words": 38,
+              "sentences": 3,
+              "avg_sentence_words": 12.7,
+              "fk_grade": 8.9,
+              "long_word_pct": 18.4,
+              "speak_seconds_est": 17.5,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "Let’s look at the financial challenges. Professional female athletes frequently earn significantly less money than men. In many popular tournaments, the prize money gap remains shocking, even though female athletes train just as hard as their male counterparts every single day.",
+              "words": 42,
+              "sentences": 3,
+              "avg_sentence_words": 14.0,
+              "fk_grade": 12.1,
+              "long_word_pct": 23.8,
+              "speak_seconds_est": 19.4,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "Examining the corporate sports landscape reveals a persistent gender wage gap. Statistics confirm that professional female athletes receive significantly lower remuneration and prize money than male counterparts for identical performance. Rectifying this systemic injustice demands corporate transparency and rigid policy reforms.",
+              "words": 41,
+              "sentences": 3,
+              "avg_sentence_words": 13.7,
+              "fk_grade": 17.4,
+              "long_word_pct": 41.5,
+              "speak_seconds_est": 18.9,
+              "fits_20s": true,
+              "provenance": "workbook"
+            }
+          },
+          "numbers": [],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 8,
+          "title": {
+            "en": "Missing Voices in Leadership",
+            "zh": null
+          },
+          "scripts": {
+            "A2": {
+              "text": "We also face a serious lack of female leadership. Most professional coaches, managers, and referees are men. Without women in decision-making roles, the unique challenges of female sports teams are often ignored by big athletic organizations.",
+              "words": 36,
+              "sentences": 3,
+              "avg_sentence_words": 12.0,
+              "fk_grade": 12.4,
+              "long_word_pct": 22.2,
+              "speak_seconds_est": 16.6,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "We also face a serious shortage of female leadership in sports. Most professional coaches, team managers, and referees are men. Without women in decision-making roles, the unique needs and health challenges of female sports teams are often completely ignored.",
+              "words": 39,
+              "sentences": 3,
+              "avg_sentence_words": 13.0,
+              "fk_grade": 11.3,
+              "long_word_pct": 20.5,
+              "speak_seconds_est": 18.0,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "We also confront a critical shortage of female institutional leadership. The majority of executive directors, elite coaches, and head referees remain male. Without women in decision-making roles, the distinctive challenges and systemic vulnerabilities of female athletes are continually marginalized.",
+              "words": 39,
+              "sentences": 3,
+              "avg_sentence_words": 13.0,
+              "fk_grade": 18.2,
+              "long_word_pct": 43.6,
+              "speak_seconds_est": 18.0,
+              "fits_20s": true,
+              "provenance": "workbook"
+            }
+          },
+          "numbers": [],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 9,
+          "title": {
+            "en": "Unseen Work at Home",
+            "zh": null
+          },
+          "scripts": {
+            "A2": {
+              "text": "Outside the stadium, female athletes shoulder a heavy burden of unpaid care work. They must manage household chores and family expectations while maintaining elite training. Without shared responsibility at home, their athletic careers are often cut short.",
+              "words": 37,
+              "sentences": 3,
+              "avg_sentence_words": 12.3,
+              "fk_grade": 12.2,
+              "long_word_pct": 21.6,
+              "speak_seconds_est": 17.1,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "Outside the stadium, female athletes shoulder a heavy burden of unpaid domestic labor. They must manage household chores and family expectations while maintaining elite training. Without shared responsibility at home, their professional athletic careers are often cut short.",
+              "words": 38,
+              "sentences": 3,
+              "avg_sentence_words": 12.7,
+              "fk_grade": 13.9,
+              "long_word_pct": 26.3,
+              "speak_seconds_est": 17.5,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "Beyond the stadium, female athletes disproportionately shoulder the burden of unpaid domestic labor. Managing household chores and family expectations restricts their available training windows. Without cultivating shared responsibility at home, their professional athletic longevity is frequently and unfairly cut short.",
+              "words": 40,
+              "sentences": 3,
+              "avg_sentence_words": 13.3,
+              "fk_grade": 17.6,
+              "long_word_pct": 42.5,
+              "speak_seconds_est": 18.5,
+              "fits_20s": true,
+              "provenance": "workbook"
+            }
+          },
+          "numbers": [],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        }
+      ]
+    },
+    {
+      "part_no": 4,
+      "source_description": "Daily Life & Individual Experience 日常實踐與個人經驗",
+      "function_en": "Solutions",
+      "function_zh": "解方：做法與取捨",
+      "language_pattern": "instead of + V-ing / modal verbs",
+      "slides": [
+        {
+          "slide_no": 10,
+          "title": {
+            "en": "Respect in Communication",
+            "zh": null
+          },
+          "scripts": {
+            "A2": {
+              "text": "Change begins with our daily language. Avoid using phrases like \"you play like a girl\" as an insult. Instead, we should use kind words to encourage our female classmates when they join sports activities and games.",
+              "words": 36,
+              "sentences": 3,
+              "avg_sentence_words": 12.0,
+              "fk_grade": 6.8,
+              "long_word_pct": 11.1,
+              "speak_seconds_est": 16.6,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "True change begins with our daily language habits. We must avoid using phrases like \"you play like a girl\" as a negative insult. Instead, we should use kind and encouraging words to support our female classmates in physical education lessons.",
+              "words": 40,
+              "sentences": 3,
+              "avg_sentence_words": 13.3,
+              "fk_grade": 8.8,
+              "long_word_pct": 15.0,
+              "speak_seconds_est": 18.5,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "Implementing tangible change requires us to audit our daily communication habits. We must completely eradicate gendered insults from our sports vocabulary. Instead, using constructive, encouraging language during physical education fosters a safe environment where peers are evaluated solely on merit.",
+              "words": 40,
+              "sentences": 3,
+              "avg_sentence_words": 13.3,
+              "fk_grade": 16.5,
+              "long_word_pct": 37.5,
+              "speak_seconds_est": 18.5,
+              "fits_20s": true,
+              "provenance": "workbook"
+            }
+          },
+          "numbers": [],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 11,
+          "title": {
+            "en": "Sharing Tasks at Home",
+            "zh": null
+          },
+          "scripts": {
+            "A2": {
+              "text": "At school, we can practice fairness by sharing sports equipment and court spaces equally. Boys and girls can play together in mixed teams. This teamwork in daily life teaches us to respect talent, not gender.",
+              "words": 35,
+              "sentences": 3,
+              "avg_sentence_words": 11.7,
+              "fk_grade": 6.5,
+              "long_word_pct": 14.3,
+              "speak_seconds_est": 16.2,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "At school and home, we can practice fairness by sharing sports equipment and space equally. Boys and girls should play together in mixed teams regularly. This teamwork in daily life teaches us to value skills and character rather than gender.",
+              "words": 40,
+              "sentences": 3,
+              "avg_sentence_words": 13.3,
+              "fk_grade": 7.3,
+              "long_word_pct": 17.5,
+              "speak_seconds_est": 18.5,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "At school and home, we must normalize the equitable distribution of athletic space and resources. Mixed-gender sports teams should be organized regularly. This integrated teamwork in daily life teaches youth to respect operational talent and tactical skills rather than gender.",
+              "words": 40,
+              "sentences": 3,
+              "avg_sentence_words": 13.3,
+              "fk_grade": 12.3,
+              "long_word_pct": 30.0,
+              "speak_seconds_est": 18.5,
+              "fits_20s": true,
+              "provenance": "workbook"
+            }
+          },
+          "numbers": [],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 12,
+          "title": {
+            "en": "Standing Up for Others",
+            "zh": null
+          },
+          "scripts": {
+            "A2": {
+              "text": "If you see someone making fun of a female athlete, speak up immediately. Be a brave friend and ally. Small, supportive actions on the school playground or online can create a safer space for everyone to participate.",
+              "words": 37,
+              "sentences": 3,
+              "avg_sentence_words": 12.3,
+              "fk_grade": 7.7,
+              "long_word_pct": 13.5,
+              "speak_seconds_est": 17.1,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "If you hear someone making sexist jokes about a female athlete, speak up immediately. Be an active, brave ally. Small, supportive actions on the school playground or on social networks can create a much safer environment for everyone.",
+              "words": 38,
+              "sentences": 3,
+              "avg_sentence_words": 12.7,
+              "fk_grade": 9.2,
+              "long_word_pct": 15.8,
+              "speak_seconds_est": 17.5,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "Recognizing discrimination demands active allyship and swift intervention. When encountering sideline sexism or online harassment against female competitors, remaining silent means compliance. Speaking up courageously in stadiums and through networks builds a collective web that protects human dignity.",
+              "words": 38,
+              "sentences": 3,
+              "avg_sentence_words": 12.7,
+              "fk_grade": 15.1,
+              "long_word_pct": 42.1,
+              "speak_seconds_est": 17.5,
+              "fits_20s": true,
+              "provenance": "workbook"
+            }
+          },
+          "numbers": [],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        }
+      ]
+    },
+    {
+      "part_no": 5,
+      "source_description": "Current Trends & Future Innovations 現代趨勢與未來創新",
+      "function_en": "Implications",
+      "function_zh": "影響：推論後果",
+      "language_pattern": "first conditional / however",
+      "slides": [
+        {
+          "slide_no": 13,
+          "title": {
+            "en": "STEM for Girls",
+            "zh": null
+          },
+          "scripts": {
+            "A2": {
+              "text": "Now, things are changing! Thanks to internet streaming, more people can watch women’s basketball, tennis, and football online. Technology breaks the barriers of traditional television, giving female sports the global audience they truly deserve.",
+              "words": 35,
+              "sentences": 3,
+              "avg_sentence_words": 11.7,
+              "fk_grade": 10.2,
+              "long_word_pct": 28.6,
+              "speak_seconds_est": 16.2,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "Fortunately, the digital world is changing! Thanks to internet streaming platforms, more people can watch women’s basketball, tennis, and football online. Technology breaks the barriers of traditional media, giving female sports the large global audience they truly deserve.",
+              "words": 39,
+              "sentences": 3,
+              "avg_sentence_words": 13.0,
+              "fk_grade": 11.3,
+              "long_word_pct": 28.2,
+              "speak_seconds_est": 18.0,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "Promisingly, digital transformation is revolutionizing broadcasting. Internet streaming platforms have shattered the barriers of traditional television networks. This modern distribution democratizes viewership, finally granting women's professional tournaments the expansive global audience they rightfully deserve and can monetize.",
+              "words": 37,
+              "sentences": 3,
+              "avg_sentence_words": 12.3,
+              "fk_grade": 19.2,
+              "long_word_pct": 59.5,
+              "speak_seconds_est": 17.1,
+              "fits_20s": true,
+              "provenance": "workbook"
+            }
+          },
+          "numbers": [],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 14,
+          "title": {
+            "en": "Digital Learning Opportunities",
+            "zh": null
+          },
+          "scripts": {
+            "A2": {
+              "text": "Advanced sports science and data are also helping girls train smarter. Wearable technology trackers allow female athletes to monitor their health and improve physical performance safely. Innovation is a powerful tool that helps everyone succeed together.",
+              "words": 36,
+              "sentences": 3,
+              "avg_sentence_words": 12.0,
+              "fk_grade": 12.7,
+              "long_word_pct": 30.6,
+              "speak_seconds_est": 16.6,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "Advanced sports science and data analysis are also helping girls train smarter. Wearable technology trackers allow female athletes to monitor their health and improve physical performance effectively. Modern innovation is a tool that helps everyone succeed together.",
+              "words": 37,
+              "sentences": 3,
+              "avg_sentence_words": 12.3,
+              "fk_grade": 13.8,
+              "long_word_pct": 32.4,
+              "speak_seconds_est": 17.1,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "Concurrently, advanced sports science and data analytics empower female athletes to optimize training. Utilizing wearable biometric trackers allows coaches to monitor physiological health and design custom strategies safely. This technological innovation serves as a catalyst for bridging performance disparities.",
+              "words": 39,
+              "sentences": 3,
+              "avg_sentence_words": 13.0,
+              "fk_grade": 18.2,
+              "long_word_pct": 46.2,
+              "speak_seconds_est": 18.0,
+              "fits_20s": true,
+              "provenance": "workbook"
+            }
+          },
+          "numbers": [],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 15,
+          "title": {
+            "en": "Role Models on Social Media",
+            "zh": null
+          },
+          "scripts": {
+            "A2": {
+              "text": "We can see wonderful female role models on social media today. Famous athletes share their training stories, inspiring millions of youth. We can use our phones to spread these positive stories and celebrate their victories.",
+              "words": 35,
+              "sentences": 3,
+              "avg_sentence_words": 11.7,
+              "fk_grade": 9.2,
+              "long_word_pct": 22.9,
+              "speak_seconds_est": 16.2,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "We can see wonderful female role models on social media today. Famous athletes share their true training journeys, inspiring millions of youth worldwide. We can use our smartphones to spread these positive stories and celebrate their sports victories.",
+              "words": 38,
+              "sentences": 3,
+              "avg_sentence_words": 12.7,
+              "fk_grade": 9.5,
+              "long_word_pct": 28.9,
+              "speak_seconds_est": 17.5,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "Digital media effectively serves as an unparalleled platform for amplifying diverse representation. Elite female icons broadcast their rigorous training trajectories online, dismantling traditional stereotypes. These contemporary role models inspire subsequent generations to pursue physical empowerment without gender boundaries.",
+              "words": 38,
+              "sentences": 3,
+              "avg_sentence_words": 12.7,
+              "fk_grade": 20.1,
+              "long_word_pct": 47.4,
+              "speak_seconds_est": 17.5,
+              "fits_20s": true,
+              "provenance": "workbook"
+            }
+          },
+          "numbers": [],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 16,
+          "title": {
+            "en": "New Laws for Fairness",
+            "zh": null
+          },
+          "scripts": {
+            "A2": {
+              "text": "Concurrently, many countries are passing new laws for equal pay in national sports teams. Governments realize that investing in women is good for the national economy. A fair sports system makes the whole country stronger.",
+              "words": 35,
+              "sentences": 3,
+              "avg_sentence_words": 11.7,
+              "fk_grade": 9.2,
+              "long_word_pct": 20.0,
+              "speak_seconds_est": 16.2,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "Concurrently, many progressive countries are passing new laws for equal pay in national sports teams. Governments now realize that investing in women is good for macroeconomic stability. A fair sports system makes the whole country much stronger.",
+              "words": 37,
+              "sentences": 3,
+              "avg_sentence_words": 12.3,
+              "fk_grade": 10.3,
+              "long_word_pct": 24.3,
+              "speak_seconds_est": 17.1,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "Concurrently, progressive governments are enacting comprehensive legislative frameworks to mandate equal compensation in national athletics. Policymakers increasingly recognize that sports equity directly correlates with robust macroeconomic stability. Legal guarantees of inclusion inevitably maximize a nation's complete human capital.",
+              "words": 38,
+              "sentences": 3,
+              "avg_sentence_words": 12.7,
+              "fk_grade": 21.6,
+              "long_word_pct": 60.5,
+              "speak_seconds_est": 17.5,
+              "fits_20s": true,
+              "provenance": "workbook"
+            }
+          },
+          "numbers": [],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        }
+      ]
+    },
+    {
+      "part_no": 6,
+      "source_description": "Synthesis & Personal Call to Action 總結回顧與個人行動號召",
+      "function_en": "Call to action",
+      "function_zh": "結語：總結與號召",
+      "language_pattern": "to wrap up ... / let's ...",
+      "slides": [
+        {
+          "slide_no": 17,
+          "title": {
+            "en": "Reviewing the Journey",
+            "zh": null
+          },
+          "scripts": {
+            "A2": {
+              "text": "Today, we learned that gender equality in sports is essential for schools, work, and home. It is not a distant dream; it is a goal we can reach if we support female athletes, coaches, and media workers.",
+              "words": 37,
+              "sentences": 2,
+              "avg_sentence_words": 18.5,
+              "fk_grade": 8.8,
+              "long_word_pct": 8.1,
+              "speak_seconds_est": 17.1,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "In conclusion, we learned that gender equality in sports is connected to schools, work, and homes. It is not an impossible dream; it is a practical goal we can achieve if we actively support female athletes, coaches, and creators.",
+              "words": 39,
+              "sentences": 2,
+              "avg_sentence_words": 19.5,
+              "fk_grade": 11.7,
+              "long_word_pct": 20.5,
+              "speak_seconds_est": 18.0,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "In retrospection, our comprehensive analysis demonstrates that athletic equity is an interdisciplinary objective. It intersects with media representation, corporate finance, and societal conditioning. Rather than dismissing it as utopian idealism, we must approach SDG 5 as an actionable roadmap for progress.",
+              "words": 40,
+              "sentences": 3,
+              "avg_sentence_words": 13.3,
+              "fk_grade": 16.8,
+              "long_word_pct": 42.5,
+              "speak_seconds_est": 18.5,
+              "fits_20s": true,
+              "provenance": "workbook"
+            }
+          },
+          "numbers": [],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 18,
+          "title": {
+            "en": "My Personal Promise",
+            "zh": null
+          },
+          "scripts": {
+            "A2": {
+              "text": "I promise to watch, support, and respect female sports equally. What about you? Think about one small action you can take today. You can watch a women's game or encourage a female friend to follow her athletic dream.",
+              "words": 38,
+              "sentences": 4,
+              "avg_sentence_words": 9.5,
+              "fk_grade": 5.8,
+              "long_word_pct": 5.3,
+              "speak_seconds_est": 17.5,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "I promise to watch, support, and respect female sports with equity. What about you? Think about one purposeful action you can take today. You can follow a women's team online or encourage a friend to follow her athletic goals.",
+              "words": 39,
+              "sentences": 4,
+              "avg_sentence_words": 9.8,
+              "fk_grade": 6.7,
+              "long_word_pct": 7.7,
+              "speak_seconds_est": 18.0,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "Moving forward, I commit to actively advocating for female athletics, ensuring my media consumption reflects compromising equity. I challenge you to examine your influence. Support women's sports tournaments, amplify their achievements, and translate your structural understanding into purposeful daily advocacy.",
+              "words": 40,
+              "sentences": 3,
+              "avg_sentence_words": 13.3,
+              "fk_grade": 16.5,
+              "long_word_pct": 40.0,
+              "speak_seconds_est": 18.5,
+              "fits_20s": true,
+              "provenance": "workbook"
+            }
+          },
+          "numbers": [],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 19,
+          "title": {
+            "en": "Growing Together",
+            "zh": null
+          },
+          "scripts": {
+            "A2": {
+              "text": "Cultural change takes time and patience. However, if we all move forward together, we can build a truly fair sports world by 2030. Let's be the generation that makes equal play a concrete reality.",
+              "words": 33,
+              "sentences": 3,
+              "avg_sentence_words": 11.0,
+              "fk_grade": 6.9,
+              "long_word_pct": 15.2,
+              "speak_seconds_est": 15.2,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "Social and cultural change takes time and patience. However, if we all move forward together, we can build a truly fair sports environment by 2030. Let's be the generation that transforms equal play into a reality.",
+              "words": 35,
+              "sentences": 3,
+              "avg_sentence_words": 11.7,
+              "fk_grade": 8.2,
+              "long_word_pct": 17.1,
+              "speak_seconds_est": 16.2,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "Systemic transformation demands sustained resilience and collective determination. Although institutional biases shift gradually, our synchronized efforts generate the necessary momentum to realize the 2030 vision. Let us proudly accept the mantle of leadership, establishing a legacy of uncompromising fairness.",
+              "words": 38,
+              "sentences": 3,
+              "avg_sentence_words": 12.7,
+              "fk_grade": 17.3,
+              "long_word_pct": 44.7,
+              "speak_seconds_est": 17.5,
+              "fits_20s": true,
+              "provenance": "workbook"
+            }
+          },
+          "numbers": [
+            "2030.",
+            "2030"
+          ],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 20,
+          "title": {
+            "en": "Final Message",
+            "zh": null
+          },
+          "scripts": {
+            "A2": {
+              "text": "In conclusion, SDG 5 is a vital mission for you, for me, and for everyone. Thank you for listening to my presentation. Remember: when the playing field is equal, we are all stronger. Let's make a change!",
+              "words": 36,
+              "sentences": 4,
+              "avg_sentence_words": 9.0,
+              "fk_grade": 4.6,
+              "long_word_pct": 16.7,
+              "speak_seconds_est": 16.6,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "To wrap up, SDG 5 is a vital mission for all of us. Thank you for listening to my Pecha Kucha talk today. Remember: when the playing field is fully equal, we are all stronger. Let's start the change together!",
+              "words": 39,
+              "sentences": 4,
+              "avg_sentence_words": 9.8,
+              "fk_grade": 4.2,
+              "long_word_pct": 10.3,
+              "speak_seconds_est": 18.0,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "To conclude, SDG 5 represents a collective mandate binding every nation, institution, and individual. Thank you for engaging with this presentation. Let us exit this hall not as spectators, but as empowered catalysts for sports equity. True fairness begins with individual conviction. Thank you.",
+              "words": 43,
+              "sentences": 5,
+              "avg_sentence_words": 8.6,
+              "fk_grade": 10.0,
+              "long_word_pct": 30.2,
+              "speak_seconds_est": 19.8,
+              "fits_20s": true,
+              "provenance": "workbook"
+            }
+          },
+          "numbers": [],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        }
+      ]
+    }
+  ],
+  "level_summary": {
+    "A2": {
+      "slides": 20,
+      "avg_words": 36.7,
+      "avg_sentence_words": 11.8,
+      "fk_grade": 8.3,
+      "slides_over_20s": 0
+    },
+    "B1": {
+      "slides": 20,
+      "avg_words": 39.6,
+      "avg_sentence_words": 13.0,
+      "fk_grade": 9.9,
+      "slides_over_20s": 1
+    },
+    "B2": {
+      "slides": 20,
+      "avg_words": 39.8,
+      "avg_sentence_words": 12.4,
+      "fk_grade": 16.7,
+      "slides_over_20s": 0
+    }
+  }
+}

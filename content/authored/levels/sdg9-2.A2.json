@@ -1,0 +1,22 @@
+{
+  "mission_id": "sdg9-2",
+  "level": "A2",
+  "provenance": "authored-replacement",
+  "author": "Claude (English teacher role)",
+  "basis": "Replaces the original A2 column of sheet 'SDG9-2 (A2)', which averaged 31.9 words per sentence (one long sentence per slide) and read at roughly B2. Meaning, slide order and every claim are unchanged; only the sentence structure is split. Spec: <=35 words per slide, <=12 words per sentence.",
+  "reviewed_by": null,
+  "slides": {
+    "1": "Good morning, everyone. Today we look at United Nations SDG 9. It is a global plan. It helps countries build better factories and support new science.",
+    "2": "AI is changing science very fast. It also changes how we share ideas. But the quality of the answer depends on one thing: how we ask.",
+    "3": "Many science students use ChatGPT or Gemini. We fix lab reports with it. We read short summaries. We ask about hard homework. It is fast and easy.",
+    "4": "This tool is convenient. But some students give too little information. Then the AI writes boring, repeated text. People call this AI slop. It has no real value.",
+    "5": "Why does this happen? The AI does not understand your ideas. It only guesses the next word. It uses the words in your prompt. Few details bring wrong answers.",
+    "6": "A good prompt has four parts. Give a role. Give background facts. Give a clear goal. Give simple rules. Clear instructions bring much better answers.",
+    "7": "Clear writing matters in science. Good prompts help our lab reports. They also help our presentations. Our work becomes faster and more correct.",
+    "8": "But do not copy the answer without thinking. You will stop learning. Real science starts with human curiosity. It does not start with fast answers.",
+    "9": "So think before you type. Ask yourself one question. What do I really need? Who will read this? Which format is best for this task?",
+    "10": "Then give the AI clear instructions. Add your student background. Add the format you want. Prompt writing is science communication too.",
+    "11": "Computers organize data very well. But they have no curiosity. They have no intuition. They have no honest heart. People turn numbers into new discoveries.",
+    "12": "In conclusion, good innovation starts with good communication. Better prompts bring better answers. But scientists still think carefully every day. Thank you."
+  }
+}

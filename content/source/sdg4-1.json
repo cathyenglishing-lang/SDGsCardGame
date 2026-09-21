@@ -1,0 +1,1317 @@
+{
+  "mission_id": "sdg4-1",
+  "sdg": 4,
+  "title": {
+    "en": "Quality Education in Taiwan",
+    "zh": null
+  },
+  "shape": "wide",
+  "source": {
+    "workbook": "SDGs Pecha Kucha (公用)_new.xlsx",
+    "sheet": "SDG 4-1",
+    "level_columns": {
+      "A2": "G",
+      "A1": "I",
+      "B1": "K",
+      "B2": "L"
+    },
+    "extra_level_columns": [
+      {
+        "level": "A2",
+        "column": "M",
+        "label": "A2"
+      }
+    ],
+    "zh_title_column": "F"
+  },
+  "narrative_brief": "🧩 拼圖遊戲：建構你的 SDG Pecha Kucha 演講！\n透過這個互動式拼圖，你將掌握成功進行 SDG Pecha Kucha 簡報的核心邏輯。\n\n第一步：掌握演講架構 (Master the Framework)\n首先，請熟悉 SDG Pecha Kucha 的六大核心脈絡：Part 1 引言 (Introduction)、Part 2 問題指認 (Problem Identification)、Part 3 成果與進展 (Achievements & Progress)、Part 4 解決方案 (Solutions)、Part 5 影響與未來挑戰 (Implications & Future Challenges)、Part 6 結語與行動呼籲 (Conclusion & Call to Action)。\n\n第二步：20 秒限時挑戰 (The 20-Second Challenge)\n你會收到 20 段獨立的「20 秒講稿」。你的任務是：\n👉 精準判斷： 根據內容關鍵字，辨識該片段屬於哪一個部分。\n👉 邏輯拼湊： 將片段歸位，完整還原整場 6 分 40 秒的演說。\n\n第三步：回饋與深思 (Review & Reflect)\n完成拼圖後，對照正確答案並思考：\n✔ 為什麼這段話具備該階段的特徵？\n✔ 優秀的簡報如何透過轉折與銜接建構嚴謹的說服力？",
+  "stages": [
+    {
+      "part_no": 1,
+      "source_description": "Introduction (Slides 1-3: Hook, SDG 4 definition, Taiwan context with critical setup)",
+      "function_en": "Introduction",
+      "function_zh": "引言：破題與定義",
+      "language_pattern": "rhetorical questions / X is about ...",
+      "slides": [
+        {
+          "slide_no": 1,
+          "title": {
+            "en": "Challenge Taiwan’s education fairness",
+            "zh": "挑戰教育公平性"
+          },
+          "scripts": {
+            "A2": {
+              "text": "Good morning. To start, let’s look at a big question: is education in Taiwan truly fair for everyone? Today, we will discuss SDG 4, which is about Quality Education. Sometimes, reality is very different from what we see on paper. Let’s explore this together.",
+              "words": 45,
+              "sentences": 5,
+              "avg_sentence_words": 9.0,
+              "fk_grade": 7.3,
+              "long_word_pct": 15.6,
+              "speak_seconds_est": 20.8,
+              "fits_20s": false,
+              "provenance": "workbook"
+            },
+            "A1": {
+              "text": "Good morning. We are college students. Is school in Taiwan fair for everyone? Today, we talk about \"Quality Education.\" Some students have a lot, but some have very little. Let's look at the facts together.",
+              "words": 35,
+              "sentences": 5,
+              "avg_sentence_words": 7.0,
+              "fk_grade": 5.0,
+              "long_word_pct": 14.3,
+              "speak_seconds_est": 16.2,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "Good morning, everyone. Today, let’s examine SDG 4: Quality Education in Taiwan. Our education system looks good on paper, but does it really help everyone? We need to look closely at science education to see if our schools truly challenge inequality.",
+              "words": 41,
+              "sentences": 4,
+              "avg_sentence_words": 10.2,
+              "fk_grade": 9.1,
+              "long_word_pct": 17.1,
+              "speak_seconds_est": 18.9,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "Good morning, everyone. As university students, it is time to critically evaluate SDG 4: Quality Education within Taiwan. While our system appears successful on paper, does it truly promote educational equity, or does it inadvertently reinforce existing social gaps? Today, I will explore this complex reality through science education.",
+              "words": 48,
+              "sentences": 4,
+              "avg_sentence_words": 12.0,
+              "fk_grade": 13.2,
+              "long_word_pct": 25.0,
+              "speak_seconds_est": 22.2,
+              "fits_20s": false,
+              "provenance": "workbook"
+            }
+          },
+          "numbers": [],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 2,
+          "title": {
+            "en": "SDG 4 inclusive lifelong learning",
+            "zh": "確保有教無類、公平以及高品質的教育，並推進終身學習機會"
+          },
+          "scripts": {
+            "A2": {
+              "text": "First, what is SDG 4? It means everyone should have a chance to learn, whether they are rich or poor. In Taiwan’s high-tech world, we must ask: Does our school system really teach us how to use technology in a responsible way?",
+              "words": 42,
+              "sentences": 3,
+              "avg_sentence_words": 14.0,
+              "fk_grade": 5.3,
+              "long_word_pct": 9.5,
+              "speak_seconds_est": 19.4,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "A1": {
+              "text": "SDG 4 says: \"Education for all people.\" It does not matter if you are rich or poor. In Taiwan, we use many computers. But do we learn how to use them in a good way?",
+              "words": 34,
+              "sentences": 3,
+              "avg_sentence_words": 11.3,
+              "fk_grade": 3.8,
+              "long_word_pct": 5.9,
+              "speak_seconds_est": 15.7,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "SDG 4 is about inclusive and fair education for all people. Globally, it helps students overcome poverty. In Taiwan, we have a high-tech economy. Therefore, we must ask: does our education prepare us for the ethical problems in science and technology?",
+              "words": 40,
+              "sentences": 4,
+              "avg_sentence_words": 10.0,
+              "fk_grade": 9.3,
+              "long_word_pct": 25.0,
+              "speak_seconds_est": 18.5,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "Fundamentally, SDG 4 aims to guarantee inclusive, equitable education and lifetime learning opportunities globally, breaking down geographic and economic barriers. In Taiwan’s advanced, high-tech economy, a vital question remains: does our current curriculum adequately prepare us to navigate the profound ethical challenges in science and technology?",
+              "words": 46,
+              "sentences": 2,
+              "avg_sentence_words": 23.0,
+              "fk_grade": 20.1,
+              "long_word_pct": 47.8,
+              "speak_seconds_est": 21.2,
+              "fits_20s": false,
+              "provenance": "workbook"
+            }
+          },
+          "numbers": [],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 3,
+          "title": {
+            "en": "STEM drives Taiwan innovation",
+            "zh": "STEM領域的人才與研發，作為推動台灣產業升級與創新的核心引擎"
+          },
+          "scripts": {
+            "A2": {
+              "text": "Next, let’s talk about STEM. Taiwan spends a lot of money on science and math to help our country grow. However, fewer babies are born now. Because of this, we need new ways to make our schools better for the future.",
+              "words": 42,
+              "sentences": 4,
+              "avg_sentence_words": 10.5,
+              "fk_grade": 3.4,
+              "long_word_pct": 0.0,
+              "speak_seconds_est": 19.4,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "A1": {
+              "text": "Taiwan loves science and math. We call this STEM. It helps our country grow. But now, Taiwan has fewer babies. We must change our schools to help every student in the future.",
+              "words": 32,
+              "sentences": 5,
+              "avg_sentence_words": 6.4,
+              "fk_grade": 2.4,
+              "long_word_pct": 0.0,
+              "speak_seconds_est": 14.8,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "Taiwan invests a lot in STEM—Science, Technology, Engineering, and Math. This drives our national growth. However, because of the low birth rate, we must rethink our goals. Are we using our resources effectively to solve the most important problems?",
+              "words": 40,
+              "sentences": 4,
+              "avg_sentence_words": 10.0,
+              "fk_grade": 7.5,
+              "long_word_pct": 17.5,
+              "speak_seconds_est": 18.5,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "Taiwan heavily invests in STEM fields to maintain its global competitive edge in national innovation. However, unprecedented demographic shifts—specifically our record-low birth rate—are forcing a total rethink of our priorities. We must identify these core problems and question if our strategies are genuinely effective.",
+              "words": 46,
+              "sentences": 3,
+              "avg_sentence_words": 15.3,
+              "fk_grade": 14.0,
+              "long_word_pct": 32.6,
+              "speak_seconds_est": 21.2,
+              "fits_20s": false,
+              "provenance": "workbook"
+            }
+          },
+          "numbers": [],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        }
+      ]
+    },
+    {
+      "part_no": 2,
+      "source_description": "Problem Identification (Slides 4-6: Key challenges, data, and critical questions)",
+      "function_en": "Problem",
+      "function_zh": "問題指認：趨勢與因果",
+      "language_pattern": "present progressive for trends / this causes ...",
+      "slides": [
+        {
+          "slide_no": 4,
+          "title": {
+            "en": "Low birth rate school closures",
+            "zh": "少子化導致的學校併校與停辦"
+          },
+          "scripts": {
+            "A2": {
+              "text": "Now, let’s look at the first problem. The birth rate is dropping fast. In 1990, there were 300,000 babies, but now there are less than 140,000. This means some country schools must close. Is it still fair for students living far away?",
+              "words": 40,
+              "sentences": 5,
+              "avg_sentence_words": 8.0,
+              "fk_grade": 1.4,
+              "long_word_pct": 5.0,
+              "speak_seconds_est": 18.5,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "A1": {
+              "text": "Taiwan has a big problem: fewer babies. Years ago, there were 300,000 babies. Now, there are only 140,000. Many schools in the countryside must close. This is not fair for students living there.",
+              "words": 31,
+              "sentences": 5,
+              "avg_sentence_words": 6.2,
+              "fk_grade": 3.2,
+              "long_word_pct": 6.5,
+              "speak_seconds_est": 14.3,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "A major challenge is Taiwan’s declining birth rate. In 1990, there were 300,000 births, but recently it dropped to under 140,000. This causes school closures, especially in rural areas. Is this sustainable if we want to provide equal education for all?",
+              "words": 39,
+              "sentences": 4,
+              "avg_sentence_words": 9.8,
+              "fk_grade": 7.6,
+              "long_word_pct": 17.9,
+              "speak_seconds_est": 18.0,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "A primary challenge is Taiwan’s plummeting birth rate, which has dropped from 300,000 annual births in 1990 to fewer than 140,000 recently. This demographic crisis inevitably triggers school closures, particularly in rural regions, significantly widening the urban-rural divide. We must consider if this trend allows for long-term educational equity.",
+              "words": 47,
+              "sentences": 3,
+              "avg_sentence_words": 15.7,
+              "fk_grade": 14.4,
+              "long_word_pct": 29.8,
+              "speak_seconds_est": 21.7,
+              "fits_20s": false,
+              "provenance": "workbook"
+            }
+          },
+          "numbers": [
+            "300,000",
+            "140,000.",
+            "1990,",
+            "1990",
+            "140,000"
+          ],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 5,
+          "title": {
+            "en": "Exam pressure kills STEM creativity",
+            "zh": "考試壓力扼殺創造力"
+          },
+          "scripts": {
+            "A2": {
+              "text": "Another issue is exams. In science, students spend too much time preparing for tests. They memorize facts but forget how to be creative. Many students lose interest early. Does this really help us solve real problems like climate change?",
+              "words": 39,
+              "sentences": 5,
+              "avg_sentence_words": 7.8,
+              "fk_grade": 4.7,
+              "long_word_pct": 17.9,
+              "speak_seconds_est": 18.0,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "A1": {
+              "text": "Students study for big tests every day. They memorize many things, but they do not use their own ideas. Many students get tired and stop liking science. We need new ideas to save our planet.",
+              "words": 35,
+              "sentences": 4,
+              "avg_sentence_words": 8.8,
+              "fk_grade": 4.3,
+              "long_word_pct": 8.6,
+              "speak_seconds_est": 16.2,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "In STEM fields, students focus too much on exams and rote memorization. This kills creativity. Many students lose interest and stop studying science early. Does this approach really prepare us for real-world challenges, like solving climate change with technology?",
+              "words": 39,
+              "sentences": 4,
+              "avg_sentence_words": 9.8,
+              "fk_grade": 8.2,
+              "long_word_pct": 25.6,
+              "speak_seconds_est": 18.0,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "Within STEM fields, the heavy institutional emphasis on standardized testing often prioritizes rote memorization over creative problem-solving. Consequently, many capable students lose interest and abandon science paths early. This rigid approach raises serious concerns about whether schools genuinely equip us to develop sustainable technology to combat climate change.",
+              "words": 48,
+              "sentences": 3,
+              "avg_sentence_words": 16.0,
+              "fk_grade": 16.7,
+              "long_word_pct": 31.2,
+              "speak_seconds_est": 22.2,
+              "fits_20s": false,
+              "provenance": "workbook"
+            }
+          },
+          "numbers": [],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 6,
+          "title": {
+            "en": "Urban-rural resource inequality gap",
+            "zh": "城鄉資源差距"
+          },
+          "scripts": {
+            "A2": {
+              "text": "Beyond exams, there is a big gap between the city and the countryside. City schools have great labs, but rural schools have very little. Data shows a 30% difference in resources. Is our system trying to fix this or ignoring it?",
+              "words": 40,
+              "sentences": 4,
+              "avg_sentence_words": 10.0,
+              "fk_grade": 5.1,
+              "long_word_pct": 10.0,
+              "speak_seconds_est": 18.5,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "A1": {
+              "text": "City schools are very good. They have big labs and many books. But schools far away have very little. There is a 30% gap. Is our system helping them? Or is it ignoring them?",
+              "words": 33,
+              "sentences": 6,
+              "avg_sentence_words": 5.5,
+              "fk_grade": 1.9,
+              "long_word_pct": 3.0,
+              "speak_seconds_est": 15.2,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "There is a clear gap between cities and rural areas. Metropolitan schools have advanced labs, while remote schools face shortages. Data shows a 30% difference in resources. Is our system designed to fix this divide or just ignore it?",
+              "words": 38,
+              "sentences": 4,
+              "avg_sentence_words": 9.5,
+              "fk_grade": 7.4,
+              "long_word_pct": 15.8,
+              "speak_seconds_est": 17.5,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "Furthermore, a persistent structural disparity exists between metropolitan and remote schools. While city classrooms enjoy state-of-the-art laboratories and digital resources, rural schools face severe shortages, with official data indicating a 30% resource gap. Is our system genuinely designed to bridge these divides, or is it simply ignoring them?",
+              "words": 47,
+              "sentences": 3,
+              "avg_sentence_words": 15.7,
+              "fk_grade": 15.4,
+              "long_word_pct": 34.0,
+              "speak_seconds_est": 21.7,
+              "fits_20s": false,
+              "provenance": "workbook"
+            }
+          },
+          "numbers": [
+            "30%"
+          ],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        }
+      ]
+    },
+    {
+      "part_no": 3,
+      "source_description": "Achievements and Progress (Slides 7-9: What Taiwan has done well, evidence, but with scrutiny)",
+      "function_en": "Achievements",
+      "function_zh": "成果：舉證與比較",
+      "language_pattern": "present perfect / comparatives",
+      "slides": [
+        {
+          "slide_no": 7,
+          "title": {
+            "en": "12-year free education success",
+            "zh": "十二年國教的成效"
+          },
+          "scripts": {
+            "A2": {
+              "text": "On the other hand, Taiwan has done some great things. We have 12 years of free education, and almost 99% of children finish primary school. This is a strong start, but we must ask: is the quality of learning truly good?",
+              "words": 39,
+              "sentences": 3,
+              "avg_sentence_words": 13.0,
+              "fk_grade": 5.5,
+              "long_word_pct": 7.7,
+              "speak_seconds_est": 18.0,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "A1": {
+              "text": "Taiwan has some good news. School is free for 12 years. Almost every child finishes primary school. This is a very high number. It is a good start, but are the lessons truly great?",
+              "words": 33,
+              "sentences": 5,
+              "avg_sentence_words": 6.6,
+              "fk_grade": 3.1,
+              "long_word_pct": 3.0,
+              "speak_seconds_est": 15.2,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "Despite these issues, Taiwan has successes. Our 12-year free education system has a 99% completion rate. This is higher than the OECD average. This broad access is a strong foundation, but we must ask if the quality of education is actually high.",
+              "words": 41,
+              "sentences": 4,
+              "avg_sentence_words": 10.2,
+              "fk_grade": 7.1,
+              "long_word_pct": 14.6,
+              "speak_seconds_est": 18.9,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "Despite these systemic issues, Taiwan has achieved remarkable milestones. Our 12-year compulsory education framework boasts a 99% primary completion rate, notably surpassing the OECD average. While this universal access provides a solid national foundation, we must critically analyze whether high enrollment automatically translates into genuine educational quality.",
+              "words": 46,
+              "sentences": 3,
+              "avg_sentence_words": 15.3,
+              "fk_grade": 19.1,
+              "long_word_pct": 39.1,
+              "speak_seconds_est": 21.2,
+              "fits_20s": false,
+              "provenance": "workbook"
+            }
+          },
+          "numbers": [
+            "12 years",
+            "99%",
+            "12"
+          ],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 8,
+          "title": {
+            "en": "Preschool subsidies help disadvantaged",
+            "zh": "推動幼教補助，支援弱勢族群"
+          },
+          "scripts": {
+            "A2": {
+              "text": "Also, the government helps poor families pay for preschool. Now, 96% of these children can go to school at age five. This helps them learn basic skills early, so they can do better in science and math later in life.",
+              "words": 39,
+              "sentences": 3,
+              "avg_sentence_words": 13.0,
+              "fk_grade": 4.6,
+              "long_word_pct": 10.3,
+              "speak_seconds_est": 18.0,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "A1": {
+              "text": "The government gives money to help poor families. Now, 96% of these children go to school at age five. They learn many things early. This helps them do well in science later.",
+              "words": 31,
+              "sentences": 4,
+              "avg_sentence_words": 7.8,
+              "fk_grade": 3.0,
+              "long_word_pct": 9.7,
+              "speak_seconds_est": 14.3,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "Preschool programs are very strong in Taiwan. Government subsidies allow 96% of disadvantaged children to attend. This early help creates a level playing field. It builds basic skills that support STEM learning later and reduces the gap between students.",
+              "words": 38,
+              "sentences": 4,
+              "avg_sentence_words": 9.5,
+              "fk_grade": 8.0,
+              "long_word_pct": 21.1,
+              "speak_seconds_est": 17.5,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "Early childhood initiatives are exceptionally strong, with government subsidies enabling 96% of disadvantaged five-year-olds to attend preschool. This early intervention is crucial for leveling the playing field, establishing fundamental cognitive skills that support subsequent STEM learning while mitigating the risk of long-term academic disparities.",
+              "words": 43,
+              "sentences": 2,
+              "avg_sentence_words": 21.5,
+              "fk_grade": 19.4,
+              "long_word_pct": 46.5,
+              "speak_seconds_est": 19.8,
+              "fits_20s": true,
+              "provenance": "workbook"
+            }
+          },
+          "numbers": [
+            "96%"
+          ],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 9,
+          "title": {
+            "en": "High enrollment beats global average",
+            "zh": "入學率高於全球平均水準"
+          },
+          "scripts": {
+            "A2": {
+              "text": "Furthermore, more people graduate in Taiwan than in most countries. Teachers also get special training. However, we must check if students in different cities are all learning the same deep knowledge, or if they are just passing tests.",
+              "words": 38,
+              "sentences": 3,
+              "avg_sentence_words": 12.7,
+              "fk_grade": 7.1,
+              "long_word_pct": 23.7,
+              "speak_seconds_est": 17.5,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "A1": {
+              "text": "In Taiwan, many people finish high school and college. This is better than many other countries. Our teachers study hard to teach well. But is school the same in every city? We must check.",
+              "words": 34,
+              "sentences": 5,
+              "avg_sentence_words": 6.8,
+              "fk_grade": 3.7,
+              "long_word_pct": 5.9,
+              "speak_seconds_est": 15.7,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "Overall, Taiwan’s graduation rates are higher than global standards. We also invest a lot in training teachers to improve classroom quality. However, does high participation hide deeper problems, such as different levels of education depth between different regions?",
+              "words": 39,
+              "sentences": 3,
+              "avg_sentence_words": 13.0,
+              "fk_grade": 11.9,
+              "long_word_pct": 25.6,
+              "speak_seconds_est": 18.0,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "Overall, Taiwan's enrollment and graduation rates consistently exceed global benchmarks across all academic levels. Substantial investments in teacher professional development have also enhanced classroom quality. However, does this high participation mask deeper problems, such as varying depths of educational substance between different geographic regions?",
+              "words": 44,
+              "sentences": 3,
+              "avg_sentence_words": 14.7,
+              "fk_grade": 16.9,
+              "long_word_pct": 40.9,
+              "speak_seconds_est": 20.3,
+              "fits_20s": false,
+              "provenance": "workbook"
+            }
+          },
+          "numbers": [],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        }
+      ]
+    },
+    {
+      "part_no": 4,
+      "source_description": "Solutions and STEM Integration (Slides 10-12: Science-focused solutions, innovative examples)",
+      "function_en": "Solutions",
+      "function_zh": "解方：做法與取捨",
+      "language_pattern": "instead of + V-ing / modal verbs",
+      "slides": [
+        {
+          "slide_no": 10,
+          "title": {
+            "en": "Government funds hands-on STEM",
+            "zh": "政府資助實作型 STEM 教育"
+          },
+          "scripts": {
+            "A2": {
+              "text": "So, what is the solution? The government is now funding fun science projects. Instead of just reading books, students do hands-on work. They learn about coding and how to use AI safely from a very young age.",
+              "words": 37,
+              "sentences": 4,
+              "avg_sentence_words": 9.2,
+              "fk_grade": 4.6,
+              "long_word_pct": 13.5,
+              "speak_seconds_est": 17.1,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "A1": {
+              "text": "Now, the government gives money for fun science. Students do not just read books; they make things with their hands. They learn how to code and use AI safely from a young age.",
+              "words": 33,
+              "sentences": 3,
+              "avg_sentence_words": 11.0,
+              "fk_grade": 3.0,
+              "long_word_pct": 6.1,
+              "speak_seconds_est": 15.2,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "To fix these gaps, Taiwan is funding new STEM curricula. These include hands-on projects rather than just reading books. For example, some programs teach coding and AI ethics early. This makes science more interesting and relevant for young students today.",
+              "words": 40,
+              "sentences": 4,
+              "avg_sentence_words": 10.0,
+              "fk_grade": 7.2,
+              "long_word_pct": 17.5,
+              "speak_seconds_est": 18.5,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "To proactively address these resource gaps, Taiwan is implementing inquiry-based STEM curricula. The government actively funds updated programs that prioritize hands-on projects over textbook learning. For instance, new modules introduce coding and AI ethics at an early age, making science immediately relevant and engaging.",
+              "words": 44,
+              "sentences": 3,
+              "avg_sentence_words": 14.7,
+              "fk_grade": 14.8,
+              "long_word_pct": 40.9,
+              "speak_seconds_est": 20.3,
+              "fits_20s": false,
+              "provenance": "workbook"
+            }
+          },
+          "numbers": [],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 11,
+          "title": {
+            "en": "Digital tools teach AI ethics",
+            "zh": "利用數位工具推廣 AI 倫理教育"
+          },
+          "scripts": {
+            "A2": {
+              "text": "In addition, most schools now use computers and apps. This connects students to our famous computer chip industry. But it also teaches them how to use technology safely and honestly in their daily lives.",
+              "words": 34,
+              "sentences": 3,
+              "avg_sentence_words": 11.3,
+              "fk_grade": 8.3,
+              "long_word_pct": 23.5,
+              "speak_seconds_est": 15.7,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "A1": {
+              "text": "Almost every school in Taiwan uses computers. This helps students learn about our tech companies. But we also teach students to be honest and kind when they use the internet.",
+              "words": 30,
+              "sentences": 3,
+              "avg_sentence_words": 10.0,
+              "fk_grade": 6.4,
+              "long_word_pct": 16.7,
+              "speak_seconds_est": 13.8,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "Digital tools are used in over 80% of Taiwanese schools. Students use apps for simulations and experiments. This connects the classroom to our famous semiconductor industry. However, we also need to teach students how to use technology in a responsible way.",
+              "words": 40,
+              "sentences": 4,
+              "avg_sentence_words": 10.0,
+              "fk_grade": 9.6,
+              "long_word_pct": 27.5,
+              "speak_seconds_est": 18.5,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "Digital integration is now widespread, with over 80% of Taiwanese schools incorporating advanced tech tools and interactive simulations. This directly connects classroom learning to our thriving semiconductor industry. However, this rapid digitalization also necessitates a stronger focus on digital citizenship and teaching the responsible use of technology.",
+              "words": 46,
+              "sentences": 3,
+              "avg_sentence_words": 15.3,
+              "fk_grade": 17.8,
+              "long_word_pct": 45.7,
+              "speak_seconds_est": 21.2,
+              "fits_20s": false,
+              "provenance": "workbook"
+            }
+          },
+          "numbers": [
+            "80%"
+          ],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 12,
+          "title": {
+            "en": "Internships prepare green tech careers",
+            "zh": "透過實習為綠能科技職涯奠定基礎"
+          },
+          "scripts": {
+            "A2": {
+              "text": "For example, some students work as interns in big tech companies. They learn about green energy and new inventions. These programs help students move from the classroom to real jobs that help the planet and our economy.",
+              "words": 37,
+              "sentences": 3,
+              "avg_sentence_words": 12.3,
+              "fk_grade": 6.8,
+              "long_word_pct": 16.2,
+              "speak_seconds_est": 17.1,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "A1": {
+              "text": "Some students work in big tech offices for a short time. They learn about clean energy and new tools. This helps them get good jobs after they finish school. They can help the world.",
+              "words": 34,
+              "sentences": 4,
+              "avg_sentence_words": 8.5,
+              "fk_grade": 2.3,
+              "long_word_pct": 2.9,
+              "speak_seconds_est": 15.7,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "Special programs for gifted students provide internships in tech firms. These programs prepare students for careers in fields like renewable energy. They bridge the gap between school and the real world, helping students become the next generation of problem-solvers.",
+              "words": 39,
+              "sentences": 3,
+              "avg_sentence_words": 13.0,
+              "fk_grade": 9.1,
+              "long_word_pct": 23.1,
+              "speak_seconds_est": 18.0,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "Specialized programs designed for gifted students provide competitive internships and mentorships within leading tech firms. These initiatives successfully bridge theoretical science with practical, industrial applications. By fostering these connections, we are actively preparing the next generation of problem-solvers for careers in renewable green technology.",
+              "words": 44,
+              "sentences": 3,
+              "avg_sentence_words": 14.7,
+              "fk_grade": 17.2,
+              "long_word_pct": 47.7,
+              "speak_seconds_est": 20.3,
+              "fits_20s": false,
+              "provenance": "workbook"
+            }
+          },
+          "numbers": [],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        }
+      ]
+    },
+    {
+      "part_no": 5,
+      "source_description": "Implications and Future Challenges (Slides 13-16: Broader impacts, critiques, forward-looking debates)",
+      "function_en": "Implications",
+      "function_zh": "影響：推論後果",
+      "language_pattern": "first conditional / however",
+      "slides": [
+        {
+          "slide_no": 13,
+          "title": {
+            "en": "STEM boosts economy climate solutions",
+            "zh": "STEM 推動經濟成長與氣候解決方案"
+          },
+          "scripts": {
+            "A2": {
+              "text": "This matters because better science education helps Taiwan’s economy. Our tech exports are worth 500 billion dollars every year! It also helps us find ways to protect the earth. Science gives us the power to fix global problems.",
+              "words": 38,
+              "sentences": 4,
+              "avg_sentence_words": 9.5,
+              "fk_grade": 6.4,
+              "long_word_pct": 5.3,
+              "speak_seconds_est": 17.5,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "A1": {
+              "text": "Science education helps Taiwan make money. We sell many tech products to the world. Science also helps us fix the weather and protect the earth. We use our brains to help everyone.",
+              "words": 32,
+              "sentences": 4,
+              "avg_sentence_words": 8.0,
+              "fk_grade": 3.8,
+              "long_word_pct": 9.4,
+              "speak_seconds_est": 14.8,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "Better STEM education drives our economy. Taiwan’s tech exports reach $500 billion every year. Furthermore, it empowers us to solve global problems. We can use science to find climate-resilient solutions and protect our environment for the future.",
+              "words": 37,
+              "sentences": 4,
+              "avg_sentence_words": 9.2,
+              "fk_grade": 9.7,
+              "long_word_pct": 18.9,
+              "speak_seconds_est": 17.1,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "The implications of our educational strategies are profound. Enhanced STEM education directly drives economic sustainability, pushing Taiwan's tech exports beyond $500 billion annually. Moreover, a scientifically literate population empowers our society to contribute to global solutions, such as developing the science required for climate-resilient infrastructure.",
+              "words": 44,
+              "sentences": 3,
+              "avg_sentence_words": 14.7,
+              "fk_grade": 19.4,
+              "long_word_pct": 50.0,
+              "speak_seconds_est": 20.3,
+              "fits_20s": false,
+              "provenance": "workbook"
+            }
+          },
+          "numbers": [
+            "500 billion",
+            "$500 billion"
+          ],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 14,
+          "title": {
+            "en": "Gender gaps persist in engineering",
+            "zh": "工程領域的性別差距依然存在"
+          },
+          "scripts": {
+            "A2": {
+              "text": "However, we still have challenges. For example, only 30% of engineering students are women. Many people still think science is for men. We must change these old ideas so that everyone feels welcome in the world of technology.",
+              "words": 37,
+              "sentences": 4,
+              "avg_sentence_words": 9.2,
+              "fk_grade": 6.5,
+              "long_word_pct": 13.5,
+              "speak_seconds_est": 17.1,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "A1": {
+              "text": "We still have problems. For example, most engineers are men. Only 30% are women. Many people think science is not for girls. We must change this. Science is for everyone!",
+              "words": 29,
+              "sentences": 6,
+              "avg_sentence_words": 4.8,
+              "fk_grade": 2.6,
+              "long_word_pct": 10.3,
+              "speak_seconds_est": 13.4,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "However, we still face challenges, like the gender gap. Women make up only 30% of engineering graduates. Societal stereotypes still exist today. We must challenge these old ideas to make sure that STEM fields are inclusive for everyone.",
+              "words": 37,
+              "sentences": 4,
+              "avg_sentence_words": 9.2,
+              "fk_grade": 7.8,
+              "long_word_pct": 21.6,
+              "speak_seconds_est": 17.1,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "Nevertheless, future challenges loom large, particularly the persistent gender disparity where women constitute only 30% of engineering graduates. Deep-seated societal stereotypes continue to discourage female students from entering tech fields. We must actively challenge these outdated biases to ensure true inclusivity and diversity in STEM.",
+              "words": 44,
+              "sentences": 3,
+              "avg_sentence_words": 14.7,
+              "fk_grade": 16.7,
+              "long_word_pct": 45.5,
+              "speak_seconds_est": 20.3,
+              "fits_20s": false,
+              "provenance": "workbook"
+            }
+          },
+          "numbers": [
+            "30%"
+          ],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 15,
+          "title": {
+            "en": "Ignore issues waste future talent",
+            "zh": "忽視問題將埋沒未來人才"
+          },
+          "scripts": {
+            "A2": {
+              "text": "If we don’t fix these gaps, we will lose many talented people. As college students, we should ask: Are our schools ready for new AI jobs? We need a system that changes as the world changes.",
+              "words": 37,
+              "sentences": 3,
+              "avg_sentence_words": 12.3,
+              "fk_grade": 4.2,
+              "long_word_pct": 5.4,
+              "speak_seconds_est": 17.1,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "A1": {
+              "text": "If we do not fix these gaps, we lose many smart people. Are our schools ready for new jobs? We need schools that change with the world. We cannot wait for the future.",
+              "words": 33,
+              "sentences": 4,
+              "avg_sentence_words": 8.2,
+              "fk_grade": 1.2,
+              "long_word_pct": 0.0,
+              "speak_seconds_est": 15.2,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "If we don’t fix these problems, inequality will get worse and we will waste talent. As college students, we need to question current policies. Are they flexible enough for new trends, like AI-driven jobs or environmental crises?",
+              "words": 38,
+              "sentences": 3,
+              "avg_sentence_words": 12.7,
+              "fk_grade": 8.0,
+              "long_word_pct": 21.1,
+              "speak_seconds_est": 17.5,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "If we fail to address these structural inequalities, the divide will deepen, wasting immense potential talent. As university students, we must continuously question current policies: are they flexible and dynamic enough to adapt to emerging global trends, such as AI-driven job markets and unexpected environmental crises?",
+              "words": 46,
+              "sentences": 2,
+              "avg_sentence_words": 23.0,
+              "fk_grade": 17.0,
+              "long_word_pct": 28.3,
+              "speak_seconds_est": 21.2,
+              "fits_20s": false,
+              "provenance": "workbook"
+            }
+          },
+          "numbers": [],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 16,
+          "title": {
+            "en": "Education builds resilient Taiwan",
+            "zh": "以教育打造韌性台灣"
+          },
+          "scripts": {
+            "A2": {
+              "text": "Ultimately, good education makes our society strong. But if we don’t change, Taiwan might fall behind. Science education must improve so we can handle the problems of tomorrow and keep our country successful and innovative.",
+              "words": 36,
+              "sentences": 3,
+              "avg_sentence_words": 12.0,
+              "fk_grade": 9.4,
+              "long_word_pct": 19.4,
+              "speak_seconds_est": 16.6,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "A1": {
+              "text": "Good schools make Taiwan strong. But if we do not change, we will have problems. Science education must get better. We need to be ready for the world of tomorrow.",
+              "words": 30,
+              "sentences": 4,
+              "avg_sentence_words": 7.5,
+              "fk_grade": 2.7,
+              "long_word_pct": 10.0,
+              "speak_seconds_est": 13.8,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "Education builds a resilient society. But without reforms, Taiwan might fall behind in innovation. Science education must evolve to meet new demands. We need to ensure that our schools are ready for the challenges of the 21st century.",
+              "words": 38,
+              "sentences": 4,
+              "avg_sentence_words": 9.5,
+              "fk_grade": 7.7,
+              "long_word_pct": 13.2,
+              "speak_seconds_est": 17.5,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "Ultimately, education is the cornerstone of a resilient and innovative society. However, without meaningful structural reforms, Taiwan risks losing its competitive edge in sustainable technology. Our science education must continuously evolve to meet the rapidly shifting demands of the twenty-first century effectively.",
+              "words": 42,
+              "sentences": 3,
+              "avg_sentence_words": 14.0,
+              "fk_grade": 16.8,
+              "long_word_pct": 35.7,
+              "speak_seconds_est": 19.4,
+              "fits_20s": true,
+              "provenance": "workbook"
+            }
+          },
+          "numbers": [
+            "21"
+          ],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        }
+      ]
+    },
+    {
+      "part_no": 6,
+      "source_description": "Conclusion and Call to Action (Slides 17-20: Summary, strong end, motivation for student action)",
+      "function_en": "Call to action",
+      "function_zh": "結語：總結與號召",
+      "language_pattern": "to wrap up ... / let's ...",
+      "slides": [
+        {
+          "slide_no": 17,
+          "title": {
+            "en": "SDG 4 progress with problems",
+            "zh": "SDG 4 雖有進展，但挑戰依舊"
+          },
+          "scripts": {
+            "A2": {
+              "text": "To wrap up, Taiwan has made a lot of progress with SDG 4. Science and technology are the keys to our success, but we still have many problems with fairness that we need to solve together.",
+              "words": 35,
+              "sentences": 2,
+              "avg_sentence_words": 17.5,
+              "fk_grade": 6.7,
+              "long_word_pct": 14.3,
+              "speak_seconds_est": 16.2,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "A1": {
+              "text": "In short, Taiwan is doing well with SDG 4, but we have problems too. Science and math help us grow, but we must make sure school is fair for every person.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 4.0,
+              "long_word_pct": 3.3,
+              "speak_seconds_est": 13.8,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "In summary, SDG 4 shows both progress and problems in Taiwan. STEM is a key tool for our development. We have high enrollment, but we must continue to work on making the system fair for every student.",
+              "words": 36,
+              "sentences": 3,
+              "avg_sentence_words": 12.0,
+              "fk_grade": 6.1,
+              "long_word_pct": 13.9,
+              "speak_seconds_est": 16.6,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "In summary, evaluating SDG 4 reveals that Taiwan has made significant educational progress, yet stubborn systemic issues remain. STEM education serves as a powerful instrument for national advancement, but it must be implemented through a framework that prioritizes social equity alongside technological mastery.",
+              "words": 42,
+              "sentences": 2,
+              "avg_sentence_words": 21.0,
+              "fk_grade": 19.0,
+              "long_word_pct": 38.1,
+              "speak_seconds_est": 19.4,
+              "fits_20s": true,
+              "provenance": "workbook"
+            }
+          },
+          "numbers": [],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 18,
+          "title": {
+            "en": "Challenge high scores creativity lacks",
+            "zh": "挑戰高分目標，卻喪失了創造力"
+          },
+          "scripts": {
+            "A2": {
+              "text": "We need to look deeper. High test scores are good, but being creative is more important. We need to change the system so that every student has a fair chance to learn and create new things.",
+              "words": 36,
+              "sentences": 3,
+              "avg_sentence_words": 12.0,
+              "fk_grade": 3.8,
+              "long_word_pct": 5.6,
+              "speak_seconds_est": 16.6,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "A1": {
+              "text": "High test scores are not enough. Being creative is very important. We need to change our schools so every student can have a dream and make it real.",
+              "words": 28,
+              "sentences": 3,
+              "avg_sentence_words": 9.3,
+              "fk_grade": 3.6,
+              "long_word_pct": 7.1,
+              "speak_seconds_est": 12.9,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "We have to challenge the reality of our schools. While our test scores are high, we often forget about creativity and equity. Deep reforms are necessary to make education truly transformative and helpful for all parts of society.",
+              "words": 38,
+              "sentences": 3,
+              "avg_sentence_words": 12.7,
+              "fk_grade": 9.5,
+              "long_word_pct": 13.2,
+              "speak_seconds_est": 17.5,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "We must courageously challenge the status quo of our schools. While our international test scores are impressively high, our system frequently overlooks the essential need for creativity and equity. Comprehensive, deep reforms are absolutely necessary to transform education into a truly transformative and inclusive experience.",
+              "words": 45,
+              "sentences": 3,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 15.4,
+              "long_word_pct": 35.6,
+              "speak_seconds_est": 20.8,
+              "fits_20s": false,
+              "provenance": "workbook"
+            }
+          },
+          "numbers": [],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 19,
+          "title": {
+            "en": "Advocate inclusive STEM for all",
+            "zh": "推廣無界限 STEM，落實全民科學教育"
+          },
+          "scripts": {
+            "A2": {
+              "text": "Looking ahead, science and math should be for everyone, including groups that are often left out. We can ask for better lessons that show us how science works in the real world every single day.",
+              "words": 35,
+              "sentences": 2,
+              "avg_sentence_words": 17.5,
+              "fk_grade": 7.1,
+              "long_word_pct": 5.7,
+              "speak_seconds_est": 16.2,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "A1": {
+              "text": "In the future, every person should learn science. We can ask for better lessons. We want to see how science works in our real lives every single day.",
+              "words": 28,
+              "sentences": 3,
+              "avg_sentence_words": 9.3,
+              "fk_grade": 4.1,
+              "long_word_pct": 0.0,
+              "speak_seconds_est": 12.9,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "Looking forward, we must focus on inclusive STEM education. This means including underrepresented groups and updating our curricula. We need to integrate real-world science applications so that every student sees the value of what they are learning.",
+              "words": 37,
+              "sentences": 3,
+              "avg_sentence_words": 12.3,
+              "fk_grade": 10.6,
+              "long_word_pct": 27.0,
+              "speak_seconds_est": 17.1,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "Looking ahead, our strategic focus must shift toward inclusive STEM education for all, especially historically underrepresented groups. We must advocate for modernized, adaptive curricula that integrate real-world scientific applications. This ensures that every single student recognizes the intrinsic value of what they are learning.",
+              "words": 44,
+              "sentences": 3,
+              "avg_sentence_words": 14.7,
+              "fk_grade": 16.1,
+              "long_word_pct": 38.6,
+              "speak_seconds_est": 20.3,
+              "fits_20s": false,
+              "provenance": "workbook"
+            }
+          },
+          "numbers": [],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 20,
+          "title": {
+            "en": "Act together equitable future now",
+            "zh": "攜手並進，共創公平未來，就在當下"
+          },
+          "scripts": {
+            "A2": {
+              "text": "Finally, thank you for listening. Let’s take action! You can talk about school rules or help younger students. Together, we can make the future fair and full of new ideas. Let’s start today!",
+              "words": 35,
+              "sentences": 5,
+              "avg_sentence_words": 7.0,
+              "fk_grade": 3.7,
+              "long_word_pct": 8.6,
+              "speak_seconds_est": 16.2,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "A1": {
+              "text": "Thank you for listening! Let's help today. You can talk to your teachers or help a friend with their homework. Together, we can make a better world for everyone.",
+              "words": 29,
+              "sentences": 4,
+              "avg_sentence_words": 7.2,
+              "fk_grade": 3.5,
+              "long_word_pct": 17.2,
+              "speak_seconds_est": 13.4,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "Thank you for your attention. As students, let’s take action! Participate in discussions, volunteer in programs, or push for change. Together, we can build a more equitable and innovative future. Thank you for listening!",
+              "words": 35,
+              "sentences": 5,
+              "avg_sentence_words": 7.0,
+              "fk_grade": 6.7,
+              "long_word_pct": 28.6,
+              "speak_seconds_est": 16.2,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "Thank you for your attention. As university students, you possess the power to drive meaningful change. Whether you participate in policy debates, volunteer in rural education, or advocate for curriculum reform, your actions matter. Together, we can build a more equitable, innovative, and sustainable future. Let's begin today.",
+              "words": 48,
+              "sentences": 5,
+              "avg_sentence_words": 9.6,
+              "fk_grade": 11.5,
+              "long_word_pct": 27.1,
+              "speak_seconds_est": 22.2,
+              "fits_20s": false,
+              "provenance": "workbook"
+            }
+          },
+          "numbers": [],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        }
+      ]
+    }
+  ],
+  "level_summary": {
+    "A1": {
+      "slides": 20,
+      "avg_words": 31.7,
+      "avg_sentence_words": 8.3,
+      "fk_grade": 3.4,
+      "slides_over_20s": 0
+    },
+    "A2": {
+      "slides": 20,
+      "avg_words": 38.0,
+      "avg_sentence_words": 11.4,
+      "fk_grade": 5.6,
+      "slides_over_20s": 1
+    },
+    "B1": {
+      "slides": 20,
+      "avg_words": 38.5,
+      "avg_sentence_words": 10.5,
+      "fk_grade": 8.4,
+      "slides_over_20s": 0
+    },
+    "B2": {
+      "slides": 20,
+      "avg_words": 45.2,
+      "avg_sentence_words": 16.0,
+      "fk_grade": 16.5,
+      "slides_over_20s": 17
+    }
+  }
+}

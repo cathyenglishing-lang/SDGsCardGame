@@ -1,0 +1,733 @@
+{
+  "mission_id": "sdg9-3",
+  "sdg": 9,
+  "title": {
+    "en": "AI Can Generate, but Humans Create",
+    "zh": null
+  },
+  "shape": "tall",
+  "source": {
+    "workbook": "SDGs Pecha Kucha (公用)_new.xlsx",
+    "sheets": {
+      "A2": "SDG9-3 (A2)",
+      "B1": "SDG9-3 (B1)",
+      "B2": "SDG9-3 (B2)"
+    }
+  },
+  "narrative_brief": "Mini PechaKucha for Science Communication (SDG 9 × AI Literacy × Science Communication)",
+  "stages": [
+    {
+      "part_no": 1,
+      "source_description": "Micro-Hook: Global context of technology",
+      "function_en": "Introduction",
+      "function_zh": "引言：破題與定義",
+      "language_pattern": "rhetorical questions / X is about ...",
+      "slides": [
+        {
+          "slide_no": 1,
+          "title": {
+            "en": "Micro-Hook: Global context of technology",
+            "zh": "全球永續連結"
+          },
+          "scripts": {
+            "A2": {
+              "text": "Good morning, everyone. Today, let’s look at United Nations SDG 9, a great global plan that helps all countries support modern technological innovations and build strong infrastructure for a better world.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 10.6,
+              "long_word_pct": 16.1,
+              "speak_seconds_est": 14.3,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "Good morning, everyone. Today, let’s look at United Nations SDG 9, a global plan that encourages all countries to support modern technology and build strong systems for better scientific development around the world.",
+              "words": 33,
+              "sentences": 2,
+              "avg_sentence_words": 16.5,
+              "fk_grade": 11.6,
+              "long_word_pct": 18.2,
+              "speak_seconds_est": 15.2,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "Good morning, everyone. Today, let’s explore United Nations SDG 9, a global framework that encourages all countries to support modern technological innovation and build strong networks for sustainable scientific development worldwide.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 15.2,
+              "long_word_pct": 35.5,
+              "speak_seconds_est": 14.3,
+              "fits_20s": true,
+              "provenance": "workbook"
+            }
+          },
+          "numbers": [],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          },
+          "source_notes": {
+            "outline_section": "Hook + SDG 9 Connection",
+            "communication_purpose": null,
+            "keywords_zh": null
+          }
+        },
+        {
+          "slide_no": 2,
+          "title": {
+            "en": "AI as Innovation: Connecting SDG 9",
+            "zh": "科技與創新"
+          },
+          "scripts": {
+            "A2": {
+              "text": "In our digital world today, Artificial Intelligence is changing how we study and do scientific research very quickly; however, an important question remains: what special human qualities make us truly irreplaceable?",
+              "words": 31,
+              "sentences": 1,
+              "avg_sentence_words": 31.0,
+              "fk_grade": 20.1,
+              "long_word_pct": 29.0,
+              "speak_seconds_est": 14.3,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "In our digital world, Artificial Intelligence is changing how we study, do research, and make new tools; however, as AI becomes smarter, an important question remains: what human qualities make us truly irreplaceable?",
+              "words": 33,
+              "sentences": 1,
+              "avg_sentence_words": 33.0,
+              "fk_grade": 19.1,
+              "long_word_pct": 24.2,
+              "speak_seconds_est": 15.2,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "In this digital era, Artificial Intelligence is rapidly transforming the way we study, conduct research, and develop new technologies; however, as AI becomes increasingly capable, an important question remains: what qualities make humans truly irreplaceable?",
+              "words": 35,
+              "sentences": 1,
+              "avg_sentence_words": 35.0,
+              "fk_grade": 24.0,
+              "long_word_pct": 28.6,
+              "speak_seconds_est": 16.2,
+              "fits_20s": true,
+              "provenance": "workbook"
+            }
+          },
+          "numbers": [],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          },
+          "source_notes": {
+            "outline_section": null,
+            "communication_purpose": null,
+            "keywords_zh": null
+          }
+        }
+      ]
+    },
+    {
+      "part_no": 2,
+      "source_description": "Student Experience",
+      "function_en": "Problem",
+      "function_zh": "問題指認：趨勢與因果",
+      "language_pattern": "present progressive for trends / this causes ...",
+      "slides": [
+        {
+          "slide_no": 3,
+          "title": {
+            "en": "Student Experience",
+            "zh": "學生生活情境"
+          },
+          "scripts": {
+            "A2": {
+              "text": "Many university science students are excited about AI, but they also feel quite worried because these computer tools can easily write lab reports, read short science articles, and generate computer code.",
+              "words": 31,
+              "sentences": 1,
+              "avg_sentence_words": 31.0,
+              "fk_grade": 17.1,
+              "long_word_pct": 19.4,
+              "speak_seconds_est": 14.3,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "Many university science students are excited about AI, but they also feel worried because these tools can write lab reports, summarize science articles, generate computer code, and answer difficult questions within seconds.",
+              "words": 32,
+              "sentences": 1,
+              "avg_sentence_words": 32.0,
+              "fk_grade": 18.6,
+              "long_word_pct": 25.0,
+              "speak_seconds_est": 14.8,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "Many university science majors are excited about AI tools but also feel anxious because these systems can write laboratory reports, summarize journal articles, generate computer code, and answer complex scientific questions within seconds.",
+              "words": 33,
+              "sentences": 1,
+              "avg_sentence_words": 33.0,
+              "fk_grade": 21.2,
+              "long_word_pct": 24.2,
+              "speak_seconds_est": 15.2,
+              "fits_20s": true,
+              "provenance": "workbook"
+            }
+          },
+          "numbers": [],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          },
+          "source_notes": {
+            "outline_section": "Student Experience & Context",
+            "communication_purpose": null,
+            "keywords_zh": null
+          }
+        },
+        {
+          "slide_no": 4,
+          "title": {
+            "en": "Contextualized Problem",
+            "zh": "脈絡化問題"
+          },
+          "scripts": {
+            "A2": {
+              "text": "These worries are easy to understand because AI can do many school tasks that used to need hard human work; however, doing a task quickly does not mean that AI truly understands science.",
+              "words": 33,
+              "sentences": 1,
+              "avg_sentence_words": 33.0,
+              "fk_grade": 14.1,
+              "long_word_pct": 6.1,
+              "speak_seconds_est": 15.2,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "These worries are easy to understand because AI can do many tasks that used to require human effort; however, doing a task quickly does not mean that AI truly understands science.",
+              "words": 31,
+              "sentences": 1,
+              "avg_sentence_words": 31.0,
+              "fk_grade": 14.4,
+              "long_word_pct": 6.5,
+              "speak_seconds_est": 14.3,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "These concerns are completely understandable because AI appears to perform many tasks that once required human effort; however, completing a task efficiently does not mean that AI truly understands science or can replace human scientists.",
+              "words": 35,
+              "sentences": 1,
+              "avg_sentence_words": 35.0,
+              "fk_grade": 19.6,
+              "long_word_pct": 22.9,
+              "speak_seconds_est": 16.2,
+              "fits_20s": true,
+              "provenance": "workbook"
+            }
+          },
+          "numbers": [],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          },
+          "source_notes": {
+            "outline_section": "Problem",
+            "communication_purpose": null,
+            "keywords_zh": null
+          }
+        }
+      ]
+    },
+    {
+      "part_no": 3,
+      "source_description": "Scientific Explanation",
+      "function_en": "Achievements",
+      "function_zh": "成果：舉證與比較",
+      "language_pattern": "present perfect / comparatives",
+      "slides": [
+        {
+          "slide_no": 5,
+          "title": {
+            "en": "Scientific Explanation",
+            "zh": "解釋科學原理 WHY"
+          },
+          "scripts": {
+            "A2": {
+              "text": "Why does this happen? The AI computer does not automatically understand your human thoughts; instead, it only guesses the next word by using mathematical chance from the internet without real scientific comprehension.",
+              "words": 32,
+              "sentences": 2,
+              "avg_sentence_words": 16.0,
+              "fk_grade": 12.4,
+              "long_word_pct": 25.0,
+              "speak_seconds_est": 14.8,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "Why does this happen? Although AI can find patterns in massive amounts of data, it does not have real understanding because it predicts words based on math probabilities instead of curiosity or reasoning.",
+              "words": 33,
+              "sentences": 2,
+              "avg_sentence_words": 16.5,
+              "fk_grade": 10.5,
+              "long_word_pct": 21.2,
+              "speak_seconds_est": 15.2,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "Why does this happen? Although AI can recognize patterns in enormous amounts of data, it does not possess genuine understanding because it predicts language based on mathematical probability rather than curiosity, reasoning, or scientific judgment.",
+              "words": 35,
+              "sentences": 2,
+              "avg_sentence_words": 17.5,
+              "fk_grade": 14.8,
+              "long_word_pct": 37.1,
+              "speak_seconds_est": 16.2,
+              "fits_20s": true,
+              "provenance": "workbook"
+            }
+          },
+          "numbers": [],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          },
+          "source_notes": {
+            "outline_section": "Scientific Explanation: Why?",
+            "communication_purpose": null,
+            "keywords_zh": null
+          }
+        },
+        {
+          "slide_no": 6,
+          "title": {
+            "en": "Scientific Explanation",
+            "zh": "解釋科學原理 HOW"
+          },
+          "scripts": {
+            "A2": {
+              "text": "Human scientists work differently because we ask new questions, design creative experiments, explain surprising laboratory results, and learn from our mistakes, meaning that scientific discovery needs a lot of human imagination.",
+              "words": 31,
+              "sentences": 1,
+              "avg_sentence_words": 31.0,
+              "fk_grade": 20.9,
+              "long_word_pct": 35.5,
+              "speak_seconds_est": 14.3,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "Human scientists work differently because we ask new questions, design creative experiments, explain surprising laboratory results, and learn from our mistakes, meaning that scientific discovery depends heavily on imagination, hard work, and creativity.",
+              "words": 33,
+              "sentences": 1,
+              "avg_sentence_words": 33.0,
+              "fk_grade": 22.7,
+              "long_word_pct": 36.4,
+              "speak_seconds_est": 15.2,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "Human scientists work differently because we ask original questions, design creative experiments, interpret unexpected laboratory results, and learn from failure, meaning that scientific discovery depends heavily on human imagination, persistence, and creativity.",
+              "words": 32,
+              "sentences": 1,
+              "avg_sentence_words": 32.0,
+              "fk_grade": 25.3,
+              "long_word_pct": 43.8,
+              "speak_seconds_est": 14.8,
+              "fits_20s": true,
+              "provenance": "workbook"
+            }
+          },
+          "numbers": [],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          },
+          "source_notes": {
+            "outline_section": "Scientific Explanation: How?",
+            "communication_purpose": null,
+            "keywords_zh": null
+          }
+        }
+      ]
+    },
+    {
+      "part_no": 4,
+      "source_description": "Impact on Science",
+      "function_en": "Solutions",
+      "function_zh": "解方：做法與取捨",
+      "language_pattern": "instead of + V-ing / modal verbs",
+      "slides": [
+        {
+          "slide_no": 7,
+          "title": {
+            "en": "Impact on Science",
+            "zh": "學術研究衝擊"
+          },
+          "scripts": {
+            "A2": {
+              "text": "History clearly shows that every great scientific discovery always began with human curiosity, and while AI can organize old information very well, it cannot independently choose which new questions are worth studying.",
+              "words": 32,
+              "sentences": 1,
+              "avg_sentence_words": 32.0,
+              "fk_grade": 19.8,
+              "long_word_pct": 25.0,
+              "speak_seconds_est": 14.8,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "History clearly shows that every great scientific discovery began with human curiosity, and while AI can organize existing information very well, it cannot independently decide which unanswered questions are actually worth studying.",
+              "words": 32,
+              "sentences": 1,
+              "avg_sentence_words": 32.0,
+              "fk_grade": 22.3,
+              "long_word_pct": 34.4,
+              "speak_seconds_est": 14.8,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "History clearly shows that every major scientific breakthrough began with human curiosity, and while AI can process existing information remarkably well, it cannot independently decide which unanswered questions are actually worth investigating for our future.",
+              "words": 35,
+              "sentences": 1,
+              "avg_sentence_words": 35.0,
+              "fk_grade": 23.7,
+              "long_word_pct": 31.4,
+              "speak_seconds_est": 16.2,
+              "fits_20s": true,
+              "provenance": "workbook"
+            }
+          },
+          "numbers": [],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          },
+          "source_notes": {
+            "outline_section": "Impact & Significance on Science",
+            "communication_purpose": null,
+            "keywords_zh": null
+          }
+        },
+        {
+          "slide_no": 8,
+          "title": {
+            "en": "Impact on Society",
+            "zh": "大眾社會衝擊"
+          },
+          "scripts": {
+            "A2": {
+              "text": "Furthermore, science is not just about getting fast results, meaning that human scientists must always think about public safety and social responsibility, which are special human values that computers cannot make.",
+              "words": 31,
+              "sentences": 1,
+              "avg_sentence_words": 31.0,
+              "fk_grade": 17.8,
+              "long_word_pct": 12.9,
+              "speak_seconds_est": 14.3,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "Furthermore, science is about more than making results, meaning that human scientists must always consider correct ethics, public safety, green sustainability, and social responsibility, which are human values that computer rules cannot simply generate.",
+              "words": 34,
+              "sentences": 1,
+              "avg_sentence_words": 34.0,
+              "fk_grade": 22.0,
+              "long_word_pct": 20.6,
+              "speak_seconds_est": 15.7,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "Furthermore, science is about more than producing raw results, meaning that human scientists must always consider ethical choices, public safety, environmental sustainability, and social responsibility, which are human values that algorithms cannot simply generate.",
+              "words": 34,
+              "sentences": 1,
+              "avg_sentence_words": 34.0,
+              "fk_grade": 23.7,
+              "long_word_pct": 26.5,
+              "speak_seconds_est": 15.7,
+              "fits_20s": true,
+              "provenance": "workbook"
+            }
+          },
+          "numbers": [],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          },
+          "source_notes": {
+            "outline_section": "Impact & Significance on Society",
+            "communication_purpose": null,
+            "keywords_zh": null
+          }
+        }
+      ]
+    },
+    {
+      "part_no": 5,
+      "source_description": "AI Literacy Strategy 1",
+      "function_en": "Implications",
+      "function_zh": "影響：推論後果",
+      "language_pattern": "first conditional / however",
+      "slides": [
+        {
+          "slide_no": 9,
+          "title": {
+            "en": "AI Literacy Strategy 1",
+            "zh": "AI 素養策略一： 提問前的後設認知"
+          },
+          "scripts": {
+            "A2": {
+              "text": "Therefore, we should treat AI as a helpful partner rather than a replacement for human thinking, because technology can organize data, but it should never replace our independent choices or creative ideas.",
+              "words": 32,
+              "sentences": 1,
+              "avg_sentence_words": 32.0,
+              "fk_grade": 17.9,
+              "long_word_pct": 21.9,
+              "speak_seconds_est": 14.8,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "Therefore, we should see AI as a helpful partner rather than a replacement for human thinking, because technology can organize information and improve speed, but it should never replace our independent choices or creative minds.",
+              "words": 35,
+              "sentences": 1,
+              "avg_sentence_words": 35.0,
+              "fk_grade": 19.0,
+              "long_word_pct": 22.9,
+              "speak_seconds_est": 16.2,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "Therefore, we should treat AI as a collaborative partner rather than a replacement for human thinking, because technology can organize information and improve efficiency, but it should never replace our independent judgment or creativity.",
+              "words": 34,
+              "sentences": 1,
+              "avg_sentence_words": 34.0,
+              "fk_grade": 21.6,
+              "long_word_pct": 32.4,
+              "speak_seconds_est": 15.7,
+              "fits_20s": true,
+              "provenance": "workbook"
+            }
+          },
+          "numbers": [],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          },
+          "source_notes": {
+            "outline_section": "AI Literacy Solution/Strategy 1",
+            "communication_purpose": null,
+            "keywords_zh": null
+          }
+        },
+        {
+          "slide_no": 10,
+          "title": {
+            "en": "AI Literacy Strategy 2",
+            "zh": "AI 素養策略二： 具體動作"
+          },
+          "scripts": {
+            "A2": {
+              "text": "As future scientists, we must continue asking good questions, doubting old ideas, and sharing our discoveries honestly, because these special human abilities will always be necessary no matter how smart computers become.",
+              "words": 32,
+              "sentences": 1,
+              "avg_sentence_words": 32.0,
+              "fk_grade": 18.6,
+              "long_word_pct": 28.1,
+              "speak_seconds_est": 14.8,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "As future scientists, we should continue asking meaningful questions, challenging old ideas, and sharing our discoveries responsibly because these special human abilities will remain necessary, no matter how advanced computer technology becomes.",
+              "words": 32,
+              "sentences": 1,
+              "avg_sentence_words": 32.0,
+              "fk_grade": 22.3,
+              "long_word_pct": 37.5,
+              "speak_seconds_est": 14.8,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "As future scientists, we should continue asking meaningful questions, challenging existing ideas, and communicating our discoveries responsibly because these uniquely human abilities will remain essential, regardless of how advanced technology becomes.",
+              "words": 31,
+              "sentences": 1,
+              "avg_sentence_words": 31.0,
+              "fk_grade": 24.3,
+              "long_word_pct": 48.4,
+              "speak_seconds_est": 14.3,
+              "fits_20s": true,
+              "provenance": "workbook"
+            }
+          },
+          "numbers": [],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          },
+          "source_notes": {
+            "outline_section": "AI Literacy Solution/Strategy 2",
+            "communication_purpose": null,
+            "keywords_zh": null
+          }
+        }
+      ]
+    },
+    {
+      "part_no": 6,
+      "source_description": "The Human Edge: Redefining the human role",
+      "function_en": "Call to action",
+      "function_zh": "結語：總結與號召",
+      "language_pattern": "to wrap up ... / let's ...",
+      "slides": [
+        {
+          "slide_no": 11,
+          "title": {
+            "en": "The Human Edge: Redefining the human role",
+            "zh": "人類獨特價值"
+          },
+          "scripts": {
+            "A2": {
+              "text": "In conclusion, SDG 9 reminds us that innovation is always driven by people, because AI can give us basic information, but only human beings can create true knowledge and make the right choices.",
+              "words": 32,
+              "sentences": 1,
+              "avg_sentence_words": 32.0,
+              "fk_grade": 15.3,
+              "long_word_pct": 12.5,
+              "speak_seconds_est": 14.8,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "In conclusion, SDG 9 reminds us that new innovation is always driven by real people because AI can generate information, but only human beings can create true knowledge, make good choices, and bring meaningful change.",
+              "words": 34,
+              "sentences": 1,
+              "avg_sentence_words": 34.0,
+              "fk_grade": 16.8,
+              "long_word_pct": 17.6,
+              "speak_seconds_est": 15.7,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "In conclusion, SDG 9 reminds us that innovation is ultimately driven by people because AI can generate information, but only human beings can create true knowledge, make ethical decisions, and inspire meaningful change.",
+              "words": 32,
+              "sentences": 1,
+              "avg_sentence_words": 32.0,
+              "fk_grade": 19.0,
+              "long_word_pct": 25.0,
+              "speak_seconds_est": 14.8,
+              "fits_20s": true,
+              "provenance": "workbook"
+            }
+          },
+          "numbers": [],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          },
+          "source_notes": {
+            "outline_section": "Take-away & Call to Action",
+            "communication_purpose": null,
+            "keywords_zh": null
+          }
+        },
+        {
+          "slide_no": 12,
+          "title": {
+            "en": "Final Call to Action: The SDG 9 future vision",
+            "zh": "最終呼籲與願景"
+          },
+          "scripts": {
+            "A2": {
+              "text": "Let us use AI wisely while continuing to grow the curiosity, creativity, and responsibility that define great scientists, so we can build a better and more honest future together. Thank you.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 11.0,
+              "long_word_pct": 19.4,
+              "speak_seconds_est": 14.3,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "Let us use AI wisely while continuing to develop the curiosity, creativity, and professional responsibility that make great scientists, so we can build a more trustworthy and sustainable future for science together. Thank you.",
+              "words": 34,
+              "sentences": 2,
+              "avg_sentence_words": 17.0,
+              "fk_grade": 13.3,
+              "long_word_pct": 26.5,
+              "speak_seconds_est": 15.7,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "Let us embrace AI wisely while continuing to develop the curiosity, creativity, and professional responsibility that define great scientists, so we can build a more trustworthy and sustainable future together. Thank you.",
+              "words": 32,
+              "sentences": 2,
+              "avg_sentence_words": 16.0,
+              "fk_grade": 14.3,
+              "long_word_pct": 28.1,
+              "speak_seconds_est": 14.8,
+              "fits_20s": true,
+              "provenance": "workbook"
+            }
+          },
+          "numbers": [],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          },
+          "source_notes": {
+            "outline_section": null,
+            "communication_purpose": null,
+            "keywords_zh": null
+          }
+        }
+      ]
+    }
+  ],
+  "level_summary": {
+    "A2": {
+      "slides": 12,
+      "avg_words": 31.6,
+      "avg_sentence_words": 27.7,
+      "fk_grade": 16.3,
+      "slides_over_20s": 0
+    },
+    "B1": {
+      "slides": 12,
+      "avg_words": 33.0,
+      "avg_sentence_words": 28.8,
+      "fk_grade": 17.7,
+      "slides_over_20s": 0
+    },
+    "B2": {
+      "slides": 12,
+      "avg_words": 33.2,
+      "avg_sentence_words": 29.2,
+      "fk_grade": 20.6,
+      "slides_over_20s": 0
+    }
+  }
+}

@@ -1,0 +1,1338 @@
+{
+  "mission_id": "sdg13-1",
+  "sdg": 13,
+  "title": {
+    "en": "SDG 13: Climate Action – Taiwan’s Path to Net Zero",
+    "zh": null
+  },
+  "shape": "wide",
+  "source": {
+    "workbook": "SDGs Pecha Kucha (公用)_new.xlsx",
+    "sheet": "SDG 13-1",
+    "level_columns": {
+      "A2": "G",
+      "B1": "I",
+      "B2": "K"
+    },
+    "extra_level_columns": [],
+    "zh_title_column": "F"
+  },
+  "narrative_brief": "🌍 Mission: SDG 13 – The Climate Speech Puzzle\n任務：SDG 13——氣候演說大拼圖\n\nCan you save the planet in 6 minutes and 40 seconds? The world is heating up, and your script is a mess! Before you can deliver your epic Pecha Kucha talk, you need to fix the \"Information Meltdown.\"\n你能用 6 分 40 秒拯救地球嗎？ 世界正在升溫，而你的講稿卻亂成一團！在你發表超強的 Pecha Kucha 演說之前，你需要先修復這場「資訊大熔爐」。\n\nStep 1: Know Your Battle Plan (熟悉你的作戰計畫)\n每個英雄都需要地圖。要打敗氣候危機，你的演說必須經過這 6 個關卡：\nPart 1 The Hook (引言): Wake them up! (喚醒聽眾！)\nPart 2 The Bad News (問題指認): Why is the Earth sweaty? (為什麼地球在流汗？)\nPart 3 The \"Good Job\" Part (成果進展): Taiwan’s small wins. (台灣的小小勝利。)\nPart 4 The Nerd Power (解決方案): STEM to the rescue! (科技救地球！)\nPart 5 The Reality Check (挑戰與衝擊): It’s not that easy... (沒那麼簡單……)\nPart 6 The Mic Drop (結語與行動): Tell them what to do! (震撼結尾，呼籲行動！)\n\nStep 2: The 20-Second Scramble (20 秒限時大亂鬥)\n根據關鍵字，猜猜這張投影片屬於哪個「關卡」。\n將碎片按正確順序排列，重建這場 6 分 40 秒的傑作。\n\nStep 3: Level Up Your Brain (腦力大升級)\n拼圖完成後，先別急著走！問問自己：\n✔ Why this piece? (為什麼是這片？) 是什麼關鍵字告訴你它屬於那裡？\n✔ The Flow (流暢度): 講者如何從「嚴肅的氣候變化議題」轉向「有意義的資訊分享與行動」而不讓聽眾分心？",
+  "stages": [
+    {
+      "part_no": 1,
+      "source_description": "Introduction (引言)",
+      "function_en": "Introduction",
+      "function_zh": "引言：破題與定義",
+      "language_pattern": "rhetorical questions / X is about ...",
+      "slides": [
+        {
+          "slide_no": 1,
+          "title": {
+            "en": "The Hook",
+            "zh": "(吸睛開場)"
+          },
+          "scripts": {
+            "A2": {
+              "text": "Our summers are getting very long and hot. The world has a big climate problem. We see bad storms and melting ice everywhere. We cannot wait anymore. Today, let’s talk about how we can save our planet together. Welcome to my presentation.",
+              "words": 43,
+              "sentences": 6,
+              "avg_sentence_words": 7.2,
+              "fk_grade": 4.8,
+              "long_word_pct": 7.0,
+              "speak_seconds_est": 19.8,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "Have you noticed that our summers are getting longer and hotter? It’s not just your imagination. Our world is facing a real climate crisis. Huge storms and melting ice are warnings we can't ignore anymore. Today, I want to talk about how we can fight this together.",
+              "words": 48,
+              "sentences": 5,
+              "avg_sentence_words": 9.6,
+              "fk_grade": 5.4,
+              "long_word_pct": 6.2,
+              "speak_seconds_est": 22.2,
+              "fits_20s": false,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "Have you noticed our summers becoming increasingly prolonged and intense? This trend isn't merely an illusion; our planet is experiencing a severe climate crisis. Escalating extreme weather events and rapidly melting ice caps serve as urgent warnings. Today, let’s explore how we can collectively combat this global threat.",
+              "words": 49,
+              "sentences": 4,
+              "avg_sentence_words": 12.2,
+              "fk_grade": 10.9,
+              "long_word_pct": 16.3,
+              "speak_seconds_est": 22.6,
+              "fits_20s": false,
+              "provenance": "workbook"
+            },
+            "A1": {
+              "text": "Our summers are very long and hot. The world has a big climate problem. We see strong storms everywhere. Today I talk about our planet.",
+              "words": 25,
+              "sentences": 4,
+              "avg_sentence_words": 6.2,
+              "fk_grade": 3.4,
+              "long_word_pct": 4.0,
+              "speak_seconds_est": 11.5,
+              "fits_20s": true,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role)",
+              "basis": "Rewritten from the A2 column of sheet 'SDG 13-1' in SDGs Pecha Kucha (公用)_new.xlsx. Same meaning, same slide order, same key facts (Net Zero 2050, wind, smart grids, carbon capture, greenwashing). Spec: <=32 words per slide, <=10 words per sentence, present simple, high-frequency vocabulary."
+            }
+          },
+          "numbers": [],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 2,
+          "title": {
+            "en": "What is SDG 13?",
+            "zh": "(何謂 SDG 13？)"
+          },
+          "scripts": {
+            "A2": {
+              "text": "What is SDG 13? It means \"Climate Action.\" It asks every country to cut dirty air and get ready for disasters. The goal is to keep the Earth cool. If we do not act now, our cities will be in big danger.",
+              "words": 41,
+              "sentences": 4,
+              "avg_sentence_words": 10.2,
+              "fk_grade": 3.4,
+              "long_word_pct": 2.4,
+              "speak_seconds_est": 18.9,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "So, what is SDG 13? Simply put, it’s a global call for 'Climate Action.' It asks every country to cut down CO2 and prepare for natural disasters. The goal is to keep our Earth cool. If we don’t act now, our cities and health will be in danger.",
+              "words": 49,
+              "sentences": 4,
+              "avg_sentence_words": 12.2,
+              "fk_grade": 4.4,
+              "long_word_pct": 2.0,
+              "speak_seconds_est": 22.6,
+              "fits_20s": false,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "What exactly is SDG 13? Essentially, it is an urgent international directive for \"Climate Action,\" compelling nations to drastically curb carbon emissions and enhance disaster resilience. The primary objective is stabilizing global temperatures, because failing to act immediately places our urban infrastructure and public health in severe jeopardy.",
+              "words": 47,
+              "sentences": 3,
+              "avg_sentence_words": 15.7,
+              "fk_grade": 16.1,
+              "long_word_pct": 29.8,
+              "speak_seconds_est": 21.7,
+              "fits_20s": false,
+              "provenance": "workbook"
+            },
+            "A1": {
+              "text": "SDG 13 means Climate Action. Every country must make less dirty air. Every country must get ready for storms. The goal is a cooler Earth.",
+              "words": 24,
+              "sentences": 4,
+              "avg_sentence_words": 6.0,
+              "fk_grade": 4.0,
+              "long_word_pct": 0.0,
+              "speak_seconds_est": 11.1,
+              "fits_20s": true,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role)",
+              "basis": "Rewritten from the A2 column of sheet 'SDG 13-1' in SDGs Pecha Kucha (公用)_new.xlsx. Same meaning, same slide order, same key facts (Net Zero 2050, wind, smart grids, carbon capture, greenwashing). Spec: <=32 words per slide, <=10 words per sentence, present simple, high-frequency vocabulary."
+            }
+          },
+          "numbers": [
+            "13"
+          ],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 3,
+          "title": {
+            "en": "Taiwan’s Context",
+            "zh": "(台灣背景)"
+          },
+          "scripts": {
+            "A2": {
+              "text": "Look at Taiwan. We are a small island. Typhoons and rising seas hurt us easily. Also, our high-tech factories use a lot of electricity. This is a big problem. How can a small island like Taiwan help the world with green energy?",
+              "words": 42,
+              "sentences": 6,
+              "avg_sentence_words": 7.0,
+              "fk_grade": 4.3,
+              "long_word_pct": 9.5,
+              "speak_seconds_est": 19.4,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "Now, let’s look at Taiwan. As a small island, we are very vulnerable to typhoons and rising sea levels. Also, because we have so many high-tech factories, we use a huge amount of energy. This creates a big challenge: How can a small island, like Taiwan, lead the way in green energy?",
+              "words": 53,
+              "sentences": 4,
+              "avg_sentence_words": 13.2,
+              "fk_grade": 6.7,
+              "long_word_pct": 9.4,
+              "speak_seconds_est": 24.5,
+              "fits_20s": false,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "Focusing on Taiwan, our geographical reality as an island leaves us exceptionally vulnerable to severe typhoons and rising sea levels. Furthermore, our dense concentration of high-tech manufacturing demands massive energy consumption. This presents a critical paradox: how can a small nation like Taiwan pioneer global green energy development?",
+              "words": 48,
+              "sentences": 3,
+              "avg_sentence_words": 16.0,
+              "fk_grade": 15.0,
+              "long_word_pct": 27.1,
+              "speak_seconds_est": 22.2,
+              "fits_20s": false,
+              "provenance": "workbook"
+            },
+            "A1": {
+              "text": "Taiwan is a small island. Typhoons and high seas hurt us. Our factories use a lot of electricity. Can a small island help the world?",
+              "words": 25,
+              "sentences": 4,
+              "avg_sentence_words": 6.2,
+              "fk_grade": 3.4,
+              "long_word_pct": 12.0,
+              "speak_seconds_est": 11.5,
+              "fits_20s": true,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role)",
+              "basis": "Rewritten from the A2 column of sheet 'SDG 13-1' in SDGs Pecha Kucha (公用)_new.xlsx. Same meaning, same slide order, same key facts (Net Zero 2050, wind, smart grids, carbon capture, greenwashing). Spec: <=32 words per slide, <=10 words per sentence, present simple, high-frequency vocabulary."
+            }
+          },
+          "numbers": [],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        }
+      ]
+    },
+    {
+      "part_no": 2,
+      "source_description": "Problem Identification (問題辨識)",
+      "function_en": "Problem",
+      "function_zh": "問題指認：趨勢與因果",
+      "language_pattern": "present progressive for trends / this causes ...",
+      "slides": [
+        {
+          "slide_no": 4,
+          "title": {
+            "en": "Rising Temperatures in Taiwan",
+            "zh": "(台灣升溫現況)"
+          },
+          "scripts": {
+            "A2": {
+              "text": "Taiwan is getting hot faster than other places. This is a scary fact. It changes our food and our clean water supply. If we do not change, these hot days will never stop. We must find a good solution very quickly.",
+              "words": 41,
+              "sentences": 5,
+              "avg_sentence_words": 8.2,
+              "fk_grade": 3.4,
+              "long_word_pct": 2.4,
+              "speak_seconds_est": 18.9,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "The data is quite scary. Taiwan is actually warming up faster than the global average. This changes everything—from the food we grow to our water supply. If we don't change our habits, these record-breaking heatwaves will become our 'new normal.' We need to find a solution fast.",
+              "words": 48,
+              "sentences": 4,
+              "avg_sentence_words": 12.0,
+              "fk_grade": 7.3,
+              "long_word_pct": 10.4,
+              "speak_seconds_est": 22.2,
+              "fits_20s": false,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "Recent meteorological data indicates that Taiwan is warming at a rate significantly outperforming the global average. This shift fundamentally disrupts crucial sectors, from agricultural yields to freshwater reserves. Without immediate behavioral modifications, these unprecedented heatwaves will inevitably become our permanent baseline, necessitating rapid, innovative interventions.",
+              "words": 45,
+              "sentences": 3,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 21.2,
+              "long_word_pct": 44.4,
+              "speak_seconds_est": 20.8,
+              "fits_20s": false,
+              "provenance": "workbook"
+            },
+            "A1": {
+              "text": "Taiwan gets hot faster than other places. Hot days change our food and water. We must act now. We need a good plan very soon.",
+              "words": 25,
+              "sentences": 4,
+              "avg_sentence_words": 6.2,
+              "fk_grade": 1.5,
+              "long_word_pct": 0.0,
+              "speak_seconds_est": 11.5,
+              "fits_20s": true,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role)",
+              "basis": "Rewritten from the A2 column of sheet 'SDG 13-1' in SDGs Pecha Kucha (公用)_new.xlsx. Same meaning, same slide order, same key facts (Net Zero 2050, wind, smart grids, carbon capture, greenwashing). Spec: <=32 words per slide, <=10 words per sentence, present simple, high-frequency vocabulary."
+            }
+          },
+          "numbers": [],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 5,
+          "title": {
+            "en": "Energy and Emissions",
+            "zh": "(能源與排放)"
+          },
+          "scripts": {
+            "A2": {
+              "text": "Here is the main problem. Taiwan uses too much coal and oil. These make dirty air. Our famous computer chip factories need power all the time. This is difficult. How can we keep our economy strong but stop the pollution?",
+              "words": 40,
+              "sentences": 6,
+              "avg_sentence_words": 6.7,
+              "fk_grade": 3.8,
+              "long_word_pct": 10.0,
+              "speak_seconds_est": 18.5,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "Here is the main problem: Taiwan relies too much on fossil fuels. Coal and gas produce a lot of carbon. Our famous 'Silicon Shield'—our chip industry—needs constant power to run. This is our dilemma: How do we keep our economy strong while cutting down on pollution?\"",
+              "words": 48,
+              "sentences": 4,
+              "avg_sentence_words": 12.0,
+              "fk_grade": 6.3,
+              "long_word_pct": 6.2,
+              "speak_seconds_est": 22.2,
+              "fits_20s": false,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "Taiwan’s core challenge lies in its heavy reliance on carbon-intensive fossil fuels like coal and natural gas. Our vital semiconductor industry—the global \"Silicon Shield\"—requires uninterrupted, massive power supplies. Consequently, we face a profound dilemma: sustaining robust economic prosperity while simultaneously executing drastic pollution reductions.",
+              "words": 47,
+              "sentences": 3,
+              "avg_sentence_words": 15.7,
+              "fk_grade": 16.9,
+              "long_word_pct": 36.2,
+              "speak_seconds_est": 21.7,
+              "fits_20s": false,
+              "provenance": "workbook"
+            },
+            "A1": {
+              "text": "Taiwan uses too much coal and oil. Coal and oil make dirty air. Our chip factories need power all day. Can we stop the pollution?",
+              "words": 25,
+              "sentences": 4,
+              "avg_sentence_words": 6.2,
+              "fk_grade": 2.4,
+              "long_word_pct": 8.0,
+              "speak_seconds_est": 11.5,
+              "fits_20s": true,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role)",
+              "basis": "Rewritten from the A2 column of sheet 'SDG 13-1' in SDGs Pecha Kucha (公用)_new.xlsx. Same meaning, same slide order, same key facts (Net Zero 2050, wind, smart grids, carbon capture, greenwashing). Spec: <=32 words per slide, <=10 words per sentence, present simple, high-frequency vocabulary."
+            }
+          },
+          "numbers": [],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 6,
+          "title": {
+            "en": "The Critical Questions",
+            "zh": "(關鍵提問)"
+          },
+          "scripts": {
+            "A2": {
+              "text": "We must ask some hard questions today. Is our high-energy life safe for the future? Can we change to green power fast enough? Students and scientists must answer these questions. The future of our beautiful island depends on us.",
+              "words": 39,
+              "sentences": 5,
+              "avg_sentence_words": 7.8,
+              "fk_grade": 4.4,
+              "long_word_pct": 15.4,
+              "speak_seconds_est": 18.0,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "We have to ask some tough questions. Is our high-energy lifestyle really sustainable? Can we transition to green energy fast enough to make a difference? These are the puzzles that students and scientists like us need to solve. The future of our island depends on our answers.\"",
+              "words": 47,
+              "sentences": 5,
+              "avg_sentence_words": 9.4,
+              "fk_grade": 6.2,
+              "long_word_pct": 17.0,
+              "speak_seconds_est": 21.7,
+              "fits_20s": false,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "We must confront several uncomfortable realities. Is our energy-intensive lifestyle truly sustainable in the long term? Can we accelerate our transition toward renewables swiftly enough to prevent ecological degradation? These are the complex puzzles that contemporary students and researchers must solve to secure our island's future.",
+              "words": 46,
+              "sentences": 4,
+              "avg_sentence_words": 11.5,
+              "fk_grade": 13.8,
+              "long_word_pct": 32.6,
+              "speak_seconds_est": 21.2,
+              "fits_20s": false,
+              "provenance": "workbook"
+            },
+            "A1": {
+              "text": "Now we ask two hard questions. Is our life safe for the future? Can we use green power soon? Students must help answer them.",
+              "words": 24,
+              "sentences": 4,
+              "avg_sentence_words": 6.0,
+              "fk_grade": 1.0,
+              "long_word_pct": 8.3,
+              "speak_seconds_est": 11.1,
+              "fits_20s": true,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role)",
+              "basis": "Rewritten from the A2 column of sheet 'SDG 13-1' in SDGs Pecha Kucha (公用)_new.xlsx. Same meaning, same slide order, same key facts (Net Zero 2050, wind, smart grids, carbon capture, greenwashing). Spec: <=32 words per slide, <=10 words per sentence, present simple, high-frequency vocabulary."
+            }
+          },
+          "numbers": [],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        }
+      ]
+    },
+    {
+      "part_no": 3,
+      "source_description": "Achievements and Progress (成果與進展)",
+      "function_en": "Achievements",
+      "function_zh": "成果：舉證與比較",
+      "language_pattern": "present perfect / comparatives",
+      "slides": [
+        {
+          "slide_no": 7,
+          "title": {
+            "en": "Government Action",
+            "zh": "(政府行動)"
+          },
+          "scripts": {
+            "A2": {
+              "text": "But there is good news. Taiwan made a new climate law. Our goal is \"Net Zero\" by the year 2050. Now, companies must pay money if they make too much dirty air. This law helps businesses become cleaner and greener.",
+              "words": 39,
+              "sentences": 5,
+              "avg_sentence_words": 7.8,
+              "fk_grade": 3.2,
+              "long_word_pct": 5.1,
+              "speak_seconds_est": 18.0,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "But there is good news! Taiwan passed the 'Climate Change Response Act.' This law sets a clear goal: Net Zero by 2050. We are also starting to charge a 'carbon fee.' This means if a company pollutes more, they have to pay more. It encourages businesses to be greener.\"",
+              "words": 48,
+              "sentences": 4,
+              "avg_sentence_words": 12.0,
+              "fk_grade": 5.6,
+              "long_word_pct": 10.4,
+              "speak_seconds_est": 22.2,
+              "fits_20s": false,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "Encouragingly, significant progress is underway. Taiwan enacted the landmark \"Climate Change Response Act,\" legally institutionalizing our commitment to achieving Net Zero emissions by 2050. Additionally, the phased implementation of a national carbon fee system holds major corporations financially accountable, incentivizing industries to adopt greener operational standards.",
+              "words": 45,
+              "sentences": 3,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 19.6,
+              "long_word_pct": 44.4,
+              "speak_seconds_est": 20.8,
+              "fits_20s": false,
+              "provenance": "workbook"
+            },
+            "A1": {
+              "text": "Here is good news. Taiwan has a new climate law. Our goal is Net Zero by 2050. Companies pay money when they make dirty air.",
+              "words": 24,
+              "sentences": 4,
+              "avg_sentence_words": 6.0,
+              "fk_grade": 2.0,
+              "long_word_pct": 4.2,
+              "speak_seconds_est": 11.1,
+              "fits_20s": true,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role)",
+              "basis": "Rewritten from the A2 column of sheet 'SDG 13-1' in SDGs Pecha Kucha (公用)_new.xlsx. Same meaning, same slide order, same key facts (Net Zero 2050, wind, smart grids, carbon capture, greenwashing). Spec: <=32 words per slide, <=10 words per sentence, present simple, high-frequency vocabulary."
+            }
+          },
+          "numbers": [
+            "2050."
+          ],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 8,
+          "title": {
+            "en": "Renewable Energy Growth",
+            "zh": "(再生能源成長)"
+          },
+          "scripts": {
+            "A2": {
+              "text": "We can see big changes around us. There are many new wind turbines in the sea. Our wind power is growing fast. Also, schools and factories are putting solar panels on their roofs. We are finally using more clean, natural energy.",
+              "words": 41,
+              "sentences": 5,
+              "avg_sentence_words": 8.2,
+              "fk_grade": 5.2,
+              "long_word_pct": 4.9,
+              "speak_seconds_est": 18.9,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "We are also seeing big changes in our landscape. Have you seen the wind turbines in the Taiwan Strait? Our offshore wind power is growing fast! Plus, more solar panels are appearing on school roofs and factories. We are finally moving away from dirty coal toward cleaner, natural power.",
+              "words": 49,
+              "sentences": 5,
+              "avg_sentence_words": 9.8,
+              "fk_grade": 6.1,
+              "long_word_pct": 10.2,
+              "speak_seconds_est": 22.6,
+              "fits_20s": false,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "Furthermore, our physical landscape is transforming rapidly. The emergence of vast offshore wind farms across the Taiwan Strait demonstrates our escalating capacity for renewable energy. Complemented by expanding solar arrays on commercial and institutional rooftops, Taiwan is systematically transitioning away from coal toward sustainable alternatives.",
+              "words": 45,
+              "sentences": 3,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 17.8,
+              "long_word_pct": 42.2,
+              "speak_seconds_est": 20.8,
+              "fits_20s": false,
+              "provenance": "workbook"
+            },
+            "A1": {
+              "text": "Look at the sea. There are many new wind turbines. Wind power grows fast in Taiwan. Schools and factories put solar panels on the roof.",
+              "words": 25,
+              "sentences": 4,
+              "avg_sentence_words": 6.2,
+              "fk_grade": 2.9,
+              "long_word_pct": 8.0,
+              "speak_seconds_est": 11.5,
+              "fits_20s": true,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role)",
+              "basis": "Rewritten from the A2 column of sheet 'SDG 13-1' in SDGs Pecha Kucha (公用)_new.xlsx. Same meaning, same slide order, same key facts (Net Zero 2050, wind, smart grids, carbon capture, greenwashing). Spec: <=32 words per slide, <=10 words per sentence, present simple, high-frequency vocabulary."
+            }
+          },
+          "numbers": [],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 9,
+          "title": {
+            "en": "Public Awareness",
+            "zh": "(大眾意識)"
+          },
+          "scripts": {
+            "A2": {
+              "text": "People in Taiwan are very good at recycling. We ride the MRT and Ubikes every day. \"Green living\" is popular now. But we must think: Is recycling enough? We still need bigger changes from governments and big companies to save us.",
+              "words": 41,
+              "sentences": 5,
+              "avg_sentence_words": 8.2,
+              "fk_grade": 5.5,
+              "long_word_pct": 9.8,
+              "speak_seconds_est": 18.9,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "In Taiwan, people are very good at recycling. We use the MRT and Ubikes more than ever. 'Green living' is becoming popular. However, we must be honest with ourselves: Is recycling enough? While individual actions are great, we still need bigger, systemic changes to save our climate.",
+              "words": 47,
+              "sentences": 5,
+              "avg_sentence_words": 9.4,
+              "fk_grade": 7.7,
+              "long_word_pct": 12.8,
+              "speak_seconds_est": 21.7,
+              "fits_20s": false,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "Domestically, civic engagement is strong, with citizens actively embracing eco-friendly habits like meticulous recycling and utilizing public transit systems. However, we must critically evaluate if localized recycling suffices. While grassroots efforts are commendable, achieving true climate stability requires comprehensive, systemic overhauls rather than individual lifestyle adjustments alone.",
+              "words": 47,
+              "sentences": 3,
+              "avg_sentence_words": 15.7,
+              "fk_grade": 21.1,
+              "long_word_pct": 53.2,
+              "speak_seconds_est": 21.7,
+              "fits_20s": false,
+              "provenance": "workbook"
+            },
+            "A1": {
+              "text": "People in Taiwan recycle very well. We ride the MRT every day. Green living is popular. But is recycling enough? We need bigger changes.",
+              "words": 24,
+              "sentences": 5,
+              "avg_sentence_words": 4.8,
+              "fk_grade": 5.5,
+              "long_word_pct": 4.2,
+              "speak_seconds_est": 11.1,
+              "fits_20s": true,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role)",
+              "basis": "Rewritten from the A2 column of sheet 'SDG 13-1' in SDGs Pecha Kucha (公用)_new.xlsx. Same meaning, same slide order, same key facts (Net Zero 2050, wind, smart grids, carbon capture, greenwashing). Spec: <=32 words per slide, <=10 words per sentence, present simple, high-frequency vocabulary."
+            }
+          },
+          "numbers": [],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        }
+      ]
+    },
+    {
+      "part_no": 4,
+      "source_description": "Solutions and STEM Integration (解決方案與 STEM 整合)",
+      "function_en": "Solutions",
+      "function_zh": "解方：做法與取捨",
+      "language_pattern": "instead of + V-ing / modal verbs",
+      "slides": [
+        {
+          "slide_no": 10,
+          "title": {
+            "en": "Smart Power Grids",
+            "zh": "(智慧電網)"
+          },
+          "scripts": {
+            "A2": {
+              "text": "How can science help Taiwan? We are building \"Smart Grids.\" They use computer brains, or AI, to share electricity. This technology stops energy waste. It makes our power system work better. It is a wonderful new solution for our island.",
+              "words": 40,
+              "sentences": 5,
+              "avg_sentence_words": 8.0,
+              "fk_grade": 5.8,
+              "long_word_pct": 15.0,
+              "speak_seconds_est": 18.5,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "How can technology help? In Taiwan, we are developing 'Smart Grids.' These use Artificial Intelligence to manage electricity. Imagine a brain that knows exactly where and when power is needed. This STEM solution reduces waste and makes our energy system much more efficient. It’s a game-changer for Taiwan.",
+              "words": 49,
+              "sentences": 5,
+              "avg_sentence_words": 9.8,
+              "fk_grade": 9.2,
+              "long_word_pct": 16.3,
+              "speak_seconds_est": 22.6,
+              "fits_20s": false,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "How can technological innovation facilitate this transition? Taiwan is aggressively developing advanced \"Smart Grids\" that utilize Artificial Intelligence to optimize electricity distribution. This sophisticated STEM application dynamically balances energy supply and demand, drastically eliminating waste and maximizing the overall efficiency of our domestic power infrastructure.",
+              "words": 45,
+              "sentences": 3,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 22.3,
+              "long_word_pct": 48.9,
+              "speak_seconds_est": 20.8,
+              "fits_20s": false,
+              "provenance": "workbook"
+            },
+            "A1": {
+              "text": "Science can help us. We build smart grids. They use AI to share electricity. Smart grids stop energy waste. Our power system works better.",
+              "words": 24,
+              "sentences": 5,
+              "avg_sentence_words": 4.8,
+              "fk_grade": 2.5,
+              "long_word_pct": 4.2,
+              "speak_seconds_est": 11.1,
+              "fits_20s": true,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role)",
+              "basis": "Rewritten from the A2 column of sheet 'SDG 13-1' in SDGs Pecha Kucha (公用)_new.xlsx. Same meaning, same slide order, same key facts (Net Zero 2050, wind, smart grids, carbon capture, greenwashing). Spec: <=32 words per slide, <=10 words per sentence, present simple, high-frequency vocabulary."
+            }
+          },
+          "numbers": [],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 11,
+          "title": {
+            "en": "Carbon Capture Technology",
+            "zh": "(碳捕捉技術)"
+          },
+          "scripts": {
+            "A2": {
+              "text": "Another cool invention is \"Carbon Capture.\" Scientists catch bad air from factory chimneys before it goes into the sky. Then, they hide it deep underground. It sounds like a movie, but this science tool really helps clean our environment.",
+              "words": 39,
+              "sentences": 3,
+              "avg_sentence_words": 13.0,
+              "fk_grade": 6.7,
+              "long_word_pct": 12.8,
+              "speak_seconds_est": 18.0,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "Another amazing innovation is 'Carbon Capture.' Scientists in Taiwan are finding ways to catch CO2 from factory chimneys before it hits the air. We then store it safely underground. It sounds like science fiction, but it’s a real STEM tool that helps us balance industry and nature.",
+              "words": 48,
+              "sentences": 3,
+              "avg_sentence_words": 16.0,
+              "fk_grade": 8.6,
+              "long_word_pct": 10.4,
+              "speak_seconds_est": 22.2,
+              "fits_20s": false,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "Another groundbreaking technological frontier is \"Carbon Capture.\" Taiwanese engineers are pioneering methods to intercept carbon dioxide directly from industrial emissions before it reaches the atmosphere. By securely isolating and storing these gases underground, this vital STEM tool effectively balances manufacturing demands with environmental preservation.",
+              "words": 44,
+              "sentences": 2,
+              "avg_sentence_words": 22.0,
+              "fk_grade": 21.1,
+              "long_word_pct": 43.2,
+              "speak_seconds_est": 20.3,
+              "fits_20s": false,
+              "provenance": "workbook"
+            },
+            "A1": {
+              "text": "Carbon capture is a new tool. Scientists catch bad air from factory chimneys. Then they keep it deep underground. This tool cleans our air.",
+              "words": 24,
+              "sentences": 4,
+              "avg_sentence_words": 6.0,
+              "fk_grade": 2.5,
+              "long_word_pct": 12.5,
+              "speak_seconds_est": 11.1,
+              "fits_20s": true,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role)",
+              "basis": "Rewritten from the A2 column of sheet 'SDG 13-1' in SDGs Pecha Kucha (公用)_new.xlsx. Same meaning, same slide order, same key facts (Net Zero 2050, wind, smart grids, carbon capture, greenwashing). Spec: <=32 words per slide, <=10 words per sentence, present simple, high-frequency vocabulary."
+            }
+          },
+          "numbers": [],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 12,
+          "title": {
+            "en": "Electric Transportation",
+            "zh": "(電力交通)"
+          },
+          "scripts": {
+            "A2": {
+              "text": "Think about our streets. Taiwan is famous for electric scooters like Gogoro. They use batteries, not gasoline. This smart design stops dirty air and loud noise in crowded cities. It shows how local ideas can fix big global climate problems.",
+              "words": 40,
+              "sentences": 5,
+              "avg_sentence_words": 8.0,
+              "fk_grade": 5.5,
+              "long_word_pct": 12.5,
+              "speak_seconds_est": 18.5,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "Think about our streets. Taiwan is famous for electric scooters like Gogoro. Instead of burning gas, we use swappable batteries. This clever design reduces pollution and noise in our crowded cities. It shows how local innovation can provide a perfect solution for global issues. The future is electric!",
+              "words": 48,
+              "sentences": 6,
+              "avg_sentence_words": 8.0,
+              "fk_grade": 7.9,
+              "long_word_pct": 16.7,
+              "speak_seconds_est": 22.2,
+              "fits_20s": false,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "Regarding urban mobility, Taiwan’s electric scooter infrastructure, exemplified by Gogoro’s swappable battery ecosystem, is world-renowned. This ingenious localized innovation substantially mitigates air and noise pollution within densely populated metropolitan areas. It serves as an ideal template for translating technological design into scalable, real-world environmental solutions.",
+              "words": 47,
+              "sentences": 3,
+              "avg_sentence_words": 15.7,
+              "fk_grade": 21.1,
+              "long_word_pct": 48.9,
+              "speak_seconds_est": 21.7,
+              "fits_20s": false,
+              "provenance": "workbook"
+            },
+            "A1": {
+              "text": "Look at our streets. Taiwan is famous for electric scooters. They use batteries, not gasoline. They make less dirty air and less noise.",
+              "words": 23,
+              "sentences": 4,
+              "avg_sentence_words": 5.8,
+              "fk_grade": 3.6,
+              "long_word_pct": 17.4,
+              "speak_seconds_est": 10.6,
+              "fits_20s": true,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role)",
+              "basis": "Rewritten from the A2 column of sheet 'SDG 13-1' in SDGs Pecha Kucha (公用)_new.xlsx. Same meaning, same slide order, same key facts (Net Zero 2050, wind, smart grids, carbon capture, greenwashing). Spec: <=32 words per slide, <=10 words per sentence, present simple, high-frequency vocabulary."
+            }
+          },
+          "numbers": [],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        }
+      ]
+    },
+    {
+      "part_no": 5,
+      "source_description": "Implications and Future Challenges (影響與未來挑戰)",
+      "function_en": "Implications",
+      "function_zh": "影響：推論後果",
+      "language_pattern": "first conditional / however",
+      "slides": [
+        {
+          "slide_no": 13,
+          "title": {
+            "en": "Economic Impact",
+            "zh": "(經濟影響)"
+          },
+          "scripts": {
+            "A2": {
+              "text": "However, being green is not easy. New technology is very expensive. Small shops worry they cannot pay for these changes. We must ask: How can we help everyone buy green things? We cannot leave poor people behind in this fight.",
+              "words": 40,
+              "sentences": 5,
+              "avg_sentence_words": 8.0,
+              "fk_grade": 4.3,
+              "long_word_pct": 7.5,
+              "speak_seconds_est": 18.5,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "However, being green isn't always easy. Changing to new technology is very expensive. Many small businesses worry they can't afford these changes. We must ask: How can we help everyone afford a green lifestyle? We need to make sure that protecting the planet doesn't leave the poor behind.",
+              "words": 48,
+              "sentences": 5,
+              "avg_sentence_words": 9.6,
+              "fk_grade": 6.8,
+              "long_word_pct": 14.6,
+              "speak_seconds_est": 22.2,
+              "fits_20s": false,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "Nevertheless, decarbonization introduces substantial economic friction. Deploying sophisticated eco-friendly technology demands enormous capital investments, which small and medium-sized enterprises might struggle to afford. We must carefully evaluate how to subsidize this green transition equitably, ensuring that climate protection policies do not disproportionately burden economically vulnerable communities.",
+              "words": 46,
+              "sentences": 3,
+              "avg_sentence_words": 15.3,
+              "fk_grade": 22.7,
+              "long_word_pct": 58.7,
+              "speak_seconds_est": 21.2,
+              "fits_20s": false,
+              "provenance": "workbook"
+            },
+            "A1": {
+              "text": "Green change is not easy. New technology is very expensive. Small shops worry about the cost. How can we help everyone pay for it?",
+              "words": 24,
+              "sentences": 4,
+              "avg_sentence_words": 6.0,
+              "fk_grade": 4.0,
+              "long_word_pct": 12.5,
+              "speak_seconds_est": 11.1,
+              "fits_20s": true,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role)",
+              "basis": "Rewritten from the A2 column of sheet 'SDG 13-1' in SDGs Pecha Kucha (公用)_new.xlsx. Same meaning, same slide order, same key facts (Net Zero 2050, wind, smart grids, carbon capture, greenwashing). Spec: <=32 words per slide, <=10 words per sentence, present simple, high-frequency vocabulary."
+            }
+          },
+          "numbers": [],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 14,
+          "title": {
+            "en": "Energy Security",
+            "zh": "(能源安全)"
+          },
+          "scripts": {
+            "A2": {
+              "text": "Energy safety is a big debate now. Our tech factories need stable power twenty-four hours a day. But wind and solar need good weather. Should we use nuclear power or natural gas as a backup? There are no easy answers.",
+              "words": 40,
+              "sentences": 5,
+              "avg_sentence_words": 8.0,
+              "fk_grade": 5.2,
+              "long_word_pct": 5.0,
+              "speak_seconds_est": 18.5,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "Energy security is another big debate. Our high-tech industry needs a lot of stable power 24/7. Since wind and solar depend on the weather, we need a reliable backup. Should we use nuclear power or more gas? There are no easy answers, only difficult choices for Taiwan’s future.",
+              "words": 48,
+              "sentences": 5,
+              "avg_sentence_words": 9.6,
+              "fk_grade": 7.1,
+              "long_word_pct": 10.4,
+              "speak_seconds_est": 22.2,
+              "fits_20s": false,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "Energy security remains an intense national debate. Our precision high-tech sector demands absolutely stable, uninterrupted power around the clock. Because solar and wind generation are inherently intermittent, establishing reliable baseload power is essential. Deciding between natural gas expansion or nuclear energy utilization poses exceptionally difficult geopolitical choices.",
+              "words": 47,
+              "sentences": 4,
+              "avg_sentence_words": 11.8,
+              "fk_grade": 19.1,
+              "long_word_pct": 40.4,
+              "speak_seconds_est": 21.7,
+              "fits_20s": false,
+              "provenance": "workbook"
+            },
+            "A1": {
+              "text": "Our factories need power all day and all night. But wind and sun need good weather. Do we need other power too? There is no easy answer.",
+              "words": 27,
+              "sentences": 4,
+              "avg_sentence_words": 6.8,
+              "fk_grade": 2.3,
+              "long_word_pct": 3.7,
+              "speak_seconds_est": 12.5,
+              "fits_20s": true,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role)",
+              "basis": "Rewritten from the A2 column of sheet 'SDG 13-1' in SDGs Pecha Kucha (公用)_new.xlsx. Same meaning, same slide order, same key facts (Net Zero 2050, wind, smart grids, carbon capture, greenwashing). Spec: <=32 words per slide, <=10 words per sentence, present simple, high-frequency vocabulary."
+            }
+          },
+          "numbers": [
+            "24"
+          ],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 15,
+          "title": {
+            "en": "Global Cooperation",
+            "zh": "(全球合作)"
+          },
+          "scripts": {
+            "A2": {
+              "text": "Climate change has no borders. Taiwan has great technology, and we want to share it. International politics can be difficult, but we must work with other countries. A storm in one place hurts everyone. We are all in the same boat.",
+              "words": 41,
+              "sentences": 5,
+              "avg_sentence_words": 8.2,
+              "fk_grade": 4.6,
+              "long_word_pct": 14.6,
+              "speak_seconds_est": 18.9,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "Climate change is a global fight. Taiwan has great technology, but we need to share it with the world. Even though international politics can be tricky, we must work with other countries. A storm in one country affects everyone. We are all in the same boat, fighting one giant storm.",
+              "words": 50,
+              "sentences": 5,
+              "avg_sentence_words": 10.0,
+              "fk_grade": 5.1,
+              "long_word_pct": 12.0,
+              "speak_seconds_est": 23.1,
+              "fits_20s": false,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "Climate disruption acknowledges no geopolitical boundaries, meaning our mitigation strategies must be global. Taiwan possesses sophisticated green technologies worthy of international integration; yet, navigating complex international politics complicates these knowledge-sharing initiatives. True climate resilience demands borderless collaboration, recognizing that environmental crises anywhere threaten prosperity everywhere.",
+              "words": 45,
+              "sentences": 3,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 24.3,
+              "long_word_pct": 57.8,
+              "speak_seconds_est": 20.8,
+              "fits_20s": false,
+              "provenance": "workbook"
+            },
+            "A1": {
+              "text": "Climate change has no borders. Taiwan has good technology. We want to share it with other countries. A storm in one place hurts everyone.",
+              "words": 24,
+              "sentences": 4,
+              "avg_sentence_words": 6.0,
+              "fk_grade": 3.5,
+              "long_word_pct": 12.5,
+              "speak_seconds_est": 11.1,
+              "fits_20s": true,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role)",
+              "basis": "Rewritten from the A2 column of sheet 'SDG 13-1' in SDGs Pecha Kucha (公用)_new.xlsx. Same meaning, same slide order, same key facts (Net Zero 2050, wind, smart grids, carbon capture, greenwashing). Spec: <=32 words per slide, <=10 words per sentence, present simple, high-frequency vocabulary."
+            }
+          },
+          "numbers": [],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 16,
+          "title": {
+            "en": "Future Scrutiny",
+            "zh": "(未來監督)"
+          },
+          "scripts": {
+            "A2": {
+              "text": "Finally, we must be careful. Some companies lie about being green. This is called \"Greenwashing.\" As students, we must check the data carefully. Is the government keeping its promises? We need honesty to reach our green goals by 2050.",
+              "words": 38,
+              "sentences": 5,
+              "avg_sentence_words": 7.6,
+              "fk_grade": 6.0,
+              "long_word_pct": 15.8,
+              "speak_seconds_est": 17.5,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "Finally, we must be careful. Some companies use 'Greenwashing'—they pretend to be eco-friendly but don't really change. As students and citizens, we must check the data. Is the government keeping its promises? We need transparency and honesty to ensure our green goals are actually reached by 2050.",
+              "words": 47,
+              "sentences": 5,
+              "avg_sentence_words": 9.4,
+              "fk_grade": 7.7,
+              "long_word_pct": 19.1,
+              "speak_seconds_est": 21.7,
+              "fits_20s": false,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "Finally, vigilance is paramount. We must guard against deceptive \"Greenwashing,\" where corporations falsify environmental stewardship without enacting substantial corporate changes. As analytical students and informed citizens, we must demand transparent data verification, holding both corporate entities and government bodies accountable to their 2050 climate promises.",
+              "words": 44,
+              "sentences": 3,
+              "avg_sentence_words": 14.7,
+              "fk_grade": 18.3,
+              "long_word_pct": 47.7,
+              "speak_seconds_est": 20.3,
+              "fits_20s": false,
+              "provenance": "workbook"
+            },
+            "A1": {
+              "text": "We must be careful. Some companies say they are green, but they do not change. We call this greenwashing. Students must check the data.",
+              "words": 24,
+              "sentences": 4,
+              "avg_sentence_words": 6.0,
+              "fk_grade": 2.5,
+              "long_word_pct": 12.5,
+              "speak_seconds_est": 11.1,
+              "fits_20s": true,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role)",
+              "basis": "Rewritten from the A2 column of sheet 'SDG 13-1' in SDGs Pecha Kucha (公用)_new.xlsx. Same meaning, same slide order, same key facts (Net Zero 2050, wind, smart grids, carbon capture, greenwashing). Spec: <=32 words per slide, <=10 words per sentence, present simple, high-frequency vocabulary."
+            }
+          },
+          "numbers": [
+            "2050.",
+            "2050"
+          ],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        }
+      ]
+    },
+    {
+      "part_no": 6,
+      "source_description": "Conclusion and Call to Action (結論與行動號召)",
+      "function_en": "Call to action",
+      "function_zh": "結語：總結與號召",
+      "language_pattern": "to wrap up ... / let's ...",
+      "slides": [
+        {
+          "slide_no": 17,
+          "title": {
+            "en": "Summary of Progress",
+            "zh": "(進展總結)"
+          },
+          "scripts": {
+            "A2": {
+              "text": "To sum up, Taiwan is doing a good job. We have laws, wind power, and smart technology. We are changing from a dirty island into a green leader. This journey is hard, but it is the only way forward for us.",
+              "words": 41,
+              "sentences": 4,
+              "avg_sentence_words": 10.2,
+              "fk_grade": 3.9,
+              "long_word_pct": 4.9,
+              "speak_seconds_est": 18.9,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "To sum up, Taiwan is on the right track. We have the laws, the wind power, and the smart technology to make a difference. We are slowly changing from a carbon-heavy island to a green leader. The transition is difficult, but it is the only way forward.",
+              "words": 47,
+              "sentences": 4,
+              "avg_sentence_words": 11.8,
+              "fk_grade": 5.8,
+              "long_word_pct": 12.8,
+              "speak_seconds_est": 21.7,
+              "fits_20s": false,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "To summarize, Taiwan is undeniably progressing along the correct trajectory. Armed with robust legislation, expanding wind infrastructure, and intelligent technology, we are successfully evolving from a carbon-reliant economy into a green technology pioneer. Though this transition is undeniably challenging, it remains our only viable path forward.",
+              "words": 46,
+              "sentences": 3,
+              "avg_sentence_words": 15.3,
+              "fk_grade": 16.6,
+              "long_word_pct": 34.8,
+              "speak_seconds_est": 21.2,
+              "fits_20s": false,
+              "provenance": "workbook"
+            },
+            "A1": {
+              "text": "Taiwan is doing a good job. We have a law, wind power, and smart tools. We are becoming a green island. The road is hard but right.",
+              "words": 27,
+              "sentences": 4,
+              "avg_sentence_words": 6.8,
+              "fk_grade": 1.0,
+              "long_word_pct": 3.7,
+              "speak_seconds_est": 12.5,
+              "fits_20s": true,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role)",
+              "basis": "Rewritten from the A2 column of sheet 'SDG 13-1' in SDGs Pecha Kucha (公用)_new.xlsx. Same meaning, same slide order, same key facts (Net Zero 2050, wind, smart grids, carbon capture, greenwashing). Spec: <=32 words per slide, <=10 words per sentence, present simple, high-frequency vocabulary."
+            }
+          },
+          "numbers": [],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 18,
+          "title": {
+            "en": "The Power of Students",
+            "zh": "(學生的力量)"
+          },
+          "scripts": {
+            "A2": {
+              "text": "Why does this matter to you? Because you are the future. You can study science to invent better tools. You can also save energy at home and speak up. Your voice can change how people think about the Earth.",
+              "words": 39,
+              "sentences": 5,
+              "avg_sentence_words": 7.8,
+              "fk_grade": 2.6,
+              "long_word_pct": 0.0,
+              "speak_seconds_est": 18.0,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "Why does this matter to you? Because you are the future scientists, engineers, and leaders. You can use STEM to invent even better solutions. But you can also start today by saving energy and speaking up. Your voice has the power to change how people think about the environment.",
+              "words": 49,
+              "sentences": 5,
+              "avg_sentence_words": 9.8,
+              "fk_grade": 5.8,
+              "long_word_pct": 10.2,
+              "speak_seconds_est": 22.6,
+              "fits_20s": false,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "Why does this directly concern you? Because you represent the next generation of scientists, policymakers, and civic leaders. You can leverage STEM disciplines to engineer superior environmental solutions. Beyond academics, you can champion sustainability through active advocacy, utilizing your collective voice to reshape public perception surrounding climate ethics.",
+              "words": 48,
+              "sentences": 4,
+              "avg_sentence_words": 12.0,
+              "fk_grade": 14.9,
+              "long_word_pct": 39.6,
+              "speak_seconds_est": 22.2,
+              "fits_20s": false,
+              "provenance": "workbook"
+            },
+            "A1": {
+              "text": "Why is this important to you? You are the future. You can study science. You can save energy at home. Your voice can change people.",
+              "words": 25,
+              "sentences": 5,
+              "avg_sentence_words": 5.0,
+              "fk_grade": 1.5,
+              "long_word_pct": 4.0,
+              "speak_seconds_est": 11.5,
+              "fits_20s": true,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role)",
+              "basis": "Rewritten from the A2 column of sheet 'SDG 13-1' in SDGs Pecha Kucha (公用)_new.xlsx. Same meaning, same slide order, same key facts (Net Zero 2050, wind, smart grids, carbon capture, greenwashing). Spec: <=32 words per slide, <=10 words per sentence, present simple, high-frequency vocabulary."
+            }
+          },
+          "numbers": [],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 19,
+          "title": {
+            "en": "Final Motivation",
+            "zh": "(最終激勵)"
+          },
+          "scripts": {
+            "A2": {
+              "text": "Do not be afraid of the climate crisis. Feel excited to help! Taiwan has smart people and kind hearts to lead this change. Innovation is our best strength. Let’s build a clean world with blue skies for our children.",
+              "words": 40,
+              "sentences": 5,
+              "avg_sentence_words": 8.0,
+              "fk_grade": 2.6,
+              "long_word_pct": 7.5,
+              "speak_seconds_est": 18.5,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "Don't feel overwhelmed by the climate crisis. Instead, feel motivated! Taiwan has the talent and the heart to lead this change. Innovation is our greatest strength. Let's build a world where our children can enjoy clean air and blue skies. We have the power to create that future.",
+              "words": 48,
+              "sentences": 6,
+              "avg_sentence_words": 8.0,
+              "fk_grade": 4.0,
+              "long_word_pct": 12.5,
+              "speak_seconds_est": 22.2,
+              "fits_20s": false,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "Rather than feeling paralyzed by the climate crisis, allow it to catalyze your ambition. Taiwan possesses the intellectual capital and determination necessary to pioneer global solutions. Innovation is our ultimate competitive advantage. Let us cultivate an environment where future generations can thrive beneath clear skies and breath clean air.",
+              "words": 49,
+              "sentences": 4,
+              "avg_sentence_words": 12.2,
+              "fk_grade": 13.3,
+              "long_word_pct": 30.6,
+              "speak_seconds_est": 22.6,
+              "fits_20s": false,
+              "provenance": "workbook"
+            },
+            "A1": {
+              "text": "Do not be afraid. Be excited to help. Taiwan has smart people and kind hearts. Let us build a clean world with blue skies.",
+              "words": 24,
+              "sentences": 4,
+              "avg_sentence_words": 6.0,
+              "fk_grade": 1.0,
+              "long_word_pct": 0.0,
+              "speak_seconds_est": 11.1,
+              "fits_20s": true,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role)",
+              "basis": "Rewritten from the A2 column of sheet 'SDG 13-1' in SDGs Pecha Kucha (公用)_new.xlsx. Same meaning, same slide order, same key facts (Net Zero 2050, wind, smart grids, carbon capture, greenwashing). Spec: <=32 words per slide, <=10 words per sentence, present simple, high-frequency vocabulary."
+            }
+          },
+          "numbers": [],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 20,
+          "title": {
+            "en": "Strong Ending",
+            "zh": "(有力結尾)"
+          },
+          "scripts": {
+            "A2": {
+              "text": "The clock is ticking. The Earth is calling for help. Will you choose to be part of the solution? Taiwan is ready for SDG 13, and so am I. Let’s start together right now. Thank you for listening to my speech.",
+              "words": 41,
+              "sentences": 6,
+              "avg_sentence_words": 6.8,
+              "fk_grade": 1.8,
+              "long_word_pct": 7.3,
+              "speak_seconds_est": 18.9,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "The clock is ticking, and the earth is calling for action. Will you be part of the solution? Taiwan is ready to act for SDG 13, and so am I. Let's start now, and let's do it together. Thank you for your time and for caring about our planet!",
+              "words": 48,
+              "sentences": 5,
+              "avg_sentence_words": 9.6,
+              "fk_grade": 2.9,
+              "long_word_pct": 4.2,
+              "speak_seconds_est": 22.2,
+              "fits_20s": false,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "The ecological clock is ticking, and the planet demands immediate, decisive action. Will you merely observe, or will you actively engineer the solution? Taiwan stands fully prepared to execute SDG 13, and so am I. Let us initiate this transformation collectively, starting right now. Thank you.",
+              "words": 45,
+              "sentences": 5,
+              "avg_sentence_words": 9.0,
+              "fk_grade": 9.7,
+              "long_word_pct": 24.4,
+              "speak_seconds_est": 20.8,
+              "fits_20s": false,
+              "provenance": "workbook"
+            },
+            "A1": {
+              "text": "The clock is ticking. The Earth needs our help. Will you join the solution? Taiwan is ready for SDG 13, and so am I. Thank you.",
+              "words": 25,
+              "sentences": 5,
+              "avg_sentence_words": 5.0,
+              "fk_grade": 0.5,
+              "long_word_pct": 4.0,
+              "speak_seconds_est": 11.5,
+              "fits_20s": true,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role)",
+              "basis": "Rewritten from the A2 column of sheet 'SDG 13-1' in SDGs Pecha Kucha (公用)_new.xlsx. Same meaning, same slide order, same key facts (Net Zero 2050, wind, smart grids, carbon capture, greenwashing). Spec: <=32 words per slide, <=10 words per sentence, present simple, high-frequency vocabulary."
+            }
+          },
+          "numbers": [
+            "13,"
+          ],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        }
+      ]
+    }
+  ],
+  "level_summary": {
+    "A1": {
+      "slides": 20,
+      "avg_words": 24.6,
+      "avg_sentence_words": 5.9,
+      "fk_grade": 2.5,
+      "slides_over_20s": 0
+    },
+    "A2": {
+      "slides": 20,
+      "avg_words": 40.3,
+      "avg_sentence_words": 8.2,
+      "fk_grade": 4.3,
+      "slides_over_20s": 0
+    },
+    "B1": {
+      "slides": 20,
+      "avg_words": 48.4,
+      "avg_sentence_words": 10.6,
+      "fk_grade": 6.3,
+      "slides_over_20s": 20
+    },
+    "B2": {
+      "slides": 20,
+      "avg_words": 46.2,
+      "avg_sentence_words": 14.5,
+      "fk_grade": 17.8,
+      "slides_over_20s": 20
+    }
+  }
+}

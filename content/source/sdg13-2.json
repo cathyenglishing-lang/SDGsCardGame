@@ -1,0 +1,1067 @@
+{
+  "mission_id": "sdg13-2",
+  "sdg": 13,
+  "title": {
+    "en": "Climate-Resilient Taiwan – Adapting to Extreme Weather",
+    "zh": null
+  },
+  "shape": "wide",
+  "source": {
+    "workbook": "SDGs Pecha Kucha (公用)_new.xlsx",
+    "sheet": "SDG 13-2",
+    "level_columns": {
+      "A2": "G",
+      "B1": "I",
+      "B2": "K"
+    },
+    "extra_level_columns": [],
+    "zh_title_column": "F"
+  },
+  "narrative_brief": "🌍 Mission: SDG 13 – The Climate Speech Puzzle\n任務：SDG 13——氣候演說大拼圖\n\nCan you save the planet in 6 minutes and 40 seconds? The world is heating up, and your script is a mess! Before you can deliver your epic Pecha Kucha talk, you need to fix the \"Information Meltdown.\"\n你能用 6 分 40 秒拯救地球嗎？ 世界正在升溫，而你的講稿卻亂成一團！在你發表超強的 Pecha Kucha 演說之前，你需要先修復這場「資訊大熔爐」。\n\nStep 1: Know Your Battle Plan (熟悉你的作戰計畫)\n每個英雄都需要地圖。要打敗氣候危機，你的演說必須經過這 6 個關卡：\nPart 1 The Hook (引言): Wake them up! (喚醒聽眾！)\nPart 2 The Bad News (問題指認): Why is the Earth sweaty? (為什麼地球在流汗？)\nPart 3 The \"Good Job\" Part (成果進展): Taiwan’s small wins. (台灣的小小勝利。)\nPart 4 The Nerd Power (解決方案): STEM to the rescue! (科技救地球！)\nPart 5 The Reality Check (挑戰與衝擊): It’s not that easy... (沒那麼簡單……)\nPart 6 The Mic Drop (結語與行動): Tell them what to do! (震撼結尾，呼籲行動！)\n\nStep 2: The 20-Second Scramble (20 秒限時大亂鬥)\n根據關鍵字，猜猜這張投影片屬於哪個「關卡」。\n將碎片按正確順序排列，重建這場 6 分 40 秒的傑作。\n\nStep 3: Level Up Your Brain (腦力大升級)\n拼圖完成後，先別急著走！問問自己：\n✔ Why this piece? (為什麼是這片？) 是什麼關鍵字告訴你它屬於那裡？\n✔ The Flow (流暢度): 講者如何從「嚴肅的氣候變化議題」轉向「有意義的資訊分享與行動」而不讓聽眾分心？",
+  "stages": [
+    {
+      "part_no": 1,
+      "source_description": "Introduction (引言)",
+      "function_en": "Introduction",
+      "function_zh": "引言：破題與定義",
+      "language_pattern": "rhetorical questions / X is about ...",
+      "slides": [
+        {
+          "slide_no": 1,
+          "title": {
+            "en": "The Hook",
+            "zh": "(吸睛開場)"
+          },
+          "scripts": {
+            "A2": {
+              "text": "Is our weather getting strange? We have no rain for months, and then scary typhoons arrive. The climate is changing fast. Today, let’s see how our island can adapt together.",
+              "words": 31,
+              "sentences": 4,
+              "avg_sentence_words": 7.8,
+              "fk_grade": 3.8,
+              "long_word_pct": 9.7,
+              "speak_seconds_est": 14.3,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "Have you noticed that our weather is acting strange lately? We go from months of no rain straight into scary typhoons. The climate is changing fast. Today, we will explore how our island can adapt to this new, wild weather reality.",
+              "words": 41,
+              "sentences": 4,
+              "avg_sentence_words": 10.2,
+              "fk_grade": 5.4,
+              "long_word_pct": 7.3,
+              "speak_seconds_est": 18.9,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "Have you observed the erratic behavior of our weather patterns recently? We are increasingly oscillating between prolonged months of severe drought and catastrophic typhoons. This climate volatility is accelerating rapidly. Today, we will examine how our island can effectively adapt to this harsh, unpredictable weather reality.",
+              "words": 46,
+              "sentences": 4,
+              "avg_sentence_words": 11.5,
+              "fk_grade": 13.8,
+              "long_word_pct": 28.3,
+              "speak_seconds_est": 21.2,
+              "fits_20s": false,
+              "provenance": "workbook"
+            }
+          },
+          "numbers": [],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 2,
+          "title": {
+            "en": "What is SDG 13?",
+            "zh": "(何謂 SDG 13？)"
+          },
+          "scripts": {
+            "A2": {
+              "text": "SDG 13 means Climate Action. It is not just about cutting carbon. It also tells us to build strong, safe cities that can survive big natural disasters and protect our lives.",
+              "words": 30,
+              "sentences": 3,
+              "avg_sentence_words": 10.0,
+              "fk_grade": 5.6,
+              "long_word_pct": 3.3,
+              "speak_seconds_est": 13.8,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "SDG 13 demands urgent action to fight climate change. But it is not just about stopping carbon emissions. It also tells us to build strong cities that can survive natural disasters. We must learn to protect our water, homes, and lives.",
+              "words": 40,
+              "sentences": 4,
+              "avg_sentence_words": 10.0,
+              "fk_grade": 6.0,
+              "long_word_pct": 7.5,
+              "speak_seconds_est": 18.5,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "SDG 13 explicitly mandates urgent global intervention against climate change. Crucially, this encompasses more than just mitigation through carbon reduction. It also dictates that we enhance disaster resilience across our urban environments, implementing defensive strategies to protect our water supplies, local infrastructure, and human lives.",
+              "words": 44,
+              "sentences": 3,
+              "avg_sentence_words": 14.7,
+              "fk_grade": 15.9,
+              "long_word_pct": 36.4,
+              "speak_seconds_est": 20.3,
+              "fits_20s": false,
+              "provenance": "workbook"
+            }
+          },
+          "numbers": [
+            "13"
+          ],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 3,
+          "title": {
+            "en": "Taiwan’s Context",
+            "zh": "(台灣背景)"
+          },
+          "scripts": {
+            "A2": {
+              "text": "Taiwan gets much rain, but we are a 'water-poor island'. Our high mountains push rainwater straight into the sea. Keeping water where we need it is a big challenge for us.",
+              "words": 31,
+              "sentences": 3,
+              "avg_sentence_words": 10.3,
+              "fk_grade": 4.4,
+              "long_word_pct": 16.1,
+              "speak_seconds_est": 14.3,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "Taiwan gets a lot of rain, but we are actually an officially 'water-poor' island. Our high mountains push rain straight into the ocean. Because of this geographic challenge, keeping water where we need it is a matter of survival for us.",
+              "words": 41,
+              "sentences": 3,
+              "avg_sentence_words": 13.7,
+              "fk_grade": 7.6,
+              "long_word_pct": 19.5,
+              "speak_seconds_est": 18.9,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "Despite receiving substantial annual rainfall, Taiwan is paradoxically designated as a water-poor island. Our steep mountainous topography causes precipitation to drain rapidly into the ocean. Due to this geographic vulnerability, capturing and retaining freshwater resources has become an absolute matter of survival for our nation.",
+              "words": 45,
+              "sentences": 3,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 16.5,
+              "long_word_pct": 37.8,
+              "speak_seconds_est": 20.8,
+              "fits_20s": false,
+              "provenance": "workbook"
+            }
+          },
+          "numbers": [],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        }
+      ]
+    },
+    {
+      "part_no": 2,
+      "source_description": "Problem Identification (問題辨識)",
+      "function_en": "Problem",
+      "function_zh": "問題指認：趨勢與因果",
+      "language_pattern": "present progressive for trends / this causes ...",
+      "slides": [
+        {
+          "slide_no": 4,
+          "title": {
+            "en": "The Threat of Extreme Droughts",
+            "zh": "(極端乾旱的威脅)"
+          },
+          "scripts": {
+            "A2": {
+              "text": "Data shows that our typhoons are fewer but stronger. Recently, we faced terrible droughts. Our reservoirs dried up completely, and our famous chip factories almost ran out of water.",
+              "words": 29,
+              "sentences": 3,
+              "avg_sentence_words": 9.7,
+              "fk_grade": 7.7,
+              "long_word_pct": 27.6,
+              "speak_seconds_est": 13.4,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "Climate data shows a dangerous trend: Taiwan’s typhoons are decreasing, but becoming much stronger. In recent years, we faced historical droughts where reservoirs completely dried up. Without rain, our rice fields cracked, and our semiconductor factories almost ran out of water.",
+              "words": 42,
+              "sentences": 3,
+              "avg_sentence_words": 14.0,
+              "fk_grade": 10.4,
+              "long_word_pct": 26.2,
+              "speak_seconds_est": 19.4,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "Meteorological trends reveal a disturbing pattern: typhoons hitting Taiwan are decreasing in frequency but escalating in intensity. Consequently, we have faced unprecedented droughts where vital reservoirs dried up completely, threatening agricultural yields and nearly paralyzing the water-dependent semiconductor manufacturing sector.",
+              "words": 40,
+              "sentences": 2,
+              "avg_sentence_words": 20.0,
+              "fk_grade": 21.4,
+              "long_word_pct": 45.0,
+              "speak_seconds_est": 18.5,
+              "fits_20s": true,
+              "provenance": "workbook"
+            }
+          },
+          "numbers": [],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 5,
+          "title": {
+            "en": "The Flash Flood Crisis",
+            "zh": "(暴雨與洪澇危機)"
+          },
+          "scripts": {
+            "A2": {
+              "text": "The other problem is extreme rainfall. Sometimes, a year of rain falls in just two days! Our old city drains cannot handle this water, and streets become dangerous rivers.",
+              "words": 29,
+              "sentences": 3,
+              "avg_sentence_words": 9.7,
+              "fk_grade": 6.1,
+              "long_word_pct": 10.3,
+              "speak_seconds_est": 13.4,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "The other side of the problem is extreme rainfall. When storms hit, a year's worth of rain can fall in just two days. Our old city drains cannot handle this sudden water. Streets turn into dangerous rivers, causing massive economic damage.",
+              "words": 41,
+              "sentences": 4,
+              "avg_sentence_words": 10.2,
+              "fk_grade": 5.7,
+              "long_word_pct": 7.3,
+              "speak_seconds_est": 18.9,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "Conversely, we simultaneously face the menace of extreme rainfall. During severe storms, a year's worth of precipitation frequently floods urban centers within forty-eight hours. Our outdated drainage infrastructure simply cannot handle this volume, turning municipal streets into hazardous rivers and causing massive economic devastation.",
+              "words": 44,
+              "sentences": 3,
+              "avg_sentence_words": 14.7,
+              "fk_grade": 14.8,
+              "long_word_pct": 29.5,
+              "speak_seconds_est": 20.3,
+              "fits_20s": false,
+              "provenance": "workbook"
+            }
+          },
+          "numbers": [],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 6,
+          "title": {
+            "en": "The Critical Questions",
+            "zh": "(關鍵提問)"
+          },
+          "scripts": {
+            "A2": {
+              "text": "We must ask some tough questions. Can our cities survive these fast climate changes? How can we store flood water for dry days? Our young scientists must find answers now.",
+              "words": 30,
+              "sentences": 4,
+              "avg_sentence_words": 7.5,
+              "fk_grade": 2.3,
+              "long_word_pct": 6.7,
+              "speak_seconds_est": 13.8,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "This leaves us with serious questions. Can our infrastructure survive these climate swings? How can we store water safely during floods to use during severe droughts? These are the dangerous puzzles that our young scientists must solve right now.",
+              "words": 39,
+              "sentences": 4,
+              "avg_sentence_words": 9.8,
+              "fk_grade": 5.5,
+              "long_word_pct": 12.8,
+              "speak_seconds_est": 18.0,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "These alarming shifts force us to confront critical inquiries. Can our existing public works withstand such intense climate fluctuations? How do we safely intercept floodwaters to supplement our reserves during dry periods? These are the complex puzzles our young researchers must solve immediately.",
+              "words": 43,
+              "sentences": 4,
+              "avg_sentence_words": 10.8,
+              "fk_grade": 10.0,
+              "long_word_pct": 30.2,
+              "speak_seconds_est": 19.8,
+              "fits_20s": true,
+              "provenance": "workbook"
+            }
+          },
+          "numbers": [],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        }
+      ]
+    },
+    {
+      "part_no": 3,
+      "source_description": "Achievements and Progress (成果與進展)",
+      "function_en": "Achievements",
+      "function_zh": "成果：舉證與比較",
+      "language_pattern": "present perfect / comparatives",
+      "slides": [
+        {
+          "slide_no": 7,
+          "title": {
+            "en": "Water Grid Infrastructure",
+            "zh": "(水網基礎建設)"
+          },
+          "scripts": {
+            "A2": {
+              "text": "Taiwan is acting. The government built a large Smart Water Grid. We connected water pipes between different cities. Now, we can pump backup water to dry places easily.",
+              "words": 28,
+              "sentences": 4,
+              "avg_sentence_words": 7.0,
+              "fk_grade": 6.5,
+              "long_word_pct": 10.7,
+              "speak_seconds_est": 12.9,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "Fortunately, Taiwan has not been standing still. The government built an impressive 'Forward-looking Water Grid.' We connected pipelines between different cities. Now, if Kaohsiung is dry, we can safely pump backup water from Tainan. It is a great network.",
+              "words": 39,
+              "sentences": 4,
+              "avg_sentence_words": 9.8,
+              "fk_grade": 9.1,
+              "long_word_pct": 23.1,
+              "speak_seconds_est": 18.0,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "Fortunately, Taiwan is proactively responding. The government has engineered an advanced, integrated Smart Water Grid, linking distribution pipelines across different municipalities. This nationwide network allows authorities to seamlessly divert backup water from resilient zones to drought-stricken regions, stabilizing our collective supply.",
+              "words": 41,
+              "sentences": 3,
+              "avg_sentence_words": 13.7,
+              "fk_grade": 18.8,
+              "long_word_pct": 43.9,
+              "speak_seconds_est": 18.9,
+              "fits_20s": true,
+              "provenance": "workbook"
+            }
+          },
+          "numbers": [],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 8,
+          "title": {
+            "en": "The Sponge City Concept",
+            "zh": "(海綿城市概念)"
+          },
+          "scripts": {
+            "A2": {
+              "text": "Cities like Taipei are becoming 'Sponge Cities'. We use special roads that drink rainwater. Also, our beautiful parks can hold flood water safely underground during big storms.",
+              "words": 27,
+              "sentences": 3,
+              "avg_sentence_words": 9.0,
+              "fk_grade": 7.1,
+              "long_word_pct": 14.8,
+              "speak_seconds_est": 12.5,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "Major cities like Taipei and Taichung are turning into 'Sponge Cities.' We are replacing regular concrete roads with permeable pavement that drinks water. Parks are designed to act as giant temporary lakes during floods, holding rainwater safely underground.",
+              "words": 38,
+              "sentences": 2,
+              "avg_sentence_words": 19.0,
+              "fk_grade": 13.2,
+              "long_word_pct": 23.7,
+              "speak_seconds_est": 17.5,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "Metropolitan areas like Taipei are progressively transforming into Sponge Cities. Engineers are replacing standard impermeable concrete with advanced permeable pavements. Furthermore, urban parks are strategically designed to serve as major eco-retention basins during deluges, temporarily storing excess stormwater safely underground.",
+              "words": 40,
+              "sentences": 3,
+              "avg_sentence_words": 13.3,
+              "fk_grade": 18.8,
+              "long_word_pct": 45.0,
+              "speak_seconds_est": 18.5,
+              "fits_20s": true,
+              "provenance": "workbook"
+            }
+          },
+          "numbers": [],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 9,
+          "title": {
+            "en": "Agricultural Adaptation",
+            "zh": "(農業調適進展)"
+          },
+          "scripts": {
+            "A2": {
+              "text": "Taiwanese farmers are using smart technology to save water. Computer systems give rice plants the exact water they need through 'drip irrigation'. This saves millions of tons of water.",
+              "words": 29,
+              "sentences": 3,
+              "avg_sentence_words": 9.7,
+              "fk_grade": 7.7,
+              "long_word_pct": 17.2,
+              "speak_seconds_est": 13.4,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "Taiwanese farmers are also adapting beautifully. They are using smart technology to save water in agriculture. By using computerized 'drip irrigation,' they give rice plants the exact amount of water needed. This local progress saves millions of tons of water.",
+              "words": 40,
+              "sentences": 4,
+              "avg_sentence_words": 10.0,
+              "fk_grade": 10.1,
+              "long_word_pct": 22.5,
+              "speak_seconds_est": 18.5,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "Furthermore, Taiwanese agriculture is adapting through smart technology integration. Farmers are utilizing automated irrigation systems to optimize water efficiency. By transitioning to computerized drip irrigation protocols, they deliver the exact volume required by crops, successfully conserving millions of tons of vital water annually.",
+              "words": 43,
+              "sentences": 3,
+              "avg_sentence_words": 14.3,
+              "fk_grade": 18.3,
+              "long_word_pct": 46.5,
+              "speak_seconds_est": 19.8,
+              "fits_20s": true,
+              "provenance": "workbook"
+            }
+          },
+          "numbers": [],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        }
+      ]
+    },
+    {
+      "part_no": 4,
+      "source_description": "Solutions and STEM Integration (解決方案與 STEM 整合)",
+      "function_en": "Solutions",
+      "function_zh": "解方：做法與取捨",
+      "language_pattern": "instead of + V-ing / modal verbs",
+      "slides": [
+        {
+          "slide_no": 10,
+          "title": {
+            "en": "IoT and Smart Water Management",
+            "zh": "(物聯網與智慧水務)"
+          },
+          "scripts": {
+            "A2": {
+              "text": "How does STEM help? Engineers put IoT sensors inside water pipes. These sensors send data to AI systems to find underground leaks instantly. This stops water waste.",
+              "words": 27,
+              "sentences": 4,
+              "avg_sentence_words": 6.8,
+              "fk_grade": 5.0,
+              "long_word_pct": 11.1,
+              "speak_seconds_est": 12.5,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "How does STEM save the day? Taiwan engineers use IoT sensors inside water pipes. These sensors send real-time data to AI systems. The computers can detect hidden underground leaks instantly. This technology prevents precious clean water from wasting away into the soil.",
+              "words": 42,
+              "sentences": 5,
+              "avg_sentence_words": 8.4,
+              "fk_grade": 7.4,
+              "long_word_pct": 19.0,
+              "speak_seconds_est": 19.4,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "How can STEM innovation safeguard our resources? Engineers are embedding advanced IoT sensors directly into municipal water lines. These devices stream real-time flow data to centralized AI diagnostics, enabling utility teams to pinpoint and repair subterranean leaks instantly before precious water vanishes.",
+              "words": 42,
+              "sentences": 3,
+              "avg_sentence_words": 14.0,
+              "fk_grade": 15.2,
+              "long_word_pct": 40.5,
+              "speak_seconds_est": 19.4,
+              "fits_20s": true,
+              "provenance": "workbook"
+            }
+          },
+          "numbers": [],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 11,
+          "title": {
+            "en": "Desalination and Wastewater Recycling",
+            "zh": "(海水淡化與再生水)"
+          },
+          "scripts": {
+            "A2": {
+              "text": "Another great STEM tool is water recycling. Factories clean used water until it is pure again. Taiwan also builds desalination plants to turn ocean water into safe drinking water.",
+              "words": 29,
+              "sentences": 3,
+              "avg_sentence_words": 9.7,
+              "fk_grade": 8.9,
+              "long_word_pct": 13.8,
+              "speak_seconds_est": 13.4,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "Another brilliant STEM solution is advanced water recycling. High-tech water plants now clean industrial wastewater until it is perfectly pure again. Taiwan is also building solar-powered desalination plants to turn ocean water into safe drinking water during emergencies.",
+              "words": 38,
+              "sentences": 3,
+              "avg_sentence_words": 12.7,
+              "fk_grade": 13.9,
+              "long_word_pct": 34.2,
+              "speak_seconds_est": 17.5,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "Industrial sectors are embracing recycling breakthroughs. Modern purification facilities process manufacturing wastewater until it achieves total purity for reuse. Simultaneously, Taiwan is constructing solar-powered desalination plants along coastal areas, providing an alternative buffer to convert seawater into potable resources during emergencies.",
+              "words": 41,
+              "sentences": 3,
+              "avg_sentence_words": 13.7,
+              "fk_grade": 20.5,
+              "long_word_pct": 43.9,
+              "speak_seconds_est": 18.9,
+              "fits_20s": true,
+              "provenance": "workbook"
+            }
+          },
+          "numbers": [],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 12,
+          "title": {
+            "en": "Eco-Engineering for Mountain Rivers",
+            "zh": "(山區河流的生態工法)"
+          },
+          "scripts": {
+            "A2": {
+              "text": "In our mountains, scientists use 'Eco-Engineering' to stop landslides. They use natural rocks and plants instead of cement walls. This keeps our rivers clean and safe.",
+              "words": 26,
+              "sentences": 3,
+              "avg_sentence_words": 8.7,
+              "fk_grade": 5.5,
+              "long_word_pct": 15.4,
+              "speak_seconds_est": 12.0,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "In our mountains, scientists use 'Eco-Engineering' to prevent landslides. Instead of building ugly cement walls, they use natural rocks and local plants to hold the soil. This protects our river basins and keeps our reservoirs clean from muddy pollution.",
+              "words": 39,
+              "sentences": 3,
+              "avg_sentence_words": 13.0,
+              "fk_grade": 8.5,
+              "long_word_pct": 20.5,
+              "speak_seconds_est": 18.0,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "In vulnerable highlands, geologists implement Eco-Engineering to mitigate landslide risks. Rather than deploying disruptive concrete retaining walls, they utilize indigenous vegetation and natural rock barriers to reinforce slopes. This ecological approach stabilizes river basins and prevents mudslides from clogging downstream reservoirs.",
+              "words": 41,
+              "sentences": 3,
+              "avg_sentence_words": 13.7,
+              "fk_grade": 16.5,
+              "long_word_pct": 56.1,
+              "speak_seconds_est": 18.9,
+              "fits_20s": true,
+              "provenance": "workbook"
+            }
+          },
+          "numbers": [],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        }
+      ]
+    },
+    {
+      "part_no": 5,
+      "source_description": "Implications and Future Challenges (影響與未來挑戰)",
+      "function_en": "Implications",
+      "function_zh": "影響：推論後果",
+      "language_pattern": "first conditional / however",
+      "slides": [
+        {
+          "slide_no": 13,
+          "title": {
+            "en": "The High Cost of Adaptation",
+            "zh": "(氣候調適的高昂代價)"
+          },
+          "scripts": {
+            "A2": {
+              "text": "However, climate defense is very expensive. Building new water plants costs billions of dollars. We must debate a hard topic: how do we pay for this without hurting regular citizens?",
+              "words": 30,
+              "sentences": 3,
+              "avg_sentence_words": 10.0,
+              "fk_grade": 7.6,
+              "long_word_pct": 13.3,
+              "speak_seconds_est": 13.8,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "However, protecting our island is incredibly expensive. Building recycled water plants and giant underground pipes costs billions of dollars. We must debate a difficult topic: how do we pay for climate defense without raising taxes too much for regular citizens?",
+              "words": 40,
+              "sentences": 3,
+              "avg_sentence_words": 13.3,
+              "fk_grade": 10.9,
+              "long_word_pct": 22.5,
+              "speak_seconds_est": 18.5,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "Nevertheless, fortifying our nation against climate impacts introduces severe financial friction. Constructing advanced recycling facilities requires immense capital investments. We must resolve a complex fiscal debate: how can we fund these critical defenses equitably without placing a disproportionate tax burden on average citizens?",
+              "words": 43,
+              "sentences": 3,
+              "avg_sentence_words": 14.3,
+              "fk_grade": 16.6,
+              "long_word_pct": 37.2,
+              "speak_seconds_est": 19.8,
+              "fits_20s": true,
+              "provenance": "workbook"
+            }
+          },
+          "numbers": [],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 14,
+          "title": {
+            "en": "Climate Justice for Rural Areas",
+            "zh": "(偏鄉與弱勢的氣候正義)"
+          },
+          "scripts": {
+            "A2": {
+              "text": "We also face a challenge with 'Climate Justice'. Rich tech cities get smart water tools fast, but small farming villages suffer first during droughts. We must protect everyone equally.",
+              "words": 29,
+              "sentences": 3,
+              "avg_sentence_words": 9.7,
+              "fk_grade": 6.5,
+              "long_word_pct": 17.2,
+              "speak_seconds_est": 13.4,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "We also face a challenge with 'Climate Justice.' Big high-tech cities get advanced water infrastructure quickly. But small farming villages often suffer first during droughts. We must ensure that our climate solutions protect rural communities equally, leaving no one behind.",
+              "words": 40,
+              "sentences": 3,
+              "avg_sentence_words": 13.3,
+              "fk_grade": 10.9,
+              "long_word_pct": 20.0,
+              "speak_seconds_est": 18.5,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "We must also address issues regarding Climate Justice. While wealthy high-tech metropolises receive sophisticated infrastructure updates rapidly, vulnerable agricultural communities are often the first to suffer during seasonal droughts. Our adaptive policies must protect rural populations equally, ensuring equitable resource distribution.",
+              "words": 41,
+              "sentences": 3,
+              "avg_sentence_words": 13.7,
+              "fk_grade": 19.1,
+              "long_word_pct": 41.5,
+              "speak_seconds_est": 18.9,
+              "fits_20s": true,
+              "provenance": "workbook"
+            }
+          },
+          "numbers": [],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 15,
+          "title": {
+            "en": "Cross-Border Climate Knowledge",
+            "zh": "(跨國氣候知識分享)"
+          },
+          "scripts": {
+            "A2": {
+              "text": "Taiwan’s technology can help the world. But international politics makes it hard for Taiwan to join global climate meetings. We need creative ways to share our green knowledge.",
+              "words": 29,
+              "sentences": 3,
+              "avg_sentence_words": 9.7,
+              "fk_grade": 6.9,
+              "long_word_pct": 20.7,
+              "speak_seconds_est": 13.4,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "Taiwan’s extreme weather adaptation can help the world. Many island nations face the exact same sea-level threats. However, international political issues make it hard for Taiwan to join global climate summits. We need to find creative ways to share our technology.",
+              "words": 42,
+              "sentences": 4,
+              "avg_sentence_words": 10.5,
+              "fk_grade": 8.7,
+              "long_word_pct": 14.3,
+              "speak_seconds_est": 19.4,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "Taiwan’s adaptation breakthroughs offer invaluable blueprints for the international community, particularly other island nations threatened by rising sea levels. However, complex international politics frequently obstruct Taiwan from participating in global climate summits. We must devise alternative diplomatic channels to share our technological insights.",
+              "words": 44,
+              "sentences": 3,
+              "avg_sentence_words": 14.7,
+              "fk_grade": 18.3,
+              "long_word_pct": 40.9,
+              "speak_seconds_est": 20.3,
+              "fits_20s": false,
+              "provenance": "workbook"
+            }
+          },
+          "numbers": [],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 16,
+          "title": {
+            "en": "Future Scrutiny and Maintenance",
+            "zh": "(未來的長期監督)"
+          },
+          "scripts": {
+            "A2": {
+              "text": "Finally, we must watch these projects closely. Are these green tools working properly, or were they just built for show? As citizens, we need honesty and data transparency.",
+              "words": 28,
+              "sentences": 3,
+              "avg_sentence_words": 9.3,
+              "fk_grade": 6.6,
+              "long_word_pct": 14.3,
+              "speak_seconds_est": 12.9,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "Finally, we must monitor these projects closely. Are these green systems being maintained properly, or were they just built for show? As citizens, we must check the safety data of our dams and cities. Continuous honesty is required to survive 2050.",
+              "words": 40,
+              "sentences": 4,
+              "avg_sentence_words": 10.0,
+              "fk_grade": 7.5,
+              "long_word_pct": 15.0,
+              "speak_seconds_est": 18.5,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "Finally, rigorous public oversight is essential. We must continuously evaluate if these ecological adaptations are fully functional over time, or simply constructed for public relations. Citizens must demand complete data transparency regarding infrastructure structural health to ensure long-term climate survivability.",
+              "words": 40,
+              "sentences": 3,
+              "avg_sentence_words": 13.3,
+              "fk_grade": 17.3,
+              "long_word_pct": 45.0,
+              "speak_seconds_est": 18.5,
+              "fits_20s": true,
+              "provenance": "workbook"
+            }
+          },
+          "numbers": [
+            "2050."
+          ],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        }
+      ]
+    },
+    {
+      "part_no": 6,
+      "source_description": "Conclusion and Call to Action (結論與行動號召)",
+      "function_en": "Call to action",
+      "function_zh": "結語：總結與號召",
+      "language_pattern": "to wrap up ... / let's ...",
+      "slides": [
+        {
+          "slide_no": 17,
+          "title": {
+            "en": "Summary of the Resilient Path",
+            "zh": "(韌性之路總結)"
+          },
+          "scripts": {
+            "A2": {
+              "text": "To sum up, Taiwan is learning to live with extreme weather. Through sponge cities and STEM engineering, we are turning our vulnerable island into a resilient leader. We are ready.",
+              "words": 30,
+              "sentences": 3,
+              "avg_sentence_words": 10.0,
+              "fk_grade": 7.2,
+              "long_word_pct": 13.3,
+              "speak_seconds_est": 13.8,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "To sum up, Taiwan is learning to live with extreme weather. Through sponge cities, smart water grids, and STEM engineering, we are turning a vulnerable island into a resilient leader. We cannot stop the storms, but we can be ready.",
+              "words": 40,
+              "sentences": 3,
+              "avg_sentence_words": 13.3,
+              "fk_grade": 7.3,
+              "long_word_pct": 10.0,
+              "speak_seconds_est": 18.5,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "In conclusion, Taiwan is successfully learning to coexist with extreme weather variations. By synthesizing sponge city frameworks, smart grids, and STEM solutions, we are transitioning from a vulnerable island into a pioneer of climate resilience. We cannot prevent the storms, but we can be prepared.",
+              "words": 45,
+              "sentences": 3,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 11.5,
+              "long_word_pct": 24.4,
+              "speak_seconds_est": 20.8,
+              "fits_20s": false,
+              "provenance": "workbook"
+            }
+          },
+          "numbers": [],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 18,
+          "title": {
+            "en": "What Students Can Do",
+            "zh": "(學生能做的事)"
+          },
+          "scripts": {
+            "A2": {
+              "text": "Why does this matter? Because adaptation needs your new ideas. You can study STEM to build better disaster systems. At home, you can save every drop of water.",
+              "words": 28,
+              "sentences": 4,
+              "avg_sentence_words": 7.0,
+              "fk_grade": 4.8,
+              "long_word_pct": 7.1,
+              "speak_seconds_est": 12.9,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "Why does this matter to you? Because climate adaptation needs new ideas. You can study earth science, engineering, or coding to build better disaster systems. At home, you can practice water conservation. Every single saved drop makes our island stronger.",
+              "words": 40,
+              "sentences": 5,
+              "avg_sentence_words": 8.0,
+              "fk_grade": 7.6,
+              "long_word_pct": 15.0,
+              "speak_seconds_est": 18.5,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "This crisis directly demands your involvement because adaptation requires fresh perspectives. You can master STEM fields to design next-generation disaster management systems. On a personal level, practicing strict conservation ensures every drop saved reinforces our collective safety. Your daily actions matter.",
+              "words": 41,
+              "sentences": 4,
+              "avg_sentence_words": 10.2,
+              "fk_grade": 14.6,
+              "long_word_pct": 31.7,
+              "speak_seconds_est": 18.9,
+              "fits_20s": true,
+              "provenance": "workbook"
+            }
+          },
+          "numbers": [],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 19,
+          "title": {
+            "en": "Motivation to Overcome",
+            "zh": "(戰勝危機的激勵)"
+          },
+          "scripts": {
+            "A2": {
+              "text": "Do not feel powerless against the climate crisis. Human creativity and innovation can protect nature. We have the courage to build a safe home for the next generation.",
+              "words": 28,
+              "sentences": 3,
+              "avg_sentence_words": 9.3,
+              "fk_grade": 7.4,
+              "long_word_pct": 14.3,
+              "speak_seconds_est": 12.9,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "Do not feel powerless against the changing climate. Human intelligence and nature can work together. Taiwan has the creativity and the courage to survive this crisis. Let’s create a safe, sustainable home where future generations can live without fear.",
+              "words": 40,
+              "sentences": 4,
+              "avg_sentence_words": 10.0,
+              "fk_grade": 8.1,
+              "long_word_pct": 17.5,
+              "speak_seconds_est": 18.5,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "Do not let the scale of climate change paralyze your potential. Human creativity and technological innovation can successfully harmonize with natural systems. Taiwan possesses the ingenuity required to navigate this era, allowing us to guarantee a secure environment for subsequent generations.",
+              "words": 41,
+              "sentences": 3,
+              "avg_sentence_words": 13.7,
+              "fk_grade": 15.4,
+              "long_word_pct": 39.0,
+              "speak_seconds_est": 18.9,
+              "fits_20s": true,
+              "provenance": "workbook"
+            }
+          },
+          "numbers": [],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 20,
+          "title": {
+            "en": "Strong Ending",
+            "zh": "(有力結尾)"
+          },
+          "scripts": {
+            "A2": {
+              "text": "The environment is changing fast. The time to act is right now. Will you help build a safer Taiwan? We are ready for SDG 13. Let’s start together today. Thank you!",
+              "words": 31,
+              "sentences": 6,
+              "avg_sentence_words": 5.2,
+              "fk_grade": 2.0,
+              "long_word_pct": 9.7,
+              "speak_seconds_est": 14.3,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B1": {
+              "text": "The environment is changing, and the time to adapt is right now. Will you help build a safer Taiwan? Our island is ready to take climate action, and so are we. Let’s start together today. Thank you for listening.",
+              "words": 40,
+              "sentences": 5,
+              "avg_sentence_words": 8.0,
+              "fk_grade": 4.1,
+              "long_word_pct": 10.0,
+              "speak_seconds_est": 18.5,
+              "fits_20s": true,
+              "provenance": "workbook"
+            },
+            "B2": {
+              "text": "The ecological reality is transforming, meaning our window for adaptation is right now. Will you step forward to secure our future? Taiwan is fully committed to executing SDG 13, and so must you be. Let us unite and initiate this transformation today. Thank you.",
+              "words": 43,
+              "sentences": 5,
+              "avg_sentence_words": 8.6,
+              "fk_grade": 7.8,
+              "long_word_pct": 16.3,
+              "speak_seconds_est": 19.8,
+              "fits_20s": true,
+              "provenance": "workbook"
+            }
+          },
+          "numbers": [
+            "13.",
+            "13,"
+          ],
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        }
+      ]
+    }
+  ],
+  "level_summary": {
+    "A2": {
+      "slides": 20,
+      "avg_words": 28.9,
+      "avg_sentence_words": 8.8,
+      "fk_grade": 6.0,
+      "slides_over_20s": 0
+    },
+    "B1": {
+      "slides": 20,
+      "avg_words": 40.1,
+      "avg_sentence_words": 11.4,
+      "fk_grade": 8.4,
+      "slides_over_20s": 0
+    },
+    "B2": {
+      "slides": 20,
+      "avg_words": 42.4,
+      "avg_sentence_words": 13.6,
+      "fk_grade": 16.1,
+      "slides_over_20s": 6
+    }
+  }
+}
