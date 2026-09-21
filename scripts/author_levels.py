@@ -29,6 +29,15 @@ OVERLAY = os.path.join(REPO, "content", "authored", "levels")
 sys.path.insert(0, os.path.join(REPO, "scripts"))
 from extract_content import LEVEL_SPEC, PART_FUNCTION, measure, clean  # noqa: E402
 
+# A level must not only stay under its ceiling; it must also feel harder than the
+# level below it. These bands are the ladder the three levels have to climb.
+LEVEL_BAND = {
+    "A1": {"words": (16, 32), "sentence": (5, 10), "fk": (1.0, 5.0)},
+    "A2": {"words": (26, 35), "sentence": (7, 12), "fk": (3.0, 7.0)},
+    "B1": {"words": (32, 40), "sentence": (11, 16), "fk": (7.0, 11.0)},
+    "B2": {"words": (34, 43), "sentence": (14, 20), "fk": (11.0, 15.0)},
+}
+
 LEVEL_VOICE = {
     "A1": "present simple only, the 500 most common English words, no relative clauses, "
           "no passive voice, no conditionals; keep every number that appears in the source",
@@ -176,12 +185,31 @@ def cmd_check(mission_id: str, level: str) -> int:
             why.append(f"{mm['speak_seconds_est']} s > 20 s")
         if why:
             bad.append((no, "; ".join(why)))
-    if bad:
-        print(f"{mission_id} {level}: {len(bad)} slides violate the spec")
-        for no, why in bad:
-            print(f"  slide {no}: {why}")
+    # whole-set ladder check: averages must sit inside the level band
+    texts = [measure(t) for t in ov["slides"].values()]
+    band = LEVEL_BAND[level]
+    avg = {
+        "words": sum(t["words"] for t in texts) / len(texts),
+        "sentence": sum(t["avg_sentence_words"] for t in texts) / len(texts),
+        "fk": sum(t["fk_grade"] for t in texts) / len(texts),
+    }
+    ladder = []
+    for key, (lo, hi) in band.items():
+        v = round(avg[key], 1)
+        if v < lo:
+            ladder.append(f"{key} {v:.1f} below the {level} band ({lo}-{hi}) — reads easier than {level}")
+        elif v > hi:
+            ladder.append(f"{key} {v:.1f} above the {level} band ({lo}-{hi})")
+    if bad or ladder:
+        if bad:
+            print(f"{mission_id} {level}: {len(bad)} slides violate the hard spec")
+            for no, why in bad:
+                print(f"  slide {no}: {why}")
+        for line in ladder:
+            print(f"  ladder: {line}")
         return 1
-    print(f"{mission_id} {level}: all {len(ov['slides'])} slides pass the {level} spec")
+    print(f"{mission_id} {level}: {len(ov['slides'])} slides pass the spec and sit inside the "
+          f"{level} band (words {avg['words']:.1f}, sentence {avg['sentence']:.1f}, FK {avg['fk']:.1f})")
     return 0
 
 

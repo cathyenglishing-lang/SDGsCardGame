@@ -1,6 +1,6 @@
 # sdg5-1 · SDG 5: A Fair World for Everyone
 
-SDG 5 · 20 slides · levels: A2, B1, B2 · content_version 2026.09.1
+SDG 5 · 20 slides · levels: A1, A2, B1, B2 · content_version 2026.09.1
 
 > 原始工作表的任務敘事（原文保留）：
 >
@@ -32,6 +32,7 @@ SDG 5 · 20 slides · levels: A2, B1, B2 · content_version 2026.09.1
 
 | 級別 | 張數 | 每張字數 | 每句字數 | FK | 超過 20 秒 |
 | --- | --- | --- | --- | --- | --- |
+| A1 | 20 | 21.4 | 5.9 | 1.6 | 0 |
 | A2 | 20 | 31.2 | 7.9 | 3.1 | 0 |
 | B1 | 20 | 40.8 | 9.7 | 5.0 | 0 |
 | B2 | 20 | 43.8 | 13.9 | 17.8 | 14 |
@@ -43,6 +44,8 @@ SDG 5 · 20 slides · levels: A2, B1, B2 · content_version 2026.09.1
 
 ### Slide 1 · The Definition of SDG 5
 
+- **A1**（23 字 / 每句 5.8 字 / 約 10.6 秒）
+  > Hello everyone. Today we talk about SDG 5. SDG 5 means gender equality. Boys and girls must have the same rights and the same dreams.
 - **A2**（33 字 / 每句 8.2 字 / 約 15.2 秒）
   > Hello everyone! Today, let’s look at SDG 5. This goal is "Gender Equality." It means fairness for all. Boys and girls should have the same rights and the same dreams in our world.
 - **B1**（40 字 / 每句 10.0 字 / 約 18.5 秒）
@@ -52,6 +55,8 @@ SDG 5 · 20 slides · levels: A2, B1, B2 · content_version 2026.09.1
 
 ### Slide 2 · Why It Matters to Everyone
 
+- **A1**（20 字 / 每句 5.0 字 / 約 9.2 秒）
+  > Why is this important? Fairness is good for everyone. When girls do well, families grow stronger. Schools get better too.
 - **A2**（32 字 / 每句 6.4 字 / 約 14.8 秒）
   > Why is this important? Fairness is good for everyone. When girls are happy and successful, our families become stronger. Our schools become better too. Equality makes the whole world a wonderful place.
 - **B1**（42 字 / 每句 8.4 字 / 約 19.4 秒）
@@ -61,6 +66,8 @@ SDG 5 · 20 slides · levels: A2, B1, B2 · content_version 2026.09.1
 
 ### Slide 3 · The Power of Balance
 
+- **A1**（20 字 / 每句 6.7 字 / 約 9.2 秒）
+  > Think about a bird. A bird needs two wings to fly. Our world needs two wings too: men and women.
 - **A2**（33 字 / 每句 6.6 字 / 約 15.2 秒）
   > Think about a beautiful bird. It needs two wings to fly. Our world also needs two wings: men and women. If one wing is weak, the bird falls. We must work together equally.
 - **B1**（42 字 / 每句 8.4 字 / 約 19.4 秒）
@@ -75,6 +82,8 @@ SDG 5 · 20 slides · levels: A2, B1, B2 · content_version 2026.09.1
 
 ### Slide 4 · Traditional Mindsets
 
+- **A1**（23 字 / 每句 5.8 字 / 約 10.6 秒）
+  > In the past, people had old ideas. They said boys can be doctors. They said girls must stay home. These ideas stop children.
 - **A2**（34 字 / 每句 11.3 字 / 約 15.7 秒）
   > In the past, many people had old ideas. They said: "Boys can be doctors, but girls must stay home." These old ideas are like walls. They stop children from doing what they really love.
 - **B1**（41 字 / 每句 8.2 字 / 約 18.9 秒）
@@ -84,6 +93,8 @@ SDG 5 · 20 slides · levels: A2, B1, B2 · content_version 2026.09.1
 
 ### Slide 5 · Impact on Childhood
 
+- **A1**（25 字 / 每句 6.2 字 / 約 11.5 秒）
+  > These ideas start when we are very young. We give trucks to boys. We give dolls to girls. Every child can play with any toy.
 - **A2**（33 字 / 每句 8.2 字 / 約 15.2 秒）
   > These ideas start when we are very young. People give trucks to boys and dolls to girls. This limits a child’s mind. Every child should be free to play with any toy.
 - **B1**（41 字 / 每句 8.2 字 / 約 18.9 秒）
@@ -93,6 +104,8 @@ SDG 5 · 20 slides · levels: A2, B1, B2 · content_version 2026.09.1
 
 ### Slide 6 · Education Barriers
 
+- **A1**（23 字 / 每句 5.8 字 / 約 10.6 秒）
+  > In some poor places, girls leave school early. They cannot read or write. Then they cannot get good jobs. We must change this.
 - **A2**（33 字 / 每句 8.2 字 / 約 15.2 秒）
   > In some poor places, girls must stop school early. They cannot learn to read or write. Without school, they cannot get good jobs later. This is a sad story we need to change.
 - **B1**（41 字 / 每句 10.2 字 / 約 18.9 秒）
@@ -107,6 +120,8 @@ SDG 5 · 20 slides · levels: A2, B1, B2 · content_version 2026.09.1
 
 ### Slide 7 · The Wage Gap Challenge
 
+- **A1**（21 字 / 每句 5.2 字 / 約 9.7 秒）
+  > Now look at jobs. Many women get less money than men. They do the same work. Same work needs same pay.
 - **A2**（31 字 / 每句 7.8 字 / 約 14.3 秒）
   > Let’s look at jobs. Today, many women earn less money than men for the same work. This is wrong. Everyone should get the same pay for the same hard work.
 - **B1**（42 字 / 每句 8.4 字 / 約 19.4 秒）
@@ -116,6 +131,8 @@ SDG 5 · 20 slides · levels: A2, B1, B2 · content_version 2026.09.1
 
 ### Slide 8 · Missing Voices in Leadership
 
+- **A1**（22 字 / 每句 5.5 字 / 約 10.2 秒）
+  > There are not many women bosses. We see many men in big offices. We need more women leaders. Women have great ideas.
 - **A2**（32 字 / 每句 8.0 字 / 約 14.8 秒）
   > There are not many women bosses. We see many men in big offices, but we need more female leaders. Women have great ideas. They can help us fix many big world problems.
 - **B1**（40 字 / 每句 10.0 字 / 約 18.5 秒）
@@ -125,6 +142,8 @@ SDG 5 · 20 slides · levels: A2, B1, B2 · content_version 2026.09.1
 
 ### Slide 9 · Unseen Work at Home
 
+- **A1**（22 字 / 每句 7.3 字 / 約 10.2 秒）
+  > Women also do a lot of work at home. They clean, cook, and care for babies. Men and boys must help too.
 - **A2**（32 字 / 每句 8.0 字 / 約 14.8 秒）
   > Women also do too much free work at home. They clean, cook, and watch the babies all day. This takes all their energy. Men and boys must help with this house work.
 - **B1**（41 字 / 每句 13.7 字 / 約 18.9 秒）
@@ -139,6 +158,8 @@ SDG 5 · 20 slides · levels: A2, B1, B2 · content_version 2026.09.1
 
 ### Slide 10 · Respect in Communication
 
+- **A1**（21 字 / 每句 5.2 字 / 約 9.7 秒）
+  > How do we start? We start with respect. Listen to your classmates. Do not say a job is only for boys.
 - **A2**（32 字 / 每句 8.0 字 / 約 14.8 秒）
   > How can we start? It begins with respect. Listen to your classmates. Do not say a job is "only for boys" or "only for girls." Use kind words to help your friends.
 - **B1**（43 字 / 每句 8.6 字 / 約 19.8 秒）
@@ -148,6 +169,8 @@ SDG 5 · 20 slides · levels: A2, B1, B2 · content_version 2026.09.1
 
 ### Slide 11 · Sharing Tasks at Home
 
+- **A1**（22 字 / 每句 5.5 字 / 約 10.2 秒）
+  > At home we can share the work. Boys can cook dinner. Girls can fix bicycles. When everyone helps, the home is happy.
 - **A2**（30 字 / 每句 7.5 字 / 約 13.8 秒）
   > At home, we can share the chores. Boys can cook dinner, and girls can fix bicycles. When everyone helps, the home is happy. Sharing shows that you love your family.
 - **B1**（40 字 / 每句 10.0 字 / 約 18.5 秒）
@@ -157,6 +180,8 @@ SDG 5 · 20 slides · levels: A2, B1, B2 · content_version 2026.09.1
 
 ### Slide 12 · Standing Up for Others
 
+- **A1**（21 字 / 每句 5.2 字 / 約 9.7 秒）
+  > Do you see someone being unkind? Then speak up. Be a brave friend at school. Small actions can change a life.
 - **A2**（33 字 / 每句 8.2 字 / 約 15.2 秒）
   > If you see someone being mean to a girl or a boy, speak up! Be a brave friend in school. Small actions on the playground can change a life. Equality starts with you.
 - **B1**（41 字 / 每句 10.2 字 / 約 18.9 秒）
@@ -171,6 +196,8 @@ SDG 5 · 20 slides · levels: A2, B1, B2 · content_version 2026.09.1
 
 ### Slide 13 · STEM for Girls
 
+- **A1**（20 字 / 每句 5.0 字 / 約 9.2 秒）
+  > Things are changing now. More girls learn coding and robots. STEM is for everyone. Girls can be scientists and engineers.
 - **A2**（29 字 / 每句 4.8 字 / 約 13.4 秒）
   > Look! Things are changing now. More girls are learning coding and robots. STEM is for everyone. Girls can be great scientists and engineers. The future of technology needs women!
 - **B1**（40 字 / 每句 8.0 字 / 約 18.5 秒）
@@ -180,6 +207,8 @@ SDG 5 · 20 slides · levels: A2, B1, B2 · content_version 2026.09.1
 
 ### Slide 14 · Digital Learning Opportunities
 
+- **A1**（21 字 / 每句 7.0 字 / 約 9.7 秒）
+  > The internet helps girls learn at home. In far villages, girls watch school lessons online. Technology brings the world to them.
 - **A2**（30 字 / 每句 7.5 字 / 約 13.8 秒）
   > The internet helps girls learn from home. In far villages, girls can use cheap computers to watch school lessons. Technology breaks walls. It connects all children to the big world.
 - **B1**（41 字 / 每句 10.2 字 / 約 18.9 秒）
@@ -189,6 +218,8 @@ SDG 5 · 20 slides · levels: A2, B1, B2 · content_version 2026.09.1
 
 ### Slide 15 · Role Models on Social Media
 
+- **A1**（19 字 / 每句 6.3 字 / 約 8.8 秒）
+  > We see many strong women in sports and online. They are fast and smart. Their stories help young people.
 - **A2**（30 字 / 每句 7.5 字 / 約 13.8 秒）
   > We see many cool women on sports and social media. They are fast, smart, and strong. Their stories inspire young people. Let's use our phones to share these happy stories.
 - **B1**（40 字 / 每句 10.0 字 / 約 18.5 秒）
@@ -198,6 +229,8 @@ SDG 5 · 20 slides · levels: A2, B1, B2 · content_version 2026.09.1
 
 ### Slide 16 · New Laws for Fairness
 
+- **A1**（20 字 / 每句 6.7 字 / 約 9.2 秒）
+  > Many countries make new, fair laws. These laws give women safe jobs and good pay. Then the country grows stronger.
 - **A2**（29 字 / 每句 9.7 字 / 約 13.4 秒）
   > Many countries are making new, fair laws. These laws give women safe workplaces and good salaries. When women can work freely, the whole country becomes much richer and stronger.
 - **B1**（40 字 / 每句 10.0 字 / 約 18.5 秒）
@@ -212,6 +245,8 @@ SDG 5 · 20 slides · levels: A2, B1, B2 · content_version 2026.09.1
 
 ### Slide 17 · Reviewing the Journey
 
+- **A1**（23 字 / 每句 5.8 字 / 約 10.6 秒）
+  > Today we learned one thing. Gender equality is important for all of us. It is not a dream. It is a real goal.
 - **A2**（32 字 / 每句 8.0 字 / 約 14.8 秒）
   > Today, we learned that gender equality is important for all. It is not a dream. It is a real goal for our schools, our jobs, and our homes. We can do it!
 - **B1**（40 字 / 每句 13.3 字 / 約 18.5 秒）
@@ -221,6 +256,8 @@ SDG 5 · 20 slides · levels: A2, B1, B2 · content_version 2026.09.1
 
 ### Slide 18 · My Personal Promise
 
+- **A1**（21 字 / 每句 5.2 字 / 約 9.7 秒）
+  > I promise to respect boys and girls. I will help all my friends. What about you? Choose one small action today.
 - **A2**（30 字 / 每句 7.5 字 / 約 13.8 秒）
   > I promise to respect boys and girls equally. I will support all my friends. What about you? Think of one small action you can do today to help your family.
 - **B1**（41 字 / 每句 8.2 字 / 約 18.9 秒）
@@ -231,6 +268,8 @@ SDG 5 · 20 slides · levels: A2, B1, B2 · content_version 2026.09.1
 ### Slide 19 · Growing Together
 數據：2030. · 2030
 
+- **A1**（21 字 / 每句 7.0 字 / 約 9.7 秒）
+  > Big change takes time. But we can build a fair world by 2030. Let us be the people who make it real.
 - **A2**（28 字 / 每句 9.3 字 / 約 12.9 秒）
   > Big change takes time and patience. But if we move together, we can make a fair world by 2030. Let's be the heroes that make this goal real today.
 - **B1**（39 字 / 每句 9.8 字 / 約 18.0 秒）
@@ -240,6 +279,8 @@ SDG 5 · 20 slides · levels: A2, B1, B2 · content_version 2026.09.1
 
 ### Slide 20 · Final Message
 
+- **A1**（19 字 / 每句 6.3 字 / 約 8.8 秒）
+  > SDG 5 is a mission for you and me. When we are equal, we are stronger. Thank you for listening.
 - **A2**（29 字 / 每句 7.2 字 / 約 13.4 秒）
   > In conclusion, SDG 5 is a mission for you and me. Thank you for listening to my presentation. Remember: when we are equal, we are stronger. Thank you very much!
 - **B1**（40 字 / 每句 10.0 字 / 約 18.5 秒）

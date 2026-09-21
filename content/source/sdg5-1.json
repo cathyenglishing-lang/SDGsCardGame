@@ -65,6 +65,19 @@
               "speak_seconds_est": 20.8,
               "fits_20s": false,
               "provenance": "workbook"
+            },
+            "A1": {
+              "text": "Hello everyone. Today we talk about SDG 5. SDG 5 means gender equality. Boys and girls must have the same rights and the same dreams.",
+              "words": 23,
+              "sentences": 4,
+              "avg_sentence_words": 5.8,
+              "fk_grade": 3.1,
+              "long_word_pct": 8.7,
+              "speak_seconds_est": 10.6,
+              "fits_20s": true,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role)",
+              "basis": "Rewritten from the A2 column of sheet 'SDG 5-1'. Same meaning, same slide order, same facts (2030 target, STEM for girls, wage gap, unpaid work at home). Spec: <=32 words per slide, <=10 words per sentence, present simple, high-frequency vocabulary."
             }
           },
           "numbers": [],
@@ -113,6 +126,19 @@
               "speak_seconds_est": 20.8,
               "fits_20s": false,
               "provenance": "workbook"
+            },
+            "A1": {
+              "text": "Why is this important? Fairness is good for everyone. When girls do well, families grow stronger. Schools get better too.",
+              "words": 20,
+              "sentences": 4,
+              "avg_sentence_words": 5.0,
+              "fk_grade": 3.5,
+              "long_word_pct": 25.0,
+              "speak_seconds_est": 9.2,
+              "fits_20s": true,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role)",
+              "basis": "Rewritten from the A2 column of sheet 'SDG 5-1'. Same meaning, same slide order, same facts (2030 target, STEM for girls, wage gap, unpaid work at home). Spec: <=32 words per slide, <=10 words per sentence, present simple, high-frequency vocabulary."
             }
           },
           "numbers": [],
@@ -161,6 +187,19 @@
               "speak_seconds_est": 21.2,
               "fits_20s": false,
               "provenance": "workbook"
+            },
+            "A1": {
+              "text": "Think about a bird. A bird needs two wings to fly. Our world needs two wings too: men and women.",
+              "words": 20,
+              "sentences": 3,
+              "avg_sentence_words": 6.7,
+              "fk_grade": -0.0,
+              "long_word_pct": 0.0,
+              "speak_seconds_est": 9.2,
+              "fits_20s": true,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role)",
+              "basis": "Rewritten from the A2 column of sheet 'SDG 5-1'. Same meaning, same slide order, same facts (2030 target, STEM for girls, wage gap, unpaid work at home). Spec: <=32 words per slide, <=10 words per sentence, present simple, high-frequency vocabulary."
             }
           },
           "numbers": [],
@@ -218,6 +257,19 @@
               "speak_seconds_est": 20.3,
               "fits_20s": false,
               "provenance": "workbook"
+            },
+            "A1": {
+              "text": "In the past, people had old ideas. They said boys can be doctors. They said girls must stay home. These ideas stop children.",
+              "words": 23,
+              "sentences": 4,
+              "avg_sentence_words": 5.8,
+              "fk_grade": 1.0,
+              "long_word_pct": 4.3,
+              "speak_seconds_est": 10.6,
+              "fits_20s": true,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role)",
+              "basis": "Rewritten from the A2 column of sheet 'SDG 5-1'. Same meaning, same slide order, same facts (2030 target, STEM for girls, wage gap, unpaid work at home). Spec: <=32 words per slide, <=10 words per sentence, present simple, high-frequency vocabulary."
             }
           },
           "numbers": [],
@@ -266,6 +318,19 @@
               "speak_seconds_est": 20.3,
               "fits_20s": false,
               "provenance": "workbook"
+            },
+            "A1": {
+              "text": "These ideas start when we are very young. We give trucks to boys. We give dolls to girls. Every child can play with any toy.",
+              "words": 25,
+              "sentences": 4,
+              "avg_sentence_words": 6.2,
+              "fk_grade": 1.0,
+              "long_word_pct": 0.0,
+              "speak_seconds_est": 11.5,
+              "fits_20s": true,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role)",
+              "basis": "Rewritten from the A2 column of sheet 'SDG 5-1'. Same meaning, same slide order, same facts (2030 target, STEM for girls, wage gap, unpaid work at home). Spec: <=32 words per slide, <=10 words per sentence, present simple, high-frequency vocabulary."
             }
           },
           "numbers": [],
@@ -314,6 +379,19 @@
               "speak_seconds_est": 18.9,
               "fits_20s": true,
               "provenance": "workbook"
+            },
+            "A1": {
+              "text": "In some poor places, girls leave school early. They cannot read or write. Then they cannot get good jobs. We must change this.",
+              "words": 23,
+              "sentences": 4,
+              "avg_sentence_words": 5.8,
+              "fk_grade": 0.5,
+              "long_word_pct": 0.0,
+              "speak_seconds_est": 10.6,
+              "fits_20s": true,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role)",
+              "basis": "Rewritten from the A2 column of sheet 'SDG 5-1'. Same meaning, same slide order, same facts (2030 target, STEM for girls, wage gap, unpaid work at home). Spec: <=32 words per slide, <=10 words per sentence, present simple, high-frequency vocabulary."
             }
           },
           "numbers": [],
@@ -371,6 +449,19 @@
               "speak_seconds_est": 20.8,
               "fits_20s": false,
               "provenance": "workbook"
+            },
+            "A1": {
+              "text": "Now look at jobs. Many women get less money than men. They do the same work. Same work needs same pay.",
+              "words": 21,
+              "sentences": 4,
+              "avg_sentence_words": 5.2,
+              "fk_grade": -0.1,
+              "long_word_pct": 0.0,
+              "speak_seconds_est": 9.7,
+              "fits_20s": true,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role)",
+              "basis": "Rewritten from the A2 column of sheet 'SDG 5-1'. Same meaning, same slide order, same facts (2030 target, STEM for girls, wage gap, unpaid work at home). Spec: <=32 words per slide, <=10 words per sentence, present simple, high-frequency vocabulary."
             }
           },
           "numbers": [],
@@ -419,6 +510,19 @@
               "speak_seconds_est": 19.4,
               "fits_20s": true,
               "provenance": "workbook"
+            },
+            "A1": {
+              "text": "There are not many women bosses. We see many men in big offices. We need more women leaders. Women have great ideas.",
+              "words": 22,
+              "sentences": 4,
+              "avg_sentence_words": 5.5,
+              "fk_grade": 3.7,
+              "long_word_pct": 0.0,
+              "speak_seconds_est": 10.2,
+              "fits_20s": true,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role)",
+              "basis": "Rewritten from the A2 column of sheet 'SDG 5-1'. Same meaning, same slide order, same facts (2030 target, STEM for girls, wage gap, unpaid work at home). Spec: <=32 words per slide, <=10 words per sentence, present simple, high-frequency vocabulary."
             }
           },
           "numbers": [],
@@ -467,6 +571,19 @@
               "speak_seconds_est": 19.8,
               "fits_20s": true,
               "provenance": "workbook"
+            },
+            "A1": {
+              "text": "Women also do a lot of work at home. They clean, cook, and care for babies. Men and boys must help too.",
+              "words": 22,
+              "sentences": 3,
+              "avg_sentence_words": 7.3,
+              "fk_grade": 0.7,
+              "long_word_pct": 0.0,
+              "speak_seconds_est": 10.2,
+              "fits_20s": true,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role)",
+              "basis": "Rewritten from the A2 column of sheet 'SDG 5-1'. Same meaning, same slide order, same facts (2030 target, STEM for girls, wage gap, unpaid work at home). Spec: <=32 words per slide, <=10 words per sentence, present simple, high-frequency vocabulary."
             }
           },
           "numbers": [],
@@ -524,6 +641,19 @@
               "speak_seconds_est": 20.3,
               "fits_20s": false,
               "provenance": "workbook"
+            },
+            "A1": {
+              "text": "How do we start? We start with respect. Listen to your classmates. Do not say a job is only for boys.",
+              "words": 21,
+              "sentences": 4,
+              "avg_sentence_words": 5.2,
+              "fk_grade": 1.1,
+              "long_word_pct": 4.8,
+              "speak_seconds_est": 9.7,
+              "fits_20s": true,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role)",
+              "basis": "Rewritten from the A2 column of sheet 'SDG 5-1'. Same meaning, same slide order, same facts (2030 target, STEM for girls, wage gap, unpaid work at home). Spec: <=32 words per slide, <=10 words per sentence, present simple, high-frequency vocabulary."
             }
           },
           "numbers": [],
@@ -572,6 +702,19 @@
               "speak_seconds_est": 20.3,
               "fits_20s": false,
               "provenance": "workbook"
+            },
+            "A1": {
+              "text": "At home we can share the work. Boys can cook dinner. Girls can fix bicycles. When everyone helps, the home is happy.",
+              "words": 22,
+              "sentences": 4,
+              "avg_sentence_words": 5.5,
+              "fk_grade": 1.6,
+              "long_word_pct": 9.1,
+              "speak_seconds_est": 10.2,
+              "fits_20s": true,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role)",
+              "basis": "Rewritten from the A2 column of sheet 'SDG 5-1'. Same meaning, same slide order, same facts (2030 target, STEM for girls, wage gap, unpaid work at home). Spec: <=32 words per slide, <=10 words per sentence, present simple, high-frequency vocabulary."
             }
           },
           "numbers": [],
@@ -620,6 +763,19 @@
               "speak_seconds_est": 20.3,
               "fits_20s": false,
               "provenance": "workbook"
+            },
+            "A1": {
+              "text": "Do you see someone being unkind? Then speak up. Be a brave friend at school. Small actions can change a life.",
+              "words": 21,
+              "sentences": 4,
+              "avg_sentence_words": 5.2,
+              "fk_grade": -0.1,
+              "long_word_pct": 0.0,
+              "speak_seconds_est": 9.7,
+              "fits_20s": true,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role)",
+              "basis": "Rewritten from the A2 column of sheet 'SDG 5-1'. Same meaning, same slide order, same facts (2030 target, STEM for girls, wage gap, unpaid work at home). Spec: <=32 words per slide, <=10 words per sentence, present simple, high-frequency vocabulary."
             }
           },
           "numbers": [],
@@ -677,6 +833,19 @@
               "speak_seconds_est": 20.3,
               "fits_20s": false,
               "provenance": "workbook"
+            },
+            "A1": {
+              "text": "Things are changing now. More girls learn coding and robots. STEM is for everyone. Girls can be scientists and engineers.",
+              "words": 20,
+              "sentences": 4,
+              "avg_sentence_words": 5.0,
+              "fk_grade": 2.9,
+              "long_word_pct": 20.0,
+              "speak_seconds_est": 9.2,
+              "fits_20s": true,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role)",
+              "basis": "Rewritten from the A2 column of sheet 'SDG 5-1'. Same meaning, same slide order, same facts (2030 target, STEM for girls, wage gap, unpaid work at home). Spec: <=32 words per slide, <=10 words per sentence, present simple, high-frequency vocabulary."
             }
           },
           "numbers": [],
@@ -725,6 +894,19 @@
               "speak_seconds_est": 19.8,
               "fits_20s": true,
               "provenance": "workbook"
+            },
+            "A1": {
+              "text": "The internet helps girls learn at home. In far villages, girls watch school lessons online. Technology brings the world to them.",
+              "words": 21,
+              "sentences": 3,
+              "avg_sentence_words": 7.0,
+              "fk_grade": 4.0,
+              "long_word_pct": 14.3,
+              "speak_seconds_est": 9.7,
+              "fits_20s": true,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role)",
+              "basis": "Rewritten from the A2 column of sheet 'SDG 5-1'. Same meaning, same slide order, same facts (2030 target, STEM for girls, wage gap, unpaid work at home). Spec: <=32 words per slide, <=10 words per sentence, present simple, high-frequency vocabulary."
             }
           },
           "numbers": [],
@@ -773,6 +955,19 @@
               "speak_seconds_est": 20.3,
               "fits_20s": false,
               "provenance": "workbook"
+            },
+            "A1": {
+              "text": "We see many strong women in sports and online. They are fast and smart. Their stories help young people.",
+              "words": 19,
+              "sentences": 3,
+              "avg_sentence_words": 6.3,
+              "fk_grade": 1.8,
+              "long_word_pct": 0.0,
+              "speak_seconds_est": 8.8,
+              "fits_20s": true,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role)",
+              "basis": "Rewritten from the A2 column of sheet 'SDG 5-1'. Same meaning, same slide order, same facts (2030 target, STEM for girls, wage gap, unpaid work at home). Spec: <=32 words per slide, <=10 words per sentence, present simple, high-frequency vocabulary."
             }
           },
           "numbers": [],
@@ -821,6 +1016,19 @@
               "speak_seconds_est": 19.4,
               "fits_20s": true,
               "provenance": "workbook"
+            },
+            "A1": {
+              "text": "Many countries make new, fair laws. These laws give women safe jobs and good pay. Then the country grows stronger.",
+              "words": 20,
+              "sentences": 3,
+              "avg_sentence_words": 6.7,
+              "fk_grade": 1.8,
+              "long_word_pct": 10.0,
+              "speak_seconds_est": 9.2,
+              "fits_20s": true,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role)",
+              "basis": "Rewritten from the A2 column of sheet 'SDG 5-1'. Same meaning, same slide order, same facts (2030 target, STEM for girls, wage gap, unpaid work at home). Spec: <=32 words per slide, <=10 words per sentence, present simple, high-frequency vocabulary."
             }
           },
           "numbers": [],
@@ -878,6 +1086,19 @@
               "speak_seconds_est": 20.3,
               "fits_20s": false,
               "provenance": "workbook"
+            },
+            "A1": {
+              "text": "Today we learned one thing. Gender equality is important for all of us. It is not a dream. It is a real goal.",
+              "words": 23,
+              "sentences": 4,
+              "avg_sentence_words": 5.8,
+              "fk_grade": 2.6,
+              "long_word_pct": 8.7,
+              "speak_seconds_est": 10.6,
+              "fits_20s": true,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role)",
+              "basis": "Rewritten from the A2 column of sheet 'SDG 5-1'. Same meaning, same slide order, same facts (2030 target, STEM for girls, wage gap, unpaid work at home). Spec: <=32 words per slide, <=10 words per sentence, present simple, high-frequency vocabulary."
             }
           },
           "numbers": [],
@@ -926,6 +1147,19 @@
               "speak_seconds_est": 21.2,
               "fits_20s": false,
               "provenance": "workbook"
+            },
+            "A1": {
+              "text": "I promise to respect boys and girls. I will help all my friends. What about you? Choose one small action today.",
+              "words": 21,
+              "sentences": 4,
+              "avg_sentence_words": 5.2,
+              "fk_grade": 1.1,
+              "long_word_pct": 0.0,
+              "speak_seconds_est": 9.7,
+              "fits_20s": true,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role)",
+              "basis": "Rewritten from the A2 column of sheet 'SDG 5-1'. Same meaning, same slide order, same facts (2030 target, STEM for girls, wage gap, unpaid work at home). Spec: <=32 words per slide, <=10 words per sentence, present simple, high-frequency vocabulary."
             }
           },
           "numbers": [],
@@ -974,6 +1208,19 @@
               "speak_seconds_est": 18.9,
               "fits_20s": true,
               "provenance": "workbook"
+            },
+            "A1": {
+              "text": "Big change takes time. But we can build a fair world by 2030. Let us be the people who make it real.",
+              "words": 21,
+              "sentences": 3,
+              "avg_sentence_words": 7.0,
+              "fk_grade": 0.1,
+              "long_word_pct": 0.0,
+              "speak_seconds_est": 9.7,
+              "fits_20s": true,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role)",
+              "basis": "Rewritten from the A2 column of sheet 'SDG 5-1'. Same meaning, same slide order, same facts (2030 target, STEM for girls, wage gap, unpaid work at home). Spec: <=32 words per slide, <=10 words per sentence, present simple, high-frequency vocabulary."
             }
           },
           "numbers": [
@@ -1025,6 +1272,19 @@
               "speak_seconds_est": 20.8,
               "fits_20s": false,
               "provenance": "workbook"
+            },
+            "A1": {
+              "text": "SDG 5 is a mission for you and me. When we are equal, we are stronger. Thank you for listening.",
+              "words": 19,
+              "sentences": 3,
+              "avg_sentence_words": 6.3,
+              "fk_grade": 1.8,
+              "long_word_pct": 10.5,
+              "speak_seconds_est": 8.8,
+              "fits_20s": true,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role)",
+              "basis": "Rewritten from the A2 column of sheet 'SDG 5-1'. Same meaning, same slide order, same facts (2030 target, STEM for girls, wage gap, unpaid work at home). Spec: <=32 words per slide, <=10 words per sentence, present simple, high-frequency vocabulary."
             }
           },
           "numbers": [],
@@ -1038,6 +1298,13 @@
     }
   ],
   "level_summary": {
+    "A1": {
+      "slides": 20,
+      "avg_words": 21.4,
+      "avg_sentence_words": 5.9,
+      "fk_grade": 1.6,
+      "slides_over_20s": 0
+    },
     "A2": {
       "slides": 20,
       "avg_words": 31.2,

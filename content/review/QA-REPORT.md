@@ -1,6 +1,6 @@
 # 教材 QA 報告
 
-content_version 2026.09.1 · 產生於 2026-09-22T00:21:53+08:00
+content_version 2026.09.1 · 產生於 2026-09-22T00:36:38+08:00
 
 來源：`SDGs Pecha Kucha (公用)_new.xlsx`（其餘三個工作簿是舊版或子集，未使用：`SDGs Pecha Kucha (公用).xlsx`、`SDGs Pecha Kucha (公用)_自建題庫檔.xlsx`、`SDGsPechaKucha_0526.xlsx`）
 
@@ -15,7 +15,7 @@ content_version 2026.09.1 · 產生於 2026-09-22T00:21:53+08:00
 - **sdg9-3 B1** — avg sentence 28.8 words exceeds B1 spec (16); reads above level
 - **sdg9-3 B2** — avg sentence 29.2 words exceeds B2 spec (20); reads above level
 
-## 建議處理（19）
+## 建議處理（14）
 
 - **sdg4-1 A2** — avg 38 words per slide exceeds A2 spec (35)
 - **sdg4-1 A2** — 1 slides need more than 20 s at 130 wpm: [1]
@@ -29,11 +29,6 @@ content_version 2026.09.1 · 產生於 2026-09-22T00:21:53+08:00
 - **sdg5-1 B2** — 14 slides need more than 20 s at 130 wpm: [1, 2, 3, 4, 5, 7, 10, 11]...
 - **sdg5-2 A2** — avg 37 words per slide exceeds A2 spec (35)
 - **sdg5-2 B1** — 1 slides need more than 20 s at 130 wpm: [1]
-- **sdg13-1 A2** — avg 40 words per slide exceeds A2 spec (35)
-- **sdg13-1 B1** — avg 48 words per slide exceeds B1 spec (40)
-- **sdg13-1 B1** — 20 slides need more than 20 s at 130 wpm: [1, 2, 3, 4, 5, 6, 7, 8]...
-- **sdg13-1 B2** — avg 46 words per slide exceeds B2 spec (45)
-- **sdg13-1 B2** — 20 slides need more than 20 s at 130 wpm: [1, 2, 3, 4, 5, 6, 7, 8]...
 - **sdg13-2 B1** — avg 40 words per slide exceeds B1 spec (40)
 - **sdg13-2 B2** — 6 slides need more than 20 s at 130 wpm: [1, 2, 3, 5, 15, 17]
 
@@ -49,9 +44,13 @@ content_version 2026.09.1 · 產生於 2026-09-22T00:21:53+08:00
 - **sdg9-2** — fewer than 3 slides carry a number; evidence cards will be thin
 - **sdg9-3** — fewer than 3 slides carry a number; evidence cards will be thin
 
-## 補寫紀錄（2）
+## 補寫紀錄（6）
 
+- **sdg5-1 A1** — overlay sdg5-1.A1.json: 20 added, 0 replaced
 - **sdg13-1 A1** — overlay sdg13-1.A1.json: 20 added, 0 replaced
+- **sdg13-1 A2** — overlay sdg13-1.A2.json: 0 added, 20 replaced
+- **sdg13-1 B1** — overlay sdg13-1.B1.json: 0 added, 20 replaced
+- **sdg13-1 B2** — overlay sdg13-1.B2.json: 0 added, 20 replaced
 - **sdg9-2 A2** — overlay sdg9-2.A2.json: 0 added, 12 replaced
 
 ## 覆蓋率
@@ -61,7 +60,7 @@ content_version 2026.09.1 · 產生於 2026-09-22T00:21:53+08:00
 | sdg1 | 1 | 20 | 6 | A1, A2, B1 |
 | sdg4-1 | 4 | 20 | 6 | A1, A2, B1, B2 |
 | sdg4-2 | 4 | 20 | 6 | A2, B1, B2 |
-| sdg5-1 | 5 | 20 | 6 | A2, B1, B2 |
+| sdg5-1 | 5 | 20 | 6 | A1, A2, B1, B2 |
 | sdg5-2 | 5 | 20 | 6 | A2, B1, B2 |
 | sdg13-1 | 13 | 20 | 6 | A1, A2, B1, B2 |
 | sdg13-2 | 13 | 20 | 6 | A2, B1, B2 |
