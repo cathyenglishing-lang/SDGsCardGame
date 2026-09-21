@@ -10,3 +10,4 @@ sql/*.db-*
 
 .vercel
 .env*
+content/canonical/*.xlsx

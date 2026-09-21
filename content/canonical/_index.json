@@ -1,0 +1,294 @@
+{
+  "content_version": "2026.09.1",
+  "generated_at": "2026-09-22T00:39:53+08:00",
+  "levels": [
+    "A2",
+    "B1",
+    "B2"
+  ],
+  "level_bands": {
+    "A1": {
+      "words": [
+        16,
+        32
+      ],
+      "sentence": [
+        5,
+        10
+      ],
+      "fk": [
+        1.0,
+        5.0
+      ]
+    },
+    "A2": {
+      "words": [
+        26,
+        35
+      ],
+      "sentence": [
+        7,
+        12
+      ],
+      "fk": [
+        3.0,
+        7.0
+      ]
+    },
+    "B1": {
+      "words": [
+        32,
+        40
+      ],
+      "sentence": [
+        11,
+        16
+      ],
+      "fk": [
+        7.0,
+        11.0
+      ]
+    },
+    "B2": {
+      "words": [
+        34,
+        43
+      ],
+      "sentence": [
+        14,
+        20
+      ],
+      "fk": [
+        11.0,
+        15.0
+      ]
+    }
+  },
+  "missions": [
+    {
+      "mission_id": "sdg1",
+      "sdg": 1,
+      "title": "No Poverty in Taiwan",
+      "slides": 20,
+      "levels": [
+        "A2",
+        "B1"
+      ],
+      "ready": false,
+      "gate": {
+        "A2": [
+          "fk 7.8 above 7.0"
+        ],
+        "B1": []
+      },
+      "level_summary": {
+        "A2": {
+          "slides": 20,
+          "avg_words": 33.9,
+          "avg_sentence_words": 10.2,
+          "fk_grade": 7.8,
+          "slides_over_20s": 0
+        },
+        "B1": {
+          "slides": 20,
+          "avg_words": 34.5,
+          "avg_sentence_words": 11.0,
+          "fk_grade": 9.4,
+          "slides_over_20s": 0
+        }
+      },
+      "source_mission": "sdg1"
+    },
+    {
+      "mission_id": "sdg4",
+      "sdg": 4,
+      "title": "Quality Education in Taiwan",
+      "slides": 20,
+      "levels": [
+        "A2",
+        "B1",
+        "B2"
+      ],
+      "ready": false,
+      "gate": {
+        "A2": [
+          "words 38.0 above 35",
+          "1 slides over 20 s"
+        ],
+        "B1": [
+          "sentence 10.5 below 11"
+        ],
+        "B2": [
+          "words 45.2 above 43",
+          "fk 16.5 above 15.0",
+          "17 slides over 20 s"
+        ]
+      },
+      "level_summary": {
+        "A2": {
+          "slides": 20,
+          "avg_words": 38.0,
+          "avg_sentence_words": 11.4,
+          "fk_grade": 5.6,
+          "slides_over_20s": 1
+        },
+        "B1": {
+          "slides": 20,
+          "avg_words": 38.5,
+          "avg_sentence_words": 10.5,
+          "fk_grade": 8.4,
+          "slides_over_20s": 0
+        },
+        "B2": {
+          "slides": 20,
+          "avg_words": 45.2,
+          "avg_sentence_words": 16.0,
+          "fk_grade": 16.5,
+          "slides_over_20s": 17
+        }
+      },
+      "source_mission": "sdg4-1"
+    },
+    {
+      "mission_id": "sdg5",
+      "sdg": 5,
+      "title": "Gender Equality: A Fair World for Everyone",
+      "slides": 20,
+      "levels": [
+        "A2",
+        "B1",
+        "B2"
+      ],
+      "ready": false,
+      "gate": {
+        "A2": [],
+        "B1": [
+          "words 40.8 above 40",
+          "sentence 9.7 below 11",
+          "fk 5.0 below 7.0"
+        ],
+        "B2": [
+          "words 43.8 above 43",
+          "sentence 13.9 below 14",
+          "fk 17.8 above 15.0",
+          "14 slides over 20 s"
+        ]
+      },
+      "level_summary": {
+        "A2": {
+          "slides": 20,
+          "avg_words": 31.2,
+          "avg_sentence_words": 7.9,
+          "fk_grade": 3.1,
+          "slides_over_20s": 0
+        },
+        "B1": {
+          "slides": 20,
+          "avg_words": 40.8,
+          "avg_sentence_words": 9.7,
+          "fk_grade": 5.0,
+          "slides_over_20s": 0
+        },
+        "B2": {
+          "slides": 20,
+          "avg_words": 43.8,
+          "avg_sentence_words": 13.9,
+          "fk_grade": 17.8,
+          "slides_over_20s": 14
+        }
+      },
+      "source_mission": "sdg5-1"
+    },
+    {
+      "mission_id": "sdg9",
+      "sdg": 9,
+      "title": "Industry and Innovation: Can We Trust AI?",
+      "slides": 12,
+      "levels": [
+        "A2",
+        "B1",
+        "B2"
+      ],
+      "ready": false,
+      "gate": {
+        "A2": [
+          "fk 7.4 above 7.0"
+        ],
+        "B1": [
+          "fk 12.2 above 11.0"
+        ],
+        "B2": [
+          "words 32.6 below 34",
+          "sentence 13.7 below 14",
+          "fk 15.3 above 15.0"
+        ]
+      },
+      "level_summary": {
+        "A2": {
+          "slides": 12,
+          "avg_words": 29.8,
+          "avg_sentence_words": 10.2,
+          "fk_grade": 7.4,
+          "slides_over_20s": 0
+        },
+        "B1": {
+          "slides": 12,
+          "avg_words": 32.3,
+          "avg_sentence_words": 15.0,
+          "fk_grade": 12.2,
+          "slides_over_20s": 0
+        },
+        "B2": {
+          "slides": 12,
+          "avg_words": 32.6,
+          "avg_sentence_words": 13.7,
+          "fk_grade": 15.3,
+          "slides_over_20s": 0
+        }
+      },
+      "source_mission": "sdg9-1"
+    },
+    {
+      "mission_id": "sdg13",
+      "sdg": 13,
+      "title": "Climate Action: Taiwan's Path to Net Zero",
+      "slides": 20,
+      "levels": [
+        "A2",
+        "B1",
+        "B2"
+      ],
+      "ready": true,
+      "gate": {
+        "A2": [],
+        "B1": [],
+        "B2": []
+      },
+      "level_summary": {
+        "A2": {
+          "slides": 20,
+          "avg_words": 29.4,
+          "avg_sentence_words": 7.3,
+          "fk_grade": 3.9,
+          "slides_over_20s": 0
+        },
+        "B1": {
+          "slides": 20,
+          "avg_words": 32.0,
+          "avg_sentence_words": 11.9,
+          "fk_grade": 7.2,
+          "slides_over_20s": 0
+        },
+        "B2": {
+          "slides": 20,
+          "avg_words": 34.0,
+          "avg_sentence_words": 16.7,
+          "fk_grade": 14.7,
+          "slides_over_20s": 0
+        }
+      },
+      "source_mission": "sdg13-1"
+    }
+  ],
+  "ready_count": 1
+}

@@ -38,6 +38,8 @@ LEVEL_BAND = {
     "B2": {"words": (34, 43), "sentence": (14, 20), "fk": (11.0, 15.0)},
 }
 
+REFERENCE: dict = {}
+
 LEVEL_VOICE = {
     "A1": "present simple only, the 500 most common English words, no relative clauses, "
           "no passive voice, no conditionals; keep every number that appears in the source",
@@ -48,6 +50,20 @@ LEVEL_VOICE = {
     "B2": "may use academic vocabulary, passive voice, concession (although, while) and "
           "hedging (may, tends to), but still spoken English for a 20-second slide",
 }
+
+
+def _reference_samples() -> dict:
+    """Three accepted slides per level from SDG 13, the calibrated reference mission."""
+    out = {}
+    for lv in ("A2", "B1", "B2"):
+        path = os.path.join(OVERLAY, f"sdg13-1.{lv}.json")
+        if not os.path.exists(path):
+            continue
+        with open(path, encoding="utf-8") as fh:
+            ov = json.load(fh)
+        picks = [ov["slides"].get(n) for n in ("2", "10", "16")]
+        out[lv] = chr(10).join(f"  - {t}" for t in picks if t)
+    return out
 
 
 def load(mission_id: str) -> dict:
@@ -102,31 +118,50 @@ def cmd_gaps() -> int:
 
 def cmd_prompt(mission_id: str, level: str) -> int:
     m = load(mission_id)
-    spec = LEVEL_SPEC[level]
+    spec, band = LEVEL_SPEC[level], LEVEL_BAND[level]
+    ref = REFERENCE.get(level, "")
     out = [
-        f"You are an experienced EFL teacher writing the {level} version of an existing "
-        f"Pecha Kucha speech for Taiwanese university students.",
+        f"You are a CELTA/DELTA-qualified EFL materials writer grading an existing Pecha Kucha "
+        f"speech to CEFR {level} for Taiwanese university science students (L1 Mandarin).",
         "",
         f"Mission: {m['mission_id']} — {m['title']['en']} (SDG {m['sdg']})",
-        f"Slides: {len(slides_of(m))}. Each slide is spoken in 20 seconds.",
+        f"{len(slides_of(m))} slides. Each slide is spoken aloud in exactly 20 seconds, so "
+        f"anything over 43 words cannot be delivered.",
         "",
-        "## Hard rules",
-        f"- Max {spec['max_words']} words per slide. Max {spec['max_avg_sentence']} words per sentence.",
-        f"- Grammar for this level: {LEVEL_VOICE[level]}.",
+        "## The level must land inside a band, not merely under a ceiling",
+        f"- Words per slide: {band['words'][0]}–{band['words'][1]} (hard ceiling {spec['max_words']}).",
+        f"- Words per sentence, averaged: {band['sentence'][0]}–{band['sentence'][1]} "
+        f"(hard ceiling {spec['max_avg_sentence']}).",
+        f"- Flesch-Kincaid grade, averaged: {band['fk'][0]}–{band['fk'][1]}.",
+        "- Too easy is a failure, not a safe choice: a level that reads like the level below it "
+        "is rejected. Reach the top of the band with richer syntax, not with padding.",
+        "",
+        f"## Register for {level}",
+        f"- {LEVEL_VOICE[level]}",
+        "- This is a speech, not an essay: contractions are fine, rhetorical questions are good, "
+        "and every slide must be sayable in one breath group per sentence.",
+        "- Each slide opens the next: the six parts are Introduction, Problem, Achievements, "
+        "Solutions, Implications, Call to action. Keep the discourse markers that signal them "
+        "(so, however, to sum up) and keep the speaker's voice consistent across all slides.",
+        "",
+        "## Faithfulness",
         "- Keep the meaning, the order and every fact of the source line. Invent nothing.",
-        "- Keep every number, year and proper noun exactly as written in the source.",
-        "- Natural spoken English for a student on stage. No bullet points, no headings.",
-        "- Output format: one line per slide, `<slide number>. <text>`, nothing else.",
+        "- Keep every number, year, law name, place and brand exactly as in the source.",
+        "- Do not add new examples, statistics or opinions.",
         "",
-        "## Slides",
+        "## Output",
+        "- One line per slide, `<slide number>. <text>`. No headings, no commentary, no markdown.",
     ]
-    for s in slides_of(m):
-        src_lv, src_text = basis_level(s, level)
-        part = next(st for st in m["stages"] if s in st["slides"])
+    if ref:
+        out += ["", f"## Calibration sample — this is the accepted {level} standard (SDG 13)", ref]
+    out += ["", "## Slides to write"]
+    for s_ in slides_of(m):
+        src_lv, src_text = basis_level(s_, level)
+        part = next(st for st in m["stages"] if s_ in st["slides"])
         fn = PART_FUNCTION.get(part["part_no"], ("", "", ""))
-        out.append(f"{s['slide_no']}. [{s['title']['en']}] (Part {part['part_no']}, {fn[0]})")
+        out.append(f"{s_['slide_no']}. [{s_['title']['en']}] (Part {part['part_no']}, {fn[0]})")
         out.append(f"   source {src_lv}: {src_text}")
-    return print("\n".join(out)) or 0
+    return print(chr(10).join(out)) or 0
 
 
 LINE_RE = re.compile(r"^\s*(\d{1,2})[\.\)]\s+(.+?)\s*$")
@@ -214,6 +249,7 @@ def cmd_check(mission_id: str, level: str) -> int:
 
 
 def main(argv: list) -> int:
+    REFERENCE.update(_reference_samples())
     if not argv:
         print(__doc__)
         return 1
