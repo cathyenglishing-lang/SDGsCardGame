@@ -1,0 +1,1016 @@
+{
+  "mission_id": "sdg5-1",
+  "sdg": 5,
+  "title": {
+    "en": "A Fair World for Everyone",
+    "zh": null
+  },
+  "content_version": "2026.09.1",
+  "levels": [
+    "A2",
+    "B1",
+    "B2"
+  ],
+  "source_mission": "sdg5-1",
+  "slide_count": 20,
+  "level_summary": {
+    "A2": {
+      "slides": 20,
+      "avg_words": 27.7,
+      "avg_sentence_words": 9.2,
+      "fk_grade": 3.7,
+      "slides_over_20s": 0
+    },
+    "B1": {
+      "slides": 20,
+      "avg_words": 33.1,
+      "avg_sentence_words": 13.4,
+      "fk_grade": 8.4,
+      "slides_over_20s": 0
+    },
+    "B2": {
+      "slides": 20,
+      "avg_words": 35.7,
+      "avg_sentence_words": 17.9,
+      "fk_grade": 11.8,
+      "slides_over_20s": 0
+    }
+  },
+  "gate": {
+    "A2": [],
+    "B1": [],
+    "B2": []
+  },
+  "distance": {
+    "A2->B1": {
+      "mean": 0.14,
+      "pass": true,
+      "too_close": {}
+    },
+    "B1->B2": {
+      "mean": 0.21,
+      "pass": true,
+      "too_close": {}
+    }
+  },
+  "ready": true,
+  "stages": [
+    {
+      "part_no": 1,
+      "function_en": "Introduction",
+      "function_zh": "引言：破題與定義",
+      "language_pattern": "rhetorical questions / X is about ...",
+      "source_description": "The Context & The \"Why\" 背景脈絡與核心價值",
+      "slides": [
+        {
+          "slide_no": 1,
+          "title": {
+            "en": "The Definition of SDG 5",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Hello everyone. Today let's look at SDG 5, the goal for gender equality. It means that boys and girls get the same rights and the same dreams.",
+              "words": 27,
+              "sentences": 3,
+              "avg_sentence_words": 9.0,
+              "fk_grade": 3.2,
+              "speak_seconds_est": 17.1,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B1": {
+              "text": "Today I want to examine the fifth global goal, usually called gender equality. It argues that no opportunity and no ambition should ever depend on whether you were born a boy or a girl.",
+              "words": 34,
+              "sentences": 2,
+              "avg_sentence_words": 17.0,
+              "fk_grade": 10.1,
+              "speak_seconds_est": 18.5,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "Gender equality is usually described as a women's issue, although the fifth global goal is really about the ambitions a society is prepared to restrict. Today I want to examine what genuine equality would demand from everybody here.",
+              "words": 38,
+              "sentences": 2,
+              "avg_sentence_words": 19.0,
+              "fk_grade": 13.6,
+              "speak_seconds_est": 19.0,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            }
+          },
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 2,
+          "title": {
+            "en": "Why It Matters to Everyone",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Why does this matter to you and to me? Equality is not only a women's story. When girls do well, our homes get stronger and our schools get better.",
+              "words": 29,
+              "sentences": 3,
+              "avg_sentence_words": 9.7,
+              "fk_grade": 4.0,
+              "speak_seconds_est": 18.3,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B1": {
+              "text": "Why should the men in this room really care? Families become stronger and classrooms improve quickly whenever women and girls are doing well. Society advances slowly while half of us is quietly held back.",
+              "words": 34,
+              "sentences": 3,
+              "avg_sentence_words": 11.3,
+              "fk_grade": 6.9,
+              "speak_seconds_est": 18.5,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "Why should the men here care? Because the evidence links women's progress to stronger households, better schools and faster economic growth, which means that excluding half a population is an expensive habit rather than a neutral tradition.",
+              "words": 37,
+              "sentences": 2,
+              "avg_sentence_words": 18.5,
+              "fk_grade": 11.4,
+              "speak_seconds_est": 18.5,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            }
+          },
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 3,
+          "title": {
+            "en": "The Power of Balance",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Imagine a bird for a moment. A bird only needs two wings to fly. Our world needs two wings as well, so men and women must carry it together.",
+              "words": 29,
+              "sentences": 3,
+              "avg_sentence_words": 9.7,
+              "fk_grade": 3.2,
+              "speak_seconds_est": 18.3,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B1": {
+              "text": "A bird cannot fly when one wing is stronger than the other. Our societies operate similarly, because men and women carry the flight between them. If one half is held down, nobody arrives anywhere.",
+              "words": 34,
+              "sentences": 3,
+              "avg_sentence_words": 11.3,
+              "fk_grade": 7.6,
+              "speak_seconds_est": 18.5,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "Picture a bird trying to fly with one wing deliberately held down. Societies repeat that experiment whenever they restrict half their members, and the altitude lost is paid for by everybody on board, not only by women.",
+              "words": 37,
+              "sentences": 2,
+              "avg_sentence_words": 18.5,
+              "fk_grade": 11.1,
+              "speak_seconds_est": 18.5,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            }
+          },
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        }
+      ]
+    },
+    {
+      "part_no": 2,
+      "function_en": "Problem",
+      "function_zh": "問題指認：趨勢與因果",
+      "language_pattern": "present progressive for trends / this causes ...",
+      "source_description": "The Root Cause & Early Impact 原因與影響",
+      "slides": [
+        {
+          "slide_no": 4,
+          "title": {
+            "en": "Traditional Mindsets",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "In the past, many people said that boys become doctors and girls stay at home. Those old ideas are like walls. They stop children from following their dreams.",
+              "words": 28,
+              "sentences": 3,
+              "avg_sentence_words": 9.3,
+              "fk_grade": 3.2,
+              "speak_seconds_est": 17.7,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B1": {
+              "text": "Until recently, most people assumed that a boy would study medicine while his sister stayed at home. Those assumptions still stand like a wall, and they block children from the subjects they really love.",
+              "words": 34,
+              "sentences": 2,
+              "avg_sentence_words": 17.0,
+              "fk_grade": 8.4,
+              "speak_seconds_est": 18.5,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "Historically a boy was expected to enter medicine while his sister stayed at home. Those assumptions still operate as invisible walls, steering teenagers away from the subjects they would otherwise have chosen.",
+              "words": 32,
+              "sentences": 2,
+              "avg_sentence_words": 16.0,
+              "fk_grade": 12.0,
+              "speak_seconds_est": 16.0,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            }
+          },
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 5,
+          "title": {
+            "en": "Impact on Childhood",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "This starts when we are very young. Adults give trucks to boys and dolls to girls. Those presents teach children what to want, so let's open every toy box.",
+              "words": 29,
+              "sentences": 3,
+              "avg_sentence_words": 9.7,
+              "fk_grade": 2.8,
+              "speak_seconds_est": 18.3,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B1": {
+              "text": "This lesson arrives long before anyone mentions a career. Relatives still hand trucks to the boys and dolls to the girls, and children absorb that signal quickly, so imagination narrows early.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 9.9,
+              "speak_seconds_est": 16.9,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "The conditioning starts long before anybody mentions careers, because shops still divide their shelves into vehicles for sons and dolls for daughters. Children read that message quickly, learning to imagine only one category of future.",
+              "words": 35,
+              "sentences": 2,
+              "avg_sentence_words": 17.5,
+              "fk_grade": 12.1,
+              "speak_seconds_est": 17.5,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            }
+          },
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 6,
+          "title": {
+            "en": "Education Barriers",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "In some poor countries, girls leave school early. Many never learn to read or write. Then good jobs stay closed, and their children begin in the same place.",
+              "words": 28,
+              "sentences": 3,
+              "avg_sentence_words": 9.3,
+              "fk_grade": 2.8,
+              "speak_seconds_est": 17.7,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B1": {
+              "text": "Around the world, poverty still pulls girls out of the classroom before they have finished. Without reading and writing, decent jobs disappear, and the same shortage returns in the next generation.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 9.1,
+              "speak_seconds_est": 16.9,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "Globally, poverty pulls girls out of the classroom long before graduation, leaving many families to educate only the son. Denied literacy, a daughter tends to earn less throughout her life, so the disadvantage is inherited rather than solved.",
+              "words": 38,
+              "sentences": 2,
+              "avg_sentence_words": 19.0,
+              "fk_grade": 12.6,
+              "speak_seconds_est": 19.0,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            }
+          },
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        }
+      ]
+    },
+    {
+      "part_no": 3,
+      "function_en": "Achievements",
+      "function_zh": "成果：舉證與比較",
+      "language_pattern": "present perfect / comparatives",
+      "source_description": "Challenges & Real-world Status 挑戰與現況",
+      "slides": [
+        {
+          "slide_no": 7,
+          "title": {
+            "en": "The Wage Gap Challenge",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Now look at pay. Women still earn less than men on average, and some of that difference stays inside the same job. Equal work deserves equal pay.",
+              "words": 27,
+              "sentences": 3,
+              "avg_sentence_words": 9.0,
+              "fk_grade": 4.1,
+              "speak_seconds_est": 17.1,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B1": {
+              "text": "Consider the pay slip. Women still earn less than men on average, and researchers find that a gap remains even after we compare identical jobs. Money is usually what turns a wish into a decision.",
+              "words": 35,
+              "sentences": 3,
+              "avg_sentence_words": 11.7,
+              "fk_grade": 7.5,
+              "speak_seconds_est": 19.1,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "Turn to pay. Women still earn less than men on average, and a measurable gap survives even after economists control for occupation, hours and experience, which suggests the problem is structural rather than personal.",
+              "words": 34,
+              "sentences": 2,
+              "avg_sentence_words": 17.0,
+              "fk_grade": 11.9,
+              "speak_seconds_est": 17.0,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            }
+          },
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 8,
+          "title": {
+            "en": "Missing Voices in Leadership",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Now count the bosses. Most big companies and governments are still led by men. Women have strong ideas, and we need them in the room where choices happen.",
+              "words": 28,
+              "sentences": 3,
+              "avg_sentence_words": 9.3,
+              "fk_grade": 3.6,
+              "speak_seconds_est": 17.7,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B1": {
+              "text": "Look upwards through almost any large organisation. Men occupy most of the senior positions, while women disappear sharply near the top. People call that barrier the glass ceiling, and it costs everyone better decisions.",
+              "words": 34,
+              "sentences": 3,
+              "avg_sentence_words": 11.3,
+              "fk_grade": 9.3,
+              "speak_seconds_est": 18.5,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "Climb any large organisation and the share of women falls sharply near the top, a barrier commonly called the glass ceiling. Positions held by one half of the population produce decisions shaped by one half of the evidence.",
+              "words": 38,
+              "sentences": 2,
+              "avg_sentence_words": 19.0,
+              "fk_grade": 10.8,
+              "speak_seconds_est": 19.0,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            }
+          },
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 9,
+          "title": {
+            "en": "Unseen Work at Home",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Look at the unpaid work at home. Women usually do the cleaning, the cooking and the childcare, and nobody pays for it. Men and boys must take a share.",
+              "words": 29,
+              "sentences": 3,
+              "avg_sentence_words": 9.7,
+              "fk_grade": 3.6,
+              "speak_seconds_est": 18.3,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B1": {
+              "text": "Housework has never appeared on a payslip. Women still do most of the cleaning, the cooking and the caring, which quietly removes hours from their studies and careers. Shared work gives those hours back.",
+              "words": 34,
+              "sentences": 3,
+              "avg_sentence_words": 11.3,
+              "fk_grade": 6.5,
+              "speak_seconds_est": 18.5,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "Unpaid domestic labour is the least visible inequality of all, since cleaning, cooking and childcare still fall primarily to women. Only when families redistribute that load will those hours return for study, promotion and rest.",
+              "words": 35,
+              "sentences": 2,
+              "avg_sentence_words": 17.5,
+              "fk_grade": 12.1,
+              "speak_seconds_est": 17.5,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            }
+          },
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        }
+      ]
+    },
+    {
+      "part_no": 4,
+      "function_en": "Solutions",
+      "function_zh": "解方：做法與取捨",
+      "language_pattern": "instead of + V-ing / modal verbs",
+      "source_description": "Daily Life & Individual Experience 日常實踐與個人經驗",
+      "slides": [
+        {
+          "slide_no": 10,
+          "title": {
+            "en": "Respect in Communication",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "So how do we start? Respect comes first. Listen to your classmates with real attention, and never say that a job belongs to boys or to girls.",
+              "words": 27,
+              "sentences": 3,
+              "avg_sentence_words": 9.0,
+              "fk_grade": 3.7,
+              "speak_seconds_est": 17.1,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B1": {
+              "text": "Respect begins with the language that we use about each other. Listen carefully, resist the habit of judging anyone by gender, and never announce that a particular job belongs to boys.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 9.9,
+              "speak_seconds_est": 16.9,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "Real change originates in language, because the way we speak inside a classroom quietly determines what feels normal. Listening properly, refusing to judge anybody by gender and never allocating a job by sex cost nothing.",
+              "words": 35,
+              "sentences": 2,
+              "avg_sentence_words": 17.5,
+              "fk_grade": 12.5,
+              "speak_seconds_est": 17.5,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            }
+          },
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 11,
+          "title": {
+            "en": "Sharing Tasks at Home",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Take it home with you. Boys can cook the dinner, and girls can fix the bike. When everybody helps, the housework shrinks and the family grows closer.",
+              "words": 27,
+              "sentences": 3,
+              "avg_sentence_words": 9.0,
+              "fk_grade": 4.1,
+              "speak_seconds_est": 17.1,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B1": {
+              "text": "At home the change is entirely practical. If boys learn to cook a decent meal and girls learn to repair a bicycle, nobody will grow up completely helpless. Families that share the chores usually argue less.",
+              "words": 36,
+              "sentences": 3,
+              "avg_sentence_words": 12.0,
+              "fk_grade": 7.4,
+              "speak_seconds_est": 19.6,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "Equality at home is demonstrated rather than announced, so encourage sons to cook a decent meal and daughters to repair a bicycle. Families who genuinely share the work tend to argue about it considerably less.",
+              "words": 35,
+              "sentences": 2,
+              "avg_sentence_words": 17.5,
+              "fk_grade": 11.8,
+              "speak_seconds_est": 17.5,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            }
+          },
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 12,
+          "title": {
+            "en": "Standing Up for Others",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Now think about school. If someone is treated badly because she is a girl, then say something. One brave voice in the classroom can change a whole year.",
+              "words": 28,
+              "sentences": 3,
+              "avg_sentence_words": 9.3,
+              "fk_grade": 3.6,
+              "speak_seconds_est": 17.7,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B1": {
+              "text": "Speaking up is harder than it sounds. If you see a classmate treated badly because of gender, say something anyway, because silence leaves that person completely alone. Small interventions can change a whole school year.",
+              "words": 35,
+              "sentences": 3,
+              "avg_sentence_words": 11.7,
+              "fk_grade": 8.5,
+              "speak_seconds_est": 19.1,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "Allyship costs something, which is precisely why it matters. What keeps a bully going is silence, not agreement, so one audible objection in a lecture hall can change the atmosphere of a whole year group.",
+              "words": 35,
+              "sentences": 2,
+              "avg_sentence_words": 17.5,
+              "fk_grade": 9.8,
+              "speak_seconds_est": 17.5,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            }
+          },
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        }
+      ]
+    },
+    {
+      "part_no": 5,
+      "function_en": "Implications",
+      "function_zh": "影響：推論後果",
+      "language_pattern": "first conditional / however",
+      "source_description": "Current Trends & Future Innovations 現代趨勢與未來創新",
+      "slides": [
+        {
+          "slide_no": 13,
+          "title": {
+            "en": "STEM for Girls",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Here is the good news. More girls now build robots and write computer code. STEM is open to everybody, and these girls will be our next engineers.",
+              "words": 27,
+              "sentences": 3,
+              "avg_sentence_words": 9.0,
+              "fk_grade": 4.1,
+              "speak_seconds_est": 17.1,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B1": {
+              "text": "Here the news improves. Girls have moved into coding clubs, robotics teams and space projects, because schools have finally started recruiting them, and STEM is where the next discoveries will happen.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 9.1,
+              "speak_seconds_est": 16.9,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "The encouraging news is that girls are entering robotics teams, coding clubs and space projects in far larger numbers. Recruiting from the whole population rather than half of it produces better engineering, and nobody has answered that argument yet.",
+              "words": 39,
+              "sentences": 2,
+              "avg_sentence_words": 19.5,
+              "fk_grade": 12.9,
+              "speak_seconds_est": 19.5,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            }
+          },
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 14,
+          "title": {
+            "en": "Digital Learning Opportunities",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "The internet also opens doors. In far villages, a girl can watch a school lesson on a cheap computer. The old school walls are much thinner than before.",
+              "words": 28,
+              "sentences": 3,
+              "avg_sentence_words": 9.3,
+              "fk_grade": 4.5,
+              "speak_seconds_est": 17.7,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B1": {
+              "text": "The internet has opened another door. A girl in a remote village can now follow a whole course on a borrowed tablet, so distance matters far less than it did. Classroom walls have become thinner.",
+              "words": 35,
+              "sentences": 3,
+              "avg_sentence_words": 11.7,
+              "fk_grade": 6.8,
+              "speak_seconds_est": 19.1,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "Connectivity has quietly rewritten who can study. A girl in an isolated village can follow an entire course on a borrowed tablet, which means geography no longer decides how far an education can travel.",
+              "words": 34,
+              "sentences": 2,
+              "avg_sentence_words": 17.0,
+              "fk_grade": 11.9,
+              "speak_seconds_est": 17.0,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            }
+          },
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 15,
+          "title": {
+            "en": "Role Models on Social Media",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Open your phone tonight. You will find athletes, artists and leaders who are women. Their stories reach millions of young people, so please pass them on.",
+              "words": 26,
+              "sentences": 3,
+              "avg_sentence_words": 8.7,
+              "fk_grade": 4.1,
+              "speak_seconds_est": 16.4,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B1": {
+              "text": "Social media has given us thousands of examples. Athletes, artists and leaders now publish their own stories, and millions of teenagers watch them. If you share one of those stories today, the reach grows.",
+              "words": 34,
+              "sentences": 3,
+              "avg_sentence_words": 11.3,
+              "fk_grade": 6.5,
+              "speak_seconds_est": 18.5,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "Social media now broadcasts careers that earlier generations never saw. Stories written by athletes, artists and leaders reach a teenager scrolling at midnight, arguing quietly that her own future could contain rather more than she assumed.",
+              "words": 36,
+              "sentences": 2,
+              "avg_sentence_words": 18.0,
+              "fk_grade": 11.8,
+              "speak_seconds_est": 18.0,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            }
+          },
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 16,
+          "title": {
+            "en": "New Laws for Fairness",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Laws are changing too. More countries now promise fair pay and safe work for women. When women can work freely, the whole country often grows richer.",
+              "words": 26,
+              "sentences": 3,
+              "avg_sentence_words": 8.7,
+              "fk_grade": 4.1,
+              "speak_seconds_est": 16.4,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B1": {
+              "text": "Governments have started to act as well. New laws now require equal pay and safer workplaces, because leaders have noticed that economies tend to grow when everyone can work.",
+              "words": 29,
+              "sentences": 2,
+              "avg_sentence_words": 14.5,
+              "fk_grade": 8.8,
+              "speak_seconds_est": 15.8,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "Legislation is moving as well. Several governments now require equal pay and safer workplaces, partly because economists keep reporting that full participation tends to raise national output rather than merely redistribute it.",
+              "words": 32,
+              "sentences": 2,
+              "avg_sentence_words": 16.0,
+              "fk_grade": 14.6,
+              "speak_seconds_est": 16.0,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            }
+          },
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        }
+      ]
+    },
+    {
+      "part_no": 6,
+      "function_en": "Call to action",
+      "function_zh": "結語：總結與號召",
+      "language_pattern": "to wrap up ... / let's ...",
+      "source_description": "Synthesis & Personal Call to Action 總結回顧與個人行動號召",
+      "slides": [
+        {
+          "slide_no": 17,
+          "title": {
+            "en": "Reviewing the Journey",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Let's look back. We saw old problems, and we also saw new ideas. Gender equality is not a dream — it is a real goal for schools, work and family.",
+              "words": 29,
+              "sentences": 3,
+              "avg_sentence_words": 9.7,
+              "fk_grade": 3.6,
+              "speak_seconds_est": 18.3,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B1": {
+              "text": "We have looked at old attitudes, unequal pay and unpaid housework, and we have also seen laws, technology and role models pushing back. Equality is a plan, not a wish.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 9.5,
+              "speak_seconds_est": 16.4,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "So where does the argument stand? We have traced inherited attitudes, unequal pay and unpaid work, and set against them new laws, technology and role models, which together make equality a programme rather than a wish.",
+              "words": 36,
+              "sentences": 2,
+              "avg_sentence_words": 18.0,
+              "fk_grade": 11.4,
+              "speak_seconds_est": 18.0,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            }
+          },
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 18,
+          "title": {
+            "en": "My Personal Promise",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Here is my promise: I will treat every classmate the same, whatever their gender. What about you? Wash the dishes tonight, or cheer up a friend.",
+              "words": 26,
+              "sentences": 3,
+              "avg_sentence_words": 8.7,
+              "fk_grade": 4.1,
+              "speak_seconds_est": 16.4,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B1": {
+              "text": "This is my personal promise to you. From today I will support my friends whatever their gender, and I will challenge the usual jokes. Could everybody here decide on one similar promise before tonight?",
+              "words": 34,
+              "sentences": 3,
+              "avg_sentence_words": 11.3,
+              "fk_grade": 7.9,
+              "speak_seconds_est": 18.5,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "My own commitment is small but specific. I will treat every classmate as an equal and say something when somebody does not, and I would ask each of you to choose one comparable action before tonight.",
+              "words": 36,
+              "sentences": 2,
+              "avg_sentence_words": 18.0,
+              "fk_grade": 9.5,
+              "speak_seconds_est": 18.0,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            }
+          },
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 19,
+          "title": {
+            "en": "Growing Together",
+            "zh": null
+          },
+          "numbers": [
+            "2030.",
+            "2030"
+          ],
+          "scripts": {
+            "A2": {
+              "text": "Big change needs time and patience. The goals give the world only one deadline, and it is 2030. Let's be the people who move us really close.",
+              "words": 27,
+              "sentences": 3,
+              "avg_sentence_words": 9.0,
+              "fk_grade": 3.2,
+              "speak_seconds_est": 17.1,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B1": {
+              "text": "Nobody should expect this to happen overnight. The goals set 2030 as the deadline, and if our whole generation pushes together, we can be far closer than we are today.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 9.5,
+              "speak_seconds_est": 16.4,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "Structural change is slow, and pretending otherwise would insult everyone already working at it. The agenda names 2030, so the honest question is not whether we arrive on time but how much closer our generation can pull that date.",
+              "words": 39,
+              "sentences": 2,
+              "avg_sentence_words": 19.5,
+              "fk_grade": 11.7,
+              "speak_seconds_est": 19.5,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            }
+          },
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 20,
+          "title": {
+            "en": "Final Message",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "SDG 5 is a mission for you and for me. When women and men stand together as equals, every family grows stronger. That is the world I really want.",
+              "words": 29,
+              "sentences": 3,
+              "avg_sentence_words": 9.7,
+              "fk_grade": 4.5,
+              "speak_seconds_est": 18.3,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B1": {
+              "text": "SDG 5 belongs to everybody in this room. When women and men participate as equals, families, companies and entire countries usually benefit. I have already made my choice, and I hope that you will make yours.",
+              "words": 36,
+              "sentences": 3,
+              "avg_sentence_words": 12.0,
+              "fk_grade": 8.1,
+              "speak_seconds_est": 19.6,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "SDG 5 is not a request addressed to somebody else. When women and men participate as equals, households, companies and whole economies tend to do better, and I have already chosen my side.",
+              "words": 33,
+              "sentences": 2,
+              "avg_sentence_words": 16.5,
+              "fk_grade": 10.9,
+              "speak_seconds_est": 16.5,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            }
+          },
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        }
+      ]
+    }
+  ]
+}

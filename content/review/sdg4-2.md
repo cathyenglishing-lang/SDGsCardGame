@@ -24,7 +24,7 @@ SDG 4 · 20 slides · levels: A2, B1, B2 · content_version 2026.09.1
 
 | 級別 | 張數 | 每張字數 | 每句字數 | FK | 超過 20 秒 |
 | --- | --- | --- | --- | --- | --- |
-| A2 | 20 | 28.9 | 9.0 | 4.3 | 1 |
+| A2 | 20 | 29.0 | 9.0 | 4.2 | 1 |
 | B1 | 20 | 41.5 | 15.7 | 14.5 | 20 |
 | B2 | 20 | 46.1 | 16.6 | 17.7 | 20 |
 
@@ -68,7 +68,7 @@ SDG 4 · 20 slides · levels: A2, B1, B2 · content_version 2026.09.1
 ### Slide 4 · Rural-urban digital divide splits equity（數位落差導致的城鄉網路與設備不平等）
 
 - **A2**（30 字 / 每句 7.5 字 / 約 18.9 秒）
-  > Here is the first problem. City students have fast internet at home. In some country schools the line is slow, so online lessons are hard. Is that fair to them?
+  > Here is the first problem. City students have fast internet at home. In some country schools the line is slow, so online lessons are difficult. Is that fair to them?
 - **B1**（43 字 / 每句 10.8 字 / 約 23.5 秒 ⚠️ 超過 20 秒）
   > A primary challenge is Taiwan’s rural-urban digital divide. While city students enjoy advanced networks, remote schools face poor internet infrastructure. This deepens the educational gap whenever schools rely on online learning. Is this sustainable if we want long-term equity for all students?
 - **B2**（46 字 / 每句 11.5 字 / 約 23.0 秒 ⚠️ 超過 20 秒）
@@ -165,8 +165,8 @@ SDG 4 · 20 slides · levels: A2, B1, B2 · content_version 2026.09.1
 ### Slide 13 · Digital skills boost tech economy（數位核心競爭力推動臺灣半導體與高科技經濟成長）
 數據：$500 billion
 
-- **A2**（30 字 / 每句 10.0 字 / 約 18.9 秒）
-  > Why does this matter? Taiwan sells about 500 billion dollars of goods a year, and most of it is technology. Safe, skilled internet users can also help fix world problems.
+- **A2**（31 字 / 每句 10.3 字 / 約 19.6 秒）
+  > Why does this matter? Taiwan sells about 500 billion dollars of goods a year, and most of it is technology. Safe and skilled internet users can also help fix world problems.
 - **B1**（41 字 / 每句 20.5 字 / 約 22.4 秒 ⚠️ 超過 20 秒）
   > The implications are significant: enhanced digital literacy drives economic growth, supporting Taiwan’s $500 billion tech export industry. Moreover, it empowers citizens to tackle global problems, such as using advanced data science and climate technology to build resilient, sustainable environmental solutions.
 - **B2**（46 字 / 每句 15.3 字 / 約 23.0 秒 ⚠️ 超過 20 秒）
@@ -224,8 +224,8 @@ SDG 4 · 20 slides · levels: A2, B1, B2 · content_version 2026.09.1
 
 ### Slide 19 · Advocate digital rights and literacy for all（推廣無界限數位權利，落實全民資訊素養教育）
 
-- **A2**（27 字 / 每句 9.0 字 / 約 17.1 秒）
-  > In the future, digital rights belong to everyone. That includes the groups we usually forget. Ask for lessons that show how technology really works in daily life.
+- **A2**（28 字 / 每句 9.3 字 / 約 17.7 秒）
+  > In the future, digital rights belong to everyone. That includes the groups we usually forget. Ask for lessons that show how the internet really works in daily life.
 - **B1**（39 字 / 每句 19.5 字 / 約 21.3 秒 ⚠️ 超過 20 秒）
   > Looking forward, our focus should be on inclusive digital rights for all groups, including underrepresented ones. We can advocate for modernized curricula that integrate real-world media applications, making sure everyone learns how to use technology safely, wisely, and ethically.
 - **B2**（43 字 / 每句 21.5 字 / 約 21.5 秒 ⚠️ 超過 20 秒）
@@ -234,7 +234,7 @@ SDG 4 · 20 slides · levels: A2, B1, B2 · content_version 2026.09.1
 ### Slide 20 · Act together equitable digital future now（攜手並進，共創包容且公平的數位未來，就在當下）
 
 - **A2**（32 字 / 每句 8.0 字 / 約 20.2 秒 ⚠️ 超過 20 秒）
-  > Here is the ask. Teach an older neighbor to use a phone, or help a younger student online. Together, Taiwan can build a digital future that leaves nobody out. Let's start today.
+  > Here is the ask. Teach an older neighbor to use a phone, or help a younger student online. Together, we can build a digital future that leaves nobody out. Let's start today.
 - **B1**（42 字 / 每句 10.5 字 / 約 22.9 秒 ⚠️ 超過 20 秒）
   > Thank you for your attention. As students, let’s take action to bridge the digital divide! You can participate in policy discussions, volunteer to teach media literacy, or help younger students utilize online tools. Together, we can build a fairer digital future!
 - **B2**（50 字 / 每句 12.5 字 / 約 25.0 秒 ⚠️ 超過 20 秒）

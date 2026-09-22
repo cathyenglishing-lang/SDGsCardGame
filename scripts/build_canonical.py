@@ -1,8 +1,11 @@
 """Build the clean, canonical teaching material: one SDG = one mission, three levels.
 
-The workbooks carry several variants per goal (4-1/4-2, 5-1/5-2, 13-1/13-2,
-9-1/9-2/9-3). For the game we keep one mission per SDG and exactly three levels,
-A2 / B1 / B2. The other variants are archived, not deleted.
+Every mission the live site offers gets the same three levels, A2 / B1 / B2, and
+nothing else: the stray A1 on a couple of missions stays in the data but is not
+part of the standard ladder. Several goals carry more than one mission (4-1/4-2,
+5-1/5-2, 13-1/13-2, 9-1/9-2/9-3) and all of them ship — the site shows them as
+separate cards, so "one difficulty template per SDG" has to mean every card
+carries the identical three levels.
 
 Outputs (all generated, safe to delete and rebuild):
   content/canonical/<sdg>.json            game-ready, three levels only
@@ -32,23 +35,23 @@ OUT = os.path.join(REPO, "content", "canonical")
 
 sys.path.insert(0, os.path.join(REPO, "scripts"))
 from extract_content import CONTENT_VERSION, PART_FUNCTION  # noqa: E402
-from author_levels import LEVEL_BAND  # noqa: E402
+from quality import BAND, FILL_BAND, MAX_JACCARD_MEAN, check_distance, check_level  # noqa: E402
 
 LEVELS = ("A2", "B1", "B2")
 
-# one mission per SDG; the rest stay in content/source as alternates
+# every mission on the live site, in the order the cards appear
 CANONICAL = {
     "sdg1": {"source": "sdg1", "sdg": 1, "title": "No Poverty in Taiwan"},
-    "sdg4": {"source": "sdg4-1", "sdg": 4, "title": "Quality Education in Taiwan"},
-    "sdg5": {"source": "sdg5-1", "sdg": 5, "title": "Gender Equality: A Fair World for Everyone"},
-    "sdg9": {"source": "sdg9-1", "sdg": 9, "title": "Industry and Innovation: Can We Trust AI?"},
-    "sdg13": {"source": "sdg13-1", "sdg": 13, "title": "Climate Action: Taiwan's Path to Net Zero"},
-}
-ALTERNATES = {
-    "sdg4": ["sdg4-2 Digital Equity and Media Literacy"],
-    "sdg5": ["sdg5-2 Leveling the Playing Field (Women in Sports & Media)"],
-    "sdg9": ["sdg9-2 Better Prompts, Better Science", "sdg9-3 What Can Humans Do Better Than AI?"],
-    "sdg13": ["sdg13-2 Climate-Resilient Taiwan"],
+    "sdg4-1": {"source": "sdg4-1", "sdg": 4, "title": "Quality Education in Taiwan"},
+    "sdg4-2": {"source": "sdg4-2", "sdg": 4,
+               "title": "Digital Equity and Media Literacy in Taiwan"},
+    "sdg5-1": {"source": "sdg5-1", "sdg": 5, "title": "A Fair World for Everyone"},
+    "sdg5-2": {"source": "sdg5-2", "sdg": 5, "title": "Leveling the Playing Field"},
+    "sdg9-1": {"source": "sdg9-1", "sdg": 9, "title": "Using AI: Can We Trust AI?"},
+    "sdg9-2": {"source": "sdg9-2", "sdg": 9, "title": "How to Talk to AI Like a Scientist"},
+    "sdg9-3": {"source": "sdg9-3", "sdg": 9, "title": "What Can Humans Do Better Than AI?"},
+    "sdg13-1": {"source": "sdg13-1", "sdg": 13, "title": "Climate Action: Taiwan's Path to Net Zero"},
+    "sdg13-2": {"source": "sdg13-2", "sdg": 13, "title": "Climate-Resilient Taiwan"},
 }
 
 HEADER_FILL = PatternFill("solid", fgColor="1F2937")
@@ -57,20 +60,28 @@ LEVEL_FILL = {"A2": PatternFill("solid", fgColor="DCFCE7"),
               "B2": PatternFill("solid", fgColor="FEF3C7")}
 
 
-def in_band(level: str, stats: dict) -> list:
-    band = LEVEL_BAND[level]
-    out = []
-    for key, value in (("words", stats["avg_words"]),
-                       ("sentence", stats["avg_sentence_words"]),
-                       ("fk", stats["fk_grade"])):
-        lo, hi = band[key]
-        if round(value, 1) < lo:
-            out.append(f"{key} {value} below {lo}")
-        elif round(value, 1) > hi:
-            out.append(f"{key} {value} above {hi}")
-    if stats["slides_over_20s"]:
-        out.append(f"{stats['slides_over_20s']} slides over 20 s")
-    return out
+def gate_mission(stages: list) -> tuple:
+    """Run the per-slide gate over a built mission. Averages hid too much."""
+    by_level = {}
+    for st in stages:
+        for s in st["slides"]:
+            for lv, sc in s["scripts"].items():
+                by_level.setdefault(lv, {})[str(s["slide_no"])] = sc["text"]
+    verdict = {}
+    for lv in LEVELS:
+        if lv not in by_level:
+            verdict[lv] = ["level missing"]
+            continue
+        r = check_level(by_level[lv], lv)
+        why = [f"slide {no}: {'; '.join(f_)}" for no, f_ in r["hard"].items()]
+        if not r["soft_rate_ok"]:
+            why.append(f"{int(r['soft_rate'] * 100)}% of slides miss a band")
+        why += [f"slide {no}: {msg}" for no, items in r["style"].items()
+                for sev, msg in items if sev == "high"]
+        verdict[lv] = why
+    distance = {k: {"mean": v["mean"], "pass": v["pass"], "too_close": v["too_close"]}
+                for k, v in check_distance(by_level).items()}
+    return verdict, distance
 
 
 def build_mission(canon_id: str, meta: dict) -> dict:
@@ -104,7 +115,7 @@ def build_mission(canon_id: str, meta: dict) -> dict:
             "slides": slides,
         })
     summary = {lv: src["level_summary"][lv] for lv in LEVELS if lv in src.get("level_summary", {})}
-    gate = {lv: in_band(lv, summary[lv]) for lv in summary}
+    gate, distance = gate_mission(stages)
     return {
         "mission_id": canon_id,
         "sdg": meta["sdg"],
@@ -112,11 +123,12 @@ def build_mission(canon_id: str, meta: dict) -> dict:
         "content_version": CONTENT_VERSION,
         "levels": [lv for lv in LEVELS if lv in summary],
         "source_mission": meta["source"],
-        "alternates_not_used": ALTERNATES.get(canon_id, []),
         "slide_count": sum(len(st["slides"]) for st in stages),
         "level_summary": summary,
         "gate": gate,
-        "ready": all(not v for v in gate.values()) and len(summary) == 3,
+        "distance": distance,
+        "ready": (all(not v for v in gate.values()) and len(summary) == 3
+                  and all(d["pass"] for d in distance.values())),
         "stages": stages,
     }
 
@@ -125,8 +137,11 @@ def write_workbook(missions: list, path: str) -> None:
     wb = openpyxl.Workbook()
     wb.remove(wb.active)
     for m in missions:
-        ws = wb.create_sheet(f"SDG {m['sdg']}")
-        ws["A1"] = f"SDG {m['sdg']}: {m['title']['en']}"
+        # Several goals carry more than one mission, so the sheet is named after
+        # the mission, not the goal, or they would collide.
+        label = m["mission_id"].replace("sdg", "SDG ").replace("-", "-")
+        ws = wb.create_sheet(label)
+        ws["A1"] = f"{label}: {m['title']['en']}"
         ws["A1"].font = Font(bold=True, size=13)
         for i, lv in enumerate(LEVELS):
             col = get_column_letter(6 + i)
@@ -189,7 +204,7 @@ def write_workbook(missions: list, path: str) -> None:
 
 
 def write_review(m: dict, path: str) -> None:
-    out = [f"# SDG {m['sdg']} · {m['title']['en']}", "",
+    out = [f"# {m['mission_id']} · {m['title']['en']} (SDG {m['sdg']})", "",
            f"{m['slide_count']} slides · levels {', '.join(m['levels'])} · "
            f"content_version {m['content_version']} · source `{m['source_mission']}`", ""]
     out += ["| 級別 | 每張字數 | 每句字數 | FK | 超過 20 秒 | 級距檢查 |", "| --- | --- | --- | --- | --- | --- |"]
@@ -199,8 +214,10 @@ def write_review(m: dict, path: str) -> None:
         out.append(f"| {lv} | {s['avg_words']} | {s['avg_sentence_words']} | {s['fk_grade']} | "
                    f"{s['slides_over_20s']} | {gate} |")
     out.append("")
-    if m["alternates_not_used"]:
-        out += ["未納入標準版的其他變體（保留備用）：" + "、".join(m["alternates_not_used"]), ""]
+    if m.get("distance"):
+        pairs = "、".join(f"{k} {v['mean']}" + ("" if v["pass"] else " 超標")
+                         for k, v in m["distance"].items())
+        out += [f"相鄰兩級的詞彙重疊（上限 0.34）：{pairs}", ""]
     for st in m["stages"]:
         out += [f"## Part {st['part_no']} · {st['function_en']}（{st['function_zh']}）", "",
                 f"語言功能：{st['language_pattern']}", ""]
@@ -239,7 +256,9 @@ def main() -> int:
         "content_version": CONTENT_VERSION,
         "generated_at": dt.datetime.now().astimezone().isoformat(timespec="seconds"),
         "levels": list(LEVELS),
-        "level_bands": LEVEL_BAND,
+        "level_bands": BAND,
+        "fill_band": FILL_BAND,
+        "max_level_overlap": MAX_JACCARD_MEAN,
         "missions": [
             {"mission_id": m["mission_id"], "sdg": m["sdg"], "title": m["title"]["en"],
              "slides": m["slide_count"], "levels": m["levels"], "ready": m["ready"],
@@ -253,11 +272,17 @@ def main() -> int:
         json.dump(index, fh, ensure_ascii=False, indent=2)
     for m in missions:
         state = "READY" if m["ready"] else "needs work"
-        detail = "; ".join(f"{lv}: {', '.join(v)}" for lv, v in m["gate"].items() if v)
+        # One line per mission. The per-slide reasons live in the generated
+        # <mission>.md and in `python scripts/gate.py overlay <mission>`; printing
+        # them all here buried the summary under a screen of text.
+        detail = "; ".join(f"{lv} {len(v)}" for lv, v in m["gate"].items() if v)
         missing = [lv for lv in LEVELS if lv not in m["levels"]]
         if missing:
             detail = (detail + "; " if detail else "") + f"missing {', '.join(missing)}"
-        print(f"{m['mission_id']:6} {m['slide_count']:3} slides  {state:10} {detail}")
+        far = [k for k, d in m.get("distance", {}).items() if not d["pass"]]
+        if far:
+            detail += f"; levels too close: {', '.join(far)}"
+        print(f"{m['mission_id']:8} {m['slide_count']:3} slides  {state:10} {detail}")
     print(f"\n{index['ready_count']} / {len(missions)} missions ready")
     return 0
 

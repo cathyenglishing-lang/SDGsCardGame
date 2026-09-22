@@ -8,32 +8,52 @@
   "content_version": "2026.09.1",
   "levels": [
     "A2",
-    "B1"
+    "B1",
+    "B2"
   ],
   "source_mission": "sdg1",
-  "alternates_not_used": [],
   "slide_count": 20,
   "level_summary": {
     "A2": {
       "slides": 20,
-      "avg_words": 31.4,
-      "avg_sentence_words": 9.5,
-      "fk_grade": 6.9,
+      "avg_words": 29.4,
+      "avg_sentence_words": 9.8,
+      "fk_grade": 4.9,
       "slides_over_20s": 0
     },
     "B1": {
       "slides": 20,
-      "avg_words": 34.5,
-      "avg_sentence_words": 11.0,
-      "fk_grade": 9.4,
+      "avg_words": 35.2,
+      "avg_sentence_words": 11.7,
+      "fk_grade": 8.4,
+      "slides_over_20s": 0
+    },
+    "B2": {
+      "slides": 20,
+      "avg_words": 37.4,
+      "avg_sentence_words": 18.7,
+      "fk_grade": 12.8,
       "slides_over_20s": 0
     }
   },
   "gate": {
     "A2": [],
-    "B1": []
+    "B1": [],
+    "B2": []
   },
-  "ready": false,
+  "distance": {
+    "A2->B1": {
+      "mean": 0.12,
+      "pass": true,
+      "too_close": {}
+    },
+    "B1->B2": {
+      "mean": 0.2,
+      "pass": true,
+      "too_close": {}
+    }
+  },
+  "ready": true,
   "stages": [
     {
       "part_no": 1,
@@ -51,24 +71,34 @@
           "numbers": [],
           "scripts": {
             "A2": {
-              "text": "Good morning. Before we talk about poverty far away, look around us. Poverty can hide in a classmate who skips lunch, or a student with no quiet place to study.",
-              "words": 30,
+              "text": "Good morning. Poverty is not always far away. Look around: a classmate skips lunch, a family works long hours, a student has no quiet place to study.",
+              "words": 27,
               "sentences": 3,
-              "avg_sentence_words": 10.0,
-              "fk_grade": 4.8,
-              "speak_seconds_est": 13.8,
+              "avg_sentence_words": 9.0,
+              "fk_grade": 4.5,
+              "speak_seconds_est": 17.1,
               "fits_20s": true,
               "provenance": "authored-replacement"
             },
             "B1": {
-              "text": "Good morning, everyone. SDG 1 begins with one uncomfortable question: can poverty exist in a developed place like Taiwan? The answer is yes. It may be hidden, but it still shapes students' lives and futures.",
-              "words": 34,
-              "sentences": 4,
-              "avg_sentence_words": 8.5,
-              "fk_grade": 7.5,
-              "speak_seconds_est": 15.7,
+              "text": "SDG 1 opens with an uncomfortable question. Can real poverty survive inside a developed society like Taiwan? It can, and it quietly decides how far a young person in this room is able to go.",
+              "words": 35,
+              "sentences": 3,
+              "avg_sentence_words": 11.7,
+              "fk_grade": 7.8,
+              "speak_seconds_est": 19.1,
               "fits_20s": true,
-              "provenance": "workbook"
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "Prosperity is remarkably good at hiding hardship, which is why my first question is uncomfortable. Does poverty still exist in a developed Taiwan, or have we simply been trained not to notice it?",
+              "words": 33,
+              "sentences": 2,
+              "avg_sentence_words": 16.5,
+              "fk_grade": 10.9,
+              "speak_seconds_est": 16.5,
+              "fits_20s": true,
+              "provenance": "authored"
             }
           },
           "authoring": {
@@ -86,24 +116,34 @@
           "numbers": [],
           "scripts": {
             "A2": {
-              "text": "SDG 1 means ending poverty in all its forms. It is not only about income. It is also about safety, health care, education, housing, and the chance to recover when life becomes difficult.",
-              "words": 32,
+              "text": "Goal one asks every country to end poverty in all its forms. That is not only about income. It is health care, housing, education, and a fair chance to start again.",
+              "words": 31,
               "sentences": 3,
-              "avg_sentence_words": 10.7,
-              "fk_grade": 7.7,
-              "speak_seconds_est": 14.8,
+              "avg_sentence_words": 10.3,
+              "fk_grade": 5.2,
+              "speak_seconds_est": 19.6,
               "fits_20s": true,
               "provenance": "authored-replacement"
             },
             "B1": {
-              "text": "SDG 1 asks countries to end poverty in every form. This includes low income, unsafe housing, weak social protection, and limited access to services. It reminds us that poverty is a system problem, not only a personal failure.",
-              "words": 37,
+              "text": "SDG 1 asks governments to end poverty in every form. That includes low income, unsafe housing and weak social protection. The goal treats poverty as a fault in the system, not a personal failure.",
+              "words": 34,
               "sentences": 3,
-              "avg_sentence_words": 12.3,
-              "fk_grade": 9.6,
-              "speak_seconds_est": 17.1,
+              "avg_sentence_words": 11.3,
+              "fk_grade": 7.6,
+              "speak_seconds_est": 18.5,
               "fits_20s": true,
-              "provenance": "workbook"
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "Ending poverty in all of its forms is the first global goal, and that wording deliberately reaches past household income. It covers housing, protection and access, so poverty is framed as a structural condition rather than a personal fault.",
+              "words": 39,
+              "sentences": 2,
+              "avg_sentence_words": 19.5,
+              "fk_grade": 12.6,
+              "speak_seconds_est": 19.5,
+              "fits_20s": true,
+              "provenance": "authored"
             }
           },
           "authoring": {
@@ -121,24 +161,34 @@
           "numbers": [],
           "scripts": {
             "A2": {
-              "text": "In Taiwan, many students have good schools and technology. But not every family has the same support. Some families struggle with rent, medical costs, or unstable jobs.",
-              "words": 27,
+              "text": "Look at Taiwan. We have good schools and new technology, but not every family feels safe. Some struggle with rent, some with medical bills, some with jobs that never last.",
+              "words": 30,
               "sentences": 3,
-              "avg_sentence_words": 9.0,
-              "fk_grade": 7.6,
-              "speak_seconds_est": 12.5,
+              "avg_sentence_words": 10.0,
+              "fk_grade": 4.8,
+              "speak_seconds_est": 18.9,
               "fits_20s": true,
               "provenance": "authored-replacement"
             },
             "B1": {
-              "text": "Taiwan has strong education, health care, and technology, but inequality still exists. A family can look normal from outside while facing debt, care pressure, or unstable work. SDG 1 helps us notice these hidden struggles.",
+              "text": "Taiwan has strong education, health care and technology. Even so, inequality remains. A family can look normal from outside while carrying debt, nursing a sick parent, or living on work that could end tomorrow.",
               "words": 34,
               "sentences": 3,
               "avg_sentence_words": 11.3,
               "fk_grade": 9.0,
-              "speak_seconds_est": 15.7,
+              "speak_seconds_est": 18.5,
               "fits_20s": true,
-              "provenance": "workbook"
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "Excellent universities, health coverage for all and a world-class chip industry have not abolished inequality here. Behind an ordinary front door there may be debt, a relative who needs daily care, or a contract that expires next month.",
+              "words": 38,
+              "sentences": 2,
+              "avg_sentence_words": 19.0,
+              "fk_grade": 12.3,
+              "speak_seconds_est": 19.0,
+              "fits_20s": true,
+              "provenance": "authored"
             }
           },
           "authoring": {
@@ -165,24 +215,34 @@
           "numbers": [],
           "scripts": {
             "A2": {
-              "text": "The first challenge is working poverty. Some people work hard but still cannot feel secure. Temporary jobs, low wages, and long hours make planning difficult. If parents are stressed, children's learning can also be affected.",
-              "words": 35,
-              "sentences": 4,
-              "avg_sentence_words": 8.8,
-              "fk_grade": 6.7,
-              "speak_seconds_est": 16.2,
+              "text": "The first problem is working poverty. People work hard and still feel unsafe. Short contracts, low pay and long hours break their plans, and tired parents lose time with their children.",
+              "words": 31,
+              "sentences": 3,
+              "avg_sentence_words": 10.3,
+              "fk_grade": 4.0,
+              "speak_seconds_est": 19.6,
               "fits_20s": true,
               "provenance": "authored-replacement"
             },
             "B1": {
-              "text": "Working poverty is a serious problem because effort does not always lead to security. When parents face temporary contracts or low pay, they may have less time and energy to support their children. Poverty can then pass across generations.",
-              "words": 39,
+              "text": "Working poverty matters because hard work no longer brings security. Parents on temporary contracts lose the hours and the energy their children need. Poverty then travels into the next generation, and that is how it repeats.",
+              "words": 36,
               "sentences": 3,
-              "avg_sentence_words": 13.0,
+              "avg_sentence_words": 12.0,
               "fk_grade": 9.1,
+              "speak_seconds_est": 19.6,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "Working poverty unsettles us because it breaks the promise that effort brings security. Parents trapped in temporary contracts give up the attention their children need, and the disadvantage is passed on, quietly, to the next generation.",
+              "words": 36,
+              "sentences": 2,
+              "avg_sentence_words": 18.0,
+              "fk_grade": 12.4,
               "speak_seconds_est": 18.0,
               "fits_20s": true,
-              "provenance": "workbook"
+              "provenance": "authored"
             }
           },
           "authoring": {
@@ -200,24 +260,34 @@
           "numbers": [],
           "scripts": {
             "A2": {
-              "text": "Housing is another pressure. When rent is high, families may spend less on food, books, tutoring, or transportation. Students might move often or live in crowded rooms. A stable home is part of learning.",
-              "words": 34,
-              "sentences": 4,
-              "avg_sentence_words": 8.5,
-              "fk_grade": 5.1,
-              "speak_seconds_est": 15.7,
+              "text": "Rent is the next weight. When it is high, families spend less on food, books and tutoring. Some students move house often or share one crowded room, where study is hard.",
+              "words": 31,
+              "sentences": 3,
+              "avg_sentence_words": 10.3,
+              "fk_grade": 3.3,
+              "speak_seconds_est": 19.6,
               "fits_20s": true,
               "provenance": "authored-replacement"
             },
             "B1": {
-              "text": "Housing costs can quietly create poverty. If too much income goes to rent, families must cut other needs. For students, crowded housing or frequent moving can reduce sleep, concentration, and confidence at school.",
-              "words": 33,
+              "text": "Housing costs create poverty quietly. Once the rent takes too much of the income, everything else has to be sacrificed. Students who move often or share a crowded room lose sleep, concentration and confidence.",
+              "words": 34,
               "sentences": 3,
-              "avg_sentence_words": 11.0,
-              "fk_grade": 7.3,
-              "speak_seconds_est": 15.2,
+              "avg_sentence_words": 11.3,
+              "fk_grade": 7.6,
+              "speak_seconds_est": 18.5,
               "fits_20s": true,
-              "provenance": "workbook"
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "What an unaffordable rent removes is not simply money but everything that money would otherwise have purchased. Teenagers who relocate annually, or study on a bunk bed, reach school short of sleep, concentration and self-belief.",
+              "words": 35,
+              "sentences": 2,
+              "avg_sentence_words": 17.5,
+              "fk_grade": 12.5,
+              "speak_seconds_est": 17.5,
+              "fits_20s": true,
+              "provenance": "authored"
             }
           },
           "authoring": {
@@ -235,24 +305,34 @@
           "numbers": [],
           "scripts": {
             "A2": {
-              "text": "Poverty also appears online. Some students have fast internet, laptops, and parents who can help. Others share one phone or cannot join online learning easily. Digital gaps become learning gaps.",
-              "words": 30,
-              "sentences": 4,
-              "avg_sentence_words": 7.5,
-              "fk_grade": 7.0,
-              "speak_seconds_est": 13.8,
+              "text": "Poverty also shows up online. Some students have fast internet, a laptop and parents who can help. Others share one phone, so a digital gap slowly turns into a learning gap.",
+              "words": 31,
+              "sentences": 3,
+              "avg_sentence_words": 10.3,
+              "fk_grade": 5.9,
+              "speak_seconds_est": 19.6,
               "fits_20s": true,
               "provenance": "authored-replacement"
             },
             "B1": {
-              "text": "Digital access is now part of basic opportunity. Without a reliable device, internet connection, and support, students cannot fully join homework, research, or AI learning. Poverty becomes less visible, but more powerful.",
-              "words": 32,
+              "text": "Digital access is now part of basic opportunity. Without a reliable device, a good connection and someone to ask, a student cannot fully join homework, research or AI learning. Their poverty is simply harder to see.",
+              "words": 36,
               "sentences": 3,
-              "avg_sentence_words": 10.7,
-              "fk_grade": 12.2,
-              "speak_seconds_est": 14.8,
+              "avg_sentence_words": 12.0,
+              "fk_grade": 9.4,
+              "speak_seconds_est": 19.6,
               "fits_20s": true,
-              "provenance": "workbook"
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "Digital participation has become a precondition for opportunity rather than a convenience. A student without a working device, a stable connection and help at home is shut out of homework, research and artificial intelligence.",
+              "words": 34,
+              "sentences": 2,
+              "avg_sentence_words": 17.0,
+              "fk_grade": 14.3,
+              "speak_seconds_est": 17.0,
+              "fits_20s": true,
+              "provenance": "authored"
             }
           },
           "authoring": {
@@ -279,24 +359,34 @@
           "numbers": [],
           "scripts": {
             "A2": {
-              "text": "Taiwan has safety nets. We have social help, health insurance, and local services. These protect basic needs. But does help arrive before a small problem becomes a crisis?",
-              "words": 28,
-              "sentences": 4,
-              "avg_sentence_words": 7.0,
+              "text": "Taiwan has safety nets: social help, health insurance, and local offices. They protect basic needs. But does that help reach us before a small problem turns into a crisis?",
+              "words": 29,
+              "sentences": 3,
+              "avg_sentence_words": 9.7,
               "fk_grade": 6.1,
-              "speak_seconds_est": 12.9,
+              "speak_seconds_est": 18.3,
               "fits_20s": true,
               "provenance": "authored-replacement"
             },
             "B1": {
-              "text": "Taiwan has built several safety nets, including health insurance, social welfare, emergency relief, and local service centers. These protect many people. However, good policy must be easy to find, simple to apply for, and respectful to use.",
-              "words": 37,
+              "text": "Taiwan has built several safety nets: health insurance, social welfare, emergency relief and local service centers. These protect many people. However, good policy must be easy to find, simple to apply for and respectful to use.",
+              "words": 36,
               "sentences": 3,
-              "avg_sentence_words": 12.3,
-              "fk_grade": 10.6,
-              "speak_seconds_est": 17.1,
+              "avg_sentence_words": 12.0,
+              "fk_grade": 10.1,
+              "speak_seconds_est": 19.6,
               "fits_20s": true,
-              "provenance": "workbook"
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "Taiwan's protective net is genuinely broad: National Health Insurance, social welfare, emergency relief and local service centers. Only when help is easy to find will it reach the household that needs it before the crisis arrives.",
+              "words": 36,
+              "sentences": 2,
+              "avg_sentence_words": 18.0,
+              "fk_grade": 12.1,
+              "speak_seconds_est": 18.0,
+              "fits_20s": true,
+              "provenance": "authored"
             }
           },
           "authoring": {
@@ -314,24 +404,34 @@
           "numbers": [],
           "scripts": {
             "A2": {
-              "text": "Schools can reduce poverty's effect on children. Meal programs, scholarships, counseling, after-school support, and teachers who notice students early are all important. School is not only a classroom. It can be a support system.",
-              "words": 34,
-              "sentences": 4,
-              "avg_sentence_words": 8.5,
-              "fk_grade": 7.5,
-              "speak_seconds_est": 15.7,
+              "text": "Schools can soften the blow. Free meals, counseling, scholarships and after-school classes all help. A teacher who notices one quiet child early can change that child's whole year.",
+              "words": 28,
+              "sentences": 3,
+              "avg_sentence_words": 9.3,
+              "fk_grade": 5.3,
+              "speak_seconds_est": 17.7,
               "fits_20s": true,
               "provenance": "authored-replacement"
             },
             "B1": {
-              "text": "Schools are powerful because they see students every day. Meal support, scholarships, counseling, and after-school programs can reduce pressure on families. When teachers notice needs early, school becomes a bridge between students and community resources.",
-              "words": 35,
+              "text": "Schools are strong because they see students every day. Meal support, scholarships, counseling and after-school clubs take real weight off a family. A teacher who notices early becomes a bridge to local services.",
+              "words": 33,
               "sentences": 3,
-              "avg_sentence_words": 11.7,
-              "fk_grade": 10.9,
-              "speak_seconds_est": 16.2,
+              "avg_sentence_words": 11.0,
+              "fk_grade": 8.4,
+              "speak_seconds_est": 18.0,
               "fits_20s": true,
-              "provenance": "workbook"
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "Schools matter enormously because they see students every single day, which no welfare office could manage. Free meals, scholarships, counseling and supervised study take real weight off a household, and an alert teacher becomes the bridge to community help.",
+              "words": 39,
+              "sentences": 2,
+              "avg_sentence_words": 19.5,
+              "fk_grade": 12.6,
+              "speak_seconds_est": 19.5,
+              "fits_20s": true,
+              "provenance": "authored"
             }
           },
           "authoring": {
@@ -349,24 +449,34 @@
           "numbers": [],
           "scripts": {
             "A2": {
-              "text": "Community groups also help. Food banks, social workers, religious groups, NGOs, and volunteer teams can find needs that official systems miss. But charity alone is not enough. Long-term support must build skills and dignity.",
-              "words": 34,
-              "sentences": 4,
-              "avg_sentence_words": 8.5,
-              "fk_grade": 6.8,
-              "speak_seconds_est": 15.7,
+              "text": "Community groups help too. Food banks, social workers, religious groups and NGOs find people that big systems miss. Gifts alone are not enough, because real support builds skills and dignity.",
+              "words": 30,
+              "sentences": 3,
+              "avg_sentence_words": 10.0,
+              "fk_grade": 6.0,
+              "speak_seconds_est": 18.9,
               "fits_20s": true,
               "provenance": "authored-replacement"
             },
             "B1": {
-              "text": "Community organizations often understand local problems deeply. They may provide food, tutoring, care, or job information. Yet SDG 1 is not just charity. The goal is to help people gain choices, skills, and dignity.",
-              "words": 33,
-              "sentences": 4,
-              "avg_sentence_words": 8.2,
-              "fk_grade": 8.4,
-              "speak_seconds_est": 15.2,
+              "text": "Local organizations often understand a neighborhood better than any ministry does. They provide food, tutoring, care and job news. Yet SDG 1 is not charity, because the goal is to give people choices, skills and dignity.",
+              "words": 36,
+              "sentences": 3,
+              "avg_sentence_words": 12.0,
+              "fk_grade": 8.8,
+              "speak_seconds_est": 19.6,
               "fits_20s": true,
-              "provenance": "workbook"
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "Civil society reaches the households that the official system overlooks, providing food, tutoring, daily care and job information. SDG 1, however, is not an argument for charity, because the aim is capability and dignity rather than dependence.",
+              "words": 37,
+              "sentences": 2,
+              "avg_sentence_words": 18.5,
+              "fk_grade": 14.6,
+              "speak_seconds_est": 18.5,
+              "fits_20s": true,
+              "provenance": "authored"
             }
           },
           "authoring": {
@@ -393,24 +503,34 @@
           "numbers": [],
           "scripts": {
             "A2": {
-              "text": "One solution is financial literacy. Students can learn budgeting, saving, responsible borrowing, and how to avoid scams. These skills do not solve poverty alone, but they help young people make safer choices in the future.",
-              "words": 35,
+              "text": "So what can we do? One answer is financial literacy. Students can plan a budget, save a little, borrow with care, and learn how to spot a scam.",
+              "words": 28,
               "sentences": 3,
-              "avg_sentence_words": 11.7,
-              "fk_grade": 8.9,
-              "speak_seconds_est": 16.2,
+              "avg_sentence_words": 9.3,
+              "fk_grade": 4.1,
+              "speak_seconds_est": 17.7,
               "fits_20s": true,
               "provenance": "authored-replacement"
             },
             "B1": {
-              "text": "Financial literacy gives students practical power. By learning budgets, savings, debt, insurance, and scams, young people can make better decisions. Of course, education cannot replace fair wages, but it can strengthen personal resilience.",
-              "words": 33,
+              "text": "Financial literacy gives you real power in daily life. Knowing about budgets, savings, debt, insurance and scams leads to better choices. Of course school cannot replace a fair wage, but it does build personal resilience.",
+              "words": 35,
               "sentences": 3,
-              "avg_sentence_words": 11.0,
-              "fk_grade": 11.2,
-              "speak_seconds_est": 15.2,
+              "avg_sentence_words": 11.7,
+              "fk_grade": 8.2,
+              "speak_seconds_est": 19.1,
               "fits_20s": true,
-              "provenance": "workbook"
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "Financial literacy offers a modest but real form of personal power, covering budgets, savings, debt, insurance and the recognition of fraud. It cannot substitute for a decent wage, though it does tend to strengthen resilience against a sudden shock.",
+              "words": 39,
+              "sentences": 2,
+              "avg_sentence_words": 19.5,
+              "fk_grade": 12.3,
+              "speak_seconds_est": 19.5,
+              "fits_20s": true,
+              "provenance": "authored"
             }
           },
           "authoring": {
@@ -428,24 +548,34 @@
           "numbers": [],
           "scripts": {
             "A2": {
-              "text": "Technology can also help. Students can use simple data maps to understand where help is needed: food access, public transportation, elderly care, or after-school programs. Data should guide kindness, not replace it.",
-              "words": 32,
+              "text": "Data can help as well. Students can map what is missing near them: food, buses, care for old people, classes after school. But data should guide our kindness, not replace it.",
+              "words": 31,
               "sentences": 3,
-              "avg_sentence_words": 10.7,
-              "fk_grade": 8.9,
-              "speak_seconds_est": 14.8,
+              "avg_sentence_words": 10.3,
+              "fk_grade": 4.0,
+              "speak_seconds_est": 19.6,
               "fits_20s": true,
               "provenance": "authored-replacement"
             },
             "B1": {
-              "text": "Data tools can reveal hidden poverty. For example, students can map service locations, transportation gaps, or after-school resources. Used carefully, data helps communities make smarter decisions. But every data point is still a real person.",
-              "words": 35,
-              "sentences": 4,
-              "avg_sentence_words": 8.8,
-              "fk_grade": 10.7,
-              "speak_seconds_est": 16.2,
+              "text": "Data tools can reveal the poverty that nobody has counted. Students can map service locations, transport gaps or after-school resources, and a community then chooses more wisely. But every data point is still a real person.",
+              "words": 36,
+              "sentences": 3,
+              "avg_sentence_words": 12.0,
+              "fk_grade": 9.4,
+              "speak_seconds_est": 19.6,
               "fits_20s": true,
-              "provenance": "workbook"
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "Careful analysis can expose the hardship that an average hides, letting students map where services, transport and after-school help run out. Communities can then aim their money well, provided we remember that each data point is a real person.",
+              "words": 39,
+              "sentences": 2,
+              "avg_sentence_words": 19.5,
+              "fk_grade": 12.0,
+              "speak_seconds_est": 19.5,
+              "fits_20s": true,
+              "provenance": "authored"
             }
           },
           "authoring": {
@@ -463,24 +593,34 @@
           "numbers": [],
           "scripts": {
             "A2": {
-              "text": "Service learning connects English, SDGs, and action. Students can interview local groups, write bilingual posters, design donation guides, or teach younger students. The best learning is not only speaking about problems, but working with people.",
-              "words": 35,
+              "text": "Service learning turns ideas into action. We can visit a local group, write posters in two languages, or teach younger children. We learn most when we work beside people.",
+              "words": 29,
               "sentences": 3,
-              "avg_sentence_words": 11.7,
-              "fk_grade": 9.2,
-              "speak_seconds_est": 16.2,
+              "avg_sentence_words": 9.7,
+              "fk_grade": 5.7,
+              "speak_seconds_est": 18.3,
               "fits_20s": true,
               "provenance": "authored-replacement"
             },
             "B1": {
-              "text": "Service learning turns SDG 1 into real experience. Students can interview social workers, create bilingual resources, or support tutoring programs. This also improves English because students speak for a real purpose, not only for a grade.",
-              "words": 35,
+              "text": "Service learning turns SDG 1 into real experience. Students can interview social workers, build bilingual guides or help with tutoring. Their English gets better as well, because they speak for a purpose, not for a grade.",
+              "words": 36,
               "sentences": 3,
-              "avg_sentence_words": 11.7,
-              "fk_grade": 9.5,
-              "speak_seconds_est": 16.2,
+              "avg_sentence_words": 12.0,
+              "fk_grade": 7.1,
+              "speak_seconds_est": 19.6,
               "fits_20s": true,
-              "provenance": "workbook"
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "Service learning turns an abstract target into something actually done: interviews with social workers, guides written in two languages, hours in a tutoring program. English tends to improve under those conditions, because the language finally serves a real purpose.",
+              "words": 39,
+              "sentences": 2,
+              "avg_sentence_words": 19.5,
+              "fk_grade": 13.2,
+              "speak_seconds_est": 19.5,
+              "fits_20s": true,
+              "provenance": "authored"
             }
           },
           "authoring": {
@@ -507,24 +647,34 @@
           "numbers": [],
           "scripts": {
             "A2": {
-              "text": "Poverty may grow as Taiwan gets older. Old people who live alone need care, money, and transport. Poverty is linked to health, family, and public services.",
-              "words": 26,
+              "text": "Taiwan is growing older fast. Many old people live alone and need care, money, transport, and help with their phone. Poverty follows health and family, not only pay.",
+              "words": 28,
               "sentences": 3,
-              "avg_sentence_words": 8.7,
-              "fk_grade": 6.9,
-              "speak_seconds_est": 12.0,
+              "avg_sentence_words": 9.3,
+              "fk_grade": 5.8,
+              "speak_seconds_est": 17.7,
               "fits_20s": true,
               "provenance": "authored-replacement"
             },
             "B1": {
-              "text": "An aging society changes poverty. Some older adults may live alone, have health problems, or struggle with digital services. SDG 1 therefore connects welfare, transportation, health care, and community relationships, not just income.",
-              "words": 32,
+              "text": "An aging society changes the shape of poverty. Older adults may live alone, manage illness, or struggle with services that have moved online. SDG 1 therefore connects welfare, transport, health care and community, not just income.",
+              "words": 36,
               "sentences": 3,
-              "avg_sentence_words": 10.7,
-              "fk_grade": 11.1,
-              "speak_seconds_est": 14.8,
+              "avg_sentence_words": 12.0,
+              "fk_grade": 9.1,
+              "speak_seconds_est": 19.6,
               "fits_20s": true,
-              "provenance": "workbook"
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "Demographic change is moving poverty risk onto the oldest: anyone living alone, managing a chronic illness, or stranded when the counter became an app. The goal therefore reaches into pensions, buses, clinics and neighborly contact, not wages alone.",
+              "words": 38,
+              "sentences": 2,
+              "avg_sentence_words": 19.0,
+              "fk_grade": 12.9,
+              "speak_seconds_est": 19.0,
+              "fits_20s": true,
+              "provenance": "authored"
             }
           },
           "authoring": {
@@ -542,24 +692,34 @@
           "numbers": [],
           "scripts": {
             "A2": {
-              "text": "Migrant workers and new immigrant families also need fair access. Language and paperwork make services hard to use. Good support helps their children and adults join society.",
-              "words": 27,
+              "text": "Migrant workers and new immigrant families need a fair door in. Language, forms and customs make help hard to reach. When a service is clear, the whole family can use it.",
+              "words": 31,
               "sentences": 3,
-              "avg_sentence_words": 9.0,
-              "fk_grade": 7.6,
-              "speak_seconds_est": 12.5,
+              "avg_sentence_words": 10.3,
+              "fk_grade": 4.8,
+              "speak_seconds_est": 19.6,
               "fits_20s": true,
               "provenance": "authored-replacement"
             },
             "B1": {
-              "text": "Poverty can be harder for migrant workers and new immigrant families because language and paperwork create barriers. If services are confusing, people may not receive help. Inclusion means making information clear, multilingual, and respectful.",
+              "text": "Poverty is harder to escape for migrant workers and new immigrant families. Language and paperwork can build a wall around help. If the message is clear and multilingual, more people will ask for it.",
               "words": 34,
               "sentences": 3,
               "avg_sentence_words": 11.3,
-              "fk_grade": 11.4,
-              "speak_seconds_est": 15.7,
+              "fk_grade": 7.2,
+              "speak_seconds_est": 18.5,
               "fits_20s": true,
-              "provenance": "workbook"
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "For migrant workers and new immigrant families, entitlement and access are split by language, paperwork and official habit. Help that cannot be understood is help that does not exist, so inclusion has to be clear, multilingual and respectful.",
+              "words": 38,
+              "sentences": 2,
+              "avg_sentence_words": 19.0,
+              "fk_grade": 12.0,
+              "speak_seconds_est": 19.0,
+              "fits_20s": true,
+              "provenance": "authored"
             }
           },
           "authoring": {
@@ -577,24 +737,34 @@
           "numbers": [],
           "scripts": {
             "A2": {
-              "text": "Climate disasters can make poverty worse. Floods and extreme heat hurt low-income families first, because they have less money to fall back on. SDG 1 and climate action are linked.",
+              "text": "Climate disasters make poverty worse. Floods and heat hit poor homes hardest, because they have less money saved and fewer ways out. Climate action is part of this fight.",
               "words": 29,
               "sentences": 3,
               "avg_sentence_words": 9.7,
-              "fk_grade": 6.1,
-              "speak_seconds_est": 13.4,
+              "fk_grade": 5.3,
+              "speak_seconds_est": 18.3,
               "fits_20s": true,
               "provenance": "authored-replacement"
             },
             "B1": {
-              "text": "Climate risk is a poverty issue. When disasters happen, low-income families often lose more and recover more slowly. Preparing shelters, insurance, public information, and community networks can protect vulnerable people before emergencies arrive.",
-              "words": 33,
+              "text": "Climate risk is a poverty issue. When a disaster arrives, low-income families lose more and recover far more slowly. So shelters, insurance, clear advice and neighbors who check on each other have to be ready first.",
+              "words": 36,
               "sentences": 3,
-              "avg_sentence_words": 11.0,
-              "fk_grade": 13.7,
-              "speak_seconds_est": 15.2,
+              "avg_sentence_words": 12.0,
+              "fk_grade": 7.8,
+              "speak_seconds_est": 19.6,
               "fits_20s": true,
-              "provenance": "workbook"
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "Climate change acts as an inequality multiplier, because the same flood hits two homes very differently, depending on savings and insurance. Adaptation is poverty policy, and shelters, advice and local networks must exist before the emergency arrives.",
+              "words": 37,
+              "sentences": 2,
+              "avg_sentence_words": 18.5,
+              "fk_grade": 14.9,
+              "speak_seconds_est": 18.5,
+              "fits_20s": true,
+              "provenance": "authored"
             }
           },
           "authoring": {
@@ -612,24 +782,34 @@
           "numbers": [],
           "scripts": {
             "A2": {
-              "text": "Finally, we must talk about dignity. Helping people should not make them feel ashamed. If we only see poor people as weak, we miss their strengths. Real support listens, respects, and works together.",
-              "words": 33,
-              "sentences": 4,
-              "avg_sentence_words": 8.2,
-              "fk_grade": 5.1,
-              "speak_seconds_est": 15.2,
+              "text": "Now, dignity. Help should never make a person feel small. If we only see weakness, we miss the strength that is already there, so we should listen first.",
+              "words": 28,
+              "sentences": 3,
+              "avg_sentence_words": 9.3,
+              "fk_grade": 3.6,
+              "speak_seconds_est": 17.7,
               "fits_20s": true,
               "provenance": "authored-replacement"
             },
             "B1": {
-              "text": "Dignity changes the way we help. Poverty should not be treated as shame or laziness. Many people are strong but face unfair conditions. Respectful support asks people what they need and includes them in decisions.",
-              "words": 35,
-              "sentences": 4,
-              "avg_sentence_words": 8.8,
-              "fk_grade": 6.7,
-              "speak_seconds_est": 16.2,
+              "text": "Dignity changes the way support is given. Poverty should never be treated as shame or laziness, because many people are strong and simply face unfair conditions. Respectful help asks people what they actually need.",
+              "words": 34,
+              "sentences": 3,
+              "avg_sentence_words": 11.3,
+              "fk_grade": 8.6,
+              "speak_seconds_est": 18.5,
               "fits_20s": true,
-              "provenance": "workbook"
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "Dignity deserves treatment as a design principle rather than a courtesy, since help delivered with contempt is often refused. People in poverty are disadvantaged rather than lacking, and support built with them works better than support built for them.",
+              "words": 39,
+              "sentences": 2,
+              "avg_sentence_words": 19.5,
+              "fk_grade": 12.9,
+              "speak_seconds_est": 19.5,
+              "fits_20s": true,
+              "provenance": "authored"
             }
           },
           "authoring": {
@@ -656,24 +836,34 @@
           "numbers": [],
           "scripts": {
             "A2": {
-              "text": "To sum up, SDG 1 is about shared security. Poverty affects education, health, housing, and dreams. Taiwan has support systems, but we still need earlier help, better access, and stronger community action.",
-              "words": 31,
+              "text": "To sum up, this goal is about shared safety. Poverty touches learning, housing, health and dreams. Taiwan has support, but help must come sooner and reach further.",
+              "words": 27,
               "sentences": 3,
-              "avg_sentence_words": 10.3,
-              "fk_grade": 9.0,
-              "speak_seconds_est": 14.3,
+              "avg_sentence_words": 9.0,
+              "fk_grade": 5.4,
+              "speak_seconds_est": 17.1,
               "fits_20s": true,
               "provenance": "authored-replacement"
             },
             "B1": {
-              "text": "In summary, SDG 1 is not only about money. It is about whether everyone can live with safety and opportunity. Taiwan has made progress, but hidden poverty still asks us to improve access, timing, and fairness.",
-              "words": 35,
+              "text": "In summary, SDG 1 is not only about money. It is about whether everyone can live with safety and opportunity. Taiwan has clearly progressed, yet hidden poverty still asks us to improve access, timing and fairness.",
+              "words": 36,
               "sentences": 3,
-              "avg_sentence_words": 11.7,
-              "fk_grade": 8.9,
-              "speak_seconds_est": 16.2,
+              "avg_sentence_words": 12.0,
+              "fk_grade": 9.4,
+              "speak_seconds_est": 19.6,
               "fits_20s": true,
-              "provenance": "workbook"
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "The overall position is encouraging although nothing like sufficient, because the institutions exist and the coverage is broad. What is still missing is access, timing and the fairness with which help actually reaches the households that need it.",
+              "words": 38,
+              "sentences": 2,
+              "avg_sentence_words": 19.0,
+              "fk_grade": 12.0,
+              "speak_seconds_est": 19.0,
+              "fits_20s": true,
+              "provenance": "authored"
             }
           },
           "authoring": {
@@ -691,24 +881,34 @@
           "numbers": [],
           "scripts": {
             "A2": {
-              "text": "We also need to challenge stereotypes. It is easy to blame poor people, but poverty is often caused by low wages, high costs, illness, care duties, or disasters. Understanding the system helps us respond wisely.",
-              "words": 35,
+              "text": "We also need to drop the blame. Low pay, high prices, illness, family care, a flood: these push people down. Blaming is easy, but understanding is useful.",
+              "words": 27,
               "sentences": 3,
-              "avg_sentence_words": 11.7,
-              "fk_grade": 8.5,
-              "speak_seconds_est": 16.2,
+              "avg_sentence_words": 9.0,
+              "fk_grade": 5.4,
+              "speak_seconds_est": 17.1,
               "fits_20s": true,
               "provenance": "authored-replacement"
             },
             "B1": {
-              "text": "A key step is changing our language. If we say poor people are lazy, we stop thinking. If we ask what barriers they face, we can discuss wages, rent, health, transport, and education more honestly.",
-              "words": 35,
+              "text": "The most useful change may be our own language. Calling people lazy ends the conversation at once. Asking which barriers they meet opens it, because we then have to discuss wages, rent, health, transport and education.",
+              "words": 36,
               "sentences": 3,
-              "avg_sentence_words": 11.7,
-              "fk_grade": 5.5,
-              "speak_seconds_est": 16.2,
+              "avg_sentence_words": 12.0,
+              "fk_grade": 7.1,
+              "speak_seconds_est": 19.6,
               "fits_20s": true,
-              "provenance": "workbook"
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "Perhaps the most powerful reform is a change of vocabulary, since the word lazy closes an argument that evidence should open. Replace it with a question about obstacles, and suddenly you are debating pay, rent, clinics, buses and schools.",
+              "words": 39,
+              "sentences": 2,
+              "avg_sentence_words": 19.5,
+              "fk_grade": 11.7,
+              "speak_seconds_est": 19.5,
+              "fits_20s": true,
+              "provenance": "authored"
             }
           },
           "authoring": {
@@ -726,24 +926,34 @@
           "numbers": [],
           "scripts": {
             "A2": {
-              "text": "Young people can help by building skills, networks, and voice. We can learn English to share SDG ideas, use data to explain problems, and join local projects. Small actions become powerful when they are organized.",
-              "words": 35,
+              "text": "You are young, but you can start now. Learn English and share these ideas, use data to show the problem, join a group near you. Together, small actions become powerful.",
+              "words": 30,
               "sentences": 3,
-              "avg_sentence_words": 11.7,
-              "fk_grade": 6.5,
-              "speak_seconds_est": 16.2,
+              "avg_sentence_words": 10.0,
+              "fk_grade": 4.0,
+              "speak_seconds_est": 18.9,
               "fits_20s": true,
               "provenance": "authored-replacement"
             },
             "B1": {
-              "text": "Students are not too young to act. They can create bilingual campaigns, volunteer, collect stories, design simple tools, or present ideas to the school. PechaKucha is one way to turn learning into a public voice.",
+              "text": "Students are not too young to act on this. They can run bilingual campaigns, volunteer, collect stories, design simple tools, or present their ideas to the school. PechaKucha turns private study into a public voice.",
               "words": 35,
               "sentences": 3,
               "avg_sentence_words": 11.7,
-              "fk_grade": 6.8,
-              "speak_seconds_est": 16.2,
+              "fk_grade": 7.2,
+              "speak_seconds_est": 19.1,
               "fits_20s": true,
-              "provenance": "workbook"
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "Students often underestimate their own power: bilingual campaigns, volunteer work, stories, simple tools, a talk given in front of a real audience. PechaKucha turns private study into public argument, which is exactly what a democracy needs.",
+              "words": 36,
+              "sentences": 2,
+              "avg_sentence_words": 18.0,
+              "fk_grade": 13.1,
+              "speak_seconds_est": 18.0,
+              "fits_20s": true,
+              "provenance": "authored"
             }
           },
           "authoring": {
@@ -761,24 +971,34 @@
           "numbers": [],
           "scripts": {
             "A2": {
-              "text": "Thank you for listening. SDG 1 asks us to see poverty clearly and to act with respect. Let us start from our own school and our own words.",
-              "words": 27,
+              "text": "So let's start where we stand. See poverty clearly, speak with respect, and act in our own school and community. A fair future begins with what we choose to notice today.",
+              "words": 31,
               "sentences": 3,
-              "avg_sentence_words": 9.0,
-              "fk_grade": 2.3,
-              "speak_seconds_est": 12.5,
+              "avg_sentence_words": 10.3,
+              "fk_grade": 4.4,
+              "speak_seconds_est": 19.6,
               "fits_20s": true,
               "provenance": "authored-replacement"
             },
             "B1": {
-              "text": "Thank you. Ending poverty sounds huge, but action can begin nearby: notice a need, learn the facts, speak respectfully, and work with others. If we connect English, SDGs, and action, students can become real changemakers.",
-              "words": 35,
+              "text": "Ending poverty sounds enormous, yet the action usually starts nearby. Notice a need, check the facts, speak respectfully and work with somebody else. If we connect English, the SDGs and action, students can become real changemakers.",
+              "words": 36,
               "sentences": 3,
-              "avg_sentence_words": 11.7,
-              "fk_grade": 7.2,
-              "speak_seconds_est": 16.2,
+              "avg_sentence_words": 12.0,
+              "fk_grade": 8.8,
+              "speak_seconds_est": 19.6,
               "fits_20s": true,
-              "provenance": "workbook"
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "Eliminating poverty sounds impossibly large, yet every credible version begins locally, by noticing a need, checking the facts, speaking with respect and working with other people. A fair future begins with whatever this generation decides is worth noticing today.",
+              "words": 39,
+              "sentences": 2,
+              "avg_sentence_words": 19.5,
+              "fk_grade": 15.0,
+              "speak_seconds_est": 19.5,
+              "fits_20s": true,
+              "provenance": "authored"
             }
           },
           "authoring": {

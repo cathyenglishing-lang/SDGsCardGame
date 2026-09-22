@@ -1,0 +1,22 @@
+{
+  "mission_id": "sdg9-2",
+  "level": "B2",
+  "provenance": "authored-replacement",
+  "author": "Claude (English teacher role), v2 against the v2 quality gate",
+  "basis": "Full rewrite. The workbook B2 column failed eleven of twelve slides and shared 0.52 of its vocabulary with B1 - slide 10 was identical at both levels - so B2 existed only as a longer set of adjectives. This version earns the level with syntax: concession on slides 4, 8 and 11, passives on 3, 4, 5, 10 and 12, participle clauses on 3 and 10, a cleft on slide 2 ('what decides the quality of an answer is not the machine itself'), fronting with inversion on slide 9 ('Only when you have identified your objective does a prompt become worth writing') and a reduced relative on slide 4 ('a request written in five seconds'). Register is kept speakable rather than ornamental. Meaning, slide order and every named fact are unchanged: SDG 9, the United Nations, ChatGPT, AI slop, the four elements of a prompt, literature review, laboratory report, presentation. Facts corrected: the workbook says the model 'predicts responses strictly based on the information contained in our prompt', which is wrong - the output depends on the prompt and on the patterns in the training text - so slide 5 says it generates the most probable continuation of whatever context you supplied. 'AI does not automatically understand our human intentions' is restated as an inability to infer an intention that was never stated, which avoids implying that it understands the stated ones.",
+  "reviewed_by": null,
+  "slides": {
+    "1": "Good morning. SDG 9 is the United Nations framework for industry, innovation and infrastructure, and it commits every member state to upgrading its factories, strengthening its networks and funding the science that development rests on.",
+    "2": "Artificial intelligence is transforming research and scientific communication at remarkable speed. But what decides the quality of an answer is not the machine itself — it is the care behind our question.",
+    "3": "University science majors now delegate whole tasks to ChatGPT, asking it to draft a laboratory report or condense a journal article. Concepts that a lecture left unexplained are handed over too.",
+    "4": "The technology is quick and convenient, although a request written in five seconds tends to earn an equally unremarkable reply. Vague, repetitive output of that kind is dismissed as AI slop.",
+    "5": "The reason is mechanical. A model cannot infer an intention that was left unstated, so it generates the most probable continuation of whatever context you supplied, and thin context yields a thin answer.",
+    "6": "A well-constructed prompt therefore carries four elements. Name the role the model should adopt, supply the background it cannot possibly guess, specify the objective, and set the limitations it must respect.",
+    "7": "Precision in scientific communication is not a stylistic luxury. A student who learns to specify exactly what is needed will produce a faster literature review, a cleaner laboratory report and a clearer set of presentations.",
+    "8": "There is a risk in all this, though. If we accept generated answers without interrogating them, we drift into passive learning, and scientific thinking begins with curiosity rather than convenience.",
+    "9": "Only when you have identified your objective does a prompt become worth writing. Ask which information is genuinely missing, who the intended reader is, and what format would communicate it best.",
+    "10": "Then hand over instructions that are organised rather than vague, including your academic level and the exact format you expect. Prompt writing is best understood as a form of professional scientific communication.",
+    "11": "Algorithms sort data at a speed no human can match, while remaining incapable of curiosity, of trained intuition and of any sense of duty. Those human traits are what turn raw data into discovery.",
+    "12": "Responsible innovation under SDG 9 begins with responsible communication. Better prompts may produce better answers, but knowledge that other people can rely on is made by scientists who question what they are given."
+  }
+}

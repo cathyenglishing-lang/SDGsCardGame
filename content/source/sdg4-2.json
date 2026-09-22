@@ -214,12 +214,12 @@
           },
           "scripts": {
             "A2": {
-              "text": "Here is the first problem. City students have fast internet at home. In some country schools the line is slow, so online lessons are hard. Is that fair to them?",
+              "text": "Here is the first problem. City students have fast internet at home. In some country schools the line is slow, so online lessons are difficult. Is that fair to them?",
               "words": 30,
               "sentences": 4,
               "avg_sentence_words": 7.5,
-              "fk_grade": 2.3,
-              "long_word_pct": 6.7,
+              "fk_grade": 3.1,
+              "long_word_pct": 10.0,
               "speak_seconds_est": 18.9,
               "fill_pct": 94.7,
               "fits_20s": true,
@@ -756,14 +756,14 @@
           },
           "scripts": {
             "A2": {
-              "text": "Why does this matter? Taiwan sells about 500 billion dollars of goods a year, and most of it is technology. Safe, skilled internet users can also help fix world problems.",
-              "words": 30,
+              "text": "Why does this matter? Taiwan sells about 500 billion dollars of goods a year, and most of it is technology. Safe and skilled internet users can also help fix world problems.",
+              "words": 31,
               "sentences": 3,
-              "avg_sentence_words": 10.0,
-              "fk_grade": 6.4,
-              "long_word_pct": 10.0,
-              "speak_seconds_est": 18.9,
-              "fill_pct": 94.7,
+              "avg_sentence_words": 10.3,
+              "fk_grade": 6.3,
+              "long_word_pct": 9.7,
+              "speak_seconds_est": 19.6,
+              "fill_pct": 97.9,
               "fits_20s": true,
               "wpm": 95,
               "provenance": "authored-replacement",
@@ -1109,14 +1109,14 @@
           },
           "scripts": {
             "A2": {
-              "text": "In the future, digital rights belong to everyone. That includes the groups we usually forget. Ask for lessons that show how technology really works in daily life.",
-              "words": 27,
+              "text": "In the future, digital rights belong to everyone. That includes the groups we usually forget. Ask for lessons that show how the internet really works in daily life.",
+              "words": 28,
               "sentences": 3,
-              "avg_sentence_words": 9.0,
-              "fk_grade": 7.1,
-              "long_word_pct": 11.1,
-              "speak_seconds_est": 17.1,
-              "fill_pct": 85.3,
+              "avg_sentence_words": 9.3,
+              "fk_grade": 6.6,
+              "long_word_pct": 10.7,
+              "speak_seconds_est": 17.7,
+              "fill_pct": 88.4,
               "fits_20s": true,
               "wpm": 95,
               "provenance": "authored-replacement",
@@ -1166,11 +1166,11 @@
           },
           "scripts": {
             "A2": {
-              "text": "Here is the ask. Teach an older neighbor to use a phone, or help a younger student online. Together, Taiwan can build a digital future that leaves nobody out. Let's start today.",
+              "text": "Here is the ask. Teach an older neighbor to use a phone, or help a younger student online. Together, we can build a digital future that leaves nobody out. Let's start today.",
               "words": 32,
               "sentences": 4,
               "avg_sentence_words": 8.0,
-              "fk_grade": 4.9,
+              "fk_grade": 4.5,
               "long_word_pct": 6.2,
               "speak_seconds_est": 20.2,
               "fill_pct": 101.1,
@@ -1221,9 +1221,9 @@
   "level_summary": {
     "A2": {
       "slides": 20,
-      "avg_words": 28.9,
+      "avg_words": 29.0,
       "avg_sentence_words": 9.0,
-      "fk_grade": 4.3,
+      "fk_grade": 4.2,
       "slides_over_20s": 1
     },
     "B1": {

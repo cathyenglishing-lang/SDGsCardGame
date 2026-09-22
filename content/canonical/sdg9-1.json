@@ -1,0 +1,653 @@
+{
+  "mission_id": "sdg9-1",
+  "sdg": 9,
+  "title": {
+    "en": "Using AI: Can We Trust AI?",
+    "zh": null
+  },
+  "content_version": "2026.09.1",
+  "levels": [
+    "A2",
+    "B1",
+    "B2"
+  ],
+  "source_mission": "sdg9-1",
+  "slide_count": 12,
+  "level_summary": {
+    "A2": {
+      "slides": 12,
+      "avg_words": 28.0,
+      "avg_sentence_words": 9.3,
+      "fk_grade": 4.8,
+      "slides_over_20s": 0
+    },
+    "B1": {
+      "slides": 12,
+      "avg_words": 31.6,
+      "avg_sentence_words": 13.4,
+      "fk_grade": 7.9,
+      "slides_over_20s": 0
+    },
+    "B2": {
+      "slides": 12,
+      "avg_words": 32.1,
+      "avg_sentence_words": 16.0,
+      "fk_grade": 12.4,
+      "slides_over_20s": 0
+    }
+  },
+  "gate": {
+    "A2": [],
+    "B1": [],
+    "B2": []
+  },
+  "distance": {
+    "A2->B1": {
+      "mean": 0.11,
+      "pass": true,
+      "too_close": {}
+    },
+    "B1->B2": {
+      "mean": 0.1,
+      "pass": true,
+      "too_close": {}
+    }
+  },
+  "ready": true,
+  "stages": [
+    {
+      "part_no": 1,
+      "function_en": "Introduction",
+      "function_zh": "引言：破題與定義",
+      "language_pattern": "rhetorical questions / X is about ...",
+      "source_description": "Hook + SDG 9 & AI Connection",
+      "slides": [
+        {
+          "slide_no": 1,
+          "title": {
+            "en": "Hook + SDG 9 & AI Connection",
+            "zh": "引言，連結 SDG 9 與 AI"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Good morning. Today I talk about SDG 9: Industry, Innovation, and Infrastructure. It asks every country in the world to make things well and to try new ideas.",
+              "words": 28,
+              "sentences": 3,
+              "avg_sentence_words": 9.3,
+              "fk_grade": 6.2,
+              "speak_seconds_est": 17.7,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B1": {
+              "text": "Good morning. My topic is SDG 9, the goal for Industry, Innovation, and Infrastructure. The United Nations wants every state to invest in better factories and in the new tools that follow them.",
+              "words": 33,
+              "sentences": 3,
+              "avg_sentence_words": 11.0,
+              "fk_grade": 7.7,
+              "speak_seconds_est": 18.0,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "Good morning. The ninth Sustainable Development Goal, Industry, Innovation, and Infrastructure, asks every country in the world to build the factories, the networks and the kind of research that a modern economy quietly depends on.",
+              "words": 35,
+              "sentences": 2,
+              "avg_sentence_words": 17.5,
+              "fk_grade": 12.5,
+              "speak_seconds_est": 17.5,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            }
+          },
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 2,
+          "title": {
+            "en": "Hook + SDG 9 & AI Connection",
+            "zh": "引言，連結 SDG 9 與 AI"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Now AI is a strong new engine inside science. It reads data very quickly and offers ideas to any researcher in a second. But can we trust the answer?",
+              "words": 29,
+              "sentences": 3,
+              "avg_sentence_words": 9.7,
+              "fk_grade": 4.9,
+              "speak_seconds_est": 18.3,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B1": {
+              "text": "Inside that goal, AI has become a new kind of digital infrastructure. It lets researchers handle enormous data sets and reach results sooner, but can we rely on it?",
+              "words": 29,
+              "sentences": 2,
+              "avg_sentence_words": 14.5,
+              "fk_grade": 8.4,
+              "speak_seconds_est": 15.8,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "Artificial intelligence has quietly become part of that infrastructure, speeding up analysis in almost every laboratory on earth. That success, though, raises the one question we would rather not ask about it.",
+              "words": 32,
+              "sentences": 2,
+              "avg_sentence_words": 16.0,
+              "fk_grade": 12.4,
+              "speak_seconds_est": 16.0,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            }
+          },
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        }
+      ]
+    },
+    {
+      "part_no": 2,
+      "function_en": "Problem",
+      "function_zh": "問題指認：趨勢與因果",
+      "language_pattern": "present progressive for trends / this causes ...",
+      "source_description": "Student Experience & Contextualied Problem",
+      "slides": [
+        {
+          "slide_no": 3,
+          "title": {
+            "en": "Student Experience & Contextualied Problem",
+            "zh": "從學生情境切入，提出問題"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Many science students use ChatGPT or Gemini every day. We write lab reports with it, and it makes hard ideas clear. It is quick, and it saves us time.",
+              "words": 29,
+              "sentences": 3,
+              "avg_sentence_words": 9.7,
+              "fk_grade": 4.0,
+              "speak_seconds_est": 18.3,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B1": {
+              "text": "As science majors, most of us open ChatGPT or Gemini before we open a textbook. These systems tidy our lab reports and shorten long articles. They explain difficult theory that would otherwise cost us hours.",
+              "words": 35,
+              "sentences": 3,
+              "avg_sentence_words": 11.7,
+              "fk_grade": 7.2,
+              "speak_seconds_est": 19.1,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "University students have absorbed ChatGPT and Gemini into ordinary academic life, handing over the jobs we once did ourselves. The lab report, the literature summary and the hard theory are drafted by software.",
+              "words": 33,
+              "sentences": 2,
+              "avg_sentence_words": 16.5,
+              "fk_grade": 13.0,
+              "speak_seconds_est": 16.5,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            }
+          },
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 4,
+          "title": {
+            "en": "Student Experience & Contextualied Problem",
+            "zh": "從學生情境切入，提出問題"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "But AI is not always right. It can invent papers, authors and facts that do not exist. We call this AI hallucination, and it sounds very real.",
+              "words": 27,
+              "sentences": 3,
+              "avg_sentence_words": 9.0,
+              "fk_grade": 4.1,
+              "speak_seconds_est": 17.1,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B1": {
+              "text": "However, the output is not always correct. These tools sometimes produce papers, authors and results that were never real, and scientists call that strange failure an AI hallucination.",
+              "words": 28,
+              "sentences": 2,
+              "avg_sentence_words": 14.0,
+              "fk_grade": 9.7,
+              "speak_seconds_est": 15.3,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "The technology is impressive, although it fails in an unusual way. A model can manufacture citations, authors and whole findings that look totally legitimate and yet have never existed at all.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 11.8,
+              "speak_seconds_est": 15.5,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            }
+          },
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        }
+      ]
+    },
+    {
+      "part_no": 3,
+      "function_en": "Achievements",
+      "function_zh": "成果：舉證與比較",
+      "language_pattern": "present perfect / comparatives",
+      "source_description": "Scientific Explanation",
+      "slides": [
+        {
+          "slide_no": 5,
+          "title": {
+            "en": "Scientific Explanation",
+            "zh": "解釋科學原理"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Why does this happen? A model never studies science, because it only copies the habits of writing on the Internet. It offers the word that usually comes next.",
+              "words": 28,
+              "sentences": 3,
+              "avg_sentence_words": 9.3,
+              "fk_grade": 6.2,
+              "speak_seconds_est": 17.7,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B1": {
+              "text": "To see why, remember what a language model actually does. It was trained on an enormous library of human writing. It selects each word simply by how likely that word is to follow.",
+              "words": 33,
+              "sentences": 3,
+              "avg_sentence_words": 11.0,
+              "fk_grade": 6.9,
+              "speak_seconds_est": 18.0,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "The reason is architectural rather than accidental. A language model is trained to predict the most probable continuation of a text, and that prediction is drawn from statistical patterns, not from reality.",
+              "words": 32,
+              "sentences": 2,
+              "avg_sentence_words": 16.0,
+              "fk_grade": 12.0,
+              "speak_seconds_est": 16.0,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            }
+          },
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 6,
+          "title": {
+            "en": "Scientific Explanation",
+            "zh": "解釋科學原理"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "So the answer can sound perfect and still be wrong. The model never opens a journal or a textbook. Smooth English is simply not the same as truth.",
+              "words": 28,
+              "sentences": 3,
+              "avg_sentence_words": 9.3,
+              "fk_grade": 3.6,
+              "speak_seconds_est": 17.7,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B1": {
+              "text": "A smooth paragraph can be pure invention, because the system continues a sentence instead of testing a claim. Probability is not proof, and nothing inside the tool will warn you.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 8.7,
+              "speak_seconds_est": 16.4,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "Because the system is built to continue a sentence rather than to verify a claim, fluency guarantees nothing about accuracy. A paragraph written by a model and one written by a researcher look identical.",
+              "words": 34,
+              "sentences": 2,
+              "avg_sentence_words": 17.0,
+              "fk_grade": 11.5,
+              "speak_seconds_est": 17.0,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            }
+          },
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        }
+      ]
+    },
+    {
+      "part_no": 4,
+      "function_en": "Solutions",
+      "function_zh": "解方：做法與取捨",
+      "language_pattern": "instead of + V-ing / modal verbs",
+      "source_description": "Impact & Significance",
+      "slides": [
+        {
+          "slide_no": 7,
+          "title": {
+            "en": "Impact & Significance",
+            "zh": "分析影響與重要性"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "What happens if we copy those empty titles into a lab report? We may fail the paper. Even worse, nobody trusts a future scientist who never checks.",
+              "words": 27,
+              "sentences": 3,
+              "avg_sentence_words": 9.0,
+              "fk_grade": 5.4,
+              "speak_seconds_est": 17.1,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B1": {
+              "text": "If we paste invented sources into an assignment, we will lose marks at once. Worse, we damage our honesty and the trust that every future scientist has to earn.",
+              "words": 29,
+              "sentences": 2,
+              "avg_sentence_words": 14.5,
+              "fk_grade": 7.2,
+              "speak_seconds_est": 15.8,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "If fabricated references survive into a submitted report, the first cost is a failed assignment. The deeper cost is heavier: research honesty, a career reputation and the good name of a whole lab.",
+              "words": 33,
+              "sentences": 2,
+              "avg_sentence_words": 16.5,
+              "fk_grade": 11.2,
+              "speak_seconds_est": 16.5,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            }
+          },
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 8,
+          "title": {
+            "en": "Impact & Significance",
+            "zh": "分析影響與重要性"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "The danger is bigger than my degree. People slowly stop believing science when wrong facts travel fast. Nothing new can help a public that trusts nobody.",
+              "words": 26,
+              "sentences": 3,
+              "avg_sentence_words": 8.7,
+              "fk_grade": 4.6,
+              "speak_seconds_est": 16.4,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B1": {
+              "text": "The harm does not stop at the classroom door. When false claims reach the public, confidence in research falls, and a society that distrusts science will never accept the innovations it needs.",
+              "words": 32,
+              "sentences": 2,
+              "avg_sentence_words": 16.0,
+              "fk_grade": 7.2,
+              "speak_seconds_est": 17.5,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "The damage does not stay inside the classroom. Public confidence in science is fragile, and when inaccurate claims circulate widely, the innovation that SDG 9 promises becomes politically impossible to deliver.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 14.1,
+              "speak_seconds_est": 15.5,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            }
+          },
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        }
+      ]
+    },
+    {
+      "part_no": 5,
+      "function_en": "Implications",
+      "function_zh": "影響：推論後果",
+      "language_pattern": "first conditional / however",
+      "source_description": "AI Literacy & Strategy/Solution",
+      "slides": [
+        {
+          "slide_no": 9,
+          "title": {
+            "en": "AI Literacy & Strategy/Solution",
+            "zh": "提出 AI 素養策略與解方"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "So what can we do? First, never treat an AI answer as the final word. Stop for a moment, and ask a simple question: is this really true?",
+              "words": 28,
+              "sentences": 3,
+              "avg_sentence_words": 9.3,
+              "fk_grade": 2.8,
+              "speak_seconds_est": 17.7,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B1": {
+              "text": "So how should we work with these systems? Critical thinking has to come first, which means treating every answer as a temporary draft that we still have to verify.",
+              "words": 29,
+              "sentences": 2,
+              "avg_sentence_words": 14.5,
+              "fk_grade": 7.2,
+              "speak_seconds_est": 15.8,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "So what should a responsible scientist actually do? Treat every answer the machine produces as a first hypothesis, not a conclusion, and remember that verification has to come before belief.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 11.9,
+              "speak_seconds_est": 15.0,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            }
+          },
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 10,
+          "title": {
+            "en": "AI Literacy & Strategy/Solution",
+            "zh": "提出 AI 素養策略與解方"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Second, check every title yourself before you trust it. Try a trusted site like Google Scholar or PubMed. A machine can search fast, but the choice stays ours.",
+              "words": 28,
+              "sentences": 3,
+              "avg_sentence_words": 9.3,
+              "fk_grade": 4.5,
+              "speak_seconds_est": 17.7,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B1": {
+              "text": "Next, confirm each source in an academic database such as Google Scholar or PubMed. The tool can gather material far quicker than we can, yet the final decision belongs to us.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 8.7,
+              "speak_seconds_est": 16.9,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "Next, run every important claim past Google Scholar, PubMed or a peer-reviewed journal. Retrieval is delegated to a machine easily enough, whereas judgement about what those sources mean is not.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 11.9,
+              "speak_seconds_est": 15.0,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            }
+          },
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        }
+      ]
+    },
+    {
+      "part_no": 6,
+      "function_en": "Call to action",
+      "function_zh": "結語：總結與號召",
+      "language_pattern": "to wrap up ... / let's ...",
+      "source_description": "Conclusion & Call to Action",
+      "slides": [
+        {
+          "slide_no": 11,
+          "title": {
+            "en": "Conclusion & Call to Action",
+            "zh": "總結重點，呼籲採取行動"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Even today, your human voice still matters. A computer can copy and arrange data forever. But it feels no wonder, and it never worries about right or wrong.",
+              "words": 28,
+              "sentences": 3,
+              "avg_sentence_words": 9.3,
+              "fk_grade": 6.2,
+              "speak_seconds_est": 17.7,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B1": {
+              "text": "Even in a modern laboratory, the human element is still essential. A machine can organise enormous amounts of data. But it feels no curiosity, no doubt and no shame when a claim is false.",
+              "words": 34,
+              "sentences": 3,
+              "avg_sentence_words": 11.3,
+              "fk_grade": 7.9,
+              "speak_seconds_est": 18.5,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "Inside a laboratory that is increasingly automated, the human part still decides the outcome. What algorithms lack is curiosity, trained intuition and any real sense that a published result might be wrong.",
+              "words": 32,
+              "sentences": 2,
+              "avg_sentence_words": 16.0,
+              "fk_grade": 12.4,
+              "speak_seconds_est": 16.0,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            }
+          },
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 12,
+          "title": {
+            "en": "Conclusion & Call to Action",
+            "zh": "總結重點，呼籲採取行動"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "AI is one famous invention of SDG 9. But a clever tool without honest people is just a factory of lies. Machines arrange the words, and we find the truth.",
+              "words": 30,
+              "sentences": 3,
+              "avg_sentence_words": 10.0,
+              "fk_grade": 4.8,
+              "speak_seconds_est": 18.9,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B1": {
+              "text": "AI may be the most exciting invention that SDG 9 has delivered. Yet a tool without a responsible user simply spreads false information faster. Use it, verify it, and science keeps the trust it has earned.",
+              "words": 36,
+              "sentences": 3,
+              "avg_sentence_words": 12.0,
+              "fk_grade": 7.4,
+              "speak_seconds_est": 19.6,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "AI may be the most consequential innovation that SDG 9 has produced, although innovation without responsibility decays into misinformation. Only when we verify what we publish does the technology deserve our trust.",
+              "words": 32,
+              "sentences": 2,
+              "avg_sentence_words": 16.0,
+              "fk_grade": 14.3,
+              "speak_seconds_est": 16.0,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            }
+          },
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        }
+      ]
+    }
+  ]
+}

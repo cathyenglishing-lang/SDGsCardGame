@@ -1,0 +1,1020 @@
+{
+  "mission_id": "sdg13-2",
+  "sdg": 13,
+  "title": {
+    "en": "Climate-Resilient Taiwan",
+    "zh": null
+  },
+  "content_version": "2026.09.1",
+  "levels": [
+    "A2",
+    "B1",
+    "B2"
+  ],
+  "source_mission": "sdg13-2",
+  "slide_count": 20,
+  "level_summary": {
+    "A2": {
+      "slides": 20,
+      "avg_words": 27.6,
+      "avg_sentence_words": 9.2,
+      "fk_grade": 4.2,
+      "slides_over_20s": 0
+    },
+    "B1": {
+      "slides": 20,
+      "avg_words": 31.9,
+      "avg_sentence_words": 15.1,
+      "fk_grade": 8.2,
+      "slides_over_20s": 0
+    },
+    "B2": {
+      "slides": 20,
+      "avg_words": 35.2,
+      "avg_sentence_words": 17.6,
+      "fk_grade": 12.9,
+      "slides_over_20s": 0
+    }
+  },
+  "gate": {
+    "A2": [],
+    "B1": [],
+    "B2": []
+  },
+  "distance": {
+    "A2->B1": {
+      "mean": 0.17,
+      "pass": true,
+      "too_close": {}
+    },
+    "B1->B2": {
+      "mean": 0.22,
+      "pass": true,
+      "too_close": {}
+    }
+  },
+  "ready": true,
+  "stages": [
+    {
+      "part_no": 1,
+      "function_en": "Introduction",
+      "function_zh": "引言：破題與定義",
+      "language_pattern": "rhetorical questions / X is about ...",
+      "source_description": "Introduction (引言)",
+      "slides": [
+        {
+          "slide_no": 1,
+          "title": {
+            "en": "The Hook",
+            "zh": "(吸睛開場)"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Every spring we wait for the rain, and nothing comes. Then the typhoons arrive and drop a whole year of water in two days. Today, let's watch our island cope.",
+              "words": 30,
+              "sentences": 3,
+              "avg_sentence_words": 10.0,
+              "fk_grade": 4.0,
+              "speak_seconds_est": 18.9,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B1": {
+              "text": "Adaptation is the half of climate action nobody puts on a poster. Yet the rain here disappears for months, and then one storm delivers an entire year of it in forty-eight hours.",
+              "words": 32,
+              "sentences": 2,
+              "avg_sentence_words": 16.0,
+              "fk_grade": 7.6,
+              "speak_seconds_est": 17.5,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "Something in our water cycle has genuinely broken. The rain withholds itself for several months, then a single typhoon returns an entire year of it inside forty-eight hours, and adaptation is our only realistic answer.",
+              "words": 35,
+              "sentences": 2,
+              "avg_sentence_words": 17.5,
+              "fk_grade": 11.5,
+              "speak_seconds_est": 17.5,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            }
+          },
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 2,
+          "title": {
+            "en": "What is SDG 13?",
+            "zh": "(何謂 SDG 13？)"
+          },
+          "numbers": [
+            "13"
+          ],
+          "scripts": {
+            "A2": {
+              "text": "SDG 13 is Climate Action. Most people think it only means less carbon gas. It also means cities that survive a disaster, and water that still runs.",
+              "words": 27,
+              "sentences": 3,
+              "avg_sentence_words": 9.0,
+              "fk_grade": 5.0,
+              "speak_seconds_est": 17.1,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B1": {
+              "text": "Everyone hears Climate Action and thinks of cutting carbon. Read the goal properly and half of it is about survival: drains that cope, homes that stand, and a supply that holds.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 7.2,
+              "speak_seconds_est": 16.9,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "The goal is usually reduced to carbon accounting, yet mitigation covers barely half of what the text actually demands. The remainder is resilience: drainage that copes, buildings that survive, and a municipal supply that never fails.",
+              "words": 36,
+              "sentences": 2,
+              "avg_sentence_words": 18.0,
+              "fk_grade": 12.7,
+              "speak_seconds_est": 18.0,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            }
+          },
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 3,
+          "title": {
+            "en": "Taiwan’s Context",
+            "zh": "(台灣背景)"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Taiwan gets plenty of rain. But we are a water-poor island, because our mountains are steep. The rain runs into the sea before we can catch it.",
+              "words": 27,
+              "sentences": 3,
+              "avg_sentence_words": 9.0,
+              "fk_grade": 3.7,
+              "speak_seconds_est": 17.1,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B1": {
+              "text": "We are officially a water-poor island, which sounds absurd in a place this wet. The mountains are simply too steep, so the rain reaches the sea long before it reaches a reservoir.",
+              "words": 32,
+              "sentences": 2,
+              "avg_sentence_words": 16.0,
+              "fk_grade": 7.6,
+              "speak_seconds_est": 17.5,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "Taiwan is formally classified as water-poor, a description that sounds absurd in a subtropical climate. The explanation is the slope: precipitation reaches the ocean within hours of landing, long before any catchment can retain it.",
+              "words": 35,
+              "sentences": 2,
+              "avg_sentence_words": 17.5,
+              "fk_grade": 12.8,
+              "speak_seconds_est": 17.5,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            }
+          },
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        }
+      ]
+    },
+    {
+      "part_no": 2,
+      "function_en": "Problem",
+      "function_zh": "問題指認：趨勢與因果",
+      "language_pattern": "present progressive for trends / this causes ...",
+      "source_description": "Problem Identification (問題辨識)",
+      "slides": [
+        {
+          "slide_no": 4,
+          "title": {
+            "en": "The Threat of Extreme Droughts",
+            "zh": "(極端乾旱的威脅)"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Typhoons now come less often, but they hit us much harder. In our worst drought the reservoirs went dry. Rice fields cracked open, and the chip factories nearly stopped.",
+              "words": 29,
+              "sentences": 3,
+              "avg_sentence_words": 9.7,
+              "fk_grade": 4.5,
+              "speak_seconds_est": 18.3,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B1": {
+              "text": "Fewer typhoons sounds like good news until you remember who refills our reservoirs. In the last drought the storage ran out completely, rice fields cracked open, and the semiconductor plants nearly stopped.",
+              "words": 32,
+              "sentences": 2,
+              "avg_sentence_words": 16.0,
+              "fk_grade": 9.8,
+              "speak_seconds_est": 17.5,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "Typhoons are arriving less frequently but hitting harder, which means fewer refills for our reservoirs. During the last severe drought the storage emptied, paddy fields fractured, and the semiconductor plants came remarkably close to stopping.",
+              "words": 35,
+              "sentences": 2,
+              "avg_sentence_words": 17.5,
+              "fk_grade": 11.8,
+              "speak_seconds_est": 17.5,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            }
+          },
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 5,
+          "title": {
+            "en": "The Flash Flood Crisis",
+            "zh": "(暴雨與洪澇危機)"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Then the opposite happens. A whole year of rain can arrive in only two days. Our old city drains cannot carry it, so the streets become rivers.",
+              "words": 27,
+              "sentences": 3,
+              "avg_sentence_words": 9.0,
+              "fk_grade": 4.5,
+              "speak_seconds_est": 17.1,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B1": {
+              "text": "Then the island floods instead. A single storm can deliver a year's rainfall in two days, and drains designed for a calmer century give up, turning shopping streets into muddy rivers.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 8.3,
+              "speak_seconds_est": 16.9,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "The opposite failure is equally expensive. When a storm stalls over the island, a year of precipitation can arrive within forty-eight hours, overwhelming drainage designed for a gentler century and converting commercial streets into rivers.",
+              "words": 35,
+              "sentences": 2,
+              "avg_sentence_words": 17.5,
+              "fk_grade": 13.5,
+              "speak_seconds_est": 17.5,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            }
+          },
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 6,
+          "title": {
+            "en": "The Critical Questions",
+            "zh": "(關鍵提問)"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "So we have to ask a hard question. Can our city water pipes survive another wild season? And can we store the flood water for a dry summer?",
+              "words": 28,
+              "sentences": 3,
+              "avg_sentence_words": 9.3,
+              "fk_grade": 4.1,
+              "speak_seconds_est": 17.7,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B1": {
+              "text": "Two questions follow, and neither has a comfortable answer. If the rain keeps arriving in violent bursts, can drainage built for a calmer century cope? And if we cannot store that floodwater, what will we drink?",
+              "words": 36,
+              "sentences": 3,
+              "avg_sentence_words": 12.0,
+              "fk_grade": 6.5,
+              "speak_seconds_est": 19.6,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "Two engineering questions follow, and neither has a comfortable answer. Can public works designed for a previous climate withstand the current one, and can floodwater be intercepted and stored rather than discharged straight into the ocean?",
+              "words": 36,
+              "sentences": 2,
+              "avg_sentence_words": 18.0,
+              "fk_grade": 12.4,
+              "speak_seconds_est": 18.0,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            }
+          },
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        }
+      ]
+    },
+    {
+      "part_no": 3,
+      "function_en": "Achievements",
+      "function_zh": "成果：舉證與比較",
+      "language_pattern": "present perfect / comparatives",
+      "source_description": "Achievements and Progress (成果與進展)",
+      "slides": [
+        {
+          "slide_no": 7,
+          "title": {
+            "en": "Water Grid Infrastructure",
+            "zh": "(水網基礎建設)"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Taiwan is already working on this. We now have the Forward-looking Water Grid. It joins the pipes of many cities, so Tainan can send spare water to Kaohsiung.",
+              "words": 28,
+              "sentences": 3,
+              "avg_sentence_words": 9.3,
+              "fk_grade": 5.8,
+              "speak_seconds_est": 17.7,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B1": {
+              "text": "Taiwan has not been standing still. The Forward-looking Water Grid has linked the pipelines of neighbouring cities, so when Kaohsiung runs short, spare supply can be pumped across from Tainan instead.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 9.5,
+              "speak_seconds_est": 16.9,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "The government response has been practical rather than merely verbal. Under the Forward-looking Water Grid, city pipelines are now joined, so spare volume can be redirected from Tainan toward Kaohsiung whenever one reservoir drops too low.",
+              "words": 36,
+              "sentences": 2,
+              "avg_sentence_words": 18.0,
+              "fk_grade": 13.1,
+              "speak_seconds_est": 18.0,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            }
+          },
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 8,
+          "title": {
+            "en": "The Sponge City Concept",
+            "zh": "(海綿城市概念)"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Taipei and Taichung are becoming sponge cities. New pavements let the rain soak into the ground. Parks are open and low, so a storm can fill them safely.",
+              "words": 28,
+              "sentences": 3,
+              "avg_sentence_words": 9.3,
+              "fk_grade": 4.5,
+              "speak_seconds_est": 17.7,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B1": {
+              "text": "Taipei and Taichung are being rebuilt as sponge cities. Solid concrete is giving way to permeable paving, and the parks are sunk below street level so that a downpour fills them first.",
+              "words": 32,
+              "sentences": 2,
+              "avg_sentence_words": 16.0,
+              "fk_grade": 7.2,
+              "speak_seconds_est": 17.5,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "Taipei and Taichung are being retrofitted as sponge cities. Impermeable concrete gives way to porous paving, while parks are engineered as retention basins, deliberately sunk so a deluge collects there rather than in the streets.",
+              "words": 35,
+              "sentences": 2,
+              "avg_sentence_words": 17.5,
+              "fk_grade": 12.5,
+              "speak_seconds_est": 17.5,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            }
+          },
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 9,
+          "title": {
+            "en": "Agricultural Adaptation",
+            "zh": "(農業調適進展)"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Our rice farmers are changing too. A computer gives every plant the exact water it needs, drop by drop. This saves millions of tons of water every year.",
+              "words": 28,
+              "sentences": 3,
+              "avg_sentence_words": 9.3,
+              "fk_grade": 5.8,
+              "speak_seconds_est": 17.7,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B1": {
+              "text": "Farming has changed as well. A computer now controls the drip irrigation, giving each rice plant exactly the water it needs and nothing more, which saves millions of tons every season.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 9.1,
+              "speak_seconds_est": 16.9,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "Agriculture has adapted in parallel. Computer-controlled drip irrigation delivers exactly the volume a rice crop requires, cutting the waste that older methods accepted, and saving millions of tons of fresh water every season.",
+              "words": 33,
+              "sentences": 2,
+              "avg_sentence_words": 16.5,
+              "fk_grade": 14.4,
+              "speak_seconds_est": 16.5,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            }
+          },
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        }
+      ]
+    },
+    {
+      "part_no": 4,
+      "function_en": "Solutions",
+      "function_zh": "解方：做法與取捨",
+      "language_pattern": "instead of + V-ing / modal verbs",
+      "source_description": "Solutions and STEM Integration (解決方案與 STEM 整合)",
+      "slides": [
+        {
+          "slide_no": 10,
+          "title": {
+            "en": "IoT and Smart Water Management",
+            "zh": "(物聯網與智慧水務)"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "How does STEM help us? Engineers put small sensors inside the water pipes. The data goes to a computer, which finds a hidden leak in minutes.",
+              "words": 26,
+              "sentences": 3,
+              "avg_sentence_words": 8.7,
+              "fk_grade": 5.0,
+              "speak_seconds_est": 16.4,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B1": {
+              "text": "This is where STEM earns its place. Engineers have fitted sensors inside the water mains, and the data they stream lets a computer pinpoint a buried leak within minutes instead of months.",
+              "words": 32,
+              "sentences": 2,
+              "avg_sentence_words": 16.0,
+              "fk_grade": 8.0,
+              "speak_seconds_est": 17.5,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "Here the engineering becomes genuinely elegant. Sensors embedded in the mains stream continuous flow data to an analytical system that identifies a buried leak within minutes, long before the loss becomes visible at the surface.",
+              "words": 35,
+              "sentences": 2,
+              "avg_sentence_words": 17.5,
+              "fk_grade": 14.5,
+              "speak_seconds_est": 17.5,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            }
+          },
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 11,
+          "title": {
+            "en": "Desalination and Wastewater Recycling",
+            "zh": "(海水淡化與再生水)"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "We also make new water. Factories clean their used water until it is pure again. On the coast, new plants take the salt out of sea water.",
+              "words": 27,
+              "sentences": 3,
+              "avg_sentence_words": 9.0,
+              "fk_grade": 3.7,
+              "speak_seconds_est": 17.1,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B1": {
+              "text": "We are also making water now. Factory wastewater is cleaned until it can go back into the production line, and coastal plants can pull the salt out of seawater in an emergency.",
+              "words": 32,
+              "sentences": 2,
+              "avg_sentence_words": 16.0,
+              "fk_grade": 9.5,
+              "speak_seconds_est": 17.5,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "Water here is manufactured now, not merely collected. Factory wastewater is cleaned to a purity that allows reuse, and coastal desalination gives us an emergency buffer, although pulling salt from seawater burns a great deal of power.",
+              "words": 37,
+              "sentences": 2,
+              "avg_sentence_words": 18.5,
+              "fk_grade": 13.9,
+              "speak_seconds_est": 18.5,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            }
+          },
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 12,
+          "title": {
+            "en": "Eco-Engineering for Mountain Rivers",
+            "zh": "(山區河流的生態工法)"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Up in the mountains, we fight landslides too. Instead of tall cement walls, we use rocks and local plants. They hold the soil and keep our rivers clean.",
+              "words": 28,
+              "sentences": 3,
+              "avg_sentence_words": 9.3,
+              "fk_grade": 2.8,
+              "speak_seconds_est": 17.7,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B1": {
+              "text": "In the hills, the same idea works against landslides. Rather than pouring another cement wall, engineers hold the slope with rock and local plants, so the mud never reaches our reservoirs.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 8.3,
+              "speak_seconds_est": 16.9,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "The same philosophy governs our unstable highlands. Rather than pouring another cement barrier, engineers now anchor the slopes with rock and indigenous vegetation, an approach that protects the river basin and keeps silt out of our reservoirs.",
+              "words": 37,
+              "sentences": 2,
+              "avg_sentence_words": 18.5,
+              "fk_grade": 12.7,
+              "speak_seconds_est": 18.5,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            }
+          },
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        }
+      ]
+    },
+    {
+      "part_no": 5,
+      "function_en": "Implications",
+      "function_zh": "影響：推論後果",
+      "language_pattern": "first conditional / however",
+      "source_description": "Implications and Future Challenges (影響與未來挑戰)",
+      "slides": [
+        {
+          "slide_no": 13,
+          "title": {
+            "en": "The High Cost of Adaptation",
+            "zh": "(氣候調適的高昂代價)"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "But none of this is cheap. New water plants and deep pipes cost billions of dollars. So who pays, and how do we stay fair to ordinary families?",
+              "words": 28,
+              "sentences": 3,
+              "avg_sentence_words": 9.3,
+              "fk_grade": 3.6,
+              "speak_seconds_est": 17.7,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B1": {
+              "text": "Every one of these fixes carries a price tag, and somebody has to carry it. New treatment plants and deeper pipelines run into billions of dollars. So the real question is who ends up paying.",
+              "words": 35,
+              "sentences": 3,
+              "avg_sentence_words": 11.7,
+              "fk_grade": 6.5,
+              "speak_seconds_est": 19.1,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "Nothing here is cheap, and the invoice eventually lands on somebody. Recycling plants and deep tunnels absorb billions of dollars, so the honest political question is how we fund these defences without hurting ordinary households.",
+              "words": 35,
+              "sentences": 2,
+              "avg_sentence_words": 17.5,
+              "fk_grade": 12.5,
+              "speak_seconds_est": 17.5,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            }
+          },
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 14,
+          "title": {
+            "en": "Climate Justice for Rural Areas",
+            "zh": "(偏鄉與弱勢的氣候正義)"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "There is also a fair-share problem. The rich tech cities get the new water systems first. But small farm villages go dry first, and that is not right.",
+              "words": 28,
+              "sentences": 3,
+              "avg_sentence_words": 9.3,
+              "fk_grade": 3.2,
+              "speak_seconds_est": 17.7,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B1": {
+              "text": "There is a fairness problem hidden inside this. The wealthy technology cities receive the new systems first, while farming villages are the first to have their water cut during a drought.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 8.7,
+              "speak_seconds_est": 16.9,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "What makes these projects unfair is the order of the queue. Wealthy technology corridors receive the upgrades first, whereas farming communities are usually the earliest to have their water restricted once a drought is declared.",
+              "words": 35,
+              "sentences": 2,
+              "avg_sentence_words": 17.5,
+              "fk_grade": 11.8,
+              "speak_seconds_est": 17.5,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            }
+          },
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 15,
+          "title": {
+            "en": "Cross-Border Climate Knowledge",
+            "zh": "(跨國氣候知識分享)"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Other islands have the same trouble, and our answers could help them. But Taiwan cannot speak at the big climate meetings. We must share in other ways.",
+              "words": 27,
+              "sentences": 3,
+              "avg_sentence_words": 9.0,
+              "fk_grade": 3.7,
+              "speak_seconds_est": 17.1,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B1": {
+              "text": "Other island nations face exactly these problems, and what we have learned could genuinely help them. Politics keeps Taiwan out of the climate summits, so the knowledge must travel by other routes.",
+              "words": 32,
+              "sentences": 2,
+              "avg_sentence_words": 16.0,
+              "fk_grade": 9.5,
+              "speak_seconds_est": 17.5,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "Other island states face an identical set of pressures, and our experience would transfer to them directly. Politics keeps Taiwan outside the major climate summits, so this knowledge has to move through unofficial channels.",
+              "words": 34,
+              "sentences": 2,
+              "avg_sentence_words": 17.0,
+              "fk_grade": 11.5,
+              "speak_seconds_est": 17.0,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            }
+          },
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 16,
+          "title": {
+            "en": "Future Scrutiny and Maintenance",
+            "zh": "(未來的長期監督)"
+          },
+          "numbers": [
+            "2050."
+          ],
+          "scripts": {
+            "A2": {
+              "text": "One more job belongs to us. We must check that these systems really work, and are not only for show. Every year, ask to see the inspection data.",
+              "words": 28,
+              "sentences": 3,
+              "avg_sentence_words": 9.3,
+              "fk_grade": 3.6,
+              "speak_seconds_est": 17.7,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B1": {
+              "text": "Finally, somebody has to check the work. A sponge park that nobody maintains is only landscaping, so citizens should be asking for the inspection data on our dams and drains every year.",
+              "words": 32,
+              "sentences": 2,
+              "avg_sentence_words": 16.0,
+              "fk_grade": 9.5,
+              "speak_seconds_est": 17.5,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "Finally, all of this demands steady public scrutiny. A retention basin nobody maintains is merely expensive landscaping, so citizens should insist on published inspection data, because this infrastructure still has to work in 2050.",
+              "words": 34,
+              "sentences": 2,
+              "avg_sentence_words": 17.0,
+              "fk_grade": 14.6,
+              "speak_seconds_est": 17.0,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            }
+          },
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        }
+      ]
+    },
+    {
+      "part_no": 6,
+      "function_en": "Call to action",
+      "function_zh": "結語：總結與號召",
+      "language_pattern": "to wrap up ... / let's ...",
+      "source_description": "Conclusion and Call to Action (結論與行動號召)",
+      "slides": [
+        {
+          "slide_no": 17,
+          "title": {
+            "en": "Summary of the Resilient Path",
+            "zh": "(韌性之路總結)"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "So what have we learned? Taiwan is learning to live with wild weather. Sponge cities, smart pipes and good engineering are making a weak island strong.",
+              "words": 26,
+              "sentences": 3,
+              "avg_sentence_words": 8.7,
+              "fk_grade": 4.6,
+              "speak_seconds_est": 16.4,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B1": {
+              "text": "So where does that leave us? Sponge cities, a national water grid and stubborn engineering cannot stop the storms, but they can leave us properly ready for the next one.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 6.8,
+              "speak_seconds_est": 16.4,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "Taken together, the direction is quite encouraging. Only by accepting that the storms cannot be prevented have engineers made progress, turning a vulnerable island into a ready one through sponge cities and an interconnected grid.",
+              "words": 35,
+              "sentences": 2,
+              "avg_sentence_words": 17.5,
+              "fk_grade": 12.8,
+              "speak_seconds_est": 17.5,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            }
+          },
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 18,
+          "title": {
+            "en": "What Students Can Do",
+            "zh": "(學生能做的事)"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Why should you care? Because we still need new ideas for better disaster systems. So study science or learn to code, and save every drop at home.",
+              "words": 27,
+              "sentences": 3,
+              "avg_sentence_words": 9.0,
+              "fk_grade": 3.7,
+              "speak_seconds_est": 17.1,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B1": {
+              "text": "Why should this matter to you? Because adaptation is still an unsolved design problem. Study earth science, computing or engineering, and meanwhile treat every drop you save at home as part of the answer.",
+              "words": 34,
+              "sentences": 3,
+              "avg_sentence_words": 11.3,
+              "fk_grade": 7.6,
+              "speak_seconds_est": 18.5,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "This concerns you because adaptation remains an unsolved design problem rather than a settled policy. Study earth science, computing or engineering if it appeals, and meanwhile treat domestic conservation as a modest but genuine contribution.",
+              "words": 35,
+              "sentences": 2,
+              "avg_sentence_words": 17.5,
+              "fk_grade": 14.2,
+              "speak_seconds_est": 17.5,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            }
+          },
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 19,
+          "title": {
+            "en": "Motivation to Overcome",
+            "zh": "(戰勝危機的激勵)"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Please do not feel helpless here. People are clever, and nature is still very strong. Together they can protect this island, and give our children a safe home.",
+              "words": 28,
+              "sentences": 3,
+              "avg_sentence_words": 9.3,
+              "fk_grade": 4.1,
+              "speak_seconds_est": 17.7,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B1": {
+              "text": "None of this should leave you feeling powerless. Human ingenuity and natural systems can work together rather than against each other, and Taiwan has the skill and the nerve to prove it.",
+              "words": 32,
+              "sentences": 2,
+              "avg_sentence_words": 16.0,
+              "fk_grade": 8.4,
+              "speak_seconds_est": 17.5,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "Powerlessness is the least useful response available to you. Human ingenuity and natural systems can be made to cooperate rather than compete, and Taiwan appears to possess both the technical skill and the political nerve.",
+              "words": 35,
+              "sentences": 2,
+              "avg_sentence_words": 17.5,
+              "fk_grade": 12.5,
+              "speak_seconds_est": 17.5,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            }
+          },
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 20,
+          "title": {
+            "en": "Strong Ending",
+            "zh": "(有力結尾)"
+          },
+          "numbers": [
+            "13.",
+            "13,"
+          ],
+          "scripts": {
+            "A2": {
+              "text": "The weather will not wait for us. So will you help us build a safer Taiwan? Together we can be ready, and that work begins today.",
+              "words": 26,
+              "sentences": 3,
+              "avg_sentence_words": 8.7,
+              "fk_grade": 3.2,
+              "speak_seconds_est": 16.4,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B1": {
+              "text": "So will you help build an island that can absorb whatever the next decade sends? The weather is not waiting for our decision, and Taiwan has already started adapting.",
+              "words": 29,
+              "sentences": 2,
+              "avg_sentence_words": 14.5,
+              "fk_grade": 8.0,
+              "speak_seconds_est": 15.8,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "The atmosphere will not pause while we deliberate, so will you help construct an island capable of absorbing whatever the next decade delivers? Taiwan can certainly be made ready, and that reconstruction begins the moment we leave.",
+              "words": 37,
+              "sentences": 2,
+              "avg_sentence_words": 18.5,
+              "fk_grade": 11.7,
+              "speak_seconds_est": 18.5,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            }
+          },
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1024 @@
+{
+  "mission_id": "sdg13-1",
+  "sdg": 13,
+  "title": {
+    "en": "Climate Action: Taiwan's Path to Net Zero",
+    "zh": null
+  },
+  "content_version": "2026.09.1",
+  "levels": [
+    "A2",
+    "B1",
+    "B2"
+  ],
+  "source_mission": "sdg13-1",
+  "slide_count": 20,
+  "level_summary": {
+    "A2": {
+      "slides": 20,
+      "avg_words": 27.3,
+      "avg_sentence_words": 9.1,
+      "fk_grade": 4.2,
+      "slides_over_20s": 0
+    },
+    "B1": {
+      "slides": 20,
+      "avg_words": 31.7,
+      "avg_sentence_words": 13.1,
+      "fk_grade": 7.6,
+      "slides_over_20s": 0
+    },
+    "B2": {
+      "slides": 20,
+      "avg_words": 31.6,
+      "avg_sentence_words": 15.8,
+      "fk_grade": 11.8,
+      "slides_over_20s": 0
+    }
+  },
+  "gate": {
+    "A2": [],
+    "B1": [],
+    "B2": []
+  },
+  "distance": {
+    "A2->B1": {
+      "mean": 0.18,
+      "pass": true,
+      "too_close": {}
+    },
+    "B1->B2": {
+      "mean": 0.24,
+      "pass": true,
+      "too_close": {}
+    }
+  },
+  "ready": true,
+  "stages": [
+    {
+      "part_no": 1,
+      "function_en": "Introduction",
+      "function_zh": "引言：破題與定義",
+      "language_pattern": "rhetorical questions / X is about ...",
+      "source_description": "Introduction (引言)",
+      "slides": [
+        {
+          "slide_no": 1,
+          "title": {
+            "en": "The Hook",
+            "zh": "(吸睛開場)"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Last summer Taiwan broke its own temperature record again. That was not bad luck. It was a warning, and today I will show you how we can answer it.",
+              "words": 29,
+              "sentences": 3,
+              "avg_sentence_words": 9.7,
+              "fk_grade": 4.0,
+              "speak_seconds_est": 18.3,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B1": {
+              "text": "Have you noticed how strange our weather has become? Record heat, sudden flooding and mild winters are no longer unusual, and together they are the first clear signs of a climate emergency.",
+              "words": 32,
+              "sentences": 2,
+              "avg_sentence_words": 16.0,
+              "fk_grade": 8.7,
+              "speak_seconds_est": 17.5,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "Something has shifted in the way our seasons behave, and the record heat, sudden flooding and vanishing winters are no longer unusual events. They are the local signature of a global emergency.",
+              "words": 32,
+              "sentences": 2,
+              "avg_sentence_words": 16.0,
+              "fk_grade": 10.6,
+              "speak_seconds_est": 16.0,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            }
+          },
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 2,
+          "title": {
+            "en": "What is SDG 13?",
+            "zh": "(何謂 SDG 13？)"
+          },
+          "numbers": [
+            "13"
+          ],
+          "scripts": {
+            "A2": {
+              "text": "SDG 13 is called Climate Action. It asks every country to cut carbon pollution and to get ready for storms and flooding. That work has already started here.",
+              "words": 28,
+              "sentences": 3,
+              "avg_sentence_words": 9.3,
+              "fk_grade": 6.2,
+              "speak_seconds_est": 17.7,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B1": {
+              "text": "Climate Action is the thirteenth of the global goals. It asks every government to cut carbon and prepare for disaster. Taiwan follows it, though we are shut out of the main climate talks.",
+              "words": 33,
+              "sentences": 3,
+              "avg_sentence_words": 11.0,
+              "fk_grade": 5.9,
+              "speak_seconds_est": 18.0,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "The thirteenth global goal asks every government to cut emissions and to build real defences against disaster. Taiwan, although shut out of the main climate negotiations, has chosen to meet the identical standard.",
+              "words": 33,
+              "sentences": 2,
+              "avg_sentence_words": 16.5,
+              "fk_grade": 11.2,
+              "speak_seconds_est": 16.5,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            }
+          },
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 3,
+          "title": {
+            "en": "Taiwan’s Context",
+            "zh": "(台灣背景)"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Think about where we live. Taiwan is a crowded island with many mountains, so typhoons and high seas reach us fast. Our big factories also need huge power.",
+              "words": 28,
+              "sentences": 3,
+              "avg_sentence_words": 9.3,
+              "fk_grade": 4.5,
+              "speak_seconds_est": 17.7,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B1": {
+              "text": "Geography makes this personal for us. We live on a crowded island directly on the typhoon track, and our western coastline is low and flat. The industries that pay our bills are hungry for energy.",
+              "words": 35,
+              "sentences": 3,
+              "avg_sentence_words": 11.7,
+              "fk_grade": 6.5,
+              "speak_seconds_est": 19.1,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "Geography leaves us very little margin. We are a crowded island on the typhoon track, with a low western coastline and an export-driven economy built around power-hungry manufacturing that never stops.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 12.2,
+              "speak_seconds_est": 15.5,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            }
+          },
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        }
+      ]
+    },
+    {
+      "part_no": 2,
+      "function_en": "Problem",
+      "function_zh": "問題指認：趨勢與因果",
+      "language_pattern": "present progressive for trends / this causes ...",
+      "source_description": "Problem Identification (問題辨識)",
+      "slides": [
+        {
+          "slide_no": 4,
+          "title": {
+            "en": "Rising Temperatures in Taiwan",
+            "zh": "(台灣升溫現況)"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "First, the bad news. Over one hundred years Taiwan warmed by 1.6 degrees, but the whole world warmed by 1.3. Scientists say our island is heating faster.",
+              "words": 29,
+              "sentences": 3,
+              "avg_sentence_words": 9.7,
+              "fk_grade": 4.5,
+              "speak_seconds_est": 18.3,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B1": {
+              "text": "Start with the measurements, not the impressions. Over the past century Taiwan warmed by 1.6 degrees while the whole planet warmed by 1.3. Our island is heating faster than the worldwide average.",
+              "words": 34,
+              "sentences": 3,
+              "avg_sentence_words": 11.3,
+              "fk_grade": 7.9,
+              "speak_seconds_est": 18.5,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "Consider the measurements rather than the impressions. A century of observations shows Taiwan warming by 1.6 degrees against a global 1.3, positioning our island among the faster-warming regions of the planet.",
+              "words": 33,
+              "sentences": 2,
+              "avg_sentence_words": 16.5,
+              "fk_grade": 12.7,
+              "speak_seconds_est": 16.5,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            }
+          },
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 5,
+          "title": {
+            "en": "Energy and Emissions",
+            "zh": "(能源與排放)"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Here is the main problem. Taiwan still burns coal and gas for most of its power, and our chip factories run day and night. Clean power must grow faster.",
+              "words": 29,
+              "sentences": 3,
+              "avg_sentence_words": 9.7,
+              "fk_grade": 2.8,
+              "speak_seconds_est": 18.3,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B1": {
+              "text": "The difficulty is structural. Coal and imported gas still make most of our electricity, and the chip plants our economy depends on cannot survive a single hour without power.",
+              "words": 29,
+              "sentences": 2,
+              "avg_sentence_words": 14.5,
+              "fk_grade": 10.0,
+              "speak_seconds_est": 15.8,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "What holds us back is structural, not moral. Coal and imported gas still dominate electricity generation, and the chip industry that underwrites our prosperity cannot lose even a single hour of supply.",
+              "words": 32,
+              "sentences": 2,
+              "avg_sentence_words": 16.0,
+              "fk_grade": 12.0,
+              "speak_seconds_est": 16.0,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            }
+          },
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 6,
+          "title": {
+            "en": "The Critical Questions",
+            "zh": "(關鍵提問)"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "So ask yourself two questions. Can a small island pay for all this energy? And if we keep burning coal, who will fix the damage later?",
+              "words": 26,
+              "sentences": 3,
+              "avg_sentence_words": 8.7,
+              "fk_grade": 3.2,
+              "speak_seconds_est": 16.4,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B1": {
+              "text": "Two questions follow, and neither of them is comfortable. If industrial demand keeps rising, can clean power ever catch up? And if it cannot, who pays the bill that our generation leaves behind?",
+              "words": 33,
+              "sentences": 3,
+              "avg_sentence_words": 11.0,
+              "fk_grade": 6.9,
+              "speak_seconds_est": 18.0,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "Two uncomfortable questions follow from that. If industrial demand keeps climbing, can clean power ever really overtake it, and if it cannot, which generation absorbs the debt we are quietly building?",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 10.6,
+              "speak_seconds_est": 15.5,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            }
+          },
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        }
+      ]
+    },
+    {
+      "part_no": 3,
+      "function_en": "Achievements",
+      "function_zh": "成果：舉證與比較",
+      "language_pattern": "present perfect / comparatives",
+      "source_description": "Achievements and Progress (成果與進展)",
+      "slides": [
+        {
+          "slide_no": 7,
+          "title": {
+            "en": "Government Action",
+            "zh": "(政府行動)"
+          },
+          "numbers": [
+            "2050."
+          ],
+          "scripts": {
+            "A2": {
+              "text": "Now the good news. In 2023 Taiwan passed a climate law that sets one target: net zero by 2050. Big polluters now pay a carbon fee too.",
+              "words": 27,
+              "sentences": 3,
+              "avg_sentence_words": 9.0,
+              "fk_grade": 5.8,
+              "speak_seconds_est": 17.1,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B1": {
+              "text": "Real progress has arrived at last. Taiwan passed the Climate Change Response Act in 2023, which wrote net zero by 2050 into law. Heavy polluters have paid a carbon fee since 2025.",
+              "words": 32,
+              "sentences": 3,
+              "avg_sentence_words": 10.7,
+              "fk_grade": 8.5,
+              "speak_seconds_est": 17.5,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "Progress has nonetheless been substantial. The 2023 Act wrote net zero by 2050 into statute, and a carbon fee introduced in 2025 now bills the largest emitters for what they release.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 12.2,
+              "speak_seconds_est": 15.5,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            }
+          },
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 8,
+          "title": {
+            "en": "Renewable Energy Growth",
+            "zh": "(再生能源成長)"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "You can see the change at sea. Hundreds of wind turbines now stand off our west coast. Solar panels cover school roofs, fish ponds and farm sheds.",
+              "words": 27,
+              "sentences": 3,
+              "avg_sentence_words": 9.0,
+              "fk_grade": 2.3,
+              "speak_seconds_est": 17.1,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B1": {
+              "text": "The coastline has changed in front of us, with hundreds of turbines now standing off our western shore. Solar panels have spread across school roofs, fish farms and industrial parks.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 6.8,
+              "speak_seconds_est": 16.4,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "Two industries now mark our shoreline. Offshore turbines face the Strait in their hundreds, while solar installations have taken over campus roofs, fish farms and industrial parks the length of the island.",
+              "words": 32,
+              "sentences": 2,
+              "avg_sentence_words": 16.0,
+              "fk_grade": 9.5,
+              "speak_seconds_est": 16.0,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            }
+          },
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 9,
+          "title": {
+            "en": "Public Awareness",
+            "zh": "(大眾意識)"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "People help too. Taiwan recycles more than most countries, and many of us ride the MRT or a YouBike. But daily habits alone cannot stop this.",
+              "words": 26,
+              "sentences": 3,
+              "avg_sentence_words": 8.7,
+              "fk_grade": 4.6,
+              "speak_seconds_est": 16.4,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B1": {
+              "text": "People here have done their part. Taiwan recycles more than most countries, yet petrol scooters still fill our roads far more than buses, so personal effort alone will never be enough.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 7.6,
+              "speak_seconds_est": 16.9,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "Public effort here is genuine but not enough. Recycling rates beat those of most economies, yet petrol scooters still rule everyday travel, so personal habit cannot substitute for structural reform.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 12.3,
+              "speak_seconds_est": 15.0,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            }
+          },
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        }
+      ]
+    },
+    {
+      "part_no": 4,
+      "function_en": "Solutions",
+      "function_zh": "解方：做法與取捨",
+      "language_pattern": "instead of + V-ing / modal verbs",
+      "source_description": "Solutions and STEM Integration (解決方案與 STEM 整合)",
+      "slides": [
+        {
+          "slide_no": 10,
+          "title": {
+            "en": "Smart Power Grids",
+            "zh": "(智慧電網)"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Engineers want a smarter grid. The plan is to let computers move power to the places that need it most, minute by minute. Taipower is testing it now.",
+              "words": 28,
+              "sentences": 3,
+              "avg_sentence_words": 9.3,
+              "fk_grade": 4.9,
+              "speak_seconds_est": 17.7,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B1": {
+              "text": "Engineers are now designing a smarter grid. The idea is that software, not a control room, decides where power should travel each minute, and Taipower has begun testing it.",
+              "words": 29,
+              "sentences": 2,
+              "avg_sentence_words": 14.5,
+              "fk_grade": 8.8,
+              "speak_seconds_est": 15.8,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "Engineers are rebuilding the grid around software rather than switchgear. The intention is that a program allocates power minute by minute, and Taipower has moved from modelling into limited trials.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 11.9,
+              "speak_seconds_est": 15.0,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            }
+          },
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 11,
+          "title": {
+            "en": "Carbon Capture Technology",
+            "zh": "(碳捕捉技術)"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Scientists are also trying carbon capture. At a power plant in Taichung they catch about 2,000 tonnes of carbon each year. It is small, but it is a start.",
+              "words": 30,
+              "sentences": 3,
+              "avg_sentence_words": 10.0,
+              "fk_grade": 4.4,
+              "speak_seconds_est": 18.9,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B1": {
+              "text": "Carbon capture is being tested here too. A demonstration unit at the Taichung power station removes about 2,000 tonnes of carbon each year. That proves the technology works, but not yet the scale.",
+              "words": 34,
+              "sentences": 3,
+              "avg_sentence_words": 11.3,
+              "fk_grade": 8.3,
+              "speak_seconds_est": 18.5,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "Carbon capture illustrates both the promise and the scale of this work. A demonstration unit at Taichung removes roughly 2,000 tonnes annually, which proves the underlying science while remaining negligible beside the plant's total output.",
+              "words": 36,
+              "sentences": 2,
+              "avg_sentence_words": 18.0,
+              "fk_grade": 13.7,
+              "speak_seconds_est": 18.0,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            }
+          },
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 12,
+          "title": {
+            "en": "Electric Transportation",
+            "zh": "(電力交通)"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Look at our streets. Taiwan makes electric scooters with a battery that you can swap in ten seconds. Swap points now cover the island, from Taipei to Kenting.",
+              "words": 28,
+              "sentences": 3,
+              "avg_sentence_words": 9.3,
+              "fk_grade": 4.9,
+              "speak_seconds_est": 17.7,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B1": {
+              "text": "Our streets show a different answer. Riders here exchange a flat battery for a charged one in seconds, and thousands of swap bays now sit outside shops all over the island.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 7.2,
+              "speak_seconds_est": 16.9,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "Urban travel offers a more convincing example. Electric scooters manufactured here operate on a battery exchanged in seconds, and thousands of swap points now form a refuelling network of national scale.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 12.9,
+              "speak_seconds_est": 15.5,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            }
+          },
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        }
+      ]
+    },
+    {
+      "part_no": 5,
+      "function_en": "Implications",
+      "function_zh": "影響：推論後果",
+      "language_pattern": "first conditional / however",
+      "source_description": "Implications and Future Challenges (影響與未來挑戰)",
+      "slides": [
+        {
+          "slide_no": 13,
+          "title": {
+            "en": "Economic Impact",
+            "zh": "(經濟影響)"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Green choices are not cheap. New machines cost money, and a small shop cannot always pay. A fair plan must help those shops, not punish them.",
+              "words": 26,
+              "sentences": 3,
+              "avg_sentence_words": 8.7,
+              "fk_grade": 2.8,
+              "speak_seconds_est": 16.4,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B1": {
+              "text": "Cutting carbon is expensive, though, and that is rarely mentioned. Cleaner machines need money that small factories rarely have, so any honest plan has to support those firms, not break them.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 9.5,
+              "speak_seconds_est": 16.9,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "Cutting carbon nevertheless imposes real costs on the smallest firms. Cleaner equipment needs money that small factories seldom hold, so a transition designed without support will simply move the hardship elsewhere.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 11.8,
+              "speak_seconds_est": 15.5,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            }
+          },
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 14,
+          "title": {
+            "en": "Energy Security",
+            "zh": "(能源安全)"
+          },
+          "numbers": [
+            "24"
+          ],
+          "scripts": {
+            "A2": {
+              "text": "Energy security is a hard choice. Our factories need steady power every hour, but wind and sun come and go. Should Taiwan pick gas, or nuclear?",
+              "words": 26,
+              "sentences": 3,
+              "avg_sentence_words": 8.7,
+              "fk_grade": 5.5,
+              "speak_seconds_est": 16.4,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B1": {
+              "text": "Keeping the lights on is the hardest part. Precision plants draw current every hour, while wind and sunshine arrive whenever they please. That forces a difficult choice between gas and a nuclear restart.",
+              "words": 33,
+              "sentences": 3,
+              "avg_sentence_words": 11.0,
+              "fk_grade": 6.9,
+              "speak_seconds_est": 18.0,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "Energy security remains politically unresolved. Only when storage improves will that choice get easier, because precision factories demand power every hour while wind and solar output keeps rising and falling.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 14.6,
+              "speak_seconds_est": 15.0,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            }
+          },
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 15,
+          "title": {
+            "en": "Global Cooperation",
+            "zh": "(全球合作)"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Weather does not stop at a border. Taiwan wants to share what we build, though we cannot join the big climate meetings. A storm does not check passports.",
+              "words": 28,
+              "sentences": 3,
+              "avg_sentence_words": 9.3,
+              "fk_grade": 2.8,
+              "speak_seconds_est": 17.7,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B1": {
+              "text": "Climate change respects no border at all. Taiwan has technology worth sharing, although being shut out of the main climate talks limits how far that help can actually travel.",
+              "words": 29,
+              "sentences": 2,
+              "avg_sentence_words": 14.5,
+              "fk_grade": 7.6,
+              "speak_seconds_est": 15.8,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "Carbon does not stop at a border. Taiwan holds technology worth sharing, yet exclusion from the international climate negotiations limits how far that knowledge can in practice travel beyond our shores.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 10.6,
+              "speak_seconds_est": 15.5,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            }
+          },
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 16,
+          "title": {
+            "en": "Future Scrutiny",
+            "zh": "(未來監督)"
+          },
+          "numbers": [
+            "2050.",
+            "2050"
+          ],
+          "scripts": {
+            "A2": {
+              "text": "Some firms only pretend to be green. We call this greenwashing. So ask them one simple thing: what exactly will you really do before 2050?",
+              "words": 25,
+              "sentences": 3,
+              "avg_sentence_words": 8.3,
+              "fk_grade": 5.1,
+              "speak_seconds_est": 15.8,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B1": {
+              "text": "Greenwashing deserves your attention. Firms often advertise how green they are while changing very little. So ask for real numbers and a dated plan instead of a nice picture of a wind turbine.",
+              "words": 33,
+              "sentences": 3,
+              "avg_sentence_words": 11.0,
+              "fk_grade": 6.9,
+              "speak_seconds_est": 18.0,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "Staying sceptical is part of being a citizen. Companies now market their green virtue while altering very little, so insist on audited figures and dated promises rather than photographs of turbines.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 11.8,
+              "speak_seconds_est": 15.5,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            }
+          },
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        }
+      ]
+    },
+    {
+      "part_no": 6,
+      "function_en": "Call to action",
+      "function_zh": "結語：總結與號召",
+      "language_pattern": "to wrap up ... / let's ...",
+      "source_description": "Conclusion and Call to Action (結論與行動號召)",
+      "slides": [
+        {
+          "slide_no": 17,
+          "title": {
+            "en": "Summary of Progress",
+            "zh": "(進展總結)"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "So where are we now? Taiwan has passed the law, built the wind farms and started the first carbon tests. A coal-heavy island is slowly turning green.",
+              "words": 27,
+              "sentences": 3,
+              "avg_sentence_words": 9.0,
+              "fk_grade": 3.7,
+              "speak_seconds_est": 17.1,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B1": {
+              "text": "Where does this leave us? The target is now law, the turbines are turning and the first capture trials have started, so a coal-heavy island has genuinely begun to change direction.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 8.0,
+              "speak_seconds_est": 16.9,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "The direction is encouraging without yet being sufficient. The law exists, offshore capacity is expanding and the first capture trials have begun, yet renewable generation still sits below our own target.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 11.8,
+              "speak_seconds_est": 15.5,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            }
+          },
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 18,
+          "title": {
+            "en": "The Power of Students",
+            "zh": "(學生的力量)"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Why should you care? Because your choices about jobs, votes and everyday habits will shape the next thirty years. Young people move this country.",
+              "words": 24,
+              "sentences": 3,
+              "avg_sentence_words": 8.0,
+              "fk_grade": 4.7,
+              "speak_seconds_est": 15.2,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B1": {
+              "text": "This matters to you directly. Your generation will supply the engineers, the voters and the buyers of the next thirty years. Those choices will still matter long after today's politicians have gone.",
+              "words": 32,
+              "sentences": 3,
+              "avg_sentence_words": 10.7,
+              "fk_grade": 7.0,
+              "speak_seconds_est": 17.5,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "It is your cohort, not mine, that will supply the engineers, voters and consumers of the coming decades. Those decisions, once taken, will simply outlive every administration currently holding office.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 11.9,
+              "speak_seconds_est": 15.0,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            }
+          },
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 19,
+          "title": {
+            "en": "Final Motivation",
+            "zh": "(最終激勵)"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "You do not have to feel afraid. You do have to feel useful. Learn the science, question the numbers, and tell people whatever you discover.",
+              "words": 25,
+              "sentences": 3,
+              "avg_sentence_words": 8.3,
+              "fk_grade": 4.2,
+              "speak_seconds_est": 15.8,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B1": {
+              "text": "Fear will not help us here. Curiosity is far stronger, so study the science, question the numbers you are given, and tell people honestly what you find out.",
+              "words": 28,
+              "sentences": 2,
+              "avg_sentence_words": 14.0,
+              "fk_grade": 6.3,
+              "speak_seconds_est": 15.3,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "Giving up solves nothing, whereas curiosity actually gets somewhere. So interrogate the science, verify the figures you are given, and share whatever you find out as clearly as you can.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 10.7,
+              "speak_seconds_est": 15.0,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            }
+          },
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 20,
+          "title": {
+            "en": "Strong Ending",
+            "zh": "(有力結尾)"
+          },
+          "numbers": [
+            "13,"
+          ],
+          "scripts": {
+            "A2": {
+              "text": "The clock is running, and the question is yours. Will you watch this change happen, or help to build it? Taiwan is ready for SDG 13, and so am I.",
+              "words": 30,
+              "sentences": 3,
+              "avg_sentence_words": 10.0,
+              "fk_grade": 2.5,
+              "speak_seconds_est": 18.9,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B1": {
+              "text": "So the question comes back to this room. Will your generation simply inherit this transition, or will you actually decide to lead it? I have already chosen, and I hope you decide with me.",
+              "words": 34,
+              "sentences": 3,
+              "avg_sentence_words": 11.3,
+              "fk_grade": 6.5,
+              "speak_seconds_est": 18.5,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "That brings the question back to this room: will your generation merely inherit this transition, or will you actually engineer it? Taiwan is ready to deliver on SDG 13, and I have personally decided that I am.",
+              "words": 37,
+              "sentences": 2,
+              "avg_sentence_words": 18.5,
+              "fk_grade": 11.1,
+              "speak_seconds_est": 18.5,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            }
+          },
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        }
+      ]
+    }
+  ]
+}

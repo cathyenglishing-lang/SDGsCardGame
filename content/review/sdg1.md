@@ -9,7 +9,7 @@ SDG 1 · 20 slides · levels: A1, A2, B1, B2 · content_version 2026.09.1
 | A1 | 20 | 18.7 | 8.0 | 4.5 | 0 |
 | A2 | 20 | 29.4 | 9.8 | 4.9 | 0 |
 | B1 | 20 | 35.2 | 11.7 | 8.4 | 0 |
-| B2 | 20 | 37.6 | 18.8 | 12.9 | 0 |
+| B2 | 20 | 37.4 | 18.7 | 12.8 | 0 |
 
 ## Part 1 · Introduction（引言：破題與定義）
 
@@ -24,8 +24,8 @@ SDG 1 · 20 slides · levels: A1, A2, B1, B2 · content_version 2026.09.1
   > Good morning. Poverty is not always far away. Look around: a classmate skips lunch, a family works long hours, a student has no quiet place to study.
 - **B1**（35 字 / 每句 11.7 字 / 約 19.1 秒）
   > SDG 1 opens with an uncomfortable question. Can real poverty survive inside a developed society like Taiwan? It can, and it quietly decides how far a young person in this room is able to go.
-- **B2**（32 字 / 每句 16.0 字 / 約 16.0 秒）
-  > Prosperity is remarkably good at hiding hardship, which is why my first question is uncomfortable. Does poverty still exist in a developed Taiwan, or have we been conditioned not to notice it?
+- **B2**（33 字 / 每句 16.5 字 / 約 16.5 秒）
+  > Prosperity is remarkably good at hiding hardship, which is why my first question is uncomfortable. Does poverty still exist in a developed Taiwan, or have we simply been trained not to notice it?
 
 ### Slide 2 · SDG 1 ends poverty everywhere（消除各種形式的貧窮）
 
@@ -46,8 +46,8 @@ SDG 1 · 20 slides · levels: A1, A2, B1, B2 · content_version 2026.09.1
   > Look at Taiwan. We have good schools and new technology, but not every family feels safe. Some struggle with rent, some with medical bills, some with jobs that never last.
 - **B1**（34 字 / 每句 11.3 字 / 約 18.5 秒）
   > Taiwan has strong education, health care and technology. Even so, inequality remains. A family can look normal from outside while carrying debt, nursing a sick parent, or living on work that could end tomorrow.
-- **B2**（39 字 / 每句 19.5 字 / 約 19.5 秒）
-  > Taiwan has excellent schools, health care for everyone and world-class technology, and yet inequality here has proved stubborn. A household can look completely normal while carrying debt, nursing a sick relative, or living on work that could vanish tomorrow.
+- **B2**（38 字 / 每句 19.0 字 / 約 19.0 秒）
+  > Excellent universities, health coverage for all and a world-class chip industry have not abolished inequality here. Behind an ordinary front door there may be debt, a relative who needs daily care, or a contract that expires next month.
 
 ## Part 2 · Problem（問題指認：趨勢與因果）
 
@@ -73,8 +73,8 @@ SDG 1 · 20 slides · levels: A1, A2, B1, B2 · content_version 2026.09.1
   > Rent is the next weight. When it is high, families spend less on food, books and tutoring. Some students move house often or share one crowded room, where study is hard.
 - **B1**（34 字 / 每句 11.3 字 / 約 18.5 秒）
   > Housing costs create poverty quietly. Once the rent takes too much of the income, everything else has to be sacrificed. Students who move often or share a crowded room lose sleep, concentration and confidence.
-- **B2**（39 字 / 每句 19.5 字 / 約 19.5 秒）
-  > What housing quietly does is eliminate everything else a family might have bought, because an unaffordable rent comes out first. Students who move house often or share a crowded room lose sleep, concentration and the confidence that classrooms reward.
+- **B2**（35 字 / 每句 17.5 字 / 約 17.5 秒）
+  > What an unaffordable rent removes is not simply money but everything that money would otherwise have purchased. Teenagers who relocate annually, or study on a bunk bed, reach school short of sleep, concentration and self-belief.
 
 ### Slide 6 · Digital gaps limit opportunities（數位落差限制機會）
 
@@ -176,8 +176,8 @@ SDG 1 · 20 slides · levels: A1, A2, B1, B2 · content_version 2026.09.1
   > Taiwan is growing older fast. Many old people live alone and need care, money, transport, and help with their phone. Poverty follows health and family, not only pay.
 - **B1**（36 字 / 每句 12.0 字 / 約 19.6 秒）
   > An aging society changes the shape of poverty. Older adults may live alone, manage illness, or struggle with services that have moved online. SDG 1 therefore connects welfare, transport, health care and community, not just income.
-- **B2**（39 字 / 每句 19.5 字 / 約 19.5 秒）
-  > An aging society is shifting poverty towards older citizens, especially those who live alone, manage illness, or give up on services that have moved online. SDG 1 therefore connects welfare, transport, health care and the strength of local relationships.
+- **B2**（38 字 / 每句 19.0 字 / 約 19.0 秒）
+  > Demographic change is moving poverty risk onto the oldest: anyone living alone, managing a chronic illness, or stranded when the counter became an app. The goal therefore reaches into pensions, buses, clinics and neighborly contact, not wages alone.
 
 ### Slide 14 · Migrant families need fair access（移民家庭需要公平資源）
 
@@ -197,7 +197,7 @@ SDG 1 · 20 slides · levels: A1, A2, B1, B2 · content_version 2026.09.1
 - **A2**（29 字 / 每句 9.7 字 / 約 18.3 秒）
   > Climate disasters make poverty worse. Floods and heat hit poor homes hardest, because they have less money saved and fewer ways out. Climate action is part of this fight.
 - **B1**（36 字 / 每句 12.0 字 / 約 19.6 秒）
-  > Climate risk is a poverty issue. When a disaster arrives, low-income families lose more and recover far more slowly. So shelters, insurance, clear warnings and neighbors who check on each other have to be ready first.
+  > Climate risk is a poverty issue. When a disaster arrives, low-income families lose more and recover far more slowly. So shelters, insurance, clear advice and neighbors who check on each other have to be ready first.
 - **B2**（37 字 / 每句 18.5 字 / 約 18.5 秒）
   > Climate change acts as an inequality multiplier, because the same flood hits two homes very differently, depending on savings and insurance. Adaptation is poverty policy, and shelters, advice and local networks must exist before the emergency arrives.
 
@@ -222,11 +222,11 @@ SDG 1 · 20 slides · levels: A1, A2, B1, B2 · content_version 2026.09.1
 - **A1**（17 字 / 每句 5.7 字 / 約 7.8 秒）
   > SDG 1 is about safety for everyone. Poverty affects school, health, homes, and dreams. We need better support.
 - **A2**（27 字 / 每句 9.0 字 / 約 17.1 秒）
-  > To sum up, this goal is about shared safety. Poverty touches housing, health, education and dreams. Taiwan already helps, but help must come sooner and reach further.
+  > To sum up, this goal is about shared safety. Poverty touches learning, housing, health and dreams. Taiwan has support, but help must come sooner and reach further.
 - **B1**（36 字 / 每句 12.0 字 / 約 19.6 秒）
   > In summary, SDG 1 is not only about money. It is about whether everyone can live with safety and opportunity. Taiwan has clearly progressed, yet hidden poverty still asks us to improve access, timing and fairness.
-- **B2**（39 字 / 每句 19.5 字 / 約 19.5 秒）
-  > The overall position is encouraging without being anything like sufficient, because the institutions exist and the coverage is broad. What is still missing is access, timing and the fairness with which help actually reaches the households that need it.
+- **B2**（38 字 / 每句 19.0 字 / 約 19.0 秒）
+  > The overall position is encouraging although nothing like sufficient, because the institutions exist and the coverage is broad. What is still missing is access, timing and the fairness with which help actually reaches the households that need it.
 
 ### Slide 18 · Challenge blame and stereotypes（挑戰責怪與刻板印象）
 
@@ -236,8 +236,8 @@ SDG 1 · 20 slides · levels: A1, A2, B1, B2 · content_version 2026.09.1
   > We also need to drop the blame. Low pay, high prices, illness, family care, a flood: these push people down. Blaming is easy, but understanding is useful.
 - **B1**（36 字 / 每句 12.0 字 / 約 19.6 秒）
   > The most useful change may be our own language. Calling people lazy ends the conversation at once. Asking which barriers they meet opens it, because we then have to discuss wages, rent, health, transport and education.
-- **B2**（37 字 / 每句 18.5 字 / 約 18.5 秒）
-  > Perhaps the most powerful reform available to us is vocabulary, because calling people lazy ends the analysis at once. Asking instead which obstacles they meet forces a serious conversation about wages, rent, health care, transport and education.
+- **B2**（39 字 / 每句 19.5 字 / 約 19.5 秒）
+  > Perhaps the most powerful reform is a change of vocabulary, since the word lazy closes an argument that evidence should open. Replace it with a question about obstacles, and suddenly you are debating pay, rent, clinics, buses and schools.
 
 ### Slide 19 · Build skills, networks, voice（建立技能、連結與發聲能力）
 

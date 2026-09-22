@@ -1,0 +1,22 @@
+{
+  "mission_id": "sdg9-2",
+  "level": "B1",
+  "provenance": "authored-replacement",
+  "author": "Claude (English teacher role), v2 against the v2 quality gate",
+  "basis": "Full rewrite. The workbook B1 column failed ten of twelve slides - semicolons and em-dashes that give a speaker no breathing cue, sentences of thirty words or more, and a long-word share at B2 level - and it sat 0.52 from the B2 text, which means the two levels were one text. This version keeps B1 grammar visible on purpose: present perfect on slides 1, 2, 8 and 10, a first conditional on slide 4, relative clauses on slides 1, 3, 7, 9, 11 and 12, and a because/so clause on slide 5. Meaning, slide order and every named fact are unchanged: SDG 9, the United Nations, ChatGPT, AI slop, the four parts of a prompt, literature review, lab report, presentation. Facts corrected: the workbook says the model 'only guesses the next word based on our prompt', which leaves out training, so slide 5 says it predicts from the words we typed and from the patterns in its training data. 'Natural intuition' becomes 'instinct' on slide 11 to stay inside the B1 lexical band; 'honest hearts' is kept as 'an honest heart'.",
+  "reviewed_by": null,
+  "slides": {
+    "1": "Good morning. The United Nations has given us SDG 9, a goal that pushes every nation towards stronger industry, better networks and the research that keeps them alive.",
+    "2": "AI has already changed the pace of research and the way scientists talk to each other. But the quality of its answers depends on a single factor: how we phrase the question.",
+    "3": "As science undergraduates, we lean on ChatGPT almost weekly. It polishes a lab report, shortens a long article, or explains a concept that our lecture notes left unclear.",
+    "4": "Speed is not the problem. If we ask for something useful without supplying any detail, the reply will be vague and repetitive, and people now call that output AI slop.",
+    "5": "The system cannot guess our intentions. It predicts an answer from the words we typed and from the patterns in its training data, so a thin prompt produces a thin result.",
+    "6": "A strong prompt carries four things: a role for the model, the background it needs, a precise goal and a realistic limit. Clearer instructions reliably produce a more useful reply.",
+    "7": "In research, exact communication matters more than people think. A student who writes good prompts will produce a faster literature review, a tidier lab report and a clearer talk.",
+    "8": "However, if we take these answers without questioning them, we slowly turn into passive learners. Real science has always started with human curiosity, not with an easy click.",
+    "9": "So think carefully before you start typing. Decide precisely what information you need, ask who is going to read the answer, and choose the format that suits the task.",
+    "10": "Then hand over a clear set of instructions, including the background of your course and the exact format you expect. Writing a prompt has now become a real part of scientific communication.",
+    "11": "A computer can sort data very well, but it has no curiosity, no instinct and no honest heart. Those human traits are the ones that turn plain numbers into a discovery.",
+    "12": "Responsible innovation under SDG 9 starts with responsible talk. Better prompts will bring you better answers, but only a good scientist can turn those answers into knowledge that other people trust."
+  }
+}

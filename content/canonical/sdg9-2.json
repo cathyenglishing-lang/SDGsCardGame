@@ -1,0 +1,653 @@
+{
+  "mission_id": "sdg9-2",
+  "sdg": 9,
+  "title": {
+    "en": "How to Talk to AI Like a Scientist",
+    "zh": null
+  },
+  "content_version": "2026.09.1",
+  "levels": [
+    "A2",
+    "B1",
+    "B2"
+  ],
+  "source_mission": "sdg9-2",
+  "slide_count": 12,
+  "level_summary": {
+    "A2": {
+      "slides": 12,
+      "avg_words": 26.0,
+      "avg_sentence_words": 8.7,
+      "fk_grade": 4.8,
+      "slides_over_20s": 0
+    },
+    "B1": {
+      "slides": 12,
+      "avg_words": 29.9,
+      "avg_sentence_words": 15.0,
+      "fk_grade": 8.5,
+      "slides_over_20s": 0
+    },
+    "B2": {
+      "slides": 12,
+      "avg_words": 32.2,
+      "avg_sentence_words": 16.1,
+      "fk_grade": 11.9,
+      "slides_over_20s": 0
+    }
+  },
+  "gate": {
+    "A2": [],
+    "B1": [],
+    "B2": []
+  },
+  "distance": {
+    "A2->B1": {
+      "mean": 0.18,
+      "pass": true,
+      "too_close": {}
+    },
+    "B1->B2": {
+      "mean": 0.2,
+      "pass": true,
+      "too_close": {}
+    }
+  },
+  "ready": true,
+  "stages": [
+    {
+      "part_no": 1,
+      "function_en": "Introduction",
+      "function_zh": "引言：破題與定義",
+      "language_pattern": "rhetorical questions / X is about ...",
+      "source_description": "Micro-Hook: Global context of technology",
+      "slides": [
+        {
+          "slide_no": 1,
+          "title": {
+            "en": "Micro-Hook: Global context of technology",
+            "zh": "全球永續連結"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Good morning. Today we look at SDG 9, a world plan from the United Nations. It helps every country build better factories and support modern science.",
+              "words": 26,
+              "sentences": 3,
+              "avg_sentence_words": 8.7,
+              "fk_grade": 5.5,
+              "speak_seconds_est": 16.4,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B1": {
+              "text": "Good morning. The United Nations has given us SDG 9, a goal that pushes every nation towards stronger industry, better networks and the research that keeps them alive.",
+              "words": 28,
+              "sentences": 2,
+              "avg_sentence_words": 14.0,
+              "fk_grade": 8.8,
+              "speak_seconds_est": 15.3,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "Good morning. SDG 9 is the United Nations framework for industry, innovation and infrastructure, and it commits every member state to upgrading its factories, strengthening its networks and funding the science that development rests on.",
+              "words": 35,
+              "sentences": 2,
+              "avg_sentence_words": 17.5,
+              "fk_grade": 12.8,
+              "speak_seconds_est": 17.5,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            }
+          },
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 2,
+          "title": {
+            "en": "AI as Innovation: Connecting SDG 9",
+            "zh": "科技與創新"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "AI is changing science very quickly. It also changes the way we share our ideas. But the answer always depends on one thing: exactly how we ask.",
+              "words": 27,
+              "sentences": 3,
+              "avg_sentence_words": 9.0,
+              "fk_grade": 4.5,
+              "speak_seconds_est": 17.1,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B1": {
+              "text": "AI has already changed the pace of research and the way scientists talk to each other. But the quality of its answers depends on a single factor: how we phrase the question.",
+              "words": 32,
+              "sentences": 2,
+              "avg_sentence_words": 16.0,
+              "fk_grade": 7.2,
+              "speak_seconds_est": 17.5,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "Artificial intelligence is transforming research and scientific communication at remarkable speed. But what decides the quality of an answer is not the machine itself — it is the care behind our question.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 12.5,
+              "speak_seconds_est": 15.5,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            }
+          },
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        }
+      ]
+    },
+    {
+      "part_no": 2,
+      "function_en": "Problem",
+      "function_zh": "問題指認：趨勢與因果",
+      "language_pattern": "present progressive for trends / this causes ...",
+      "source_description": "Student Experience",
+      "slides": [
+        {
+          "slide_no": 3,
+          "title": {
+            "en": "Student Experience",
+            "zh": "學生生活情境"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Many science students use ChatGPT or Gemini. We fix our lab reports, we read short summaries, and we ask about hard homework. It is very quick and easy.",
+              "words": 28,
+              "sentences": 3,
+              "avg_sentence_words": 9.3,
+              "fk_grade": 4.9,
+              "speak_seconds_est": 17.7,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B1": {
+              "text": "As science undergraduates, we lean on ChatGPT almost weekly. It polishes a lab report, shortens a long article, or explains a concept that our lecture notes left unclear.",
+              "words": 28,
+              "sentences": 2,
+              "avg_sentence_words": 14.0,
+              "fk_grade": 8.8,
+              "speak_seconds_est": 15.3,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "University science majors now delegate whole tasks to ChatGPT, asking it to draft a laboratory report or condense a journal article. Concepts that a lecture left unexplained are handed over too.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 11.8,
+              "speak_seconds_est": 15.5,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            }
+          },
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 4,
+          "title": {
+            "en": "Contextualized Problem",
+            "zh": "脈絡化問題"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "This tool is really handy. But some students only type a few lazy words, and the reply is boring and empty. People call this AI slop.",
+              "words": 26,
+              "sentences": 3,
+              "avg_sentence_words": 8.7,
+              "fk_grade": 3.7,
+              "speak_seconds_est": 16.4,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B1": {
+              "text": "Speed is not the problem. If we ask for something useful without supplying any detail, the reply will be vague and repetitive, and people now call that output AI slop.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 8.0,
+              "speak_seconds_est": 16.4,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "The technology is quick and convenient, although a request written in five seconds tends to earn an equally unremarkable reply. Vague, repetitive output of that kind is dismissed as AI slop.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 10.6,
+              "speak_seconds_est": 15.5,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            }
+          },
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        }
+      ]
+    },
+    {
+      "part_no": 3,
+      "function_en": "Achievements",
+      "function_zh": "成果：舉證與比較",
+      "language_pattern": "present perfect / comparatives",
+      "source_description": "Scientific Explanation",
+      "slides": [
+        {
+          "slide_no": 5,
+          "title": {
+            "en": "Scientific Explanation",
+            "zh": "解釋科學原理 WHY"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Why does this happen? The computer never reads your mind, because it only sees the words in your prompt. Few details always bring a weak answer.",
+              "words": 26,
+              "sentences": 3,
+              "avg_sentence_words": 8.7,
+              "fk_grade": 3.7,
+              "speak_seconds_est": 16.4,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B1": {
+              "text": "The system cannot guess our intentions. It predicts an answer from the words we typed and from the patterns in its training data, so a thin prompt produces a thin result.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 7.2,
+              "speak_seconds_est": 16.9,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "The reason is mechanical. A model cannot infer an intention that was left unstated, so it generates the most probable continuation of whatever context you supplied, and thin context yields a thin answer.",
+              "words": 33,
+              "sentences": 2,
+              "avg_sentence_words": 16.5,
+              "fk_grade": 11.6,
+              "speak_seconds_est": 16.5,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            }
+          },
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 6,
+          "title": {
+            "en": "Scientific Explanation",
+            "zh": "解釋科學原理 HOW"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "A useful prompt has four parts. Give the model a role, and give it the background facts. Then add your goal and a simple limit.",
+              "words": 25,
+              "sentences": 3,
+              "avg_sentence_words": 8.3,
+              "fk_grade": 2.8,
+              "speak_seconds_est": 15.8,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B1": {
+              "text": "A strong prompt carries four things: a role for the model, the background it needs, a precise goal and a realistic limit. Clearer instructions reliably produce a more useful reply.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 8.7,
+              "speak_seconds_est": 16.4,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "A well-constructed prompt therefore carries four elements. Name the role the model should adopt, supply the background it cannot possibly guess, specify the objective, and set the limitations it must respect.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 11.4,
+              "speak_seconds_est": 15.5,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            }
+          },
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        }
+      ]
+    },
+    {
+      "part_no": 4,
+      "function_en": "Solutions",
+      "function_zh": "解方：做法與取捨",
+      "language_pattern": "instead of + V-ing / modal verbs",
+      "source_description": "Impact on Science",
+      "slides": [
+        {
+          "slide_no": 7,
+          "title": {
+            "en": "Impact on Science",
+            "zh": "學術研究衝擊"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Clear writing really matters in science. A careful prompt improves our lab reports and our presentations. Our study gets quicker, and it also gets more correct.",
+              "words": 26,
+              "sentences": 3,
+              "avg_sentence_words": 8.7,
+              "fk_grade": 6.4,
+              "speak_seconds_est": 16.4,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B1": {
+              "text": "In research, exact communication matters more than people think. A student who writes good prompts will produce a faster literature review, a tidier lab report and a clearer talk.",
+              "words": 29,
+              "sentences": 2,
+              "avg_sentence_words": 14.5,
+              "fk_grade": 9.6,
+              "speak_seconds_est": 15.8,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "Precision in scientific communication is not a stylistic luxury. A student who learns to specify exactly what is needed will produce a faster literature review, a cleaner laboratory report and a clearer set of presentations.",
+              "words": 35,
+              "sentences": 2,
+              "avg_sentence_words": 17.5,
+              "fk_grade": 14.5,
+              "speak_seconds_est": 17.5,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            }
+          },
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 8,
+          "title": {
+            "en": "Impact on Society",
+            "zh": "大眾社會衝擊"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "But never copy an answer without thinking about it. You will simply stop learning. Real science starts with human wonder, and never with a fast reply.",
+              "words": 26,
+              "sentences": 3,
+              "avg_sentence_words": 8.7,
+              "fk_grade": 5.0,
+              "speak_seconds_est": 16.4,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B1": {
+              "text": "However, if we take these answers without questioning them, we slowly turn into passive learners. Real science has always started with human curiosity, not with an easy click.",
+              "words": 28,
+              "sentences": 2,
+              "avg_sentence_words": 14.0,
+              "fk_grade": 8.8,
+              "speak_seconds_est": 15.3,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "There is a risk in all this, though. If we accept generated answers without interrogating them, we drift into passive learning, and scientific thinking begins with curiosity rather than convenience.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 11.1,
+              "speak_seconds_est": 15.0,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            }
+          },
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        }
+      ]
+    },
+    {
+      "part_no": 5,
+      "function_en": "Implications",
+      "function_zh": "影響：推論後果",
+      "language_pattern": "first conditional / however",
+      "source_description": "AI Literacy Strategy 1",
+      "slides": [
+        {
+          "slide_no": 9,
+          "title": {
+            "en": "AI Literacy Strategy 1",
+            "zh": "AI 素養策略一： 提問前的後設認知"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "So think before you type. Ask yourself exactly what you really need, and decide who will finally read your report. Then pick the format that fits.",
+              "words": 26,
+              "sentences": 3,
+              "avg_sentence_words": 8.7,
+              "fk_grade": 4.1,
+              "speak_seconds_est": 16.4,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B1": {
+              "text": "So think carefully before you start typing. Decide precisely what information you need, ask who is going to read the answer, and choose the format that suits the task.",
+              "words": 29,
+              "sentences": 2,
+              "avg_sentence_words": 14.5,
+              "fk_grade": 7.6,
+              "speak_seconds_est": 15.8,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "Only when you have identified your objective does a prompt become worth writing. Ask which information is genuinely missing, who the intended reader is, and what format would communicate it best.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 10.6,
+              "speak_seconds_est": 15.5,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            }
+          },
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 10,
+          "title": {
+            "en": "AI Literacy Strategy 2",
+            "zh": "AI 素養策略二： 具體動作"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Then give the machine clear orders. Add your student background, and add the exact format you want. Writing a prompt is science communication too.",
+              "words": 24,
+              "sentences": 3,
+              "avg_sentence_words": 8.0,
+              "fk_grade": 4.7,
+              "speak_seconds_est": 15.2,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B1": {
+              "text": "Then hand over a clear set of instructions, including the background of your course and the exact format you expect. Writing a prompt has now become a real part of scientific communication.",
+              "words": 32,
+              "sentences": 2,
+              "avg_sentence_words": 16.0,
+              "fk_grade": 8.7,
+              "speak_seconds_est": 17.5,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "Then hand over instructions that are organised rather than vague, including your academic level and the exact format you expect. Prompt writing is best understood as a form of professional scientific communication.",
+              "words": 32,
+              "sentences": 2,
+              "avg_sentence_words": 16.0,
+              "fk_grade": 12.8,
+              "speak_seconds_est": 16.0,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            }
+          },
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        }
+      ]
+    },
+    {
+      "part_no": 6,
+      "function_en": "Call to action",
+      "function_zh": "結語：總結與號召",
+      "language_pattern": "to wrap up ... / let's ...",
+      "source_description": "The Human Edge: Redefining the human role",
+      "slides": [
+        {
+          "slide_no": 11,
+          "title": {
+            "en": "The Human Edge: Redefining the human role",
+            "zh": "人類獨特價值"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Computers can sort a lot of data very well. But they have no wonder, no instinct and no honest heart. Only people really turn numbers into new discoveries.",
+              "words": 28,
+              "sentences": 3,
+              "avg_sentence_words": 9.3,
+              "fk_grade": 6.2,
+              "speak_seconds_est": 17.7,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B1": {
+              "text": "A computer can sort data very well, but it has no curiosity, no instinct and no honest heart. Those human traits are the ones that turn plain numbers into a discovery.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 8.3,
+              "speak_seconds_est": 16.9,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "Algorithms sort data at a speed no human can match, while remaining incapable of curiosity, of trained intuition and of any sense of duty. Those human traits are what turn raw data into discovery.",
+              "words": 34,
+              "sentences": 2,
+              "avg_sentence_words": 17.0,
+              "fk_grade": 11.2,
+              "speak_seconds_est": 17.0,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            }
+          },
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        },
+        {
+          "slide_no": 12,
+          "title": {
+            "en": "Final Call to Action: The SDG 9 future vision",
+            "zh": "最終呼籲與願景"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Good ideas always start with good talking. Better prompts bring better answers. But a careful scientist still has to think about every single word.",
+              "words": 24,
+              "sentences": 3,
+              "avg_sentence_words": 8.0,
+              "fk_grade": 5.7,
+              "speak_seconds_est": 15.2,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B1": {
+              "text": "Responsible innovation under SDG 9 starts with responsible talk. Better prompts will bring you better answers, but only a good scientist can turn those answers into knowledge that other people trust.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 9.9,
+              "speak_seconds_est": 16.9,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "Responsible innovation under SDG 9 begins with responsible communication. Better prompts may produce better answers, but knowledge that other people can rely on is made by scientists who question what they are given.",
+              "words": 33,
+              "sentences": 2,
+              "avg_sentence_words": 16.5,
+              "fk_grade": 11.9,
+              "speak_seconds_est": 16.5,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
+            }
+          },
+          "authoring": {
+            "visual_hint": null,
+            "stage_direction": null,
+            "target_words": null
+          }
+        }
+      ]
+    }
+  ]
+}
