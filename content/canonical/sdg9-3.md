@@ -4,11 +4,11 @@
 
 | 級別 | 每張字數 | 每句字數 | FK | 超過 20 秒 | 級距檢查 |
 | --- | --- | --- | --- | --- | --- |
-| A2 | 31.8 | 27.8 | 16.3 | 7 | slide 1: 32 words needs 20.2 s at 95 wpm, over the 20 s slide; sentence 16.0 far above A2 (7.0-12.0); fk 10.6 far above A2 (2.5-6.5); longword 15.6 far above A2 (3.0-11.0)；slide 2: sentence 31.0 far above A2 (7.0-12.0); fk 20.1 far above A2 (2.5-6.5); longword 29.0 far above A2 (3.0-11.0)；slide 3: sentence 31.0 far above A2 (7.0-12.0); fk 17.1 far above A2 (2.5-6.5); longword 19.4 far above A2 (3.0-11.0)；slide 4: 33 words needs 20.8 s at 95 wpm, over the 20 s slide; sentence 33.0 far above A2 (7.0-12.0); fk 14.1 far above A2 (2.5-6.5)；slide 5: 32 words needs 20.2 s at 95 wpm, over the 20 s slide; sentence 16.0 far above A2 (7.0-12.0); fk 12.4 far above A2 (2.5-6.5); longword 25.0 far above A2 (3.0-11.0)；slide 6: sentence 31.0 far above A2 (7.0-12.0); fk 20.9 far above A2 (2.5-6.5); longword 35.5 far above A2 (3.0-11.0)；slide 7: 32 words needs 20.2 s at 95 wpm, over the 20 s slide; sentence 32.0 far above A2 (7.0-12.0); fk 19.8 far above A2 (2.5-6.5); longword 25.0 far above A2 (3.0-11.0)；slide 8: sentence 31.0 far above A2 (7.0-12.0); fk 17.8 far above A2 (2.5-6.5)；slide 9: 32 words needs 20.2 s at 95 wpm, over the 20 s slide; sentence 32.0 far above A2 (7.0-12.0); fk 17.9 far above A2 (2.5-6.5); longword 21.9 far above A2 (3.0-11.0)；slide 10: 32 words needs 20.2 s at 95 wpm, over the 20 s slide; sentence 32.0 far above A2 (7.0-12.0); fk 18.6 far above A2 (2.5-6.5); longword 28.1 far above A2 (3.0-11.0)；slide 11: 33 words needs 20.8 s at 95 wpm, over the 20 s slide; sentence 33.0 far above A2 (7.0-12.0); fk 15.5 far above A2 (2.5-6.5)；slide 12: sentence 15.5 far above A2 (7.0-12.0); fk 11.0 far above A2 (2.5-6.5); longword 19.4 far above A2 (3.0-11.0) |
+| A2 | 27.5 | 9.2 | 4.5 | 0 | 通過 |
 | B1 | 33.2 | 29.0 | 17.7 | 0 | slide 2: sentence 33.0 far above B1 (11.0-16.0); fk 19.1 far above B1 (6.5-10.5); longword 24.2 far above B1 (8.0-17.0)；slide 3: sentence 32.0 far above B1 (11.0-16.0); fk 18.6 far above B1 (6.5-10.5); longword 25.0 far above B1 (8.0-17.0)；slide 4: sentence 31.0 far above B1 (11.0-16.0); fk 14.4 far above B1 (6.5-10.5)；slide 5: longword 21.2 far above B1 (8.0-17.0)；slide 6: sentence 33.0 far above B1 (11.0-16.0); fk 22.7 far above B1 (6.5-10.5); longword 36.4 far above B1 (8.0-17.0)；slide 7: sentence 32.0 far above B1 (11.0-16.0); fk 22.3 far above B1 (6.5-10.5); longword 34.4 far above B1 (8.0-17.0)；slide 8: sentence 34.0 far above B1 (11.0-16.0); fk 22.0 far above B1 (6.5-10.5); longword 20.6 far above B1 (8.0-17.0)；slide 9: sentence 35.0 far above B1 (11.0-16.0); fk 19.0 far above B1 (6.5-10.5); longword 22.9 far above B1 (8.0-17.0)；slide 10: sentence 32.0 far above B1 (11.0-16.0); fk 22.3 far above B1 (6.5-10.5); longword 37.5 far above B1 (8.0-17.0)；slide 11: sentence 35.0 far above B1 (11.0-16.0); fk 16.9 far above B1 (6.5-10.5)；slide 12: fk 13.3 far above B1 (6.5-10.5); longword 26.5 far above B1 (8.0-17.0)；42% of slides miss a band |
 | B2 | 33.4 | 29.3 | 20.6 | 0 | slide 1: longword 34.4 far above B2 (15.0-27.0)；slide 2: sentence 35.0 far above B2 (14.0-20.0); fk 24.0 far above B2 (10.5-15.0)；slide 3: sentence 33.0 far above B2 (14.0-20.0); fk 21.2 far above B2 (10.5-15.0)；slide 4: sentence 35.0 far above B2 (14.0-20.0); fk 19.6 far above B2 (10.5-15.0)；slide 5: longword 37.1 far above B2 (15.0-27.0)；slide 6: sentence 32.0 far above B2 (14.0-20.0); fk 25.3 far above B2 (10.5-15.0); longword 43.8 far above B2 (15.0-27.0)；slide 7: sentence 35.0 far above B2 (14.0-20.0); fk 23.7 far above B2 (10.5-15.0); longword 31.4 far above B2 (15.0-27.0)；slide 8: sentence 34.0 far above B2 (14.0-20.0); fk 23.7 far above B2 (10.5-15.0)；slide 9: sentence 34.0 far above B2 (14.0-20.0); fk 21.6 far above B2 (10.5-15.0); longword 32.4 far above B2 (15.0-27.0)；slide 10: sentence 31.0 far above B2 (14.0-20.0); fk 24.3 far above B2 (10.5-15.0); longword 48.4 far above B2 (15.0-27.0)；slide 11: sentence 33.0 far above B2 (14.0-20.0); fk 19.1 far above B2 (10.5-15.0) |
 
-相鄰兩級的詞彙重疊（上限 0.34）：A2->B1 0.57 超標、B1->B2 0.57 超標
+相鄰兩級的詞彙重疊（上限 0.34）：A2->B1 0.19 超標、B1->B2 0.57 超標
 
 ## Part 1 · Introduction（引言：破題與定義）
 
@@ -16,8 +16,8 @@
 
 ### 1. Micro-Hook: Global context of technology（全球永續連結）
 
-- **A2**（32 字 / 每句 16.0 字 / 20.2 秒）
-  > Good morning, everyone. Today, let’s look at United Nations SDG 9, a great global plan that helps all countries support modern technological innovations and build strong infrastructure for a better world.
+- **A2**（28 字 / 每句 9.3 字 / 17.7 秒 ·（本版新寫））
+  > Good morning. Today we look at SDG 9, a global plan from the United Nations. It asks every country to back new technology and to build stronger systems.
 - **B1**（34 字 / 每句 17.0 字 / 18.5 秒）
   > Good morning, everyone. Today, let’s look at United Nations SDG 9, a global plan that encourages all countries to support modern technology and build strong systems for better scientific development around the world.
 - **B2**（32 字 / 每句 16.0 字 / 16.0 秒）
@@ -25,8 +25,8 @@
 
 ### 2. AI as Innovation: Connecting SDG 9（科技與創新）
 
-- **A2**（31 字 / 每句 31.0 字 / 19.6 秒）
-  > In our digital world today, Artificial Intelligence is changing how we study and do scientific research very quickly; however, an important question remains: what special human qualities make us truly irreplaceable?
+- **A2**（28 字 / 每句 9.3 字 / 17.7 秒 ·（本版新寫））
+  > AI is changing how we study and how we do our research today. It gets better every year. So one question stays with us: what makes people special?
 - **B1**（33 字 / 每句 33.0 字 / 18.0 秒）
   > In our digital world, Artificial Intelligence is changing how we study, do research, and make new tools; however, as AI becomes smarter, an important question remains: what human qualities make us truly irreplaceable?
 - **B2**（35 字 / 每句 35.0 字 / 17.5 秒）
@@ -38,8 +38,8 @@
 
 ### 3. Student Experience（學生生活情境）
 
-- **A2**（31 字 / 每句 31.0 字 / 19.6 秒）
-  > Many university science students are excited about AI, but they also feel quite worried because these computer tools can easily write lab reports, read short science articles, and generate computer code.
+- **A2**（28 字 / 每句 9.3 字 / 17.7 秒 ·（本版新寫））
+  > Many science students feel excited. But they also feel a bit afraid. These tools write our lab reports, sum up short articles and make computer code in seconds.
 - **B1**（32 字 / 每句 32.0 字 / 17.5 秒）
   > Many university science students are excited about AI, but they also feel worried because these tools can write lab reports, summarize science articles, generate computer code, and answer difficult questions within seconds.
 - **B2**（33 字 / 每句 33.0 字 / 16.5 秒）
@@ -47,8 +47,8 @@
 
 ### 4. Contextualized Problem（脈絡化問題）
 
-- **A2**（33 字 / 每句 33.0 字 / 20.8 秒）
-  > These worries are easy to understand because AI can do many school tasks that used to need hard human work; however, doing a task quickly does not mean that AI truly understands science.
+- **A2**（28 字 / 每句 9.3 字 / 17.7 秒 ·（本版新寫））
+  > The worry makes sense, because machines now do jobs that once needed people. But speed is not the same as science. A fast answer is not real understanding.
 - **B1**（31 字 / 每句 31.0 字 / 16.9 秒）
   > These worries are easy to understand because AI can do many tasks that used to require human effort; however, doing a task quickly does not mean that AI truly understands science.
 - **B2**（35 字 / 每句 35.0 字 / 17.5 秒）
@@ -60,8 +60,8 @@
 
 ### 5. Scientific Explanation（解釋科學原理 WHY）
 
-- **A2**（32 字 / 每句 16.0 字 / 20.2 秒）
-  > Why does this happen? The AI computer does not automatically understand your human thoughts; instead, it only guesses the next word by using mathematical chance from the internet without real scientific comprehension.
+- **A2**（28 字 / 每句 9.3 字 / 17.7 秒 ·（本版新寫））
+  > Why? A model can spot patterns in a huge pile of data, but it never understands them. It picks each word from the odds, and never from curiosity.
 - **B1**（33 字 / 每句 16.5 字 / 18.0 秒）
   > Why does this happen? Although AI can find patterns in massive amounts of data, it does not have real understanding because it predicts words based on math probabilities instead of curiosity or reasoning.
 - **B2**（35 字 / 每句 17.5 字 / 17.5 秒）
@@ -69,8 +69,8 @@
 
 ### 6. Scientific Explanation（解釋科學原理 HOW）
 
-- **A2**（31 字 / 每句 31.0 字 / 19.6 秒）
-  > Human scientists work differently because we ask new questions, design creative experiments, explain surprising laboratory results, and learn from our mistakes, meaning that scientific discovery needs a lot of human imagination.
+- **A2**（27 字 / 每句 9.0 字 / 17.1 秒 ·（本版新寫））
+  > People work in another way. We ask new questions, plan clever tests, and study odd results. We learn from our own errors, and that takes real imagination.
 - **B1**（33 字 / 每句 33.0 字 / 18.0 秒）
   > Human scientists work differently because we ask new questions, design creative experiments, explain surprising laboratory results, and learn from our mistakes, meaning that scientific discovery depends heavily on imagination, hard work, and creativity.
 - **B2**（32 字 / 每句 32.0 字 / 16.0 秒）
@@ -82,8 +82,8 @@
 
 ### 7. Impact on Science（學術研究衝擊）
 
-- **A2**（32 字 / 每句 32.0 字 / 20.2 秒）
-  > History clearly shows that every great scientific discovery always began with human curiosity, and while AI can organize old information very well, it cannot independently choose which new questions are worth studying.
+- **A2**（28 字 / 每句 9.3 字 / 17.7 秒 ·（本版新寫））
+  > Every big discovery in history started with a curious person. AI can sort old facts very well. But it cannot choose which new question is worth our time.
 - **B1**（32 字 / 每句 32.0 字 / 17.5 秒）
   > History clearly shows that every great scientific discovery began with human curiosity, and while AI can organize existing information very well, it cannot independently decide which unanswered questions are actually worth studying.
 - **B2**（35 字 / 每句 35.0 字 / 17.5 秒）
@@ -91,8 +91,8 @@
 
 ### 8. Impact on Society（大眾社會衝擊）
 
-- **A2**（31 字 / 每句 31.0 字 / 19.6 秒）
-  > Furthermore, science is not just about getting fast results, meaning that human scientists must always think about public safety and social responsibility, which are special human values that computers cannot make.
+- **A2**（26 字 / 每句 8.7 字 / 16.4 秒 ·（本版新寫））
+  > Science is more than a quick result. A scientist must think about safety, about the planet, and about other people. A machine cannot weigh those things.
 - **B1**（34 字 / 每句 34.0 字 / 18.5 秒）
   > Furthermore, science is about more than making results, meaning that human scientists must always consider correct ethics, public safety, green sustainability, and social responsibility, which are human values that computer rules cannot simply generate.
 - **B2**（34 字 / 每句 34.0 字 / 17.0 秒）
@@ -104,8 +104,8 @@
 
 ### 9. AI Literacy Strategy 1（AI 素養策略一： 提問前的後設認知）
 
-- **A2**（32 字 / 每句 32.0 字 / 20.2 秒）
-  > Therefore, we should treat AI as a helpful partner rather than a replacement for human thinking, because technology can organize data, but it should never replace our independent choices or creative ideas.
+- **A2**（28 字 / 每句 9.3 字 / 17.7 秒 ·（本版新寫））
+  > So treat AI as a partner, and never as a replacement for your own mind. It can arrange the facts for you. But your choices stay your own.
 - **B1**（35 字 / 每句 35.0 字 / 19.1 秒）
   > Therefore, we should see AI as a helpful partner rather than a replacement for human thinking, because technology can organize information and improve speed, but it should never replace our independent choices or creative minds.
 - **B2**（34 字 / 每句 34.0 字 / 17.0 秒）
@@ -113,8 +113,8 @@
 
 ### 10. AI Literacy Strategy 2（AI 素養策略二： 具體動作）
 
-- **A2**（32 字 / 每句 32.0 字 / 20.2 秒）
-  > As future scientists, we must continue asking good questions, doubting old ideas, and sharing our discoveries honestly, because these special human abilities will always be necessary no matter how smart computers become.
+- **A2**（27 字 / 每句 9.0 字 / 17.1 秒 ·（本版新寫））
+  > As future scientists, we must keep asking good questions. We must doubt old ideas, and we must share what we find. Those human skills will always matter.
 - **B1**（32 字 / 每句 32.0 字 / 17.5 秒）
   > As future scientists, we should continue asking meaningful questions, challenging old ideas, and sharing our discoveries responsibly because these special human abilities will remain necessary, no matter how advanced computer technology becomes.
 - **B2**（31 字 / 每句 31.0 字 / 15.5 秒）
@@ -126,8 +126,8 @@
 
 ### 11. The Human Edge: Redefining the human role（人類獨特價值）
 
-- **A2**（33 字 / 每句 33.0 字 / 20.8 秒）
-  > In conclusion, SDG 9 reminds us that innovation is always driven by people, because AI can give us basic information, but only human beings can create true knowledge and make the right choices.
+- **A2**（26 字 / 每句 8.7 字 / 16.4 秒 ·（本版新寫））
+  > SDG 9 reminds us that people drive every new idea. A machine can hand us facts. But only a person can turn facts into real knowledge.
 - **B1**（35 字 / 每句 35.0 字 / 19.1 秒）
   > In conclusion, SDG 9 reminds us that new innovation is always driven by real people because AI can generate information, but only human beings can create true knowledge, make good choices, and bring meaningful change.
 - **B2**（33 字 / 每句 33.0 字 / 16.5 秒）
@@ -135,8 +135,8 @@
 
 ### 12. Final Call to Action: The SDG 9 future vision（最終呼籲與願景）
 
-- **A2**（31 字 / 每句 15.5 字 / 19.6 秒）
-  > Let us use AI wisely while continuing to grow the curiosity, creativity, and responsibility that define great scientists, so we can build a better and more honest future together. Thank you.
+- **A2**（28 字 / 每句 9.3 字 / 17.7 秒 ·（本版新寫））
+  > So let's use AI wisely. Keep your wonder, your new ideas and your honest heart. Those three habits really make a scientist, and they build a better future.
 - **B1**（34 字 / 每句 17.0 字 / 18.5 秒）
   > Let us use AI wisely while continuing to develop the curiosity, creativity, and professional responsibility that make great scientists, so we can build a more trustworthy and sustainable future for science together. Thank you.
 - **B2**（32 字 / 每句 16.0 字 / 16.0 秒）

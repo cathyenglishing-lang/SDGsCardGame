@@ -16,17 +16,17 @@
   "level_summary": {
     "A2": {
       "slides": 20,
-      "avg_words": 29.0,
-      "avg_sentence_words": 9.0,
-      "fk_grade": 4.2,
-      "slides_over_20s": 1
+      "avg_words": 28.9,
+      "avg_sentence_words": 9.1,
+      "fk_grade": 4.3,
+      "slides_over_20s": 0
     },
     "B1": {
       "slides": 20,
-      "avg_words": 41.5,
-      "avg_sentence_words": 15.7,
-      "fk_grade": 14.5,
-      "slides_over_20s": 20
+      "avg_words": 34.5,
+      "avg_sentence_words": 11.7,
+      "fk_grade": 7.4,
+      "slides_over_20s": 0
     },
     "B2": {
       "slides": 20,
@@ -37,31 +37,8 @@
     }
   },
   "gate": {
-    "A2": [
-      "slide 20: 32 words needs 20.2 s at 95 wpm, over the 20 s slide"
-    ],
-    "B1": [
-      "slide 1: 45 words needs 24.5 s at 110 wpm, over the 20 s slide",
-      "slide 2: 41 words needs 22.4 s at 110 wpm, over the 20 s slide; fk 12.2 far above B1 (6.5-10.5); longword 29.3 far above B1 (8.0-17.0)",
-      "slide 3: 44 words needs 24.0 s at 110 wpm, over the 20 s slide; fk 13.5 far above B1 (6.5-10.5); longword 25.0 far above B1 (8.0-17.0)",
-      "slide 4: 43 words needs 23.5 s at 110 wpm, over the 20 s slide; longword 30.2 far above B1 (8.0-17.0)",
-      "slide 5: 41 words needs 22.4 s at 110 wpm, over the 20 s slide; fk 12.5 far above B1 (6.5-10.5); longword 22.0 far above B1 (8.0-17.0)",
-      "slide 6: 42 words needs 22.9 s at 110 wpm, over the 20 s slide; fk 12.1 far above B1 (6.5-10.5); longword 21.4 far above B1 (8.0-17.0)",
-      "slide 7: 43 words needs 23.5 s at 110 wpm, over the 20 s slide; fk 12.8 far above B1 (6.5-10.5); longword 20.9 far above B1 (8.0-17.0)",
-      "slide 8: 42 words needs 22.9 s at 110 wpm, over the 20 s slide; sentence 21.0 far above B1 (11.0-16.0); fk 17.3 far above B1 (6.5-10.5); longword 31.0 far above B1 (8.0-17.0)",
-      "slide 9: 41 words needs 22.4 s at 110 wpm, over the 20 s slide; fk 15.1 far above B1 (6.5-10.5); longword 31.7 far above B1 (8.0-17.0)",
-      "slide 10: 41 words needs 22.4 s at 110 wpm, over the 20 s slide; sentence 20.5 far above B1 (11.0-16.0); fk 17.7 far above B1 (6.5-10.5); longword 36.6 far above B1 (8.0-17.0)",
-      "slide 11: 41 words needs 22.4 s at 110 wpm, over the 20 s slide; sentence 20.5 far above B1 (11.0-16.0); fk 18.6 far above B1 (6.5-10.5); longword 46.3 far above B1 (8.0-17.0)",
-      "slide 12: 41 words needs 22.4 s at 110 wpm, over the 20 s slide; fk 17.1 far above B1 (6.5-10.5); longword 51.2 far above B1 (8.0-17.0)",
-      "slide 13: 41 words needs 22.4 s at 110 wpm, over the 20 s slide; sentence 20.5 far above B1 (11.0-16.0); fk 19.7 far above B1 (6.5-10.5); longword 41.5 far above B1 (8.0-17.0)",
-      "slide 14: 42 words needs 22.9 s at 110 wpm, over the 20 s slide; fk 13.5 far above B1 (6.5-10.5); longword 33.3 far above B1 (8.0-17.0)",
-      "slide 15: 40 words needs 21.8 s at 110 wpm, over the 20 s slide; sentence 20.0 far above B1 (11.0-16.0); fk 16.4 far above B1 (6.5-10.5); longword 30.0 far above B1 (8.0-17.0)",
-      "slide 16: 40 words needs 21.8 s at 110 wpm, over the 20 s slide; fk 16.2 far above B1 (6.5-10.5); longword 30.0 far above B1 (8.0-17.0)",
-      "slide 17: 41 words needs 22.4 s at 110 wpm, over the 20 s slide; sentence 20.5 far above B1 (11.0-16.0); fk 16.6 far above B1 (6.5-10.5); longword 26.8 far above B1 (8.0-17.0)",
-      "slide 18: 40 words needs 21.8 s at 110 wpm, over the 20 s slide; longword 25.0 far above B1 (8.0-17.0)",
-      "slide 19: 39 words needs 21.3 s at 110 wpm, over the 20 s slide; sentence 19.5 far above B1 (11.0-16.0); fk 16.8 far above B1 (6.5-10.5); longword 30.8 far above B1 (8.0-17.0)",
-      "slide 20: 42 words needs 22.9 s at 110 wpm, over the 20 s slide"
-    ],
+    "A2": [],
+    "B1": [],
     "B2": [
       "slide 1: 49 words needs 24.5 s at 120 wpm, over the 20 s slide; sentence 12.2 far below B2 (14.0-20.0) — reads below level",
       "slide 2: 46 words needs 23.0 s at 120 wpm, over the 20 s slide; sentence 23.0 far above B2 (14.0-20.0); fk 21.6 far above B2 (10.5-15.0); longword 39.1 far above B2 (15.0-27.0)",
@@ -87,25 +64,14 @@
   },
   "distance": {
     "A2->B1": {
-      "mean": 0.09,
+      "mean": 0.1,
       "pass": true,
       "too_close": {}
     },
     "B1->B2": {
-      "mean": 0.4,
-      "pass": false,
-      "too_close": {
-        "12": 0.62,
-        "8": 0.58,
-        "19": 0.51,
-        "6": 0.5,
-        "13": 0.5,
-        "14": 0.49,
-        "3": 0.47,
-        "15": 0.46,
-        "9": 0.45,
-        "18": 0.43
-      }
+      "mean": 0.09,
+      "pass": true,
+      "too_close": {}
     }
   },
   "ready": false,
@@ -136,14 +102,14 @@
               "provenance": "authored-replacement"
             },
             "B1": {
-              "text": "Good morning, everyone. Today, let’s examine SDG 4: Quality Education in Taiwan through a digital lens. Our high-tech education looks wonderful on paper, but does it really help everyone? We must look closely at online learning to see if our schools truly challenge inequality.",
-              "words": 45,
-              "sentences": 4,
-              "avg_sentence_words": 11.2,
-              "fk_grade": 9.5,
-              "speak_seconds_est": 24.5,
-              "fits_20s": false,
-              "provenance": "workbook"
+              "text": "Taiwan's high-tech system looks wonderful on paper, but has it really reached everybody? For the next six minutes I want to hold online learning up to the light and look.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 8.4,
+              "speak_seconds_est": 16.4,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
             },
             "B2": {
               "text": "Good morning, everyone. As university students, we must critically evaluate the digital dimensions of SDG 4 within Taiwan. While our high-tech educational framework appears exceptional on paper, does it truly foster educational equity, or does it inadvertently widen social gaps? Today, I will explore this reality through online learning.",
@@ -181,14 +147,14 @@
               "provenance": "authored-replacement"
             },
             "B1": {
-              "text": "SDG 4 is about ensuring inclusive and fair education for all people. Globally, it helps students overcome barriers like location. In Taiwan, with our advanced tech economy, we must ask: does digital education prepare us to use technology responsibly and safely?",
-              "words": 41,
+              "text": "The fourth goal has always been about fair education for everyone. It should not matter where on the map you were born. Taiwan lives on advanced technology, yet we hardly teach the responsible side of it.",
+              "words": 36,
               "sentences": 3,
-              "avg_sentence_words": 13.7,
-              "fk_grade": 12.2,
-              "speak_seconds_est": 22.4,
-              "fits_20s": false,
-              "provenance": "workbook"
+              "avg_sentence_words": 12.0,
+              "fk_grade": 7.1,
+              "speak_seconds_est": 19.6,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
             },
             "B2": {
               "text": "Fundamentally, SDG 4 aims to guarantee inclusive, equitable education by dismantling geographic and economic barriers. In Taiwan’s advanced, semiconductor-driven economy, an urgent question arises: does our current curriculum adequately prepare us to handle the profound ethical challenges and privacy issues associated with modern digital technology?",
@@ -226,14 +192,14 @@
               "provenance": "authored-replacement"
             },
             "B1": {
-              "text": "Taiwan heavily invests in technology to drive educational innovation and national growth. However, rapid technological changes and the low birth rate are forcing us to rethink our academic priorities. Let’s identify the core digital problems and see if we are addressing them effectively.",
-              "words": 44,
+              "text": "We have spent a fortune on classroom technology, because that high-tech industry pays our national bills. The birth rate is now at a record low. The tools change every year, so our priorities need a rethink.",
+              "words": 36,
               "sentences": 3,
-              "avg_sentence_words": 14.7,
-              "fk_grade": 13.5,
-              "speak_seconds_est": 24.0,
-              "fits_20s": false,
-              "provenance": "workbook"
+              "avg_sentence_words": 12.0,
+              "fk_grade": 6.5,
+              "speak_seconds_est": 19.6,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
             },
             "B2": {
               "text": "Taiwan heavily capitalizes on technology to drive educational innovation and maintain national growth. However, unprecedented demographic shifts and rapid technological disruptions are forcing a total rethink of academic priorities. We must identify these core digital problems and question if our long-term strategies are genuinely effective.",
@@ -280,14 +246,14 @@
               "provenance": "authored-replacement"
             },
             "B1": {
-              "text": "A primary challenge is Taiwan’s rural-urban digital divide. While city students enjoy advanced networks, remote schools face poor internet infrastructure. This deepens the educational gap whenever schools rely on online learning. Is this sustainable if we want long-term equity for all students?",
-              "words": 43,
-              "sentences": 4,
-              "avg_sentence_words": 10.8,
-              "fk_grade": 11.4,
-              "speak_seconds_est": 23.5,
-              "fits_20s": false,
-              "provenance": "workbook"
+              "text": "The divide starts with the connection itself. A city student streams a lesson without thinking, while a school in the mountains waits for a page to load. The gap grows every time the curriculum moves online.",
+              "words": 36,
+              "sentences": 3,
+              "avg_sentence_words": 12.0,
+              "fk_grade": 6.8,
+              "speak_seconds_est": 19.6,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
             },
             "B2": {
               "text": "A primary challenge is Taiwan’s persistent rural-urban digital divide. While metropolitan institutions enjoy cutting-edge networks, remote schools frequently suffer from substandard internet infrastructure. This structural disparity significantly compromises educational fairness whenever curricula shift online. We must consider if this imbalance allows for long-term sustainable equity.",
@@ -325,14 +291,14 @@
               "provenance": "authored-replacement"
             },
             "B1": {
-              "text": "In the digital world, the heavy flow of information often threatens students' critical thinking. Many young people consume social media constantly but cannot identify fake news or false stories. Does our current system really prepare us to handle online misinformation effectively?",
-              "words": 41,
+              "text": "Information arrives faster than anyone can check it. Most of us scroll through social media for hours, yet almost nobody has been taught how to test a story. Our judgement weakens without us noticing.",
+              "words": 34,
               "sentences": 3,
-              "avg_sentence_words": 13.7,
-              "fk_grade": 12.5,
-              "speak_seconds_est": 22.4,
-              "fits_20s": false,
-              "provenance": "workbook"
+              "avg_sentence_words": 11.3,
+              "fk_grade": 7.2,
+              "speak_seconds_est": 18.5,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
             },
             "B2": {
               "text": "In the digital sphere, the relentless flow of information frequently threatens students' critical thinking. Many young citizens consume social media constantly but lack the tools to filter out sophisticated misinformation or algorithmic bias. Consequently, this inability to evaluate digital facts severely undermines their intellectual autonomy early on.",
@@ -370,14 +336,14 @@
               "provenance": "authored-replacement"
             },
             "B1": {
-              "text": "Beyond fake news, digital safety is a growing crisis in schools. Incidents of cyberbullying and online harassment are increasing rapidly, harming students' mental health. Is our system designed to actively protect young internet users, or are we simply ignoring these digital dangers?",
-              "words": 42,
+              "text": "Safety online has become a crisis, not a side issue. Cyberbullying and harassment keep climbing, and the damage lands on a student's mental health. If schools will not act, who exactly is protecting them?",
+              "words": 34,
               "sentences": 3,
-              "avg_sentence_words": 14.0,
-              "fk_grade": 12.1,
-              "speak_seconds_est": 22.9,
-              "fits_20s": false,
-              "provenance": "workbook"
+              "avg_sentence_words": 11.3,
+              "fk_grade": 6.9,
+              "speak_seconds_est": 18.5,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
             },
             "B2": {
               "text": "Beyond misinformation, digital safety has escalated into a severe psychological crisis. Incidents of cyberbullying and online harassment are increasing exponentially, jeopardizing student mental health. Is our current school system genuinely designed to protect young internet users from these systemic dangers, or is it simply ignoring them?",
@@ -424,14 +390,14 @@
               "provenance": "authored-replacement"
             },
             "B1": {
-              "text": "Despite these issues, Taiwan has notable successes. The government’s famous \"tablets for every student\" policy has successfully distributed digital devices to thousands of rural children. This massive project provides broad access, but we should probe if it translates to higher learning quality.",
-              "words": 43,
+              "text": "Now the achievements, because there are real ones. The government's \"tablets for every student\" policy has handed devices to thousands of rural children. Owning a screen and learning from it are not the same thing.",
+              "words": 35,
               "sentences": 3,
-              "avg_sentence_words": 14.3,
-              "fk_grade": 12.8,
-              "speak_seconds_est": 23.5,
-              "fits_20s": false,
-              "provenance": "workbook"
+              "avg_sentence_words": 11.7,
+              "fk_grade": 7.8,
+              "speak_seconds_est": 19.1,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
             },
             "B2": {
               "text": "Despite these challenges, Taiwan has achieved remarkable milestones. The government’s ambitious \"tablets for every student\" policy has successfully distributed thousands of mobile devices to rural communities. While this universal hardware access provides a solid foundation, we must analyze whether high device distribution automatically translates into high-quality learning.",
@@ -469,14 +435,14 @@
               "provenance": "authored-replacement"
             },
             "B1": {
-              "text": "Furthermore, public digital platforms are very strong, offering free online courses to everyone. This early intervention helps level the playing field, allowing disadvantaged students to learn coding and basic skills at home, which significantly reduces long-term educational disparities between different social classes.",
-              "words": 42,
-              "sentences": 2,
-              "avg_sentence_words": 21.0,
-              "fk_grade": 17.3,
-              "speak_seconds_est": 22.9,
-              "fits_20s": false,
-              "provenance": "workbook"
+              "text": "Public platforms are the quieter success story. Free courses have been put online by the government. A disadvantaged family can now learn coding at the kitchen table, and that quietly narrows the class gap.",
+              "words": 34,
+              "sentences": 3,
+              "avg_sentence_words": 11.3,
+              "fk_grade": 7.6,
+              "speak_seconds_est": 18.5,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
             },
             "B2": {
               "text": "Furthermore, public digital infrastructure is exceptionally strong, offering comprehensive free online platforms to everyone. This early state intervention helps level the playing field, allowing disadvantaged students to master coding and basic cognitive skills independently, thereby mitigating the risk of long-term academic disparities across different social classes.",
@@ -514,14 +480,14 @@
               "provenance": "authored-replacement"
             },
             "B1": {
-              "text": "Overall, digital enrollment rates exceed global standards across all school levels. Massive investments in teacher professional development have also enhanced distance learning quality. However, does high hardware participation hide deeper problems, like varying levels of educational depth and severe screen distractions?",
-              "words": 41,
+              "text": "Our schools sit above the world average for how many students take part. Teachers have been given serious training in distance teaching. But a laptop in every hand can hide how shallow a lesson becomes.",
+              "words": 35,
               "sentences": 3,
-              "avg_sentence_words": 13.7,
-              "fk_grade": 15.1,
-              "speak_seconds_est": 22.4,
-              "fits_20s": false,
-              "provenance": "workbook"
+              "avg_sentence_words": 11.7,
+              "fk_grade": 6.8,
+              "speak_seconds_est": 19.1,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
             },
             "B2": {
               "text": "Overall, Taiwan's tertiary and primary digital enrollment rates consistently exceed global benchmarks. Substantial national investments in teacher professional development have also enhanced distance learning methodologies. However, does this high participation mask deeper systemic issues, such as varying depths of educational substance and severe screen-time distractions?",
@@ -568,14 +534,14 @@
               "provenance": "authored-replacement"
             },
             "B1": {
-              "text": "To address these gaps, Taiwan is implementing innovative solutions, such as funding media literacy programs in updated school curricula. For example, lessons introduce fact-checking tools early, making information evaluation relevant and engaging, which empowers young students to spot online rumors instantly.",
-              "words": 41,
-              "sentences": 2,
-              "avg_sentence_words": 20.5,
-              "fk_grade": 17.7,
-              "speak_seconds_est": 22.4,
-              "fits_20s": false,
-              "provenance": "workbook"
+              "text": "The good news is that media literacy has entered the curriculum. Pupils now practice checking a source before they pass it on. Most adults in this room never had a similar opportunity at school.",
+              "words": 34,
+              "sentences": 3,
+              "avg_sentence_words": 11.3,
+              "fk_grade": 7.9,
+              "speak_seconds_est": 18.5,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
             },
             "B2": {
               "text": "To proactively address these resource gaps, Taiwan is implementing inquiry-based digital curricula. The government actively funds modernized programs that integrate media literacy and fact-checking protocols into formal lessons. By introducing these tools early, schools empower young students to critically evaluate online rumors and evaluate data responsibly.",
@@ -615,14 +581,14 @@
               "provenance": "authored-replacement"
             },
             "B1": {
-              "text": "Digital integration is widespread, with most schools incorporating advanced technology like AI learning assistants. These smart programs personalize homework based on each student's needs, connecting classroom learning to Taiwan’s thriving semiconductor industry while teaching digital responsibility in their daily lives.",
-              "words": 41,
-              "sentences": 2,
-              "avg_sentence_words": 20.5,
-              "fk_grade": 18.6,
-              "speak_seconds_est": 22.4,
-              "fits_20s": false,
-              "provenance": "workbook"
+              "text": "More than 80% of our schools have taken up digital tools. Some now run AI assistants that set each student different homework. Those chips come from our factories, though nobody teaches the ethics.",
+              "words": 33,
+              "sentences": 3,
+              "avg_sentence_words": 11.0,
+              "fk_grade": 6.6,
+              "speak_seconds_est": 18.0,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
             },
             "B2": {
               "text": "Digital integration is now widespread, with over 80% of schools incorporating advanced technology like AI learning assistants. These adaptive algorithms personalize academic content based on individual student performance. This connects classroom environments to our thriving technology sector while simultaneously teaching the ethical use of artificial intelligence.",
@@ -660,14 +626,14 @@
               "provenance": "authored-replacement"
             },
             "B1": {
-              "text": "Specialized programs also bring technology directly to the countryside. For instance, mobile digital classrooms visit remote villages to provide coding workshops and robotics mentorships. These initiatives successfully bridge classroom education to practical tech applications, fostering a new generation of creative problem-solvers.",
-              "words": 41,
+              "text": "Some of the answers have to travel by road. Vans fitted out as digital classrooms now drive into the mountain villages. They carry robotics kits and coding workshops to the children who would never meet them.",
+              "words": 36,
               "sentences": 3,
-              "avg_sentence_words": 13.7,
-              "fk_grade": 17.1,
-              "speak_seconds_est": 22.4,
-              "fits_20s": false,
-              "provenance": "workbook"
+              "avg_sentence_words": 12.0,
+              "fk_grade": 6.5,
+              "speak_seconds_est": 19.6,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
             },
             "B2": {
               "text": "Specialized outreach initiatives also bring high-tech resources directly to the countryside. For instance, mobile digital learning vans visit remote mountain villages to provide advanced robotics mentorships and coding workshops. These programs successfully bridge theoretical knowledge with practical applications, fostering a new generation of innovative problem-solvers.",
@@ -716,14 +682,14 @@
               "provenance": "authored-replacement"
             },
             "B1": {
-              "text": "The implications are significant: enhanced digital literacy drives economic growth, supporting Taiwan’s $500 billion tech export industry. Moreover, it empowers citizens to tackle global problems, such as using advanced data science and climate technology to build resilient, sustainable environmental solutions.",
-              "words": 41,
-              "sentences": 2,
-              "avg_sentence_words": 20.5,
-              "fk_grade": 19.7,
-              "speak_seconds_est": 22.4,
-              "fits_20s": false,
-              "provenance": "workbook"
+              "text": "Why should any of this matter to you? Because those digital skills sit underneath exports worth about 500 billion US dollars every year. The identical skills will be needed for data science and climate technology.",
+              "words": 35,
+              "sentences": 3,
+              "avg_sentence_words": 11.7,
+              "fk_grade": 8.9,
+              "speak_seconds_est": 19.1,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
             },
             "B2": {
               "text": "The implications of our digital strategies are profound. Enhanced technological literacy directly drives economic sustainability, supporting Taiwan's $500 billion tech export industry. Moreover, a digitally literate population empowers our future workforce to utilize advanced data science and climate technology to construct resilient, sustainable environmental solutions globally.",
@@ -761,14 +727,14 @@
               "provenance": "authored-replacement"
             },
             "B1": {
-              "text": "Yet, future challenges loom, including rising rates of internet addiction among young people. Excessive screen time often harms physical health and social development. We must actively challenge unhealthy digital habits and build better media consumption environments to protect our students' future well-being.",
-              "words": 42,
+              "text": "There is a real price for this screen time. Internet addiction is growing among teenagers, and sleep, energy and family life usually go first. If nothing changes, that damage will follow them into adult years.",
+              "words": 35,
               "sentences": 3,
-              "avg_sentence_words": 14.0,
-              "fk_grade": 13.5,
-              "speak_seconds_est": 22.9,
-              "fits_20s": false,
-              "provenance": "workbook"
+              "avg_sentence_words": 11.7,
+              "fk_grade": 7.5,
+              "speak_seconds_est": 19.1,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
             },
             "B2": {
               "text": "Nevertheless, future challenges loom large, particularly the alarming rise of internet addiction among youth. Excessive screen time consistently compromises physical well-being and social development. We must actively challenge these unhealthy habits and construct balanced digital consumption environments to protect our students' overall well-being.",
@@ -806,14 +772,14 @@
               "provenance": "authored-replacement"
             },
             "B1": {
-              "text": "If we ignore these digital disparities, inequalities will deepen, wasting future potential talent. As college students, we need to question current educational policies: are they flexible enough to prepare the younger generation for emerging global trends like AI-driven job automation?",
-              "words": 40,
-              "sentences": 2,
-              "avg_sentence_words": 20.0,
-              "fk_grade": 16.4,
-              "speak_seconds_est": 21.8,
-              "fits_20s": false,
-              "provenance": "workbook"
+              "text": "If we let these digital gaps harden, a generation of ability will simply be wasted. We are the college students in this room. So we should be asking whether regulation moves as fast as automation.",
+              "words": 35,
+              "sentences": 3,
+              "avg_sentence_words": 11.7,
+              "fk_grade": 8.2,
+              "speak_seconds_est": 19.1,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
             },
             "B2": {
               "text": "If we fail to address these structural disparities, digital inequalities will deepen, wasting immense potential talent. As university students, we must continuously question current educational policies: are they flexible and dynamic enough to prepare the younger generation for widespread automated job disruption driven by advanced AI?",
@@ -851,14 +817,14 @@
               "provenance": "authored-replacement"
             },
             "B1": {
-              "text": "Broader impacts include building a resilient digital society through modern education. Without continuous reforms, Taiwan risks lagging in digital innovation. Media literacy education must evolve to meet these complex twentieth-first-century demands, ensuring that all citizens can safely navigate the internet.",
-              "words": 40,
+              "text": "A society that can read the internet well is much harder to fool. Without steady reform, Taiwan will slip behind in digital innovation. Media literacy has to grow up with the technology it explains.",
+              "words": 34,
               "sentences": 3,
-              "avg_sentence_words": 13.3,
-              "fk_grade": 16.2,
-              "speak_seconds_est": 21.8,
-              "fits_20s": false,
-              "provenance": "workbook"
+              "avg_sentence_words": 11.3,
+              "fk_grade": 8.6,
+              "speak_seconds_est": 18.5,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
             },
             "B2": {
               "text": "Ultimately, comprehensive media education is the cornerstone of a resilient and secure society. Without continuous structural reforms, Taiwan risks losing its competitive edge in digital innovation. Media literacy must continuously evolve to meet the complex demands of the twenty-first century, ensuring safe internet navigation for everyone.",
@@ -905,14 +871,14 @@
               "provenance": "authored-replacement"
             },
             "B1": {
-              "text": "In summary, evaluating SDG 4 highlights Taiwan’s rapid digital progress alongside persistent social issues. Information technology serves as a key tool for our development, but we must make sure that digital education prioritizes fairness and equity for every single citizen.",
-              "words": 41,
-              "sentences": 2,
-              "avg_sentence_words": 20.5,
-              "fk_grade": 16.6,
-              "speak_seconds_est": 22.4,
-              "fits_20s": false,
-              "provenance": "workbook"
+              "text": "So where exactly has that left us? Taiwan has built one of the best-connected school systems in the world, and that is real progress. But a fast connection has never guaranteed a fair education for everyone.",
+              "words": 36,
+              "sentences": 3,
+              "avg_sentence_words": 12.0,
+              "fk_grade": 6.8,
+              "speak_seconds_est": 19.6,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
             },
             "B2": {
               "text": "In summary, evaluating SDG 4 reveals that Taiwan has made significant digital progress, yet stubborn systemic gaps remain. Information technology serves as a powerful instrument for national advancement, but it must be implemented through a framework that prioritizes social equity alongside technical and hardware mastery.",
@@ -950,14 +916,14 @@
               "provenance": "authored-replacement"
             },
             "B1": {
-              "text": "We have to challenge the current reality. While tablet numbers and test scores are high, schools often overlook the critical need for independent, active thinking over passive screen consumption. Deep systemic reforms are essential to make digital learning truly transformative.",
-              "words": 40,
+              "text": "We should challenge the comfortable story. Device numbers are impressive and test scores look fine, yet a screen is watched for hours without a single original thought. Deep reform has to start exactly there.",
+              "words": 34,
               "sentences": 3,
-              "avg_sentence_words": 13.3,
-              "fk_grade": 11.4,
-              "speak_seconds_est": 21.8,
-              "fits_20s": false,
-              "provenance": "workbook"
+              "avg_sentence_words": 11.3,
+              "fk_grade": 7.2,
+              "speak_seconds_est": 18.5,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
             },
             "B2": {
               "text": "We must courageously challenge the status quo of our schools. While device numbers are high, our system frequently overlooks the essential need for independent thinking, replacing active learning with passive screen consumption. Comprehensive, deep structural reforms are absolutely necessary to transform digital education into a truly transformative experience.",
@@ -985,24 +951,24 @@
           "numbers": [],
           "scripts": {
             "A2": {
-              "text": "In the future, digital rights belong to everyone. That includes the groups we usually forget. Ask for lessons that show how the internet really works in daily life.",
-              "words": 28,
+              "text": "In the future, digital rights must cover everyone. That includes the groups we usually forget. Ask for lessons that show us how the internet really works in real life.",
+              "words": 29,
               "sentences": 3,
-              "avg_sentence_words": 9.3,
-              "fk_grade": 6.6,
-              "speak_seconds_est": 17.7,
+              "avg_sentence_words": 9.7,
+              "fk_grade": 6.1,
+              "speak_seconds_est": 18.3,
               "fits_20s": true,
               "provenance": "authored-replacement"
             },
             "B1": {
-              "text": "Looking forward, our focus should be on inclusive digital rights for all groups, including underrepresented ones. We can advocate for modernized curricula that integrate real-world media applications, making sure everyone learns how to use technology safely, wisely, and ethically.",
-              "words": 39,
-              "sentences": 2,
-              "avg_sentence_words": 19.5,
-              "fk_grade": 16.8,
-              "speak_seconds_est": 21.3,
-              "fits_20s": false,
-              "provenance": "workbook"
+              "text": "In the years ahead, digital rights have to include the groups that usually get left out. The curriculum needs a proper update. Every course should connect its content to the internet students actually use.",
+              "words": 34,
+              "sentences": 3,
+              "avg_sentence_words": 11.3,
+              "fk_grade": 7.6,
+              "speak_seconds_est": 18.5,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
             },
             "B2": {
               "text": "Looking ahead, our strategic focus must shift toward guaranteeing inclusive digital rights for historically underrepresented groups. We must advocate for modernized, adaptive curricula that integrate real-world media applications, making certain that every single student learns how to exploit technology safely, wisely, and ethically.",
@@ -1030,24 +996,24 @@
           "numbers": [],
           "scripts": {
             "A2": {
-              "text": "Here is the ask. Teach an older neighbor to use a phone, or help a younger student online. Together, we can build a digital future that leaves nobody out. Let's start today.",
-              "words": 32,
-              "sentences": 4,
-              "avg_sentence_words": 8.0,
-              "fk_grade": 4.5,
-              "speak_seconds_est": 20.2,
-              "fits_20s": false,
+              "text": "Teach an older neighbor to use a phone, or help a younger student online. Together, we can build a digital future that leaves nobody out. Let's start today.",
+              "words": 28,
+              "sentences": 3,
+              "avg_sentence_words": 9.3,
+              "fk_grade": 5.8,
+              "speak_seconds_est": 17.7,
+              "fits_20s": true,
               "provenance": "authored-replacement"
             },
             "B1": {
-              "text": "Thank you for your attention. As students, let’s take action to bridge the digital divide! You can participate in policy discussions, volunteer to teach media literacy, or help younger students utilize online tools. Together, we can build a fairer digital future!",
-              "words": 42,
-              "sentences": 4,
-              "avg_sentence_words": 10.5,
-              "fk_grade": 9.0,
-              "speak_seconds_est": 22.9,
-              "fits_20s": false,
-              "provenance": "workbook"
+              "text": "Here is the ask. Join a policy discussion, volunteer for a media literacy class, or simply show a younger student how to check a source. That digital future depends on people like us.",
+              "words": 33,
+              "sentences": 3,
+              "avg_sentence_words": 11.0,
+              "fk_grade": 6.9,
+              "speak_seconds_est": 18.0,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
             },
             "B2": {
               "text": "Thank you for your attention. As university students, you possess the power to drive meaningful social change and close the digital divide. Whether you participate in policy debates, volunteer in rural communities, or advocate for curriculum reform, your actions matter. Together, we can build a more equitable and innovative future.",

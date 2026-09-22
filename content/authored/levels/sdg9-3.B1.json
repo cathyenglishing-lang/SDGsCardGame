@@ -1,0 +1,22 @@
+{
+  "mission_id": "sdg9-3",
+  "level": "B1",
+  "provenance": "authored-replacement",
+  "author": "Claude (English teacher role), v2 against the v2 quality gate",
+  "basis": "Written from scratch rather than edited, because the workbook B1 shared 0.57 of its vocabulary with A2 and another 0.57 with B2 - the three levels were the same sentences with a few words swapped, and eleven of twelve B1 slides failed the band as single 32-word sentences hinged on a semicolon. This text is rebuilt around B1 grammar, which the workbook B1 lacked entirely: present perfect on slides 1, 2, 6 and 7, a first conditional on slide 8, relative clauses on 1, 3, 4, 7 and 11, concession on 7 and 12, and a passive on 11. Meaning, slide order and every named fact are unchanged: SDG 9, lab reports, articles, computer code, public safety, the environment, curiosity, creativity, responsibility. Facts corrected: the workbook B1 says the model 'predicts words based on math probabilities instead of curiosity or reasoning' but also that it can 'find patterns in massive amounts of data'; that is kept, while 'it does not have real understanding' is stated as having no grasp of what the patterns mean, so nothing implies the system knows or looks anything up. 'Let us' became \"let's\" on slide 12 and the closing 'Thank you' was cut so the talk ends on the claim.",
+  "reviewed_by": null,
+  "slides": {
+    "1": "Good morning. SDG 9 has one central aim: it asks governments everywhere to fund modern research and to build the kind of strong networks that a scientific nation depends on.",
+    "2": "Artificial intelligence has changed the way we study, the way we run tests and the way we build new tools. As it becomes more capable, one question keeps returning. What makes us irreplaceable?",
+    "3": "Science undergraduates are excited by these tools. They are also nervous, and I understand why. A system that writes a lab report, summarises an article and produces working code in seconds is hard to match.",
+    "4": "The nerves are understandable, because machines now handle work that used to need a person. Yet finishing a task fast is not the same as understanding it, and science needs the second.",
+    "5": "A model can find patterns in enormous amounts of data, but it has no real grasp of what any of those patterns mean. It weighs probabilities instead of asking questions.",
+    "6": "Human researchers behave in a different way. We invent questions nobody has asked before, we design new tests, we puzzle over odd results and we learn from failure. Real discovery still runs on imagination.",
+    "7": "History is clear about this. Every major breakthrough has begun with somebody who was curious, and although AI can organise what we already know, it cannot decide which question is worth asking.",
+    "8": "Science is about more than results. If a discovery threatens public safety, the environment or the people around it, someone has to say so, and no computer rule will ever do that.",
+    "9": "Treat AI as a partner in the work, not as a substitute for thinking. It can organise information and save you hours, but the final judgement must still be yours.",
+    "10": "As future scientists, we have to keep asking awkward questions, testing old ideas and sharing our results in an honest way. Those human habits will matter however clever the software gets.",
+    "11": "SDG 9 reminds us that new ideas are driven by people. A machine can generate information, but only human beings turn that information into knowledge that somebody can act on.",
+    "12": "So let's use AI wisely while we go on developing the curiosity, the creativity and the sense of responsibility that great scientists share. That is how we earn a future worth having."
+  }
+}

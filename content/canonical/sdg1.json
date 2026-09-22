@@ -18,7 +18,7 @@
       "slides": 20,
       "avg_words": 29.4,
       "avg_sentence_words": 9.8,
-      "fk_grade": 4.9,
+      "fk_grade": 5.0,
       "slides_over_20s": 0
     },
     "B1": {
@@ -116,7 +116,7 @@
           "numbers": [],
           "scripts": {
             "A2": {
-              "text": "Goal one asks every country to end poverty in all its forms. That is not only about income. It is health care, housing, education, and a fair chance to start again.",
+              "text": "SDG 1 asks every country to end poverty in all its forms. That is not only about income. It is health care, housing, education, and a fair chance to start again.",
               "words": 31,
               "sentences": 3,
               "avg_sentence_words": 10.3,
@@ -359,11 +359,11 @@
           "numbers": [],
           "scripts": {
             "A2": {
-              "text": "Taiwan has safety nets: social help, health insurance, and local offices. They protect basic needs. But does that help reach us before a small problem turns into a crisis?",
+              "text": "Taiwan has safety nets: social help, health insurance, and emergency money. They protect basic needs. But does that help reach us before a small problem turns into a crisis?",
               "words": 29,
               "sentences": 3,
               "avg_sentence_words": 9.7,
-              "fk_grade": 6.1,
+              "fk_grade": 6.5,
               "speak_seconds_est": 18.3,
               "fits_20s": true,
               "provenance": "authored-replacement"
@@ -459,11 +459,11 @@
               "provenance": "authored-replacement"
             },
             "B1": {
-              "text": "Local organizations often understand a neighborhood better than any ministry does. They provide food, tutoring, care and job news. Yet SDG 1 is not charity, because the goal is to give people choices, skills and dignity.",
+              "text": "Local organizations often understand a neighborhood better than any ministry does. They provide food, tutoring, care and job information. Yet SDG 1 is not charity, because the goal is to give people choices, skills and dignity.",
               "words": 36,
               "sentences": 3,
               "avg_sentence_words": 12.0,
-              "fk_grade": 8.8,
+              "fk_grade": 9.7,
               "speak_seconds_est": 19.6,
               "fits_20s": true,
               "provenance": "authored-replacement"
@@ -548,11 +548,11 @@
           "numbers": [],
           "scripts": {
             "A2": {
-              "text": "Data can help as well. Students can map what is missing near them: food, buses, care for old people, classes after school. But data should guide our kindness, not replace it.",
+              "text": "Data can help as well. Students can map what is missing near them: food, buses, care for older people, classes after school. But data should guide our kindness, not replace it.",
               "words": 31,
               "sentences": 3,
               "avg_sentence_words": 10.3,
-              "fk_grade": 4.0,
+              "fk_grade": 4.4,
               "speak_seconds_est": 19.6,
               "fits_20s": true,
               "provenance": "authored-replacement"
@@ -647,11 +647,11 @@
           "numbers": [],
           "scripts": {
             "A2": {
-              "text": "Taiwan is growing older fast. Many old people live alone and need care, money, transport, and help with their phone. Poverty follows health and family, not only pay.",
+              "text": "Taiwan is growing older fast. Many older people live alone and need care, money, transport, and help with their phone. Poverty follows health and family, not only pay.",
               "words": 28,
               "sentences": 3,
               "avg_sentence_words": 9.3,
-              "fk_grade": 5.8,
+              "fk_grade": 6.2,
               "speak_seconds_est": 17.7,
               "fits_20s": true,
               "provenance": "authored-replacement"
@@ -737,11 +737,11 @@
           "numbers": [],
           "scripts": {
             "A2": {
-              "text": "Climate disasters make poverty worse. Floods and heat hit poor homes hardest, because they have less money saved and fewer ways out. Climate action is part of this fight.",
+              "text": "Climate disasters make poverty worse. Floods and heat hit low-income homes hardest, because they have less money saved and fewer ways out. Climate action is part of this fight.",
               "words": 29,
               "sentences": 3,
               "avg_sentence_words": 9.7,
-              "fk_grade": 5.3,
+              "fk_grade": 6.1,
               "speak_seconds_est": 18.3,
               "fits_20s": true,
               "provenance": "authored-replacement"
@@ -836,7 +836,7 @@
           "numbers": [],
           "scripts": {
             "A2": {
-              "text": "To sum up, this goal is about shared safety. Poverty touches learning, housing, health and dreams. Taiwan has support, but help must come sooner and reach further.",
+              "text": "To sum up, SDG 1 is about shared safety. Poverty touches learning, housing, health and dreams. Taiwan has support, but help must come sooner and reach further.",
               "words": 27,
               "sentences": 3,
               "avg_sentence_words": 9.0,

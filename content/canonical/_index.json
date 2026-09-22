@@ -1,6 +1,6 @@
 {
   "content_version": "2026.09.1",
-  "generated_at": "2026-09-22T18:51:42+08:00",
+  "generated_at": "2026-09-22T18:56:15+08:00",
   "levels": [
     "A2",
     "B1",
@@ -91,7 +91,7 @@
           "slides": 20,
           "avg_words": 29.4,
           "avg_sentence_words": 9.8,
-          "fk_grade": 4.9,
+          "fk_grade": 5.0,
           "slides_over_20s": 0
         },
         "B1": {
@@ -164,31 +164,8 @@
       ],
       "ready": false,
       "gate": {
-        "A2": [
-          "slide 20: 32 words needs 20.2 s at 95 wpm, over the 20 s slide"
-        ],
-        "B1": [
-          "slide 1: 45 words needs 24.5 s at 110 wpm, over the 20 s slide",
-          "slide 2: 41 words needs 22.4 s at 110 wpm, over the 20 s slide; fk 12.2 far above B1 (6.5-10.5); longword 29.3 far above B1 (8.0-17.0)",
-          "slide 3: 44 words needs 24.0 s at 110 wpm, over the 20 s slide; fk 13.5 far above B1 (6.5-10.5); longword 25.0 far above B1 (8.0-17.0)",
-          "slide 4: 43 words needs 23.5 s at 110 wpm, over the 20 s slide; longword 30.2 far above B1 (8.0-17.0)",
-          "slide 5: 41 words needs 22.4 s at 110 wpm, over the 20 s slide; fk 12.5 far above B1 (6.5-10.5); longword 22.0 far above B1 (8.0-17.0)",
-          "slide 6: 42 words needs 22.9 s at 110 wpm, over the 20 s slide; fk 12.1 far above B1 (6.5-10.5); longword 21.4 far above B1 (8.0-17.0)",
-          "slide 7: 43 words needs 23.5 s at 110 wpm, over the 20 s slide; fk 12.8 far above B1 (6.5-10.5); longword 20.9 far above B1 (8.0-17.0)",
-          "slide 8: 42 words needs 22.9 s at 110 wpm, over the 20 s slide; sentence 21.0 far above B1 (11.0-16.0); fk 17.3 far above B1 (6.5-10.5); longword 31.0 far above B1 (8.0-17.0)",
-          "slide 9: 41 words needs 22.4 s at 110 wpm, over the 20 s slide; fk 15.1 far above B1 (6.5-10.5); longword 31.7 far above B1 (8.0-17.0)",
-          "slide 10: 41 words needs 22.4 s at 110 wpm, over the 20 s slide; sentence 20.5 far above B1 (11.0-16.0); fk 17.7 far above B1 (6.5-10.5); longword 36.6 far above B1 (8.0-17.0)",
-          "slide 11: 41 words needs 22.4 s at 110 wpm, over the 20 s slide; sentence 20.5 far above B1 (11.0-16.0); fk 18.6 far above B1 (6.5-10.5); longword 46.3 far above B1 (8.0-17.0)",
-          "slide 12: 41 words needs 22.4 s at 110 wpm, over the 20 s slide; fk 17.1 far above B1 (6.5-10.5); longword 51.2 far above B1 (8.0-17.0)",
-          "slide 13: 41 words needs 22.4 s at 110 wpm, over the 20 s slide; sentence 20.5 far above B1 (11.0-16.0); fk 19.7 far above B1 (6.5-10.5); longword 41.5 far above B1 (8.0-17.0)",
-          "slide 14: 42 words needs 22.9 s at 110 wpm, over the 20 s slide; fk 13.5 far above B1 (6.5-10.5); longword 33.3 far above B1 (8.0-17.0)",
-          "slide 15: 40 words needs 21.8 s at 110 wpm, over the 20 s slide; sentence 20.0 far above B1 (11.0-16.0); fk 16.4 far above B1 (6.5-10.5); longword 30.0 far above B1 (8.0-17.0)",
-          "slide 16: 40 words needs 21.8 s at 110 wpm, over the 20 s slide; fk 16.2 far above B1 (6.5-10.5); longword 30.0 far above B1 (8.0-17.0)",
-          "slide 17: 41 words needs 22.4 s at 110 wpm, over the 20 s slide; sentence 20.5 far above B1 (11.0-16.0); fk 16.6 far above B1 (6.5-10.5); longword 26.8 far above B1 (8.0-17.0)",
-          "slide 18: 40 words needs 21.8 s at 110 wpm, over the 20 s slide; longword 25.0 far above B1 (8.0-17.0)",
-          "slide 19: 39 words needs 21.3 s at 110 wpm, over the 20 s slide; sentence 19.5 far above B1 (11.0-16.0); fk 16.8 far above B1 (6.5-10.5); longword 30.8 far above B1 (8.0-17.0)",
-          "slide 20: 42 words needs 22.9 s at 110 wpm, over the 20 s slide"
-        ],
+        "A2": [],
+        "B1": [],
         "B2": [
           "slide 1: 49 words needs 24.5 s at 120 wpm, over the 20 s slide; sentence 12.2 far below B2 (14.0-20.0) — reads below level",
           "slide 2: 46 words needs 23.0 s at 120 wpm, over the 20 s slide; sentence 23.0 far above B2 (14.0-20.0); fk 21.6 far above B2 (10.5-15.0); longword 39.1 far above B2 (15.0-27.0)",
@@ -215,17 +192,17 @@
       "level_summary": {
         "A2": {
           "slides": 20,
-          "avg_words": 29.0,
-          "avg_sentence_words": 9.0,
-          "fk_grade": 4.2,
-          "slides_over_20s": 1
+          "avg_words": 28.9,
+          "avg_sentence_words": 9.1,
+          "fk_grade": 4.3,
+          "slides_over_20s": 0
         },
         "B1": {
           "slides": 20,
-          "avg_words": 41.5,
-          "avg_sentence_words": 15.7,
-          "fk_grade": 14.5,
-          "slides_over_20s": 20
+          "avg_words": 34.5,
+          "avg_sentence_words": 11.7,
+          "fk_grade": 7.4,
+          "slides_over_20s": 0
         },
         "B2": {
           "slides": 20,
@@ -290,95 +267,34 @@
       ],
       "ready": false,
       "gate": {
-        "A2": [
-          "slide 1: 39 words needs 24.6 s at 95 wpm, over the 20 s slide; longword 17.9 far above A2 (3.0-11.0)",
-          "slide 2: 38 words needs 24.0 s at 95 wpm, over the 20 s slide; fk 8.9 far above A2 (2.5-6.5); longword 23.7 far above A2 (3.0-11.0)",
-          "slide 3: 41 words needs 25.9 s at 95 wpm, over the 20 s slide",
-          "slide 4: 38 words needs 24.0 s at 95 wpm, over the 20 s slide; sentence 19.0 far above A2 (7.0-12.0); fk 10.8 far above A2 (2.5-6.5); longword 18.4 far above A2 (3.0-11.0)",
-          "slide 5: 38 words needs 24.0 s at 95 wpm, over the 20 s slide; longword 21.1 far above A2 (3.0-11.0)",
-          "slide 6: 37 words needs 23.4 s at 95 wpm, over the 20 s slide",
-          "slide 7: 38 words needs 24.0 s at 95 wpm, over the 20 s slide; fk 8.9 far above A2 (2.5-6.5); longword 18.4 far above A2 (3.0-11.0)",
-          "slide 8: 36 words needs 22.7 s at 95 wpm, over the 20 s slide; fk 12.4 far above A2 (2.5-6.5); longword 22.2 far above A2 (3.0-11.0)",
-          "slide 9: 37 words needs 23.4 s at 95 wpm, over the 20 s slide; fk 12.2 far above A2 (2.5-6.5); longword 21.6 far above A2 (3.0-11.0)",
-          "slide 10: 36 words needs 22.7 s at 95 wpm, over the 20 s slide",
-          "slide 11: 35 words needs 22.1 s at 95 wpm, over the 20 s slide; longword 14.3 far above A2 (3.0-11.0)",
-          "slide 12: 37 words needs 23.4 s at 95 wpm, over the 20 s slide",
-          "slide 13: 35 words needs 22.1 s at 95 wpm, over the 20 s slide; fk 10.2 far above A2 (2.5-6.5); longword 28.6 far above A2 (3.0-11.0)",
-          "slide 14: 36 words needs 22.7 s at 95 wpm, over the 20 s slide; fk 12.7 far above A2 (2.5-6.5); longword 30.6 far above A2 (3.0-11.0)",
-          "slide 15: 35 words needs 22.1 s at 95 wpm, over the 20 s slide; fk 9.2 far above A2 (2.5-6.5); longword 22.9 far above A2 (3.0-11.0)",
-          "slide 16: 35 words needs 22.1 s at 95 wpm, over the 20 s slide; fk 9.2 far above A2 (2.5-6.5); longword 20.0 far above A2 (3.0-11.0)",
-          "slide 17: 37 words needs 23.4 s at 95 wpm, over the 20 s slide; sentence 18.5 far above A2 (7.0-12.0); fk 8.8 far above A2 (2.5-6.5)",
-          "slide 18: 38 words needs 24.0 s at 95 wpm, over the 20 s slide",
-          "slide 19: 34 words needs 21.5 s at 95 wpm, over the 20 s slide; longword 14.7 far above A2 (3.0-11.0)",
-          "slide 20: 37 words needs 23.4 s at 95 wpm, over the 20 s slide; longword 16.2 far above A2 (3.0-11.0)",
-          "40% of slides miss a band"
-        ],
+        "A2": [],
         "B1": [
-          "slide 1: 45 words needs 24.5 s at 110 wpm, over the 20 s slide; longword 22.2 far above B1 (8.0-17.0)",
-          "slide 2: 43 words needs 23.5 s at 110 wpm, over the 20 s slide",
-          "slide 3: 42 words needs 22.9 s at 110 wpm, over the 20 s slide",
-          "slide 4: 41 words needs 22.4 s at 110 wpm, over the 20 s slide; sentence 20.5 far above B1 (11.0-16.0); fk 13.4 far above B1 (6.5-10.5); longword 22.0 far above B1 (8.0-17.0)",
-          "slide 5: 43 words needs 23.5 s at 110 wpm, over the 20 s slide; longword 20.9 far above B1 (8.0-17.0)",
-          "slide 6: 40 words needs 21.8 s at 110 wpm, over the 20 s slide",
-          "slide 7: 42 words needs 22.9 s at 110 wpm, over the 20 s slide; fk 12.1 far above B1 (6.5-10.5); longword 23.8 far above B1 (8.0-17.0)",
-          "slide 8: 39 words needs 21.3 s at 110 wpm, over the 20 s slide; longword 20.5 far above B1 (8.0-17.0)",
-          "slide 9: 38 words needs 20.7 s at 110 wpm, over the 20 s slide; fk 13.9 far above B1 (6.5-10.5); longword 26.3 far above B1 (8.0-17.0)",
-          "slide 10: 40 words needs 21.8 s at 110 wpm, over the 20 s slide",
-          "slide 11: 40 words needs 21.8 s at 110 wpm, over the 20 s slide",
-          "slide 12: 38 words needs 20.7 s at 110 wpm, over the 20 s slide",
-          "slide 13: 39 words needs 21.3 s at 110 wpm, over the 20 s slide; longword 28.2 far above B1 (8.0-17.0)",
-          "slide 14: 37 words needs 20.2 s at 110 wpm, over the 20 s slide; fk 13.8 far above B1 (6.5-10.5); longword 32.4 far above B1 (8.0-17.0)",
-          "slide 15: 38 words needs 20.7 s at 110 wpm, over the 20 s slide; longword 28.9 far above B1 (8.0-17.0)",
-          "slide 16: 37 words needs 20.2 s at 110 wpm, over the 20 s slide; longword 24.3 far above B1 (8.0-17.0)",
-          "slide 17: 39 words needs 21.3 s at 110 wpm, over the 20 s slide; sentence 19.5 far above B1 (11.0-16.0); longword 20.5 far above B1 (8.0-17.0)",
-          "slide 18: 39 words needs 21.3 s at 110 wpm, over the 20 s slide",
-          "slide 20: 40 words needs 21.8 s at 110 wpm, over the 20 s slide; fk 4.2 far below B1 (6.5-10.5) — reads below level",
-          "50% of slides miss a band"
+          "slide 10: fk 4.8 far below B1 (6.5-10.5) — reads below level",
+          "30% of slides miss a band"
         ],
-        "B2": [
-          "slide 1: 43 words needs 21.5 s at 120 wpm, over the 20 s slide; sentence 10.8 far below B2 (14.0-20.0) — reads below level",
-          "slide 2: sentence 10.0 far below B2 (14.0-20.0) — reads below level; longword 45.0 far above B2 (15.0-27.0)",
-          "slide 3: 43 words needs 21.5 s at 120 wpm, over the 20 s slide; sentence 10.8 far below B2 (14.0-20.0) — reads below level; longword 37.2 far above B2 (15.0-27.0)",
-          "slide 4: fk 20.3 far above B2 (10.5-15.0); longword 46.2 far above B2 (15.0-27.0)",
-          "slide 5: 41 words needs 20.5 s at 120 wpm, over the 20 s slide; fk 17.4 far above B2 (10.5-15.0); longword 41.5 far above B2 (15.0-27.0)",
-          "slide 6: fk 16.7 far above B2 (10.5-15.0); longword 43.6 far above B2 (15.0-27.0)",
-          "slide 7: 41 words needs 20.5 s at 120 wpm, over the 20 s slide; fk 17.4 far above B2 (10.5-15.0); longword 41.5 far above B2 (15.0-27.0)",
-          "slide 8: fk 18.2 far above B2 (10.5-15.0); longword 43.6 far above B2 (15.0-27.0)",
-          "slide 9: fk 17.6 far above B2 (10.5-15.0); longword 42.5 far above B2 (15.0-27.0)",
-          "slide 10: longword 37.5 far above B2 (15.0-27.0)",
-          "slide 12: longword 42.1 far above B2 (15.0-27.0)",
-          "slide 13: sentence 12.3 far below B2 (14.0-20.0) — reads below level; fk 19.2 far above B2 (10.5-15.0); longword 59.5 far above B2 (15.0-27.0)",
-          "slide 14: fk 18.2 far above B2 (10.5-15.0); longword 46.2 far above B2 (15.0-27.0)",
-          "slide 15: fk 20.1 far above B2 (10.5-15.0); longword 47.4 far above B2 (15.0-27.0)",
-          "slide 16: fk 21.6 far above B2 (10.5-15.0); longword 60.5 far above B2 (15.0-27.0)",
-          "slide 17: 41 words needs 20.5 s at 120 wpm, over the 20 s slide; longword 41.5 far above B2 (15.0-27.0)",
-          "slide 18: longword 40.0 far above B2 (15.0-27.0)",
-          "slide 19: fk 17.9 far above B2 (10.5-15.0); longword 43.6 far above B2 (15.0-27.0)",
-          "slide 20: 44 words needs 22.0 s at 120 wpm, over the 20 s slide; sentence 8.8 far below B2 (14.0-20.0) — reads below level",
-          "85% of slides miss a band"
-        ]
+        "B2": []
       },
       "level_summary": {
         "A2": {
           "slides": 20,
-          "avg_words": 36.9,
-          "avg_sentence_words": 11.8,
-          "fk_grade": 8.3,
-          "slides_over_20s": 20
+          "avg_words": 28.6,
+          "avg_sentence_words": 9.5,
+          "fk_grade": 4.2,
+          "slides_over_20s": 0
         },
         "B1": {
           "slides": 20,
-          "avg_words": 39.8,
-          "avg_sentence_words": 13.1,
-          "fk_grade": 10.0,
-          "slides_over_20s": 19
+          "avg_words": 33.5,
+          "avg_sentence_words": 12.1,
+          "fk_grade": 7.2,
+          "slides_over_20s": 0
         },
         "B2": {
           "slides": 20,
-          "avg_words": 40.0,
-          "avg_sentence_words": 12.5,
-          "fk_grade": 16.6,
-          "slides_over_20s": 6
+          "avg_words": 36.5,
+          "avg_sentence_words": 18.3,
+          "fk_grade": 12.2,
+          "slides_over_20s": 0
         }
       },
       "source_mission": "sdg5-2"
@@ -443,9 +359,9 @@
       "level_summary": {
         "A2": {
           "slides": 12,
-          "avg_words": 26.0,
-          "avg_sentence_words": 8.7,
-          "fk_grade": 4.8,
+          "avg_words": 26.2,
+          "avg_sentence_words": 8.8,
+          "fk_grade": 4.6,
           "slides_over_20s": 0
         },
         "B1": {
@@ -477,20 +393,7 @@
       ],
       "ready": false,
       "gate": {
-        "A2": [
-          "slide 1: 32 words needs 20.2 s at 95 wpm, over the 20 s slide; sentence 16.0 far above A2 (7.0-12.0); fk 10.6 far above A2 (2.5-6.5); longword 15.6 far above A2 (3.0-11.0)",
-          "slide 2: sentence 31.0 far above A2 (7.0-12.0); fk 20.1 far above A2 (2.5-6.5); longword 29.0 far above A2 (3.0-11.0)",
-          "slide 3: sentence 31.0 far above A2 (7.0-12.0); fk 17.1 far above A2 (2.5-6.5); longword 19.4 far above A2 (3.0-11.0)",
-          "slide 4: 33 words needs 20.8 s at 95 wpm, over the 20 s slide; sentence 33.0 far above A2 (7.0-12.0); fk 14.1 far above A2 (2.5-6.5)",
-          "slide 5: 32 words needs 20.2 s at 95 wpm, over the 20 s slide; sentence 16.0 far above A2 (7.0-12.0); fk 12.4 far above A2 (2.5-6.5); longword 25.0 far above A2 (3.0-11.0)",
-          "slide 6: sentence 31.0 far above A2 (7.0-12.0); fk 20.9 far above A2 (2.5-6.5); longword 35.5 far above A2 (3.0-11.0)",
-          "slide 7: 32 words needs 20.2 s at 95 wpm, over the 20 s slide; sentence 32.0 far above A2 (7.0-12.0); fk 19.8 far above A2 (2.5-6.5); longword 25.0 far above A2 (3.0-11.0)",
-          "slide 8: sentence 31.0 far above A2 (7.0-12.0); fk 17.8 far above A2 (2.5-6.5)",
-          "slide 9: 32 words needs 20.2 s at 95 wpm, over the 20 s slide; sentence 32.0 far above A2 (7.0-12.0); fk 17.9 far above A2 (2.5-6.5); longword 21.9 far above A2 (3.0-11.0)",
-          "slide 10: 32 words needs 20.2 s at 95 wpm, over the 20 s slide; sentence 32.0 far above A2 (7.0-12.0); fk 18.6 far above A2 (2.5-6.5); longword 28.1 far above A2 (3.0-11.0)",
-          "slide 11: 33 words needs 20.8 s at 95 wpm, over the 20 s slide; sentence 33.0 far above A2 (7.0-12.0); fk 15.5 far above A2 (2.5-6.5)",
-          "slide 12: sentence 15.5 far above A2 (7.0-12.0); fk 11.0 far above A2 (2.5-6.5); longword 19.4 far above A2 (3.0-11.0)"
-        ],
+        "A2": [],
         "B1": [
           "slide 2: sentence 33.0 far above B1 (11.0-16.0); fk 19.1 far above B1 (6.5-10.5); longword 24.2 far above B1 (8.0-17.0)",
           "slide 3: sentence 32.0 far above B1 (11.0-16.0); fk 18.6 far above B1 (6.5-10.5); longword 25.0 far above B1 (8.0-17.0)",
@@ -522,10 +425,10 @@
       "level_summary": {
         "A2": {
           "slides": 12,
-          "avg_words": 31.8,
-          "avg_sentence_words": 27.8,
-          "fk_grade": 16.3,
-          "slides_over_20s": 7
+          "avg_words": 27.5,
+          "avg_sentence_words": 9.2,
+          "fk_grade": 4.5,
+          "slides_over_20s": 0
         },
         "B1": {
           "slides": 12,

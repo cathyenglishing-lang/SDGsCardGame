@@ -4,7 +4,7 @@
 
 | 級別 | 每張字數 | 每句字數 | FK | 超過 20 秒 | 級距檢查 |
 | --- | --- | --- | --- | --- | --- |
-| A2 | 26.0 | 8.7 | 4.8 | 0 | 通過 |
+| A2 | 26.2 | 8.8 | 4.6 | 0 | 通過 |
 | B1 | 29.9 | 15.0 | 8.5 | 0 | 通過 |
 | B2 | 32.2 | 16.1 | 11.9 | 0 | 通過 |
 
@@ -82,8 +82,8 @@
 
 ### 7. Impact on Science（學術研究衝擊）
 
-- **A2**（26 字 / 每句 8.7 字 / 16.4 秒 ·（本版新寫））
-  > Clear writing really matters in science. A careful prompt improves our lab reports and our presentations. Our study gets quicker, and it also gets more correct.
+- **A2**（28 字 / 每句 9.3 字 / 17.7 秒 ·（本版新寫））
+  > Clear writing really matters in science. A careful prompt improves the lab reports and the talks that we hand in. Our study also gets quicker and more correct.
 - **B1**（29 字 / 每句 14.5 字 / 15.8 秒 ·（本版新寫））
   > In research, exact communication matters more than people think. A student who writes good prompts will produce a faster literature review, a tidier lab report and a clearer talk.
 - **B2**（35 字 / 每句 17.5 字 / 17.5 秒 ·（本版新寫））
@@ -91,8 +91,8 @@
 
 ### 8. Impact on Society（大眾社會衝擊）
 
-- **A2**（26 字 / 每句 8.7 字 / 16.4 秒 ·（本版新寫））
-  > But never copy an answer without thinking about it. You will simply stop learning. Real science starts with human wonder, and never with a fast reply.
+- **A2**（27 字 / 每句 9.0 字 / 17.1 秒 ·（本版新寫））
+  > But never copy an answer without thinking. If you do, you will simply stop learning. Real science starts with human wonder, and never with a fast reply.
 - **B1**（28 字 / 每句 14.0 字 / 15.3 秒 ·（本版新寫））
   > However, if we take these answers without questioning them, we slowly turn into passive learners. Real science has always started with human curiosity, not with an easy click.
 - **B2**（30 字 / 每句 15.0 字 / 15.0 秒 ·（本版新寫））

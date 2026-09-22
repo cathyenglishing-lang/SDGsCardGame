@@ -4,7 +4,7 @@
 
 | 級別 | 每張字數 | 每句字數 | FK | 超過 20 秒 | 級距檢查 |
 | --- | --- | --- | --- | --- | --- |
-| A2 | 29.4 | 9.8 | 4.9 | 0 | 通過 |
+| A2 | 29.4 | 9.8 | 5.0 | 0 | 通過 |
 | B1 | 35.2 | 11.7 | 8.4 | 0 | 通過 |
 | B2 | 37.4 | 18.7 | 12.8 | 0 | 通過 |
 
@@ -26,7 +26,7 @@
 ### 2. SDG 1 ends poverty everywhere（消除各種形式的貧窮）
 
 - **A2**（31 字 / 每句 10.3 字 / 19.6 秒 ·（本版新寫））
-  > Goal one asks every country to end poverty in all its forms. That is not only about income. It is health care, housing, education, and a fair chance to start again.
+  > SDG 1 asks every country to end poverty in all its forms. That is not only about income. It is health care, housing, education, and a fair chance to start again.
 - **B1**（34 字 / 每句 11.3 字 / 18.5 秒 ·（本版新寫））
   > SDG 1 asks governments to end poverty in every form. That includes low income, unsafe housing and weak social protection. The goal treats poverty as a fault in the system, not a personal failure.
 - **B2**（39 字 / 每句 19.5 字 / 19.5 秒 ·（本版新寫））
@@ -79,7 +79,7 @@
 ### 7. Safety nets protect basic needs（社會安全網守住基本生活）
 
 - **A2**（29 字 / 每句 9.7 字 / 18.3 秒 ·（本版新寫））
-  > Taiwan has safety nets: social help, health insurance, and local offices. They protect basic needs. But does that help reach us before a small problem turns into a crisis?
+  > Taiwan has safety nets: social help, health insurance, and emergency money. They protect basic needs. But does that help reach us before a small problem turns into a crisis?
 - **B1**（36 字 / 每句 12.0 字 / 19.6 秒 ·（本版新寫））
   > Taiwan has built several safety nets: health insurance, social welfare, emergency relief and local service centers. These protect many people. However, good policy must be easy to find, simple to apply for and respectful to use.
 - **B2**（36 字 / 每句 18.0 字 / 18.0 秒 ·（本版新寫））
@@ -99,7 +99,7 @@
 - **A2**（30 字 / 每句 10.0 字 / 18.9 秒 ·（本版新寫））
   > Community groups help too. Food banks, social workers, religious groups and NGOs find people that big systems miss. Gifts alone are not enough, because real support builds skills and dignity.
 - **B1**（36 字 / 每句 12.0 字 / 19.6 秒 ·（本版新寫））
-  > Local organizations often understand a neighborhood better than any ministry does. They provide food, tutoring, care and job news. Yet SDG 1 is not charity, because the goal is to give people choices, skills and dignity.
+  > Local organizations often understand a neighborhood better than any ministry does. They provide food, tutoring, care and job information. Yet SDG 1 is not charity, because the goal is to give people choices, skills and dignity.
 - **B2**（37 字 / 每句 18.5 字 / 18.5 秒 ·（本版新寫））
   > Civil society reaches the households that the official system overlooks, providing food, tutoring, daily care and job information. SDG 1, however, is not an argument for charity, because the aim is capability and dignity rather than dependence.
 
@@ -119,7 +119,7 @@
 ### 11. Data maps find hidden needs（數據地圖看見隱性需求）
 
 - **A2**（31 字 / 每句 10.3 字 / 19.6 秒 ·（本版新寫））
-  > Data can help as well. Students can map what is missing near them: food, buses, care for old people, classes after school. But data should guide our kindness, not replace it.
+  > Data can help as well. Students can map what is missing near them: food, buses, care for older people, classes after school. But data should guide our kindness, not replace it.
 - **B1**（36 字 / 每句 12.0 字 / 19.6 秒 ·（本版新寫））
   > Data tools can reveal the poverty that nobody has counted. Students can map service locations, transport gaps or after-school resources, and a community then chooses more wisely. But every data point is still a real person.
 - **B2**（39 字 / 每句 19.5 字 / 19.5 秒 ·（本版新寫））
@@ -141,7 +141,7 @@
 ### 13. Aging society raises poverty risk（高齡社會提高貧窮風險）
 
 - **A2**（28 字 / 每句 9.3 字 / 17.7 秒 ·（本版新寫））
-  > Taiwan is growing older fast. Many old people live alone and need care, money, transport, and help with their phone. Poverty follows health and family, not only pay.
+  > Taiwan is growing older fast. Many older people live alone and need care, money, transport, and help with their phone. Poverty follows health and family, not only pay.
 - **B1**（36 字 / 每句 12.0 字 / 19.6 秒 ·（本版新寫））
   > An aging society changes the shape of poverty. Older adults may live alone, manage illness, or struggle with services that have moved online. SDG 1 therefore connects welfare, transport, health care and community, not just income.
 - **B2**（38 字 / 每句 19.0 字 / 19.0 秒 ·（本版新寫））
@@ -159,7 +159,7 @@
 ### 15. Climate shocks hurt vulnerable groups（氣候衝擊傷害弱勢群體）
 
 - **A2**（29 字 / 每句 9.7 字 / 18.3 秒 ·（本版新寫））
-  > Climate disasters make poverty worse. Floods and heat hit poor homes hardest, because they have less money saved and fewer ways out. Climate action is part of this fight.
+  > Climate disasters make poverty worse. Floods and heat hit low-income homes hardest, because they have less money saved and fewer ways out. Climate action is part of this fight.
 - **B1**（36 字 / 每句 12.0 字 / 19.6 秒 ·（本版新寫））
   > Climate risk is a poverty issue. When a disaster arrives, low-income families lose more and recover far more slowly. So shelters, insurance, clear advice and neighbors who check on each other have to be ready first.
 - **B2**（37 字 / 每句 18.5 字 / 18.5 秒 ·（本版新寫））
@@ -181,7 +181,7 @@
 ### 17. SDG 1 means shared security（SDG1 代表共享安全感）
 
 - **A2**（27 字 / 每句 9.0 字 / 17.1 秒 ·（本版新寫））
-  > To sum up, this goal is about shared safety. Poverty touches learning, housing, health and dreams. Taiwan has support, but help must come sooner and reach further.
+  > To sum up, SDG 1 is about shared safety. Poverty touches learning, housing, health and dreams. Taiwan has support, but help must come sooner and reach further.
 - **B1**（36 字 / 每句 12.0 字 / 19.6 秒 ·（本版新寫））
   > In summary, SDG 1 is not only about money. It is about whether everyone can live with safety and opportunity. Taiwan has clearly progressed, yet hidden poverty still asks us to improve access, timing and fairness.
 - **B2**（38 字 / 每句 19.0 字 / 19.0 秒 ·（本版新寫））
