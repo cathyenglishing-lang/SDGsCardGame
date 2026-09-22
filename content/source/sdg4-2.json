@@ -66,17 +66,20 @@
               "workbook_text": "Good morning, everyone. Today, let’s examine SDG 4: Quality Education in Taiwan through a digital lens. Our high-tech education looks wonderful on paper, but does it really help everyone? We must look closely at online learning to see if our schools truly challenge inequality."
             },
             "B2": {
-              "text": "Good morning, everyone. As university students, we must critically evaluate the digital dimensions of SDG 4 within Taiwan. While our high-tech educational framework appears exceptional on paper, does it truly foster educational equity, or does it inadvertently widen social gaps? Today, I will explore this reality through online learning.",
-              "words": 49,
-              "sentences": 4,
-              "avg_sentence_words": 12.2,
-              "fk_grade": 13.5,
-              "long_word_pct": 26.5,
-              "speak_seconds_est": 24.5,
-              "fill_pct": 122.5,
-              "fits_20s": false,
+              "text": "Every international ranking flatters our classrooms, and the device numbers are genuinely impressive. What I want to examine this morning is whether a student in a mountain township sees any of that.",
+              "words": 32,
+              "sentences": 2,
+              "avg_sentence_words": 16.0,
+              "fk_grade": 11.3,
+              "long_word_pct": 21.9,
+              "speak_seconds_est": 16.0,
+              "fill_pct": 80.0,
+              "fits_20s": true,
               "wpm": 120,
-              "provenance": "workbook"
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (EFL materials writer role)",
+              "basis": "Draft 1 against the v2 quality gate.",
+              "workbook_text": "Good morning, everyone. As university students, we must critically evaluate the digital dimensions of SDG 4 within Taiwan. While our high-tech educational framework appears exceptional on paper, does it truly foster educational equity, or does it inadvertently widen social gaps? Today, I will explore this reality through online learning."
             }
           },
           "numbers": [],
@@ -126,17 +129,20 @@
               "workbook_text": "SDG 4 is about ensuring inclusive and fair education for all people. Globally, it helps students overcome barriers like location. In Taiwan, with our advanced tech economy, we must ask: does digital education prepare us to use technology responsibly and safely?"
             },
             "B2": {
-              "text": "Fundamentally, SDG 4 aims to guarantee inclusive, equitable education by dismantling geographic and economic barriers. In Taiwan’s advanced, semiconductor-driven economy, an urgent question arises: does our current curriculum adequately prepare us to handle the profound ethical challenges and privacy issues associated with modern digital technology?",
-              "words": 46,
+              "text": "Goal four commits us to an education nobody is excluded from, whatever a household earns or wherever it sits on the map. Our semiconductor economy rests on that promise, although its ethics are discussed by almost nobody.",
+              "words": 37,
               "sentences": 2,
-              "avg_sentence_words": 23.0,
-              "fk_grade": 21.6,
-              "long_word_pct": 39.1,
-              "speak_seconds_est": 23.0,
-              "fill_pct": 115.0,
-              "fits_20s": false,
+              "avg_sentence_words": 18.5,
+              "fk_grade": 12.7,
+              "long_word_pct": 21.6,
+              "speak_seconds_est": 18.5,
+              "fill_pct": 92.5,
+              "fits_20s": true,
               "wpm": 120,
-              "provenance": "workbook"
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (EFL materials writer role)",
+              "basis": "Draft 1 against the v2 quality gate.",
+              "workbook_text": "Fundamentally, SDG 4 aims to guarantee inclusive, equitable education by dismantling geographic and economic barriers. In Taiwan’s advanced, semiconductor-driven economy, an urgent question arises: does our current curriculum adequately prepare us to handle the profound ethical challenges and privacy issues associated with modern digital technology?"
             }
           },
           "numbers": [],
@@ -186,17 +192,20 @@
               "workbook_text": "Taiwan heavily invests in technology to drive educational innovation and national growth. However, rapid technological changes and the low birth rate are forcing us to rethink our academic priorities. Let’s identify the core digital problems and see if we are addressing them effectively."
             },
             "B2": {
-              "text": "Taiwan heavily capitalizes on technology to drive educational innovation and maintain national growth. However, unprecedented demographic shifts and rapid technological disruptions are forcing a total rethink of academic priorities. We must identify these core digital problems and question if our long-term strategies are genuinely effective.",
-              "words": 45,
-              "sentences": 3,
-              "avg_sentence_words": 15.0,
-              "fk_grade": 17.5,
-              "long_word_pct": 42.2,
-              "speak_seconds_est": 22.5,
-              "fill_pct": 112.5,
-              "fits_20s": false,
+              "text": "Decades of investment in educational hardware produced the prosperity we currently enjoy. With births at a record low and the software rewritten every year, whether that money still lands in the right place has become a fair question.",
+              "words": 38,
+              "sentences": 2,
+              "avg_sentence_words": 19.0,
+              "fk_grade": 12.0,
+              "long_word_pct": 23.7,
+              "speak_seconds_est": 19.0,
+              "fill_pct": 95.0,
+              "fits_20s": true,
               "wpm": 120,
-              "provenance": "workbook"
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (EFL materials writer role)",
+              "basis": "Draft 1 against the v2 quality gate.",
+              "workbook_text": "Taiwan heavily capitalizes on technology to drive educational innovation and maintain national growth. However, unprecedented demographic shifts and rapid technological disruptions are forcing a total rethink of academic priorities. We must identify these core digital problems and question if our long-term strategies are genuinely effective."
             }
           },
           "numbers": [],
@@ -255,17 +264,20 @@
               "workbook_text": "A primary challenge is Taiwan’s rural-urban digital divide. While city students enjoy advanced networks, remote schools face poor internet infrastructure. This deepens the educational gap whenever schools rely on online learning. Is this sustainable if we want long-term equity for all students?"
             },
             "B2": {
-              "text": "A primary challenge is Taiwan’s persistent rural-urban digital divide. While metropolitan institutions enjoy cutting-edge networks, remote schools frequently suffer from substandard internet infrastructure. This structural disparity significantly compromises educational fairness whenever curricula shift online. We must consider if this imbalance allows for long-term sustainable equity.",
-              "words": 46,
-              "sentences": 4,
-              "avg_sentence_words": 11.5,
-              "fk_grade": 18.4,
-              "long_word_pct": 50.0,
-              "speak_seconds_est": 23.0,
-              "fill_pct": 115.0,
-              "fits_20s": false,
+              "text": "Bandwidth, not talent, decides what a lesson can be. A child in a well-wired district loads a video instantly, whereas a remote school still buffers, and every shift to online teaching widens that distance.",
+              "words": 34,
+              "sentences": 2,
+              "avg_sentence_words": 17.0,
+              "fk_grade": 9.8,
+              "long_word_pct": 17.6,
+              "speak_seconds_est": 17.0,
+              "fill_pct": 85.0,
+              "fits_20s": true,
               "wpm": 120,
-              "provenance": "workbook"
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (EFL materials writer role)",
+              "basis": "Draft 1 against the v2 quality gate.",
+              "workbook_text": "A primary challenge is Taiwan’s persistent rural-urban digital divide. While metropolitan institutions enjoy cutting-edge networks, remote schools frequently suffer from substandard internet infrastructure. This structural disparity significantly compromises educational fairness whenever curricula shift online. We must consider if this imbalance allows for long-term sustainable equity."
             }
           },
           "numbers": [],
@@ -315,17 +327,20 @@
               "workbook_text": "In the digital world, the heavy flow of information often threatens students' critical thinking. Many young people consume social media constantly but cannot identify fake news or false stories. Does our current system really prepare us to handle online misinformation effectively?"
             },
             "B2": {
-              "text": "In the digital sphere, the relentless flow of information frequently threatens students' critical thinking. Many young citizens consume social media constantly but lack the tools to filter out sophisticated misinformation or algorithmic bias. Consequently, this inability to evaluate digital facts severely undermines their intellectual autonomy early on.",
-              "words": 47,
-              "sentences": 3,
-              "avg_sentence_words": 15.7,
-              "fk_grade": 16.9,
-              "long_word_pct": 40.4,
-              "speak_seconds_est": 23.5,
-              "fill_pct": 117.5,
-              "fits_20s": false,
+              "text": "What social media trains is impatience, not skepticism. Almost nobody has been shown how to trace a claim to its original source, so a fabricated headline outruns its correction easily.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 10.3,
+              "long_word_pct": 20.0,
+              "speak_seconds_est": 15.0,
+              "fill_pct": 75.0,
+              "fits_20s": true,
               "wpm": 120,
-              "provenance": "workbook"
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (EFL materials writer role)",
+              "basis": "Draft 1 against the v2 quality gate.",
+              "workbook_text": "In the digital sphere, the relentless flow of information frequently threatens students' critical thinking. Many young citizens consume social media constantly but lack the tools to filter out sophisticated misinformation or algorithmic bias. Consequently, this inability to evaluate digital facts severely undermines their intellectual autonomy early on."
             }
           },
           "numbers": [],
@@ -375,17 +390,20 @@
               "workbook_text": "Beyond fake news, digital safety is a growing crisis in schools. Incidents of cyberbullying and online harassment are increasing rapidly, harming students' mental health. Is our system designed to actively protect young internet users, or are we simply ignoring these digital dangers?"
             },
             "B2": {
-              "text": "Beyond misinformation, digital safety has escalated into a severe psychological crisis. Incidents of cyberbullying and online harassment are increasing exponentially, jeopardizing student mental health. Is our current school system genuinely designed to protect young internet users from these systemic dangers, or is it simply ignoring them?",
-              "words": 46,
-              "sentences": 3,
-              "avg_sentence_words": 15.3,
-              "fk_grade": 16.0,
-              "long_word_pct": 30.4,
-              "speak_seconds_est": 23.0,
-              "fill_pct": 115.0,
-              "fits_20s": false,
+              "text": "Digital safety has quietly turned into a mental-health problem, driven by harassment that follows a teenager home and never switches off. If the school system will not intervene, who exactly is expected to?",
+              "words": 33,
+              "sentences": 2,
+              "avg_sentence_words": 16.5,
+              "fk_grade": 11.6,
+              "long_word_pct": 18.2,
+              "speak_seconds_est": 16.5,
+              "fill_pct": 82.5,
+              "fits_20s": true,
               "wpm": 120,
-              "provenance": "workbook"
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (EFL materials writer role)",
+              "basis": "Draft 1 against the v2 quality gate.",
+              "workbook_text": "Beyond misinformation, digital safety has escalated into a severe psychological crisis. Incidents of cyberbullying and online harassment are increasing exponentially, jeopardizing student mental health. Is our current school system genuinely designed to protect young internet users from these systemic dangers, or is it simply ignoring them?"
             }
           },
           "numbers": [],
@@ -444,17 +462,20 @@
               "workbook_text": "Despite these issues, Taiwan has notable successes. The government’s famous \"tablets for every student\" policy has successfully distributed digital devices to thousands of rural children. This massive project provides broad access, but we should probe if it translates to higher learning quality."
             },
             "B2": {
-              "text": "Despite these challenges, Taiwan has achieved remarkable milestones. The government’s ambitious \"tablets for every student\" policy has successfully distributed thousands of mobile devices to rural communities. While this universal hardware access provides a solid foundation, we must analyze whether high device distribution automatically translates into high-quality learning.",
-              "words": 48,
-              "sentences": 3,
-              "avg_sentence_words": 16.0,
-              "fk_grade": 18.9,
-              "long_word_pct": 39.6,
-              "speak_seconds_est": 24.0,
-              "fill_pct": 120.0,
-              "fits_20s": false,
+              "text": "Look at what the state has actually handed over. Tablets were distributed to thousands of children in rural townships under the \"tablets for every student\" policy, but a device sitting in a bag teaches nobody anything.",
+              "words": 36,
+              "sentences": 2,
+              "avg_sentence_words": 18.0,
+              "fk_grade": 11.8,
+              "long_word_pct": 16.7,
+              "speak_seconds_est": 18.0,
+              "fill_pct": 90.0,
+              "fits_20s": true,
               "wpm": 120,
-              "provenance": "workbook"
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (EFL materials writer role)",
+              "basis": "Draft 1 against the v2 quality gate.",
+              "workbook_text": "Despite these challenges, Taiwan has achieved remarkable milestones. The government’s ambitious \"tablets for every student\" policy has successfully distributed thousands of mobile devices to rural communities. While this universal hardware access provides a solid foundation, we must analyze whether high device distribution automatically translates into high-quality learning."
             }
           },
           "numbers": [],
@@ -504,17 +525,20 @@
               "workbook_text": "Furthermore, public digital platforms are very strong, offering free online courses to everyone. This early intervention helps level the playing field, allowing disadvantaged students to learn coding and basic skills at home, which significantly reduces long-term educational disparities between different social classes."
             },
             "B2": {
-              "text": "Furthermore, public digital infrastructure is exceptionally strong, offering comprehensive free online platforms to everyone. This early state intervention helps level the playing field, allowing disadvantaged students to master coding and basic cognitive skills independently, thereby mitigating the risk of long-term academic disparities across different social classes.",
-              "words": 46,
+              "text": "The platform side has worked better than anyone predicted. Courses published free by the government let a household with no budget for cram school teach itself programming, which narrows a gap that money would otherwise decide.",
+              "words": 36,
               "sentences": 2,
-              "avg_sentence_words": 23.0,
-              "fk_grade": 20.3,
-              "long_word_pct": 39.1,
-              "speak_seconds_est": 23.0,
-              "fill_pct": 115.0,
-              "fits_20s": false,
+              "avg_sentence_words": 18.0,
+              "fk_grade": 10.4,
+              "long_word_pct": 19.4,
+              "speak_seconds_est": 18.0,
+              "fill_pct": 90.0,
+              "fits_20s": true,
               "wpm": 120,
-              "provenance": "workbook"
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (EFL materials writer role)",
+              "basis": "Draft 1 against the v2 quality gate.",
+              "workbook_text": "Furthermore, public digital infrastructure is exceptionally strong, offering comprehensive free online platforms to everyone. This early state intervention helps level the playing field, allowing disadvantaged students to master coding and basic cognitive skills independently, thereby mitigating the risk of long-term academic disparities across different social classes."
             }
           },
           "numbers": [],
@@ -564,17 +588,20 @@
               "workbook_text": "Overall, digital enrollment rates exceed global standards across all school levels. Massive investments in teacher professional development have also enhanced distance learning quality. However, does high hardware participation hide deeper problems, like varying levels of educational depth and severe screen distractions?"
             },
             "B2": {
-              "text": "Overall, Taiwan's tertiary and primary digital enrollment rates consistently exceed global benchmarks. Substantial national investments in teacher professional development have also enhanced distance learning methodologies. However, does this high participation mask deeper systemic issues, such as varying depths of educational substance and severe screen-time distractions?",
-              "words": 45,
-              "sentences": 3,
-              "avg_sentence_words": 15.0,
-              "fk_grade": 17.8,
-              "long_word_pct": 44.4,
-              "speak_seconds_est": 22.5,
-              "fill_pct": 112.5,
-              "fits_20s": false,
+              "text": "Participation figures here run comfortably beyond the global average, and teachers have been retrained for distance instruction. Numbers of that kind, however, can disguise how thin an hour in front of a screen turns out to be.",
+              "words": 37,
+              "sentences": 2,
+              "avg_sentence_words": 18.5,
+              "fk_grade": 10.4,
+              "long_word_pct": 18.9,
+              "speak_seconds_est": 18.5,
+              "fill_pct": 92.5,
+              "fits_20s": true,
               "wpm": 120,
-              "provenance": "workbook"
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (EFL materials writer role)",
+              "basis": "Draft 1 against the v2 quality gate.",
+              "workbook_text": "Overall, Taiwan's tertiary and primary digital enrollment rates consistently exceed global benchmarks. Substantial national investments in teacher professional development have also enhanced distance learning methodologies. However, does this high participation mask deeper systemic issues, such as varying depths of educational substance and severe screen-time distractions?"
             }
           },
           "numbers": [],
@@ -633,17 +660,20 @@
               "workbook_text": "To address these gaps, Taiwan is implementing innovative solutions, such as funding media literacy programs in updated school curricula. For example, lessons introduce fact-checking tools early, making information evaluation relevant and engaging, which empowers young students to spot online rumors instantly."
             },
             "B2": {
-              "text": "To proactively address these resource gaps, Taiwan is implementing inquiry-based digital curricula. The government actively funds modernized programs that integrate media literacy and fact-checking protocols into formal lessons. By introducing these tools early, schools empower young students to critically evaluate online rumors and evaluate data responsibly.",
-              "words": 46,
-              "sentences": 3,
-              "avg_sentence_words": 15.3,
-              "fk_grade": 17.6,
-              "long_word_pct": 41.3,
-              "speak_seconds_est": 23.0,
-              "fill_pct": 115.0,
-              "fits_20s": false,
+              "text": "Media literacy has finally been written into the syllabus, so a teenager is now taught to interrogate a source before forwarding it. Almost none of the adults in this room were ever given that particular lesson.",
+              "words": 36,
+              "sentences": 2,
+              "avg_sentence_words": 18.0,
+              "fk_grade": 11.8,
+              "long_word_pct": 16.7,
+              "speak_seconds_est": 18.0,
+              "fill_pct": 90.0,
+              "fits_20s": true,
               "wpm": 120,
-              "provenance": "workbook"
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (EFL materials writer role)",
+              "basis": "Draft 1 against the v2 quality gate.",
+              "workbook_text": "To proactively address these resource gaps, Taiwan is implementing inquiry-based digital curricula. The government actively funds modernized programs that integrate media literacy and fact-checking protocols into formal lessons. By introducing these tools early, schools empower young students to critically evaluate online rumors and evaluate data responsibly."
             }
           },
           "numbers": [],
@@ -693,17 +723,20 @@
               "workbook_text": "Digital integration is widespread, with most schools incorporating advanced technology like AI learning assistants. These smart programs personalize homework based on each student's needs, connecting classroom learning to Taiwan’s thriving semiconductor industry while teaching digital responsibility in their daily lives."
             },
             "B2": {
-              "text": "Digital integration is now widespread, with over 80% of schools incorporating advanced technology like AI learning assistants. These adaptive algorithms personalize academic content based on individual student performance. This connects classroom environments to our thriving technology sector while simultaneously teaching the ethical use of artificial intelligence.",
-              "words": 46,
-              "sentences": 3,
-              "avg_sentence_words": 15.3,
-              "fk_grade": 18.4,
-              "long_word_pct": 47.8,
-              "speak_seconds_est": 23.0,
-              "fill_pct": 115.0,
-              "fits_20s": false,
+              "text": "Over 80% of institutions have adopted digital teaching, and adaptive software now assigns each pupil a different exercise. The processors used in those machines are designed here, though nobody explains who owns the data they collect.",
+              "words": 36,
+              "sentences": 2,
+              "avg_sentence_words": 18.0,
+              "fk_grade": 13.4,
+              "long_word_pct": 27.8,
+              "speak_seconds_est": 18.0,
+              "fill_pct": 90.0,
+              "fits_20s": true,
               "wpm": 120,
-              "provenance": "workbook"
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (EFL materials writer role)",
+              "basis": "Draft 1 against the v2 quality gate.",
+              "workbook_text": "Digital integration is now widespread, with over 80% of schools incorporating advanced technology like AI learning assistants. These adaptive algorithms personalize academic content based on individual student performance. This connects classroom environments to our thriving technology sector while simultaneously teaching the ethical use of artificial intelligence."
             }
           },
           "numbers": [
@@ -755,17 +788,20 @@
               "workbook_text": "Specialized programs also bring technology directly to the countryside. For instance, mobile digital classrooms visit remote villages to provide coding workshops and robotics mentorships. These initiatives successfully bridge classroom education to practical tech applications, fostering a new generation of creative problem-solvers."
             },
             "B2": {
-              "text": "Specialized outreach initiatives also bring high-tech resources directly to the countryside. For instance, mobile digital learning vans visit remote mountain villages to provide advanced robotics mentorships and coding workshops. These programs successfully bridge theoretical knowledge with practical applications, fostering a new generation of innovative problem-solvers.",
-              "words": 45,
-              "sentences": 3,
+              "text": "Some of the remedy travels by road. Vans fitted as labs climb into mountain villages, carrying robotics kits and coding classes to children whose own schools could never fund either.",
+              "words": 30,
+              "sentences": 2,
               "avg_sentence_words": 15.0,
-              "fk_grade": 17.8,
-              "long_word_pct": 55.6,
-              "speak_seconds_est": 22.5,
-              "fill_pct": 112.5,
-              "fits_20s": false,
+              "fk_grade": 8.4,
+              "long_word_pct": 16.7,
+              "speak_seconds_est": 15.0,
+              "fill_pct": 75.0,
+              "fits_20s": true,
               "wpm": 120,
-              "provenance": "workbook"
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (EFL materials writer role)",
+              "basis": "Draft 1 against the v2 quality gate.",
+              "workbook_text": "Specialized outreach initiatives also bring high-tech resources directly to the countryside. For instance, mobile digital learning vans visit remote mountain villages to provide advanced robotics mentorships and coding workshops. These programs successfully bridge theoretical knowledge with practical applications, fostering a new generation of innovative problem-solvers."
             }
           },
           "numbers": [],
@@ -824,17 +860,20 @@
               "workbook_text": "The implications are significant: enhanced digital literacy drives economic growth, supporting Taiwan’s $500 billion tech export industry. Moreover, it empowers citizens to tackle global problems, such as using advanced data science and climate technology to build resilient, sustainable environmental solutions."
             },
             "B2": {
-              "text": "The implications of our digital strategies are profound. Enhanced technological literacy directly drives economic sustainability, supporting Taiwan's $500 billion tech export industry. Moreover, a digitally literate population empowers our future workforce to utilize advanced data science and climate technology to construct resilient, sustainable environmental solutions globally.",
-              "words": 46,
-              "sentences": 3,
-              "avg_sentence_words": 15.3,
-              "fk_grade": 21.2,
-              "long_word_pct": 56.5,
-              "speak_seconds_est": 23.0,
-              "fill_pct": 115.0,
-              "fits_20s": false,
+              "text": "Everything happening in these classrooms sits underneath exports of roughly 500 billion US dollars a year. The same competence will be demanded again when the data is climate data and the deadline is not commercial.",
+              "words": 35,
+              "sentences": 2,
+              "avg_sentence_words": 17.5,
+              "fk_grade": 11.5,
+              "long_word_pct": 22.9,
+              "speak_seconds_est": 17.5,
+              "fill_pct": 87.5,
+              "fits_20s": true,
               "wpm": 120,
-              "provenance": "workbook"
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (EFL materials writer role)",
+              "basis": "Draft 1 against the v2 quality gate.",
+              "workbook_text": "The implications of our digital strategies are profound. Enhanced technological literacy directly drives economic sustainability, supporting Taiwan's $500 billion tech export industry. Moreover, a digitally literate population empowers our future workforce to utilize advanced data science and climate technology to construct resilient, sustainable environmental solutions globally."
             }
           },
           "numbers": [
@@ -886,17 +925,20 @@
               "workbook_text": "Yet, future challenges loom, including rising rates of internet addiction among young people. Excessive screen time often harms physical health and social development. We must actively challenge unhealthy digital habits and build better media consumption environments to protect our students' future well-being."
             },
             "B2": {
-              "text": "Nevertheless, future challenges loom large, particularly the alarming rise of internet addiction among youth. Excessive screen time consistently compromises physical well-being and social development. We must actively challenge these unhealthy habits and construct balanced digital consumption environments to protect our students' overall well-being.",
-              "words": 43,
-              "sentences": 3,
-              "avg_sentence_words": 14.3,
-              "fk_grade": 16.6,
-              "long_word_pct": 48.8,
-              "speak_seconds_est": 21.5,
-              "fill_pct": 107.5,
-              "fits_20s": false,
+              "text": "Only when the phone is finally put down does the cost become visible: sleep, concentration and ordinary friendship, all of them eroded quietly. Internet addiction among the young is a public-health question, not a personal failing.",
+              "words": 36,
+              "sentences": 2,
+              "avg_sentence_words": 18.0,
+              "fk_grade": 12.1,
+              "long_word_pct": 22.2,
+              "speak_seconds_est": 18.0,
+              "fill_pct": 90.0,
+              "fits_20s": true,
               "wpm": 120,
-              "provenance": "workbook"
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (EFL materials writer role)",
+              "basis": "Draft 1 against the v2 quality gate.",
+              "workbook_text": "Nevertheless, future challenges loom large, particularly the alarming rise of internet addiction among youth. Excessive screen time consistently compromises physical well-being and social development. We must actively challenge these unhealthy habits and construct balanced digital consumption environments to protect our students' overall well-being."
             }
           },
           "numbers": [],
@@ -946,17 +988,20 @@
               "workbook_text": "If we ignore these digital disparities, inequalities will deepen, wasting future potential talent. As college students, we need to question current educational policies: are they flexible enough to prepare the younger generation for emerging global trends like AI-driven job automation?"
             },
             "B2": {
-              "text": "If we fail to address these structural disparities, digital inequalities will deepen, wasting immense potential talent. As university students, we must continuously question current educational policies: are they flexible and dynamic enough to prepare the younger generation for widespread automated job disruption driven by advanced AI?",
-              "words": 46,
+              "text": "Ignored for another decade, these structural divisions widen on their own, and a generation of capable people is quietly written off. We are already inside that system, so whether regulation can outrun automation is our question.",
+              "words": 36,
               "sentences": 2,
-              "avg_sentence_words": 23.0,
-              "fk_grade": 19.0,
-              "long_word_pct": 34.8,
-              "speak_seconds_est": 23.0,
-              "fill_pct": 115.0,
-              "fits_20s": false,
+              "avg_sentence_words": 18.0,
+              "fk_grade": 13.4,
+              "long_word_pct": 16.7,
+              "speak_seconds_est": 18.0,
+              "fill_pct": 90.0,
+              "fits_20s": true,
               "wpm": 120,
-              "provenance": "workbook"
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (EFL materials writer role)",
+              "basis": "Draft 1 against the v2 quality gate.",
+              "workbook_text": "If we fail to address these structural disparities, digital inequalities will deepen, wasting immense potential talent. As university students, we must continuously question current educational policies: are they flexible and dynamic enough to prepare the younger generation for widespread automated job disruption driven by advanced AI?"
             }
           },
           "numbers": [],
@@ -1006,17 +1051,20 @@
               "workbook_text": "Broader impacts include building a resilient digital society through modern education. Without continuous reforms, Taiwan risks lagging in digital innovation. Media literacy education must evolve to meet these complex twentieth-first-century demands, ensuring that all citizens can safely navigate the internet."
             },
             "B2": {
-              "text": "Ultimately, comprehensive media education is the cornerstone of a resilient and secure society. Without continuous structural reforms, Taiwan risks losing its competitive edge in digital innovation. Media literacy must continuously evolve to meet the complex demands of the twenty-first century, ensuring safe internet navigation for everyone.",
-              "words": 46,
-              "sentences": 3,
-              "avg_sentence_words": 15.3,
-              "fk_grade": 16.8,
-              "long_word_pct": 34.8,
-              "speak_seconds_est": 23.0,
-              "fill_pct": 115.0,
-              "fits_20s": false,
+              "text": "How well a country resists manipulation is decided long before the manipulation arrives, inside its classrooms. Without sustained reform our advantage in digital innovation will erode, because the syllabus has to keep pace with the tools being sold.",
+              "words": 38,
+              "sentences": 2,
+              "avg_sentence_words": 19.0,
+              "fk_grade": 13.6,
+              "long_word_pct": 18.4,
+              "speak_seconds_est": 19.0,
+              "fill_pct": 95.0,
+              "fits_20s": true,
               "wpm": 120,
-              "provenance": "workbook"
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (EFL materials writer role)",
+              "basis": "Draft 1 against the v2 quality gate.",
+              "workbook_text": "Ultimately, comprehensive media education is the cornerstone of a resilient and secure society. Without continuous structural reforms, Taiwan risks losing its competitive edge in digital innovation. Media literacy must continuously evolve to meet the complex demands of the twenty-first century, ensuring safe internet navigation for everyone."
             }
           },
           "numbers": [],
@@ -1075,17 +1123,20 @@
               "workbook_text": "In summary, evaluating SDG 4 highlights Taiwan’s rapid digital progress alongside persistent social issues. Information technology serves as a key tool for our development, but we must make sure that digital education prioritizes fairness and equity for every single citizen."
             },
             "B2": {
-              "text": "In summary, evaluating SDG 4 reveals that Taiwan has made significant digital progress, yet stubborn systemic gaps remain. Information technology serves as a powerful instrument for national advancement, but it must be implemented through a framework that prioritizes social equity alongside technical and hardware mastery.",
-              "words": 45,
+              "text": "Putting the evidence together, we can see genuine advance sitting beside a stubborn problem. We have wired almost every classroom in the country, although a fast line has never by itself produced a fair education.",
+              "words": 35,
               "sentences": 2,
-              "avg_sentence_words": 22.5,
-              "fk_grade": 18.4,
-              "long_word_pct": 37.8,
-              "speak_seconds_est": 22.5,
-              "fill_pct": 112.5,
-              "fits_20s": false,
+              "avg_sentence_words": 17.5,
+              "fk_grade": 11.5,
+              "long_word_pct": 20.0,
+              "speak_seconds_est": 17.5,
+              "fill_pct": 87.5,
+              "fits_20s": true,
               "wpm": 120,
-              "provenance": "workbook"
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (EFL materials writer role)",
+              "basis": "Draft 1 against the v2 quality gate.",
+              "workbook_text": "In summary, evaluating SDG 4 reveals that Taiwan has made significant digital progress, yet stubborn systemic gaps remain. Information technology serves as a powerful instrument for national advancement, but it must be implemented through a framework that prioritizes social equity alongside technical and hardware mastery."
             }
           },
           "numbers": [],
@@ -1135,17 +1186,20 @@
               "workbook_text": "We have to challenge the current reality. While tablet numbers and test scores are high, schools often overlook the critical need for independent, active thinking over passive screen consumption. Deep systemic reforms are essential to make digital learning truly transformative."
             },
             "B2": {
-              "text": "We must courageously challenge the status quo of our schools. While device numbers are high, our system frequently overlooks the essential need for independent thinking, replacing active learning with passive screen consumption. Comprehensive, deep structural reforms are absolutely necessary to transform digital education into a truly transformative experience.",
-              "words": 48,
-              "sentences": 3,
-              "avg_sentence_words": 16.0,
-              "fk_grade": 15.2,
-              "long_word_pct": 37.5,
-              "speak_seconds_est": 24.0,
-              "fill_pct": 120.0,
-              "fits_20s": false,
+              "text": "What the rankings actually measure is memory and access, never curiosity. Real reform means changing the incentive so that a student produces something on that screen instead of consuming it for six hours.",
+              "words": 33,
+              "sentences": 2,
+              "avg_sentence_words": 16.5,
+              "fk_grade": 10.9,
+              "long_word_pct": 24.2,
+              "speak_seconds_est": 16.5,
+              "fill_pct": 82.5,
+              "fits_20s": true,
               "wpm": 120,
-              "provenance": "workbook"
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (EFL materials writer role)",
+              "basis": "Draft 1 against the v2 quality gate.",
+              "workbook_text": "We must courageously challenge the status quo of our schools. While device numbers are high, our system frequently overlooks the essential need for independent thinking, replacing active learning with passive screen consumption. Comprehensive, deep structural reforms are absolutely necessary to transform digital education into a truly transformative experience."
             }
           },
           "numbers": [],
@@ -1195,17 +1249,20 @@
               "workbook_text": "Looking forward, our focus should be on inclusive digital rights for all groups, including underrepresented ones. We can advocate for modernized curricula that integrate real-world media applications, making sure everyone learns how to use technology safely, wisely, and ethically."
             },
             "B2": {
-              "text": "Looking ahead, our strategic focus must shift toward guaranteeing inclusive digital rights for historically underrepresented groups. We must advocate for modernized, adaptive curricula that integrate real-world media applications, making certain that every single student learns how to exploit technology safely, wisely, and ethically.",
-              "words": 43,
+              "text": "The next stage has to guarantee digital rights for the populations we routinely miss, and the syllabus needs rebuilding rather than patching. No course should teach a tool without teaching what that tool does to the person using it.",
+              "words": 39,
               "sentences": 2,
-              "avg_sentence_words": 21.5,
-              "fk_grade": 19.7,
-              "long_word_pct": 32.6,
-              "speak_seconds_est": 21.5,
-              "fill_pct": 107.5,
-              "fits_20s": false,
+              "avg_sentence_words": 19.5,
+              "fk_grade": 9.6,
+              "long_word_pct": 17.9,
+              "speak_seconds_est": 19.5,
+              "fill_pct": 97.5,
+              "fits_20s": true,
               "wpm": 120,
-              "provenance": "workbook"
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (EFL materials writer role)",
+              "basis": "Draft 1 against the v2 quality gate.",
+              "workbook_text": "Looking ahead, our strategic focus must shift toward guaranteeing inclusive digital rights for historically underrepresented groups. We must advocate for modernized, adaptive curricula that integrate real-world media applications, making certain that every single student learns how to exploit technology safely, wisely, and ethically."
             }
           },
           "numbers": [],
@@ -1255,17 +1312,20 @@
               "workbook_text": "Thank you for your attention. As students, let’s take action to bridge the digital divide! You can participate in policy discussions, volunteer to teach media literacy, or help younger students utilize online tools. Together, we can build a fairer digital future!"
             },
             "B2": {
-              "text": "Thank you for your attention. As university students, you possess the power to drive meaningful social change and close the digital divide. Whether you participate in policy debates, volunteer in rural communities, or advocate for curriculum reform, your actions matter. Together, we can build a more equitable and innovative future.",
-              "words": 50,
-              "sentences": 4,
-              "avg_sentence_words": 12.5,
-              "fk_grade": 11.9,
-              "long_word_pct": 24.0,
-              "speak_seconds_est": 25.0,
-              "fill_pct": 125.0,
-              "fits_20s": false,
+              "text": "So I am asking something concrete of you. Argue about digital policy wherever it is being decided, teach an older relative to recognize a scam, or sit down beside a teenager and check a claim together.",
+              "words": 36,
+              "sentences": 2,
+              "avg_sentence_words": 18.0,
+              "fk_grade": 10.8,
+              "long_word_pct": 19.4,
+              "speak_seconds_est": 18.0,
+              "fill_pct": 90.0,
+              "fits_20s": true,
               "wpm": 120,
-              "provenance": "workbook"
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (EFL materials writer role)",
+              "basis": "Draft 1 against the v2 quality gate.",
+              "workbook_text": "Thank you for your attention. As university students, you possess the power to drive meaningful social change and close the digital divide. Whether you participate in policy debates, volunteer in rural communities, or advocate for curriculum reform, your actions matter. Together, we can build a more equitable and innovative future."
             }
           },
           "numbers": [],
@@ -1295,10 +1355,10 @@
     },
     "B2": {
       "slides": 20,
-      "avg_words": 46.1,
-      "avg_sentence_words": 16.6,
-      "fk_grade": 17.7,
-      "slides_over_20s": 20
+      "avg_words": 35.1,
+      "avg_sentence_words": 17.6,
+      "fk_grade": 11.4,
+      "slides_over_20s": 0
     }
   }
 }

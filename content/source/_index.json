@@ -1,6 +1,6 @@
 {
   "content_version": "2026.09.1",
-  "generated_at": "2026-09-22T18:56:32+08:00",
+  "generated_at": "2026-09-22T18:58:19+08:00",
   "source_workbook": "SDGs Pecha Kucha (公用)_new.xlsx",
   "legacy_workbooks_not_used": [
     "SDGs Pecha Kucha (公用).xlsx",
@@ -122,10 +122,10 @@
         },
         "B2": {
           "slides": 20,
-          "avg_words": 46.1,
-          "avg_sentence_words": 16.6,
-          "fk_grade": 17.7,
-          "slides_over_20s": 20
+          "avg_words": 35.1,
+          "avg_sentence_words": 17.6,
+          "fk_grade": 11.4,
+          "slides_over_20s": 0
         }
       }
     },
@@ -187,15 +187,15 @@
         "A2": {
           "slides": 20,
           "avg_words": 28.6,
-          "avg_sentence_words": 9.5,
-          "fk_grade": 4.2,
+          "avg_sentence_words": 9.6,
+          "fk_grade": 4.3,
           "slides_over_20s": 0
         },
         "B1": {
           "slides": 20,
-          "avg_words": 33.7,
-          "avg_sentence_words": 12.2,
-          "fk_grade": 7.7,
+          "avg_words": 33.9,
+          "avg_sentence_words": 12.3,
+          "fk_grade": 7.8,
           "slides_over_20s": 0
         },
         "B2": {
@@ -383,18 +383,18 @@
         },
         "B2": {
           "slides": 12,
-          "avg_words": 33.4,
-          "avg_sentence_words": 29.3,
-          "fk_grade": 20.6,
+          "avg_words": 32.0,
+          "avg_sentence_words": 16.0,
+          "fk_grade": 12.3,
           "slides_over_20s": 0
         }
       }
     }
   ],
   "issue_counts": {
-    "high": 1,
-    "medium": 4,
+    "high": 0,
+    "medium": 2,
     "low": 9,
-    "info": 31
+    "info": 33
   }
 }

@@ -63,17 +63,20 @@
               "workbook_text": "Good morning, everyone. Today, let’s look at United Nations SDG 9, a global plan that encourages all countries to support modern technology and build strong systems for better scientific development around the world."
             },
             "B2": {
-              "text": "Good morning, everyone. Today, let’s explore United Nations SDG 9, a global framework that encourages all countries to support modern technological innovation and build strong networks for sustainable scientific development worldwide.",
-              "words": 32,
+              "text": "Good morning. The ninth Sustainable Development Goal is a global framework that commits every country to backing new technology and to building the networks on which our future science depends.",
+              "words": 30,
               "sentences": 2,
-              "avg_sentence_words": 16.0,
-              "fk_grade": 15.0,
-              "long_word_pct": 34.4,
-              "speak_seconds_est": 16.0,
-              "fill_pct": 80.0,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 10.7,
+              "long_word_pct": 20.0,
+              "speak_seconds_est": 15.0,
+              "fill_pct": 75.0,
               "fits_20s": true,
               "wpm": 120,
-              "provenance": "workbook"
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (English teacher role), v2 against the v2 quality gate",
+              "basis": "Written from scratch rather than edited. The workbook B2 was the B1 text with heavier adjectives - vocabulary overlap 0.57 - and eleven of twelve slides failed the band as one long semicolon sentence each. Here the level is carried by structure rather than by lexis: concession on slides 4, 7 and 11, passives on 5 and 11, participle clauses on 6 and 10, a reduced relative on slide 3 ('code produced in seconds') and fronting with inversion on slide 12 ('Only then does the future we build become one worth trusting'), with the register kept speakable. Meaning, slide order and every named fact are unchanged: SDG 9, laboratory reports, journal articles, computer code, ethical choice, public safety, environmental sustainability, social responsibility, curiosity, creativity, persistence. Facts corrected: the workbook says the model 'predicts language based on mathematical probability rather than curiosity, reasoning, or scientific judgment', which is right, but pairs it with 'AI appears to perform many tasks'; slide 5 therefore states the mechanism plainly - it is trained to predict the next likely word, so fluency reflects regularity in old text - and slide 4 says a system that completes a task efficiently has understood nothing, which keeps the source's claim without implying that it understands anything else. 'Let us' became \"let's\" on slide 12 and the closing 'Thank you' was cut so the talk ends on the claim.",
+              "workbook_text": "Good morning, everyone. Today, let’s explore United Nations SDG 9, a global framework that encourages all countries to support modern technological innovation and build strong networks for sustainable scientific development worldwide."
             }
           },
           "numbers": [],
@@ -128,17 +131,20 @@
               "workbook_text": "In our digital world, Artificial Intelligence is changing how we study, do research, and make new tools; however, as AI becomes smarter, an important question remains: what human qualities make us truly irreplaceable?"
             },
             "B2": {
-              "text": "In this digital era, Artificial Intelligence is rapidly transforming the way we study, conduct research, and develop new technologies; however, as AI becomes increasingly capable, an important question remains: what qualities make humans truly irreplaceable?",
-              "words": 35,
-              "sentences": 1,
-              "avg_sentence_words": 35.0,
-              "fk_grade": 24.0,
-              "long_word_pct": 28.6,
-              "speak_seconds_est": 17.5,
-              "fill_pct": 87.5,
+              "text": "Artificial intelligence is transforming how we study, how we conduct research and how we develop new technology. As it grows more capable, one question becomes unavoidable: what makes a human irreplaceable?",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 14.1,
+              "long_word_pct": 25.8,
+              "speak_seconds_est": 15.5,
+              "fill_pct": 77.5,
               "fits_20s": true,
               "wpm": 120,
-              "provenance": "workbook"
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (English teacher role), v2 against the v2 quality gate",
+              "basis": "Written from scratch rather than edited. The workbook B2 was the B1 text with heavier adjectives - vocabulary overlap 0.57 - and eleven of twelve slides failed the band as one long semicolon sentence each. Here the level is carried by structure rather than by lexis: concession on slides 4, 7 and 11, passives on 5 and 11, participle clauses on 6 and 10, a reduced relative on slide 3 ('code produced in seconds') and fronting with inversion on slide 12 ('Only then does the future we build become one worth trusting'), with the register kept speakable. Meaning, slide order and every named fact are unchanged: SDG 9, laboratory reports, journal articles, computer code, ethical choice, public safety, environmental sustainability, social responsibility, curiosity, creativity, persistence. Facts corrected: the workbook says the model 'predicts language based on mathematical probability rather than curiosity, reasoning, or scientific judgment', which is right, but pairs it with 'AI appears to perform many tasks'; slide 5 therefore states the mechanism plainly - it is trained to predict the next likely word, so fluency reflects regularity in old text - and slide 4 says a system that completes a task efficiently has understood nothing, which keeps the source's claim without implying that it understands anything else. 'Let us' became \"let's\" on slide 12 and the closing 'Thank you' was cut so the talk ends on the claim.",
+              "workbook_text": "In this digital era, Artificial Intelligence is rapidly transforming the way we study, conduct research, and develop new technologies; however, as AI becomes increasingly capable, an important question remains: what qualities make humans truly irreplaceable?"
             }
           },
           "numbers": [],
@@ -202,17 +208,20 @@
               "workbook_text": "Many university science students are excited about AI, but they also feel worried because these tools can write lab reports, summarize science articles, generate computer code, and answer difficult questions within seconds."
             },
             "B2": {
-              "text": "Many university science majors are excited about AI tools but also feel anxious because these systems can write laboratory reports, summarize journal articles, generate computer code, and answer complex scientific questions within seconds.",
-              "words": 33,
-              "sentences": 1,
-              "avg_sentence_words": 33.0,
-              "fk_grade": 21.2,
-              "long_word_pct": 24.2,
-              "speak_seconds_est": 16.5,
-              "fill_pct": 82.5,
+              "text": "Science majors are enthusiastic about these systems and anxious about them at the same time. Code produced in seconds, summaries of journal articles and finished laboratory reports now arrive without any effort at all.",
+              "words": 34,
+              "sentences": 2,
+              "avg_sentence_words": 17.0,
+              "fk_grade": 12.2,
+              "long_word_pct": 17.6,
+              "speak_seconds_est": 17.0,
+              "fill_pct": 85.0,
               "fits_20s": true,
               "wpm": 120,
-              "provenance": "workbook"
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (English teacher role), v2 against the v2 quality gate",
+              "basis": "Written from scratch rather than edited. The workbook B2 was the B1 text with heavier adjectives - vocabulary overlap 0.57 - and eleven of twelve slides failed the band as one long semicolon sentence each. Here the level is carried by structure rather than by lexis: concession on slides 4, 7 and 11, passives on 5 and 11, participle clauses on 6 and 10, a reduced relative on slide 3 ('code produced in seconds') and fronting with inversion on slide 12 ('Only then does the future we build become one worth trusting'), with the register kept speakable. Meaning, slide order and every named fact are unchanged: SDG 9, laboratory reports, journal articles, computer code, ethical choice, public safety, environmental sustainability, social responsibility, curiosity, creativity, persistence. Facts corrected: the workbook says the model 'predicts language based on mathematical probability rather than curiosity, reasoning, or scientific judgment', which is right, but pairs it with 'AI appears to perform many tasks'; slide 5 therefore states the mechanism plainly - it is trained to predict the next likely word, so fluency reflects regularity in old text - and slide 4 says a system that completes a task efficiently has understood nothing, which keeps the source's claim without implying that it understands anything else. 'Let us' became \"let's\" on slide 12 and the closing 'Thank you' was cut so the talk ends on the claim.",
+              "workbook_text": "Many university science majors are excited about AI tools but also feel anxious because these systems can write laboratory reports, summarize journal articles, generate computer code, and answer complex scientific questions within seconds."
             }
           },
           "numbers": [],
@@ -267,17 +276,20 @@
               "workbook_text": "These worries are easy to understand because AI can do many tasks that used to require human effort; however, doing a task quickly does not mean that AI truly understands science."
             },
             "B2": {
-              "text": "These concerns are completely understandable because AI appears to perform many tasks that once required human effort; however, completing a task efficiently does not mean that AI truly understands science or can replace human scientists.",
-              "words": 35,
-              "sentences": 1,
-              "avg_sentence_words": 35.0,
-              "fk_grade": 19.6,
-              "long_word_pct": 22.9,
-              "speak_seconds_est": 17.5,
-              "fill_pct": 87.5,
+              "text": "The anxiety is reasonable, although it rests on a confusion. A system that completes a task efficiently has understood nothing, and understanding is the part that science is actually made of.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 10.6,
+              "long_word_pct": 25.8,
+              "speak_seconds_est": 15.5,
+              "fill_pct": 77.5,
               "fits_20s": true,
               "wpm": 120,
-              "provenance": "workbook"
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (English teacher role), v2 against the v2 quality gate",
+              "basis": "Written from scratch rather than edited. The workbook B2 was the B1 text with heavier adjectives - vocabulary overlap 0.57 - and eleven of twelve slides failed the band as one long semicolon sentence each. Here the level is carried by structure rather than by lexis: concession on slides 4, 7 and 11, passives on 5 and 11, participle clauses on 6 and 10, a reduced relative on slide 3 ('code produced in seconds') and fronting with inversion on slide 12 ('Only then does the future we build become one worth trusting'), with the register kept speakable. Meaning, slide order and every named fact are unchanged: SDG 9, laboratory reports, journal articles, computer code, ethical choice, public safety, environmental sustainability, social responsibility, curiosity, creativity, persistence. Facts corrected: the workbook says the model 'predicts language based on mathematical probability rather than curiosity, reasoning, or scientific judgment', which is right, but pairs it with 'AI appears to perform many tasks'; slide 5 therefore states the mechanism plainly - it is trained to predict the next likely word, so fluency reflects regularity in old text - and slide 4 says a system that completes a task efficiently has understood nothing, which keeps the source's claim without implying that it understands anything else. 'Let us' became \"let's\" on slide 12 and the closing 'Thank you' was cut so the talk ends on the claim.",
+              "workbook_text": "These concerns are completely understandable because AI appears to perform many tasks that once required human effort; however, completing a task efficiently does not mean that AI truly understands science or can replace human scientists."
             }
           },
           "numbers": [],
@@ -341,17 +353,20 @@
               "workbook_text": "Why does this happen? Although AI can find patterns in massive amounts of data, it does not have real understanding because it predicts words based on math probabilities instead of curiosity or reasoning."
             },
             "B2": {
-              "text": "Why does this happen? Although AI can recognize patterns in enormous amounts of data, it does not possess genuine understanding because it predicts language based on mathematical probability rather than curiosity, reasoning, or scientific judgment.",
-              "words": 35,
+              "text": "The mechanism explains the limit. Because a model is trained to predict the next likely word, its fluency reflects a regularity in old text rather than reasoning, curiosity or judgment.",
+              "words": 30,
               "sentences": 2,
-              "avg_sentence_words": 17.5,
-              "fk_grade": 14.8,
-              "long_word_pct": 37.1,
-              "speak_seconds_est": 17.5,
-              "fill_pct": 87.5,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 11.1,
+              "long_word_pct": 23.3,
+              "speak_seconds_est": 15.0,
+              "fill_pct": 75.0,
               "fits_20s": true,
               "wpm": 120,
-              "provenance": "workbook"
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (English teacher role), v2 against the v2 quality gate",
+              "basis": "Written from scratch rather than edited. The workbook B2 was the B1 text with heavier adjectives - vocabulary overlap 0.57 - and eleven of twelve slides failed the band as one long semicolon sentence each. Here the level is carried by structure rather than by lexis: concession on slides 4, 7 and 11, passives on 5 and 11, participle clauses on 6 and 10, a reduced relative on slide 3 ('code produced in seconds') and fronting with inversion on slide 12 ('Only then does the future we build become one worth trusting'), with the register kept speakable. Meaning, slide order and every named fact are unchanged: SDG 9, laboratory reports, journal articles, computer code, ethical choice, public safety, environmental sustainability, social responsibility, curiosity, creativity, persistence. Facts corrected: the workbook says the model 'predicts language based on mathematical probability rather than curiosity, reasoning, or scientific judgment', which is right, but pairs it with 'AI appears to perform many tasks'; slide 5 therefore states the mechanism plainly - it is trained to predict the next likely word, so fluency reflects regularity in old text - and slide 4 says a system that completes a task efficiently has understood nothing, which keeps the source's claim without implying that it understands anything else. 'Let us' became \"let's\" on slide 12 and the closing 'Thank you' was cut so the talk ends on the claim.",
+              "workbook_text": "Why does this happen? Although AI can recognize patterns in enormous amounts of data, it does not possess genuine understanding because it predicts language based on mathematical probability rather than curiosity, reasoning, or scientific judgment."
             }
           },
           "numbers": [],
@@ -406,17 +421,20 @@
               "workbook_text": "Human scientists work differently because we ask new questions, design creative experiments, explain surprising laboratory results, and learn from our mistakes, meaning that scientific discovery depends heavily on imagination, hard work, and creativity."
             },
             "B2": {
-              "text": "Human scientists work differently because we ask original questions, design creative experiments, interpret unexpected laboratory results, and learn from failure, meaning that scientific discovery depends heavily on human imagination, persistence, and creativity.",
-              "words": 32,
-              "sentences": 1,
-              "avg_sentence_words": 32.0,
-              "fk_grade": 25.3,
-              "long_word_pct": 43.8,
-              "speak_seconds_est": 16.0,
-              "fill_pct": 80.0,
+              "text": "Human researchers move another way, asking fresh questions, designing tests that may fail, reading results nobody saw coming and learning from every failure. Discovery has always depended on imagination and patience.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 13.3,
+              "long_word_pct": 25.8,
+              "speak_seconds_est": 15.5,
+              "fill_pct": 77.5,
               "fits_20s": true,
               "wpm": 120,
-              "provenance": "workbook"
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (English teacher role), v2 against the v2 quality gate",
+              "basis": "Written from scratch rather than edited. The workbook B2 was the B1 text with heavier adjectives - vocabulary overlap 0.57 - and eleven of twelve slides failed the band as one long semicolon sentence each. Here the level is carried by structure rather than by lexis: concession on slides 4, 7 and 11, passives on 5 and 11, participle clauses on 6 and 10, a reduced relative on slide 3 ('code produced in seconds') and fronting with inversion on slide 12 ('Only then does the future we build become one worth trusting'), with the register kept speakable. Meaning, slide order and every named fact are unchanged: SDG 9, laboratory reports, journal articles, computer code, ethical choice, public safety, environmental sustainability, social responsibility, curiosity, creativity, persistence. Facts corrected: the workbook says the model 'predicts language based on mathematical probability rather than curiosity, reasoning, or scientific judgment', which is right, but pairs it with 'AI appears to perform many tasks'; slide 5 therefore states the mechanism plainly - it is trained to predict the next likely word, so fluency reflects regularity in old text - and slide 4 says a system that completes a task efficiently has understood nothing, which keeps the source's claim without implying that it understands anything else. 'Let us' became \"let's\" on slide 12 and the closing 'Thank you' was cut so the talk ends on the claim.",
+              "workbook_text": "Human scientists work differently because we ask original questions, design creative experiments, interpret unexpected laboratory results, and learn from failure, meaning that scientific discovery depends heavily on human imagination, persistence, and creativity."
             }
           },
           "numbers": [],
@@ -480,17 +498,20 @@
               "workbook_text": "History clearly shows that every great scientific discovery began with human curiosity, and while AI can organize existing information very well, it cannot independently decide which unanswered questions are actually worth studying."
             },
             "B2": {
-              "text": "History clearly shows that every major scientific breakthrough began with human curiosity, and while AI can process existing information remarkably well, it cannot independently decide which unanswered questions are actually worth investigating for our future.",
-              "words": 35,
-              "sentences": 1,
-              "avg_sentence_words": 35.0,
-              "fk_grade": 23.7,
-              "long_word_pct": 31.4,
-              "speak_seconds_est": 17.5,
-              "fill_pct": 87.5,
+              "text": "History settles the argument. Every breakthrough has started with a person who was curious, and while a model can process what we already know, it cannot judge which unanswered question is worth investigating.",
+              "words": 33,
+              "sentences": 2,
+              "avg_sentence_words": 16.5,
+              "fk_grade": 11.6,
+              "long_word_pct": 15.2,
+              "speak_seconds_est": 16.5,
+              "fill_pct": 82.5,
               "fits_20s": true,
               "wpm": 120,
-              "provenance": "workbook"
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (English teacher role), v2 against the v2 quality gate",
+              "basis": "Written from scratch rather than edited. The workbook B2 was the B1 text with heavier adjectives - vocabulary overlap 0.57 - and eleven of twelve slides failed the band as one long semicolon sentence each. Here the level is carried by structure rather than by lexis: concession on slides 4, 7 and 11, passives on 5 and 11, participle clauses on 6 and 10, a reduced relative on slide 3 ('code produced in seconds') and fronting with inversion on slide 12 ('Only then does the future we build become one worth trusting'), with the register kept speakable. Meaning, slide order and every named fact are unchanged: SDG 9, laboratory reports, journal articles, computer code, ethical choice, public safety, environmental sustainability, social responsibility, curiosity, creativity, persistence. Facts corrected: the workbook says the model 'predicts language based on mathematical probability rather than curiosity, reasoning, or scientific judgment', which is right, but pairs it with 'AI appears to perform many tasks'; slide 5 therefore states the mechanism plainly - it is trained to predict the next likely word, so fluency reflects regularity in old text - and slide 4 says a system that completes a task efficiently has understood nothing, which keeps the source's claim without implying that it understands anything else. 'Let us' became \"let's\" on slide 12 and the closing 'Thank you' was cut so the talk ends on the claim.",
+              "workbook_text": "History clearly shows that every major scientific breakthrough began with human curiosity, and while AI can process existing information remarkably well, it cannot independently decide which unanswered questions are actually worth investigating for our future."
             }
           },
           "numbers": [],
@@ -545,17 +566,20 @@
               "workbook_text": "Furthermore, science is about more than making results, meaning that human scientists must always consider correct ethics, public safety, green sustainability, and social responsibility, which are human values that computer rules cannot simply generate."
             },
             "B2": {
-              "text": "Furthermore, science is about more than producing raw results, meaning that human scientists must always consider ethical choices, public safety, environmental sustainability, and social responsibility, which are human values that algorithms cannot simply generate.",
+              "text": "Science is also more than the production of results. Ethical choice, public safety, environmental sustainability and social responsibility are judgments that a human community makes, and no algorithm can be delegated to make them.",
               "words": 34,
-              "sentences": 1,
-              "avg_sentence_words": 34.0,
-              "fk_grade": 23.7,
-              "long_word_pct": 26.5,
+              "sentences": 2,
+              "avg_sentence_words": 17.0,
+              "fk_grade": 15.0,
+              "long_word_pct": 23.5,
               "speak_seconds_est": 17.0,
               "fill_pct": 85.0,
               "fits_20s": true,
               "wpm": 120,
-              "provenance": "workbook"
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (English teacher role), v2 against the v2 quality gate",
+              "basis": "Written from scratch rather than edited. The workbook B2 was the B1 text with heavier adjectives - vocabulary overlap 0.57 - and eleven of twelve slides failed the band as one long semicolon sentence each. Here the level is carried by structure rather than by lexis: concession on slides 4, 7 and 11, passives on 5 and 11, participle clauses on 6 and 10, a reduced relative on slide 3 ('code produced in seconds') and fronting with inversion on slide 12 ('Only then does the future we build become one worth trusting'), with the register kept speakable. Meaning, slide order and every named fact are unchanged: SDG 9, laboratory reports, journal articles, computer code, ethical choice, public safety, environmental sustainability, social responsibility, curiosity, creativity, persistence. Facts corrected: the workbook says the model 'predicts language based on mathematical probability rather than curiosity, reasoning, or scientific judgment', which is right, but pairs it with 'AI appears to perform many tasks'; slide 5 therefore states the mechanism plainly - it is trained to predict the next likely word, so fluency reflects regularity in old text - and slide 4 says a system that completes a task efficiently has understood nothing, which keeps the source's claim without implying that it understands anything else. 'Let us' became \"let's\" on slide 12 and the closing 'Thank you' was cut so the talk ends on the claim.",
+              "workbook_text": "Furthermore, science is about more than producing raw results, meaning that human scientists must always consider ethical choices, public safety, environmental sustainability, and social responsibility, which are human values that algorithms cannot simply generate."
             }
           },
           "numbers": [],
@@ -619,17 +643,20 @@
               "workbook_text": "Therefore, we should see AI as a helpful partner rather than a replacement for human thinking, because technology can organize information and improve speed, but it should never replace our independent choices or creative minds."
             },
             "B2": {
-              "text": "Therefore, we should treat AI as a collaborative partner rather than a replacement for human thinking, because technology can organize information and improve efficiency, but it should never replace our independent judgment or creativity.",
-              "words": 34,
-              "sentences": 1,
-              "avg_sentence_words": 34.0,
-              "fk_grade": 21.6,
-              "long_word_pct": 32.4,
-              "speak_seconds_est": 17.0,
-              "fill_pct": 85.0,
+              "text": "Treat the system as a collaborator rather than a replacement. It can organise material and raise your efficiency, yet the decision about what actually matters has to stay with the person who signs the paper.",
+              "words": 35,
+              "sentences": 2,
+              "avg_sentence_words": 17.5,
+              "fk_grade": 11.1,
+              "long_word_pct": 20.0,
+              "speak_seconds_est": 17.5,
+              "fill_pct": 87.5,
               "fits_20s": true,
               "wpm": 120,
-              "provenance": "workbook"
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (English teacher role), v2 against the v2 quality gate",
+              "basis": "Written from scratch rather than edited. The workbook B2 was the B1 text with heavier adjectives - vocabulary overlap 0.57 - and eleven of twelve slides failed the band as one long semicolon sentence each. Here the level is carried by structure rather than by lexis: concession on slides 4, 7 and 11, passives on 5 and 11, participle clauses on 6 and 10, a reduced relative on slide 3 ('code produced in seconds') and fronting with inversion on slide 12 ('Only then does the future we build become one worth trusting'), with the register kept speakable. Meaning, slide order and every named fact are unchanged: SDG 9, laboratory reports, journal articles, computer code, ethical choice, public safety, environmental sustainability, social responsibility, curiosity, creativity, persistence. Facts corrected: the workbook says the model 'predicts language based on mathematical probability rather than curiosity, reasoning, or scientific judgment', which is right, but pairs it with 'AI appears to perform many tasks'; slide 5 therefore states the mechanism plainly - it is trained to predict the next likely word, so fluency reflects regularity in old text - and slide 4 says a system that completes a task efficiently has understood nothing, which keeps the source's claim without implying that it understands anything else. 'Let us' became \"let's\" on slide 12 and the closing 'Thank you' was cut so the talk ends on the claim.",
+              "workbook_text": "Therefore, we should treat AI as a collaborative partner rather than a replacement for human thinking, because technology can organize information and improve efficiency, but it should never replace our independent judgment or creativity."
             }
           },
           "numbers": [],
@@ -684,17 +711,20 @@
               "workbook_text": "As future scientists, we should continue asking meaningful questions, challenging old ideas, and sharing our discoveries responsibly because these special human abilities will remain necessary, no matter how advanced computer technology becomes."
             },
             "B2": {
-              "text": "As future scientists, we should continue asking meaningful questions, challenging existing ideas, and communicating our discoveries responsibly because these uniquely human abilities will remain essential, regardless of how advanced technology becomes.",
-              "words": 31,
-              "sentences": 1,
-              "avg_sentence_words": 31.0,
-              "fk_grade": 24.3,
-              "long_word_pct": 48.4,
-              "speak_seconds_est": 15.5,
-              "fill_pct": 77.5,
+              "text": "As future scientists, we should keep asking uncomfortable questions, testing old ideas and reporting our results with honesty. Those human habits stay essential, however advanced the machine in front of us becomes.",
+              "words": 32,
+              "sentences": 2,
+              "avg_sentence_words": 16.0,
+              "fk_grade": 12.0,
+              "long_word_pct": 18.8,
+              "speak_seconds_est": 16.0,
+              "fill_pct": 80.0,
               "fits_20s": true,
               "wpm": 120,
-              "provenance": "workbook"
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (English teacher role), v2 against the v2 quality gate",
+              "basis": "Written from scratch rather than edited. The workbook B2 was the B1 text with heavier adjectives - vocabulary overlap 0.57 - and eleven of twelve slides failed the band as one long semicolon sentence each. Here the level is carried by structure rather than by lexis: concession on slides 4, 7 and 11, passives on 5 and 11, participle clauses on 6 and 10, a reduced relative on slide 3 ('code produced in seconds') and fronting with inversion on slide 12 ('Only then does the future we build become one worth trusting'), with the register kept speakable. Meaning, slide order and every named fact are unchanged: SDG 9, laboratory reports, journal articles, computer code, ethical choice, public safety, environmental sustainability, social responsibility, curiosity, creativity, persistence. Facts corrected: the workbook says the model 'predicts language based on mathematical probability rather than curiosity, reasoning, or scientific judgment', which is right, but pairs it with 'AI appears to perform many tasks'; slide 5 therefore states the mechanism plainly - it is trained to predict the next likely word, so fluency reflects regularity in old text - and slide 4 says a system that completes a task efficiently has understood nothing, which keeps the source's claim without implying that it understands anything else. 'Let us' became \"let's\" on slide 12 and the closing 'Thank you' was cut so the talk ends on the claim.",
+              "workbook_text": "As future scientists, we should continue asking meaningful questions, challenging existing ideas, and communicating our discoveries responsibly because these uniquely human abilities will remain essential, regardless of how advanced technology becomes."
             }
           },
           "numbers": [],
@@ -758,17 +788,20 @@
               "workbook_text": "In conclusion, SDG 9 reminds us that new innovation is always driven by real people because AI can generate information, but only human beings can create true knowledge, make good choices, and bring meaningful change."
             },
             "B2": {
-              "text": "In conclusion, SDG 9 reminds us that innovation is ultimately driven by people because AI can generate information, but only human beings can create true knowledge, make ethical decisions, and inspire meaningful change.",
-              "words": 33,
-              "sentences": 1,
-              "avg_sentence_words": 33.0,
-              "fk_grade": 19.1,
-              "long_word_pct": 24.2,
-              "speak_seconds_est": 16.5,
-              "fill_pct": 82.5,
+              "text": "SDG 9 reminds us that innovation is driven by people. A machine generates information, whereas only human beings convert information into knowledge, ethical decisions and change that actually means something.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 13.9,
+              "long_word_pct": 26.7,
+              "speak_seconds_est": 15.0,
+              "fill_pct": 75.0,
               "fits_20s": true,
               "wpm": 120,
-              "provenance": "workbook"
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (English teacher role), v2 against the v2 quality gate",
+              "basis": "Written from scratch rather than edited. The workbook B2 was the B1 text with heavier adjectives - vocabulary overlap 0.57 - and eleven of twelve slides failed the band as one long semicolon sentence each. Here the level is carried by structure rather than by lexis: concession on slides 4, 7 and 11, passives on 5 and 11, participle clauses on 6 and 10, a reduced relative on slide 3 ('code produced in seconds') and fronting with inversion on slide 12 ('Only then does the future we build become one worth trusting'), with the register kept speakable. Meaning, slide order and every named fact are unchanged: SDG 9, laboratory reports, journal articles, computer code, ethical choice, public safety, environmental sustainability, social responsibility, curiosity, creativity, persistence. Facts corrected: the workbook says the model 'predicts language based on mathematical probability rather than curiosity, reasoning, or scientific judgment', which is right, but pairs it with 'AI appears to perform many tasks'; slide 5 therefore states the mechanism plainly - it is trained to predict the next likely word, so fluency reflects regularity in old text - and slide 4 says a system that completes a task efficiently has understood nothing, which keeps the source's claim without implying that it understands anything else. 'Let us' became \"let's\" on slide 12 and the closing 'Thank you' was cut so the talk ends on the claim.",
+              "workbook_text": "In conclusion, SDG 9 reminds us that innovation is ultimately driven by people because AI can generate information, but only human beings can create true knowledge, make ethical decisions, and inspire meaningful change."
             }
           },
           "numbers": [],
@@ -823,17 +856,20 @@
               "workbook_text": "Let us use AI wisely while continuing to develop the curiosity, creativity, and professional responsibility that make great scientists, so we can build a more trustworthy and sustainable future for science together. Thank you."
             },
             "B2": {
-              "text": "Let us embrace AI wisely while continuing to develop the curiosity, creativity, and professional responsibility that define great scientists, so we can build a more trustworthy and sustainable future together. Thank you.",
-              "words": 32,
+              "text": "So let's use AI with judgement, and go on cultivating the curiosity, the creativity and the professional responsibility that define a scientist. Only then does the future we build become one worth trusting.",
+              "words": 33,
               "sentences": 2,
-              "avg_sentence_words": 16.0,
-              "fk_grade": 14.3,
-              "long_word_pct": 28.1,
-              "speak_seconds_est": 16.0,
-              "fill_pct": 80.0,
+              "avg_sentence_words": 16.5,
+              "fk_grade": 11.6,
+              "long_word_pct": 24.2,
+              "speak_seconds_est": 16.5,
+              "fill_pct": 82.5,
               "fits_20s": true,
               "wpm": 120,
-              "provenance": "workbook"
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (English teacher role), v2 against the v2 quality gate",
+              "basis": "Written from scratch rather than edited. The workbook B2 was the B1 text with heavier adjectives - vocabulary overlap 0.57 - and eleven of twelve slides failed the band as one long semicolon sentence each. Here the level is carried by structure rather than by lexis: concession on slides 4, 7 and 11, passives on 5 and 11, participle clauses on 6 and 10, a reduced relative on slide 3 ('code produced in seconds') and fronting with inversion on slide 12 ('Only then does the future we build become one worth trusting'), with the register kept speakable. Meaning, slide order and every named fact are unchanged: SDG 9, laboratory reports, journal articles, computer code, ethical choice, public safety, environmental sustainability, social responsibility, curiosity, creativity, persistence. Facts corrected: the workbook says the model 'predicts language based on mathematical probability rather than curiosity, reasoning, or scientific judgment', which is right, but pairs it with 'AI appears to perform many tasks'; slide 5 therefore states the mechanism plainly - it is trained to predict the next likely word, so fluency reflects regularity in old text - and slide 4 says a system that completes a task efficiently has understood nothing, which keeps the source's claim without implying that it understands anything else. 'Let us' became \"let's\" on slide 12 and the closing 'Thank you' was cut so the talk ends on the claim.",
+              "workbook_text": "Let us embrace AI wisely while continuing to develop the curiosity, creativity, and professional responsibility that define great scientists, so we can build a more trustworthy and sustainable future together. Thank you."
             }
           },
           "numbers": [],
@@ -868,9 +904,9 @@
     },
     "B2": {
       "slides": 12,
-      "avg_words": 33.4,
-      "avg_sentence_words": 29.3,
-      "fk_grade": 20.6,
+      "avg_words": 32.0,
+      "avg_sentence_words": 16.0,
+      "fk_grade": 12.3,
       "slides_over_20s": 0
     }
   }

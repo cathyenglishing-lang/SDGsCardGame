@@ -32,8 +32,8 @@ SDG 5 · 20 slides · levels: A2, B1, B2 · content_version 2026.09.1
 
 | 級別 | 張數 | 每張字數 | 每句字數 | FK | 超過 20 秒 |
 | --- | --- | --- | --- | --- | --- |
-| A2 | 20 | 28.6 | 9.5 | 4.2 | 0 |
-| B1 | 20 | 33.7 | 12.2 | 7.7 | 0 |
+| A2 | 20 | 28.6 | 9.6 | 4.3 | 0 |
+| B1 | 20 | 33.9 | 12.3 | 7.8 | 0 |
 | B2 | 20 | 36.4 | 18.2 | 12.3 | 0 |
 
 ## Part 1 · Introduction（引言：破題與定義）
@@ -125,8 +125,8 @@ SDG 5 · 20 slides · levels: A2, B1, B2 · content_version 2026.09.1
 
 ### Slide 9 · Unseen Work at Home
 
-- **A2**（29 字 / 每句 9.7 字 / 約 18.3 秒）
-  > Many athletes also work at home. They cook, they clean, they care for their family, and then they start training. Without help at home, a career can end early.
+- **A2**（30 字 / 每句 10.0 字 / 約 18.9 秒）
+  > Many athletes also work at home. They cook, they clean, they care for their family, and then they start training. Their career can end early because nobody helps at home.
 - **B1**（35 字 / 每句 11.7 字 / 約 19.1 秒）
   > The working day does not end at the stadium gate. Athletes still go home to the chores and the family expectations. If nobody at home shares that load, a promising career will simply finish early.
 - **B2**（34 字 / 每句 17.0 字 / 約 17.0 秒）
@@ -141,8 +141,8 @@ SDG 5 · 20 slides · levels: A2, B1, B2 · content_version 2026.09.1
 
 - **A2**（29 字 / 每句 9.7 字 / 約 18.3 秒）
   > Change starts with the words we use every day. We should stop using "you play like a girl" as an insult. Say something kind instead, and everybody keeps playing.
-- **B1**（34 字 / 每句 11.3 字 / 約 18.5 秒）
-  > Genuine change begins with the language we choose. If you use "you play like a girl" as an insult, you have already informed your classmate that she does not belong. Encouragement usually works better.
+- **B1**（36 字 / 每句 12.0 字 / 約 19.6 秒）
+  > Genuine change begins with the language we choose. If you use "you play like a girl" as an insult, you have already informed your classmate that she does not belong. Simple encouragement usually works much better.
 - **B2**（38 字 / 每句 19.0 字 / 約 19.0 秒）
   > Language is where the culture is actually built, so a phrase like "you play like a girl" should vanish from our touchline vocabulary. Encouraged rather than ridiculed, a beginner keeps returning, and returning is most of the battle.
 
@@ -158,7 +158,7 @@ SDG 5 · 20 slides · levels: A2, B1, B2 · content_version 2026.09.1
 ### Slide 12 · Standing Up for Others
 
 - **A2**（28 字 / 每句 9.3 字 / 約 17.7 秒）
-  > Do you hear a joke about a female player? Then say something quickly. One calm voice on the playground can keep a whole team in the game today.
+  > Do you hear a joke about a female player? Then say something quickly, before the playground decides it is funny. One calm voice can change the game today.
 - **B1**（30 字 / 每句 15.0 字 / 約 16.4 秒）
   > Sideline jokes are never harmless. If you hear one aimed at a female player, answer it immediately, because the silence around a joke is what makes the next one easier.
 - **B2**（37 字 / 每句 18.5 字 / 約 18.5 秒）
@@ -191,15 +191,15 @@ SDG 5 · 20 slides · levels: A2, B1, B2 · content_version 2026.09.1
 
 - **A2**（26 字 / 每句 8.7 字 / 約 16.4 秒）
   > Look at your phone again. Famous players share their training videos there every day. Their stories reach millions of young fans, so share the good ones.
-- **B1**（34 字 / 每句 11.3 字 / 約 18.5 秒）
-  > Social media has handed the microphone to the players. They publish their daily training, their injuries and their victories. If you share one of those videos today, you quietly widen the audience for them.
+- **B1**（35 字 / 每句 11.7 字 / 約 19.1 秒）
+  > Social media has handed the microphone to the players. They publish their daily training, their injuries and their victories. If you share one of those videos today, you quietly widen the audience for every player.
 - **B2**（35 字 / 每句 17.5 字 / 約 17.5 秒）
   > Social media has handed athletes their own broadcasting rights, and the training footage they publish reaches audiences that no federation ever assembled. Stories written by the women themselves travel further than any official highlight package.
 
 ### Slide 16 · New Laws for Fairness
 
-- **A2**（29 字 / 每句 9.7 字 / 約 18.3 秒）
-  > Laws are moving as well. Several countries now pay their national teams the same money for women and men. Governments say that this is good for the country too.
+- **A2**（30 字 / 每句 10.0 字 / 約 18.9 秒）
+  > Laws are moving as well. Several countries now pay their national teams the same money for women and men. Governments do this because it is good for the country too.
 - **B1**（34 字 / 每句 11.3 字 / 約 18.5 秒）
   > Several countries have now put equal pay into law for their national squads. Politicians argue that supporting women's sport brings money back to the whole economy. The early figures tend to agree with them.
 - **B2**（33 字 / 每句 16.5 字 / 約 16.5 秒）
@@ -245,4 +245,4 @@ SDG 5 · 20 slides · levels: A2, B1, B2 · content_version 2026.09.1
 - **B1**（34 字 / 每句 11.3 字 / 約 18.5 秒）
   > SDG 5 is a mission for everybody in this hall. When the playing field is genuinely level, the whole tournament improves, and the spectators get a better game. I have already picked my side.
 - **B2**（39 字 / 每句 19.5 字 / 約 19.5 秒）
-  > SDG 5 is not a request addressed to somebody else. When the playing field is genuinely level, the competition improves, the audience grows and the record books finally mean what they claim, and I have already chosen my side.
+  > SDG 5 is not a request addressed to somebody else. When the playing field is genuinely level, the competition improves, the audience expands and the record books finally mean what they advertise, and I have already chosen my side.

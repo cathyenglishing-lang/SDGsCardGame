@@ -1,0 +1,22 @@
+{
+  "mission_id": "sdg9-3",
+  "level": "B2",
+  "provenance": "authored-replacement",
+  "author": "Claude (English teacher role), v2 against the v2 quality gate",
+  "basis": "Written from scratch rather than edited. The workbook B2 was the B1 text with heavier adjectives - vocabulary overlap 0.57 - and eleven of twelve slides failed the band as one long semicolon sentence each. Here the level is carried by structure rather than by lexis: concession on slides 4, 7 and 11, passives on 5 and 11, participle clauses on 6 and 10, a reduced relative on slide 3 ('code produced in seconds') and fronting with inversion on slide 12 ('Only then does the future we build become one worth trusting'), with the register kept speakable. Meaning, slide order and every named fact are unchanged: SDG 9, laboratory reports, journal articles, computer code, ethical choice, public safety, environmental sustainability, social responsibility, curiosity, creativity, persistence. Facts corrected: the workbook says the model 'predicts language based on mathematical probability rather than curiosity, reasoning, or scientific judgment', which is right, but pairs it with 'AI appears to perform many tasks'; slide 5 therefore states the mechanism plainly - it is trained to predict the next likely word, so fluency reflects regularity in old text - and slide 4 says a system that completes a task efficiently has understood nothing, which keeps the source's claim without implying that it understands anything else. 'Let us' became \"let's\" on slide 12 and the closing 'Thank you' was cut so the talk ends on the claim.",
+  "reviewed_by": null,
+  "slides": {
+    "1": "Good morning. The ninth Sustainable Development Goal is a global framework that commits every country to backing new technology and to building the networks on which our future science depends.",
+    "2": "Artificial intelligence is transforming how we study, how we conduct research and how we develop new technology. As it grows more capable, one question becomes unavoidable: what makes a human irreplaceable?",
+    "3": "Science majors are enthusiastic about these systems and anxious about them at the same time. Code produced in seconds, summaries of journal articles and finished laboratory reports now arrive without any effort at all.",
+    "4": "The anxiety is reasonable, although it rests on a confusion. A system that completes a task efficiently has understood nothing, and understanding is the part that science is actually made of.",
+    "5": "The mechanism explains the limit. Because a model is trained to predict the next likely word, its fluency reflects a regularity in old text rather than reasoning, curiosity or judgment.",
+    "6": "Human researchers move another way, asking fresh questions, designing tests that may fail, reading results nobody saw coming and learning from every failure. Discovery has always depended on imagination and patience.",
+    "7": "History settles the argument. Every breakthrough has started with a person who was curious, and while a model can process what we already know, it cannot judge which unanswered question is worth investigating.",
+    "8": "Science is also more than the production of results. Ethical choice, public safety, environmental sustainability and social responsibility are judgments that a human community makes, and no algorithm can be delegated to make them.",
+    "9": "Treat the system as a collaborator rather than a replacement. It can organise material and raise your efficiency, yet the decision about what actually matters has to stay with the person who signs the paper.",
+    "10": "As future scientists, we should keep asking uncomfortable questions, testing old ideas and reporting our results with honesty. Those human habits stay essential, however advanced the machine in front of us becomes.",
+    "11": "SDG 9 reminds us that innovation is driven by people. A machine generates information, whereas only human beings convert information into knowledge, ethical decisions and change that actually means something.",
+    "12": "So let's use AI with judgement, and go on cultivating the curiosity, the creativity and the professional responsibility that define a scientist. Only then does the future we build become one worth trusting."
+  }
+}
