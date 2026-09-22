@@ -50,19 +50,19 @@
               "workbook_text": "Hello everyone! Today, let’s look at SDG 5. This goal is \"Gender Equality.\" It means fairness for all. Boys and girls should have the same rights and the same dreams in our world."
             },
             "B1": {
-              "text": "Welcome, everyone. Today I want to talk about the fifth global goal, gender equality. It argues that no right and no ambition should ever depend on whether you were born a boy or a girl.",
-              "words": 35,
-              "sentences": 3,
-              "avg_sentence_words": 11.7,
-              "fk_grade": 6.2,
-              "long_word_pct": 8.6,
-              "speak_seconds_est": 19.1,
-              "fill_pct": 95.5,
+              "text": "Today I want to examine the fifth global goal, usually called gender equality. It argues that no opportunity and no ambition should ever depend on whether you were born a boy or a girl.",
+              "words": 34,
+              "sentences": 2,
+              "avg_sentence_words": 17.0,
+              "fk_grade": 10.1,
+              "long_word_pct": 8.8,
+              "speak_seconds_est": 18.5,
+              "fill_pct": 92.7,
               "fits_20s": true,
               "wpm": 110,
               "provenance": "authored-replacement",
               "authored_by": "Claude (EFL materials writer role), v2 against the quality gate",
-              "basis": "placeholder",
+              "basis": "placeholder Claude revised slides 2 against the v2 gate.",
               "workbook_text": "Hello everyone. Today, we are talking about SDG 5. This goal is about \"Gender Equality.\" It means everyone should have the same rights and dreams. Whether you are a boy or a girl, you deserve a fair chance in our world."
             },
             "B2": {
@@ -78,7 +78,7 @@
               "wpm": 120,
               "provenance": "authored-replacement",
               "authored_by": "Claude (EFL materials writer role), v2 against the quality gate",
-              "basis": "placeholder",
+              "basis": "placeholder Claude revised slides 3, 9, 10, 11 against the v2 gate.",
               "workbook_text": "Welcome, everyone. Today, we confront a vital cornerstone of human development: SDG 5, Gender Equality. Far from being a localized concern, this goal demands a world where fundamental rights and lifelong aspirations are never restricted by biological gender. Let us examine how true balance benefits humanity."
             },
             "A1": {
@@ -129,19 +129,19 @@
               "workbook_text": "Why is this important? Fairness is good for everyone. When girls are happy and successful, our families become stronger. Our schools become better too. Equality makes the whole world a wonderful place."
             },
             "B1": {
-              "text": "Why should any of this matter to the men in the room? Households grow stronger and classrooms improve when women and girls do well. Progress stays slow while half of the population is held back.",
-              "words": 35,
+              "text": "Why should the men in this room really care? Families become stronger and classrooms improve quickly whenever women and girls are doing well. Society advances slowly while half of us is quietly held back.",
+              "words": 34,
               "sentences": 3,
-              "avg_sentence_words": 11.7,
-              "fk_grade": 5.1,
-              "long_word_pct": 14.3,
-              "speak_seconds_est": 19.1,
-              "fill_pct": 95.5,
+              "avg_sentence_words": 11.3,
+              "fk_grade": 6.9,
+              "long_word_pct": 14.7,
+              "speak_seconds_est": 18.5,
+              "fill_pct": 92.7,
               "fits_20s": true,
               "wpm": 110,
               "provenance": "authored-replacement",
               "authored_by": "Claude (EFL materials writer role), v2 against the quality gate",
-              "basis": "placeholder",
+              "basis": "placeholder Claude revised slides 2 against the v2 gate.",
               "workbook_text": "Why is this important? Because gender equality is not just for women. It is for everyone. When girls are successful, our families are stronger and our schools are better. Equality makes the whole world a much happier and healthier place to live."
             },
             "B2": {
@@ -157,7 +157,7 @@
               "wpm": 120,
               "provenance": "authored-replacement",
               "authored_by": "Claude (EFL materials writer role), v2 against the quality gate",
-              "basis": "placeholder",
+              "basis": "placeholder Claude revised slides 3, 9, 10, 11 against the v2 gate.",
               "workbook_text": "Why prioritize this narrative? Empirical evidence proves that gender equity is an economic necessity, not merely a social virtue. When women thrive professionally and academically, societies experience rapid innovation and sustainable growth. True global progress remains impossible when half of the world's population is marginalized."
             },
             "A1": {
@@ -208,35 +208,35 @@
               "workbook_text": "Think about a beautiful bird. It needs two wings to fly. Our world also needs two wings: men and women. If one wing is weak, the bird falls. We must work together equally."
             },
             "B1": {
-              "text": "A bird cannot fly when one wing is stronger than the other. Our societies work the same way, because men and women carry the flight between them. If one side is held down, nobody flies.",
-              "words": 35,
+              "text": "A bird cannot fly when one wing is stronger than the other. Our societies operate similarly, because men and women carry the flight between them. If one half is held down, nobody arrives anywhere.",
+              "words": 34,
               "sentences": 3,
-              "avg_sentence_words": 11.7,
-              "fk_grade": 4.5,
-              "long_word_pct": 5.7,
-              "speak_seconds_est": 19.1,
-              "fill_pct": 95.5,
+              "avg_sentence_words": 11.3,
+              "fk_grade": 7.6,
+              "long_word_pct": 11.8,
+              "speak_seconds_est": 18.5,
+              "fill_pct": 92.7,
               "fits_20s": true,
               "wpm": 110,
               "provenance": "authored-replacement",
               "authored_by": "Claude (EFL materials writer role), v2 against the quality gate",
-              "basis": "placeholder",
+              "basis": "placeholder Claude revised slides 2 against the v2 gate.",
               "workbook_text": "Think about a bird. A bird needs two wings to fly. Our world also needs two wings: men and women. If one wing is weak, the bird cannot fly high. To build a great future, we need everyone to work together equally."
             },
             "B2": {
-              "text": "Picture a bird trying to fly with one wing deliberately held down. Societies repeat that experiment whenever they restrict half their members, and the height lost is paid for by everybody on board, not only by women.",
+              "text": "Picture a bird trying to fly with one wing deliberately held down. Societies repeat that experiment whenever they restrict half their members, and the altitude lost is paid for by everybody on board, not only by women.",
               "words": 37,
               "sentences": 2,
               "avg_sentence_words": 18.5,
-              "fk_grade": 10.4,
-              "long_word_pct": 16.2,
+              "fk_grade": 11.1,
+              "long_word_pct": 18.9,
               "speak_seconds_est": 18.5,
               "fill_pct": 92.5,
               "fits_20s": true,
               "wpm": 120,
               "provenance": "authored-replacement",
               "authored_by": "Claude (EFL materials writer role), v2 against the quality gate",
-              "basis": "placeholder",
+              "basis": "placeholder Claude revised slides 3, 9, 10, 11 against the v2 gate.",
               "workbook_text": "Consider the classic metaphor of a bird; it requires two symmetrical wings to navigate the skies efficiently. Similarly, our global society cannot progress optimally while one gender faces systemic disadvantages. To architect a resilient future, we must ensure both wings possess equal strength, resources, and support."
             },
             "A1": {
@@ -296,19 +296,19 @@
               "workbook_text": "In the past, many people had old ideas. They said: \"Boys can be doctors, but girls must stay home.\" These old ideas are like walls. They stop children from doing what they really love."
             },
             "B1": {
-              "text": "Not long ago, most people assumed that a boy would become a doctor while his sister stayed home. Those assumptions still stand like a wall. They block children from the subjects they love.",
-              "words": 33,
-              "sentences": 3,
-              "avg_sentence_words": 11.0,
-              "fk_grade": 4.8,
-              "long_word_pct": 9.1,
-              "speak_seconds_est": 18.0,
-              "fill_pct": 90.0,
+              "text": "Until recently, most people assumed that a boy would study medicine while his sister stayed at home. Those assumptions still stand like a wall, and they block children from the subjects they really love.",
+              "words": 34,
+              "sentences": 2,
+              "avg_sentence_words": 17.0,
+              "fk_grade": 8.4,
+              "long_word_pct": 14.7,
+              "speak_seconds_est": 18.5,
+              "fill_pct": 92.7,
               "fits_20s": true,
               "wpm": 110,
               "provenance": "authored-replacement",
               "authored_by": "Claude (EFL materials writer role), v2 against the quality gate",
-              "basis": "placeholder",
+              "basis": "placeholder Claude revised slides 2 against the v2 gate.",
               "workbook_text": "In the past, many people had old ideas. They thought boys should be doctors and girls should stay at home. These ideas create barriers. They stop children from following their true interests. We must learn to break these old traditions today."
             },
             "B2": {
@@ -324,7 +324,7 @@
               "wpm": 120,
               "provenance": "authored-replacement",
               "authored_by": "Claude (EFL materials writer role), v2 against the quality gate",
-              "basis": "placeholder",
+              "basis": "placeholder Claude revised slides 3, 9, 10, 11 against the v2 gate.",
               "workbook_text": "Historically, structural biases have dictated rigid gender roles, establishing deeply rooted stereotypes that persist today. For generations, institutional barriers restricted women to the domestic sphere while men dominated professional domains. These outdated frameworks create invisible obstacles, preventing youth from pursuing their genuine career orientations."
             },
             "A1": {
@@ -375,19 +375,19 @@
               "workbook_text": "These ideas start when we are very young. People give trucks to boys and dolls to girls. This limits a child’s mind. Every child should be free to play with any toy."
             },
             "B1": {
-              "text": "This lesson arrives long before anyone mentions careers. Toy shops still divide their shelves into trucks for sons and dolls for daughters, and children read that message quickly. Imagination narrows very early.",
-              "words": 32,
-              "sentences": 3,
-              "avg_sentence_words": 10.7,
-              "fk_grade": 8.1,
-              "long_word_pct": 12.5,
-              "speak_seconds_est": 17.5,
-              "fill_pct": 87.3,
+              "text": "This lesson arrives long before anyone mentions a career. Relatives still hand trucks to the boys and dolls to the girls, and children absorb that signal quickly, so imagination narrows early.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 9.9,
+              "long_word_pct": 12.9,
+              "speak_seconds_est": 16.9,
+              "fill_pct": 84.5,
               "fits_20s": true,
               "wpm": 110,
               "provenance": "authored-replacement",
               "authored_by": "Claude (EFL materials writer role), v2 against the quality gate",
-              "basis": "placeholder",
+              "basis": "placeholder Claude revised slides 2 against the v2 gate.",
               "workbook_text": "These ideas start when we are very young. Sometimes, people give trucks to boys and dolls to girls. This tells children what they \"should\" do. It limits their imagination. Every child should be free to play and learn anything they like."
             },
             "B2": {
@@ -403,7 +403,7 @@
               "wpm": 120,
               "provenance": "authored-replacement",
               "authored_by": "Claude (EFL materials writer role), v2 against the quality gate",
-              "basis": "placeholder",
+              "basis": "placeholder Claude revised slides 3, 9, 10, 11 against the v2 gate.",
               "workbook_text": "These disparities are heavily reinforced through early childhood socialization. From infancy, children are subjected to gendered marketing, where specific toys are prescribed to boys versus girls. This subtle conditioning effectively stifles cognitive diversity, teaching children to conform to societal expectations rather than personal potential."
             },
             "A1": {
@@ -466,7 +466,7 @@
               "wpm": 110,
               "provenance": "authored-replacement",
               "authored_by": "Claude (EFL materials writer role), v2 against the quality gate",
-              "basis": "placeholder",
+              "basis": "placeholder Claude revised slides 2 against the v2 gate.",
               "workbook_text": "Around the world, many girls stop going to school early. Sometimes, it is because their families are poor. Without education, it is hard for them to get good jobs. This creates a cycle of poverty that is very difficult to change."
             },
             "B2": {
@@ -482,7 +482,7 @@
               "wpm": 120,
               "provenance": "authored-replacement",
               "authored_by": "Claude (EFL materials writer role), v2 against the quality gate",
-              "basis": "placeholder",
+              "basis": "placeholder Claude revised slides 3, 9, 10, 11 against the v2 gate.",
               "workbook_text": "Nationally and globally, socioeconomic barriers frequently force vulnerable girls to abandon their education prematurely. In impoverished regions, families prioritizing male education perpetuate a vicious cycle of dependency. Depriving girls of academic opportunities directly correlates with depressed economic mobility across consecutive generations."
             },
             "A1": {
@@ -542,19 +542,19 @@
               "workbook_text": "Let’s look at jobs. Today, many women earn less money than men for the same work. This is wrong. Everyone should get the same pay for the same hard work."
             },
             "B1": {
-              "text": "Now consider the pay slip. Women still earn less than men on average, and researchers find that a gap remains even after we compare identical jobs. Money is what turns a wish into a plan.",
+              "text": "Consider the pay slip. Women still earn less than men on average, and researchers find that a gap remains even after we compare identical jobs. Money is usually what turns a wish into a decision.",
               "words": 35,
               "sentences": 3,
               "avg_sentence_words": 11.7,
-              "fk_grade": 6.2,
-              "long_word_pct": 8.6,
+              "fk_grade": 7.5,
+              "long_word_pct": 11.4,
               "speak_seconds_est": 19.1,
               "fill_pct": 95.5,
               "fits_20s": true,
               "wpm": 110,
               "provenance": "authored-replacement",
               "authored_by": "Claude (EFL materials writer role), v2 against the quality gate",
-              "basis": "placeholder",
+              "basis": "placeholder Claude revised slides 2 against the v2 gate.",
               "workbook_text": "Let’s look at the workplace. Even today, many women earn less money than men for the same job. This is not fair. Everyone should get the same pay for the same hard work. Money gives people the power to be independent."
             },
             "B2": {
@@ -570,7 +570,7 @@
               "wpm": 120,
               "provenance": "authored-replacement",
               "authored_by": "Claude (EFL materials writer role), v2 against the quality gate",
-              "basis": "placeholder",
+              "basis": "placeholder Claude revised slides 3, 9, 10, 11 against the v2 gate.",
               "workbook_text": "Examining the modern corporate landscape reveals a persistent gender wage gap. Statistics confirm that women frequently receive lower remuneration than men for identical responsibilities. Addressing this systemic injustice requires rigorous legal reforms and corporate transparency, ensuring financial independence becomes an accessible reality for all professionals."
             },
             "A1": {
@@ -633,7 +633,7 @@
               "wpm": 110,
               "provenance": "authored-replacement",
               "authored_by": "Claude (EFL materials writer role), v2 against the quality gate",
-              "basis": "placeholder",
+              "basis": "placeholder Claude revised slides 2 against the v2 gate.",
               "workbook_text": "There are not enough women in high positions. We see many male bosses, but fewer female leaders in big companies or governments. We need more women to make important decisions. Their unique ideas can help us solve many global problems."
             },
             "B2": {
@@ -649,7 +649,7 @@
               "wpm": 120,
               "provenance": "authored-replacement",
               "authored_by": "Claude (EFL materials writer role), v2 against the quality gate",
-              "basis": "placeholder",
+              "basis": "placeholder Claude revised slides 3, 9, 10, 11 against the v2 gate.",
               "workbook_text": "Furthermore, women remain significantly underrepresented in senior executive positions and governing bodies. This phenomenon, often termed the glass ceiling, deprives organizations of diverse perspectives at decision-making levels. Elevating more women into leadership is a strategic necessity to resolve complex global issues effectively."
             },
             "A1": {
@@ -712,23 +712,23 @@
               "wpm": 110,
               "provenance": "authored-replacement",
               "authored_by": "Claude (EFL materials writer role), v2 against the quality gate",
-              "basis": "placeholder",
+              "basis": "placeholder Claude revised slides 2 against the v2 gate.",
               "workbook_text": "Women also do much more \"unpaid work.\" This includes cleaning, cooking, and taking care of children. This takes a lot of time and energy. If we do not share this work, women have less time to study or follow their careers."
             },
             "B2": {
-              "text": "Unpaid domestic work is the least visible inequality of all, since cleaning, cooking and childcare still fall mainly to women. Only when families share that load will those hours come back for study, promotion and rest.",
-              "words": 36,
+              "text": "Unpaid domestic labour is the least visible inequality of all, since cleaning, cooking and childcare still fall primarily to women. Only when families redistribute that load will those hours return for study, promotion and rest.",
+              "words": 35,
               "sentences": 2,
-              "avg_sentence_words": 18.0,
-              "fk_grade": 9.8,
-              "long_word_pct": 16.7,
-              "speak_seconds_est": 18.0,
-              "fill_pct": 90.0,
+              "avg_sentence_words": 17.5,
+              "fk_grade": 12.1,
+              "long_word_pct": 22.9,
+              "speak_seconds_est": 17.5,
+              "fill_pct": 87.5,
               "fits_20s": true,
               "wpm": 120,
               "provenance": "authored-replacement",
               "authored_by": "Claude (EFL materials writer role), v2 against the quality gate",
-              "basis": "placeholder",
+              "basis": "placeholder Claude revised slides 3, 9, 10, 11 against the v2 gate.",
               "workbook_text": "Beyond the professional sector, women disproportionately shoulder the burden of unpaid domestic labor. Managing household chores and caregiving demands substantial time and emotional energy. Unless families cultivate an environment of shared responsibility, women will continue to face restricted timelines for advancing their careers."
             },
             "A1": {
@@ -800,23 +800,23 @@
               "wpm": 110,
               "provenance": "authored-replacement",
               "authored_by": "Claude (EFL materials writer role), v2 against the quality gate",
-              "basis": "placeholder",
+              "basis": "placeholder Claude revised slides 2 against the v2 gate.",
               "workbook_text": "How can we start? It begins with how we talk to each other. We should listen to everyone’s voice with respect. Do not judge someone because of their gender. Use kind words and encourage your friends to be who they really are."
             },
             "B2": {
-              "text": "Real change begins with language, because the way we speak in a classroom quietly decides what feels normal. Listening properly, refusing to judge anybody by gender and never assigning a job to one sex are free.",
-              "words": 36,
+              "text": "Real change originates in language, because the way we speak inside a classroom quietly determines what feels normal. Listening properly, refusing to judge anybody by gender and never allocating a job by sex cost nothing.",
+              "words": 35,
               "sentences": 2,
-              "avg_sentence_words": 18.0,
-              "fk_grade": 10.1,
-              "long_word_pct": 16.7,
-              "speak_seconds_est": 18.0,
-              "fill_pct": 90.0,
+              "avg_sentence_words": 17.5,
+              "fk_grade": 12.5,
+              "long_word_pct": 22.9,
+              "speak_seconds_est": 17.5,
+              "fill_pct": 87.5,
               "fits_20s": true,
               "wpm": 120,
               "provenance": "authored-replacement",
               "authored_by": "Claude (EFL materials writer role), v2 against the quality gate",
-              "basis": "placeholder",
+              "basis": "placeholder Claude revised slides 3, 9, 10, 11 against the v2 gate.",
               "workbook_text": "Implementing tangible change requires us to consciously audit our daily interactions. We must actively foster inclusive dialogue by listening to all perspectives with authentic respect. Eradicating gendered microaggressions within classrooms creates a psychologically safe environment where individuals are evaluated solely on merit and character."
             },
             "A1": {
@@ -867,35 +867,35 @@
               "workbook_text": "At home, we can share the chores. Boys can cook dinner, and girls can fix bicycles. When everyone helps, the home is happy. Sharing shows that you love your family."
             },
             "B1": {
-              "text": "At home the change is practical. If boys learn to cook a decent meal and girls learn to repair a bicycle, nobody will grow up helpless. Families that share the chores usually enjoy each other more.",
+              "text": "At home the change is entirely practical. If boys learn to cook a decent meal and girls learn to repair a bicycle, nobody will grow up completely helpless. Families that share the chores usually argue less.",
               "words": 36,
               "sentences": 3,
               "avg_sentence_words": 12.0,
-              "fk_grade": 6.1,
-              "long_word_pct": 8.3,
+              "fk_grade": 7.4,
+              "long_word_pct": 13.9,
               "speak_seconds_est": 19.6,
               "fill_pct": 98.2,
               "fits_20s": true,
               "wpm": 110,
               "provenance": "authored-replacement",
               "authored_by": "Claude (EFL materials writer role), v2 against the quality gate",
-              "basis": "placeholder",
+              "basis": "placeholder Claude revised slides 2 against the v2 gate.",
               "workbook_text": "At home, we can help by sharing chores. Boys can learn to cook, and girls can learn to fix things. When everyone helps, the home becomes a happier place. Sharing the work shows that you care about your family members."
             },
             "B2": {
-              "text": "Equality at home is taught rather than announced, so let's encourage sons to cook a decent meal and daughters to maintain a bicycle. Families who share the work honestly tend to argue about it far less.",
-              "words": 36,
+              "text": "Equality at home is demonstrated rather than announced, so encourage sons to cook a decent meal and daughters to repair a bicycle. Families who genuinely share the work tend to argue about it considerably less.",
+              "words": 35,
               "sentences": 2,
-              "avg_sentence_words": 18.0,
-              "fk_grade": 9.1,
-              "long_word_pct": 19.4,
-              "speak_seconds_est": 18.0,
-              "fill_pct": 90.0,
+              "avg_sentence_words": 17.5,
+              "fk_grade": 11.8,
+              "long_word_pct": 22.9,
+              "speak_seconds_est": 17.5,
+              "fill_pct": 87.5,
               "fits_20s": true,
               "wpm": 120,
               "provenance": "authored-replacement",
               "authored_by": "Claude (EFL materials writer role), v2 against the quality gate",
-              "basis": "placeholder",
+              "basis": "placeholder Claude revised slides 3, 9, 10, 11 against the v2 gate.",
               "workbook_text": "Domestically, we must normalize the equitable distribution of labor. Breaking historical patterns means encouraging boys to master domestic arts while empowering girls to undertake technical tasks. This collective cooperation within the household redefines family dynamics, demonstrating that genuine partnership is rooted in mutual respect."
             },
             "A1": {
@@ -958,7 +958,7 @@
               "wpm": 110,
               "provenance": "authored-replacement",
               "authored_by": "Claude (EFL materials writer role), v2 against the quality gate",
-              "basis": "placeholder",
+              "basis": "placeholder Claude revised slides 2 against the v2 gate.",
               "workbook_text": "If you see someone being treated badly because they are a girl or a boy, speak up. Be a brave friend. Small actions in the classroom or on the playground can make a big difference. Equality starts with you and me."
             },
             "B2": {
@@ -974,7 +974,7 @@
               "wpm": 120,
               "provenance": "authored-replacement",
               "authored_by": "Claude (EFL materials writer role), v2 against the quality gate",
-              "basis": "placeholder",
+              "basis": "placeholder Claude revised slides 3, 9, 10, 11 against the v2 gate.",
               "workbook_text": "On a societal level, achieving equity demands active allyship. When encountering instances of gender-based discrimination, remaining neutral is equivalent to compliance. Speaking up courageously in lecture halls, playing fields, and through social networks creates an interconnected web of accountability that actively protects human dignity."
             },
             "A1": {
@@ -1046,7 +1046,7 @@
               "wpm": 110,
               "provenance": "authored-replacement",
               "authored_by": "Claude (EFL materials writer role), v2 against the quality gate",
-              "basis": "placeholder",
+              "basis": "placeholder Claude revised slides 2 against the v2 gate.",
               "workbook_text": "Now, things are changing! More girls are learning about robots, coding, and space. This is very exciting. STEM is the future, and we need girls to be the next great scientists. Technology is a tool that helps everyone succeed together."
             },
             "B2": {
@@ -1062,7 +1062,7 @@
               "wpm": 120,
               "provenance": "authored-replacement",
               "authored_by": "Claude (EFL materials writer role), v2 against the quality gate",
-              "basis": "placeholder",
+              "basis": "placeholder Claude revised slides 3, 9, 10, 11 against the v2 gate.",
               "workbook_text": "Promisingly, paradigm shifts are occurring within technological landscapes. Educational initiatives are successfully recruiting female talent into STEM fields, traditionally dominated by males. Coding, artificial intelligence, and aerospace engineering are being redefined, proving that technological innovation accelerates when we tap into society's complete intellectual capital."
             },
             "A1": {
@@ -1125,7 +1125,7 @@
               "wpm": 110,
               "provenance": "authored-replacement",
               "authored_by": "Claude (EFL materials writer role), v2 against the quality gate",
-              "basis": "placeholder",
+              "basis": "placeholder Claude revised slides 2 against the v2 gate.",
               "workbook_text": "The internet is helping girls learn online. Even in far places, girls can use tablets to watch lessons and learn new skills. Technology breaks the walls of the classroom. It gives everyone a chance to connect with the whole world easily."
             },
             "B2": {
@@ -1141,7 +1141,7 @@
               "wpm": 120,
               "provenance": "authored-replacement",
               "authored_by": "Claude (EFL materials writer role), v2 against the quality gate",
-              "basis": "placeholder",
+              "basis": "placeholder Claude revised slides 3, 9, 10, 11 against the v2 gate.",
               "workbook_text": "Concurrently, global internet expansion acts as a catalyst for democratizing knowledge. Remote digital learning platforms allow marginalized women in isolated communities to acquire advanced degrees. This technological evolution effectively dismantles geographic limitations, bridging educational deficits and integrating individuals into the global knowledge economy."
             },
             "A1": {
@@ -1204,7 +1204,7 @@
               "wpm": 110,
               "provenance": "authored-replacement",
               "authored_by": "Claude (EFL materials writer role), v2 against the quality gate",
-              "basis": "placeholder",
+              "basis": "placeholder Claude revised slides 2 against the v2 gate.",
               "workbook_text": "We can see many female role models on social media today. They are athletes, artists, and leaders. Their stories inspire millions of young people. We can use our phones to share these positive stories and spread the message of equality."
             },
             "B2": {
@@ -1220,7 +1220,7 @@
               "wpm": 120,
               "provenance": "authored-replacement",
               "authored_by": "Claude (EFL materials writer role), v2 against the quality gate",
-              "basis": "placeholder",
+              "basis": "placeholder Claude revised slides 3, 9, 10, 11 against the v2 gate.",
               "workbook_text": "Digital media simultaneously serves as an unparalleled platform for amplifying female representation. Exceptional leaders, athletes, and pioneers utilize social networks to broadcast their trajectories, shattering stereotypes. These contemporary role models inspire subsequent generations, proving that aspirations should never be constrained by traditional gender boundaries."
             },
             "A1": {
@@ -1283,7 +1283,7 @@
               "wpm": 110,
               "provenance": "authored-replacement",
               "authored_by": "Claude (EFL materials writer role), v2 against the quality gate",
-              "basis": "placeholder",
+              "basis": "placeholder Claude revised slides 2 against the v2 gate.",
               "workbook_text": "Many countries are making new laws to protect women. These laws help women get fair pay and stay safe. Governments are realizing that gender equality is good for the economy. When everyone can work, the whole country becomes much richer."
             },
             "B2": {
@@ -1299,7 +1299,7 @@
               "wpm": 120,
               "provenance": "authored-replacement",
               "authored_by": "Claude (EFL materials writer role), v2 against the quality gate",
-              "basis": "placeholder",
+              "basis": "placeholder Claude revised slides 3, 9, 10, 11 against the v2 gate.",
               "workbook_text": "Concurrently, progressive governments are enacting comprehensive legislative frameworks to mandate equal remuneration. Policymakers increasingly recognize that gender equity directly correlates with robust macroeconomic stability. When full economic participation is legally guaranteed, national productivity enhances, generating wealth that fortifies the entire social fabric."
             },
             "A1": {
@@ -1371,7 +1371,7 @@
               "wpm": 110,
               "provenance": "authored-replacement",
               "authored_by": "Claude (EFL materials writer role), v2 against the quality gate",
-              "basis": "placeholder",
+              "basis": "placeholder Claude revised slides 2 against the v2 gate.",
               "workbook_text": "Today, we learned that gender equality is important for schools, work, and home. It is not a dream; it is a goal we can reach. We looked at the problems, but we also saw many exciting new changes and technologies."
             },
             "B2": {
@@ -1387,7 +1387,7 @@
               "wpm": 120,
               "provenance": "authored-replacement",
               "authored_by": "Claude (EFL materials writer role), v2 against the quality gate",
-              "basis": "placeholder",
+              "basis": "placeholder Claude revised slides 3, 9, 10, 11 against the v2 gate.",
               "workbook_text": "In retrospection, our comprehensive analysis emphasizes that gender equality is an interdisciplinary objective. It shapes educational structures, corporate operations, and domestic spaces. Rather than evaluating it as utopian idealism, we must view SDG 5 as a concrete roadmap that guarantees global stability and ethical progression."
             },
             "A1": {
@@ -1438,19 +1438,19 @@
               "workbook_text": "I promise to respect boys and girls equally. I will support all my friends. What about you? Think of one small action you can do today to help your family."
             },
             "B1": {
-              "text": "Here is my own promise: I will treat every classmate as an equal, and I will say something whenever somebody does not. What can you promise before tonight ends?",
-              "words": 29,
-              "sentences": 2,
-              "avg_sentence_words": 14.5,
-              "fk_grade": 8.0,
-              "long_word_pct": 13.8,
-              "speak_seconds_est": 15.8,
-              "fill_pct": 79.1,
+              "text": "This is my personal promise to you. From today I will support my friends whatever their gender, and I will challenge the usual jokes. Could everybody here decide on one similar promise before tonight?",
+              "words": 34,
+              "sentences": 3,
+              "avg_sentence_words": 11.3,
+              "fk_grade": 7.9,
+              "long_word_pct": 11.8,
+              "speak_seconds_est": 18.5,
+              "fill_pct": 92.7,
               "fits_20s": true,
               "wpm": 110,
               "provenance": "authored-replacement",
               "authored_by": "Claude (EFL materials writer role), v2 against the quality gate",
-              "basis": "placeholder",
+              "basis": "placeholder Claude revised slides 2 against the v2 gate.",
               "workbook_text": "I promise to respect everyone equally. I will support my friends regardless of their gender. What about you? Think about one small thing you can do today. Maybe you can help with dinner or encourage a classmate to follow their dream."
             },
             "B2": {
@@ -1466,7 +1466,7 @@
               "wpm": 120,
               "provenance": "authored-replacement",
               "authored_by": "Claude (EFL materials writer role), v2 against the quality gate",
-              "basis": "placeholder",
+              "basis": "placeholder Claude revised slides 3, 9, 10, 11 against the v2 gate.",
               "workbook_text": "Moving forward, I commit to actively championing these values, ensuring my professional and personal spheres reflect uncompromising equity. I challenge you to audit your own spheres of influence. Identify one systemic bias you can dismantle within your immediate environment, translating academic understanding into purposeful daily action."
             },
             "A1": {
@@ -1529,7 +1529,7 @@
               "wpm": 110,
               "provenance": "authored-replacement",
               "authored_by": "Claude (EFL materials writer role), v2 against the quality gate",
-              "basis": "placeholder",
+              "basis": "placeholder Claude revised slides 2 against the v2 gate.",
               "workbook_text": "Change does not happen overnight. It takes time and patience. But if we all move together, we can build a fair world by 2030. Let’s be the generation that makes gender equality a reality for the whole human family."
             },
             "B2": {
@@ -1545,7 +1545,7 @@
               "wpm": 120,
               "provenance": "authored-replacement",
               "authored_by": "Claude (EFL materials writer role), v2 against the quality gate",
-              "basis": "placeholder",
+              "basis": "placeholder Claude revised slides 3, 9, 10, 11 against the v2 gate.",
               "workbook_text": "Systemic transformation demands sustained resilience and collective determination. While institutional shifts are gradual, our synchronized efforts possess the momentum to realize the 2030 agenda. Let us proudly accept the mantle of leadership, ensuring our generation permanently establishes a legacy of uncompromising fairness."
             },
             "A1": {
@@ -1599,19 +1599,19 @@
               "workbook_text": "In conclusion, SDG 5 is a mission for you and me. Thank you for listening to my presentation. Remember: when we are equal, we are stronger. Thank you very much!"
             },
             "B1": {
-              "text": "SDG 5 belongs to everyone in this room. When women and men stand as equals, families, companies and whole countries get stronger. I have made my choice, and I would like you to make yours.",
-              "words": 35,
+              "text": "SDG 5 belongs to everybody in this room. When women and men participate as equals, families, companies and entire countries usually benefit. I have already made my choice, and I hope that you will make yours.",
+              "words": 36,
               "sentences": 3,
-              "avg_sentence_words": 11.7,
-              "fk_grade": 4.8,
-              "long_word_pct": 14.3,
-              "speak_seconds_est": 19.1,
-              "fill_pct": 95.5,
+              "avg_sentence_words": 12.0,
+              "fk_grade": 8.1,
+              "long_word_pct": 13.9,
+              "speak_seconds_est": 19.6,
+              "fill_pct": 98.2,
               "fits_20s": true,
               "wpm": 110,
               "provenance": "authored-replacement",
               "authored_by": "Claude (EFL materials writer role), v2 against the quality gate",
-              "basis": "placeholder",
+              "basis": "placeholder Claude revised slides 2 against the v2 gate.",
               "workbook_text": "In conclusion, SDG 5 is a mission for you, for me, and for everyone. Thank you for listening to my Pecha Kucha today. Remember: when we are equal, we are all stronger. Thank you very much, and let's make a change!"
             },
             "B2": {
@@ -1627,7 +1627,7 @@
               "wpm": 120,
               "provenance": "authored-replacement",
               "authored_by": "Claude (EFL materials writer role), v2 against the quality gate",
-              "basis": "placeholder",
+              "basis": "placeholder Claude revised slides 3, 9, 10, 11 against the v2 gate.",
               "workbook_text": "To conclude, SDG 5 represents a collective mandate binding every nation, community, and individual. Thank you for engaging with this presentation. Let us exit this hall not merely as spectators, but as empowered catalysts for societal transformation. Remember: true equity begins with individual conviction. Thank you."
             },
             "A1": {
@@ -1674,16 +1674,16 @@
     },
     "B1": {
       "slides": 20,
-      "avg_words": 33.0,
-      "avg_sentence_words": 12.8,
-      "fk_grade": 7.4,
+      "avg_words": 33.1,
+      "avg_sentence_words": 13.4,
+      "fk_grade": 8.4,
       "slides_over_20s": 0
     },
     "B2": {
       "slides": 20,
-      "avg_words": 35.9,
+      "avg_words": 35.7,
       "avg_sentence_words": 17.9,
-      "fk_grade": 11.4,
+      "fk_grade": 11.8,
       "slides_over_20s": 0
     }
   }

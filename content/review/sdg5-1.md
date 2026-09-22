@@ -34,8 +34,8 @@ SDG 5 · 20 slides · levels: A1, A2, B1, B2 · content_version 2026.09.1
 | --- | --- | --- | --- | --- | --- |
 | A1 | 20 | 21.6 | 6.0 | 1.7 | 0 |
 | A2 | 20 | 27.7 | 9.2 | 3.7 | 0 |
-| B1 | 20 | 33.0 | 12.8 | 7.4 | 0 |
-| B2 | 20 | 35.9 | 17.9 | 11.4 | 0 |
+| B1 | 20 | 33.1 | 13.4 | 8.4 | 0 |
+| B2 | 20 | 35.7 | 17.9 | 11.8 | 0 |
 
 ## Part 1 · Introduction（引言：破題與定義）
 
@@ -48,8 +48,8 @@ SDG 5 · 20 slides · levels: A1, A2, B1, B2 · content_version 2026.09.1
   > Hello everyone. Today we talk about SDG 5. SDG 5 means gender equality. Boys and girls must have the same rights and the same dreams.
 - **A2**（27 字 / 每句 9.0 字 / 約 17.1 秒）
   > Hello everyone. Today let's look at SDG 5, the goal for gender equality. It means that boys and girls get the same rights and the same dreams.
-- **B1**（35 字 / 每句 11.7 字 / 約 19.1 秒）
-  > Welcome, everyone. Today I want to talk about the fifth global goal, gender equality. It argues that no right and no ambition should ever depend on whether you were born a boy or a girl.
+- **B1**（34 字 / 每句 17.0 字 / 約 18.5 秒）
+  > Today I want to examine the fifth global goal, usually called gender equality. It argues that no opportunity and no ambition should ever depend on whether you were born a boy or a girl.
 - **B2**（38 字 / 每句 19.0 字 / 約 19.0 秒）
   > Gender equality is usually described as a women's issue, although the fifth global goal is really about the ambitions a society is prepared to restrict. Today I want to examine what genuine equality would demand from everybody here.
 
@@ -59,8 +59,8 @@ SDG 5 · 20 slides · levels: A1, A2, B1, B2 · content_version 2026.09.1
   > Why is this important? Fairness is good for everyone. When girls do well, families grow stronger. Schools get better too.
 - **A2**（29 字 / 每句 9.7 字 / 約 18.3 秒）
   > Why does this matter to you and to me? Equality is not only a women's story. When girls do well, our homes get stronger and our schools get better.
-- **B1**（35 字 / 每句 11.7 字 / 約 19.1 秒）
-  > Why should any of this matter to the men in the room? Households grow stronger and classrooms improve when women and girls do well. Progress stays slow while half of the population is held back.
+- **B1**（34 字 / 每句 11.3 字 / 約 18.5 秒）
+  > Why should the men in this room really care? Families become stronger and classrooms improve quickly whenever women and girls are doing well. Society advances slowly while half of us is quietly held back.
 - **B2**（37 字 / 每句 18.5 字 / 約 18.5 秒）
   > Why should the men here care? Because the evidence links women's progress to stronger households, better schools and faster economic growth, which means that excluding half a population is an expensive habit rather than a neutral tradition.
 
@@ -70,10 +70,10 @@ SDG 5 · 20 slides · levels: A1, A2, B1, B2 · content_version 2026.09.1
   > Think about a bird. A bird needs two wings to fly. Our world needs two wings too: men and women.
 - **A2**（29 字 / 每句 9.7 字 / 約 18.3 秒）
   > Imagine a bird for a moment. A bird only needs two wings to fly. Our world needs two wings as well, so men and women must carry it together.
-- **B1**（35 字 / 每句 11.7 字 / 約 19.1 秒）
-  > A bird cannot fly when one wing is stronger than the other. Our societies work the same way, because men and women carry the flight between them. If one side is held down, nobody flies.
+- **B1**（34 字 / 每句 11.3 字 / 約 18.5 秒）
+  > A bird cannot fly when one wing is stronger than the other. Our societies operate similarly, because men and women carry the flight between them. If one half is held down, nobody arrives anywhere.
 - **B2**（37 字 / 每句 18.5 字 / 約 18.5 秒）
-  > Picture a bird trying to fly with one wing deliberately held down. Societies repeat that experiment whenever they restrict half their members, and the height lost is paid for by everybody on board, not only by women.
+  > Picture a bird trying to fly with one wing deliberately held down. Societies repeat that experiment whenever they restrict half their members, and the altitude lost is paid for by everybody on board, not only by women.
 
 ## Part 2 · Problem（問題指認：趨勢與因果）
 
@@ -86,8 +86,8 @@ SDG 5 · 20 slides · levels: A1, A2, B1, B2 · content_version 2026.09.1
   > In the past, people had old ideas. They said boys can be doctors. They said girls must stay home. These ideas stop children.
 - **A2**（28 字 / 每句 9.3 字 / 約 17.7 秒）
   > In the past, many people said that boys become doctors and girls stay at home. Those old ideas are like walls. They stop children from following their dreams.
-- **B1**（33 字 / 每句 11.0 字 / 約 18.0 秒）
-  > Not long ago, most people assumed that a boy would become a doctor while his sister stayed home. Those assumptions still stand like a wall. They block children from the subjects they love.
+- **B1**（34 字 / 每句 17.0 字 / 約 18.5 秒）
+  > Until recently, most people assumed that a boy would study medicine while his sister stayed at home. Those assumptions still stand like a wall, and they block children from the subjects they really love.
 - **B2**（32 字 / 每句 16.0 字 / 約 16.0 秒）
   > Historically a boy was expected to enter medicine while his sister stayed at home. Those assumptions still operate as invisible walls, steering teenagers away from the subjects they would otherwise have chosen.
 
@@ -97,8 +97,8 @@ SDG 5 · 20 slides · levels: A1, A2, B1, B2 · content_version 2026.09.1
   > These ideas start when we are very young. We give trucks to boys. We give dolls to girls. Every child can play with any toy.
 - **A2**（29 字 / 每句 9.7 字 / 約 18.3 秒）
   > This starts when we are very young. Adults give trucks to boys and dolls to girls. Those presents teach children what to want, so let's open every toy box.
-- **B1**（32 字 / 每句 10.7 字 / 約 17.5 秒）
-  > This lesson arrives long before anyone mentions careers. Toy shops still divide their shelves into trucks for sons and dolls for daughters, and children read that message quickly. Imagination narrows very early.
+- **B1**（31 字 / 每句 15.5 字 / 約 16.9 秒）
+  > This lesson arrives long before anyone mentions a career. Relatives still hand trucks to the boys and dolls to the girls, and children absorb that signal quickly, so imagination narrows early.
 - **B2**（35 字 / 每句 17.5 字 / 約 17.5 秒）
   > The conditioning starts long before anybody mentions careers, because shops still divide their shelves into vehicles for sons and dolls for daughters. Children read that message quickly, learning to imagine only one category of future.
 
@@ -125,7 +125,7 @@ SDG 5 · 20 slides · levels: A1, A2, B1, B2 · content_version 2026.09.1
 - **A2**（27 字 / 每句 9.0 字 / 約 17.1 秒）
   > Now look at pay. Women still earn less than men on average, and some of that difference stays inside the same job. Equal work deserves equal pay.
 - **B1**（35 字 / 每句 11.7 字 / 約 19.1 秒）
-  > Now consider the pay slip. Women still earn less than men on average, and researchers find that a gap remains even after we compare identical jobs. Money is what turns a wish into a plan.
+  > Consider the pay slip. Women still earn less than men on average, and researchers find that a gap remains even after we compare identical jobs. Money is usually what turns a wish into a decision.
 - **B2**（34 字 / 每句 17.0 字 / 約 17.0 秒）
   > Turn to pay. Women still earn less than men on average, and a measurable gap survives even after economists control for occupation, hours and experience, which suggests the problem is structural rather than personal.
 
@@ -148,8 +148,8 @@ SDG 5 · 20 slides · levels: A1, A2, B1, B2 · content_version 2026.09.1
   > Look at the unpaid work at home. Women usually do the cleaning, the cooking and the childcare, and nobody pays for it. Men and boys must take a share.
 - **B1**（34 字 / 每句 11.3 字 / 約 18.5 秒）
   > Housework has never appeared on a payslip. Women still do most of the cleaning, the cooking and the caring, which quietly removes hours from their studies and careers. Shared work gives those hours back.
-- **B2**（36 字 / 每句 18.0 字 / 約 18.0 秒）
-  > Unpaid domestic work is the least visible inequality of all, since cleaning, cooking and childcare still fall mainly to women. Only when families share that load will those hours come back for study, promotion and rest.
+- **B2**（35 字 / 每句 17.5 字 / 約 17.5 秒）
+  > Unpaid domestic labour is the least visible inequality of all, since cleaning, cooking and childcare still fall primarily to women. Only when families redistribute that load will those hours return for study, promotion and rest.
 
 ## Part 4 · Solutions（解方：做法與取捨）
 
@@ -164,8 +164,8 @@ SDG 5 · 20 slides · levels: A1, A2, B1, B2 · content_version 2026.09.1
   > So how do we start? Respect comes first. Listen to your classmates with real attention, and never say that a job belongs to boys or to girls.
 - **B1**（31 字 / 每句 15.5 字 / 約 16.9 秒）
   > Respect begins with the language that we use about each other. Listen carefully, resist the habit of judging anyone by gender, and never announce that a particular job belongs to boys.
-- **B2**（36 字 / 每句 18.0 字 / 約 18.0 秒）
-  > Real change begins with language, because the way we speak in a classroom quietly decides what feels normal. Listening properly, refusing to judge anybody by gender and never assigning a job to one sex are free.
+- **B2**（35 字 / 每句 17.5 字 / 約 17.5 秒）
+  > Real change originates in language, because the way we speak inside a classroom quietly determines what feels normal. Listening properly, refusing to judge anybody by gender and never allocating a job by sex cost nothing.
 
 ### Slide 11 · Sharing Tasks at Home
 
@@ -174,9 +174,9 @@ SDG 5 · 20 slides · levels: A1, A2, B1, B2 · content_version 2026.09.1
 - **A2**（27 字 / 每句 9.0 字 / 約 17.1 秒）
   > Take it home with you. Boys can cook the dinner, and girls can fix the bike. When everybody helps, the housework shrinks and the family grows closer.
 - **B1**（36 字 / 每句 12.0 字 / 約 19.6 秒）
-  > At home the change is practical. If boys learn to cook a decent meal and girls learn to repair a bicycle, nobody will grow up helpless. Families that share the chores usually enjoy each other more.
-- **B2**（36 字 / 每句 18.0 字 / 約 18.0 秒）
-  > Equality at home is taught rather than announced, so let's encourage sons to cook a decent meal and daughters to maintain a bicycle. Families who share the work honestly tend to argue about it far less.
+  > At home the change is entirely practical. If boys learn to cook a decent meal and girls learn to repair a bicycle, nobody will grow up completely helpless. Families that share the chores usually argue less.
+- **B2**（35 字 / 每句 17.5 字 / 約 17.5 秒）
+  > Equality at home is demonstrated rather than announced, so encourage sons to cook a decent meal and daughters to repair a bicycle. Families who genuinely share the work tend to argue about it considerably less.
 
 ### Slide 12 · Standing Up for Others
 
@@ -260,8 +260,8 @@ SDG 5 · 20 slides · levels: A1, A2, B1, B2 · content_version 2026.09.1
   > I promise to respect boys and girls. I will help all my friends. What about you? Choose one small action today.
 - **A2**（26 字 / 每句 8.7 字 / 約 16.4 秒）
   > Here is my promise: I will treat every classmate the same, whatever their gender. What about you? Wash the dishes tonight, or cheer up a friend.
-- **B1**（29 字 / 每句 14.5 字 / 約 15.8 秒）
-  > Here is my own promise: I will treat every classmate as an equal, and I will say something whenever somebody does not. What can you promise before tonight ends?
+- **B1**（34 字 / 每句 11.3 字 / 約 18.5 秒）
+  > This is my personal promise to you. From today I will support my friends whatever their gender, and I will challenge the usual jokes. Could everybody here decide on one similar promise before tonight?
 - **B2**（36 字 / 每句 18.0 字 / 約 18.0 秒）
   > My own commitment is small but specific. I will treat every classmate as an equal and say something when somebody does not, and I would ask each of you to choose one comparable action before tonight.
 
@@ -283,7 +283,7 @@ SDG 5 · 20 slides · levels: A1, A2, B1, B2 · content_version 2026.09.1
   > SDG 5 is a mission for you and me. When we are equal, we are stronger. Thank you for listening.
 - **A2**（29 字 / 每句 9.7 字 / 約 18.3 秒）
   > SDG 5 is a mission for you and for me. When women and men stand together as equals, every family grows stronger. That is the world I really want.
-- **B1**（35 字 / 每句 11.7 字 / 約 19.1 秒）
-  > SDG 5 belongs to everyone in this room. When women and men stand as equals, families, companies and whole countries get stronger. I have made my choice, and I would like you to make yours.
+- **B1**（36 字 / 每句 12.0 字 / 約 19.6 秒）
+  > SDG 5 belongs to everybody in this room. When women and men participate as equals, families, companies and entire countries usually benefit. I have already made my choice, and I hope that you will make yours.
 - **B2**（33 字 / 每句 16.5 字 / 約 16.5 秒）
   > SDG 5 is not a request addressed to somebody else. When women and men participate as equals, households, companies and whole economies tend to do better, and I have already chosen my side.

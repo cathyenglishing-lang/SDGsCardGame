@@ -12,7 +12,7 @@ SDG 9 · 12 slides · levels: A2, B1, B2 · content_version 2026.09.1
 | --- | --- | --- | --- | --- | --- |
 | A2 | 12 | 28.0 | 9.3 | 4.8 | 0 |
 | B1 | 12 | 31.6 | 13.4 | 7.9 | 0 |
-| B2 | 12 | 31.9 | 16.0 | 12.4 | 0 |
+| B2 | 12 | 32.1 | 16.0 | 12.4 | 0 |
 
 ## Part 1 · Introduction（引言：破題與定義）
 
@@ -48,8 +48,8 @@ SDG 9 · 12 slides · levels: A2, B1, B2 · content_version 2026.09.1
   > Many science students use ChatGPT or Gemini every day. We write lab reports with it, and it makes hard ideas clear. It is quick, and it saves us time.
 - **B1**（35 字 / 每句 11.7 字 / 約 19.1 秒）
   > As science majors, most of us open ChatGPT or Gemini before we open a textbook. These systems tidy our lab reports and shorten long articles. They explain difficult theory that would otherwise cost us hours.
-- **B2**（32 字 / 每句 16.0 字 / 約 16.0 秒）
-  > University students have absorbed these tools into ordinary academic life, handing over the jobs we once did ourselves. The lab report, the literature summary and the hard theory are drafted by software.
+- **B2**（33 字 / 每句 16.5 字 / 約 16.5 秒）
+  > University students have absorbed ChatGPT and Gemini into ordinary academic life, handing over the jobs we once did ourselves. The lab report, the literature summary and the hard theory are drafted by software.
 
 ### Slide 4 · Student Experience & Contextualied Problem（從學生情境切入，提出問題）
 
@@ -140,8 +140,8 @@ SDG 9 · 12 slides · levels: A2, B1, B2 · content_version 2026.09.1
   > Even today, your human voice still matters. A computer can copy and arrange data forever. But it feels no wonder, and it never worries about right or wrong.
 - **B1**（34 字 / 每句 11.3 字 / 約 18.5 秒）
   > Even in a modern laboratory, the human element is still essential. A machine can organise enormous amounts of data. But it feels no curiosity, no doubt and no shame when a claim is false.
-- **B2**（31 字 / 每句 15.5 字 / 約 15.5 秒）
-  > Inside an increasingly automated laboratory, the human contribution is not decorative. What algorithms cannot do is wonder, hesitate or care whether a result is honest, and that gap is not closing.
+- **B2**（32 字 / 每句 16.0 字 / 約 16.0 秒）
+  > Inside a laboratory that is increasingly automated, the human part still decides the outcome. What algorithms lack is curiosity, trained intuition and any real sense that a published result might be wrong.
 
 ### Slide 12 · Conclusion & Call to Action（總結重點，呼籲採取行動）
 

@@ -62,7 +62,7 @@
               "wpm": 110,
               "provenance": "authored-replacement",
               "authored_by": "Claude (English teacher role), authored against the v2 quality gate",
-              "basis": "DRAFT",
+              "basis": "DRAFT Claude revised slides 13 against the v2 gate. Claude revised slides 6 to satisfy the grammatical-range check.",
               "workbook_text": "Have you noticed that our weather is acting strange lately? We go from months of no rain straight into scary typhoons. The climate is changing fast. Today, we will explore how our island can adapt to this new, wild weather reality."
             },
             "B2": {
@@ -78,7 +78,7 @@
               "wpm": 120,
               "provenance": "authored-replacement",
               "authored_by": "Claude (English teacher role), authored against the v2 quality gate",
-              "basis": "DRAFT",
+              "basis": "DRAFT Claude revised slides 14, 17 to satisfy the grammatical-range check.",
               "workbook_text": "Have you observed the erratic behavior of our weather patterns recently? We are increasingly oscillating between prolonged months of severe drought and catastrophic typhoons. This climate volatility is accelerating rapidly. Today, we will examine how our island can effectively adapt to this harsh, unpredictable weather reality."
             }
           },
@@ -125,7 +125,7 @@
               "wpm": 110,
               "provenance": "authored-replacement",
               "authored_by": "Claude (English teacher role), authored against the v2 quality gate",
-              "basis": "DRAFT",
+              "basis": "DRAFT Claude revised slides 13 against the v2 gate. Claude revised slides 6 to satisfy the grammatical-range check.",
               "workbook_text": "SDG 13 demands urgent action to fight climate change. But it is not just about stopping carbon emissions. It also tells us to build strong cities that can survive natural disasters. We must learn to protect our water, homes, and lives."
             },
             "B2": {
@@ -141,7 +141,7 @@
               "wpm": 120,
               "provenance": "authored-replacement",
               "authored_by": "Claude (English teacher role), authored against the v2 quality gate",
-              "basis": "DRAFT",
+              "basis": "DRAFT Claude revised slides 14, 17 to satisfy the grammatical-range check.",
               "workbook_text": "SDG 13 explicitly mandates urgent global intervention against climate change. Crucially, this encompasses more than just mitigation through carbon reduction. It also dictates that we enhance disaster resilience across our urban environments, implementing defensive strategies to protect our water supplies, local infrastructure, and human lives."
             }
           },
@@ -190,7 +190,7 @@
               "wpm": 110,
               "provenance": "authored-replacement",
               "authored_by": "Claude (English teacher role), authored against the v2 quality gate",
-              "basis": "DRAFT",
+              "basis": "DRAFT Claude revised slides 13 against the v2 gate. Claude revised slides 6 to satisfy the grammatical-range check.",
               "workbook_text": "Taiwan gets a lot of rain, but we are actually an officially 'water-poor' island. Our high mountains push rain straight into the ocean. Because of this geographic challenge, keeping water where we need it is a matter of survival for us."
             },
             "B2": {
@@ -206,7 +206,7 @@
               "wpm": 120,
               "provenance": "authored-replacement",
               "authored_by": "Claude (English teacher role), authored against the v2 quality gate",
-              "basis": "DRAFT",
+              "basis": "DRAFT Claude revised slides 14, 17 to satisfy the grammatical-range check.",
               "workbook_text": "Despite receiving substantial annual rainfall, Taiwan is paradoxically designated as a water-poor island. Our steep mountainous topography causes precipitation to drain rapidly into the ocean. Due to this geographic vulnerability, capturing and retaining freshwater resources has become an absolute matter of survival for our nation."
             }
           },
@@ -262,7 +262,7 @@
               "wpm": 110,
               "provenance": "authored-replacement",
               "authored_by": "Claude (English teacher role), authored against the v2 quality gate",
-              "basis": "DRAFT",
+              "basis": "DRAFT Claude revised slides 13 against the v2 gate. Claude revised slides 6 to satisfy the grammatical-range check.",
               "workbook_text": "Climate data shows a dangerous trend: Taiwan’s typhoons are decreasing, but becoming much stronger. In recent years, we faced historical droughts where reservoirs completely dried up. Without rain, our rice fields cracked, and our semiconductor factories almost ran out of water."
             },
             "B2": {
@@ -278,7 +278,7 @@
               "wpm": 120,
               "provenance": "authored-replacement",
               "authored_by": "Claude (English teacher role), authored against the v2 quality gate",
-              "basis": "DRAFT",
+              "basis": "DRAFT Claude revised slides 14, 17 to satisfy the grammatical-range check.",
               "workbook_text": "Meteorological trends reveal a disturbing pattern: typhoons hitting Taiwan are decreasing in frequency but escalating in intensity. Consequently, we have faced unprecedented droughts where vital reservoirs dried up completely, threatening agricultural yields and nearly paralyzing the water-dependent semiconductor manufacturing sector."
             }
           },
@@ -325,7 +325,7 @@
               "wpm": 110,
               "provenance": "authored-replacement",
               "authored_by": "Claude (English teacher role), authored against the v2 quality gate",
-              "basis": "DRAFT",
+              "basis": "DRAFT Claude revised slides 13 against the v2 gate. Claude revised slides 6 to satisfy the grammatical-range check.",
               "workbook_text": "The other side of the problem is extreme rainfall. When storms hit, a year's worth of rain can fall in just two days. Our old city drains cannot handle this sudden water. Streets turn into dangerous rivers, causing massive economic damage."
             },
             "B2": {
@@ -341,7 +341,7 @@
               "wpm": 120,
               "provenance": "authored-replacement",
               "authored_by": "Claude (English teacher role), authored against the v2 quality gate",
-              "basis": "DRAFT",
+              "basis": "DRAFT Claude revised slides 14, 17 to satisfy the grammatical-range check.",
               "workbook_text": "Conversely, we simultaneously face the menace of extreme rainfall. During severe storms, a year's worth of precipitation frequently floods urban centers within forty-eight hours. Our outdated drainage infrastructure simply cannot handle this volume, turning municipal streets into hazardous rivers and causing massive economic devastation."
             }
           },
@@ -376,19 +376,19 @@
               "workbook_text": "We must ask some tough questions. Can our cities survive these fast climate changes? How can we store flood water for dry days? Our young scientists must find answers now."
             },
             "B1": {
-              "text": "Two questions follow, and neither has a comfortable answer. Can drainage designed for the last century survive this climate? And can we hold floodwater long enough to drink it in the dry season?",
-              "words": 33,
+              "text": "Two questions follow, and neither has a comfortable answer. If the rain keeps arriving in violent bursts, can drainage built for a calmer century cope? And if we cannot store that floodwater, what will we drink?",
+              "words": 36,
               "sentences": 3,
-              "avg_sentence_words": 11.0,
-              "fk_grade": 6.9,
-              "long_word_pct": 15.2,
-              "speak_seconds_est": 18.0,
-              "fill_pct": 90.0,
+              "avg_sentence_words": 12.0,
+              "fk_grade": 6.5,
+              "long_word_pct": 13.9,
+              "speak_seconds_est": 19.6,
+              "fill_pct": 98.2,
               "fits_20s": true,
               "wpm": 110,
               "provenance": "authored-replacement",
               "authored_by": "Claude (English teacher role), authored against the v2 quality gate",
-              "basis": "DRAFT",
+              "basis": "DRAFT Claude revised slides 13 against the v2 gate. Claude revised slides 6 to satisfy the grammatical-range check.",
               "workbook_text": "This leaves us with serious questions. Can our infrastructure survive these climate swings? How can we store water safely during floods to use during severe droughts? These are the dangerous puzzles that our young scientists must solve right now."
             },
             "B2": {
@@ -404,7 +404,7 @@
               "wpm": 120,
               "provenance": "authored-replacement",
               "authored_by": "Claude (English teacher role), authored against the v2 quality gate",
-              "basis": "DRAFT",
+              "basis": "DRAFT Claude revised slides 14, 17 to satisfy the grammatical-range check.",
               "workbook_text": "These alarming shifts force us to confront critical inquiries. Can our existing public works withstand such intense climate fluctuations? How do we safely intercept floodwaters to supplement our reserves during dry periods? These are the complex puzzles our young researchers must solve immediately."
             }
           },
@@ -460,7 +460,7 @@
               "wpm": 110,
               "provenance": "authored-replacement",
               "authored_by": "Claude (English teacher role), authored against the v2 quality gate",
-              "basis": "DRAFT",
+              "basis": "DRAFT Claude revised slides 13 against the v2 gate. Claude revised slides 6 to satisfy the grammatical-range check.",
               "workbook_text": "Fortunately, Taiwan has not been standing still. The government built an impressive 'Forward-looking Water Grid.' We connected pipelines between different cities. Now, if Kaohsiung is dry, we can safely pump backup water from Tainan. It is a great network."
             },
             "B2": {
@@ -476,7 +476,7 @@
               "wpm": 120,
               "provenance": "authored-replacement",
               "authored_by": "Claude (English teacher role), authored against the v2 quality gate",
-              "basis": "DRAFT",
+              "basis": "DRAFT Claude revised slides 14, 17 to satisfy the grammatical-range check.",
               "workbook_text": "Fortunately, Taiwan is proactively responding. The government has engineered an advanced, integrated Smart Water Grid, linking distribution pipelines across different municipalities. This nationwide network allows authorities to seamlessly divert backup water from resilient zones to drought-stricken regions, stabilizing our collective supply."
             }
           },
@@ -523,7 +523,7 @@
               "wpm": 110,
               "provenance": "authored-replacement",
               "authored_by": "Claude (English teacher role), authored against the v2 quality gate",
-              "basis": "DRAFT",
+              "basis": "DRAFT Claude revised slides 13 against the v2 gate. Claude revised slides 6 to satisfy the grammatical-range check.",
               "workbook_text": "Major cities like Taipei and Taichung are turning into 'Sponge Cities.' We are replacing regular concrete roads with permeable pavement that drinks water. Parks are designed to act as giant temporary lakes during floods, holding rainwater safely underground."
             },
             "B2": {
@@ -539,7 +539,7 @@
               "wpm": 120,
               "provenance": "authored-replacement",
               "authored_by": "Claude (English teacher role), authored against the v2 quality gate",
-              "basis": "DRAFT",
+              "basis": "DRAFT Claude revised slides 14, 17 to satisfy the grammatical-range check.",
               "workbook_text": "Metropolitan areas like Taipei are progressively transforming into Sponge Cities. Engineers are replacing standard impermeable concrete with advanced permeable pavements. Furthermore, urban parks are strategically designed to serve as major eco-retention basins during deluges, temporarily storing excess stormwater safely underground."
             }
           },
@@ -586,7 +586,7 @@
               "wpm": 110,
               "provenance": "authored-replacement",
               "authored_by": "Claude (English teacher role), authored against the v2 quality gate",
-              "basis": "DRAFT",
+              "basis": "DRAFT Claude revised slides 13 against the v2 gate. Claude revised slides 6 to satisfy the grammatical-range check.",
               "workbook_text": "Taiwanese farmers are also adapting beautifully. They are using smart technology to save water in agriculture. By using computerized 'drip irrigation,' they give rice plants the exact amount of water needed. This local progress saves millions of tons of water."
             },
             "B2": {
@@ -602,7 +602,7 @@
               "wpm": 120,
               "provenance": "authored-replacement",
               "authored_by": "Claude (English teacher role), authored against the v2 quality gate",
-              "basis": "DRAFT",
+              "basis": "DRAFT Claude revised slides 14, 17 to satisfy the grammatical-range check.",
               "workbook_text": "Furthermore, Taiwanese agriculture is adapting through smart technology integration. Farmers are utilizing automated irrigation systems to optimize water efficiency. By transitioning to computerized drip irrigation protocols, they deliver the exact volume required by crops, successfully conserving millions of tons of vital water annually."
             }
           },
@@ -658,7 +658,7 @@
               "wpm": 110,
               "provenance": "authored-replacement",
               "authored_by": "Claude (English teacher role), authored against the v2 quality gate",
-              "basis": "DRAFT",
+              "basis": "DRAFT Claude revised slides 13 against the v2 gate. Claude revised slides 6 to satisfy the grammatical-range check.",
               "workbook_text": "How does STEM save the day? Taiwan engineers use IoT sensors inside water pipes. These sensors send real-time data to AI systems. The computers can detect hidden underground leaks instantly. This technology prevents precious clean water from wasting away into the soil."
             },
             "B2": {
@@ -674,7 +674,7 @@
               "wpm": 120,
               "provenance": "authored-replacement",
               "authored_by": "Claude (English teacher role), authored against the v2 quality gate",
-              "basis": "DRAFT",
+              "basis": "DRAFT Claude revised slides 14, 17 to satisfy the grammatical-range check.",
               "workbook_text": "How can STEM innovation safeguard our resources? Engineers are embedding advanced IoT sensors directly into municipal water lines. These devices stream real-time flow data to centralized AI diagnostics, enabling utility teams to pinpoint and repair subterranean leaks instantly before precious water vanishes."
             }
           },
@@ -721,7 +721,7 @@
               "wpm": 110,
               "provenance": "authored-replacement",
               "authored_by": "Claude (English teacher role), authored against the v2 quality gate",
-              "basis": "DRAFT",
+              "basis": "DRAFT Claude revised slides 13 against the v2 gate. Claude revised slides 6 to satisfy the grammatical-range check.",
               "workbook_text": "Another brilliant STEM solution is advanced water recycling. High-tech water plants now clean industrial wastewater until it is perfectly pure again. Taiwan is also building solar-powered desalination plants to turn ocean water into safe drinking water during emergencies."
             },
             "B2": {
@@ -737,7 +737,7 @@
               "wpm": 120,
               "provenance": "authored-replacement",
               "authored_by": "Claude (English teacher role), authored against the v2 quality gate",
-              "basis": "DRAFT",
+              "basis": "DRAFT Claude revised slides 14, 17 to satisfy the grammatical-range check.",
               "workbook_text": "Industrial sectors are embracing recycling breakthroughs. Modern purification facilities process manufacturing wastewater until it achieves total purity for reuse. Simultaneously, Taiwan is constructing solar-powered desalination plants along coastal areas, providing an alternative buffer to convert seawater into potable resources during emergencies."
             }
           },
@@ -784,7 +784,7 @@
               "wpm": 110,
               "provenance": "authored-replacement",
               "authored_by": "Claude (English teacher role), authored against the v2 quality gate",
-              "basis": "DRAFT",
+              "basis": "DRAFT Claude revised slides 13 against the v2 gate. Claude revised slides 6 to satisfy the grammatical-range check.",
               "workbook_text": "In our mountains, scientists use 'Eco-Engineering' to prevent landslides. Instead of building ugly cement walls, they use natural rocks and local plants to hold the soil. This protects our river basins and keeps our reservoirs clean from muddy pollution."
             },
             "B2": {
@@ -800,7 +800,7 @@
               "wpm": 120,
               "provenance": "authored-replacement",
               "authored_by": "Claude (English teacher role), authored against the v2 quality gate",
-              "basis": "DRAFT",
+              "basis": "DRAFT Claude revised slides 14, 17 to satisfy the grammatical-range check.",
               "workbook_text": "In vulnerable highlands, geologists implement Eco-Engineering to mitigate landslide risks. Rather than deploying disruptive concrete retaining walls, they utilize indigenous vegetation and natural rock barriers to reinforce slopes. This ecological approach stabilizes river basins and prevents mudslides from clogging downstream reservoirs."
             }
           },
@@ -844,19 +844,19 @@
               "workbook_text": "However, climate defense is very expensive. Building new water plants costs billions of dollars. We must debate a hard topic: how do we pay for this without hurting regular citizens?"
             },
             "B1": {
-              "text": "None of this is cheap, and the bill lands on somebody. Recycling plants and deep pipes cost billions of dollars, so the fair question is how we pay without breaking ordinary families.",
-              "words": 32,
-              "sentences": 2,
-              "avg_sentence_words": 16.0,
-              "fk_grade": 8.4,
-              "long_word_pct": 21.9,
-              "speak_seconds_est": 17.5,
-              "fill_pct": 87.3,
+              "text": "Every one of these fixes carries a price tag, and somebody has to carry it. New treatment plants and deeper pipelines run into billions of dollars. So the real question is who ends up paying.",
+              "words": 35,
+              "sentences": 3,
+              "avg_sentence_words": 11.7,
+              "fk_grade": 6.5,
+              "long_word_pct": 14.3,
+              "speak_seconds_est": 19.1,
+              "fill_pct": 95.5,
               "fits_20s": true,
               "wpm": 110,
               "provenance": "authored-replacement",
               "authored_by": "Claude (English teacher role), authored against the v2 quality gate",
-              "basis": "DRAFT",
+              "basis": "DRAFT Claude revised slides 13 against the v2 gate. Claude revised slides 6 to satisfy the grammatical-range check.",
               "workbook_text": "However, protecting our island is incredibly expensive. Building recycled water plants and giant underground pipes costs billions of dollars. We must debate a difficult topic: how do we pay for climate defense without raising taxes too much for regular citizens?"
             },
             "B2": {
@@ -872,7 +872,7 @@
               "wpm": 120,
               "provenance": "authored-replacement",
               "authored_by": "Claude (English teacher role), authored against the v2 quality gate",
-              "basis": "DRAFT",
+              "basis": "DRAFT Claude revised slides 14, 17 to satisfy the grammatical-range check.",
               "workbook_text": "Nevertheless, fortifying our nation against climate impacts introduces severe financial friction. Constructing advanced recycling facilities requires immense capital investments. We must resolve a complex fiscal debate: how can we fund these critical defenses equitably without placing a disproportionate tax burden on average citizens?"
             }
           },
@@ -919,23 +919,23 @@
               "wpm": 110,
               "provenance": "authored-replacement",
               "authored_by": "Claude (English teacher role), authored against the v2 quality gate",
-              "basis": "DRAFT",
+              "basis": "DRAFT Claude revised slides 13 against the v2 gate. Claude revised slides 6 to satisfy the grammatical-range check.",
               "workbook_text": "We also face a challenge with 'Climate Justice.' Big high-tech cities get advanced water infrastructure quickly. But small farming villages often suffer first during droughts. We must ensure that our climate solutions protect rural communities equally, leaving no one behind."
             },
             "B2": {
-              "text": "A fairness problem is buried inside every one of these projects. Wealthy technology corridors receive the upgrades first, whereas farming communities are usually the earliest to have their water restricted once a drought is declared.",
+              "text": "What makes these projects unfair is the order of the queue. Wealthy technology corridors receive the upgrades first, whereas farming communities are usually the earliest to have their water restricted once a drought is declared.",
               "words": 35,
               "sentences": 2,
               "avg_sentence_words": 17.5,
-              "fk_grade": 12.8,
-              "long_word_pct": 25.7,
+              "fk_grade": 11.8,
+              "long_word_pct": 22.9,
               "speak_seconds_est": 17.5,
               "fill_pct": 87.5,
               "fits_20s": true,
               "wpm": 120,
               "provenance": "authored-replacement",
               "authored_by": "Claude (English teacher role), authored against the v2 quality gate",
-              "basis": "DRAFT",
+              "basis": "DRAFT Claude revised slides 14, 17 to satisfy the grammatical-range check.",
               "workbook_text": "We must also address issues regarding Climate Justice. While wealthy high-tech metropolises receive sophisticated infrastructure updates rapidly, vulnerable agricultural communities are often the first to suffer during seasonal droughts. Our adaptive policies must protect rural populations equally, ensuring equitable resource distribution."
             }
           },
@@ -982,7 +982,7 @@
               "wpm": 110,
               "provenance": "authored-replacement",
               "authored_by": "Claude (English teacher role), authored against the v2 quality gate",
-              "basis": "DRAFT",
+              "basis": "DRAFT Claude revised slides 13 against the v2 gate. Claude revised slides 6 to satisfy the grammatical-range check.",
               "workbook_text": "Taiwan’s extreme weather adaptation can help the world. Many island nations face the exact same sea-level threats. However, international political issues make it hard for Taiwan to join global climate summits. We need to find creative ways to share our technology."
             },
             "B2": {
@@ -998,7 +998,7 @@
               "wpm": 120,
               "provenance": "authored-replacement",
               "authored_by": "Claude (English teacher role), authored against the v2 quality gate",
-              "basis": "DRAFT",
+              "basis": "DRAFT Claude revised slides 14, 17 to satisfy the grammatical-range check.",
               "workbook_text": "Taiwan’s adaptation breakthroughs offer invaluable blueprints for the international community, particularly other island nations threatened by rising sea levels. However, complex international politics frequently obstruct Taiwan from participating in global climate summits. We must devise alternative diplomatic channels to share our technological insights."
             }
           },
@@ -1045,7 +1045,7 @@
               "wpm": 110,
               "provenance": "authored-replacement",
               "authored_by": "Claude (English teacher role), authored against the v2 quality gate",
-              "basis": "DRAFT",
+              "basis": "DRAFT Claude revised slides 13 against the v2 gate. Claude revised slides 6 to satisfy the grammatical-range check.",
               "workbook_text": "Finally, we must monitor these projects closely. Are these green systems being maintained properly, or were they just built for show? As citizens, we must check the safety data of our dams and cities. Continuous honesty is required to survive 2050."
             },
             "B2": {
@@ -1061,7 +1061,7 @@
               "wpm": 120,
               "provenance": "authored-replacement",
               "authored_by": "Claude (English teacher role), authored against the v2 quality gate",
-              "basis": "DRAFT",
+              "basis": "DRAFT Claude revised slides 14, 17 to satisfy the grammatical-range check.",
               "workbook_text": "Finally, rigorous public oversight is essential. We must continuously evaluate if these ecological adaptations are fully functional over time, or simply constructed for public relations. Citizens must demand complete data transparency regarding infrastructure structural health to ensure long-term climate survivability."
             }
           },
@@ -1119,23 +1119,23 @@
               "wpm": 110,
               "provenance": "authored-replacement",
               "authored_by": "Claude (English teacher role), authored against the v2 quality gate",
-              "basis": "DRAFT",
+              "basis": "DRAFT Claude revised slides 13 against the v2 gate. Claude revised slides 6 to satisfy the grammatical-range check.",
               "workbook_text": "To sum up, Taiwan is learning to live with extreme weather. Through sponge cities, smart water grids, and STEM engineering, we are turning a vulnerable island into a resilient leader. We cannot stop the storms, but we can be ready."
             },
             "B2": {
-              "text": "Taken together, the direction is quite encouraging. Sponge cities, an interconnected grid and a great deal of engineering are turning a vulnerable island into a ready one, because the storms cannot be prevented, only survived.",
+              "text": "Taken together, the direction is quite encouraging. Only by accepting that the storms cannot be prevented have engineers made progress, turning a vulnerable island into a ready one through sponge cities and an interconnected grid.",
               "words": 35,
               "sentences": 2,
               "avg_sentence_words": 17.5,
-              "fk_grade": 13.1,
-              "long_word_pct": 22.9,
+              "fk_grade": 12.8,
+              "long_word_pct": 25.7,
               "speak_seconds_est": 17.5,
               "fill_pct": 87.5,
               "fits_20s": true,
               "wpm": 120,
               "provenance": "authored-replacement",
               "authored_by": "Claude (English teacher role), authored against the v2 quality gate",
-              "basis": "DRAFT",
+              "basis": "DRAFT Claude revised slides 14, 17 to satisfy the grammatical-range check.",
               "workbook_text": "In conclusion, Taiwan is successfully learning to coexist with extreme weather variations. By synthesizing sponge city frameworks, smart grids, and STEM solutions, we are transitioning from a vulnerable island into a pioneer of climate resilience. We cannot prevent the storms, but we can be prepared."
             }
           },
@@ -1182,7 +1182,7 @@
               "wpm": 110,
               "provenance": "authored-replacement",
               "authored_by": "Claude (English teacher role), authored against the v2 quality gate",
-              "basis": "DRAFT",
+              "basis": "DRAFT Claude revised slides 13 against the v2 gate. Claude revised slides 6 to satisfy the grammatical-range check.",
               "workbook_text": "Why does this matter to you? Because climate adaptation needs new ideas. You can study earth science, engineering, or coding to build better disaster systems. At home, you can practice water conservation. Every single saved drop makes our island stronger."
             },
             "B2": {
@@ -1198,7 +1198,7 @@
               "wpm": 120,
               "provenance": "authored-replacement",
               "authored_by": "Claude (English teacher role), authored against the v2 quality gate",
-              "basis": "DRAFT",
+              "basis": "DRAFT Claude revised slides 14, 17 to satisfy the grammatical-range check.",
               "workbook_text": "This crisis directly demands your involvement because adaptation requires fresh perspectives. You can master STEM fields to design next-generation disaster management systems. On a personal level, practicing strict conservation ensures every drop saved reinforces our collective safety. Your daily actions matter."
             }
           },
@@ -1245,7 +1245,7 @@
               "wpm": 110,
               "provenance": "authored-replacement",
               "authored_by": "Claude (English teacher role), authored against the v2 quality gate",
-              "basis": "DRAFT",
+              "basis": "DRAFT Claude revised slides 13 against the v2 gate. Claude revised slides 6 to satisfy the grammatical-range check.",
               "workbook_text": "Do not feel powerless against the changing climate. Human intelligence and nature can work together. Taiwan has the creativity and the courage to survive this crisis. Let’s create a safe, sustainable home where future generations can live without fear."
             },
             "B2": {
@@ -1261,7 +1261,7 @@
               "wpm": 120,
               "provenance": "authored-replacement",
               "authored_by": "Claude (English teacher role), authored against the v2 quality gate",
-              "basis": "DRAFT",
+              "basis": "DRAFT Claude revised slides 14, 17 to satisfy the grammatical-range check.",
               "workbook_text": "Do not let the scale of climate change paralyze your potential. Human creativity and technological innovation can successfully harmonize with natural systems. Taiwan possesses the ingenuity required to navigate this era, allowing us to guarantee a secure environment for subsequent generations."
             }
           },
@@ -1308,7 +1308,7 @@
               "wpm": 110,
               "provenance": "authored-replacement",
               "authored_by": "Claude (English teacher role), authored against the v2 quality gate",
-              "basis": "DRAFT",
+              "basis": "DRAFT Claude revised slides 13 against the v2 gate. Claude revised slides 6 to satisfy the grammatical-range check.",
               "workbook_text": "The environment is changing, and the time to adapt is right now. Will you help build a safer Taiwan? Our island is ready to take climate action, and so are we. Let’s start together today. Thank you for listening."
             },
             "B2": {
@@ -1324,7 +1324,7 @@
               "wpm": 120,
               "provenance": "authored-replacement",
               "authored_by": "Claude (English teacher role), authored against the v2 quality gate",
-              "basis": "DRAFT",
+              "basis": "DRAFT Claude revised slides 14, 17 to satisfy the grammatical-range check.",
               "workbook_text": "The ecological reality is transforming, meaning our window for adaptation is right now. Will you step forward to secure our future? Taiwan is fully committed to executing SDG 13, and so must you be. Let us unite and initiate this transformation today. Thank you."
             }
           },
@@ -1351,9 +1351,9 @@
     },
     "B1": {
       "slides": 20,
-      "avg_words": 31.6,
-      "avg_sentence_words": 15.2,
-      "fk_grade": 8.3,
+      "avg_words": 31.9,
+      "avg_sentence_words": 15.1,
+      "fk_grade": 8.2,
       "slides_over_20s": 0
     },
     "B2": {

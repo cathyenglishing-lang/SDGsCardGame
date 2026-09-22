@@ -26,7 +26,7 @@ SDG 4 · 20 slides · levels: A1, A2, B1, B2 · content_version 2026.09.1
 | --- | --- | --- | --- | --- | --- |
 | A1 | 20 | 32.2 | 8.4 | 3.6 | 14 |
 | A2 | 20 | 29.6 | 9.0 | 4.0 | 0 |
-| B1 | 20 | 33.0 | 13.2 | 9.2 | 0 |
+| B1 | 20 | 33.4 | 13.2 | 8.2 | 0 |
 | B2 | 20 | 45.9 | 16.3 | 16.6 | 20 |
 
 ## Part 1 · Introduction（引言：破題與定義）
@@ -62,8 +62,8 @@ SDG 4 · 20 slides · levels: A1, A2, B1, B2 · content_version 2026.09.1
   > Taiwan loves science and math. We call this STEM. It helps our country grow. But now, Taiwan has fewer babies. We must change our schools to help every student in the future.
 - **A2**（30 字 / 每句 10.0 字 / 約 18.9 秒）
   > Taiwan puts big money into science and math, and that is how we grew rich. But our birth rate has never been lower. Are we spending on the right problems?
-- **B1**（36 字 / 每句 12.0 字 / 約 19.6 秒）
-  > Taiwan has poured money into STEM for decades, and that investment built our growth. Now the birth rate has hit a record low. We should ask whether those resources still reach the problems that matter most.
+- **B1**（35 字 / 每句 11.7 字 / 約 19.1 秒）
+  > Taiwan has invested in STEM for decades, and that money created our prosperity. Now the birth rate has fallen to a historic low. We should ask whether those resources reach the problems that matter most.
 - **B2**（46 字 / 每句 15.3 字 / 約 23.0 秒 ⚠️ 超過 20 秒）
   > Taiwan heavily invests in STEM fields to maintain its global competitive edge in national innovation. However, unprecedented demographic shifts—specifically our record-low birth rate—are forcing a total rethink of our priorities. We must identify these core problems and question if our strategies are genuinely effective.
 
@@ -90,8 +90,8 @@ SDG 4 · 20 slides · levels: A1, A2, B1, B2 · content_version 2026.09.1
   > Students study for big tests every day. They memorize many things, but they do not use their own ideas. Many students get tired and stop liking science. We need new ideas to save our planet.
 - **A2**（29 字 / 每句 9.7 字 / 約 18.3 秒）
   > Next, think about exams. In science class students learn facts by heart, but they rarely ask their own questions. Many drop science early, so can that fix climate change?
-- **B1**（35 字 / 每句 11.7 字 / 約 19.1 秒）
-  > In science lessons we spend our time memorizing answers for the exam, and creativity quietly disappears. Students who might have loved research drop it early. Will that habit help us solve something like climate change?
+- **B1**（36 字 / 每句 12.0 字 / 約 19.6 秒）
+  > In science lessons we spend our time memorizing answers for the exam, and creativity quietly disappears. Students who might have loved the subject drop it early. Will that habit help us solve something like climate change?
 - **B2**（48 字 / 每句 16.0 字 / 約 24.0 秒 ⚠️ 超過 20 秒）
   > Within STEM fields, the heavy institutional emphasis on standardized testing often prioritizes rote memorization over creative problem-solving. Consequently, many capable students lose interest and abandon science paths early. This rigid approach raises serious concerns about whether schools genuinely equip us to develop sustainable technology to combat climate change.
 
@@ -132,7 +132,7 @@ SDG 4 · 20 slides · levels: A1, A2, B1, B2 · content_version 2026.09.1
 - **A2**（29 字 / 每句 7.2 字 / 約 18.3 秒）
   > The government also pays for preschool. Today 96% of poorer five-year-olds go to class. They learn to count, to ask and to share. That helps them in science later.
 - **B1**（36 字 / 每句 12.0 字 / 約 19.6 秒）
-  > Early-years policy is stronger. Government subsidies now put 96% of disadvantaged five-year-olds into preschool, where they pick up the counting and questioning that later science depends on. The gap starts to narrow before school even starts.
+  > Government subsidies now put 96% of disadvantaged five-year-olds into a preschool class. There they pick up the counting and the asking that science will later need. The gap starts to close before school has even begun.
 - **B2**（44 字 / 每句 22.0 字 / 約 22.0 秒 ⚠️ 超過 20 秒）
   > Early childhood initiatives are exceptionally strong, with government subsidies enabling 96% of disadvantaged five-year-olds to attend preschool. This early intervention is crucial for leveling the playing field, establishing fundamental cognitive skills that support subsequent STEM learning while mitigating the risk of long-term academic disparities.
 
@@ -143,7 +143,7 @@ SDG 4 · 20 slides · levels: A1, A2, B1, B2 · content_version 2026.09.1
 - **A2**（26 字 / 每句 8.7 字 / 約 16.4 秒）
   > More people here finish high school and college than almost anywhere. Our teachers also train hard. But do all towns teach science at the same depth?
 - **B1**（31 字 / 每句 15.5 字 / 約 16.9 秒）
-  > Our enrollment and graduation rates beat the global average, and better teacher training has improved what happens in the classroom. Yet high participation can hide how differently our regions actually teach.
+  > Our graduation rates beat the global average at every stage, and better teacher training has lifted what happens in the classroom. Yet high numbers can hide how far our regions differ.
 - **B2**（44 字 / 每句 14.7 字 / 約 22.0 秒 ⚠️ 超過 20 秒）
   > Overall, Taiwan's enrollment and graduation rates consistently exceed global benchmarks across all academic levels. Substantial investments in teacher professional development have also enhanced classroom quality. However, does this high participation mask deeper problems, such as varying depths of educational substance between different geographic regions?
 
@@ -170,8 +170,8 @@ SDG 4 · 20 slides · levels: A1, A2, B1, B2 · content_version 2026.09.1
   > Almost every school in Taiwan uses computers. This helps students learn about our tech companies. But we also teach students to be honest and kind when they use the internet.
 - **A2**（31 字 / 每句 10.3 字 / 約 19.6 秒）
   > More than 80% of our schools now use tablets and apps. Classes run experiments on a screen. That links them to our chip factories, but we must also teach honest use.
-- **B1**（34 字 / 每句 11.3 字 / 約 18.5 秒）
-  > More than 80% of our schools now run digital lessons. Simulations let a class experiment without a laboratory, which links the classroom to our semiconductor industry. But students still need to learn responsible use.
+- **B1**（36 字 / 每句 12.0 字 / 約 19.6 秒）
+  > More than 80% of our schools now run digital lessons. Simulations let a class test an idea instead of standing in a lab, which links them to our semiconductor industry. But responsible use must be taught.
 - **B2**（47 字 / 每句 15.7 字 / 約 23.5 秒 ⚠️ 超過 20 秒）
   > Digital integration is now widespread, with over 80% of Taiwanese schools incorporating advanced tech tools and interactive simulations. This directly connects classroom learning to our thriving semiconductor industry. However, this rapid digitalization also necessitates a stronger focus on digital citizenship and teaching the responsible use of technology.
 
@@ -182,7 +182,7 @@ SDG 4 · 20 slides · levels: A1, A2, B1, B2 · content_version 2026.09.1
 - **A2**（26 字 / 每句 8.7 字 / 約 16.4 秒）
   > Some students join a special program and spend time inside tech firms. They meet green energy engineers. A school topic slowly turns into a real job.
 - **B1**（30 字 / 每句 15.0 字 / 約 16.4 秒）
-  > Programs for talented students place them inside technology firms for real projects. They work beside engineers in renewable energy, so the distance between a textbook and a career suddenly shrinks.
+  > Gifted students win internships with the big tech firms, where mentors give them projects that matter. The step from a lecture hall into a green-energy career is much shorter now.
 - **B2**（44 字 / 每句 14.7 字 / 約 22.0 秒 ⚠️ 超過 20 秒）
   > Specialized programs designed for gifted students provide competitive internships and mentorships within leading tech firms. These initiatives successfully bridge theoretical science with practical, industrial applications. By fostering these connections, we are actively preparing the next generation of problem-solvers for careers in renewable green technology.
 
@@ -198,8 +198,8 @@ SDG 4 · 20 slides · levels: A1, A2, B1, B2 · content_version 2026.09.1
   > Science education helps Taiwan make money. We sell many tech products to the world. Science also helps us fix the weather and protect the earth. We use our brains to help everyone.
 - **A2**（30 字 / 每句 10.0 字 / 約 18.9 秒）
   > Why does this matter? Taiwan sells about 500 billion dollars of goods a year, and technology is most of it. The same science helps us plan for flooding and heat.
-- **B1**（28 字 / 每句 14.0 字 / 約 15.3 秒）
-  > Science education feeds an export economy worth around 500 billion US dollars annually. The same knowledge also builds the climate-resilient infrastructure that a hotter, wetter island will need.
+- **B1**（31 字 / 每句 15.5 字 / 約 16.9 秒）
+  > Science teaching feeds an export economy worth around 500 billion US dollars a year. The same skills also build the climate-ready infrastructure that a hotter, wetter island is going to need.
 - **B2**（45 字 / 每句 15.0 字 / 約 22.5 秒 ⚠️ 超過 20 秒）
   > The implications of our educational strategies are profound. Enhanced STEM education directly drives economic sustainability, pushing Taiwan's tech exports beyond $500 billion annually. Moreover, a scientifically literate population empowers our society to contribute to global solutions, such as developing the science required for climate-resilient infrastructure.
 
@@ -210,8 +210,8 @@ SDG 4 · 20 slides · levels: A1, A2, B1, B2 · content_version 2026.09.1
   > We still have problems. For example, most engineers are men. Only 30% are women. Many people think science is not for girls. We must change this. Science is for everyone!
 - **A2**（29 字 / 每句 9.7 字 / 約 18.3 秒）
   > But look around the engineering class. Only 30% of the students are women. Many people still say that science is for boys, and that thinking belongs in the past.
-- **B1**（31 字 / 每句 15.5 字 / 約 16.9 秒）
-  > Not everything has improved: women still take only 30% of engineering degrees, and the old idea that technology suits men has never quite died. Those stereotypes cost talent we cannot spare.
+- **B1**（35 字 / 每句 11.7 字 / 約 19.1 秒）
+  > Not everything here has improved. Women still take only 30% of engineering degrees, because the old idea that technology suits men has never quite died. Those old stereotypes cost us talent that we cannot spare.
 - **B2**（45 字 / 每句 15.0 字 / 約 22.5 秒 ⚠️ 超過 20 秒）
   > Nevertheless, future challenges loom large, particularly the persistent gender disparity where women constitute only 30% of engineering graduates. Deep-seated societal stereotypes continue to discourage female students from entering tech fields. We must actively challenge these outdated biases to ensure true inclusivity and diversity in STEM.
 
@@ -234,7 +234,7 @@ SDG 4 · 20 slides · levels: A1, A2, B1, B2 · content_version 2026.09.1
 - **A2**（29 字 / 每句 9.7 字 / 約 18.3 秒）
   > Good schools make a country strong. If we change nothing, Taiwan will slowly fall behind. Our science lessons have to grow with the world, because tomorrow will not wait.
 - **B1**（34 字 / 每句 11.3 字 / 約 18.5 秒）
-  > Education decides how resilient a society can be. Without serious reform, though, Taiwan will slowly lose its edge in sustainable technology. Our science teaching has to keep evolving alongside the century that it serves.
+  > Education decides how resilient a society can be. Without serious reform, though, Taiwan will slowly lose its edge in sustainable technology. Our science teaching has to keep up with the century that it serves.
 - **B2**（42 字 / 每句 14.0 字 / 約 21.0 秒 ⚠️ 超過 20 秒）
   > Ultimately, education is the cornerstone of a resilient and innovative society. However, without meaningful structural reforms, Taiwan risks losing its competitive edge in sustainable technology. Our science education must continuously evolve to meet the rapidly shifting demands of the twenty-first century effectively.
 
@@ -250,7 +250,7 @@ SDG 4 · 20 slides · levels: A1, A2, B1, B2 · content_version 2026.09.1
 - **A2**（28 字 / 每句 9.3 字 / 約 17.7 秒）
   > So where does that leave us? Taiwan has built a wide, free education system, and STEM has made the country rich. Yet fairness is still the missing piece.
 - **B1**（35 字 / 每句 11.7 字 / 約 19.1 秒）
-  > In summary, SDG 4 shows both real progress and stubborn problems. STEM has been the engine of our development, and enrollment is high. But we still have to make the system fair for every learner.
+  > In summary, SDG 4 reveals both genuine progress and stubborn problems. STEM has become the engine of our development, and enrollment stays high. But we still have to make the system fair for every learner.
 - **B2**（43 字 / 每句 21.5 字 / 約 21.5 秒 ⚠️ 超過 20 秒）
   > In summary, evaluating SDG 4 reveals that Taiwan has made significant educational progress, yet stubborn systemic issues remain. STEM education serves as a powerful instrument for national advancement, but it must be implemented through a framework that prioritizes social equity alongside technological mastery.
 
@@ -261,7 +261,7 @@ SDG 4 · 20 slides · levels: A1, A2, B1, B2 · content_version 2026.09.1
 - **A2**（31 字 / 每句 10.3 字 / 約 19.6 秒）
   > High test scores are not enough. A score cannot show me a creative idea, and it cannot make a poor school rich. We have to rebuild the system, not decorate it.
 - **B1**（30 字 / 每句 15.0 字 / 約 16.4 秒）
-  > Our test scores look impressive internationally, yet they measure memory far better than imagination or fairness. Real reform means changing what we reward, not adding another examination to the calendar.
+  > Our test scores look impressive, yet they measure memory far better than imagination or fairness. Real reform means changing what we reward, not adding one more exam to the calendar.
 - **B2**（45 字 / 每句 15.0 字 / 約 22.5 秒 ⚠️ 超過 20 秒）
   > We must courageously challenge the status quo of our schools. While our international test scores are impressively high, our system frequently overlooks the essential need for creativity and equity. Comprehensive, deep reforms are absolutely necessary to transform education into a truly transformative and inclusive experience.
 
@@ -272,7 +272,7 @@ SDG 4 · 20 slides · levels: A1, A2, B1, B2 · content_version 2026.09.1
 - **A2**（30 字 / 每句 10.0 字 / 約 18.9 秒）
   > In the future, science must open its doors wider. Girls, country students and poorer families belong in the lab. Every lesson should show where the science lands in real life.
 - **B1**（31 字 / 每句 15.5 字 / 約 16.9 秒）
-  > In future, inclusive STEM must reach the groups we usually overlook, and our curriculum needs an update. Every course should connect what it teaches to something happening outside the classroom window.
+  > In future, inclusive STEM must reach the groups we usually overlook, and the curriculum needs a serious update. Every course should link what it teaches to real life outside the window.
 - **B2**（44 字 / 每句 14.7 字 / 約 22.0 秒 ⚠️ 超過 20 秒）
   > Looking ahead, our strategic focus must shift toward inclusive STEM education for all, especially historically underrepresented groups. We must advocate for modernized, adaptive curricula that integrate real-world scientific applications. This ensures that every single student recognizes the intrinsic value of what they are learning.
 
