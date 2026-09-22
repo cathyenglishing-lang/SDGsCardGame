@@ -10,7 +10,7 @@ SDG 9 · 12 slides · levels: A2, B1, B2 · content_version 2026.09.1
 
 | 級別 | 張數 | 每張字數 | 每句字數 | FK | 超過 20 秒 |
 | --- | --- | --- | --- | --- | --- |
-| A2 | 12 | 25.2 | 5.7 | 3.8 | 0 |
+| A2 | 12 | 26.0 | 8.7 | 4.8 | 0 |
 | B1 | 12 | 29.9 | 27.3 | 16.2 | 0 |
 | B2 | 12 | 31.8 | 29.1 | 20.1 | 0 |
 
@@ -21,8 +21,8 @@ SDG 9 · 12 slides · levels: A2, B1, B2 · content_version 2026.09.1
 
 ### Slide 1 · Micro-Hook: Global context of technology（全球永續連結）
 
-- **A2**（26 字 / 每句 6.5 字 / 約 16.4 秒）
-  > Good morning, everyone. Today we look at United Nations SDG 9. It is a global plan. It helps countries build better factories and support new science.
+- **A2**（26 字 / 每句 8.7 字 / 約 16.4 秒）
+  > Good morning. Today we look at SDG 9, a world plan from the United Nations. It helps every country build better factories and support modern science.
 - **B1**（31 字 / 每句 15.5 字 / 約 16.9 秒）
   > Good morning, everyone. Today, let’s look at United Nations SDG 9, a global goal that encourages all countries to support modern technology and build strong networks for a better world.
 - **B2**（32 字 / 每句 16.0 字 / 約 16.0 秒）
@@ -30,8 +30,8 @@ SDG 9 · 12 slides · levels: A2, B1, B2 · content_version 2026.09.1
 
 ### Slide 2 · AI as Innovation: Connecting SDG 9（科技與創新）
 
-- **A2**（26 字 / 每句 8.7 字 / 約 16.4 秒）
-  > AI is changing science very fast. It also changes how we share ideas. But the quality of the answer depends on one thing: how we ask.
+- **A2**（27 字 / 每句 9.0 字 / 約 17.1 秒）
+  > AI is changing science very quickly. It also changes the way we share our ideas. But the answer always depends on one thing: exactly how we ask.
 - **B1**（31 字 / 每句 31.0 字 / 約 16.9 秒）
   > In our modern digital world, Artificial Intelligence is changing scientific research and communication very quickly; however, the quality of AI's answers depends on one important factor—how we talk to it.
 - **B2**（32 字 / 每句 32.0 字 / 約 16.0 秒）
@@ -44,8 +44,8 @@ SDG 9 · 12 slides · levels: A2, B1, B2 · content_version 2026.09.1
 
 ### Slide 3 · Student Experience（學生生活情境）
 
-- **A2**（27 字 / 每句 5.4 字 / 約 17.1 秒）
-  > Many science students use ChatGPT or Gemini. We fix lab reports with it. We read short summaries. We ask about hard homework. It is fast and easy.
+- **A2**（28 字 / 每句 9.3 字 / 約 17.7 秒）
+  > Many science students use ChatGPT or Gemini. We fix our lab reports, we read short summaries, and we ask about hard homework. It is very quick and easy.
 - **B1**（29 字 / 每句 29.0 字 / 約 15.8 秒）
   > As university science students, many of us often use ChatGPT to improve our lab reports, read short summaries of science articles, or explain difficult concepts during our weekly assignments.
 - **B2**（29 字 / 每句 29.0 字 / 約 14.5 秒）
@@ -53,8 +53,8 @@ SDG 9 · 12 slides · levels: A2, B1, B2 · content_version 2026.09.1
 
 ### Slide 4 · Contextualized Problem（脈絡化問題）
 
-- **A2**（28 字 / 每句 5.6 字 / 約 17.7 秒）
-  > This tool is convenient. But some students give too little information. Then the AI writes boring, repeated text. People call this AI slop. It has no real value.
+- **A2**（26 字 / 每句 8.7 字 / 約 16.4 秒）
+  > This tool is really handy. But some students only type a few lazy words, and the reply is boring and empty. People call this AI slop.
 - **B1**（29 字 / 每句 29.0 字 / 約 15.8 秒）
   > Although this technology is fast, many students expect useful answers without giving enough information, which creates boring or unrelated responses commonly called "AI slop" that has no real value.
 - **B2**（33 字 / 每句 33.0 字 / 約 16.5 秒）
@@ -67,8 +67,8 @@ SDG 9 · 12 slides · levels: A2, B1, B2 · content_version 2026.09.1
 
 ### Slide 5 · Scientific Explanation（解釋科學原理 WHY）
 
-- **A2**（29 字 / 每句 5.8 字 / 約 18.3 秒）
-  > Why does this happen? The AI does not understand your ideas. It only guesses the next word. It uses the words in your prompt. Few details bring wrong answers.
+- **A2**（26 字 / 每句 8.7 字 / 約 16.4 秒）
+  > Why does this happen? The computer never reads your mind, because it only sees the words in your prompt. Few details always bring a weak answer.
 - **B1**（31 字 / 每句 15.5 字 / 約 16.9 秒）
   > Why does this happen? AI does not automatically understand what we want; instead, it only guesses the next word based on our prompt, making the answer wrong when context is missing.
 - **B2**（34 字 / 每句 17.0 字 / 約 17.0 秒）
@@ -76,8 +76,8 @@ SDG 9 · 12 slides · levels: A2, B1, B2 · content_version 2026.09.1
 
 ### Slide 6 · Scientific Explanation（解釋科學原理 HOW）
 
-- **A2**（25 字 / 每句 4.2 字 / 約 15.8 秒）
-  > A good prompt has four parts. Give a role. Give background facts. Give a clear goal. Give simple rules. Clear instructions bring much better answers.
+- **A2**（25 字 / 每句 8.3 字 / 約 15.8 秒）
+  > A useful prompt has four parts. Give the model a role, and give it the background facts. Then add your goal and a simple limit.
 - **B1**（29 字 / 每句 29.0 字 / 約 15.8 秒）
   > To fix this, a good prompt must include a clear role, helpful background facts, clear goals, and simple limits, because clearer instructions always give us more reliable AI answers.
 - **B2**（31 字 / 每句 31.0 字 / 約 15.5 秒）
@@ -90,8 +90,8 @@ SDG 9 · 12 slides · levels: A2, B1, B2 · content_version 2026.09.1
 
 ### Slide 7 · Impact on Science（學術研究衝擊）
 
-- **A2**（23 字 / 每句 5.8 字 / 約 14.5 秒）
-  > Clear writing matters in science. Good prompts help our lab reports. They also help our presentations. Our work becomes faster and more correct.
+- **A2**（26 字 / 每句 8.7 字 / 約 16.4 秒）
+  > Clear writing really matters in science. A careful prompt improves our lab reports and our presentations. Our study gets quicker, and it also gets more correct.
 - **B1**（31 字 / 每句 31.0 字 / 約 16.9 秒）
   > In scientific research, precise communication is very important, and learning to write good prompts can directly improve our lab reports and science presentations, making our work much faster and more accurate.
 - **B2**（34 字 / 每句 34.0 字 / 約 17.0 秒）
@@ -99,8 +99,8 @@ SDG 9 · 12 slides · levels: A2, B1, B2 · content_version 2026.09.1
 
 ### Slide 8 · Impact on Society（大眾社會衝擊）
 
-- **A2**（25 字 / 每句 6.2 字 / 約 15.8 秒）
-  > But do not copy the answer without thinking. You will stop learning. Real science starts with human curiosity. It does not start with fast answers.
+- **A2**（26 字 / 每句 8.7 字 / 約 16.4 秒）
+  > But never copy an answer without thinking about it. You will simply stop learning. Real science starts with human wonder, and never with a fast reply.
 - **B1**（28 字 / 每句 28.0 字 / 約 15.3 秒）
   > However, if students simply accept these computer answers without thinking, they might become passive learners, forgetting that true science always begins with active curiosity rather than digital convenience.
 - **B2**（31 字 / 每句 31.0 字 / 約 15.5 秒）
@@ -113,8 +113,8 @@ SDG 9 · 12 slides · levels: A2, B1, B2 · content_version 2026.09.1
 
 ### Slide 9 · AI Literacy Strategy 1（AI 素養策略一： 提問前的後設認知）
 
-- **A2**（25 字 / 每句 5.0 字 / 約 15.8 秒）
-  > So think before you type. Ask yourself one question. What do I really need? Who will read this? Which format is best for this task?
+- **A2**（26 字 / 每句 8.7 字 / 約 16.4 秒）
+  > So think before you type. Ask yourself exactly what you really need, and decide who will finally read your report. Then pick the format that fits.
 - **B1**（32 字 / 每句 32.0 字 / 約 17.5 秒）
   > Therefore, before writing a prompt, you must first think about your goal by asking yourself what information you really need, who your audience is, and what response is best for your task.
 - **B2**（36 字 / 每句 36.0 字 / 約 18.0 秒）
@@ -122,8 +122,8 @@ SDG 9 · 12 slides · levels: A2, B1, B2 · content_version 2026.09.1
 
 ### Slide 10 · AI Literacy Strategy 2（AI 素養策略二： 具體動作）
 
-- **A2**（21 字 / 每句 5.2 字 / 約 13.3 秒）
-  > Then give the AI clear instructions. Add your student background. Add the format you want. Prompt writing is science communication too.
+- **A2**（24 字 / 每句 8.0 字 / 約 15.2 秒）
+  > Then give the machine clear orders. Add your student background, and add the exact format you want. Writing a prompt is science communication too.
 - **B1**（28 字 / 每句 28.0 字 / 約 15.3 秒）
   > Then, provide the AI with organized instructions, including your academic background and expected format, because we should see prompt writing as another important form of professional scientific communication.
 - **B2**（28 字 / 每句 28.0 字 / 約 14.0 秒）
@@ -136,8 +136,8 @@ SDG 9 · 12 slides · levels: A2, B1, B2 · content_version 2026.09.1
 
 ### Slide 11 · The Human Edge: Redefining the human role（人類獨特價值）
 
-- **A2**（25 字 / 每句 5.0 字 / 約 15.8 秒）
-  > Computers organize data very well. But they have no curiosity. They have no intuition. They have no honest heart. People turn numbers into new discoveries.
+- **A2**（28 字 / 每句 9.3 字 / 約 17.7 秒）
+  > Computers can sort a lot of data very well. But they have no wonder, no instinct and no honest heart. Only people really turn numbers into new discoveries.
 - **B1**（31 字 / 每句 31.0 字 / 約 16.9 秒）
   > In this high-tech world, computers can easily organize data, but they completely lack human scientific curiosity, natural intuition, and honest hearts, which are irreplaceable qualities that turn facts into real discoveries.
 - **B2**（32 字 / 每句 32.0 字 / 約 16.0 秒）
@@ -145,8 +145,8 @@ SDG 9 · 12 slides · levels: A2, B1, B2 · content_version 2026.09.1
 
 ### Slide 12 · Final Call to Action: The SDG 9 future vision（最終呼籲與願景）
 
-- **A2**（22 字 / 每句 5.5 字 / 約 13.9 秒）
-  > In conclusion, good innovation starts with good communication. Better prompts bring better answers. But scientists still think carefully every day. Thank you.
+- **A2**（24 字 / 每句 8.0 字 / 約 15.2 秒）
+  > Good ideas always start with good talking. Better prompts bring better answers. But a careful scientist still has to think about every single word.
 - **B1**（29 字 / 每句 29.0 字 / 約 15.8 秒）
   > In conclusion, responsible innovation under SDG 9 begins with responsible communication, because while better prompts bring better answers, thoughtful scientists create meaningful knowledge by talking clearly and thinking critically.
 - **B2**（30 字 / 每句 30.0 字 / 約 15.0 秒）
