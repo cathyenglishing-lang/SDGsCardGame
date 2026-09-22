@@ -466,14 +466,14 @@
           },
           "scripts": {
             "A2": {
-              "text": "Clear writing really matters in science. A careful prompt improves our lab reports and our presentations. Our study gets quicker, and it also gets more correct.",
-              "words": 26,
+              "text": "Clear writing really matters in science. A careful prompt improves the lab reports and the talks that we hand in. Our study also gets quicker and more correct.",
+              "words": 28,
               "sentences": 3,
-              "avg_sentence_words": 8.7,
-              "fk_grade": 6.4,
-              "long_word_pct": 7.7,
-              "speak_seconds_est": 16.4,
-              "fill_pct": 82.1,
+              "avg_sentence_words": 9.3,
+              "fk_grade": 4.9,
+              "long_word_pct": 3.6,
+              "speak_seconds_est": 17.7,
+              "fill_pct": 88.4,
               "fits_20s": true,
               "wpm": 95,
               "provenance": "authored-replacement",
@@ -534,14 +534,14 @@
           },
           "scripts": {
             "A2": {
-              "text": "But never copy an answer without thinking about it. You will simply stop learning. Real science starts with human wonder, and never with a fast reply.",
-              "words": 26,
+              "text": "But never copy an answer without thinking. If you do, you will simply stop learning. Real science starts with human wonder, and never with a fast reply.",
+              "words": 27,
               "sentences": 3,
-              "avg_sentence_words": 8.7,
-              "fk_grade": 5.0,
-              "long_word_pct": 7.7,
-              "speak_seconds_est": 16.4,
-              "fill_pct": 82.1,
+              "avg_sentence_words": 9.0,
+              "fk_grade": 4.5,
+              "long_word_pct": 7.4,
+              "speak_seconds_est": 17.1,
+              "fill_pct": 85.3,
               "fits_20s": true,
               "wpm": 95,
               "provenance": "authored-replacement",
@@ -890,9 +890,9 @@
   "level_summary": {
     "A2": {
       "slides": 12,
-      "avg_words": 26.0,
-      "avg_sentence_words": 8.7,
-      "fk_grade": 4.8,
+      "avg_words": 26.2,
+      "avg_sentence_words": 8.8,
+      "fk_grade": 4.6,
       "slides_over_20s": 0
     },
     "B1": {

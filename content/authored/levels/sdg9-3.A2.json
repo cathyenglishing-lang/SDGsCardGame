@@ -1,0 +1,22 @@
+{
+  "mission_id": "sdg9-3",
+  "level": "A2",
+  "provenance": "authored-replacement",
+  "author": "Claude (English teacher role), v2 against the v2 quality gate",
+  "basis": "Written from scratch, not edited from the workbook. The three workbook levels of this mission shared 0.57 of their vocabulary at both level boundaries, which means A2, B1 and B2 were one text with a few words swapped, and every A2 slide failed the band - one 32-word sentence per slide, a semicolon in the middle of it, and a Flesch-Kincaid grade far above A2. This A2 is short spoken sentences, one idea each, with because-clauses on slides 4 and 5 for the A2 subordinator and no participle clauses: the workbook's '..., meaning that...' and '..., doubting old ideas, and sharing...' are all above A2 and have been rewritten as finite clauses. Meaning, slide order and every named fact are unchanged: SDG 9, the United Nations, lab reports, articles, computer code, curiosity, creativity, responsibility. Facts corrected: the workbook A2 says AI 'only guesses the next word by using mathematical chance from the internet' - a model predicts the next word from probabilities learned over a large body of text, so slide 5 says it picks each word from the odds and never from curiosity, and no claim is made that it understands. 'Let us' became \"let's\" on slide 12, and the workbook's closing 'Thank you' was cut so the talk ends on the claim.",
+  "reviewed_by": null,
+  "slides": {
+    "1": "Good morning. Today we look at SDG 9, a global plan from the United Nations. It asks every country to back new technology and to build stronger systems.",
+    "2": "AI is changing how we study and how we do our research today. It gets better every year. So one question stays with us: what makes people special?",
+    "3": "Many science students feel excited. But they also feel a bit afraid. These tools write our lab reports, sum up short articles and make computer code in seconds.",
+    "4": "The worry makes sense, because machines now do jobs that once needed people. But speed is not the same as science. A fast answer is not real understanding.",
+    "5": "Why? A model can spot patterns in a huge pile of data, but it never understands them. It picks each word from the odds, and never from curiosity.",
+    "6": "People work in another way. We ask new questions, plan clever tests, and study odd results. We learn from our own errors, and that takes real imagination.",
+    "7": "Every big discovery in history started with a curious person. AI can sort old facts very well. But it cannot choose which new question is worth our time.",
+    "8": "Science is more than a quick result. A scientist must think about safety, about the planet, and about other people. A machine cannot weigh those things.",
+    "9": "So treat AI as a partner, and never as a replacement for your own mind. It can arrange the facts for you. But your choices stay your own.",
+    "10": "As future scientists, we must keep asking good questions. We must doubt old ideas, and we must share what we find. Those human skills will always matter.",
+    "11": "SDG 9 reminds us that people drive every new idea. A machine can hand us facts. But only a person can turn facts into real knowledge.",
+    "12": "So let's use AI wisely. Keep your wonder, your new ideas and your honest heart. Those three habits really make a scientist, and they build a better future."
+  }
+}

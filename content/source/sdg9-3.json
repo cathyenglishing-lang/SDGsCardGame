@@ -31,17 +31,20 @@
           },
           "scripts": {
             "A2": {
-              "text": "Good morning, everyone. Today, let’s look at United Nations SDG 9, a great global plan that helps all countries support modern technological innovations and build strong infrastructure for a better world.",
-              "words": 32,
-              "sentences": 2,
-              "avg_sentence_words": 16.0,
-              "fk_grade": 10.6,
-              "long_word_pct": 15.6,
-              "speak_seconds_est": 20.2,
-              "fill_pct": 101.1,
-              "fits_20s": false,
+              "text": "Good morning. Today we look at SDG 9, a global plan from the United Nations. It asks every country to back new technology and to build stronger systems.",
+              "words": 28,
+              "sentences": 3,
+              "avg_sentence_words": 9.3,
+              "fk_grade": 5.8,
+              "long_word_pct": 7.1,
+              "speak_seconds_est": 17.7,
+              "fill_pct": 88.4,
+              "fits_20s": true,
               "wpm": 95,
-              "provenance": "workbook"
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (English teacher role), v2 against the v2 quality gate",
+              "basis": "Written from scratch, not edited from the workbook. The three workbook levels of this mission shared 0.57 of their vocabulary at both level boundaries, which means A2, B1 and B2 were one text with a few words swapped, and every A2 slide failed the band - one 32-word sentence per slide, a semicolon in the middle of it, and a Flesch-Kincaid grade far above A2. This A2 is short spoken sentences, one idea each, with because-clauses on slides 4 and 5 for the A2 subordinator and no participle clauses: the workbook's '..., meaning that...' and '..., doubting old ideas, and sharing...' are all above A2 and have been rewritten as finite clauses. Meaning, slide order and every named fact are unchanged: SDG 9, the United Nations, lab reports, articles, computer code, curiosity, creativity, responsibility. Facts corrected: the workbook A2 says AI 'only guesses the next word by using mathematical chance from the internet' - a model predicts the next word from probabilities learned over a large body of text, so slide 5 says it picks each word from the odds and never from curiosity, and no claim is made that it understands. 'Let us' became \"let's\" on slide 12, and the workbook's closing 'Thank you' was cut so the talk ends on the claim.",
+              "workbook_text": "Good morning, everyone. Today, let’s look at United Nations SDG 9, a great global plan that helps all countries support modern technological innovations and build strong infrastructure for a better world."
             },
             "B1": {
               "text": "Good morning, everyone. Today, let’s look at United Nations SDG 9, a global plan that encourages all countries to support modern technology and build strong systems for better scientific development around the world.",
@@ -90,17 +93,20 @@
           },
           "scripts": {
             "A2": {
-              "text": "In our digital world today, Artificial Intelligence is changing how we study and do scientific research very quickly; however, an important question remains: what special human qualities make us truly irreplaceable?",
-              "words": 31,
-              "sentences": 1,
-              "avg_sentence_words": 31.0,
-              "fk_grade": 20.1,
-              "long_word_pct": 29.0,
-              "speak_seconds_est": 19.6,
-              "fill_pct": 97.9,
+              "text": "AI is changing how we study and how we do our research today. It gets better every year. So one question stays with us: what makes people special?",
+              "words": 28,
+              "sentences": 3,
+              "avg_sentence_words": 9.3,
+              "fk_grade": 4.5,
+              "long_word_pct": 10.7,
+              "speak_seconds_est": 17.7,
+              "fill_pct": 88.4,
               "fits_20s": true,
               "wpm": 95,
-              "provenance": "workbook"
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (English teacher role), v2 against the v2 quality gate",
+              "basis": "Written from scratch, not edited from the workbook. The three workbook levels of this mission shared 0.57 of their vocabulary at both level boundaries, which means A2, B1 and B2 were one text with a few words swapped, and every A2 slide failed the band - one 32-word sentence per slide, a semicolon in the middle of it, and a Flesch-Kincaid grade far above A2. This A2 is short spoken sentences, one idea each, with because-clauses on slides 4 and 5 for the A2 subordinator and no participle clauses: the workbook's '..., meaning that...' and '..., doubting old ideas, and sharing...' are all above A2 and have been rewritten as finite clauses. Meaning, slide order and every named fact are unchanged: SDG 9, the United Nations, lab reports, articles, computer code, curiosity, creativity, responsibility. Facts corrected: the workbook A2 says AI 'only guesses the next word by using mathematical chance from the internet' - a model predicts the next word from probabilities learned over a large body of text, so slide 5 says it picks each word from the odds and never from curiosity, and no claim is made that it understands. 'Let us' became \"let's\" on slide 12, and the workbook's closing 'Thank you' was cut so the talk ends on the claim.",
+              "workbook_text": "In our digital world today, Artificial Intelligence is changing how we study and do scientific research very quickly; however, an important question remains: what special human qualities make us truly irreplaceable?"
             },
             "B1": {
               "text": "In our digital world, Artificial Intelligence is changing how we study, do research, and make new tools; however, as AI becomes smarter, an important question remains: what human qualities make us truly irreplaceable?",
@@ -158,17 +164,20 @@
           },
           "scripts": {
             "A2": {
-              "text": "Many university science students are excited about AI, but they also feel quite worried because these computer tools can easily write lab reports, read short science articles, and generate computer code.",
-              "words": 31,
-              "sentences": 1,
-              "avg_sentence_words": 31.0,
-              "fk_grade": 17.1,
-              "long_word_pct": 19.4,
-              "speak_seconds_est": 19.6,
-              "fill_pct": 97.9,
+              "text": "Many science students feel excited. But they also feel a bit afraid. These tools write our lab reports, sum up short articles and make computer code in seconds.",
+              "words": 28,
+              "sentences": 3,
+              "avg_sentence_words": 9.3,
+              "fk_grade": 4.9,
+              "long_word_pct": 10.7,
+              "speak_seconds_est": 17.7,
+              "fill_pct": 88.4,
               "fits_20s": true,
               "wpm": 95,
-              "provenance": "workbook"
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (English teacher role), v2 against the v2 quality gate",
+              "basis": "Written from scratch, not edited from the workbook. The three workbook levels of this mission shared 0.57 of their vocabulary at both level boundaries, which means A2, B1 and B2 were one text with a few words swapped, and every A2 slide failed the band - one 32-word sentence per slide, a semicolon in the middle of it, and a Flesch-Kincaid grade far above A2. This A2 is short spoken sentences, one idea each, with because-clauses on slides 4 and 5 for the A2 subordinator and no participle clauses: the workbook's '..., meaning that...' and '..., doubting old ideas, and sharing...' are all above A2 and have been rewritten as finite clauses. Meaning, slide order and every named fact are unchanged: SDG 9, the United Nations, lab reports, articles, computer code, curiosity, creativity, responsibility. Facts corrected: the workbook A2 says AI 'only guesses the next word by using mathematical chance from the internet' - a model predicts the next word from probabilities learned over a large body of text, so slide 5 says it picks each word from the odds and never from curiosity, and no claim is made that it understands. 'Let us' became \"let's\" on slide 12, and the workbook's closing 'Thank you' was cut so the talk ends on the claim.",
+              "workbook_text": "Many university science students are excited about AI, but they also feel quite worried because these computer tools can easily write lab reports, read short science articles, and generate computer code."
             },
             "B1": {
               "text": "Many university science students are excited about AI, but they also feel worried because these tools can write lab reports, summarize science articles, generate computer code, and answer difficult questions within seconds.",
@@ -217,17 +226,20 @@
           },
           "scripts": {
             "A2": {
-              "text": "These worries are easy to understand because AI can do many school tasks that used to need hard human work; however, doing a task quickly does not mean that AI truly understands science.",
-              "words": 33,
-              "sentences": 1,
-              "avg_sentence_words": 33.0,
-              "fk_grade": 14.1,
-              "long_word_pct": 6.1,
-              "speak_seconds_est": 20.8,
-              "fill_pct": 104.2,
-              "fits_20s": false,
+              "text": "The worry makes sense, because machines now do jobs that once needed people. But speed is not the same as science. A fast answer is not real understanding.",
+              "words": 28,
+              "sentences": 3,
+              "avg_sentence_words": 9.3,
+              "fk_grade": 4.5,
+              "long_word_pct": 7.1,
+              "speak_seconds_est": 17.7,
+              "fill_pct": 88.4,
+              "fits_20s": true,
               "wpm": 95,
-              "provenance": "workbook"
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (English teacher role), v2 against the v2 quality gate",
+              "basis": "Written from scratch, not edited from the workbook. The three workbook levels of this mission shared 0.57 of their vocabulary at both level boundaries, which means A2, B1 and B2 were one text with a few words swapped, and every A2 slide failed the band - one 32-word sentence per slide, a semicolon in the middle of it, and a Flesch-Kincaid grade far above A2. This A2 is short spoken sentences, one idea each, with because-clauses on slides 4 and 5 for the A2 subordinator and no participle clauses: the workbook's '..., meaning that...' and '..., doubting old ideas, and sharing...' are all above A2 and have been rewritten as finite clauses. Meaning, slide order and every named fact are unchanged: SDG 9, the United Nations, lab reports, articles, computer code, curiosity, creativity, responsibility. Facts corrected: the workbook A2 says AI 'only guesses the next word by using mathematical chance from the internet' - a model predicts the next word from probabilities learned over a large body of text, so slide 5 says it picks each word from the odds and never from curiosity, and no claim is made that it understands. 'Let us' became \"let's\" on slide 12, and the workbook's closing 'Thank you' was cut so the talk ends on the claim.",
+              "workbook_text": "These worries are easy to understand because AI can do many school tasks that used to need hard human work; however, doing a task quickly does not mean that AI truly understands science."
             },
             "B1": {
               "text": "These worries are easy to understand because AI can do many tasks that used to require human effort; however, doing a task quickly does not mean that AI truly understands science.",
@@ -285,17 +297,20 @@
           },
           "scripts": {
             "A2": {
-              "text": "Why does this happen? The AI computer does not automatically understand your human thoughts; instead, it only guesses the next word by using mathematical chance from the internet without real scientific comprehension.",
-              "words": 32,
-              "sentences": 2,
-              "avg_sentence_words": 16.0,
-              "fk_grade": 12.4,
-              "long_word_pct": 25.0,
-              "speak_seconds_est": 20.2,
-              "fill_pct": 101.1,
-              "fits_20s": false,
+              "text": "Why? A model can spot patterns in a huge pile of data, but it never understands them. It picks each word from the odds, and never from curiosity.",
+              "words": 28,
+              "sentences": 3,
+              "avg_sentence_words": 9.3,
+              "fk_grade": 4.5,
+              "long_word_pct": 10.7,
+              "speak_seconds_est": 17.7,
+              "fill_pct": 88.4,
+              "fits_20s": true,
               "wpm": 95,
-              "provenance": "workbook"
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (English teacher role), v2 against the v2 quality gate",
+              "basis": "Written from scratch, not edited from the workbook. The three workbook levels of this mission shared 0.57 of their vocabulary at both level boundaries, which means A2, B1 and B2 were one text with a few words swapped, and every A2 slide failed the band - one 32-word sentence per slide, a semicolon in the middle of it, and a Flesch-Kincaid grade far above A2. This A2 is short spoken sentences, one idea each, with because-clauses on slides 4 and 5 for the A2 subordinator and no participle clauses: the workbook's '..., meaning that...' and '..., doubting old ideas, and sharing...' are all above A2 and have been rewritten as finite clauses. Meaning, slide order and every named fact are unchanged: SDG 9, the United Nations, lab reports, articles, computer code, curiosity, creativity, responsibility. Facts corrected: the workbook A2 says AI 'only guesses the next word by using mathematical chance from the internet' - a model predicts the next word from probabilities learned over a large body of text, so slide 5 says it picks each word from the odds and never from curiosity, and no claim is made that it understands. 'Let us' became \"let's\" on slide 12, and the workbook's closing 'Thank you' was cut so the talk ends on the claim.",
+              "workbook_text": "Why does this happen? The AI computer does not automatically understand your human thoughts; instead, it only guesses the next word by using mathematical chance from the internet without real scientific comprehension."
             },
             "B1": {
               "text": "Why does this happen? Although AI can find patterns in massive amounts of data, it does not have real understanding because it predicts words based on math probabilities instead of curiosity or reasoning.",
@@ -344,17 +359,20 @@
           },
           "scripts": {
             "A2": {
-              "text": "Human scientists work differently because we ask new questions, design creative experiments, explain surprising laboratory results, and learn from our mistakes, meaning that scientific discovery needs a lot of human imagination.",
-              "words": 31,
-              "sentences": 1,
-              "avg_sentence_words": 31.0,
-              "fk_grade": 20.9,
-              "long_word_pct": 35.5,
-              "speak_seconds_est": 19.6,
-              "fill_pct": 97.9,
+              "text": "People work in another way. We ask new questions, plan clever tests, and study odd results. We learn from our own errors, and that takes real imagination.",
+              "words": 27,
+              "sentences": 3,
+              "avg_sentence_words": 9.0,
+              "fk_grade": 5.4,
+              "long_word_pct": 7.4,
+              "speak_seconds_est": 17.1,
+              "fill_pct": 85.3,
               "fits_20s": true,
               "wpm": 95,
-              "provenance": "workbook"
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (English teacher role), v2 against the v2 quality gate",
+              "basis": "Written from scratch, not edited from the workbook. The three workbook levels of this mission shared 0.57 of their vocabulary at both level boundaries, which means A2, B1 and B2 were one text with a few words swapped, and every A2 slide failed the band - one 32-word sentence per slide, a semicolon in the middle of it, and a Flesch-Kincaid grade far above A2. This A2 is short spoken sentences, one idea each, with because-clauses on slides 4 and 5 for the A2 subordinator and no participle clauses: the workbook's '..., meaning that...' and '..., doubting old ideas, and sharing...' are all above A2 and have been rewritten as finite clauses. Meaning, slide order and every named fact are unchanged: SDG 9, the United Nations, lab reports, articles, computer code, curiosity, creativity, responsibility. Facts corrected: the workbook A2 says AI 'only guesses the next word by using mathematical chance from the internet' - a model predicts the next word from probabilities learned over a large body of text, so slide 5 says it picks each word from the odds and never from curiosity, and no claim is made that it understands. 'Let us' became \"let's\" on slide 12, and the workbook's closing 'Thank you' was cut so the talk ends on the claim.",
+              "workbook_text": "Human scientists work differently because we ask new questions, design creative experiments, explain surprising laboratory results, and learn from our mistakes, meaning that scientific discovery needs a lot of human imagination."
             },
             "B1": {
               "text": "Human scientists work differently because we ask new questions, design creative experiments, explain surprising laboratory results, and learn from our mistakes, meaning that scientific discovery depends heavily on imagination, hard work, and creativity.",
@@ -412,17 +430,20 @@
           },
           "scripts": {
             "A2": {
-              "text": "History clearly shows that every great scientific discovery always began with human curiosity, and while AI can organize old information very well, it cannot independently choose which new questions are worth studying.",
-              "words": 32,
-              "sentences": 1,
-              "avg_sentence_words": 32.0,
-              "fk_grade": 19.8,
-              "long_word_pct": 25.0,
-              "speak_seconds_est": 20.2,
-              "fill_pct": 101.1,
-              "fits_20s": false,
+              "text": "Every big discovery in history started with a curious person. AI can sort old facts very well. But it cannot choose which new question is worth our time.",
+              "words": 28,
+              "sentences": 3,
+              "avg_sentence_words": 9.3,
+              "fk_grade": 5.3,
+              "long_word_pct": 7.1,
+              "speak_seconds_est": 17.7,
+              "fill_pct": 88.4,
+              "fits_20s": true,
               "wpm": 95,
-              "provenance": "workbook"
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (English teacher role), v2 against the v2 quality gate",
+              "basis": "Written from scratch, not edited from the workbook. The three workbook levels of this mission shared 0.57 of their vocabulary at both level boundaries, which means A2, B1 and B2 were one text with a few words swapped, and every A2 slide failed the band - one 32-word sentence per slide, a semicolon in the middle of it, and a Flesch-Kincaid grade far above A2. This A2 is short spoken sentences, one idea each, with because-clauses on slides 4 and 5 for the A2 subordinator and no participle clauses: the workbook's '..., meaning that...' and '..., doubting old ideas, and sharing...' are all above A2 and have been rewritten as finite clauses. Meaning, slide order and every named fact are unchanged: SDG 9, the United Nations, lab reports, articles, computer code, curiosity, creativity, responsibility. Facts corrected: the workbook A2 says AI 'only guesses the next word by using mathematical chance from the internet' - a model predicts the next word from probabilities learned over a large body of text, so slide 5 says it picks each word from the odds and never from curiosity, and no claim is made that it understands. 'Let us' became \"let's\" on slide 12, and the workbook's closing 'Thank you' was cut so the talk ends on the claim.",
+              "workbook_text": "History clearly shows that every great scientific discovery always began with human curiosity, and while AI can organize old information very well, it cannot independently choose which new questions are worth studying."
             },
             "B1": {
               "text": "History clearly shows that every great scientific discovery began with human curiosity, and while AI can organize existing information very well, it cannot independently decide which unanswered questions are actually worth studying.",
@@ -471,17 +492,20 @@
           },
           "scripts": {
             "A2": {
-              "text": "Furthermore, science is not just about getting fast results, meaning that human scientists must always think about public safety and social responsibility, which are special human values that computers cannot make.",
-              "words": 31,
-              "sentences": 1,
-              "avg_sentence_words": 31.0,
-              "fk_grade": 17.8,
-              "long_word_pct": 12.9,
-              "speak_seconds_est": 19.6,
-              "fill_pct": 97.9,
+              "text": "Science is more than a quick result. A scientist must think about safety, about the planet, and about other people. A machine cannot weigh those things.",
+              "words": 26,
+              "sentences": 3,
+              "avg_sentence_words": 8.7,
+              "fk_grade": 5.0,
+              "long_word_pct": 3.8,
+              "speak_seconds_est": 16.4,
+              "fill_pct": 82.1,
               "fits_20s": true,
               "wpm": 95,
-              "provenance": "workbook"
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (English teacher role), v2 against the v2 quality gate",
+              "basis": "Written from scratch, not edited from the workbook. The three workbook levels of this mission shared 0.57 of their vocabulary at both level boundaries, which means A2, B1 and B2 were one text with a few words swapped, and every A2 slide failed the band - one 32-word sentence per slide, a semicolon in the middle of it, and a Flesch-Kincaid grade far above A2. This A2 is short spoken sentences, one idea each, with because-clauses on slides 4 and 5 for the A2 subordinator and no participle clauses: the workbook's '..., meaning that...' and '..., doubting old ideas, and sharing...' are all above A2 and have been rewritten as finite clauses. Meaning, slide order and every named fact are unchanged: SDG 9, the United Nations, lab reports, articles, computer code, curiosity, creativity, responsibility. Facts corrected: the workbook A2 says AI 'only guesses the next word by using mathematical chance from the internet' - a model predicts the next word from probabilities learned over a large body of text, so slide 5 says it picks each word from the odds and never from curiosity, and no claim is made that it understands. 'Let us' became \"let's\" on slide 12, and the workbook's closing 'Thank you' was cut so the talk ends on the claim.",
+              "workbook_text": "Furthermore, science is not just about getting fast results, meaning that human scientists must always think about public safety and social responsibility, which are special human values that computers cannot make."
             },
             "B1": {
               "text": "Furthermore, science is about more than making results, meaning that human scientists must always consider correct ethics, public safety, green sustainability, and social responsibility, which are human values that computer rules cannot simply generate.",
@@ -539,17 +563,20 @@
           },
           "scripts": {
             "A2": {
-              "text": "Therefore, we should treat AI as a helpful partner rather than a replacement for human thinking, because technology can organize data, but it should never replace our independent choices or creative ideas.",
-              "words": 32,
-              "sentences": 1,
-              "avg_sentence_words": 32.0,
-              "fk_grade": 17.9,
-              "long_word_pct": 21.9,
-              "speak_seconds_est": 20.2,
-              "fill_pct": 101.1,
-              "fits_20s": false,
+              "text": "So treat AI as a partner, and never as a replacement for your own mind. It can arrange the facts for you. But your choices stay your own.",
+              "words": 28,
+              "sentences": 3,
+              "avg_sentence_words": 9.3,
+              "fk_grade": 2.8,
+              "long_word_pct": 3.6,
+              "speak_seconds_est": 17.7,
+              "fill_pct": 88.4,
+              "fits_20s": true,
               "wpm": 95,
-              "provenance": "workbook"
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (English teacher role), v2 against the v2 quality gate",
+              "basis": "Written from scratch, not edited from the workbook. The three workbook levels of this mission shared 0.57 of their vocabulary at both level boundaries, which means A2, B1 and B2 were one text with a few words swapped, and every A2 slide failed the band - one 32-word sentence per slide, a semicolon in the middle of it, and a Flesch-Kincaid grade far above A2. This A2 is short spoken sentences, one idea each, with because-clauses on slides 4 and 5 for the A2 subordinator and no participle clauses: the workbook's '..., meaning that...' and '..., doubting old ideas, and sharing...' are all above A2 and have been rewritten as finite clauses. Meaning, slide order and every named fact are unchanged: SDG 9, the United Nations, lab reports, articles, computer code, curiosity, creativity, responsibility. Facts corrected: the workbook A2 says AI 'only guesses the next word by using mathematical chance from the internet' - a model predicts the next word from probabilities learned over a large body of text, so slide 5 says it picks each word from the odds and never from curiosity, and no claim is made that it understands. 'Let us' became \"let's\" on slide 12, and the workbook's closing 'Thank you' was cut so the talk ends on the claim.",
+              "workbook_text": "Therefore, we should treat AI as a helpful partner rather than a replacement for human thinking, because technology can organize data, but it should never replace our independent choices or creative ideas."
             },
             "B1": {
               "text": "Therefore, we should see AI as a helpful partner rather than a replacement for human thinking, because technology can organize information and improve speed, but it should never replace our independent choices or creative minds.",
@@ -598,17 +625,20 @@
           },
           "scripts": {
             "A2": {
-              "text": "As future scientists, we must continue asking good questions, doubting old ideas, and sharing our discoveries honestly, because these special human abilities will always be necessary no matter how smart computers become.",
-              "words": 32,
-              "sentences": 1,
-              "avg_sentence_words": 32.0,
-              "fk_grade": 18.6,
-              "long_word_pct": 28.1,
-              "speak_seconds_est": 20.2,
-              "fill_pct": 101.1,
-              "fits_20s": false,
+              "text": "As future scientists, we must keep asking good questions. We must doubt old ideas, and we must share what we find. Those human skills will always matter.",
+              "words": 27,
+              "sentences": 3,
+              "avg_sentence_words": 9.0,
+              "fk_grade": 3.2,
+              "long_word_pct": 7.4,
+              "speak_seconds_est": 17.1,
+              "fill_pct": 85.3,
+              "fits_20s": true,
               "wpm": 95,
-              "provenance": "workbook"
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (English teacher role), v2 against the v2 quality gate",
+              "basis": "Written from scratch, not edited from the workbook. The three workbook levels of this mission shared 0.57 of their vocabulary at both level boundaries, which means A2, B1 and B2 were one text with a few words swapped, and every A2 slide failed the band - one 32-word sentence per slide, a semicolon in the middle of it, and a Flesch-Kincaid grade far above A2. This A2 is short spoken sentences, one idea each, with because-clauses on slides 4 and 5 for the A2 subordinator and no participle clauses: the workbook's '..., meaning that...' and '..., doubting old ideas, and sharing...' are all above A2 and have been rewritten as finite clauses. Meaning, slide order and every named fact are unchanged: SDG 9, the United Nations, lab reports, articles, computer code, curiosity, creativity, responsibility. Facts corrected: the workbook A2 says AI 'only guesses the next word by using mathematical chance from the internet' - a model predicts the next word from probabilities learned over a large body of text, so slide 5 says it picks each word from the odds and never from curiosity, and no claim is made that it understands. 'Let us' became \"let's\" on slide 12, and the workbook's closing 'Thank you' was cut so the talk ends on the claim.",
+              "workbook_text": "As future scientists, we must continue asking good questions, doubting old ideas, and sharing our discoveries honestly, because these special human abilities will always be necessary no matter how smart computers become."
             },
             "B1": {
               "text": "As future scientists, we should continue asking meaningful questions, challenging old ideas, and sharing our discoveries responsibly because these special human abilities will remain necessary, no matter how advanced computer technology becomes.",
@@ -666,17 +696,20 @@
           },
           "scripts": {
             "A2": {
-              "text": "In conclusion, SDG 9 reminds us that innovation is always driven by people, because AI can give us basic information, but only human beings can create true knowledge and make the right choices.",
-              "words": 33,
-              "sentences": 1,
-              "avg_sentence_words": 33.0,
-              "fk_grade": 15.5,
-              "long_word_pct": 12.1,
-              "speak_seconds_est": 20.8,
-              "fill_pct": 104.2,
-              "fits_20s": false,
+              "text": "SDG 9 reminds us that people drive every new idea. A machine can hand us facts. But only a person can turn facts into real knowledge.",
+              "words": 26,
+              "sentences": 3,
+              "avg_sentence_words": 8.7,
+              "fk_grade": 4.1,
+              "long_word_pct": 3.8,
+              "speak_seconds_est": 16.4,
+              "fill_pct": 82.1,
+              "fits_20s": true,
               "wpm": 95,
-              "provenance": "workbook"
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (English teacher role), v2 against the v2 quality gate",
+              "basis": "Written from scratch, not edited from the workbook. The three workbook levels of this mission shared 0.57 of their vocabulary at both level boundaries, which means A2, B1 and B2 were one text with a few words swapped, and every A2 slide failed the band - one 32-word sentence per slide, a semicolon in the middle of it, and a Flesch-Kincaid grade far above A2. This A2 is short spoken sentences, one idea each, with because-clauses on slides 4 and 5 for the A2 subordinator and no participle clauses: the workbook's '..., meaning that...' and '..., doubting old ideas, and sharing...' are all above A2 and have been rewritten as finite clauses. Meaning, slide order and every named fact are unchanged: SDG 9, the United Nations, lab reports, articles, computer code, curiosity, creativity, responsibility. Facts corrected: the workbook A2 says AI 'only guesses the next word by using mathematical chance from the internet' - a model predicts the next word from probabilities learned over a large body of text, so slide 5 says it picks each word from the odds and never from curiosity, and no claim is made that it understands. 'Let us' became \"let's\" on slide 12, and the workbook's closing 'Thank you' was cut so the talk ends on the claim.",
+              "workbook_text": "In conclusion, SDG 9 reminds us that innovation is always driven by people, because AI can give us basic information, but only human beings can create true knowledge and make the right choices."
             },
             "B1": {
               "text": "In conclusion, SDG 9 reminds us that new innovation is always driven by real people because AI can generate information, but only human beings can create true knowledge, make good choices, and bring meaningful change.",
@@ -725,17 +758,20 @@
           },
           "scripts": {
             "A2": {
-              "text": "Let us use AI wisely while continuing to grow the curiosity, creativity, and responsibility that define great scientists, so we can build a better and more honest future together. Thank you.",
-              "words": 31,
-              "sentences": 2,
-              "avg_sentence_words": 15.5,
-              "fk_grade": 11.0,
-              "long_word_pct": 19.4,
-              "speak_seconds_est": 19.6,
-              "fill_pct": 97.9,
+              "text": "So let's use AI wisely. Keep your wonder, your new ideas and your honest heart. Those three habits really make a scientist, and they build a better future.",
+              "words": 28,
+              "sentences": 3,
+              "avg_sentence_words": 9.3,
+              "fk_grade": 4.1,
+              "long_word_pct": 3.6,
+              "speak_seconds_est": 17.7,
+              "fill_pct": 88.4,
               "fits_20s": true,
               "wpm": 95,
-              "provenance": "workbook"
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (English teacher role), v2 against the v2 quality gate",
+              "basis": "Written from scratch, not edited from the workbook. The three workbook levels of this mission shared 0.57 of their vocabulary at both level boundaries, which means A2, B1 and B2 were one text with a few words swapped, and every A2 slide failed the band - one 32-word sentence per slide, a semicolon in the middle of it, and a Flesch-Kincaid grade far above A2. This A2 is short spoken sentences, one idea each, with because-clauses on slides 4 and 5 for the A2 subordinator and no participle clauses: the workbook's '..., meaning that...' and '..., doubting old ideas, and sharing...' are all above A2 and have been rewritten as finite clauses. Meaning, slide order and every named fact are unchanged: SDG 9, the United Nations, lab reports, articles, computer code, curiosity, creativity, responsibility. Facts corrected: the workbook A2 says AI 'only guesses the next word by using mathematical chance from the internet' - a model predicts the next word from probabilities learned over a large body of text, so slide 5 says it picks each word from the odds and never from curiosity, and no claim is made that it understands. 'Let us' became \"let's\" on slide 12, and the workbook's closing 'Thank you' was cut so the talk ends on the claim.",
+              "workbook_text": "Let us use AI wisely while continuing to grow the curiosity, creativity, and responsibility that define great scientists, so we can build a better and more honest future together. Thank you."
             },
             "B1": {
               "text": "Let us use AI wisely while continuing to develop the curiosity, creativity, and professional responsibility that make great scientists, so we can build a more trustworthy and sustainable future for science together. Thank you.",
@@ -782,10 +818,10 @@
   "level_summary": {
     "A2": {
       "slides": 12,
-      "avg_words": 31.8,
-      "avg_sentence_words": 27.8,
-      "fk_grade": 16.3,
-      "slides_over_20s": 7
+      "avg_words": 27.5,
+      "avg_sentence_words": 9.2,
+      "fk_grade": 4.5,
+      "slides_over_20s": 0
     },
     "B1": {
       "slides": 12,

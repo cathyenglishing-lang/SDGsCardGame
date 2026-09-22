@@ -10,7 +10,7 @@ SDG 9 · 12 slides · levels: A2, B1, B2 · content_version 2026.09.1
 
 | 級別 | 張數 | 每張字數 | 每句字數 | FK | 超過 20 秒 |
 | --- | --- | --- | --- | --- | --- |
-| A2 | 12 | 26.0 | 8.7 | 4.8 | 0 |
+| A2 | 12 | 26.2 | 8.8 | 4.6 | 0 |
 | B1 | 12 | 29.9 | 15.0 | 8.5 | 0 |
 | B2 | 12 | 32.2 | 16.1 | 11.9 | 0 |
 
@@ -90,8 +90,8 @@ SDG 9 · 12 slides · levels: A2, B1, B2 · content_version 2026.09.1
 
 ### Slide 7 · Impact on Science（學術研究衝擊）
 
-- **A2**（26 字 / 每句 8.7 字 / 約 16.4 秒）
-  > Clear writing really matters in science. A careful prompt improves our lab reports and our presentations. Our study gets quicker, and it also gets more correct.
+- **A2**（28 字 / 每句 9.3 字 / 約 17.7 秒）
+  > Clear writing really matters in science. A careful prompt improves the lab reports and the talks that we hand in. Our study also gets quicker and more correct.
 - **B1**（29 字 / 每句 14.5 字 / 約 15.8 秒）
   > In research, exact communication matters more than people think. A student who writes good prompts will produce a faster literature review, a tidier lab report and a clearer talk.
 - **B2**（35 字 / 每句 17.5 字 / 約 17.5 秒）
@@ -99,8 +99,8 @@ SDG 9 · 12 slides · levels: A2, B1, B2 · content_version 2026.09.1
 
 ### Slide 8 · Impact on Society（大眾社會衝擊）
 
-- **A2**（26 字 / 每句 8.7 字 / 約 16.4 秒）
-  > But never copy an answer without thinking about it. You will simply stop learning. Real science starts with human wonder, and never with a fast reply.
+- **A2**（27 字 / 每句 9.0 字 / 約 17.1 秒）
+  > But never copy an answer without thinking. If you do, you will simply stop learning. Real science starts with human wonder, and never with a fast reply.
 - **B1**（28 字 / 每句 14.0 字 / 約 15.3 秒）
   > However, if we take these answers without questioning them, we slowly turn into passive learners. Real science has always started with human curiosity, not with an easy click.
 - **B2**（30 字 / 每句 15.0 字 / 約 15.0 秒）
