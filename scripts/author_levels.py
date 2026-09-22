@@ -116,6 +116,79 @@ def cmd_gaps() -> int:
     return 0
 
 
+def cmd_brief(mission_id: str) -> int:
+    """Everything an author needs for one mission: the spec, the calibrated
+    reference, and the source text at every level that already exists."""
+    from quality import BAND, FILL_BAND, LINT, MAX_JACCARD, MAX_JACCARD_MEAN, MAX_MISS_RATE
+    from extract_content import LEVEL_WPM, capacity
+    m = load(mission_id)
+    slides = slides_of(m)
+    out = [f"# Authoring brief — {mission_id}: {m['title']['en']} (SDG {m['sdg']}), "
+           f"{len(slides)} slides",
+           "",
+           "You are a CELTA/DELTA-qualified EFL materials writer. Each slide is spoken aloud "
+           "in exactly 20 seconds of a Pecha Kucha talk by a Taiwanese university student "
+           "(L1 Mandarin). Write A2, B1 and B2 versions of every slide.",
+           "",
+           "## What makes a level, and what does not",
+           "Word count is NOT the ladder — the clock is fixed, so all three levels get a "
+           "similar number of words. What must climb is sentence length, lexical load and "
+           "grammatical range. A B2 that is merely the B1 with Latinate words swapped in "
+           "FAILS; so does an A2 that is the B1 with short synonyms.",
+           ""]
+    for lv in ("A2", "B1", "B2"):
+        b, cap = BAND[lv], capacity(lv)
+        out.append(f"### {lv} — spoken at {LEVEL_WPM[lv]} wpm, so {cap*FILL_BAND[0]:.0f}-{cap:.0f} "
+                   f"words per slide")
+        out.append(f"- words per sentence (slide average): {b['sentence'][0]}-{b['sentence'][1]}")
+        out.append(f"- Flesch-Kincaid grade: {b['fk'][0]}-{b['fk'][1]}")
+        out.append(f"- words of 8+ letters: {b['longword'][0]}-{b['longword'][1]}%")
+        out.append(f"- register: {LEVEL_VOICE[lv]}")
+        out.append("")
+    out += [f"Every slide must sit in its band. At most {int(MAX_MISS_RATE*100)}% of slides may "
+            f"miss narrowly. Vocabulary overlap between adjacent levels must stay under "
+            f"{MAX_JACCARD} per slide and {MAX_JACCARD_MEAN} on average (proper nouns and "
+            f"numbers are excluded, so keeping a law's name identical costs nothing).",
+            "",
+            "## House rules the gate enforces",
+            ]
+    out += [f"- {msg}" for _, _, msg in LINT]
+    out += ["",
+            "## Faithfulness — this is not optional",
+            "- Keep the meaning, the order and every fact of the source line. Invent nothing.",
+            "- Keep every number, year, law name, place and brand exactly as the source has it.",
+            "- If a source claim is factually wrong or overstated, fix it and say so in `basis`; "
+            "do not silently drop it.",
+            "",
+            "## Calibrated reference — SDG 13-1 passes the gate; match this standard"]
+    for lv in ("A2", "B1", "B2"):
+        path = os.path.join(OVERLAY, f"sdg13-1.{lv}.json")
+        if not os.path.exists(path):
+            continue
+        with open(path, encoding="utf-8") as fh:
+            ov = json.load(fh)
+        out.append(f"{lv}:")
+        for n in ("2", "11", "20"):
+            if ov["slides"].get(n):
+                out.append(f"  - {ov['slides'][n]}")
+    out += ["", "## How to submit",
+            f"Write content/authored/levels/{mission_id}.<LEVEL>.json with keys mission_id, "
+            "level, provenance, author, basis, reviewed_by, slides (a map of slide number to "
+            "text as strings).",
+            f"Then run `python scripts/gate.py overlay {mission_id}` and fix until all three "
+            "levels print PASS and both distances print ok.",
+            "", "## Source slides"]
+    for s_ in slides:
+        part = next(st for st in m["stages"] if s_ in st["slides"])
+        fn = PART_FUNCTION.get(part["part_no"], ("", "", ""))
+        out.append("")
+        out.append(f"{s_['slide_no']}. [{s_['title']['en']}] (Part {part['part_no']}, {fn[0]})")
+        for lv in ("A1", "A2", "B1", "B2"):
+            if lv in s_["scripts"]:
+                out.append(f"   {lv}: {s_['scripts'][lv]['text']}")
+    return print(chr(10).join(out)) or 0
+
+
 def cmd_prompt(mission_id: str, level: str) -> int:
     m = load(mission_id)
     spec, band = LEVEL_SPEC[level], LEVEL_BAND[level]
@@ -256,6 +329,8 @@ def main(argv: list) -> int:
     cmd, rest = argv[0], argv[1:]
     if cmd == "gaps":
         return cmd_gaps()
+    if cmd == "brief" and len(rest) == 1:
+        return cmd_brief(*rest)
     if cmd == "prompt" and len(rest) == 2:
         return cmd_prompt(*rest)
     if cmd == "ingest" and len(rest) == 3:

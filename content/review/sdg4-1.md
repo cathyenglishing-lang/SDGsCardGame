@@ -25,7 +25,7 @@ SDG 4 · 20 slides · levels: A1, A2, B1, B2 · content_version 2026.09.1
 | 級別 | 張數 | 每張字數 | 每句字數 | FK | 超過 20 秒 |
 | --- | --- | --- | --- | --- | --- |
 | A1 | 20 | 32.2 | 8.4 | 3.6 | 14 |
-| A2 | 20 | 38.8 | 11.6 | 5.8 | 20 |
+| A2 | 20 | 29.6 | 8.9 | 3.9 | 0 |
 | B1 | 20 | 39.2 | 10.7 | 8.6 | 19 |
 | B2 | 20 | 45.9 | 16.3 | 16.6 | 20 |
 
@@ -38,8 +38,8 @@ SDG 4 · 20 slides · levels: A1, A2, B1, B2 · content_version 2026.09.1
 
 - **A1**（35 字 / 每句 7.0 字 / 約 23.3 秒 ⚠️ 超過 20 秒）
   > Good morning. We are college students. Is school in Taiwan fair for everyone? Today, we talk about "Quality Education." Some students have a lot, but some have very little. Let's look at the facts together.
-- **A2**（46 字 / 每句 9.2 字 / 約 29.1 秒 ⚠️ 超過 20 秒）
-  > Good morning. To start, let’s look at a big question: is education in Taiwan truly fair for everyone? Today, we will discuss SDG 4, which is about Quality Education. Sometimes, reality is very different from what we see on paper. Let’s explore this together.
+- **A2**（30 字 / 每句 7.5 字 / 約 18.9 秒）
+  > Good morning. Is school in Taiwan fair for every child? Today we look at SDG 4, Quality Education. On paper we look great, but science class tells a different story.
 - **B1**（42 字 / 每句 10.5 字 / 約 22.9 秒 ⚠️ 超過 20 秒）
   > Good morning, everyone. Today, let’s examine SDG 4: Quality Education in Taiwan. Our education system looks good on paper, but does it really help everyone? We need to look closely at science education to see if our schools truly challenge inequality.
 - **B2**（49 字 / 每句 12.2 字 / 約 24.5 秒 ⚠️ 超過 20 秒）
@@ -49,8 +49,8 @@ SDG 4 · 20 slides · levels: A1, A2, B1, B2 · content_version 2026.09.1
 
 - **A1**（35 字 / 每句 11.7 字 / 約 23.3 秒 ⚠️ 超過 20 秒）
   > SDG 4 says: "Education for all people." It does not matter if you are rich or poor. In Taiwan, we use many computers. But do we learn how to use them in a good way?
-- **A2**（43 字 / 每句 14.3 字 / 約 27.2 秒 ⚠️ 超過 20 秒）
-  > First, what is SDG 4? It means everyone should have a chance to learn, whether they are rich or poor. In Taiwan’s high-tech world, we must ask: Does our school system really teach us how to use technology in a responsible way?
+- **A2**（31 字 / 每句 7.8 字 / 約 19.6 秒）
+  > What does SDG 4 promise? Education for everyone, rich or poor, at any age. Taiwan builds computer chips for the world. But do our schools teach us to use them wisely?
 - **B1**（41 字 / 每句 10.2 字 / 約 22.4 秒 ⚠️ 超過 20 秒）
   > SDG 4 is about inclusive and fair education for all people. Globally, it helps students overcome poverty. In Taiwan, we have a high-tech economy. Therefore, we must ask: does our education prepare us for the ethical problems in science and technology?
 - **B2**（47 字 / 每句 23.5 字 / 約 23.5 秒 ⚠️ 超過 20 秒）
@@ -60,8 +60,8 @@ SDG 4 · 20 slides · levels: A1, A2, B1, B2 · content_version 2026.09.1
 
 - **A1**（32 字 / 每句 6.4 字 / 約 21.3 秒 ⚠️ 超過 20 秒）
   > Taiwan loves science and math. We call this STEM. It helps our country grow. But now, Taiwan has fewer babies. We must change our schools to help every student in the future.
-- **A2**（42 字 / 每句 10.5 字 / 約 26.5 秒 ⚠️ 超過 20 秒）
-  > Next, let’s talk about STEM. Taiwan spends a lot of money on science and math to help our country grow. However, fewer babies are born now. Because of this, we need new ways to make our schools better for the future.
+- **A2**（30 字 / 每句 10.0 字 / 約 18.9 秒）
+  > Taiwan puts big money into science and math, and that is how we grew rich. But our birth rate has never been lower. Are we spending on the right problems?
 - **B1**（40 字 / 每句 10.0 字 / 約 21.8 秒 ⚠️ 超過 20 秒）
   > Taiwan invests a lot in STEM—Science, Technology, Engineering, and Math. This drives our national growth. However, because of the low birth rate, we must rethink our goals. Are we using our resources effectively to solve the most important problems?
 - **B2**（46 字 / 每句 15.3 字 / 約 23.0 秒 ⚠️ 超過 20 秒）
@@ -77,8 +77,8 @@ SDG 4 · 20 slides · levels: A1, A2, B1, B2 · content_version 2026.09.1
 
 - **A1**（35 字 / 每句 7.0 字 / 約 23.3 秒 ⚠️ 超過 20 秒）
   > Taiwan has a big problem: fewer babies. Years ago, there were 300,000 babies. Now, there are only 140,000. Many schools in the countryside must close. This is not fair for students living there.
-- **A2**（45 字 / 每句 9.0 字 / 約 28.4 秒 ⚠️ 超過 20 秒）
-  > Now, let’s look at the first problem. The birth rate is dropping fast. In 1990, there were 300,000 babies, but now there are less than 140,000. This means some country schools must close. Is it still fair for students living far away?
+- **A2**（31 字 / 每句 7.8 字 / 約 19.6 秒）
+  > Here is the first problem. In 1990 Taiwan had more than 300,000 babies. Last year we had fewer than 140,000. In the countryside, schools close and children travel far.
 - **B1**（44 字 / 每句 11.0 字 / 約 24.0 秒 ⚠️ 超過 20 秒）
   > A major challenge is Taiwan’s declining birth rate. In 1990, there were 300,000 births, but recently it dropped to under 140,000. This causes school closures, especially in rural areas. Is this sustainable if we want to provide equal education for all?
 - **B2**（52 字 / 每句 17.3 字 / 約 26.0 秒 ⚠️ 超過 20 秒）
@@ -88,8 +88,8 @@ SDG 4 · 20 slides · levels: A1, A2, B1, B2 · content_version 2026.09.1
 
 - **A1**（35 字 / 每句 8.8 字 / 約 23.3 秒 ⚠️ 超過 20 秒）
   > Students study for big tests every day. They memorize many things, but they do not use their own ideas. Many students get tired and stop liking science. We need new ideas to save our planet.
-- **A2**（39 字 / 每句 7.8 字 / 約 24.6 秒 ⚠️ 超過 20 秒）
-  > Another issue is exams. In science, students spend too much time preparing for tests. They memorize facts but forget how to be creative. Many students lose interest early. Does this really help us solve real problems like climate change?
+- **A2**（29 字 / 每句 9.7 字 / 約 18.3 秒）
+  > Next, think about exams. In science class students learn answers by heart, but they rarely ask their own questions. Many drop science early, so can that fix climate change?
 - **B1**（39 字 / 每句 9.8 字 / 約 21.3 秒 ⚠️ 超過 20 秒）
   > In STEM fields, students focus too much on exams and rote memorization. This kills creativity. Many students lose interest and stop studying science early. Does this approach really prepare us for real-world challenges, like solving climate change with technology?
 - **B2**（48 字 / 每句 16.0 字 / 約 24.0 秒 ⚠️ 超過 20 秒）
@@ -100,8 +100,8 @@ SDG 4 · 20 slides · levels: A1, A2, B1, B2 · content_version 2026.09.1
 
 - **A1**（34 字 / 每句 5.7 字 / 約 22.7 秒 ⚠️ 超過 20 秒）
   > City schools are very good. They have big labs and many books. But schools far away have very little. There is a 30% gap. Is our system helping them? Or is it ignoring them?
-- **A2**（41 字 / 每句 10.2 字 / 約 25.9 秒 ⚠️ 超過 20 秒）
-  > Beyond exams, there is a big gap between the city and the countryside. City schools have great labs, but rural schools have very little. Data shows a 30% difference in resources. Is our system trying to fix this or ignoring it?
+- **A2**（30 字 / 每句 10.0 字 / 約 18.9 秒）
+  > Money is not shared evenly. A city classroom has new labs and tablets, while a village school waits. Surveys put the equipment gap near 30%, so who will fix it?
 - **B1**（39 字 / 每句 9.8 字 / 約 21.3 秒 ⚠️ 超過 20 秒）
   > There is a clear gap between cities and rural areas. Metropolitan schools have advanced labs, while remote schools face shortages. Data shows a 30% difference in resources. Is our system designed to fix this divide or just ignore it?
 - **B2**（48 字 / 每句 16.0 字 / 約 24.0 秒 ⚠️ 超過 20 秒）
@@ -117,8 +117,8 @@ SDG 4 · 20 slides · levels: A1, A2, B1, B2 · content_version 2026.09.1
 
 - **A1**（34 字 / 每句 6.8 字 / 約 22.7 秒 ⚠️ 超過 20 秒）
   > Taiwan has some good news. School is free for 12 years. Almost every child finishes primary school. This is a very high number. It is a good start, but are the lessons truly great?
-- **A2**（41 字 / 每句 13.7 字 / 約 25.9 秒 ⚠️ 超過 20 秒）
-  > On the other hand, Taiwan has done some great things. We have 12 years of free education, and almost 99% of children finish primary school. This is a strong start, but we must ask: is the quality of learning truly good?
+- **A2**（31 字 / 每句 7.8 字 / 約 19.6 秒）
+  > Now the good news. Education here is free for 12 years, and 99% of children finish primary school. That matches the best in the OECD. But is the teaching any good?
 - **B1**（42 字 / 每句 10.5 字 / 約 22.9 秒 ⚠️ 超過 20 秒）
   > Despite these issues, Taiwan has successes. Our 12-year free education system has a 99% completion rate. This is higher than the OECD average. This broad access is a strong foundation, but we must ask if the quality of education is actually high.
 - **B2**（47 字 / 每句 15.7 字 / 約 23.5 秒 ⚠️ 超過 20 秒）
@@ -129,8 +129,8 @@ SDG 4 · 20 slides · levels: A1, A2, B1, B2 · content_version 2026.09.1
 
 - **A1**（32 字 / 每句 8.0 字 / 約 21.3 秒 ⚠️ 超過 20 秒）
   > The government gives money to help poor families. Now, 96% of these children go to school at age five. They learn many things early. This helps them do well in science later.
-- **A2**（40 字 / 每句 13.3 字 / 約 25.3 秒 ⚠️ 超過 20 秒）
-  > Also, the government helps poor families pay for preschool. Now, 96% of these children can go to school at age five. This helps them learn basic skills early, so they can do better in science and math later in life.
+- **A2**（29 字 / 每句 7.2 字 / 約 18.3 秒）
+  > The government also pays for preschool. Today 96% of poorer five-year-olds go to class. They learn to count, to ask and to share. That helps them in science later.
 - **B1**（39 字 / 每句 9.8 字 / 約 21.3 秒 ⚠️ 超過 20 秒）
   > Preschool programs are very strong in Taiwan. Government subsidies allow 96% of disadvantaged children to attend. This early help creates a level playing field. It builds basic skills that support STEM learning later and reduces the gap between students.
 - **B2**（44 字 / 每句 22.0 字 / 約 22.0 秒 ⚠️ 超過 20 秒）
@@ -140,8 +140,8 @@ SDG 4 · 20 slides · levels: A1, A2, B1, B2 · content_version 2026.09.1
 
 - **A1**（34 字 / 每句 6.8 字 / 約 22.7 秒 ⚠️ 超過 20 秒）
   > In Taiwan, many people finish high school and college. This is better than many other countries. Our teachers study hard to teach well. But is school the same in every city? We must check.
-- **A2**（38 字 / 每句 12.7 字 / 約 24.0 秒 ⚠️ 超過 20 秒）
-  > Furthermore, more people graduate in Taiwan than in most countries. Teachers also get special training. However, we must check if students in different cities are all learning the same deep knowledge, or if they are just passing tests.
+- **A2**（26 字 / 每句 8.7 字 / 約 16.4 秒）
+  > More people here finish high school and college than almost anywhere. Our teachers also train hard. But do all towns teach science at the same depth?
 - **B1**（39 字 / 每句 13.0 字 / 約 21.3 秒 ⚠️ 超過 20 秒）
   > Overall, Taiwan’s graduation rates are higher than global standards. We also invest a lot in training teachers to improve classroom quality. However, does high participation hide deeper problems, such as different levels of education depth between different regions?
 - **B2**（44 字 / 每句 14.7 字 / 約 22.0 秒 ⚠️ 超過 20 秒）
@@ -156,8 +156,8 @@ SDG 4 · 20 slides · levels: A1, A2, B1, B2 · content_version 2026.09.1
 
 - **A1**（33 字 / 每句 11.0 字 / 約 22.0 秒 ⚠️ 超過 20 秒）
   > Now, the government gives money for fun science. Students do not just read books; they make things with their hands. They learn how to code and use AI safely from a young age.
-- **A2**（37 字 / 每句 9.2 字 / 約 23.4 秒 ⚠️ 超過 20 秒）
-  > So, what is the solution? The government is now funding fun science projects. Instead of just reading books, students do hands-on work. They learn about coding and how to use AI safely from a very young age.
+- **A2**（31 字 / 每句 7.8 字 / 約 19.6 秒）
+  > So what are we doing about it? The government now pays for hands-on science. Students build things instead of only reading. They start coding, and they ask when AI is fair.
 - **B1**（40 字 / 每句 10.0 字 / 約 21.8 秒 ⚠️ 超過 20 秒）
   > To fix these gaps, Taiwan is funding new STEM curricula. These include hands-on projects rather than just reading books. For example, some programs teach coding and AI ethics early. This makes science more interesting and relevant for young students today.
 - **B2**（44 字 / 每句 14.7 字 / 約 22.0 秒 ⚠️ 超過 20 秒）
@@ -168,8 +168,8 @@ SDG 4 · 20 slides · levels: A1, A2, B1, B2 · content_version 2026.09.1
 
 - **A1**（30 字 / 每句 10.0 字 / 約 20.0 秒）
   > Almost every school in Taiwan uses computers. This helps students learn about our tech companies. But we also teach students to be honest and kind when they use the internet.
-- **A2**（34 字 / 每句 11.3 字 / 約 21.5 秒 ⚠️ 超過 20 秒）
-  > In addition, most schools now use computers and apps. This connects students to our famous computer chip industry. But it also teaches them how to use technology safely and honestly in their daily lives.
+- **A2**（31 字 / 每句 10.3 字 / 約 19.6 秒）
+  > More than 80% of our schools now use tablets and apps. Classes run experiments on a screen. That links them to our chip factories, but we must also teach honest use.
 - **B1**（41 字 / 每句 10.2 字 / 約 22.4 秒 ⚠️ 超過 20 秒）
   > Digital tools are used in over 80% of Taiwanese schools. Students use apps for simulations and experiments. This connects the classroom to our famous semiconductor industry. However, we also need to teach students how to use technology in a responsible way.
 - **B2**（47 字 / 每句 15.7 字 / 約 23.5 秒 ⚠️ 超過 20 秒）
@@ -179,8 +179,8 @@ SDG 4 · 20 slides · levels: A1, A2, B1, B2 · content_version 2026.09.1
 
 - **A1**（34 字 / 每句 8.5 字 / 約 22.7 秒 ⚠️ 超過 20 秒）
   > Some students work in big tech offices for a short time. They learn about clean energy and new tools. This helps them get good jobs after they finish school. They can help the world.
-- **A2**（37 字 / 每句 12.3 字 / 約 23.4 秒 ⚠️ 超過 20 秒）
-  > For example, some students work as interns in big tech companies. They learn about green energy and new inventions. These programs help students move from the classroom to real jobs that help the planet and our economy.
+- **A2**（26 字 / 每句 8.7 字 / 約 16.4 秒）
+  > Some students join a special program and spend time inside tech firms. They meet green energy engineers. A school topic slowly turns into a real job.
 - **B1**（39 字 / 每句 13.0 字 / 約 21.3 秒 ⚠️ 超過 20 秒）
   > Special programs for gifted students provide internships in tech firms. These programs prepare students for careers in fields like renewable energy. They bridge the gap between school and the real world, helping students become the next generation of problem-solvers.
 - **B2**（44 字 / 每句 14.7 字 / 約 22.0 秒 ⚠️ 超過 20 秒）
@@ -196,8 +196,8 @@ SDG 4 · 20 slides · levels: A1, A2, B1, B2 · content_version 2026.09.1
 
 - **A1**（32 字 / 每句 8.0 字 / 約 21.3 秒 ⚠️ 超過 20 秒）
   > Science education helps Taiwan make money. We sell many tech products to the world. Science also helps us fix the weather and protect the earth. We use our brains to help everyone.
-- **A2**（39 字 / 每句 9.8 字 / 約 24.6 秒 ⚠️ 超過 20 秒）
-  > This matters because better science education helps Taiwan’s economy. Our tech exports are worth 500 billion dollars every year! It also helps us find ways to protect the earth. Science gives us the power to fix global problems.
+- **A2**（30 字 / 每句 10.0 字 / 約 18.9 秒）
+  > Why does this matter? Taiwan sells about 500 billion dollars of goods a year, and technology is most of it. The same science helps us plan for flooding and heat.
 - **B1**（38 字 / 每句 9.5 字 / 約 20.7 秒 ⚠️ 超過 20 秒）
   > Better STEM education drives our economy. Taiwan’s tech exports reach $500 billion every year. Furthermore, it empowers us to solve global problems. We can use science to find climate-resilient solutions and protect our environment for the future.
 - **B2**（45 字 / 每句 15.0 字 / 約 22.5 秒 ⚠️ 超過 20 秒）
@@ -208,8 +208,8 @@ SDG 4 · 20 slides · levels: A1, A2, B1, B2 · content_version 2026.09.1
 
 - **A1**（30 字 / 每句 5.0 字 / 約 20.0 秒）
   > We still have problems. For example, most engineers are men. Only 30% are women. Many people think science is not for girls. We must change this. Science is for everyone!
-- **A2**（38 字 / 每句 9.5 字 / 約 24.0 秒 ⚠️ 超過 20 秒）
-  > However, we still have challenges. For example, only 30% of engineering students are women. Many people still think science is for men. We must change these old ideas so that everyone feels welcome in the world of technology.
+- **A2**（30 字 / 每句 7.5 字 / 約 18.9 秒）
+  > But look around the engineering class. Only 30% of the students are women. Some people still say that science is for boys. That idea is old, and it is wrong.
 - **B1**（38 字 / 每句 9.5 字 / 約 20.7 秒 ⚠️ 超過 20 秒）
   > However, we still face challenges, like the gender gap. Women make up only 30% of engineering graduates. Societal stereotypes still exist today. We must challenge these old ideas to make sure that STEM fields are inclusive for everyone.
 - **B2**（45 字 / 每句 15.0 字 / 約 22.5 秒 ⚠️ 超過 20 秒）
@@ -219,8 +219,8 @@ SDG 4 · 20 slides · levels: A1, A2, B1, B2 · content_version 2026.09.1
 
 - **A1**（33 字 / 每句 8.2 字 / 約 22.0 秒 ⚠️ 超過 20 秒）
   > If we do not fix these gaps, we lose many smart people. Are our schools ready for new jobs? We need schools that change with the world. We cannot wait for the future.
-- **A2**（37 字 / 每句 12.3 字 / 約 23.4 秒 ⚠️ 超過 20 秒）
-  > If we don’t fix these gaps, we will lose many talented people. As college students, we should ask: Are our schools ready for new AI jobs? We need a system that changes as the world changes.
+- **A2**（31 字 / 每句 10.3 字 / 約 19.6 秒）
+  > If we leave these gaps open, we will waste bright young people. Ask your own teachers one question. Is this school ready for the jobs that AI is making right now?
 - **B1**（38 字 / 每句 12.7 字 / 約 20.7 秒 ⚠️ 超過 20 秒）
   > If we don’t fix these problems, inequality will get worse and we will waste talent. As college students, we need to question current policies. Are they flexible enough for new trends, like AI-driven jobs or environmental crises?
 - **B2**（46 字 / 每句 23.0 字 / 約 23.0 秒 ⚠️ 超過 20 秒）
@@ -231,8 +231,8 @@ SDG 4 · 20 slides · levels: A1, A2, B1, B2 · content_version 2026.09.1
 
 - **A1**（30 字 / 每句 7.5 字 / 約 20.0 秒）
   > Good schools make Taiwan strong. But if we do not change, we will have problems. Science education must get better. We need to be ready for the world of tomorrow.
-- **A2**（36 字 / 每句 12.0 字 / 約 22.7 秒 ⚠️ 超過 20 秒）
-  > Ultimately, good education makes our society strong. But if we don’t change, Taiwan might fall behind. Science education must improve so we can handle the problems of tomorrow and keep our country successful and innovative.
+- **A2**（29 字 / 每句 9.7 字 / 約 18.3 秒）
+  > Good schools make a country strong. If we change nothing, Taiwan will slowly fall behind. Our science lessons have to grow with the world, because tomorrow will not wait.
 - **B1**（38 字 / 每句 9.5 字 / 約 20.7 秒 ⚠️ 超過 20 秒）
   > Education builds a resilient society. But without reforms, Taiwan might fall behind in innovation. Science education must evolve to meet new demands. We need to ensure that our schools are ready for the challenges of the 21st century.
 - **B2**（42 字 / 每句 14.0 字 / 約 21.0 秒 ⚠️ 超過 20 秒）
@@ -247,8 +247,8 @@ SDG 4 · 20 slides · levels: A1, A2, B1, B2 · content_version 2026.09.1
 
 - **A1**（31 字 / 每句 15.5 字 / 約 20.7 秒 ⚠️ 超過 20 秒）
   > In short, Taiwan is doing well with SDG 4, but we have problems too. Science and math help us grow, but we must make sure school is fair for every person.
-- **A2**（36 字 / 每句 18.0 字 / 約 22.7 秒 ⚠️ 超過 20 秒）
-  > To wrap up, Taiwan has made a lot of progress with SDG 4. Science and technology are the keys to our success, but we still have many problems with fairness that we need to solve together.
+- **A2**（28 字 / 每句 9.3 字 / 約 17.7 秒）
+  > So where does that leave us? Taiwan has built a wide, free education system, and STEM has made the country rich. Yet fairness is still the missing piece.
 - **B1**（37 字 / 每句 12.3 字 / 約 20.2 秒 ⚠️ 超過 20 秒）
   > In summary, SDG 4 shows both progress and problems in Taiwan. STEM is a key tool for our development. We have high enrollment, but we must continue to work on making the system fair for every student.
 - **B2**（43 字 / 每句 21.5 字 / 約 21.5 秒 ⚠️ 超過 20 秒）
@@ -258,8 +258,8 @@ SDG 4 · 20 slides · levels: A1, A2, B1, B2 · content_version 2026.09.1
 
 - **A1**（28 字 / 每句 9.3 字 / 約 18.7 秒）
   > High test scores are not enough. Being creative is very important. We need to change our schools so every student can have a dream and make it real.
-- **A2**（36 字 / 每句 12.0 字 / 約 22.7 秒 ⚠️ 超過 20 秒）
-  > We need to look deeper. High test scores are good, but being creative is more important. We need to change the system so that every student has a fair chance to learn and create new things.
+- **A2**（31 字 / 每句 10.3 字 / 約 19.6 秒）
+  > High test scores are not enough. A score cannot show me a creative idea, and it cannot make a poor school rich. We have to rebuild the system, not decorate it.
 - **B1**（38 字 / 每句 12.7 字 / 約 20.7 秒 ⚠️ 超過 20 秒）
   > We have to challenge the reality of our schools. While our test scores are high, we often forget about creativity and equity. Deep reforms are necessary to make education truly transformative and helpful for all parts of society.
 - **B2**（45 字 / 每句 15.0 字 / 約 22.5 秒 ⚠️ 超過 20 秒）
@@ -269,8 +269,8 @@ SDG 4 · 20 slides · levels: A1, A2, B1, B2 · content_version 2026.09.1
 
 - **A1**（28 字 / 每句 9.3 字 / 約 18.7 秒）
   > In the future, every person should learn science. We can ask for better lessons. We want to see how science works in our real lives every single day.
-- **A2**（35 字 / 每句 17.5 字 / 約 22.1 秒 ⚠️ 超過 20 秒）
-  > Looking ahead, science and math should be for everyone, including groups that are often left out. We can ask for better lessons that show us how science works in the real world every single day.
+- **A2**（29 字 / 每句 9.7 字 / 約 18.3 秒）
+  > Looking ahead, science must open its doors wider. Girls, country students and poorer families belong in the lab. Every lesson should show where the science lands in real life.
 - **B1**（37 字 / 每句 12.3 字 / 約 20.2 秒 ⚠️ 超過 20 秒）
   > Looking forward, we must focus on inclusive STEM education. This means including underrepresented groups and updating our curricula. We need to integrate real-world science applications so that every student sees the value of what they are learning.
 - **B2**（44 字 / 每句 14.7 字 / 約 22.0 秒 ⚠️ 超過 20 秒）
@@ -280,8 +280,8 @@ SDG 4 · 20 slides · levels: A1, A2, B1, B2 · content_version 2026.09.1
 
 - **A1**（29 字 / 每句 7.2 字 / 約 19.3 秒）
   > Thank you for listening! Let's help today. You can talk to your teachers or help a friend with their homework. Together, we can make a better world for everyone.
-- **A2**（35 字 / 每句 7.0 字 / 約 22.1 秒 ⚠️ 超過 20 秒）
-  > Finally, thank you for listening. Let’s take action! You can talk about school rules or help younger students. Together, we can make the future fair and full of new ideas. Let’s start today!
+- **A2**（30 字 / 每句 7.5 字 / 約 18.9 秒）
+  > Here is my ask. Join a school meeting, volunteer with younger students, or speak up for a fairer rule. Taiwan can build a school that misses nobody. Let's start today.
 - **B1**（35 字 / 每句 7.0 字 / 約 19.1 秒）
   > Thank you for your attention. As students, let’s take action! Participate in discussions, volunteer in programs, or push for change. Together, we can build a more equitable and innovative future. Thank you for listening!
 - **B2**（48 字 / 每句 9.6 字 / 約 24.0 秒 ⚠️ 超過 20 秒）

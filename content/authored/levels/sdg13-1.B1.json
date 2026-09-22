@@ -6,28 +6,29 @@
   "basis": "Rewritten against the v2 quality gate after two independent expert audits (CEFR assessor; speech coach + fact checker) found the v1 text passed on averages while individual slides missed their band, A2 and B1 were the same sentences with synonyms swapped, and several facts had drifted. Facts corrected to source: +1.6 degrees over a century (NSTC 2024) against a global 1.3; Climate Change Response Act 2023; carbon fee live 2025; Taichung capture demonstration about 2,000 t/yr, not a deployed solution; public transport share is about 14%, so 'we rely on public transport' was removed; 'Silicon Shield' dropped as a cross-strait deterrence term unsuited to a climate talk. Level is carried by syntax and lexical load, not by word count.",
   "reviewed_by": [
     "cefr-assessor-agent",
-    "speech-coach-factcheck-agent"
+    "speech-coach-factcheck-agent",
+    "gemini-3.1-pro-high external examiner"
   ],
   "slides": {
-    "1": "Have you noticed how strange our weather has become? Record heat, sudden flooding and mild winters are no longer unusual, and together they mark the leading edge of a climate emergency.",
-    "2": "Climate Action is the thirteenth of the global goals, and it asks every government to cut carbon and prepare for disaster. Taiwan follows it, though we cannot join the United Nations.",
+    "1": "Have you noticed how strange our weather has become? Record heat, sudden flooding and mild winters are no longer unusual, and together they are the first clear signs of a climate emergency.",
+    "2": "Climate Action is the thirteenth of the global goals. It asks every government to cut carbon and prepare for disaster. Taiwan follows it, though we are shut out of the main climate talks.",
     "3": "Geography makes this personal for us. We live on a crowded island directly on the typhoon track, and our western coastline is low and flat. The industries that pay our bills are hungry for energy.",
     "4": "Start with the measurements, not the impressions. Over the past century Taiwan warmed by 1.6 degrees while the whole planet warmed by 1.3. Our island is heating faster than the worldwide average.",
-    "5": "The difficulty is structural. Coal and imported gas still make most of our electricity, and the chip plants that anchor our economy cannot survive a single hour without power.",
+    "5": "The difficulty is structural. Coal and imported gas still make most of our electricity, and the chip plants our economy depends on cannot survive a single hour without power.",
     "6": "Two questions follow, and neither of them is comfortable. If industrial demand keeps rising, can clean power ever catch up? And if it cannot, who pays the bill that our generation leaves behind?",
-    "7": "Real progress has finally arrived. Taiwan passed the Climate Change Response Act in 2023, which wrote net zero by 2050 into law. Heavy polluters have paid a carbon fee since 2025.",
-    "8": "The coastline has changed in front of us, with hundreds of turbines now standing off our western shore. Solar panels have spread across school roofs, fish farms and factory estates.",
-    "9": "People here have done their part. Taiwan recycles more than most countries, yet scooters still fill our roads far more than buses, so personal effort alone will never be enough.",
+    "7": "Real progress has arrived at last. Taiwan passed the Climate Change Response Act in 2023, which wrote net zero by 2050 into law. Heavy polluters have paid a carbon fee since 2025.",
+    "8": "The coastline has changed in front of us, with hundreds of turbines now standing off our western shore. Solar panels have spread across school roofs, fish farms and industrial parks.",
+    "9": "People here have done their part. Taiwan recycles more than most countries, yet petrol scooters still fill our roads far more than buses, so personal effort alone will never be enough.",
     "10": "Engineers are now designing a smarter grid. The idea is that software, not a control room, decides where power should travel each minute, and Taipower has begun testing it.",
-    "11": "Carbon capture is being tested here too. A demonstration unit at the Taichung power station removes about 2,000 tonnes of carbon each year. That proves the chemistry, but not yet the scale.",
-    "12": "Our streets carry a different kind of idea. Riders here exchange a flat battery for a charged one in seconds, and thousands of swap bays now sit outside convenience stores nationwide.",
-    "13": "Cutting carbon is expensive, though, and that is rarely mentioned. Cleaner machines need money that small factories rarely have, so any honest plan has to carry those firms rather than break them.",
-    "14": "Keeping the lights on is the hardest part. Precision plants draw current every hour, while wind and sunshine arrive whenever they please. That forces a choice between gas and a nuclear restart.",
+    "11": "Carbon capture is being tested here too. A demonstration unit at the Taichung power station removes about 2,000 tonnes of carbon each year. That proves the technology works, but not yet the scale.",
+    "12": "Our streets show a different answer. Riders here exchange a flat battery for a charged one in seconds, and thousands of swap bays now sit outside shops all over the island.",
+    "13": "Cutting carbon is expensive, though, and that is rarely mentioned. Cleaner machines need money that small factories rarely have, so any honest plan has to support those firms, not break them.",
+    "14": "Keeping the lights on is the hardest part. Precision plants draw current every hour, while wind and sunshine arrive whenever they please. That forces a difficult choice between gas and a nuclear restart.",
     "15": "Climate change respects no border at all. Taiwan has technology worth sharing, although being shut out of the main climate talks limits how far that help can actually travel.",
-    "16": "Greenwashing deserves your attention. Firms often advertise how green they are while changing very little, so ask for real numbers and a dated plan instead of a nice picture of a wind turbine.",
+    "16": "Greenwashing deserves your attention. Firms often advertise how green they are while changing very little. So ask for real numbers and a dated plan instead of a nice picture of a wind turbine.",
     "17": "Where does this leave us? The target is now law, the turbines are turning and the first capture trials have started, so a coal-heavy island has genuinely begun to change direction.",
-    "18": "This matters to you directly. Your generation will supply the engineers, the voters and the buyers of the next thirty years, and those choices will outlast every politician now in office.",
-    "19": "Fear is not a useful answer to this. Curiosity is far stronger, so study the science, question the numbers you are given, and tell people honestly whatever you find out.",
-    "20": "So the question comes back to this room. Will your generation simply inherit this change, or will you actually decide to lead it? I have already chosen, and I hope you join me."
+    "18": "This matters to you directly. Your generation will supply the engineers, the voters and the buyers of the next thirty years. Those choices will still matter long after today's politicians have gone.",
+    "19": "Fear will not help us here. Curiosity is far stronger, so study the science, question the numbers you are given, and tell people honestly what you find out.",
+    "20": "So the question comes back to this room. Will your generation simply inherit this transition, or will you actually decide to lead it? I have already chosen, and I hope you decide with me."
   }
 }

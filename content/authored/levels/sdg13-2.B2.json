@@ -1,0 +1,30 @@
+{
+  "mission_id": "sdg13-2",
+  "level": "B2",
+  "provenance": "authored-replacement",
+  "author": "Claude (English teacher role), authored against the v2 quality gate",
+  "basis": "DRAFT",
+  "reviewed_by": null,
+  "slides": {
+    "1": "Something in our water cycle has broken. The rain withholds itself for months, then a single system returns an entire year of it within forty-eight hours, and adaptation is what we do about that.",
+    "2": "The goal is usually reduced to carbon accounting, yet mitigation covers barely half of what the text actually demands. The remainder is resilience: drainage that copes, buildings that survive, and a municipal supply that never fails.",
+    "3": "Taiwan is formally classified as water-poor, a description that sounds absurd in a subtropical climate. The explanation is topographical: precipitation reaches the ocean within hours of landing, long before any catchment can retain it.",
+    "4": "Typhoons appear to be arriving less frequently while intensifying, and fewer storms means fewer refills. During the last severe drought reservoir storage was effectively exhausted, paddy fields fractured, and semiconductor fabrication came remarkably close to halting.",
+    "5": "The opposite failure is equally expensive. When a storm stalls over the island, a year of precipitation can arrive within forty-eight hours, overwhelming drainage designed for a gentler century and converting commercial streets into rivers.",
+    "6": "Two engineering questions follow, and neither has a comfortable answer. Can public works designed for a previous climate withstand the current one? And can floodwater be intercepted and stored rather than discharged straight into the sea?",
+    "7": "The official response has been infrastructural. Under the Forward-looking Water Grid, municipal pipelines have been interconnected, allowing surplus volume to be transferred from Tainan toward Kaohsiung whenever one reservoir falls below its operating reserve.",
+    "8": "Taipei and Taichung are being retrofitted as sponge cities. Impermeable concrete is gradually replaced by porous surfacing, while parks are engineered as retention basins, deliberately sunk so a deluge collects there rather than in the surrounding streets.",
+    "9": "Agriculture has adapted comparably. Computerised drip irrigation delivers precisely the volume a crop requires, eliminating the surplus that older methods wasted, and conserving millions of tons of freshwater annually across the island.",
+    "10": "Here the engineering becomes genuinely elegant. Sensors embedded in the mains stream continuous flow data to an analytical system that identifies a buried leak within minutes, long before the loss becomes visible at the surface.",
+    "11": "Water is increasingly manufactured rather than merely collected. Industrial effluent is reclaimed to a purity that permits reuse, and coastal desalination offers an emergency buffer, although extracting salt from seawater consumes a considerable amount of electricity.",
+    "12": "The same philosophy governs our unstable highlands. Rather than pouring further concrete, engineers stabilise slopes with rock structures and indigenous planting, an approach that protects the river basin and prevents sediment from silting up reservoirs downstream.",
+    "13": "Nothing here is inexpensive, and the invoice eventually arrives somewhere. Reclamation facilities and deep tunnels absorb billions of dollars of capital, so the genuine political question is how such defences are financed without penalising ordinary households.",
+    "14": "A distributional problem is embedded in every one of these projects. Affluent technology corridors receive upgraded systems first, whereas agricultural communities are typically the earliest to have their allocation restricted once a drought is declared.",
+    "15": "Other island states confront an identical set of pressures, and our accumulated experience would transfer directly. Political exclusion keeps Taiwan outside the major climate summits, which means this knowledge has to circulate through unofficial channels.",
+    "16": "Finally, all of this demands sustained public scrutiny. An unmaintained retention basin is merely expensive landscaping, so citizens should insist on published inspection data, because this infrastructure has to be functioning in 2050.",
+    "17": "Taken together, the direction is encouraging. Sponge cities, an interconnected grid and a great deal of engineering are converting a vulnerable island into a demonstrably prepared one. The storms cannot be prevented, only survived.",
+    "18": "This concerns you because adaptation remains an unsolved design problem rather than a completed policy. Study earth science, computing or engineering if it appeals, and meanwhile treat domestic conservation as a modest but genuine contribution.",
+    "19": "Powerlessness is the least useful response available to you. Human ingenuity and natural systems can be made to cooperate rather than compete, and Taiwan appears to possess both the technical skill and the political nerve.",
+    "20": "The atmosphere will not pause while we deliberate. So will you help construct an island capable of absorbing whatever the next decade sends? Taiwan can be made ready, and that reconstruction begins the moment we leave."
+  }
+}
