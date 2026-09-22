@@ -1,0 +1,22 @@
+{
+  "mission_id": "sdg9-1",
+  "level": "B2",
+  "provenance": "authored-replacement",
+  "author": "Claude (English teacher role), v2 against the v2 quality gate",
+  "basis": "Replaces the workbook B2 column, which reached for C1 vocabulary ('revolutionary infrastructure', 'exceptionally efficient', 'deceptive data') while its syntax stayed at B1: no concession, no passive and no participle clauses. Here the level is carried by structure - concession on slides 4, 10 and 12, passives on 3, 5 and 6, participle clauses on 2 and 3, a reduced relative on 6 ('a paragraph written by a model'), a cleft on 11 ('What algorithms cannot do is wonder') and fronting with inversion on 12 ('Only when we verify what we publish does...') - so it stays speakable rather than ornamental. Meaning, slide order and every named fact are unchanged: SDG 9 Industry, Innovation, and Infrastructure; ChatGPT and Gemini (slide 3 keeps them as the tools students use); AI hallucination; Google Scholar; PubMed; peer-reviewed journals. Technical corrections: the workbook says the model 'confidently fabricates deceptive data', which attributes intent and confidence to a program, and that it predicts words 'based on patterns learned from enormous amounts of text', which is right but sits beside the claim that it 'does not truly understand science' as if that were an accident. Restated: prediction of the most probable continuation is what the system is built to do, fabricated sources are a consequence of that design, and no claim is made that the model knows, understands or looks anything up.",
+  "reviewed_by": null,
+  "slides": {
+    "1": "Good morning. The ninth Sustainable Development Goal, Industry, Innovation, and Infrastructure, asks every country in the world to build the factories, the networks and the kind of research that a modern economy quietly depends on.",
+    "2": "Artificial intelligence has quietly become part of that infrastructure, speeding up analysis in almost every laboratory on earth. That success, though, raises the one question we would rather not ask about it.",
+    "3": "University students have absorbed ChatGPT and Gemini into ordinary academic life, handing over the jobs we once did ourselves. The lab report, the literature summary and the hard theory are drafted by software.",
+    "4": "The technology is impressive, although it fails in an unusual way. A model can manufacture citations, authors and whole findings that look totally legitimate and yet have never existed at all.",
+    "5": "The reason is architectural rather than accidental. A language model is trained to predict the most probable continuation of a text, and that prediction is drawn from statistical patterns, not from reality.",
+    "6": "Because the system is built to continue a sentence rather than to verify a claim, fluency guarantees nothing about accuracy. A paragraph written by a model and one written by a researcher look identical.",
+    "7": "If fabricated references survive into a submitted report, the first cost is a failed assignment. The deeper cost is heavier: research honesty, a career reputation and the good name of a whole lab.",
+    "8": "The damage does not stay inside the classroom. Public confidence in science is fragile, and when inaccurate claims circulate widely, the innovation that SDG 9 promises becomes politically impossible to deliver.",
+    "9": "So what should a responsible scientist actually do? Treat every answer the machine produces as a first hypothesis, not a conclusion, and remember that verification has to come before belief.",
+    "10": "Next, run every important claim past Google Scholar, PubMed or a peer-reviewed journal. Retrieval is delegated to a machine easily enough, whereas judgement about what those sources mean is not.",
+    "11": "Inside a laboratory that is increasingly automated, the human part still decides the outcome. What algorithms lack is curiosity, trained intuition and any real sense that a published result might be wrong.",
+    "12": "AI may be the most consequential innovation that SDG 9 has produced, although innovation without responsibility decays into misinformation. Only when we verify what we publish does the technology deserve our trust."
+  }
+}

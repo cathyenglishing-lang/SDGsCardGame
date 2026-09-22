@@ -7,7 +7,7 @@ SDG 1 · 20 slides · levels: A1, A2, B1, B2 · content_version 2026.09.1
 | 級別 | 張數 | 每張字數 | 每句字數 | FK | 超過 20 秒 |
 | --- | --- | --- | --- | --- | --- |
 | A1 | 20 | 18.7 | 8.0 | 4.5 | 0 |
-| A2 | 20 | 29.9 | 10.0 | 4.9 | 4 |
+| A2 | 20 | 29.4 | 9.8 | 5.0 | 0 |
 | B1 | 20 | 34.5 | 14.9 | 10.4 | 3 |
 | B2 | 20 | 37.5 | 18.7 | 18.4 | 0 |
 
@@ -58,8 +58,8 @@ SDG 1 · 20 slides · levels: A1, A2, B1, B2 · content_version 2026.09.1
 
 - **A1**（20 字 / 每句 10.0 字 / 約 9.2 秒）
   > Some people work hard but still do not have enough money. Unstable jobs make family life and school life harder.
-- **A2**（34 字 / 每句 11.3 字 / 約 21.5 秒 ⚠️ 超過 20 秒）
-  > Here is the first problem: working poverty. People work hard and still cannot feel safe. Short contracts, low pay and long hours break their plans, and worried parents have less time for their children.
+- **A2**（31 字 / 每句 10.3 字 / 約 19.6 秒）
+  > The first problem is working poverty. People work hard and still feel unsafe. Short contracts, low pay and long hours break their plans, and tired parents lose time with their children.
 - **B1**（37 字 / 每句 18.5 字 / 約 20.2 秒 ⚠️ 超過 20 秒）
   > Working poverty matters because effort alone no longer guarantees security. When parents are stuck with temporary contracts and low pay, they lose the hours and the energy their children need, so hardship travels into the next generation.
 - **B2**（36 字 / 每句 18.0 字 / 約 18.0 秒）
@@ -69,8 +69,8 @@ SDG 1 · 20 slides · levels: A1, A2, B1, B2 · content_version 2026.09.1
 
 - **A1**（21 字 / 每句 7.0 字 / 約 9.7 秒）
   > High rent can hurt families. They may have less money for food, books, or buses. A safe home helps students learn.
-- **A2**（35 字 / 每句 11.7 字 / 約 22.1 秒 ⚠️ 超過 20 秒）
-  > Rent is the next weight. When it is high, families spend less on food, books and buses. Students move house often or share a crowded room, and a noisy home is hard to study in.
+- **A2**（31 字 / 每句 10.3 字 / 約 19.6 秒）
+  > Rent is the next weight. When it is high, families spend less on food, books and tutoring. Some students move house often or share one crowded room, where study is hard.
 - **B1**（36 字 / 每句 18.0 字 / 約 19.6 秒）
   > Housing costs create poverty quietly. Once the rent takes too much of the income, every other need has to be cut, and students who move often or share a crowded room lose sleep, focus and confidence.
 - **B2**（38 字 / 每句 19.0 字 / 約 19.0 秒）
@@ -96,8 +96,8 @@ SDG 1 · 20 slides · levels: A1, A2, B1, B2 · content_version 2026.09.1
 
 - **A1**（21 字 / 每句 10.5 字 / 約 9.7 秒）
   > Taiwan has help for poor families, health care, and emergency support. These programs protect people, but they must reach people early.
-- **A2**（32 字 / 每句 10.7 字 / 約 20.2 秒 ⚠️ 超過 20 秒）
-  > Taiwan does have safety nets: social help, health insurance, emergency money and local offices. They protect our basic needs. But does that help arrive before a small problem turns into a crisis?
+- **A2**（29 字 / 每句 9.7 字 / 約 18.3 秒）
+  > Taiwan has safety nets: social help, health insurance, and local offices. They protect basic needs. But does that help reach us before a small problem turns into a crisis?
 - **B1**（35 字 / 每句 17.5 字 / 約 19.1 秒）
   > Taiwan has built several safety nets, including health insurance, social welfare, emergency relief and local service centers. However, a good policy must also be easy to find, simple to apply for and respectful to use.
 - **B2**（39 字 / 每句 19.5 字 / 約 19.5 秒）
@@ -119,7 +119,7 @@ SDG 1 · 20 slides · levels: A1, A2, B1, B2 · content_version 2026.09.1
 - **A1**（21 字 / 每句 7.0 字 / 約 9.7 秒）
   > Community groups can give food, care, and help. But help should not only be gifts. It should build confidence and skills.
 - **A2**（30 字 / 每句 10.0 字 / 約 18.9 秒）
-  > Community groups help too. Food banks, social workers, religious groups and NGOs find the people that big systems miss. But gifts alone are not enough, because people also need skills.
+  > Community groups help too. Food banks, social workers, religious groups and NGOs find people that big systems miss. Gifts alone are not enough, because real support builds skills and dignity.
 - **B1**（37 字 / 每句 12.3 字 / 約 20.2 秒 ⚠️ 超過 20 秒）
   > Local organizations often understand a neighborhood better than any ministry does. They may provide food, tutoring, care or job information. Yet SDG 1 is not charity, because the goal is to give people choices, skills and dignity.
 - **B2**（36 字 / 每句 18.0 字 / 約 18.0 秒）
@@ -134,8 +134,8 @@ SDG 1 · 20 slides · levels: A1, A2, B1, B2 · content_version 2026.09.1
 
 - **A1**（17 字 / 每句 8.5 字 / 約 7.8 秒）
   > Students can learn how to budget, save, and avoid scams. Money skills help us make safer choices.
-- **A2**（29 字 / 每句 9.7 字 / 約 18.3 秒）
-  > So what can we do? First, we can learn about money. Students can plan a budget, save a little, borrow with care, and learn how to spot a scam.
+- **A2**（28 字 / 每句 9.3 字 / 約 17.7 秒）
+  > So what can we do? One answer is financial literacy. Students can plan a budget, save a little, borrow with care, and learn how to spot a scam.
 - **B1**（29 字 / 每句 14.5 字 / 約 15.8 秒）
   > Financial literacy hands students a practical kind of power. Learning about budgets, savings, debt, insurance and scams leads to better decisions, although education can never replace a fair wage.
 - **B2**（38 字 / 每句 19.0 字 / 約 19.0 秒）
@@ -157,7 +157,7 @@ SDG 1 · 20 slides · levels: A1, A2, B1, B2 · content_version 2026.09.1
 - **A1**（16 字 / 每句 8.0 字 / 約 7.4 秒）
   > Students can help local groups, make English posters, or teach younger children. We learn by doing.
 - **A2**（29 字 / 每句 9.7 字 / 約 18.3 秒）
-  > Service learning turns ideas into action. Students can visit a local group, write posters in two languages, or teach younger children. We learn most when we work beside people.
+  > Service learning turns ideas into action. We can visit a local group, write posters in two languages, or teach younger children. We learn most when we work beside people.
 - **B1**（34 字 / 每句 17.0 字 / 約 18.5 秒）
   > Service learning turns SDG 1 into something students have actually done. They can interview social workers, build bilingual resources or support tutoring, and their English improves because they are speaking for a real purpose.
 - **B2**（38 字 / 每句 19.0 字 / 約 19.0 秒）
@@ -172,8 +172,8 @@ SDG 1 · 20 slides · levels: A1, A2, B1, B2 · content_version 2026.09.1
 
 - **A1**（16 字 / 每句 8.0 字 / 約 7.4 秒）
   > Taiwan has more older people. Some live alone and need money, care, buses, and digital help.
-- **A2**（29 字 / 每句 9.7 字 / 約 18.3 秒）
-  > Taiwan is growing older fast. Many old people live alone and need care, money, a bus, and help with their phone. Poverty follows health and family, not only pay.
+- **A2**（28 字 / 每句 9.3 字 / 約 17.7 秒）
+  > Taiwan is growing older fast. Many old people live alone and need care, money, transport, and help with their phone. Poverty follows health and family, not only pay.
 - **B1**（34 字 / 每句 17.0 字 / 約 18.5 秒）
   > An aging society changes the shape of poverty. Older adults may live alone, manage illness, or struggle with services that have moved online, so SDG 1 now connects welfare, transport, health care and community.
 - **B2**（35 字 / 每句 17.5 字 / 約 17.5 秒）
@@ -183,8 +183,8 @@ SDG 1 · 20 slides · levels: A1, A2, B1, B2 · content_version 2026.09.1
 
 - **A1**（17 字 / 每句 8.5 字 / 約 7.8 秒）
   > Migrant workers and new immigrant families may face language problems. Fair support helps them live and learn.
-- **A2**（32 字 / 每句 10.7 字 / 約 20.2 秒 ⚠️ 超過 20 秒）
-  > Migrant workers and new immigrant families also need a fair door in. Language, forms and customs can make help hard to reach. When a service is clear, whole families can join in.
+- **A2**（31 字 / 每句 10.3 字 / 約 19.6 秒）
+  > Migrant workers and new immigrant families need a fair door in. Language, forms and customs make help hard to reach. When a service is clear, the whole family can use it.
 - **B1**（34 字 / 每句 17.0 字 / 約 18.5 秒）
   > Poverty is harder to escape for migrant workers and new immigrant families, because language and paperwork build a wall around the help. If the process is confusing, many people simply stop asking for it.
 - **B2**（38 字 / 每句 19.0 字 / 約 19.0 秒）
@@ -194,8 +194,8 @@ SDG 1 · 20 slides · levels: A1, A2, B1, B2 · content_version 2026.09.1
 
 - **A1**（19 字 / 每句 6.3 字 / 約 8.8 秒）
   > Floods and hot weather hurt poor families more. They have less money to recover. Climate action also fights poverty.
-- **A2**（26 字 / 每句 8.7 字 / 約 16.4 秒）
-  > Climate makes poverty worse. Floods and heat hurt low-income homes hardest, because they have fewer savings and fewer choices. So climate action is poverty action too.
+- **A2**（29 字 / 每句 9.7 字 / 約 18.3 秒）
+  > Climate disasters make poverty worse. Floods and heat hit poor homes hardest, because they have less money saved and fewer ways out. Climate action is part of this fight.
 - **B1**（34 字 / 每句 17.0 字 / 約 18.5 秒）
   > Climate risk is a poverty issue in disguise. When a disaster arrives, low-income families lose more and recover far more slowly, so shelters, insurance, clear information and community networks have to be ready first.
 - **B2**（38 字 / 每句 19.0 字 / 約 19.0 秒）
@@ -221,8 +221,8 @@ SDG 1 · 20 slides · levels: A1, A2, B1, B2 · content_version 2026.09.1
 
 - **A1**（17 字 / 每句 5.7 字 / 約 7.8 秒）
   > SDG 1 is about safety for everyone. Poverty affects school, health, homes, and dreams. We need better support.
-- **A2**（29 字 / 每句 9.7 字 / 約 18.3 秒）
-  > To sum up, this goal is about shared safety. Poverty touches school, health, a home and a dream. Taiwan already helps, but help must come sooner and reach further.
+- **A2**（27 字 / 每句 9.0 字 / 約 17.1 秒）
+  > To sum up, this goal is about shared safety. Poverty touches education, health, housing and dreams. Taiwan already helps, but help must come sooner and reach further.
 - **B1**（37 字 / 每句 12.3 字 / 約 20.2 秒 ⚠️ 超過 20 秒）
   > In summary, SDG 1 is not only about money. It is about whether everyone can live with safety and with opportunity. Taiwan has clearly progressed, yet hidden poverty still asks us to improve access, timing and fairness.
 - **B2**（37 字 / 每句 18.5 字 / 約 18.5 秒）
@@ -233,7 +233,7 @@ SDG 1 · 20 slides · levels: A1, A2, B1, B2 · content_version 2026.09.1
 - **A1**（18 字 / 每句 9.0 字 / 約 8.3 秒）
   > We should not blame poor people. Many problems come from low pay, illness, high costs, or family care.
 - **A2**（28 字 / 每句 9.3 字 / 約 17.7 秒）
-  > We also need to drop the blame. Low pay, high prices, illness, caring for family, a flood: these push people down. Blaming is easy, and understanding is useful.
+  > We also need to drop the blame. Low pay, high prices, illness, caring for family, a flood: these push people down. Blaming is easy, but understanding is useful.
 - **B1**（36 字 / 每句 18.0 字 / 約 19.6 秒）
   > The most useful change may be our own language. Calling people lazy ends the conversation immediately, while asking which barriers they meet opens it, because we then have to discuss wages, rent, health, transport and education.
 - **B2**（36 字 / 每句 18.0 字 / 約 18.0 秒）
@@ -243,8 +243,8 @@ SDG 1 · 20 slides · levels: A1, A2, B1, B2 · content_version 2026.09.1
 
 - **A1**（17 字 / 每句 8.5 字 / 約 7.8 秒）
   > Young people can learn English, use data, and join local projects. Small actions can become strong together.
-- **A2**（29 字 / 每句 9.7 字 / 約 18.3 秒）
-  > Young people are not too small to act. Learn English and share these ideas, use data to show the problem, join a group near you. Together, small actions grow.
+- **A2**（30 字 / 每句 10.0 字 / 約 18.9 秒）
+  > You are young, but you can start now. Learn English and share these ideas, use data to show the problem, join a group near you. Together, small actions become powerful.
 - **B1**（35 字 / 每句 11.7 字 / 約 19.1 秒）
   > Students are not too young to act on this. They can run bilingual campaigns, volunteer, collect stories, design simple tools, or present their findings to the school. PechaKucha turns private study into a public voice.
 - **B2**（35 字 / 每句 17.5 字 / 約 17.5 秒）
@@ -255,7 +255,7 @@ SDG 1 · 20 slides · levels: A1, A2, B1, B2 · content_version 2026.09.1
 - **A1**（21 字 / 每句 7.0 字 / 約 9.7 秒）
   > Thank you for listening. Let us see poverty, respect people, and help in our school and community. We can start today.
 - **A2**（31 字 / 每句 10.3 字 / 約 19.6 秒）
-  > So let's start where we stand. See poverty clearly, speak about it with respect, and act inside our own school. A fair future begins with what we choose to notice today.
+  > So let's start where we stand. See poverty clearly, speak with respect, and act in our own school and community. A fair future begins with what we choose to notice today.
 - **B1**（35 字 / 每句 11.7 字 / 約 19.1 秒）
   > Ending poverty sounds enormous, yet the action usually starts nearby. Notice a need, check the facts, speak respectfully and work with somebody else. If we connect English, the SDGs and action, students become real changemakers.
 - **B2**（38 字 / 每句 19.0 字 / 約 19.0 秒）
