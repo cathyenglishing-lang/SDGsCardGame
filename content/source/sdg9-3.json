@@ -47,17 +47,20 @@
               "workbook_text": "Good morning, everyone. Today, let’s look at United Nations SDG 9, a great global plan that helps all countries support modern technological innovations and build strong infrastructure for a better world."
             },
             "B1": {
-              "text": "Good morning, everyone. Today, let’s look at United Nations SDG 9, a global plan that encourages all countries to support modern technology and build strong systems for better scientific development around the world.",
-              "words": 34,
+              "text": "Good morning. SDG 9 has one central aim: it asks governments everywhere to fund modern research and to build the kind of strong networks that a scientific nation depends on.",
+              "words": 30,
               "sentences": 2,
-              "avg_sentence_words": 17.0,
-              "fk_grade": 11.5,
-              "long_word_pct": 17.6,
-              "speak_seconds_est": 18.5,
-              "fill_pct": 92.7,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 7.6,
+              "long_word_pct": 16.7,
+              "speak_seconds_est": 16.4,
+              "fill_pct": 81.8,
               "fits_20s": true,
               "wpm": 110,
-              "provenance": "workbook"
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (English teacher role), v2 against the v2 quality gate",
+              "basis": "Written from scratch rather than edited, because the workbook B1 shared 0.57 of its vocabulary with A2 and another 0.57 with B2 - the three levels were the same sentences with a few words swapped, and eleven of twelve B1 slides failed the band as single 32-word sentences hinged on a semicolon. This text is rebuilt around B1 grammar, which the workbook B1 lacked entirely: present perfect on slides 1, 2, 6 and 7, a first conditional on slide 8, relative clauses on 1, 3, 4, 7 and 11, concession on 7 and 12, and a passive on 11. Meaning, slide order and every named fact are unchanged: SDG 9, lab reports, articles, computer code, public safety, the environment, curiosity, creativity, responsibility. Facts corrected: the workbook B1 says the model 'predicts words based on math probabilities instead of curiosity or reasoning' but also that it can 'find patterns in massive amounts of data'; that is kept, while 'it does not have real understanding' is stated as having no grasp of what the patterns mean, so nothing implies the system knows or looks anything up. 'Let us' became \"let's\" on slide 12 and the closing 'Thank you' was cut so the talk ends on the claim.",
+              "workbook_text": "Good morning, everyone. Today, let’s look at United Nations SDG 9, a global plan that encourages all countries to support modern technology and build strong systems for better scientific development around the world."
             },
             "B2": {
               "text": "Good morning, everyone. Today, let’s explore United Nations SDG 9, a global framework that encourages all countries to support modern technological innovation and build strong networks for sustainable scientific development worldwide.",
@@ -109,17 +112,20 @@
               "workbook_text": "In our digital world today, Artificial Intelligence is changing how we study and do scientific research very quickly; however, an important question remains: what special human qualities make us truly irreplaceable?"
             },
             "B1": {
-              "text": "In our digital world, Artificial Intelligence is changing how we study, do research, and make new tools; however, as AI becomes smarter, an important question remains: what human qualities make us truly irreplaceable?",
+              "text": "Artificial intelligence has changed the way we study, the way we run tests and the way we build new tools. As it becomes more capable, one question keeps returning. What makes us irreplaceable?",
               "words": 33,
-              "sentences": 1,
-              "avg_sentence_words": 33.0,
-              "fk_grade": 19.1,
-              "long_word_pct": 24.2,
+              "sentences": 3,
+              "avg_sentence_words": 11.0,
+              "fk_grade": 7.7,
+              "long_word_pct": 15.2,
               "speak_seconds_est": 18.0,
               "fill_pct": 90.0,
               "fits_20s": true,
               "wpm": 110,
-              "provenance": "workbook"
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (English teacher role), v2 against the v2 quality gate",
+              "basis": "Written from scratch rather than edited, because the workbook B1 shared 0.57 of its vocabulary with A2 and another 0.57 with B2 - the three levels were the same sentences with a few words swapped, and eleven of twelve B1 slides failed the band as single 32-word sentences hinged on a semicolon. This text is rebuilt around B1 grammar, which the workbook B1 lacked entirely: present perfect on slides 1, 2, 6 and 7, a first conditional on slide 8, relative clauses on 1, 3, 4, 7 and 11, concession on 7 and 12, and a passive on 11. Meaning, slide order and every named fact are unchanged: SDG 9, lab reports, articles, computer code, public safety, the environment, curiosity, creativity, responsibility. Facts corrected: the workbook B1 says the model 'predicts words based on math probabilities instead of curiosity or reasoning' but also that it can 'find patterns in massive amounts of data'; that is kept, while 'it does not have real understanding' is stated as having no grasp of what the patterns mean, so nothing implies the system knows or looks anything up. 'Let us' became \"let's\" on slide 12 and the closing 'Thank you' was cut so the talk ends on the claim.",
+              "workbook_text": "In our digital world, Artificial Intelligence is changing how we study, do research, and make new tools; however, as AI becomes smarter, an important question remains: what human qualities make us truly irreplaceable?"
             },
             "B2": {
               "text": "In this digital era, Artificial Intelligence is rapidly transforming the way we study, conduct research, and develop new technologies; however, as AI becomes increasingly capable, an important question remains: what qualities make humans truly irreplaceable?",
@@ -180,17 +186,20 @@
               "workbook_text": "Many university science students are excited about AI, but they also feel quite worried because these computer tools can easily write lab reports, read short science articles, and generate computer code."
             },
             "B1": {
-              "text": "Many university science students are excited about AI, but they also feel worried because these tools can write lab reports, summarize science articles, generate computer code, and answer difficult questions within seconds.",
-              "words": 32,
-              "sentences": 1,
-              "avg_sentence_words": 32.0,
-              "fk_grade": 18.6,
-              "long_word_pct": 25.0,
-              "speak_seconds_est": 17.5,
-              "fill_pct": 87.3,
+              "text": "Science undergraduates are excited by these tools. They are also nervous, and I understand why. A system that writes a lab report, summarises an article and produces working code in seconds is hard to match.",
+              "words": 35,
+              "sentences": 3,
+              "avg_sentence_words": 11.7,
+              "fk_grade": 8.2,
+              "long_word_pct": 11.4,
+              "speak_seconds_est": 19.1,
+              "fill_pct": 95.5,
               "fits_20s": true,
               "wpm": 110,
-              "provenance": "workbook"
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (English teacher role), v2 against the v2 quality gate",
+              "basis": "Written from scratch rather than edited, because the workbook B1 shared 0.57 of its vocabulary with A2 and another 0.57 with B2 - the three levels were the same sentences with a few words swapped, and eleven of twelve B1 slides failed the band as single 32-word sentences hinged on a semicolon. This text is rebuilt around B1 grammar, which the workbook B1 lacked entirely: present perfect on slides 1, 2, 6 and 7, a first conditional on slide 8, relative clauses on 1, 3, 4, 7 and 11, concession on 7 and 12, and a passive on 11. Meaning, slide order and every named fact are unchanged: SDG 9, lab reports, articles, computer code, public safety, the environment, curiosity, creativity, responsibility. Facts corrected: the workbook B1 says the model 'predicts words based on math probabilities instead of curiosity or reasoning' but also that it can 'find patterns in massive amounts of data'; that is kept, while 'it does not have real understanding' is stated as having no grasp of what the patterns mean, so nothing implies the system knows or looks anything up. 'Let us' became \"let's\" on slide 12 and the closing 'Thank you' was cut so the talk ends on the claim.",
+              "workbook_text": "Many university science students are excited about AI, but they also feel worried because these tools can write lab reports, summarize science articles, generate computer code, and answer difficult questions within seconds."
             },
             "B2": {
               "text": "Many university science majors are excited about AI tools but also feel anxious because these systems can write laboratory reports, summarize journal articles, generate computer code, and answer complex scientific questions within seconds.",
@@ -242,17 +251,20 @@
               "workbook_text": "These worries are easy to understand because AI can do many school tasks that used to need hard human work; however, doing a task quickly does not mean that AI truly understands science."
             },
             "B1": {
-              "text": "These worries are easy to understand because AI can do many tasks that used to require human effort; however, doing a task quickly does not mean that AI truly understands science.",
-              "words": 31,
-              "sentences": 1,
-              "avg_sentence_words": 31.0,
-              "fk_grade": 14.4,
-              "long_word_pct": 6.5,
-              "speak_seconds_est": 16.9,
-              "fill_pct": 84.5,
+              "text": "The nerves are understandable, because machines now handle work that used to need a person. Yet finishing a task fast is not the same as understanding it, and science needs the second.",
+              "words": 32,
+              "sentences": 2,
+              "avg_sentence_words": 16.0,
+              "fk_grade": 8.7,
+              "long_word_pct": 12.5,
+              "speak_seconds_est": 17.5,
+              "fill_pct": 87.3,
               "fits_20s": true,
               "wpm": 110,
-              "provenance": "workbook"
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (English teacher role), v2 against the v2 quality gate",
+              "basis": "Written from scratch rather than edited, because the workbook B1 shared 0.57 of its vocabulary with A2 and another 0.57 with B2 - the three levels were the same sentences with a few words swapped, and eleven of twelve B1 slides failed the band as single 32-word sentences hinged on a semicolon. This text is rebuilt around B1 grammar, which the workbook B1 lacked entirely: present perfect on slides 1, 2, 6 and 7, a first conditional on slide 8, relative clauses on 1, 3, 4, 7 and 11, concession on 7 and 12, and a passive on 11. Meaning, slide order and every named fact are unchanged: SDG 9, lab reports, articles, computer code, public safety, the environment, curiosity, creativity, responsibility. Facts corrected: the workbook B1 says the model 'predicts words based on math probabilities instead of curiosity or reasoning' but also that it can 'find patterns in massive amounts of data'; that is kept, while 'it does not have real understanding' is stated as having no grasp of what the patterns mean, so nothing implies the system knows or looks anything up. 'Let us' became \"let's\" on slide 12 and the closing 'Thank you' was cut so the talk ends on the claim.",
+              "workbook_text": "These worries are easy to understand because AI can do many tasks that used to require human effort; however, doing a task quickly does not mean that AI truly understands science."
             },
             "B2": {
               "text": "These concerns are completely understandable because AI appears to perform many tasks that once required human effort; however, completing a task efficiently does not mean that AI truly understands science or can replace human scientists.",
@@ -313,17 +325,20 @@
               "workbook_text": "Why does this happen? The AI computer does not automatically understand your human thoughts; instead, it only guesses the next word by using mathematical chance from the internet without real scientific comprehension."
             },
             "B1": {
-              "text": "Why does this happen? Although AI can find patterns in massive amounts of data, it does not have real understanding because it predicts words based on math probabilities instead of curiosity or reasoning.",
-              "words": 33,
+              "text": "A model can find patterns in enormous amounts of data, but it has no real grasp of what any of those patterns mean. It weighs probabilities instead of asking questions.",
+              "words": 30,
               "sentences": 2,
-              "avg_sentence_words": 16.5,
-              "fk_grade": 10.5,
-              "long_word_pct": 21.2,
-              "speak_seconds_est": 18.0,
-              "fill_pct": 90.0,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 8.0,
+              "long_word_pct": 16.7,
+              "speak_seconds_est": 16.4,
+              "fill_pct": 81.8,
               "fits_20s": true,
               "wpm": 110,
-              "provenance": "workbook"
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (English teacher role), v2 against the v2 quality gate",
+              "basis": "Written from scratch rather than edited, because the workbook B1 shared 0.57 of its vocabulary with A2 and another 0.57 with B2 - the three levels were the same sentences with a few words swapped, and eleven of twelve B1 slides failed the band as single 32-word sentences hinged on a semicolon. This text is rebuilt around B1 grammar, which the workbook B1 lacked entirely: present perfect on slides 1, 2, 6 and 7, a first conditional on slide 8, relative clauses on 1, 3, 4, 7 and 11, concession on 7 and 12, and a passive on 11. Meaning, slide order and every named fact are unchanged: SDG 9, lab reports, articles, computer code, public safety, the environment, curiosity, creativity, responsibility. Facts corrected: the workbook B1 says the model 'predicts words based on math probabilities instead of curiosity or reasoning' but also that it can 'find patterns in massive amounts of data'; that is kept, while 'it does not have real understanding' is stated as having no grasp of what the patterns mean, so nothing implies the system knows or looks anything up. 'Let us' became \"let's\" on slide 12 and the closing 'Thank you' was cut so the talk ends on the claim.",
+              "workbook_text": "Why does this happen? Although AI can find patterns in massive amounts of data, it does not have real understanding because it predicts words based on math probabilities instead of curiosity or reasoning."
             },
             "B2": {
               "text": "Why does this happen? Although AI can recognize patterns in enormous amounts of data, it does not possess genuine understanding because it predicts language based on mathematical probability rather than curiosity, reasoning, or scientific judgment.",
@@ -375,17 +390,20 @@
               "workbook_text": "Human scientists work differently because we ask new questions, design creative experiments, explain surprising laboratory results, and learn from our mistakes, meaning that scientific discovery needs a lot of human imagination."
             },
             "B1": {
-              "text": "Human scientists work differently because we ask new questions, design creative experiments, explain surprising laboratory results, and learn from our mistakes, meaning that scientific discovery depends heavily on imagination, hard work, and creativity.",
-              "words": 33,
-              "sentences": 1,
-              "avg_sentence_words": 33.0,
-              "fk_grade": 22.7,
-              "long_word_pct": 36.4,
-              "speak_seconds_est": 18.0,
-              "fill_pct": 90.0,
+              "text": "Human researchers behave in a different way. We invent questions nobody has asked before, we design new tests, we puzzle over odd results and we learn from failure. Real discovery still runs on imagination.",
+              "words": 34,
+              "sentences": 3,
+              "avg_sentence_words": 11.3,
+              "fk_grade": 9.0,
+              "long_word_pct": 14.7,
+              "speak_seconds_est": 18.5,
+              "fill_pct": 92.7,
               "fits_20s": true,
               "wpm": 110,
-              "provenance": "workbook"
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (English teacher role), v2 against the v2 quality gate",
+              "basis": "Written from scratch rather than edited, because the workbook B1 shared 0.57 of its vocabulary with A2 and another 0.57 with B2 - the three levels were the same sentences with a few words swapped, and eleven of twelve B1 slides failed the band as single 32-word sentences hinged on a semicolon. This text is rebuilt around B1 grammar, which the workbook B1 lacked entirely: present perfect on slides 1, 2, 6 and 7, a first conditional on slide 8, relative clauses on 1, 3, 4, 7 and 11, concession on 7 and 12, and a passive on 11. Meaning, slide order and every named fact are unchanged: SDG 9, lab reports, articles, computer code, public safety, the environment, curiosity, creativity, responsibility. Facts corrected: the workbook B1 says the model 'predicts words based on math probabilities instead of curiosity or reasoning' but also that it can 'find patterns in massive amounts of data'; that is kept, while 'it does not have real understanding' is stated as having no grasp of what the patterns mean, so nothing implies the system knows or looks anything up. 'Let us' became \"let's\" on slide 12 and the closing 'Thank you' was cut so the talk ends on the claim.",
+              "workbook_text": "Human scientists work differently because we ask new questions, design creative experiments, explain surprising laboratory results, and learn from our mistakes, meaning that scientific discovery depends heavily on imagination, hard work, and creativity."
             },
             "B2": {
               "text": "Human scientists work differently because we ask original questions, design creative experiments, interpret unexpected laboratory results, and learn from failure, meaning that scientific discovery depends heavily on human imagination, persistence, and creativity.",
@@ -446,17 +464,20 @@
               "workbook_text": "History clearly shows that every great scientific discovery always began with human curiosity, and while AI can organize old information very well, it cannot independently choose which new questions are worth studying."
             },
             "B1": {
-              "text": "History clearly shows that every great scientific discovery began with human curiosity, and while AI can organize existing information very well, it cannot independently decide which unanswered questions are actually worth studying.",
+              "text": "History is clear about this. Every major breakthrough has begun with somebody who was curious, and although AI can organise what we already know, it cannot decide which question is worth asking.",
               "words": 32,
-              "sentences": 1,
-              "avg_sentence_words": 32.0,
-              "fk_grade": 22.3,
-              "long_word_pct": 34.4,
+              "sentences": 2,
+              "avg_sentence_words": 16.0,
+              "fk_grade": 10.2,
+              "long_word_pct": 15.6,
               "speak_seconds_est": 17.5,
               "fill_pct": 87.3,
               "fits_20s": true,
               "wpm": 110,
-              "provenance": "workbook"
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (English teacher role), v2 against the v2 quality gate",
+              "basis": "Written from scratch rather than edited, because the workbook B1 shared 0.57 of its vocabulary with A2 and another 0.57 with B2 - the three levels were the same sentences with a few words swapped, and eleven of twelve B1 slides failed the band as single 32-word sentences hinged on a semicolon. This text is rebuilt around B1 grammar, which the workbook B1 lacked entirely: present perfect on slides 1, 2, 6 and 7, a first conditional on slide 8, relative clauses on 1, 3, 4, 7 and 11, concession on 7 and 12, and a passive on 11. Meaning, slide order and every named fact are unchanged: SDG 9, lab reports, articles, computer code, public safety, the environment, curiosity, creativity, responsibility. Facts corrected: the workbook B1 says the model 'predicts words based on math probabilities instead of curiosity or reasoning' but also that it can 'find patterns in massive amounts of data'; that is kept, while 'it does not have real understanding' is stated as having no grasp of what the patterns mean, so nothing implies the system knows or looks anything up. 'Let us' became \"let's\" on slide 12 and the closing 'Thank you' was cut so the talk ends on the claim.",
+              "workbook_text": "History clearly shows that every great scientific discovery began with human curiosity, and while AI can organize existing information very well, it cannot independently decide which unanswered questions are actually worth studying."
             },
             "B2": {
               "text": "History clearly shows that every major scientific breakthrough began with human curiosity, and while AI can process existing information remarkably well, it cannot independently decide which unanswered questions are actually worth investigating for our future.",
@@ -508,17 +529,20 @@
               "workbook_text": "Furthermore, science is not just about getting fast results, meaning that human scientists must always think about public safety and social responsibility, which are special human values that computers cannot make."
             },
             "B1": {
-              "text": "Furthermore, science is about more than making results, meaning that human scientists must always consider correct ethics, public safety, green sustainability, and social responsibility, which are human values that computer rules cannot simply generate.",
-              "words": 34,
-              "sentences": 1,
-              "avg_sentence_words": 34.0,
-              "fk_grade": 22.0,
-              "long_word_pct": 20.6,
-              "speak_seconds_est": 18.5,
-              "fill_pct": 92.7,
+              "text": "Science is about more than results. If a discovery threatens public safety, the environment or the people around it, someone has to say so, and no computer rule will ever do that.",
+              "words": 32,
+              "sentences": 2,
+              "avg_sentence_words": 16.0,
+              "fk_grade": 9.5,
+              "long_word_pct": 12.5,
+              "speak_seconds_est": 17.5,
+              "fill_pct": 87.3,
               "fits_20s": true,
               "wpm": 110,
-              "provenance": "workbook"
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (English teacher role), v2 against the v2 quality gate",
+              "basis": "Written from scratch rather than edited, because the workbook B1 shared 0.57 of its vocabulary with A2 and another 0.57 with B2 - the three levels were the same sentences with a few words swapped, and eleven of twelve B1 slides failed the band as single 32-word sentences hinged on a semicolon. This text is rebuilt around B1 grammar, which the workbook B1 lacked entirely: present perfect on slides 1, 2, 6 and 7, a first conditional on slide 8, relative clauses on 1, 3, 4, 7 and 11, concession on 7 and 12, and a passive on 11. Meaning, slide order and every named fact are unchanged: SDG 9, lab reports, articles, computer code, public safety, the environment, curiosity, creativity, responsibility. Facts corrected: the workbook B1 says the model 'predicts words based on math probabilities instead of curiosity or reasoning' but also that it can 'find patterns in massive amounts of data'; that is kept, while 'it does not have real understanding' is stated as having no grasp of what the patterns mean, so nothing implies the system knows or looks anything up. 'Let us' became \"let's\" on slide 12 and the closing 'Thank you' was cut so the talk ends on the claim.",
+              "workbook_text": "Furthermore, science is about more than making results, meaning that human scientists must always consider correct ethics, public safety, green sustainability, and social responsibility, which are human values that computer rules cannot simply generate."
             },
             "B2": {
               "text": "Furthermore, science is about more than producing raw results, meaning that human scientists must always consider ethical choices, public safety, environmental sustainability, and social responsibility, which are human values that algorithms cannot simply generate.",
@@ -579,17 +603,20 @@
               "workbook_text": "Therefore, we should treat AI as a helpful partner rather than a replacement for human thinking, because technology can organize data, but it should never replace our independent choices or creative ideas."
             },
             "B1": {
-              "text": "Therefore, we should see AI as a helpful partner rather than a replacement for human thinking, because technology can organize information and improve speed, but it should never replace our independent choices or creative minds.",
-              "words": 35,
-              "sentences": 1,
-              "avg_sentence_words": 35.0,
-              "fk_grade": 19.0,
-              "long_word_pct": 22.9,
-              "speak_seconds_est": 19.1,
-              "fill_pct": 95.5,
+              "text": "Treat AI as a partner in the work, not as a substitute for thinking. It can organise information and save you hours, but the final judgement must still be yours.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 6.8,
+              "long_word_pct": 16.7,
+              "speak_seconds_est": 16.4,
+              "fill_pct": 81.8,
               "fits_20s": true,
               "wpm": 110,
-              "provenance": "workbook"
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (English teacher role), v2 against the v2 quality gate",
+              "basis": "Written from scratch rather than edited, because the workbook B1 shared 0.57 of its vocabulary with A2 and another 0.57 with B2 - the three levels were the same sentences with a few words swapped, and eleven of twelve B1 slides failed the band as single 32-word sentences hinged on a semicolon. This text is rebuilt around B1 grammar, which the workbook B1 lacked entirely: present perfect on slides 1, 2, 6 and 7, a first conditional on slide 8, relative clauses on 1, 3, 4, 7 and 11, concession on 7 and 12, and a passive on 11. Meaning, slide order and every named fact are unchanged: SDG 9, lab reports, articles, computer code, public safety, the environment, curiosity, creativity, responsibility. Facts corrected: the workbook B1 says the model 'predicts words based on math probabilities instead of curiosity or reasoning' but also that it can 'find patterns in massive amounts of data'; that is kept, while 'it does not have real understanding' is stated as having no grasp of what the patterns mean, so nothing implies the system knows or looks anything up. 'Let us' became \"let's\" on slide 12 and the closing 'Thank you' was cut so the talk ends on the claim.",
+              "workbook_text": "Therefore, we should see AI as a helpful partner rather than a replacement for human thinking, because technology can organize information and improve speed, but it should never replace our independent choices or creative minds."
             },
             "B2": {
               "text": "Therefore, we should treat AI as a collaborative partner rather than a replacement for human thinking, because technology can organize information and improve efficiency, but it should never replace our independent judgment or creativity.",
@@ -641,17 +668,20 @@
               "workbook_text": "As future scientists, we must continue asking good questions, doubting old ideas, and sharing our discoveries honestly, because these special human abilities will always be necessary no matter how smart computers become."
             },
             "B1": {
-              "text": "As future scientists, we should continue asking meaningful questions, challenging old ideas, and sharing our discoveries responsibly because these special human abilities will remain necessary, no matter how advanced computer technology becomes.",
-              "words": 32,
-              "sentences": 1,
-              "avg_sentence_words": 32.0,
-              "fk_grade": 22.3,
-              "long_word_pct": 37.5,
-              "speak_seconds_est": 17.5,
-              "fill_pct": 87.3,
+              "text": "As future scientists, we have to keep asking awkward questions, testing old ideas and sharing our results in an honest way. Those human habits will matter however clever the software gets.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 8.7,
+              "long_word_pct": 9.7,
+              "speak_seconds_est": 16.9,
+              "fill_pct": 84.5,
               "fits_20s": true,
               "wpm": 110,
-              "provenance": "workbook"
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (English teacher role), v2 against the v2 quality gate",
+              "basis": "Written from scratch rather than edited, because the workbook B1 shared 0.57 of its vocabulary with A2 and another 0.57 with B2 - the three levels were the same sentences with a few words swapped, and eleven of twelve B1 slides failed the band as single 32-word sentences hinged on a semicolon. This text is rebuilt around B1 grammar, which the workbook B1 lacked entirely: present perfect on slides 1, 2, 6 and 7, a first conditional on slide 8, relative clauses on 1, 3, 4, 7 and 11, concession on 7 and 12, and a passive on 11. Meaning, slide order and every named fact are unchanged: SDG 9, lab reports, articles, computer code, public safety, the environment, curiosity, creativity, responsibility. Facts corrected: the workbook B1 says the model 'predicts words based on math probabilities instead of curiosity or reasoning' but also that it can 'find patterns in massive amounts of data'; that is kept, while 'it does not have real understanding' is stated as having no grasp of what the patterns mean, so nothing implies the system knows or looks anything up. 'Let us' became \"let's\" on slide 12 and the closing 'Thank you' was cut so the talk ends on the claim.",
+              "workbook_text": "As future scientists, we should continue asking meaningful questions, challenging old ideas, and sharing our discoveries responsibly because these special human abilities will remain necessary, no matter how advanced computer technology becomes."
             },
             "B2": {
               "text": "As future scientists, we should continue asking meaningful questions, challenging existing ideas, and communicating our discoveries responsibly because these uniquely human abilities will remain essential, regardless of how advanced technology becomes.",
@@ -712,17 +742,20 @@
               "workbook_text": "In conclusion, SDG 9 reminds us that innovation is always driven by people, because AI can give us basic information, but only human beings can create true knowledge and make the right choices."
             },
             "B1": {
-              "text": "In conclusion, SDG 9 reminds us that new innovation is always driven by real people because AI can generate information, but only human beings can create true knowledge, make good choices, and bring meaningful change.",
-              "words": 35,
-              "sentences": 1,
-              "avg_sentence_words": 35.0,
-              "fk_grade": 16.9,
-              "long_word_pct": 17.1,
-              "speak_seconds_est": 19.1,
-              "fill_pct": 95.5,
+              "text": "SDG 9 reminds us that new ideas are driven by people. A machine can generate information, but only human beings turn that information into knowledge that somebody can act on.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 9.9,
+              "long_word_pct": 16.7,
+              "speak_seconds_est": 16.4,
+              "fill_pct": 81.8,
               "fits_20s": true,
               "wpm": 110,
-              "provenance": "workbook"
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (English teacher role), v2 against the v2 quality gate",
+              "basis": "Written from scratch rather than edited, because the workbook B1 shared 0.57 of its vocabulary with A2 and another 0.57 with B2 - the three levels were the same sentences with a few words swapped, and eleven of twelve B1 slides failed the band as single 32-word sentences hinged on a semicolon. This text is rebuilt around B1 grammar, which the workbook B1 lacked entirely: present perfect on slides 1, 2, 6 and 7, a first conditional on slide 8, relative clauses on 1, 3, 4, 7 and 11, concession on 7 and 12, and a passive on 11. Meaning, slide order and every named fact are unchanged: SDG 9, lab reports, articles, computer code, public safety, the environment, curiosity, creativity, responsibility. Facts corrected: the workbook B1 says the model 'predicts words based on math probabilities instead of curiosity or reasoning' but also that it can 'find patterns in massive amounts of data'; that is kept, while 'it does not have real understanding' is stated as having no grasp of what the patterns mean, so nothing implies the system knows or looks anything up. 'Let us' became \"let's\" on slide 12 and the closing 'Thank you' was cut so the talk ends on the claim.",
+              "workbook_text": "In conclusion, SDG 9 reminds us that new innovation is always driven by real people because AI can generate information, but only human beings can create true knowledge, make good choices, and bring meaningful change."
             },
             "B2": {
               "text": "In conclusion, SDG 9 reminds us that innovation is ultimately driven by people because AI can generate information, but only human beings can create true knowledge, make ethical decisions, and inspire meaningful change.",
@@ -774,17 +807,20 @@
               "workbook_text": "Let us use AI wisely while continuing to grow the curiosity, creativity, and responsibility that define great scientists, so we can build a better and more honest future together. Thank you."
             },
             "B1": {
-              "text": "Let us use AI wisely while continuing to develop the curiosity, creativity, and professional responsibility that make great scientists, so we can build a more trustworthy and sustainable future for science together. Thank you.",
-              "words": 34,
+              "text": "So let's use AI wisely while we go on developing the curiosity, the creativity and the sense of responsibility that great scientists share. That is how we earn a future worth having.",
+              "words": 32,
               "sentences": 2,
-              "avg_sentence_words": 17.0,
-              "fk_grade": 13.3,
-              "long_word_pct": 26.5,
-              "speak_seconds_est": 18.5,
-              "fill_pct": 92.7,
+              "avg_sentence_words": 16.0,
+              "fk_grade": 9.8,
+              "long_word_pct": 15.6,
+              "speak_seconds_est": 17.5,
+              "fill_pct": 87.3,
               "fits_20s": true,
               "wpm": 110,
-              "provenance": "workbook"
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (English teacher role), v2 against the v2 quality gate",
+              "basis": "Written from scratch rather than edited, because the workbook B1 shared 0.57 of its vocabulary with A2 and another 0.57 with B2 - the three levels were the same sentences with a few words swapped, and eleven of twelve B1 slides failed the band as single 32-word sentences hinged on a semicolon. This text is rebuilt around B1 grammar, which the workbook B1 lacked entirely: present perfect on slides 1, 2, 6 and 7, a first conditional on slide 8, relative clauses on 1, 3, 4, 7 and 11, concession on 7 and 12, and a passive on 11. Meaning, slide order and every named fact are unchanged: SDG 9, lab reports, articles, computer code, public safety, the environment, curiosity, creativity, responsibility. Facts corrected: the workbook B1 says the model 'predicts words based on math probabilities instead of curiosity or reasoning' but also that it can 'find patterns in massive amounts of data'; that is kept, while 'it does not have real understanding' is stated as having no grasp of what the patterns mean, so nothing implies the system knows or looks anything up. 'Let us' became \"let's\" on slide 12 and the closing 'Thank you' was cut so the talk ends on the claim.",
+              "workbook_text": "Let us use AI wisely while continuing to develop the curiosity, creativity, and professional responsibility that make great scientists, so we can build a more trustworthy and sustainable future for science together. Thank you."
             },
             "B2": {
               "text": "Let us embrace AI wisely while continuing to develop the curiosity, creativity, and professional responsibility that define great scientists, so we can build a more trustworthy and sustainable future together. Thank you.",
@@ -825,9 +861,9 @@
     },
     "B1": {
       "slides": 12,
-      "avg_words": 33.2,
-      "avg_sentence_words": 29.0,
-      "fk_grade": 17.7,
+      "avg_words": 31.8,
+      "avg_sentence_words": 14.5,
+      "fk_grade": 8.7,
       "slides_over_20s": 0
     },
     "B2": {
