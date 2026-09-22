@@ -1,6 +1,6 @@
 {
   "content_version": "2026.09.1",
-  "generated_at": "2026-09-22T00:39:53+08:00",
+  "generated_at": "2026-09-22T00:45:10+08:00",
   "levels": [
     "A2",
     "B1",
@@ -76,17 +76,15 @@
       ],
       "ready": false,
       "gate": {
-        "A2": [
-          "fk 7.8 above 7.0"
-        ],
+        "A2": [],
         "B1": []
       },
       "level_summary": {
         "A2": {
           "slides": 20,
-          "avg_words": 33.9,
-          "avg_sentence_words": 10.2,
-          "fk_grade": 7.8,
+          "avg_words": 31.4,
+          "avg_sentence_words": 9.5,
+          "fk_grade": 6.9,
           "slides_over_20s": 0
         },
         "B1": {
@@ -211,11 +209,9 @@
       ],
       "ready": false,
       "gate": {
-        "A2": [
-          "fk 7.4 above 7.0"
-        ],
+        "A2": [],
         "B1": [
-          "fk 12.2 above 11.0"
+          "words 30.2 below 32"
         ],
         "B2": [
           "words 32.6 below 34",
@@ -226,16 +222,16 @@
       "level_summary": {
         "A2": {
           "slides": 12,
-          "avg_words": 29.8,
-          "avg_sentence_words": 10.2,
-          "fk_grade": 7.4,
+          "avg_words": 29.0,
+          "avg_sentence_words": 9.6,
+          "fk_grade": 6.7,
           "slides_over_20s": 0
         },
         "B1": {
           "slides": 12,
-          "avg_words": 32.3,
-          "avg_sentence_words": 15.0,
-          "fk_grade": 12.2,
+          "avg_words": 30.2,
+          "avg_sentence_words": 13.8,
+          "fk_grade": 9.8,
           "slides_over_20s": 0
         },
         "B2": {

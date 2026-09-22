@@ -10,9 +10,9 @@ SDG 9 · 12 slides · levels: A2, B1, B2 · content_version 2026.09.1
 
 | 級別 | 張數 | 每張字數 | 每句字數 | FK | 超過 20 秒 |
 | --- | --- | --- | --- | --- | --- |
-| A2 | 12 | 31.6 | 27.7 | 16.3 | 0 |
-| B1 | 12 | 33.0 | 28.8 | 17.7 | 0 |
-| B2 | 12 | 33.2 | 29.2 | 20.6 | 0 |
+| A2 | 12 | 31.8 | 27.8 | 16.3 | 7 |
+| B1 | 12 | 33.2 | 29.0 | 17.7 | 0 |
+| B2 | 12 | 33.4 | 29.3 | 20.6 | 0 |
 
 ## Part 1 · Introduction（引言：破題與定義）
 
@@ -21,20 +21,20 @@ SDG 9 · 12 slides · levels: A2, B1, B2 · content_version 2026.09.1
 
 ### Slide 1 · Micro-Hook: Global context of technology（全球永續連結）
 
-- **A2**（31 字 / 每句 15.5 字 / 約 14.3 秒）
+- **A2**（32 字 / 每句 16.0 字 / 約 20.2 秒 ⚠️ 超過 20 秒）
   > Good morning, everyone. Today, let’s look at United Nations SDG 9, a great global plan that helps all countries support modern technological innovations and build strong infrastructure for a better world.
-- **B1**（33 字 / 每句 16.5 字 / 約 15.2 秒）
+- **B1**（34 字 / 每句 17.0 字 / 約 18.5 秒）
   > Good morning, everyone. Today, let’s look at United Nations SDG 9, a global plan that encourages all countries to support modern technology and build strong systems for better scientific development around the world.
-- **B2**（31 字 / 每句 15.5 字 / 約 14.3 秒）
+- **B2**（32 字 / 每句 16.0 字 / 約 16.0 秒）
   > Good morning, everyone. Today, let’s explore United Nations SDG 9, a global framework that encourages all countries to support modern technological innovation and build strong networks for sustainable scientific development worldwide.
 
 ### Slide 2 · AI as Innovation: Connecting SDG 9（科技與創新）
 
-- **A2**（31 字 / 每句 31.0 字 / 約 14.3 秒）
+- **A2**（31 字 / 每句 31.0 字 / 約 19.6 秒）
   > In our digital world today, Artificial Intelligence is changing how we study and do scientific research very quickly; however, an important question remains: what special human qualities make us truly irreplaceable?
-- **B1**（33 字 / 每句 33.0 字 / 約 15.2 秒）
+- **B1**（33 字 / 每句 33.0 字 / 約 18.0 秒）
   > In our digital world, Artificial Intelligence is changing how we study, do research, and make new tools; however, as AI becomes smarter, an important question remains: what human qualities make us truly irreplaceable?
-- **B2**（35 字 / 每句 35.0 字 / 約 16.2 秒）
+- **B2**（35 字 / 每句 35.0 字 / 約 17.5 秒）
   > In this digital era, Artificial Intelligence is rapidly transforming the way we study, conduct research, and develop new technologies; however, as AI becomes increasingly capable, an important question remains: what qualities make humans truly irreplaceable?
 
 ## Part 2 · Problem（問題指認：趨勢與因果）
@@ -44,20 +44,20 @@ SDG 9 · 12 slides · levels: A2, B1, B2 · content_version 2026.09.1
 
 ### Slide 3 · Student Experience（學生生活情境）
 
-- **A2**（31 字 / 每句 31.0 字 / 約 14.3 秒）
+- **A2**（31 字 / 每句 31.0 字 / 約 19.6 秒）
   > Many university science students are excited about AI, but they also feel quite worried because these computer tools can easily write lab reports, read short science articles, and generate computer code.
-- **B1**（32 字 / 每句 32.0 字 / 約 14.8 秒）
+- **B1**（32 字 / 每句 32.0 字 / 約 17.5 秒）
   > Many university science students are excited about AI, but they also feel worried because these tools can write lab reports, summarize science articles, generate computer code, and answer difficult questions within seconds.
-- **B2**（33 字 / 每句 33.0 字 / 約 15.2 秒）
+- **B2**（33 字 / 每句 33.0 字 / 約 16.5 秒）
   > Many university science majors are excited about AI tools but also feel anxious because these systems can write laboratory reports, summarize journal articles, generate computer code, and answer complex scientific questions within seconds.
 
 ### Slide 4 · Contextualized Problem（脈絡化問題）
 
-- **A2**（33 字 / 每句 33.0 字 / 約 15.2 秒）
+- **A2**（33 字 / 每句 33.0 字 / 約 20.8 秒 ⚠️ 超過 20 秒）
   > These worries are easy to understand because AI can do many school tasks that used to need hard human work; however, doing a task quickly does not mean that AI truly understands science.
-- **B1**（31 字 / 每句 31.0 字 / 約 14.3 秒）
+- **B1**（31 字 / 每句 31.0 字 / 約 16.9 秒）
   > These worries are easy to understand because AI can do many tasks that used to require human effort; however, doing a task quickly does not mean that AI truly understands science.
-- **B2**（35 字 / 每句 35.0 字 / 約 16.2 秒）
+- **B2**（35 字 / 每句 35.0 字 / 約 17.5 秒）
   > These concerns are completely understandable because AI appears to perform many tasks that once required human effort; however, completing a task efficiently does not mean that AI truly understands science or can replace human scientists.
 
 ## Part 3 · Achievements（成果：舉證與比較）
@@ -67,20 +67,20 @@ SDG 9 · 12 slides · levels: A2, B1, B2 · content_version 2026.09.1
 
 ### Slide 5 · Scientific Explanation（解釋科學原理 WHY）
 
-- **A2**（32 字 / 每句 16.0 字 / 約 14.8 秒）
+- **A2**（32 字 / 每句 16.0 字 / 約 20.2 秒 ⚠️ 超過 20 秒）
   > Why does this happen? The AI computer does not automatically understand your human thoughts; instead, it only guesses the next word by using mathematical chance from the internet without real scientific comprehension.
-- **B1**（33 字 / 每句 16.5 字 / 約 15.2 秒）
+- **B1**（33 字 / 每句 16.5 字 / 約 18.0 秒）
   > Why does this happen? Although AI can find patterns in massive amounts of data, it does not have real understanding because it predicts words based on math probabilities instead of curiosity or reasoning.
-- **B2**（35 字 / 每句 17.5 字 / 約 16.2 秒）
+- **B2**（35 字 / 每句 17.5 字 / 約 17.5 秒）
   > Why does this happen? Although AI can recognize patterns in enormous amounts of data, it does not possess genuine understanding because it predicts language based on mathematical probability rather than curiosity, reasoning, or scientific judgment.
 
 ### Slide 6 · Scientific Explanation（解釋科學原理 HOW）
 
-- **A2**（31 字 / 每句 31.0 字 / 約 14.3 秒）
+- **A2**（31 字 / 每句 31.0 字 / 約 19.6 秒）
   > Human scientists work differently because we ask new questions, design creative experiments, explain surprising laboratory results, and learn from our mistakes, meaning that scientific discovery needs a lot of human imagination.
-- **B1**（33 字 / 每句 33.0 字 / 約 15.2 秒）
+- **B1**（33 字 / 每句 33.0 字 / 約 18.0 秒）
   > Human scientists work differently because we ask new questions, design creative experiments, explain surprising laboratory results, and learn from our mistakes, meaning that scientific discovery depends heavily on imagination, hard work, and creativity.
-- **B2**（32 字 / 每句 32.0 字 / 約 14.8 秒）
+- **B2**（32 字 / 每句 32.0 字 / 約 16.0 秒）
   > Human scientists work differently because we ask original questions, design creative experiments, interpret unexpected laboratory results, and learn from failure, meaning that scientific discovery depends heavily on human imagination, persistence, and creativity.
 
 ## Part 4 · Solutions（解方：做法與取捨）
@@ -90,20 +90,20 @@ SDG 9 · 12 slides · levels: A2, B1, B2 · content_version 2026.09.1
 
 ### Slide 7 · Impact on Science（學術研究衝擊）
 
-- **A2**（32 字 / 每句 32.0 字 / 約 14.8 秒）
+- **A2**（32 字 / 每句 32.0 字 / 約 20.2 秒 ⚠️ 超過 20 秒）
   > History clearly shows that every great scientific discovery always began with human curiosity, and while AI can organize old information very well, it cannot independently choose which new questions are worth studying.
-- **B1**（32 字 / 每句 32.0 字 / 約 14.8 秒）
+- **B1**（32 字 / 每句 32.0 字 / 約 17.5 秒）
   > History clearly shows that every great scientific discovery began with human curiosity, and while AI can organize existing information very well, it cannot independently decide which unanswered questions are actually worth studying.
-- **B2**（35 字 / 每句 35.0 字 / 約 16.2 秒）
+- **B2**（35 字 / 每句 35.0 字 / 約 17.5 秒）
   > History clearly shows that every major scientific breakthrough began with human curiosity, and while AI can process existing information remarkably well, it cannot independently decide which unanswered questions are actually worth investigating for our future.
 
 ### Slide 8 · Impact on Society（大眾社會衝擊）
 
-- **A2**（31 字 / 每句 31.0 字 / 約 14.3 秒）
+- **A2**（31 字 / 每句 31.0 字 / 約 19.6 秒）
   > Furthermore, science is not just about getting fast results, meaning that human scientists must always think about public safety and social responsibility, which are special human values that computers cannot make.
-- **B1**（34 字 / 每句 34.0 字 / 約 15.7 秒）
+- **B1**（34 字 / 每句 34.0 字 / 約 18.5 秒）
   > Furthermore, science is about more than making results, meaning that human scientists must always consider correct ethics, public safety, green sustainability, and social responsibility, which are human values that computer rules cannot simply generate.
-- **B2**（34 字 / 每句 34.0 字 / 約 15.7 秒）
+- **B2**（34 字 / 每句 34.0 字 / 約 17.0 秒）
   > Furthermore, science is about more than producing raw results, meaning that human scientists must always consider ethical choices, public safety, environmental sustainability, and social responsibility, which are human values that algorithms cannot simply generate.
 
 ## Part 5 · Implications（影響：推論後果）
@@ -113,20 +113,20 @@ SDG 9 · 12 slides · levels: A2, B1, B2 · content_version 2026.09.1
 
 ### Slide 9 · AI Literacy Strategy 1（AI 素養策略一： 提問前的後設認知）
 
-- **A2**（32 字 / 每句 32.0 字 / 約 14.8 秒）
+- **A2**（32 字 / 每句 32.0 字 / 約 20.2 秒 ⚠️ 超過 20 秒）
   > Therefore, we should treat AI as a helpful partner rather than a replacement for human thinking, because technology can organize data, but it should never replace our independent choices or creative ideas.
-- **B1**（35 字 / 每句 35.0 字 / 約 16.2 秒）
+- **B1**（35 字 / 每句 35.0 字 / 約 19.1 秒）
   > Therefore, we should see AI as a helpful partner rather than a replacement for human thinking, because technology can organize information and improve speed, but it should never replace our independent choices or creative minds.
-- **B2**（34 字 / 每句 34.0 字 / 約 15.7 秒）
+- **B2**（34 字 / 每句 34.0 字 / 約 17.0 秒）
   > Therefore, we should treat AI as a collaborative partner rather than a replacement for human thinking, because technology can organize information and improve efficiency, but it should never replace our independent judgment or creativity.
 
 ### Slide 10 · AI Literacy Strategy 2（AI 素養策略二： 具體動作）
 
-- **A2**（32 字 / 每句 32.0 字 / 約 14.8 秒）
+- **A2**（32 字 / 每句 32.0 字 / 約 20.2 秒 ⚠️ 超過 20 秒）
   > As future scientists, we must continue asking good questions, doubting old ideas, and sharing our discoveries honestly, because these special human abilities will always be necessary no matter how smart computers become.
-- **B1**（32 字 / 每句 32.0 字 / 約 14.8 秒）
+- **B1**（32 字 / 每句 32.0 字 / 約 17.5 秒）
   > As future scientists, we should continue asking meaningful questions, challenging old ideas, and sharing our discoveries responsibly because these special human abilities will remain necessary, no matter how advanced computer technology becomes.
-- **B2**（31 字 / 每句 31.0 字 / 約 14.3 秒）
+- **B2**（31 字 / 每句 31.0 字 / 約 15.5 秒）
   > As future scientists, we should continue asking meaningful questions, challenging existing ideas, and communicating our discoveries responsibly because these uniquely human abilities will remain essential, regardless of how advanced technology becomes.
 
 ## Part 6 · Call to action（結語：總結與號召）
@@ -136,18 +136,18 @@ SDG 9 · 12 slides · levels: A2, B1, B2 · content_version 2026.09.1
 
 ### Slide 11 · The Human Edge: Redefining the human role（人類獨特價值）
 
-- **A2**（32 字 / 每句 32.0 字 / 約 14.8 秒）
+- **A2**（33 字 / 每句 33.0 字 / 約 20.8 秒 ⚠️ 超過 20 秒）
   > In conclusion, SDG 9 reminds us that innovation is always driven by people, because AI can give us basic information, but only human beings can create true knowledge and make the right choices.
-- **B1**（34 字 / 每句 34.0 字 / 約 15.7 秒）
+- **B1**（35 字 / 每句 35.0 字 / 約 19.1 秒）
   > In conclusion, SDG 9 reminds us that new innovation is always driven by real people because AI can generate information, but only human beings can create true knowledge, make good choices, and bring meaningful change.
-- **B2**（32 字 / 每句 32.0 字 / 約 14.8 秒）
+- **B2**（33 字 / 每句 33.0 字 / 約 16.5 秒）
   > In conclusion, SDG 9 reminds us that innovation is ultimately driven by people because AI can generate information, but only human beings can create true knowledge, make ethical decisions, and inspire meaningful change.
 
 ### Slide 12 · Final Call to Action: The SDG 9 future vision（最終呼籲與願景）
 
-- **A2**（31 字 / 每句 15.5 字 / 約 14.3 秒）
+- **A2**（31 字 / 每句 15.5 字 / 約 19.6 秒）
   > Let us use AI wisely while continuing to grow the curiosity, creativity, and responsibility that define great scientists, so we can build a better and more honest future together. Thank you.
-- **B1**（34 字 / 每句 17.0 字 / 約 15.7 秒）
+- **B1**（34 字 / 每句 17.0 字 / 約 18.5 秒）
   > Let us use AI wisely while continuing to develop the curiosity, creativity, and professional responsibility that make great scientists, so we can build a more trustworthy and sustainable future for science together. Thank you.
-- **B2**（32 字 / 每句 16.0 字 / 約 14.8 秒）
+- **B2**（32 字 / 每句 16.0 字 / 約 16.0 秒）
   > Let us embrace AI wisely while continuing to develop the curiosity, creativity, and professional responsibility that define great scientists, so we can build a more trustworthy and sustainable future together. Thank you.

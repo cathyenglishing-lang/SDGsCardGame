@@ -32,35 +32,41 @@
           "scripts": {
             "A2": {
               "text": "Good morning, everyone. Today, let’s look at United Nations SDG 9, a great global plan that helps all countries support modern technological innovations and build strong infrastructure for a better world.",
-              "words": 31,
+              "words": 32,
               "sentences": 2,
-              "avg_sentence_words": 15.5,
+              "avg_sentence_words": 16.0,
               "fk_grade": 10.6,
-              "long_word_pct": 16.1,
-              "speak_seconds_est": 14.3,
-              "fits_20s": true,
+              "long_word_pct": 15.6,
+              "speak_seconds_est": 20.2,
+              "fill_pct": 101.1,
+              "fits_20s": false,
+              "wpm": 95,
               "provenance": "workbook"
             },
             "B1": {
               "text": "Good morning, everyone. Today, let’s look at United Nations SDG 9, a global plan that encourages all countries to support modern technology and build strong systems for better scientific development around the world.",
-              "words": 33,
+              "words": 34,
               "sentences": 2,
-              "avg_sentence_words": 16.5,
-              "fk_grade": 11.6,
-              "long_word_pct": 18.2,
-              "speak_seconds_est": 15.2,
+              "avg_sentence_words": 17.0,
+              "fk_grade": 11.5,
+              "long_word_pct": 17.6,
+              "speak_seconds_est": 18.5,
+              "fill_pct": 92.7,
               "fits_20s": true,
+              "wpm": 110,
               "provenance": "workbook"
             },
             "B2": {
               "text": "Good morning, everyone. Today, let’s explore United Nations SDG 9, a global framework that encourages all countries to support modern technological innovation and build strong networks for sustainable scientific development worldwide.",
-              "words": 31,
+              "words": 32,
               "sentences": 2,
-              "avg_sentence_words": 15.5,
-              "fk_grade": 15.2,
-              "long_word_pct": 35.5,
-              "speak_seconds_est": 14.3,
+              "avg_sentence_words": 16.0,
+              "fk_grade": 15.0,
+              "long_word_pct": 34.4,
+              "speak_seconds_est": 16.0,
+              "fill_pct": 80.0,
               "fits_20s": true,
+              "wpm": 120,
               "provenance": "workbook"
             }
           },
@@ -90,8 +96,10 @@
               "avg_sentence_words": 31.0,
               "fk_grade": 20.1,
               "long_word_pct": 29.0,
-              "speak_seconds_est": 14.3,
+              "speak_seconds_est": 19.6,
+              "fill_pct": 97.9,
               "fits_20s": true,
+              "wpm": 95,
               "provenance": "workbook"
             },
             "B1": {
@@ -101,8 +109,10 @@
               "avg_sentence_words": 33.0,
               "fk_grade": 19.1,
               "long_word_pct": 24.2,
-              "speak_seconds_est": 15.2,
+              "speak_seconds_est": 18.0,
+              "fill_pct": 90.0,
               "fits_20s": true,
+              "wpm": 110,
               "provenance": "workbook"
             },
             "B2": {
@@ -112,8 +122,10 @@
               "avg_sentence_words": 35.0,
               "fk_grade": 24.0,
               "long_word_pct": 28.6,
-              "speak_seconds_est": 16.2,
+              "speak_seconds_est": 17.5,
+              "fill_pct": 87.5,
               "fits_20s": true,
+              "wpm": 120,
               "provenance": "workbook"
             }
           },
@@ -152,8 +164,10 @@
               "avg_sentence_words": 31.0,
               "fk_grade": 17.1,
               "long_word_pct": 19.4,
-              "speak_seconds_est": 14.3,
+              "speak_seconds_est": 19.6,
+              "fill_pct": 97.9,
               "fits_20s": true,
+              "wpm": 95,
               "provenance": "workbook"
             },
             "B1": {
@@ -163,8 +177,10 @@
               "avg_sentence_words": 32.0,
               "fk_grade": 18.6,
               "long_word_pct": 25.0,
-              "speak_seconds_est": 14.8,
+              "speak_seconds_est": 17.5,
+              "fill_pct": 87.3,
               "fits_20s": true,
+              "wpm": 110,
               "provenance": "workbook"
             },
             "B2": {
@@ -174,8 +190,10 @@
               "avg_sentence_words": 33.0,
               "fk_grade": 21.2,
               "long_word_pct": 24.2,
-              "speak_seconds_est": 15.2,
+              "speak_seconds_est": 16.5,
+              "fill_pct": 82.5,
               "fits_20s": true,
+              "wpm": 120,
               "provenance": "workbook"
             }
           },
@@ -205,8 +223,10 @@
               "avg_sentence_words": 33.0,
               "fk_grade": 14.1,
               "long_word_pct": 6.1,
-              "speak_seconds_est": 15.2,
-              "fits_20s": true,
+              "speak_seconds_est": 20.8,
+              "fill_pct": 104.2,
+              "fits_20s": false,
+              "wpm": 95,
               "provenance": "workbook"
             },
             "B1": {
@@ -216,8 +236,10 @@
               "avg_sentence_words": 31.0,
               "fk_grade": 14.4,
               "long_word_pct": 6.5,
-              "speak_seconds_est": 14.3,
+              "speak_seconds_est": 16.9,
+              "fill_pct": 84.5,
               "fits_20s": true,
+              "wpm": 110,
               "provenance": "workbook"
             },
             "B2": {
@@ -227,8 +249,10 @@
               "avg_sentence_words": 35.0,
               "fk_grade": 19.6,
               "long_word_pct": 22.9,
-              "speak_seconds_est": 16.2,
+              "speak_seconds_est": 17.5,
+              "fill_pct": 87.5,
               "fits_20s": true,
+              "wpm": 120,
               "provenance": "workbook"
             }
           },
@@ -267,8 +291,10 @@
               "avg_sentence_words": 16.0,
               "fk_grade": 12.4,
               "long_word_pct": 25.0,
-              "speak_seconds_est": 14.8,
-              "fits_20s": true,
+              "speak_seconds_est": 20.2,
+              "fill_pct": 101.1,
+              "fits_20s": false,
+              "wpm": 95,
               "provenance": "workbook"
             },
             "B1": {
@@ -278,8 +304,10 @@
               "avg_sentence_words": 16.5,
               "fk_grade": 10.5,
               "long_word_pct": 21.2,
-              "speak_seconds_est": 15.2,
+              "speak_seconds_est": 18.0,
+              "fill_pct": 90.0,
               "fits_20s": true,
+              "wpm": 110,
               "provenance": "workbook"
             },
             "B2": {
@@ -289,8 +317,10 @@
               "avg_sentence_words": 17.5,
               "fk_grade": 14.8,
               "long_word_pct": 37.1,
-              "speak_seconds_est": 16.2,
+              "speak_seconds_est": 17.5,
+              "fill_pct": 87.5,
               "fits_20s": true,
+              "wpm": 120,
               "provenance": "workbook"
             }
           },
@@ -320,8 +350,10 @@
               "avg_sentence_words": 31.0,
               "fk_grade": 20.9,
               "long_word_pct": 35.5,
-              "speak_seconds_est": 14.3,
+              "speak_seconds_est": 19.6,
+              "fill_pct": 97.9,
               "fits_20s": true,
+              "wpm": 95,
               "provenance": "workbook"
             },
             "B1": {
@@ -331,8 +363,10 @@
               "avg_sentence_words": 33.0,
               "fk_grade": 22.7,
               "long_word_pct": 36.4,
-              "speak_seconds_est": 15.2,
+              "speak_seconds_est": 18.0,
+              "fill_pct": 90.0,
               "fits_20s": true,
+              "wpm": 110,
               "provenance": "workbook"
             },
             "B2": {
@@ -342,8 +376,10 @@
               "avg_sentence_words": 32.0,
               "fk_grade": 25.3,
               "long_word_pct": 43.8,
-              "speak_seconds_est": 14.8,
+              "speak_seconds_est": 16.0,
+              "fill_pct": 80.0,
               "fits_20s": true,
+              "wpm": 120,
               "provenance": "workbook"
             }
           },
@@ -382,8 +418,10 @@
               "avg_sentence_words": 32.0,
               "fk_grade": 19.8,
               "long_word_pct": 25.0,
-              "speak_seconds_est": 14.8,
-              "fits_20s": true,
+              "speak_seconds_est": 20.2,
+              "fill_pct": 101.1,
+              "fits_20s": false,
+              "wpm": 95,
               "provenance": "workbook"
             },
             "B1": {
@@ -393,8 +431,10 @@
               "avg_sentence_words": 32.0,
               "fk_grade": 22.3,
               "long_word_pct": 34.4,
-              "speak_seconds_est": 14.8,
+              "speak_seconds_est": 17.5,
+              "fill_pct": 87.3,
               "fits_20s": true,
+              "wpm": 110,
               "provenance": "workbook"
             },
             "B2": {
@@ -404,8 +444,10 @@
               "avg_sentence_words": 35.0,
               "fk_grade": 23.7,
               "long_word_pct": 31.4,
-              "speak_seconds_est": 16.2,
+              "speak_seconds_est": 17.5,
+              "fill_pct": 87.5,
               "fits_20s": true,
+              "wpm": 120,
               "provenance": "workbook"
             }
           },
@@ -435,8 +477,10 @@
               "avg_sentence_words": 31.0,
               "fk_grade": 17.8,
               "long_word_pct": 12.9,
-              "speak_seconds_est": 14.3,
+              "speak_seconds_est": 19.6,
+              "fill_pct": 97.9,
               "fits_20s": true,
+              "wpm": 95,
               "provenance": "workbook"
             },
             "B1": {
@@ -446,8 +490,10 @@
               "avg_sentence_words": 34.0,
               "fk_grade": 22.0,
               "long_word_pct": 20.6,
-              "speak_seconds_est": 15.7,
+              "speak_seconds_est": 18.5,
+              "fill_pct": 92.7,
               "fits_20s": true,
+              "wpm": 110,
               "provenance": "workbook"
             },
             "B2": {
@@ -457,8 +503,10 @@
               "avg_sentence_words": 34.0,
               "fk_grade": 23.7,
               "long_word_pct": 26.5,
-              "speak_seconds_est": 15.7,
+              "speak_seconds_est": 17.0,
+              "fill_pct": 85.0,
               "fits_20s": true,
+              "wpm": 120,
               "provenance": "workbook"
             }
           },
@@ -497,8 +545,10 @@
               "avg_sentence_words": 32.0,
               "fk_grade": 17.9,
               "long_word_pct": 21.9,
-              "speak_seconds_est": 14.8,
-              "fits_20s": true,
+              "speak_seconds_est": 20.2,
+              "fill_pct": 101.1,
+              "fits_20s": false,
+              "wpm": 95,
               "provenance": "workbook"
             },
             "B1": {
@@ -508,8 +558,10 @@
               "avg_sentence_words": 35.0,
               "fk_grade": 19.0,
               "long_word_pct": 22.9,
-              "speak_seconds_est": 16.2,
+              "speak_seconds_est": 19.1,
+              "fill_pct": 95.5,
               "fits_20s": true,
+              "wpm": 110,
               "provenance": "workbook"
             },
             "B2": {
@@ -519,8 +571,10 @@
               "avg_sentence_words": 34.0,
               "fk_grade": 21.6,
               "long_word_pct": 32.4,
-              "speak_seconds_est": 15.7,
+              "speak_seconds_est": 17.0,
+              "fill_pct": 85.0,
               "fits_20s": true,
+              "wpm": 120,
               "provenance": "workbook"
             }
           },
@@ -550,8 +604,10 @@
               "avg_sentence_words": 32.0,
               "fk_grade": 18.6,
               "long_word_pct": 28.1,
-              "speak_seconds_est": 14.8,
-              "fits_20s": true,
+              "speak_seconds_est": 20.2,
+              "fill_pct": 101.1,
+              "fits_20s": false,
+              "wpm": 95,
               "provenance": "workbook"
             },
             "B1": {
@@ -561,8 +617,10 @@
               "avg_sentence_words": 32.0,
               "fk_grade": 22.3,
               "long_word_pct": 37.5,
-              "speak_seconds_est": 14.8,
+              "speak_seconds_est": 17.5,
+              "fill_pct": 87.3,
               "fits_20s": true,
+              "wpm": 110,
               "provenance": "workbook"
             },
             "B2": {
@@ -572,8 +630,10 @@
               "avg_sentence_words": 31.0,
               "fk_grade": 24.3,
               "long_word_pct": 48.4,
-              "speak_seconds_est": 14.3,
+              "speak_seconds_est": 15.5,
+              "fill_pct": 77.5,
               "fits_20s": true,
+              "wpm": 120,
               "provenance": "workbook"
             }
           },
@@ -607,35 +667,41 @@
           "scripts": {
             "A2": {
               "text": "In conclusion, SDG 9 reminds us that innovation is always driven by people, because AI can give us basic information, but only human beings can create true knowledge and make the right choices.",
-              "words": 32,
+              "words": 33,
               "sentences": 1,
-              "avg_sentence_words": 32.0,
-              "fk_grade": 15.3,
-              "long_word_pct": 12.5,
-              "speak_seconds_est": 14.8,
-              "fits_20s": true,
+              "avg_sentence_words": 33.0,
+              "fk_grade": 15.5,
+              "long_word_pct": 12.1,
+              "speak_seconds_est": 20.8,
+              "fill_pct": 104.2,
+              "fits_20s": false,
+              "wpm": 95,
               "provenance": "workbook"
             },
             "B1": {
               "text": "In conclusion, SDG 9 reminds us that new innovation is always driven by real people because AI can generate information, but only human beings can create true knowledge, make good choices, and bring meaningful change.",
-              "words": 34,
+              "words": 35,
               "sentences": 1,
-              "avg_sentence_words": 34.0,
-              "fk_grade": 16.8,
-              "long_word_pct": 17.6,
-              "speak_seconds_est": 15.7,
+              "avg_sentence_words": 35.0,
+              "fk_grade": 16.9,
+              "long_word_pct": 17.1,
+              "speak_seconds_est": 19.1,
+              "fill_pct": 95.5,
               "fits_20s": true,
+              "wpm": 110,
               "provenance": "workbook"
             },
             "B2": {
               "text": "In conclusion, SDG 9 reminds us that innovation is ultimately driven by people because AI can generate information, but only human beings can create true knowledge, make ethical decisions, and inspire meaningful change.",
-              "words": 32,
+              "words": 33,
               "sentences": 1,
-              "avg_sentence_words": 32.0,
-              "fk_grade": 19.0,
-              "long_word_pct": 25.0,
-              "speak_seconds_est": 14.8,
+              "avg_sentence_words": 33.0,
+              "fk_grade": 19.1,
+              "long_word_pct": 24.2,
+              "speak_seconds_est": 16.5,
+              "fill_pct": 82.5,
               "fits_20s": true,
+              "wpm": 120,
               "provenance": "workbook"
             }
           },
@@ -665,8 +731,10 @@
               "avg_sentence_words": 15.5,
               "fk_grade": 11.0,
               "long_word_pct": 19.4,
-              "speak_seconds_est": 14.3,
+              "speak_seconds_est": 19.6,
+              "fill_pct": 97.9,
               "fits_20s": true,
+              "wpm": 95,
               "provenance": "workbook"
             },
             "B1": {
@@ -676,8 +744,10 @@
               "avg_sentence_words": 17.0,
               "fk_grade": 13.3,
               "long_word_pct": 26.5,
-              "speak_seconds_est": 15.7,
+              "speak_seconds_est": 18.5,
+              "fill_pct": 92.7,
               "fits_20s": true,
+              "wpm": 110,
               "provenance": "workbook"
             },
             "B2": {
@@ -687,8 +757,10 @@
               "avg_sentence_words": 16.0,
               "fk_grade": 14.3,
               "long_word_pct": 28.1,
-              "speak_seconds_est": 14.8,
+              "speak_seconds_est": 16.0,
+              "fill_pct": 80.0,
               "fits_20s": true,
+              "wpm": 120,
               "provenance": "workbook"
             }
           },
@@ -710,22 +782,22 @@
   "level_summary": {
     "A2": {
       "slides": 12,
-      "avg_words": 31.6,
-      "avg_sentence_words": 27.7,
+      "avg_words": 31.8,
+      "avg_sentence_words": 27.8,
       "fk_grade": 16.3,
-      "slides_over_20s": 0
+      "slides_over_20s": 7
     },
     "B1": {
       "slides": 12,
-      "avg_words": 33.0,
-      "avg_sentence_words": 28.8,
+      "avg_words": 33.2,
+      "avg_sentence_words": 29.0,
       "fk_grade": 17.7,
       "slides_over_20s": 0
     },
     "B2": {
       "slides": 12,
-      "avg_words": 33.2,
-      "avg_sentence_words": 29.2,
+      "avg_words": 33.4,
+      "avg_sentence_words": 29.3,
       "fk_grade": 20.6,
       "slides_over_20s": 0
     }

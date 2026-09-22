@@ -1,0 +1,22 @@
+{
+  "mission_id": "sdg9-1",
+  "level": "B1",
+  "provenance": "authored-replacement",
+  "author": "Claude (English teacher role)",
+  "basis": "Original B1 kept, except the four slides that pushed the mission above the B1 band (FK 12.2). Facts unchanged.",
+  "reviewed_by": null,
+  "slides": {
+    "1": "Good morning, everyone. Today I want to discuss SDG 9: Industry, Innovation, and Infrastructure. The United Nations asks every country to build strong industries and to support new technology worldwide.",
+    "2": "Within this goal, AI has become a new kind of digital infrastructure. It helps researchers study large data sets and speed up discoveries. But can we always trust what it produces?",
+    "3": "As science students, many of us use tools like ChatGPT or Gemini every day. We use them to tidy up lab reports, summarize papers, and explain difficult ideas.",
+    "4": "However, AI is not always correct. Sometimes it produces fake references, fake papers and fake facts. Researchers call this problem AI hallucination, because the answer sounds true but is not real.",
+    "5": "To understand why this happens, remember that AI has no real scientific understanding. It simply runs on math formulas that predict the next word from patterns found across the internet.",
+    "6": "These models care more about probability than truth, so they often produce sentences that sound professional. Unfortunately, the data and the papers behind them are sometimes invented by the computer.",
+    "7": "If we blindly copy and paste these fake references into our reports, we fail our assignments. Even worse, we damage our academic integrity and our credibility as future scientists.",
+    "8": "This is not only a school problem. In public science communication, wrong information can make people lose trust in science, and without that trust new innovations cannot help our society.",
+    "9": "Therefore, we need critical thinking whenever we work with AI tools. Instead of accepting an answer immediately, we should pause for a moment and check whether the data is real.",
+    "10": "Next, we should check every reference carefully on reliable academic websites such as Google Scholar or PubMed. AI can search much faster, but students must make the final decision themselves.",
+    "11": "In this high-tech world, our unique human voice is still very important. Computers can organize a lot of information, but they do not have human scientific curiosity, natural intuition, or honest hearts.",
+    "12": "In conclusion, AI is an exciting innovation under SDG 9, but it also needs human judgement. If we combine new tools with critical thinking, we can build a more trustworthy future for science."
+  }
+}

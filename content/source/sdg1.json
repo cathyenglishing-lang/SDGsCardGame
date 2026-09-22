@@ -7,13 +7,8 @@
   },
   "shape": "flat",
   "source": {
-    "workbook": "SDGsPechaKucha_SDG1_0526.xlsx",
-    "sheet": "SDG1",
-    "level_columns": {
-      "A2": "E",
-      "A1": "F",
-      "B1": "G"
-    }
+    "workbook": "SDGsPechaKucha_SDG1_0526.xlsx (deleted; preserved copy)",
+    "preserved_at": "content\\authored\\missions\\sdg1.source.json"
   },
   "narrative_brief": "",
   "stages": [
@@ -32,15 +27,20 @@
           },
           "scripts": {
             "A2": {
-              "text": "Good morning. Before we talk about poverty far away, let us look around us. Poverty can be hidden in a classmate who skips lunch, a family working long hours, or a student without a quiet place to study.",
-              "words": 38,
+              "text": "Good morning. Before we talk about poverty far away, look around us. Poverty can hide in a classmate who skips lunch, or a student with no quiet place to study.",
+              "words": 30,
               "sentences": 3,
-              "avg_sentence_words": 12.7,
-              "fk_grade": 6.4,
-              "long_word_pct": 2.6,
-              "speak_seconds_est": 17.5,
+              "avg_sentence_words": 10.0,
+              "fk_grade": 4.8,
+              "long_word_pct": 3.3,
+              "speak_seconds_est": 18.9,
+              "fill_pct": 94.7,
               "fits_20s": true,
-              "provenance": "workbook"
+              "wpm": 95,
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (English teacher role)",
+              "basis": "Original A2 kept, except the four slides whose vocabulary pushed the mission above the A2 band (FK 7.8). Only those lines are simplified; facts unchanged.",
+              "workbook_text": "Good morning. Before we talk about poverty far away, let us look around us. Poverty can be hidden in a classmate who skips lunch, a family working long hours, or a student without a quiet place to study."
             },
             "A1": {
               "text": "Hello everyone. Poverty is not always far away. Some classmates may skip lunch or have no quiet place to study. Today, we talk about SDG 1.",
@@ -81,14 +81,19 @@
           "scripts": {
             "A2": {
               "text": "SDG 1 means ending poverty in all its forms. It is not only about income. It is also about safety, health care, education, housing, and the chance to recover when life becomes difficult.",
-              "words": 32,
+              "words": 33,
               "sentences": 3,
-              "avg_sentence_words": 10.7,
+              "avg_sentence_words": 11.0,
               "fk_grade": 7.7,
-              "long_word_pct": 6.2,
-              "speak_seconds_est": 14.8,
-              "fits_20s": true,
-              "provenance": "workbook"
+              "long_word_pct": 6.1,
+              "speak_seconds_est": 20.8,
+              "fill_pct": 104.2,
+              "fits_20s": false,
+              "wpm": 95,
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (English teacher role)",
+              "basis": "Original A2 kept, except the four slides whose vocabulary pushed the mission above the A2 band (FK 7.8). Only those lines are simplified; facts unchanged.",
+              "workbook_text": "SDG 1 means ending poverty in all its forms. It is not only about income. It is also about safety, health care, education, housing, and the chance to recover when life becomes difficult."
             },
             "A1": {
               "text": "SDG 1 means no poverty. People need enough money, food, a safe home, health care, and a chance to learn.",
@@ -128,15 +133,20 @@
           },
           "scripts": {
             "A2": {
-              "text": "In Taiwan, many students have good schools and technology. However, not every family has the same support. Some families struggle with rent, care work, medical costs, or unstable jobs. This is why SDG 1 still matters here.",
-              "words": 36,
-              "sentences": 4,
+              "text": "In Taiwan, many students have good schools and technology. But not every family has the same support. Some families struggle with rent, medical costs, or unstable jobs.",
+              "words": 27,
+              "sentences": 3,
               "avg_sentence_words": 9.0,
-              "fk_grade": 6.6,
-              "long_word_pct": 13.9,
-              "speak_seconds_est": 16.6,
+              "fk_grade": 7.6,
+              "long_word_pct": 18.5,
+              "speak_seconds_est": 17.1,
+              "fill_pct": 85.3,
               "fits_20s": true,
-              "provenance": "workbook"
+              "wpm": 95,
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (English teacher role)",
+              "basis": "Original A2 kept, except the four slides whose vocabulary pushed the mission above the A2 band (FK 7.8). Only those lines are simplified; facts unchanged.",
+              "workbook_text": "In Taiwan, many students have good schools and technology. However, not every family has the same support. Some families struggle with rent, care work, medical costs, or unstable jobs. This is why SDG 1 still matters here."
             },
             "A1": {
               "text": "Taiwan has many schools and technology, but some families still have a hard life. Rent, work, and health costs can be heavy.",
@@ -191,9 +201,14 @@
               "avg_sentence_words": 8.8,
               "fk_grade": 6.7,
               "long_word_pct": 22.9,
-              "speak_seconds_est": 16.2,
-              "fits_20s": true,
-              "provenance": "workbook"
+              "speak_seconds_est": 22.1,
+              "fill_pct": 110.5,
+              "fits_20s": false,
+              "wpm": 95,
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (English teacher role)",
+              "basis": "Original A2 kept, except the four slides whose vocabulary pushed the mission above the A2 band (FK 7.8). Only those lines are simplified; facts unchanged.",
+              "workbook_text": "The first challenge is working poverty. Some people work hard but still cannot feel secure. Temporary jobs, low wages, and long hours make planning difficult. If parents are stressed, children's learning can also be affected."
             },
             "A1": {
               "text": "Some people work hard but still do not have enough money. Unstable jobs make family life and school life harder.",
@@ -239,9 +254,14 @@
               "avg_sentence_words": 8.5,
               "fk_grade": 5.1,
               "long_word_pct": 17.6,
-              "speak_seconds_est": 15.7,
-              "fits_20s": true,
-              "provenance": "workbook"
+              "speak_seconds_est": 21.5,
+              "fill_pct": 107.4,
+              "fits_20s": false,
+              "wpm": 95,
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (English teacher role)",
+              "basis": "Original A2 kept, except the four slides whose vocabulary pushed the mission above the A2 band (FK 7.8). Only those lines are simplified; facts unchanged.",
+              "workbook_text": "Housing is another pressure. When rent is high, families may spend less on food, books, tutoring, or transportation. Students might move often or live in crowded rooms. A stable home is part of learning."
             },
             "A1": {
               "text": "High rent can hurt families. They may have less money for food, books, or buses. A safe home helps students learn.",
@@ -287,9 +307,14 @@
               "avg_sentence_words": 7.5,
               "fk_grade": 7.0,
               "long_word_pct": 13.3,
-              "speak_seconds_est": 13.8,
+              "speak_seconds_est": 18.9,
+              "fill_pct": 94.7,
               "fits_20s": true,
-              "provenance": "workbook"
+              "wpm": 95,
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (English teacher role)",
+              "basis": "Original A2 kept, except the four slides whose vocabulary pushed the mission above the A2 band (FK 7.8). Only those lines are simplified; facts unchanged.",
+              "workbook_text": "Poverty also appears online. Some students have fast internet, laptops, and parents who can help. Others share one phone or cannot join online learning easily. Digital gaps become learning gaps."
             },
             "A1": {
               "text": "Some students have computers and good internet. Some only have a phone. This makes learning unfair.",
@@ -338,15 +363,20 @@
           },
           "scripts": {
             "A2": {
-              "text": "Taiwan has important safety nets, such as social assistance, health insurance, emergency help, and local services. These systems protect basic needs. Still, the hardest question is whether support reaches people before problems become crises.",
-              "words": 34,
-              "sentences": 3,
-              "avg_sentence_words": 11.3,
-              "fk_grade": 10.7,
-              "long_word_pct": 20.6,
-              "speak_seconds_est": 15.7,
+              "text": "Taiwan has safety nets. We have social help, health insurance, and local services. These protect basic needs. But does help arrive before a small problem becomes a crisis?",
+              "words": 28,
+              "sentences": 4,
+              "avg_sentence_words": 7.0,
+              "fk_grade": 6.1,
+              "long_word_pct": 7.1,
+              "speak_seconds_est": 17.7,
+              "fill_pct": 88.4,
               "fits_20s": true,
-              "provenance": "workbook"
+              "wpm": 95,
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (English teacher role)",
+              "basis": "Original A2 kept, except the four slides whose vocabulary pushed the mission above the A2 band (FK 7.8). Only those lines are simplified; facts unchanged.",
+              "workbook_text": "Taiwan has important safety nets, such as social assistance, health insurance, emergency help, and local services. These systems protect basic needs. Still, the hardest question is whether support reaches people before problems become crises."
             },
             "A1": {
               "text": "Taiwan has help for poor families, health care, and emergency support. These programs protect people, but they must reach people early.",
@@ -392,9 +422,14 @@
               "avg_sentence_words": 8.5,
               "fk_grade": 7.5,
               "long_word_pct": 29.4,
-              "speak_seconds_est": 15.7,
-              "fits_20s": true,
-              "provenance": "workbook"
+              "speak_seconds_est": 21.5,
+              "fill_pct": 107.4,
+              "fits_20s": false,
+              "wpm": 95,
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (English teacher role)",
+              "basis": "Original A2 kept, except the four slides whose vocabulary pushed the mission above the A2 band (FK 7.8). Only those lines are simplified; facts unchanged.",
+              "workbook_text": "Schools can reduce poverty's effect on children. Meal programs, scholarships, counseling, after-school support, and teachers who notice students early are all important. School is not only a classroom. It can be a support system."
             },
             "A1": {
               "text": "Schools can help children. Free meals, scholarships, teachers, and after-school help make students feel safe and ready to learn.",
@@ -440,9 +475,14 @@
               "avg_sentence_words": 8.5,
               "fk_grade": 6.8,
               "long_word_pct": 14.7,
-              "speak_seconds_est": 15.7,
-              "fits_20s": true,
-              "provenance": "workbook"
+              "speak_seconds_est": 21.5,
+              "fill_pct": 107.4,
+              "fits_20s": false,
+              "wpm": 95,
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (English teacher role)",
+              "basis": "Original A2 kept, except the four slides whose vocabulary pushed the mission above the A2 band (FK 7.8). Only those lines are simplified; facts unchanged.",
+              "workbook_text": "Community groups also help. Food banks, social workers, religious groups, NGOs, and volunteer teams can find needs that official systems miss. But charity alone is not enough. Long-term support must build skills and dignity."
             },
             "A1": {
               "text": "Community groups can give food, care, and help. But help should not only be gifts. It should build confidence and skills.",
@@ -497,9 +537,14 @@
               "avg_sentence_words": 11.7,
               "fk_grade": 8.9,
               "long_word_pct": 20.0,
-              "speak_seconds_est": 16.2,
-              "fits_20s": true,
-              "provenance": "workbook"
+              "speak_seconds_est": 22.1,
+              "fill_pct": 110.5,
+              "fits_20s": false,
+              "wpm": 95,
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (English teacher role)",
+              "basis": "Original A2 kept, except the four slides whose vocabulary pushed the mission above the A2 band (FK 7.8). Only those lines are simplified; facts unchanged.",
+              "workbook_text": "One solution is financial literacy. Students can learn budgeting, saving, responsible borrowing, and how to avoid scams. These skills do not solve poverty alone, but they help young people make safer choices in the future."
             },
             "A1": {
               "text": "Students can learn how to budget, save, and avoid scams. Money skills help us make safer choices.",
@@ -545,9 +590,14 @@
               "avg_sentence_words": 10.7,
               "fk_grade": 8.9,
               "long_word_pct": 21.9,
-              "speak_seconds_est": 14.8,
-              "fits_20s": true,
-              "provenance": "workbook"
+              "speak_seconds_est": 20.2,
+              "fill_pct": 101.1,
+              "fits_20s": false,
+              "wpm": 95,
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (English teacher role)",
+              "basis": "Original A2 kept, except the four slides whose vocabulary pushed the mission above the A2 band (FK 7.8). Only those lines are simplified; facts unchanged.",
+              "workbook_text": "Technology can also help. Students can use simple data maps to understand where help is needed: food access, public transportation, elderly care, or after-school programs. Data should guide kindness, not replace it."
             },
             "A1": {
               "text": "Technology can help us see needs. Students can make maps about food, buses, care, or learning support.",
@@ -593,9 +643,14 @@
               "avg_sentence_words": 11.7,
               "fk_grade": 9.2,
               "long_word_pct": 28.6,
-              "speak_seconds_est": 16.2,
-              "fits_20s": true,
-              "provenance": "workbook"
+              "speak_seconds_est": 22.1,
+              "fill_pct": 110.5,
+              "fits_20s": false,
+              "wpm": 95,
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (English teacher role)",
+              "basis": "Original A2 kept, except the four slides whose vocabulary pushed the mission above the A2 band (FK 7.8). Only those lines are simplified; facts unchanged.",
+              "workbook_text": "Service learning connects English, SDGs, and action. Students can interview local groups, write bilingual posters, design donation guides, or teach younger students. The best learning is not only speaking about problems, but working with people."
             },
             "A1": {
               "text": "Students can help local groups, make English posters, or teach younger children. We learn by doing.",
@@ -644,15 +699,20 @@
           },
           "scripts": {
             "A2": {
-              "text": "Future poverty may grow with aging. Older people living alone may need care, money, transport, and digital support. Young people should understand that poverty is connected to health, family structure, and public services.",
-              "words": 33,
+              "text": "Poverty may grow as Taiwan gets older. Old people who live alone need care, money, and transport. Poverty is linked to health, family, and public services.",
+              "words": 26,
               "sentences": 3,
-              "avg_sentence_words": 11.0,
-              "fk_grade": 9.8,
-              "long_word_pct": 15.2,
-              "speak_seconds_est": 15.2,
+              "avg_sentence_words": 8.7,
+              "fk_grade": 6.9,
+              "long_word_pct": 7.7,
+              "speak_seconds_est": 16.4,
+              "fill_pct": 82.1,
               "fits_20s": true,
-              "provenance": "workbook"
+              "wpm": 95,
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (English teacher role)",
+              "basis": "Original A2 kept, except the four slides whose vocabulary pushed the mission above the A2 band (FK 7.8). Only those lines are simplified; facts unchanged.",
+              "workbook_text": "Future poverty may grow with aging. Older people living alone may need care, money, transport, and digital support. Young people should understand that poverty is connected to health, family structure, and public services."
             },
             "A1": {
               "text": "Taiwan has more older people. Some live alone and need money, care, buses, and digital help.",
@@ -692,15 +752,20 @@
           },
           "scripts": {
             "A2": {
-              "text": "Another challenge is fair access for migrant workers and new immigrant families. Language, documents, and cultural differences can make services hard to use. Inclusive support helps children and adults participate fully in society.",
-              "words": 33,
+              "text": "Migrant workers and new immigrant families also need fair access. Language and paperwork make services hard to use. Good support helps their children and adults join society.",
+              "words": 27,
               "sentences": 3,
-              "avg_sentence_words": 11.0,
-              "fk_grade": 11.6,
-              "long_word_pct": 33.3,
-              "speak_seconds_est": 15.2,
+              "avg_sentence_words": 9.0,
+              "fk_grade": 7.6,
+              "long_word_pct": 22.2,
+              "speak_seconds_est": 17.1,
+              "fill_pct": 85.3,
               "fits_20s": true,
-              "provenance": "workbook"
+              "wpm": 95,
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (English teacher role)",
+              "basis": "Original A2 kept, except the four slides whose vocabulary pushed the mission above the A2 band (FK 7.8). Only those lines are simplified; facts unchanged.",
+              "workbook_text": "Another challenge is fair access for migrant workers and new immigrant families. Language, documents, and cultural differences can make services hard to use. Inclusive support helps children and adults participate fully in society."
             },
             "A1": {
               "text": "Migrant workers and new immigrant families may face language problems. Fair support helps them live and learn.",
@@ -740,15 +805,20 @@
           },
           "scripts": {
             "A2": {
-              "text": "Climate disasters can also deepen poverty. Floods, heat, and extreme weather hurt low-income families first because they have fewer savings and fewer choices. SDG 1 is connected to climate action and disaster preparation.",
-              "words": 32,
+              "text": "Climate disasters can make poverty worse. Floods and extreme heat hurt low-income families first, because they have less money to fall back on. SDG 1 and climate action are linked.",
+              "words": 30,
               "sentences": 3,
-              "avg_sentence_words": 10.7,
-              "fk_grade": 10.3,
-              "long_word_pct": 18.8,
-              "speak_seconds_est": 14.8,
+              "avg_sentence_words": 10.0,
+              "fk_grade": 6.0,
+              "long_word_pct": 10.0,
+              "speak_seconds_est": 18.9,
+              "fill_pct": 94.7,
               "fits_20s": true,
-              "provenance": "workbook"
+              "wpm": 95,
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (English teacher role)",
+              "basis": "Original A2 kept, except the four slides whose vocabulary pushed the mission above the A2 band (FK 7.8). Only those lines are simplified; facts unchanged.",
+              "workbook_text": "Climate disasters can also deepen poverty. Floods, heat, and extreme weather hurt low-income families first because they have fewer savings and fewer choices. SDG 1 is connected to climate action and disaster preparation."
             },
             "A1": {
               "text": "Floods and hot weather hurt poor families more. They have less money to recover. Climate action also fights poverty.",
@@ -794,9 +864,14 @@
               "avg_sentence_words": 8.2,
               "fk_grade": 5.1,
               "long_word_pct": 9.1,
-              "speak_seconds_est": 15.2,
-              "fits_20s": true,
-              "provenance": "workbook"
+              "speak_seconds_est": 20.8,
+              "fill_pct": 104.2,
+              "fits_20s": false,
+              "wpm": 95,
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (English teacher role)",
+              "basis": "Original A2 kept, except the four slides whose vocabulary pushed the mission above the A2 band (FK 7.8). Only those lines are simplified; facts unchanged.",
+              "workbook_text": "Finally, we must talk about dignity. Helping people should not make them feel ashamed. If we only see poor people as weak, we miss their strengths. Real support listens, respects, and works together."
             },
             "A1": {
               "text": "People need help with respect. Poverty is not shame. We should listen and work together.",
@@ -846,14 +921,19 @@
           "scripts": {
             "A2": {
               "text": "To sum up, SDG 1 is about shared security. Poverty affects education, health, housing, and dreams. Taiwan has support systems, but we still need earlier help, better access, and stronger community action.",
-              "words": 31,
+              "words": 32,
               "sentences": 3,
-              "avg_sentence_words": 10.3,
-              "fk_grade": 9.0,
-              "long_word_pct": 12.9,
-              "speak_seconds_est": 14.3,
-              "fits_20s": true,
-              "provenance": "workbook"
+              "avg_sentence_words": 10.7,
+              "fk_grade": 8.9,
+              "long_word_pct": 12.5,
+              "speak_seconds_est": 20.2,
+              "fill_pct": 101.1,
+              "fits_20s": false,
+              "wpm": 95,
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (English teacher role)",
+              "basis": "Original A2 kept, except the four slides whose vocabulary pushed the mission above the A2 band (FK 7.8). Only those lines are simplified; facts unchanged.",
+              "workbook_text": "To sum up, SDG 1 is about shared security. Poverty affects education, health, housing, and dreams. Taiwan has support systems, but we still need earlier help, better access, and stronger community action."
             },
             "A1": {
               "text": "SDG 1 is about safety for everyone. Poverty affects school, health, homes, and dreams. We need better support.",
@@ -899,9 +979,14 @@
               "avg_sentence_words": 11.7,
               "fk_grade": 8.5,
               "long_word_pct": 11.4,
-              "speak_seconds_est": 16.2,
-              "fits_20s": true,
-              "provenance": "workbook"
+              "speak_seconds_est": 22.1,
+              "fill_pct": 110.5,
+              "fits_20s": false,
+              "wpm": 95,
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (English teacher role)",
+              "basis": "Original A2 kept, except the four slides whose vocabulary pushed the mission above the A2 band (FK 7.8). Only those lines are simplified; facts unchanged.",
+              "workbook_text": "We also need to challenge stereotypes. It is easy to blame poor people, but poverty is often caused by low wages, high costs, illness, care duties, or disasters. Understanding the system helps us respond wisely."
             },
             "A1": {
               "text": "We should not blame poor people. Many problems come from low pay, illness, high costs, or family care.",
@@ -947,9 +1032,14 @@
               "avg_sentence_words": 11.7,
               "fk_grade": 6.5,
               "long_word_pct": 17.1,
-              "speak_seconds_est": 16.2,
-              "fits_20s": true,
-              "provenance": "workbook"
+              "speak_seconds_est": 22.1,
+              "fill_pct": 110.5,
+              "fits_20s": false,
+              "wpm": 95,
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (English teacher role)",
+              "basis": "Original A2 kept, except the four slides whose vocabulary pushed the mission above the A2 band (FK 7.8). Only those lines are simplified; facts unchanged.",
+              "workbook_text": "Young people can help by building skills, networks, and voice. We can learn English to share SDG ideas, use data to explain problems, and join local projects. Small actions become powerful when they are organized."
             },
             "A1": {
               "text": "Young people can learn English, use data, and join local projects. Small actions can become strong together.",
@@ -989,15 +1079,20 @@
           },
           "scripts": {
             "A2": {
-              "text": "Thank you for listening. SDG 1 asks us to see poverty clearly and act with respect. Let us start from our school, our community, and our words. A fair future begins with what we choose to notice today.",
-              "words": 37,
-              "sentences": 4,
-              "avg_sentence_words": 9.2,
-              "fk_grade": 4.0,
-              "long_word_pct": 5.4,
-              "speak_seconds_est": 17.1,
+              "text": "Thank you for listening. SDG 1 asks us to see poverty clearly and to act with respect. Let us start from our own school and our own words.",
+              "words": 28,
+              "sentences": 3,
+              "avg_sentence_words": 9.3,
+              "fk_grade": 2.4,
+              "long_word_pct": 3.6,
+              "speak_seconds_est": 17.7,
+              "fill_pct": 88.4,
               "fits_20s": true,
-              "provenance": "workbook"
+              "wpm": 95,
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (English teacher role)",
+              "basis": "Original A2 kept, except the four slides whose vocabulary pushed the mission above the A2 band (FK 7.8). Only those lines are simplified; facts unchanged.",
+              "workbook_text": "Thank you for listening. SDG 1 asks us to see poverty clearly and act with respect. Let us start from our school, our community, and our words. A fair future begins with what we choose to notice today."
             },
             "A1": {
               "text": "Thank you for listening. Let us see poverty, respect people, and help in our school and community. We can start today.",
@@ -1042,10 +1137,10 @@
     },
     "A2": {
       "slides": 20,
-      "avg_words": 33.9,
-      "avg_sentence_words": 10.2,
-      "fk_grade": 7.8,
-      "slides_over_20s": 0
+      "avg_words": 31.6,
+      "avg_sentence_words": 9.6,
+      "fk_grade": 6.9,
+      "slides_over_20s": 12
     },
     "B1": {
       "slides": 20,

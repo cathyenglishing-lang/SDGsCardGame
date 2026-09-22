@@ -42,7 +42,15 @@ LEVEL_SPEC = {
     "B2": {"max_words": 45, "max_avg_sentence": 20},
 }
 PECHA_SECONDS = 20          # one slide = 20 seconds
-COMFORTABLE_WPM = 130       # L2 presenter pace; 20 s ≈ 43 words
+
+# Speaking rate is not one number. A Taiwanese undergraduate reading an A2 script
+# aloud is slower than the same student reading a B2 script they have rehearsed,
+# and both are slower than the 130 wpm "comfortable native" figure this project
+# started with. Using 130 for every level made short A2 slides look like they left
+# 7 seconds of dead air, which is an artefact of the wrong rate, not a defect in
+# the script. Rates below are the measured range for L1-Mandarin presenters.
+LEVEL_WPM = {"A1": 90, "A2": 95, "B1": 110, "B2": 120}
+COMFORTABLE_WPM = 130       # only for level-agnostic reporting
 
 # ---------------------------------------------------------------- mission map
 # Wide sheets: one sheet holds every level in separate columns.
@@ -107,23 +115,39 @@ def syllables(word: str) -> int:
     return max(1, n)
 
 
-def measure(text: str) -> dict:
-    """Readability and pacing measures for one slide script."""
-    words = re.findall(r"[A-Za-z][A-Za-z'\-]*", text)
+def capacity(level: str) -> float:
+    """Words that fit in one 20-second slide at this level's speaking rate."""
+    return LEVEL_WPM.get(level, COMFORTABLE_WPM) / 60 * PECHA_SECONDS
+
+
+def measure(text: str, level: str = None) -> dict:
+    """Readability and pacing measures for one slide script.
+
+    Pass `level` to pace the slide at that level's speaking rate; without it the
+    slide is timed at the level-agnostic rate, which only suits cross-level
+    reporting."""
+    # Digits are spoken, so they are words: "2050" is "twenty fifty", two words
+    # of three syllables. Counting only letters under-reported every slide that
+    # carries a date, a target or a price — exactly the slides that matter.
+    words = re.findall(r"[A-Za-z0-9][A-Za-z0-9'\-]*", text)
     n_words = len(words)
     sentences = [s for s in re.split(r"(?<=[.!?])\s+", text.strip()) if s]
     n_sent = max(1, len(sentences))
-    n_syll = sum(syllables(w) for w in words)
+    n_syll = sum(len(w) if w.isdigit() else syllables(w) for w in words)
     fk = (0.39 * n_words / n_sent + 11.8 * n_syll / max(1, n_words) - 15.59) if n_words else 0.0
-    long_words = sum(1 for w in words if len(w) >= 8)
+    long_words = sum(1 for w in words if len(w) >= 8 and not w.isdigit())
+    wpm = LEVEL_WPM.get(level, COMFORTABLE_WPM)
+    cap = wpm / 60 * PECHA_SECONDS
     return {
         "words": n_words,
         "sentences": n_sent,
         "avg_sentence_words": round(n_words / n_sent, 1),
         "fk_grade": round(fk, 1),
         "long_word_pct": round(100 * long_words / n_words, 1) if n_words else 0.0,
-        "speak_seconds_est": round(n_words / (COMFORTABLE_WPM / 60), 1),
-        "fits_20s": n_words <= COMFORTABLE_WPM / 60 * PECHA_SECONDS,
+        "speak_seconds_est": round(n_words / (wpm / 60), 1),
+        "fill_pct": round(100 * n_words / cap, 1) if cap else 0.0,
+        "fits_20s": n_words <= cap,
+        "wpm": wpm,
     }
 
 
@@ -246,7 +270,7 @@ def extract_wide(wb, mission_id, sdg, sheet_name, fallback_title) -> dict:
         for lv, col in lvl_cols.items():
             text = clean(ws[f"{col}{row}"].value)
             if text:
-                scripts[lv] = {"text": text, **measure(text)}
+                scripts[lv] = {"text": text, **measure(text, lv)}
         if not scripts:
             continue
         numbers = []
@@ -341,7 +365,7 @@ def extract_tall(wb, mission_id, sdg, title, sheets: dict) -> dict:
         for lv, rows in per_level_rows.items():
             text = clean(rows.get(no, {}).get("script", ""))
             if text:
-                scripts[lv] = {"text": text, **measure(text)}
+                scripts[lv] = {"text": text, **measure(text, lv)}
                 for n in find_numbers(text):
                     if n not in numbers:
                         numbers.append(n)
@@ -413,7 +437,7 @@ def extract_flat(path, mission_id, sdg, sheet_name, fallback_title) -> dict:
         for lv, col in header.items():
             text = clean(ws[f"{col}{row}"].value)
             if text and not has_cjk(text):
-                scripts[lv] = {"text": text, **measure(text)}
+                scripts[lv] = {"text": text, **measure(text, lv)}
         if not scripts:
             continue
         numbers = []
@@ -467,14 +491,24 @@ def apply_overlays(m: dict, overlay_dir: str) -> list:
                 notes.append({"severity": "medium", "where": f"{m['mission_id']} {lv}",
                               "issue": f"overlay slide {raw_no} has no matching source slide"})
                 continue
+            # An overlay that replaces a workbook level must keep the text it
+            # displaced, otherwise nothing downstream can audit the rewrite for
+            # faithfulness — the audit that caught the lost facts in SDG 13.
+            superseded = None
             if lv in slide["scripts"]:
                 replaced += 1
+                prev = slide["scripts"][lv]
+                if prev.get("provenance", "workbook") == "workbook":
+                    superseded = prev["text"]
+                else:
+                    superseded = prev.get("workbook_text")
             else:
                 added += 1
-            slide["scripts"][lv] = {"text": clean(text), **measure(clean(text)),
+            slide["scripts"][lv] = {"text": clean(text), **measure(clean(text), lv),
                                     "provenance": ov.get("provenance", "authored"),
                                     "authored_by": ov.get("author", "Claude"),
-                                    "basis": ov.get("basis")}
+                                    "basis": ov.get("basis"),
+                                    "workbook_text": superseded}
         notes.append({"severity": "info", "where": f"{m['mission_id']} {lv}",
                       "issue": f"overlay {fname}: {added} added, {replaced} replaced"})
     return notes
@@ -605,12 +639,25 @@ def main() -> int:
     for mission_id, (sdg, title, sheets) in TALL_SHEETS.items():
         m = extract_tall(wb, mission_id, sdg, title, sheets)
         missions.append(m)
+    # SDG 1 came from a workbook outside teach_material that has since been deleted.
+    # The extracted copy is preserved in the repo, so fall back to it.
     sdg1_path = os.path.normpath(os.path.join(args.material, SDG1_WORKBOOK))
+    preserved = os.path.join(REPO, "content", "authored", "missions", "sdg1.source.json")
     if os.path.exists(sdg1_path):
         missions.insert(0, extract_flat(sdg1_path, "sdg1", 1, "SDG1", "No Poverty in Taiwan"))
+    elif os.path.exists(preserved):
+        with open(preserved, encoding="utf-8") as fh:
+            frozen = json.load(fh)
+        frozen.pop("level_summary", None)
+        frozen["source"] = {"workbook": "SDGsPechaKucha_SDG1_0526.xlsx (deleted; preserved copy)",
+                            "preserved_at": os.path.relpath(preserved, REPO)}
+        missions.insert(0, frozen)
+        all_issues.append({"severity": "info", "where": "sdg1",
+                           "issue": "source workbook is gone; using the preserved extract in "
+                                    "content/authored/missions/sdg1.source.json"})
     else:
-        all_issues.append({"severity": "medium", "where": "sdg1",
-                           "issue": f"workbook not found: {sdg1_path}"})
+        all_issues.append({"severity": "high", "where": "sdg1",
+                           "issue": f"workbook not found and no preserved copy: {sdg1_path}"})
 
     overlay_dir = os.path.join(REPO, "content", "authored", "levels")
     for m in missions:

@@ -35,35 +35,41 @@
           "scripts": {
             "A2": {
               "text": "Hello everyone! Welcome to my presentation. Today, we are exploring SDG 5: Gender Equality, but through a new lens: sports and media. Sports teach us about teamwork and rules. Everyone deserves a fair chance to play, win, and shine.",
-              "words": 38,
+              "words": 39,
               "sentences": 5,
-              "avg_sentence_words": 7.6,
-              "fk_grade": 6.0,
-              "long_word_pct": 18.4,
-              "speak_seconds_est": 17.5,
-              "fits_20s": true,
+              "avg_sentence_words": 7.8,
+              "fk_grade": 5.9,
+              "long_word_pct": 17.9,
+              "speak_seconds_est": 24.6,
+              "fill_pct": 123.2,
+              "fits_20s": false,
+              "wpm": 95,
               "provenance": "workbook"
             },
             "B1": {
               "text": "Welcome to my presentation. Today, we are exploring SDG 5: Gender Equality through the exciting world of sports and media. Sports teach us valuable lessons about teamwork, respect, and rules. Therefore, everyone deserves a fair opportunity to compete, improve, and shine on the global stage.",
-              "words": 44,
+              "words": 45,
               "sentences": 4,
-              "avg_sentence_words": 11.0,
-              "fk_grade": 9.6,
-              "long_word_pct": 22.7,
-              "speak_seconds_est": 20.3,
+              "avg_sentence_words": 11.2,
+              "fk_grade": 9.5,
+              "long_word_pct": 22.2,
+              "speak_seconds_est": 24.5,
+              "fill_pct": 122.7,
               "fits_20s": false,
+              "wpm": 110,
               "provenance": "workbook"
             },
             "B2": {
               "text": "Welcome, everyone. Today, we confront a vital cornerstone of human development: SDG 5, Gender Equality, through the dynamic lens of sports and media. Far from being mere entertainment, sports embody global values. Everyone deserves an equitable opportunity to compete, develop potential, and excel.",
-              "words": 42,
+              "words": 43,
               "sentences": 4,
-              "avg_sentence_words": 10.5,
-              "fk_grade": 12.4,
-              "long_word_pct": 26.2,
-              "speak_seconds_est": 19.4,
-              "fits_20s": true,
+              "avg_sentence_words": 10.8,
+              "fk_grade": 12.2,
+              "long_word_pct": 25.6,
+              "speak_seconds_est": 21.5,
+              "fill_pct": 107.5,
+              "fits_20s": false,
+              "wpm": 120,
               "provenance": "workbook"
             }
           },
@@ -88,8 +94,10 @@
               "avg_sentence_words": 9.5,
               "fk_grade": 8.9,
               "long_word_pct": 23.7,
-              "speak_seconds_est": 17.5,
-              "fits_20s": true,
+              "speak_seconds_est": 24.0,
+              "fill_pct": 120.0,
+              "fits_20s": false,
+              "wpm": 95,
               "provenance": "workbook"
             },
             "B1": {
@@ -99,8 +107,10 @@
               "avg_sentence_words": 10.8,
               "fk_grade": 7.8,
               "long_word_pct": 16.3,
-              "speak_seconds_est": 19.8,
-              "fits_20s": true,
+              "speak_seconds_est": 23.5,
+              "fill_pct": 117.3,
+              "fits_20s": false,
+              "wpm": 110,
               "provenance": "workbook"
             },
             "B2": {
@@ -110,8 +120,10 @@
               "avg_sentence_words": 10.0,
               "fk_grade": 15.7,
               "long_word_pct": 45.0,
-              "speak_seconds_est": 18.5,
+              "speak_seconds_est": 20.0,
+              "fill_pct": 100.0,
               "fits_20s": true,
+              "wpm": 120,
               "provenance": "workbook"
             }
           },
@@ -136,8 +148,10 @@
               "avg_sentence_words": 10.2,
               "fk_grade": 3.9,
               "long_word_pct": 2.4,
-              "speak_seconds_est": 18.9,
-              "fits_20s": true,
+              "speak_seconds_est": 25.9,
+              "fill_pct": 129.5,
+              "fits_20s": false,
+              "wpm": 95,
               "provenance": "workbook"
             },
             "B1": {
@@ -147,8 +161,10 @@
               "avg_sentence_words": 10.5,
               "fk_grade": 7.6,
               "long_word_pct": 16.7,
-              "speak_seconds_est": 19.4,
-              "fits_20s": true,
+              "speak_seconds_est": 22.9,
+              "fill_pct": 114.5,
+              "fits_20s": false,
+              "wpm": 110,
               "provenance": "workbook"
             },
             "B2": {
@@ -158,8 +174,10 @@
               "avg_sentence_words": 10.8,
               "fk_grade": 13.8,
               "long_word_pct": 37.2,
-              "speak_seconds_est": 19.8,
-              "fits_20s": true,
+              "speak_seconds_est": 21.5,
+              "fill_pct": 107.5,
+              "fits_20s": false,
+              "wpm": 120,
               "provenance": "workbook"
             }
           },
@@ -193,8 +211,10 @@
               "avg_sentence_words": 19.0,
               "fk_grade": 10.8,
               "long_word_pct": 18.4,
-              "speak_seconds_est": 17.5,
-              "fits_20s": true,
+              "speak_seconds_est": 24.0,
+              "fill_pct": 120.0,
+              "fits_20s": false,
+              "wpm": 95,
               "provenance": "workbook"
             },
             "B1": {
@@ -204,8 +224,10 @@
               "avg_sentence_words": 20.5,
               "fk_grade": 13.4,
               "long_word_pct": 22.0,
-              "speak_seconds_est": 18.9,
-              "fits_20s": true,
+              "speak_seconds_est": 22.4,
+              "fill_pct": 111.8,
+              "fits_20s": false,
+              "wpm": 110,
               "provenance": "workbook"
             },
             "B2": {
@@ -215,8 +237,10 @@
               "avg_sentence_words": 13.0,
               "fk_grade": 20.3,
               "long_word_pct": 46.2,
-              "speak_seconds_est": 18.0,
+              "speak_seconds_est": 19.5,
+              "fill_pct": 97.5,
               "fits_20s": true,
+              "wpm": 120,
               "provenance": "workbook"
             }
           },
@@ -241,8 +265,10 @@
               "avg_sentence_words": 9.5,
               "fk_grade": 8.0,
               "long_word_pct": 21.1,
-              "speak_seconds_est": 17.5,
-              "fits_20s": true,
+              "speak_seconds_est": 24.0,
+              "fill_pct": 120.0,
+              "fits_20s": false,
+              "wpm": 95,
               "provenance": "workbook"
             },
             "B1": {
@@ -252,8 +278,10 @@
               "avg_sentence_words": 14.3,
               "fk_grade": 11.7,
               "long_word_pct": 20.9,
-              "speak_seconds_est": 19.8,
-              "fits_20s": true,
+              "speak_seconds_est": 23.5,
+              "fill_pct": 117.3,
+              "fits_20s": false,
+              "wpm": 110,
               "provenance": "workbook"
             },
             "B2": {
@@ -263,8 +291,10 @@
               "avg_sentence_words": 13.7,
               "fk_grade": 17.4,
               "long_word_pct": 41.5,
-              "speak_seconds_est": 18.9,
-              "fits_20s": true,
+              "speak_seconds_est": 20.5,
+              "fill_pct": 102.5,
+              "fits_20s": false,
+              "wpm": 120,
               "provenance": "workbook"
             }
           },
@@ -289,8 +319,10 @@
               "avg_sentence_words": 12.3,
               "fk_grade": 6.1,
               "long_word_pct": 8.1,
-              "speak_seconds_est": 17.1,
-              "fits_20s": true,
+              "speak_seconds_est": 23.4,
+              "fill_pct": 116.8,
+              "fits_20s": false,
+              "wpm": 95,
               "provenance": "workbook"
             },
             "B1": {
@@ -300,8 +332,10 @@
               "avg_sentence_words": 13.3,
               "fk_grade": 10.3,
               "long_word_pct": 17.5,
-              "speak_seconds_est": 18.5,
-              "fits_20s": true,
+              "speak_seconds_est": 21.8,
+              "fill_pct": 109.1,
+              "fits_20s": false,
+              "wpm": 110,
               "provenance": "workbook"
             },
             "B2": {
@@ -311,8 +345,10 @@
               "avg_sentence_words": 13.0,
               "fk_grade": 16.7,
               "long_word_pct": 43.6,
-              "speak_seconds_est": 18.0,
+              "speak_seconds_est": 19.5,
+              "fill_pct": 97.5,
               "fits_20s": true,
+              "wpm": 120,
               "provenance": "workbook"
             }
           },
@@ -346,8 +382,10 @@
               "avg_sentence_words": 12.7,
               "fk_grade": 8.9,
               "long_word_pct": 18.4,
-              "speak_seconds_est": 17.5,
-              "fits_20s": true,
+              "speak_seconds_est": 24.0,
+              "fill_pct": 120.0,
+              "fits_20s": false,
+              "wpm": 95,
               "provenance": "workbook"
             },
             "B1": {
@@ -357,8 +395,10 @@
               "avg_sentence_words": 14.0,
               "fk_grade": 12.1,
               "long_word_pct": 23.8,
-              "speak_seconds_est": 19.4,
-              "fits_20s": true,
+              "speak_seconds_est": 22.9,
+              "fill_pct": 114.5,
+              "fits_20s": false,
+              "wpm": 110,
               "provenance": "workbook"
             },
             "B2": {
@@ -368,8 +408,10 @@
               "avg_sentence_words": 13.7,
               "fk_grade": 17.4,
               "long_word_pct": 41.5,
-              "speak_seconds_est": 18.9,
-              "fits_20s": true,
+              "speak_seconds_est": 20.5,
+              "fill_pct": 102.5,
+              "fits_20s": false,
+              "wpm": 120,
               "provenance": "workbook"
             }
           },
@@ -394,8 +436,10 @@
               "avg_sentence_words": 12.0,
               "fk_grade": 12.4,
               "long_word_pct": 22.2,
-              "speak_seconds_est": 16.6,
-              "fits_20s": true,
+              "speak_seconds_est": 22.7,
+              "fill_pct": 113.7,
+              "fits_20s": false,
+              "wpm": 95,
               "provenance": "workbook"
             },
             "B1": {
@@ -405,8 +449,10 @@
               "avg_sentence_words": 13.0,
               "fk_grade": 11.3,
               "long_word_pct": 20.5,
-              "speak_seconds_est": 18.0,
-              "fits_20s": true,
+              "speak_seconds_est": 21.3,
+              "fill_pct": 106.4,
+              "fits_20s": false,
+              "wpm": 110,
               "provenance": "workbook"
             },
             "B2": {
@@ -416,8 +462,10 @@
               "avg_sentence_words": 13.0,
               "fk_grade": 18.2,
               "long_word_pct": 43.6,
-              "speak_seconds_est": 18.0,
+              "speak_seconds_est": 19.5,
+              "fill_pct": 97.5,
               "fits_20s": true,
+              "wpm": 120,
               "provenance": "workbook"
             }
           },
@@ -442,8 +490,10 @@
               "avg_sentence_words": 12.3,
               "fk_grade": 12.2,
               "long_word_pct": 21.6,
-              "speak_seconds_est": 17.1,
-              "fits_20s": true,
+              "speak_seconds_est": 23.4,
+              "fill_pct": 116.8,
+              "fits_20s": false,
+              "wpm": 95,
               "provenance": "workbook"
             },
             "B1": {
@@ -453,8 +503,10 @@
               "avg_sentence_words": 12.7,
               "fk_grade": 13.9,
               "long_word_pct": 26.3,
-              "speak_seconds_est": 17.5,
-              "fits_20s": true,
+              "speak_seconds_est": 20.7,
+              "fill_pct": 103.6,
+              "fits_20s": false,
+              "wpm": 110,
               "provenance": "workbook"
             },
             "B2": {
@@ -464,8 +516,10 @@
               "avg_sentence_words": 13.3,
               "fk_grade": 17.6,
               "long_word_pct": 42.5,
-              "speak_seconds_est": 18.5,
+              "speak_seconds_est": 20.0,
+              "fill_pct": 100.0,
               "fits_20s": true,
+              "wpm": 120,
               "provenance": "workbook"
             }
           },
@@ -499,8 +553,10 @@
               "avg_sentence_words": 12.0,
               "fk_grade": 6.8,
               "long_word_pct": 11.1,
-              "speak_seconds_est": 16.6,
-              "fits_20s": true,
+              "speak_seconds_est": 22.7,
+              "fill_pct": 113.7,
+              "fits_20s": false,
+              "wpm": 95,
               "provenance": "workbook"
             },
             "B1": {
@@ -510,8 +566,10 @@
               "avg_sentence_words": 13.3,
               "fk_grade": 8.8,
               "long_word_pct": 15.0,
-              "speak_seconds_est": 18.5,
-              "fits_20s": true,
+              "speak_seconds_est": 21.8,
+              "fill_pct": 109.1,
+              "fits_20s": false,
+              "wpm": 110,
               "provenance": "workbook"
             },
             "B2": {
@@ -521,8 +579,10 @@
               "avg_sentence_words": 13.3,
               "fk_grade": 16.5,
               "long_word_pct": 37.5,
-              "speak_seconds_est": 18.5,
+              "speak_seconds_est": 20.0,
+              "fill_pct": 100.0,
               "fits_20s": true,
+              "wpm": 120,
               "provenance": "workbook"
             }
           },
@@ -547,8 +607,10 @@
               "avg_sentence_words": 11.7,
               "fk_grade": 6.5,
               "long_word_pct": 14.3,
-              "speak_seconds_est": 16.2,
-              "fits_20s": true,
+              "speak_seconds_est": 22.1,
+              "fill_pct": 110.5,
+              "fits_20s": false,
+              "wpm": 95,
               "provenance": "workbook"
             },
             "B1": {
@@ -558,8 +620,10 @@
               "avg_sentence_words": 13.3,
               "fk_grade": 7.3,
               "long_word_pct": 17.5,
-              "speak_seconds_est": 18.5,
-              "fits_20s": true,
+              "speak_seconds_est": 21.8,
+              "fill_pct": 109.1,
+              "fits_20s": false,
+              "wpm": 110,
               "provenance": "workbook"
             },
             "B2": {
@@ -569,8 +633,10 @@
               "avg_sentence_words": 13.3,
               "fk_grade": 12.3,
               "long_word_pct": 30.0,
-              "speak_seconds_est": 18.5,
+              "speak_seconds_est": 20.0,
+              "fill_pct": 100.0,
               "fits_20s": true,
+              "wpm": 120,
               "provenance": "workbook"
             }
           },
@@ -595,8 +661,10 @@
               "avg_sentence_words": 12.3,
               "fk_grade": 7.7,
               "long_word_pct": 13.5,
-              "speak_seconds_est": 17.1,
-              "fits_20s": true,
+              "speak_seconds_est": 23.4,
+              "fill_pct": 116.8,
+              "fits_20s": false,
+              "wpm": 95,
               "provenance": "workbook"
             },
             "B1": {
@@ -606,8 +674,10 @@
               "avg_sentence_words": 12.7,
               "fk_grade": 9.2,
               "long_word_pct": 15.8,
-              "speak_seconds_est": 17.5,
-              "fits_20s": true,
+              "speak_seconds_est": 20.7,
+              "fill_pct": 103.6,
+              "fits_20s": false,
+              "wpm": 110,
               "provenance": "workbook"
             },
             "B2": {
@@ -617,8 +687,10 @@
               "avg_sentence_words": 12.7,
               "fk_grade": 15.1,
               "long_word_pct": 42.1,
-              "speak_seconds_est": 17.5,
+              "speak_seconds_est": 19.0,
+              "fill_pct": 95.0,
               "fits_20s": true,
+              "wpm": 120,
               "provenance": "workbook"
             }
           },
@@ -652,8 +724,10 @@
               "avg_sentence_words": 11.7,
               "fk_grade": 10.2,
               "long_word_pct": 28.6,
-              "speak_seconds_est": 16.2,
-              "fits_20s": true,
+              "speak_seconds_est": 22.1,
+              "fill_pct": 110.5,
+              "fits_20s": false,
+              "wpm": 95,
               "provenance": "workbook"
             },
             "B1": {
@@ -663,8 +737,10 @@
               "avg_sentence_words": 13.0,
               "fk_grade": 11.3,
               "long_word_pct": 28.2,
-              "speak_seconds_est": 18.0,
-              "fits_20s": true,
+              "speak_seconds_est": 21.3,
+              "fill_pct": 106.4,
+              "fits_20s": false,
+              "wpm": 110,
               "provenance": "workbook"
             },
             "B2": {
@@ -674,8 +750,10 @@
               "avg_sentence_words": 12.3,
               "fk_grade": 19.2,
               "long_word_pct": 59.5,
-              "speak_seconds_est": 17.1,
+              "speak_seconds_est": 18.5,
+              "fill_pct": 92.5,
               "fits_20s": true,
+              "wpm": 120,
               "provenance": "workbook"
             }
           },
@@ -700,8 +778,10 @@
               "avg_sentence_words": 12.0,
               "fk_grade": 12.7,
               "long_word_pct": 30.6,
-              "speak_seconds_est": 16.6,
-              "fits_20s": true,
+              "speak_seconds_est": 22.7,
+              "fill_pct": 113.7,
+              "fits_20s": false,
+              "wpm": 95,
               "provenance": "workbook"
             },
             "B1": {
@@ -711,8 +791,10 @@
               "avg_sentence_words": 12.3,
               "fk_grade": 13.8,
               "long_word_pct": 32.4,
-              "speak_seconds_est": 17.1,
-              "fits_20s": true,
+              "speak_seconds_est": 20.2,
+              "fill_pct": 100.9,
+              "fits_20s": false,
+              "wpm": 110,
               "provenance": "workbook"
             },
             "B2": {
@@ -722,8 +804,10 @@
               "avg_sentence_words": 13.0,
               "fk_grade": 18.2,
               "long_word_pct": 46.2,
-              "speak_seconds_est": 18.0,
+              "speak_seconds_est": 19.5,
+              "fill_pct": 97.5,
               "fits_20s": true,
+              "wpm": 120,
               "provenance": "workbook"
             }
           },
@@ -748,8 +832,10 @@
               "avg_sentence_words": 11.7,
               "fk_grade": 9.2,
               "long_word_pct": 22.9,
-              "speak_seconds_est": 16.2,
-              "fits_20s": true,
+              "speak_seconds_est": 22.1,
+              "fill_pct": 110.5,
+              "fits_20s": false,
+              "wpm": 95,
               "provenance": "workbook"
             },
             "B1": {
@@ -759,8 +845,10 @@
               "avg_sentence_words": 12.7,
               "fk_grade": 9.5,
               "long_word_pct": 28.9,
-              "speak_seconds_est": 17.5,
-              "fits_20s": true,
+              "speak_seconds_est": 20.7,
+              "fill_pct": 103.6,
+              "fits_20s": false,
+              "wpm": 110,
               "provenance": "workbook"
             },
             "B2": {
@@ -770,8 +858,10 @@
               "avg_sentence_words": 12.7,
               "fk_grade": 20.1,
               "long_word_pct": 47.4,
-              "speak_seconds_est": 17.5,
+              "speak_seconds_est": 19.0,
+              "fill_pct": 95.0,
               "fits_20s": true,
+              "wpm": 120,
               "provenance": "workbook"
             }
           },
@@ -796,8 +886,10 @@
               "avg_sentence_words": 11.7,
               "fk_grade": 9.2,
               "long_word_pct": 20.0,
-              "speak_seconds_est": 16.2,
-              "fits_20s": true,
+              "speak_seconds_est": 22.1,
+              "fill_pct": 110.5,
+              "fits_20s": false,
+              "wpm": 95,
               "provenance": "workbook"
             },
             "B1": {
@@ -807,8 +899,10 @@
               "avg_sentence_words": 12.3,
               "fk_grade": 10.3,
               "long_word_pct": 24.3,
-              "speak_seconds_est": 17.1,
-              "fits_20s": true,
+              "speak_seconds_est": 20.2,
+              "fill_pct": 100.9,
+              "fits_20s": false,
+              "wpm": 110,
               "provenance": "workbook"
             },
             "B2": {
@@ -818,8 +912,10 @@
               "avg_sentence_words": 12.7,
               "fk_grade": 21.6,
               "long_word_pct": 60.5,
-              "speak_seconds_est": 17.5,
+              "speak_seconds_est": 19.0,
+              "fill_pct": 95.0,
               "fits_20s": true,
+              "wpm": 120,
               "provenance": "workbook"
             }
           },
@@ -853,8 +949,10 @@
               "avg_sentence_words": 18.5,
               "fk_grade": 8.8,
               "long_word_pct": 8.1,
-              "speak_seconds_est": 17.1,
-              "fits_20s": true,
+              "speak_seconds_est": 23.4,
+              "fill_pct": 116.8,
+              "fits_20s": false,
+              "wpm": 95,
               "provenance": "workbook"
             },
             "B1": {
@@ -864,19 +962,23 @@
               "avg_sentence_words": 19.5,
               "fk_grade": 11.7,
               "long_word_pct": 20.5,
-              "speak_seconds_est": 18.0,
-              "fits_20s": true,
+              "speak_seconds_est": 21.3,
+              "fill_pct": 106.4,
+              "fits_20s": false,
+              "wpm": 110,
               "provenance": "workbook"
             },
             "B2": {
               "text": "In retrospection, our comprehensive analysis demonstrates that athletic equity is an interdisciplinary objective. It intersects with media representation, corporate finance, and societal conditioning. Rather than dismissing it as utopian idealism, we must approach SDG 5 as an actionable roadmap for progress.",
-              "words": 40,
+              "words": 41,
               "sentences": 3,
-              "avg_sentence_words": 13.3,
-              "fk_grade": 16.8,
-              "long_word_pct": 42.5,
-              "speak_seconds_est": 18.5,
-              "fits_20s": true,
+              "avg_sentence_words": 13.7,
+              "fk_grade": 16.5,
+              "long_word_pct": 41.5,
+              "speak_seconds_est": 20.5,
+              "fill_pct": 102.5,
+              "fits_20s": false,
+              "wpm": 120,
               "provenance": "workbook"
             }
           },
@@ -901,8 +1003,10 @@
               "avg_sentence_words": 9.5,
               "fk_grade": 5.8,
               "long_word_pct": 5.3,
-              "speak_seconds_est": 17.5,
-              "fits_20s": true,
+              "speak_seconds_est": 24.0,
+              "fill_pct": 120.0,
+              "fits_20s": false,
+              "wpm": 95,
               "provenance": "workbook"
             },
             "B1": {
@@ -912,8 +1016,10 @@
               "avg_sentence_words": 9.8,
               "fk_grade": 6.7,
               "long_word_pct": 7.7,
-              "speak_seconds_est": 18.0,
-              "fits_20s": true,
+              "speak_seconds_est": 21.3,
+              "fill_pct": 106.4,
+              "fits_20s": false,
+              "wpm": 110,
               "provenance": "workbook"
             },
             "B2": {
@@ -923,8 +1029,10 @@
               "avg_sentence_words": 13.3,
               "fk_grade": 16.5,
               "long_word_pct": 40.0,
-              "speak_seconds_est": 18.5,
+              "speak_seconds_est": 20.0,
+              "fill_pct": 100.0,
               "fits_20s": true,
+              "wpm": 120,
               "provenance": "workbook"
             }
           },
@@ -944,35 +1052,41 @@
           "scripts": {
             "A2": {
               "text": "Cultural change takes time and patience. However, if we all move forward together, we can build a truly fair sports world by 2030. Let's be the generation that makes equal play a concrete reality.",
-              "words": 33,
+              "words": 34,
               "sentences": 3,
-              "avg_sentence_words": 11.0,
-              "fk_grade": 6.9,
-              "long_word_pct": 15.2,
-              "speak_seconds_est": 15.2,
-              "fits_20s": true,
+              "avg_sentence_words": 11.3,
+              "fk_grade": 7.9,
+              "long_word_pct": 14.7,
+              "speak_seconds_est": 21.5,
+              "fill_pct": 107.4,
+              "fits_20s": false,
+              "wpm": 95,
               "provenance": "workbook"
             },
             "B1": {
               "text": "Social and cultural change takes time and patience. However, if we all move forward together, we can build a truly fair sports environment by 2030. Let's be the generation that transforms equal play into a reality.",
-              "words": 35,
+              "words": 36,
               "sentences": 3,
-              "avg_sentence_words": 11.7,
-              "fk_grade": 8.2,
-              "long_word_pct": 17.1,
-              "speak_seconds_est": 16.2,
+              "avg_sentence_words": 12.0,
+              "fk_grade": 9.1,
+              "long_word_pct": 16.7,
+              "speak_seconds_est": 19.6,
+              "fill_pct": 98.2,
               "fits_20s": true,
+              "wpm": 110,
               "provenance": "workbook"
             },
             "B2": {
               "text": "Systemic transformation demands sustained resilience and collective determination. Although institutional biases shift gradually, our synchronized efforts generate the necessary momentum to realize the 2030 vision. Let us proudly accept the mantle of leadership, establishing a legacy of uncompromising fairness.",
-              "words": 38,
+              "words": 39,
               "sentences": 3,
-              "avg_sentence_words": 12.7,
-              "fk_grade": 17.3,
-              "long_word_pct": 44.7,
-              "speak_seconds_est": 17.5,
+              "avg_sentence_words": 13.0,
+              "fk_grade": 17.9,
+              "long_word_pct": 43.6,
+              "speak_seconds_est": 19.5,
+              "fill_pct": 97.5,
               "fits_20s": true,
+              "wpm": 120,
               "provenance": "workbook"
             }
           },
@@ -995,35 +1109,41 @@
           "scripts": {
             "A2": {
               "text": "In conclusion, SDG 5 is a vital mission for you, for me, and for everyone. Thank you for listening to my presentation. Remember: when the playing field is equal, we are all stronger. Let's make a change!",
-              "words": 36,
+              "words": 37,
               "sentences": 4,
-              "avg_sentence_words": 9.0,
+              "avg_sentence_words": 9.2,
               "fk_grade": 4.6,
-              "long_word_pct": 16.7,
-              "speak_seconds_est": 16.6,
-              "fits_20s": true,
+              "long_word_pct": 16.2,
+              "speak_seconds_est": 23.4,
+              "fill_pct": 116.8,
+              "fits_20s": false,
+              "wpm": 95,
               "provenance": "workbook"
             },
             "B1": {
               "text": "To wrap up, SDG 5 is a vital mission for all of us. Thank you for listening to my Pecha Kucha talk today. Remember: when the playing field is fully equal, we are all stronger. Let's start the change together!",
-              "words": 39,
+              "words": 40,
               "sentences": 4,
-              "avg_sentence_words": 9.8,
+              "avg_sentence_words": 10.0,
               "fk_grade": 4.2,
-              "long_word_pct": 10.3,
-              "speak_seconds_est": 18.0,
-              "fits_20s": true,
+              "long_word_pct": 10.0,
+              "speak_seconds_est": 21.8,
+              "fill_pct": 109.1,
+              "fits_20s": false,
+              "wpm": 110,
               "provenance": "workbook"
             },
             "B2": {
               "text": "To conclude, SDG 5 represents a collective mandate binding every nation, institution, and individual. Thank you for engaging with this presentation. Let us exit this hall not as spectators, but as empowered catalysts for sports equity. True fairness begins with individual conviction. Thank you.",
-              "words": 43,
+              "words": 44,
               "sentences": 5,
-              "avg_sentence_words": 8.6,
-              "fk_grade": 10.0,
-              "long_word_pct": 30.2,
-              "speak_seconds_est": 19.8,
-              "fits_20s": true,
+              "avg_sentence_words": 8.8,
+              "fk_grade": 9.8,
+              "long_word_pct": 29.5,
+              "speak_seconds_est": 22.0,
+              "fill_pct": 110.0,
+              "fits_20s": false,
+              "wpm": 120,
               "provenance": "workbook"
             }
           },
@@ -1040,24 +1160,24 @@
   "level_summary": {
     "A2": {
       "slides": 20,
-      "avg_words": 36.7,
+      "avg_words": 36.9,
       "avg_sentence_words": 11.8,
       "fk_grade": 8.3,
-      "slides_over_20s": 0
+      "slides_over_20s": 20
     },
     "B1": {
       "slides": 20,
-      "avg_words": 39.6,
-      "avg_sentence_words": 13.0,
-      "fk_grade": 9.9,
-      "slides_over_20s": 1
+      "avg_words": 39.8,
+      "avg_sentence_words": 13.1,
+      "fk_grade": 10.0,
+      "slides_over_20s": 19
     },
     "B2": {
       "slides": 20,
-      "avg_words": 39.8,
-      "avg_sentence_words": 12.4,
-      "fk_grade": 16.7,
-      "slides_over_20s": 0
+      "avg_words": 40.0,
+      "avg_sentence_words": 12.5,
+      "fk_grade": 16.6,
+      "slides_over_20s": 6
     }
   }
 }

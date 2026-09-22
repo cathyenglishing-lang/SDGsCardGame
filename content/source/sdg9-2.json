@@ -32,37 +32,44 @@
           "scripts": {
             "A2": {
               "text": "Good morning, everyone. Today we look at United Nations SDG 9. It is a global plan. It helps countries build better factories and support new science.",
-              "words": 25,
+              "words": 26,
               "sentences": 4,
-              "avg_sentence_words": 6.2,
-              "fk_grade": 4.8,
-              "long_word_pct": 12.0,
-              "speak_seconds_est": 11.5,
+              "avg_sentence_words": 6.5,
+              "fk_grade": 4.6,
+              "long_word_pct": 11.5,
+              "speak_seconds_est": 16.4,
+              "fill_pct": 82.1,
               "fits_20s": true,
+              "wpm": 95,
               "provenance": "authored-replacement",
               "authored_by": "Claude (English teacher role)",
-              "basis": "Replaces the original A2 column of sheet 'SDG9-2 (A2)', which averaged 31.9 words per sentence (one long sentence per slide) and read at roughly B2. Meaning, slide order and every claim are unchanged; only the sentence structure is split. Spec: <=35 words per slide, <=12 words per sentence."
+              "basis": "Replaces the original A2 column of sheet 'SDG9-2 (A2)', which averaged 31.9 words per sentence (one long sentence per slide) and read at roughly B2. Meaning, slide order and every claim are unchanged; only the sentence structure is split. Spec: <=35 words per slide, <=12 words per sentence.",
+              "workbook_text": "Good morning, everyone. Today, let’s look at United Nations SDG 9, which is a great global plan that helps all countries build better factories, support new science projects, and make modern technology for a much better world."
             },
             "B1": {
               "text": "Good morning, everyone. Today, let’s look at United Nations SDG 9, a global goal that encourages all countries to support modern technology and build strong networks for a better world.",
-              "words": 30,
+              "words": 31,
               "sentences": 2,
-              "avg_sentence_words": 15.0,
+              "avg_sentence_words": 15.5,
               "fk_grade": 9.5,
-              "long_word_pct": 16.7,
-              "speak_seconds_est": 13.8,
+              "long_word_pct": 16.1,
+              "speak_seconds_est": 16.9,
+              "fill_pct": 84.5,
               "fits_20s": true,
+              "wpm": 110,
               "provenance": "workbook"
             },
             "B2": {
               "text": "Good morning, everyone. Today, let’s explore United Nations SDG 9, a global framework that encourages countries to upgrade industry, support modern innovation, and build resilient infrastructure for sustainable scientific development worldwide.",
-              "words": 31,
+              "words": 32,
               "sentences": 2,
-              "avg_sentence_words": 15.5,
-              "fk_grade": 16.3,
-              "long_word_pct": 38.7,
-              "speak_seconds_est": 14.3,
+              "avg_sentence_words": 16.0,
+              "fk_grade": 16.1,
+              "long_word_pct": 37.5,
+              "speak_seconds_est": 16.0,
+              "fill_pct": 80.0,
               "fits_20s": true,
+              "wpm": 120,
               "provenance": "workbook"
             }
           },
@@ -92,11 +99,14 @@
               "avg_sentence_words": 8.7,
               "fk_grade": 3.7,
               "long_word_pct": 3.8,
-              "speak_seconds_est": 12.0,
+              "speak_seconds_est": 16.4,
+              "fill_pct": 82.1,
               "fits_20s": true,
+              "wpm": 95,
               "provenance": "authored-replacement",
               "authored_by": "Claude (English teacher role)",
-              "basis": "Replaces the original A2 column of sheet 'SDG9-2 (A2)', which averaged 31.9 words per sentence (one long sentence per slide) and read at roughly B2. Meaning, slide order and every claim are unchanged; only the sentence structure is split. Spec: <=35 words per slide, <=12 words per sentence."
+              "basis": "Replaces the original A2 column of sheet 'SDG9-2 (A2)', which averaged 31.9 words per sentence (one long sentence per slide) and read at roughly B2. Meaning, slide order and every claim are unchanged; only the sentence structure is split. Spec: <=35 words per slide, <=12 words per sentence.",
+              "workbook_text": "In our world today, Artificial Intelligence is changing scientific research and communication very quickly; however, the quality of the AI's answer always depends on one very important thing—how we talk to the computer."
             },
             "B1": {
               "text": "In our modern digital world, Artificial Intelligence is changing scientific research and communication very quickly; however, the quality of AI's answers depends on one important factor—how we talk to it.",
@@ -105,8 +115,10 @@
               "avg_sentence_words": 31.0,
               "fk_grade": 19.0,
               "long_word_pct": 22.6,
-              "speak_seconds_est": 14.3,
+              "speak_seconds_est": 16.9,
+              "fill_pct": 84.5,
               "fits_20s": true,
+              "wpm": 110,
               "provenance": "workbook"
             },
             "B2": {
@@ -116,8 +128,10 @@
               "avg_sentence_words": 32.0,
               "fk_grade": 22.3,
               "long_word_pct": 28.1,
-              "speak_seconds_est": 14.8,
+              "speak_seconds_est": 16.0,
+              "fill_pct": 80.0,
               "fits_20s": true,
+              "wpm": 120,
               "provenance": "workbook"
             }
           },
@@ -156,11 +170,14 @@
               "avg_sentence_words": 5.4,
               "fk_grade": 3.1,
               "long_word_pct": 11.1,
-              "speak_seconds_est": 12.5,
+              "speak_seconds_est": 17.1,
+              "fill_pct": 85.3,
               "fits_20s": true,
+              "wpm": 95,
               "provenance": "authored-replacement",
               "authored_by": "Claude (English teacher role)",
-              "basis": "Replaces the original A2 column of sheet 'SDG9-2 (A2)', which averaged 31.9 words per sentence (one long sentence per slide) and read at roughly B2. Meaning, slide order and every claim are unchanged; only the sentence structure is split. Spec: <=35 words per slide, <=12 words per sentence."
+              "basis": "Replaces the original A2 column of sheet 'SDG9-2 (A2)', which averaged 31.9 words per sentence (one long sentence per slide) and read at roughly B2. Meaning, slide order and every claim are unchanged; only the sentence structure is split. Spec: <=35 words per slide, <=12 words per sentence.",
+              "workbook_text": "As university science students, many of us often use ChatGPT or Gemini to fix our weekly lab reports, read short summaries of long science articles, or explain difficult homework ideas because it is very fast and easy."
             },
             "B1": {
               "text": "As university science students, many of us often use ChatGPT to improve our lab reports, read short summaries of science articles, or explain difficult concepts during our weekly assignments.",
@@ -169,8 +186,10 @@
               "avg_sentence_words": 29.0,
               "fk_grade": 16.1,
               "long_word_pct": 24.1,
-              "speak_seconds_est": 13.4,
+              "speak_seconds_est": 15.8,
+              "fill_pct": 79.1,
               "fits_20s": true,
+              "wpm": 110,
               "provenance": "workbook"
             },
             "B2": {
@@ -180,8 +199,10 @@
               "avg_sentence_words": 29.0,
               "fk_grade": 21.4,
               "long_word_pct": 34.5,
-              "speak_seconds_est": 13.4,
+              "speak_seconds_est": 14.5,
+              "fill_pct": 72.5,
               "fits_20s": true,
+              "wpm": 120,
               "provenance": "workbook"
             }
           },
@@ -211,11 +232,14 @@
               "avg_sentence_words": 5.6,
               "fk_grade": 3.5,
               "long_word_pct": 14.3,
-              "speak_seconds_est": 12.9,
+              "speak_seconds_est": 17.7,
+              "fill_pct": 88.4,
               "fits_20s": true,
+              "wpm": 95,
               "provenance": "authored-replacement",
               "authored_by": "Claude (English teacher role)",
-              "basis": "Replaces the original A2 column of sheet 'SDG9-2 (A2)', which averaged 31.9 words per sentence (one long sentence per slide) and read at roughly B2. Meaning, slide order and every claim are unchanged; only the sentence structure is split. Spec: <=35 words per slide, <=12 words per sentence."
+              "basis": "Replaces the original A2 column of sheet 'SDG9-2 (A2)', which averaged 31.9 words per sentence (one long sentence per slide) and read at roughly B2. Meaning, slide order and every claim are unchanged; only the sentence structure is split. Spec: <=35 words per slide, <=12 words per sentence.",
+              "workbook_text": "Although this new technology is very convenient, many lazy students want good answers without giving enough information, so the AI gives boring, repetitive, and useless responses that people call \"AI slop\" because it has no real value."
             },
             "B1": {
               "text": "Although this technology is fast, many students expect useful answers without giving enough information, which creates boring or unrelated responses commonly called \"AI slop\" that has no real value.",
@@ -224,8 +248,10 @@
               "avg_sentence_words": 29.0,
               "fk_grade": 18.1,
               "long_word_pct": 24.1,
-              "speak_seconds_est": 13.4,
+              "speak_seconds_est": 15.8,
+              "fill_pct": 79.1,
               "fits_20s": true,
+              "wpm": 110,
               "provenance": "workbook"
             },
             "B2": {
@@ -235,8 +261,10 @@
               "avg_sentence_words": 33.0,
               "fk_grade": 21.2,
               "long_word_pct": 36.4,
-              "speak_seconds_est": 15.2,
+              "speak_seconds_est": 16.5,
+              "fill_pct": 82.5,
               "fits_20s": true,
+              "wpm": 120,
               "provenance": "workbook"
             }
           },
@@ -275,11 +303,14 @@
               "avg_sentence_words": 5.8,
               "fk_grade": 2.1,
               "long_word_pct": 3.4,
-              "speak_seconds_est": 13.4,
+              "speak_seconds_est": 18.3,
+              "fill_pct": 91.6,
               "fits_20s": true,
+              "wpm": 95,
               "provenance": "authored-replacement",
               "authored_by": "Claude (English teacher role)",
-              "basis": "Replaces the original A2 column of sheet 'SDG9-2 (A2)', which averaged 31.9 words per sentence (one long sentence per slide) and read at roughly B2. Meaning, slide order and every claim are unchanged; only the sentence structure is split. Spec: <=35 words per slide, <=12 words per sentence."
+              "basis": "Replaces the original A2 column of sheet 'SDG9-2 (A2)', which averaged 31.9 words per sentence (one long sentence per slide) and read at roughly B2. Meaning, slide order and every claim are unchanged; only the sentence structure is split. Spec: <=35 words per slide, <=12 words per sentence.",
+              "workbook_text": "Why does this happen? The AI computer does not automatically understand your human ideas; instead, it only guesses the next word by looking at the small words in your prompt, so the answer becomes wrong when you give no details."
             },
             "B1": {
               "text": "Why does this happen? AI does not automatically understand what we want; instead, it only guesses the next word based on our prompt, making the answer wrong when context is missing.",
@@ -288,8 +319,10 @@
               "avg_sentence_words": 15.5,
               "fk_grade": 8.3,
               "long_word_pct": 6.5,
-              "speak_seconds_est": 14.3,
+              "speak_seconds_est": 16.9,
+              "fill_pct": 84.5,
               "fits_20s": true,
+              "wpm": 110,
               "provenance": "workbook"
             },
             "B2": {
@@ -299,8 +332,10 @@
               "avg_sentence_words": 17.0,
               "fk_grade": 12.6,
               "long_word_pct": 26.5,
-              "speak_seconds_est": 15.7,
+              "speak_seconds_est": 17.0,
+              "fill_pct": 85.0,
               "fits_20s": true,
+              "wpm": 120,
               "provenance": "workbook"
             }
           },
@@ -330,11 +365,14 @@
               "avg_sentence_words": 4.2,
               "fk_grade": 1.6,
               "long_word_pct": 8.0,
-              "speak_seconds_est": 11.5,
+              "speak_seconds_est": 15.8,
+              "fill_pct": 78.9,
               "fits_20s": true,
+              "wpm": 95,
               "provenance": "authored-replacement",
               "authored_by": "Claude (English teacher role)",
-              "basis": "Replaces the original A2 column of sheet 'SDG9-2 (A2)', which averaged 31.9 words per sentence (one long sentence per slide) and read at roughly B2. Meaning, slide order and every claim are unchanged; only the sentence structure is split. Spec: <=35 words per slide, <=12 words per sentence."
+              "basis": "Replaces the original A2 column of sheet 'SDG9-2 (A2)', which averaged 31.9 words per sentence (one long sentence per slide) and read at roughly B2. Meaning, slide order and every claim are unchanged; only the sentence structure is split. Spec: <=35 words per slide, <=12 words per sentence.",
+              "workbook_text": "To fix this problem, a good prompt must always include a clear role, helpful background facts, simple goals, and clear rules, because giving very clear instructions always helps the AI give us much better and more useful answers."
             },
             "B1": {
               "text": "To fix this, a good prompt must include a clear role, helpful background facts, clear goals, and simple limits, because clearer instructions always give us more reliable AI answers.",
@@ -343,8 +381,10 @@
               "avg_sentence_words": 29.0,
               "fk_grade": 13.2,
               "long_word_pct": 10.3,
-              "speak_seconds_est": 13.4,
+              "speak_seconds_est": 15.8,
+              "fill_pct": 79.1,
               "fits_20s": true,
+              "wpm": 110,
               "provenance": "workbook"
             },
             "B2": {
@@ -354,8 +394,10 @@
               "avg_sentence_words": 31.0,
               "fk_grade": 19.0,
               "long_word_pct": 35.5,
-              "speak_seconds_est": 14.3,
+              "speak_seconds_est": 15.5,
+              "fill_pct": 77.5,
               "fits_20s": true,
+              "wpm": 120,
               "provenance": "workbook"
             }
           },
@@ -394,11 +436,14 @@
               "avg_sentence_words": 5.8,
               "fk_grade": 4.1,
               "long_word_pct": 4.3,
-              "speak_seconds_est": 10.6,
+              "speak_seconds_est": 14.5,
+              "fill_pct": 72.6,
               "fits_20s": true,
+              "wpm": 95,
               "provenance": "authored-replacement",
               "authored_by": "Claude (English teacher role)",
-              "basis": "Replaces the original A2 column of sheet 'SDG9-2 (A2)', which averaged 31.9 words per sentence (one long sentence per slide) and read at roughly B2. Meaning, slide order and every claim are unchanged; only the sentence structure is split. Spec: <=35 words per slide, <=12 words per sentence."
+              "basis": "Replaces the original A2 column of sheet 'SDG9-2 (A2)', which averaged 31.9 words per sentence (one long sentence per slide) and read at roughly B2. Meaning, slide order and every claim are unchanged; only the sentence structure is split. Spec: <=35 words per slide, <=12 words per sentence.",
+              "workbook_text": "In scientific research, being clear and precise is very important for everyone, and learning to write great prompts can directly help our school lab reports and science presentations, making our university work much faster and more correct."
             },
             "B1": {
               "text": "In scientific research, precise communication is very important, and learning to write good prompts can directly improve our lab reports and science presentations, making our work much faster and more accurate.",
@@ -407,8 +452,10 @@
               "avg_sentence_words": 31.0,
               "fk_grade": 17.1,
               "long_word_pct": 25.8,
-              "speak_seconds_est": 14.3,
+              "speak_seconds_est": 16.9,
+              "fill_pct": 84.5,
               "fits_20s": true,
+              "wpm": 110,
               "provenance": "workbook"
             },
             "B2": {
@@ -418,8 +465,10 @@
               "avg_sentence_words": 34.0,
               "fk_grade": 23.7,
               "long_word_pct": 44.1,
-              "speak_seconds_est": 15.7,
+              "speak_seconds_est": 17.0,
+              "fill_pct": 85.0,
               "fits_20s": true,
+              "wpm": 120,
               "provenance": "workbook"
             }
           },
@@ -449,11 +498,14 @@
               "avg_sentence_words": 6.2,
               "fk_grade": 3.4,
               "long_word_pct": 12.0,
-              "speak_seconds_est": 11.5,
+              "speak_seconds_est": 15.8,
+              "fill_pct": 78.9,
               "fits_20s": true,
+              "wpm": 95,
               "provenance": "authored-replacement",
               "authored_by": "Claude (English teacher role)",
-              "basis": "Replaces the original A2 column of sheet 'SDG9-2 (A2)', which averaged 31.9 words per sentence (one long sentence per slide) and read at roughly B2. Meaning, slide order and every claim are unchanged; only the sentence structure is split. Spec: <=35 words per slide, <=12 words per sentence."
+              "basis": "Replaces the original A2 column of sheet 'SDG9-2 (A2)', which averaged 31.9 words per sentence (one long sentence per slide) and read at roughly B2. Meaning, slide order and every claim are unchanged; only the sentence structure is split. Spec: <=35 words per slide, <=12 words per sentence.",
+              "workbook_text": "However, if students just copy and paste these computer answers without thinking, they will stop learning and become very lazy, forgetting that true science must always begin with active human curiosity and not just digital convenience."
             },
             "B1": {
               "text": "However, if students simply accept these computer answers without thinking, they might become passive learners, forgetting that true science always begins with active curiosity rather than digital convenience.",
@@ -462,8 +514,10 @@
               "avg_sentence_words": 28.0,
               "fk_grade": 18.1,
               "long_word_pct": 25.0,
-              "speak_seconds_est": 12.9,
+              "speak_seconds_est": 15.3,
+              "fill_pct": 76.4,
               "fits_20s": true,
+              "wpm": 110,
               "provenance": "workbook"
             },
             "B2": {
@@ -473,8 +527,10 @@
               "avg_sentence_words": 31.0,
               "fk_grade": 20.5,
               "long_word_pct": 32.3,
-              "speak_seconds_est": 14.3,
+              "speak_seconds_est": 15.5,
+              "fill_pct": 77.5,
               "fits_20s": true,
+              "wpm": 120,
               "provenance": "workbook"
             }
           },
@@ -513,11 +569,14 @@
               "avg_sentence_words": 5.0,
               "fk_grade": 0.5,
               "long_word_pct": 8.0,
-              "speak_seconds_est": 11.5,
+              "speak_seconds_est": 15.8,
+              "fill_pct": 78.9,
               "fits_20s": true,
+              "wpm": 95,
               "provenance": "authored-replacement",
               "authored_by": "Claude (English teacher role)",
-              "basis": "Replaces the original A2 column of sheet 'SDG9-2 (A2)', which averaged 31.9 words per sentence (one long sentence per slide) and read at roughly B2. Meaning, slide order and every claim are unchanged; only the sentence structure is split. Spec: <=35 words per slide, <=12 words per sentence."
+              "basis": "Replaces the original A2 column of sheet 'SDG9-2 (A2)', which averaged 31.9 words per sentence (one long sentence per slide) and read at roughly B2. Meaning, slide order and every claim are unchanged; only the sentence structure is split. Spec: <=35 words per slide, <=12 words per sentence.",
+              "workbook_text": "Therefore, before you type a prompt, you must first think about your final goal by asking yourself what information you really need, who your audience is, and what kind of text format is best for your science task."
             },
             "B1": {
               "text": "Therefore, before writing a prompt, you must first think about your goal by asking yourself what information you really need, who your audience is, and what response is best for your task.",
@@ -526,8 +585,10 @@
               "avg_sentence_words": 32.0,
               "fk_grade": 13.5,
               "long_word_pct": 15.6,
-              "speak_seconds_est": 14.8,
+              "speak_seconds_est": 17.5,
+              "fill_pct": 87.3,
               "fits_20s": true,
+              "wpm": 110,
               "provenance": "workbook"
             },
             "B2": {
@@ -537,8 +598,10 @@
               "avg_sentence_words": 36.0,
               "fk_grade": 16.8,
               "long_word_pct": 19.4,
-              "speak_seconds_est": 16.6,
+              "speak_seconds_est": 18.0,
+              "fill_pct": 90.0,
               "fits_20s": true,
+              "wpm": 120,
               "provenance": "workbook"
             }
           },
@@ -568,11 +631,14 @@
               "avg_sentence_words": 5.2,
               "fk_grade": 3.9,
               "long_word_pct": 14.3,
-              "speak_seconds_est": 9.7,
+              "speak_seconds_est": 13.3,
+              "fill_pct": 66.3,
               "fits_20s": true,
+              "wpm": 95,
               "provenance": "authored-replacement",
               "authored_by": "Claude (English teacher role)",
-              "basis": "Replaces the original A2 column of sheet 'SDG9-2 (A2)', which averaged 31.9 words per sentence (one long sentence per slide) and read at roughly B2. Meaning, slide order and every claim are unchanged; only the sentence structure is split. Spec: <=35 words per slide, <=12 words per sentence."
+              "basis": "Replaces the original A2 column of sheet 'SDG9-2 (A2)', which averaged 31.9 words per sentence (one long sentence per slide) and read at roughly B2. Meaning, slide order and every claim are unchanged; only the sentence structure is split. Spec: <=35 words per slide, <=12 words per sentence.",
+              "workbook_text": "Then, give the AI your clear and organized instructions, including your student background and your expected format, because we should see prompt writing as another very important way to talk about science like a professional."
             },
             "B1": {
               "text": "Then, provide the AI with organized instructions, including your academic background and expected format, because we should see prompt writing as another important form of professional scientific communication.",
@@ -581,8 +647,10 @@
               "avg_sentence_words": 28.0,
               "fk_grade": 19.8,
               "long_word_pct": 35.7,
-              "speak_seconds_est": 12.9,
+              "speak_seconds_est": 15.3,
+              "fill_pct": 76.4,
               "fits_20s": true,
+              "wpm": 110,
               "provenance": "workbook"
             },
             "B2": {
@@ -592,8 +660,10 @@
               "avg_sentence_words": 28.0,
               "fk_grade": 19.8,
               "long_word_pct": 35.7,
-              "speak_seconds_est": 12.9,
+              "speak_seconds_est": 14.0,
+              "fill_pct": 70.0,
               "fits_20s": true,
+              "wpm": 120,
               "provenance": "workbook"
             }
           },
@@ -632,11 +702,14 @@
               "avg_sentence_words": 5.0,
               "fk_grade": 6.7,
               "long_word_pct": 20.0,
-              "speak_seconds_est": 11.5,
+              "speak_seconds_est": 15.8,
+              "fill_pct": 78.9,
               "fits_20s": true,
+              "wpm": 95,
               "provenance": "authored-replacement",
               "authored_by": "Claude (English teacher role)",
-              "basis": "Replaces the original A2 column of sheet 'SDG9-2 (A2)', which averaged 31.9 words per sentence (one long sentence per slide) and read at roughly B2. Meaning, slide order and every claim are unchanged; only the sentence structure is split. Spec: <=35 words per slide, <=12 words per sentence."
+              "basis": "Replaces the original A2 column of sheet 'SDG9-2 (A2)', which averaged 31.9 words per sentence (one long sentence per slide) and read at roughly B2. Meaning, slide order and every claim are unchanged; only the sentence structure is split. Spec: <=35 words per slide, <=12 words per sentence.",
+              "workbook_text": "In this high-tech world, computers can easily organize data, but they completely lack human scientific curiosity, natural intuition, and honest hearts, which are special human qualities that turn simple numbers into amazing new scientific discoveries."
             },
             "B1": {
               "text": "In this high-tech world, computers can easily organize data, but they completely lack human scientific curiosity, natural intuition, and honest hearts, which are irreplaceable qualities that turn facts into real discoveries.",
@@ -645,8 +718,10 @@
               "avg_sentence_words": 31.0,
               "fk_grade": 20.5,
               "long_word_pct": 32.3,
-              "speak_seconds_est": 14.3,
+              "speak_seconds_est": 16.9,
+              "fill_pct": 84.5,
               "fits_20s": true,
+              "wpm": 110,
               "provenance": "workbook"
             },
             "B2": {
@@ -656,8 +731,10 @@
               "avg_sentence_words": 32.0,
               "fk_grade": 24.9,
               "long_word_pct": 40.6,
-              "speak_seconds_est": 14.8,
+              "speak_seconds_est": 16.0,
+              "fill_pct": 80.0,
               "fits_20s": true,
+              "wpm": 120,
               "provenance": "workbook"
             }
           },
@@ -687,32 +764,39 @@
               "avg_sentence_words": 5.5,
               "fk_grade": 8.0,
               "long_word_pct": 22.7,
-              "speak_seconds_est": 10.2,
+              "speak_seconds_est": 13.9,
+              "fill_pct": 69.5,
               "fits_20s": true,
+              "wpm": 95,
               "provenance": "authored-replacement",
               "authored_by": "Claude (English teacher role)",
-              "basis": "Replaces the original A2 column of sheet 'SDG9-2 (A2)', which averaged 31.9 words per sentence (one long sentence per slide) and read at roughly B2. Meaning, slide order and every claim are unchanged; only the sentence structure is split. Spec: <=35 words per slide, <=12 words per sentence."
+              "basis": "Replaces the original A2 column of sheet 'SDG9-2 (A2)', which averaged 31.9 words per sentence (one long sentence per slide) and read at roughly B2. Meaning, slide order and every claim are unchanged; only the sentence structure is split. Spec: <=35 words per slide, <=12 words per sentence.",
+              "workbook_text": "In conclusion, good innovation under SDG 9 begins with good communication, because while better prompts bring better answers, smart scientists create useful knowledge by talking very clearly and thinking carefully every single day. Thank you."
             },
             "B1": {
               "text": "In conclusion, responsible innovation under SDG 9 begins with responsible communication, because while better prompts bring better answers, thoughtful scientists create meaningful knowledge by talking clearly and thinking critically.",
-              "words": 28,
+              "words": 29,
               "sentences": 1,
-              "avg_sentence_words": 28.0,
-              "fk_grade": 21.0,
-              "long_word_pct": 39.3,
-              "speak_seconds_est": 12.9,
+              "avg_sentence_words": 29.0,
+              "fk_grade": 20.9,
+              "long_word_pct": 37.9,
+              "speak_seconds_est": 15.8,
+              "fill_pct": 79.1,
               "fits_20s": true,
+              "wpm": 110,
               "provenance": "workbook"
             },
             "B2": {
               "text": "In conclusion, responsible innovation under SDG 9 begins with responsible communication, meaning that while better prompts produce better responses, thoughtful scientists create meaningful knowledge by communicating clearly and thinking critically.",
-              "words": 29,
+              "words": 30,
               "sentences": 1,
-              "avg_sentence_words": 29.0,
-              "fk_grade": 23.0,
-              "long_word_pct": 44.8,
-              "speak_seconds_est": 13.4,
+              "avg_sentence_words": 30.0,
+              "fk_grade": 22.9,
+              "long_word_pct": 43.3,
+              "speak_seconds_est": 15.0,
+              "fill_pct": 75.0,
               "fits_20s": true,
+              "wpm": 120,
               "provenance": "workbook"
             }
           },
@@ -734,22 +818,22 @@
   "level_summary": {
     "A2": {
       "slides": 12,
-      "avg_words": 25.1,
+      "avg_words": 25.2,
       "avg_sentence_words": 5.7,
       "fk_grade": 3.8,
       "slides_over_20s": 0
     },
     "B1": {
       "slides": 12,
-      "avg_words": 29.8,
-      "avg_sentence_words": 27.2,
+      "avg_words": 29.9,
+      "avg_sentence_words": 27.3,
       "fk_grade": 16.2,
       "slides_over_20s": 0
     },
     "B2": {
       "slides": 12,
-      "avg_words": 31.7,
-      "avg_sentence_words": 29.0,
+      "avg_words": 31.8,
+      "avg_sentence_words": 29.1,
       "fk_grade": 20.1,
       "slides_over_20s": 0
     }

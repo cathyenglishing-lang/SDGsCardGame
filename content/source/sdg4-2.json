@@ -35,35 +35,41 @@
           "scripts": {
             "A2": {
               "text": "Good morning. To start, let’s ask a big question: does every student in Taiwan have the same digital tools? Today, we will discuss SDG 4 with a focus on online learning and computers.",
-              "words": 33,
+              "words": 34,
               "sentences": 3,
-              "avg_sentence_words": 11.0,
-              "fk_grade": 5.9,
-              "long_word_pct": 9.1,
-              "speak_seconds_est": 15.2,
-              "fits_20s": true,
+              "avg_sentence_words": 11.3,
+              "fk_grade": 5.8,
+              "long_word_pct": 8.8,
+              "speak_seconds_est": 21.5,
+              "fill_pct": 107.4,
+              "fits_20s": false,
+              "wpm": 95,
               "provenance": "workbook"
             },
             "B1": {
               "text": "Good morning, everyone. Today, let’s examine SDG 4: Quality Education in Taiwan through a digital lens. Our high-tech education looks wonderful on paper, but does it really help everyone? We must look closely at online learning to see if our schools truly challenge inequality.",
-              "words": 44,
+              "words": 45,
               "sentences": 4,
-              "avg_sentence_words": 11.0,
-              "fk_grade": 9.6,
-              "long_word_pct": 20.5,
-              "speak_seconds_est": 20.3,
+              "avg_sentence_words": 11.2,
+              "fk_grade": 9.5,
+              "long_word_pct": 20.0,
+              "speak_seconds_est": 24.5,
+              "fill_pct": 122.7,
               "fits_20s": false,
+              "wpm": 110,
               "provenance": "workbook"
             },
             "B2": {
               "text": "Good morning, everyone. As university students, we must critically evaluate the digital dimensions of SDG 4 within Taiwan. While our high-tech educational framework appears exceptional on paper, does it truly foster educational equity, or does it inadvertently widen social gaps? Today, I will explore this reality through online learning.",
-              "words": 48,
+              "words": 49,
               "sentences": 4,
-              "avg_sentence_words": 12.0,
-              "fk_grade": 13.7,
-              "long_word_pct": 27.1,
-              "speak_seconds_est": 22.2,
+              "avg_sentence_words": 12.2,
+              "fk_grade": 13.5,
+              "long_word_pct": 26.5,
+              "speak_seconds_est": 24.5,
+              "fill_pct": 122.5,
               "fits_20s": false,
+              "wpm": 120,
               "provenance": "workbook"
             }
           },
@@ -83,35 +89,41 @@
           "scripts": {
             "A2": {
               "text": "First, what does SDG 4 mean in a digital world? It means fair access to technology for all. We must ask if our schools truly teach us how to use the internet safely.",
-              "words": 32,
+              "words": 33,
               "sentences": 3,
-              "avg_sentence_words": 10.7,
+              "avg_sentence_words": 11.0,
               "fk_grade": 4.4,
-              "long_word_pct": 6.2,
-              "speak_seconds_est": 14.8,
-              "fits_20s": true,
+              "long_word_pct": 6.1,
+              "speak_seconds_est": 20.8,
+              "fill_pct": 104.2,
+              "fits_20s": false,
+              "wpm": 95,
               "provenance": "workbook"
             },
             "B1": {
               "text": "SDG 4 is about ensuring inclusive and fair education for all people. Globally, it helps students overcome barriers like location. In Taiwan, with our advanced tech economy, we must ask: does digital education prepare us to use technology responsibly and safely?",
-              "words": 40,
+              "words": 41,
               "sentences": 3,
-              "avg_sentence_words": 13.3,
-              "fk_grade": 12.3,
-              "long_word_pct": 30.0,
-              "speak_seconds_est": 18.5,
-              "fits_20s": true,
+              "avg_sentence_words": 13.7,
+              "fk_grade": 12.2,
+              "long_word_pct": 29.3,
+              "speak_seconds_est": 22.4,
+              "fill_pct": 111.8,
+              "fits_20s": false,
+              "wpm": 110,
               "provenance": "workbook"
             },
             "B2": {
               "text": "Fundamentally, SDG 4 aims to guarantee inclusive, equitable education by dismantling geographic and economic barriers. In Taiwan’s advanced, semiconductor-driven economy, an urgent question arises: does our current curriculum adequately prepare us to handle the profound ethical challenges and privacy issues associated with modern digital technology?",
-              "words": 45,
+              "words": 46,
               "sentences": 2,
-              "avg_sentence_words": 22.5,
-              "fk_grade": 21.8,
-              "long_word_pct": 40.0,
-              "speak_seconds_est": 20.8,
+              "avg_sentence_words": 23.0,
+              "fk_grade": 21.6,
+              "long_word_pct": 39.1,
+              "speak_seconds_est": 23.0,
+              "fill_pct": 115.0,
               "fits_20s": false,
+              "wpm": 120,
               "provenance": "workbook"
             }
           },
@@ -136,8 +148,10 @@
               "avg_sentence_words": 10.7,
               "fk_grade": 7.4,
               "long_word_pct": 9.4,
-              "speak_seconds_est": 14.8,
-              "fits_20s": true,
+              "speak_seconds_est": 20.2,
+              "fill_pct": 101.1,
+              "fits_20s": false,
+              "wpm": 95,
               "provenance": "workbook"
             },
             "B1": {
@@ -147,8 +161,10 @@
               "avg_sentence_words": 14.7,
               "fk_grade": 13.5,
               "long_word_pct": 25.0,
-              "speak_seconds_est": 20.3,
+              "speak_seconds_est": 24.0,
+              "fill_pct": 120.0,
               "fits_20s": false,
+              "wpm": 110,
               "provenance": "workbook"
             },
             "B2": {
@@ -158,8 +174,10 @@
               "avg_sentence_words": 15.0,
               "fk_grade": 17.5,
               "long_word_pct": 42.2,
-              "speak_seconds_est": 20.8,
+              "speak_seconds_est": 22.5,
+              "fill_pct": 112.5,
               "fits_20s": false,
+              "wpm": 120,
               "provenance": "workbook"
             }
           },
@@ -193,8 +211,10 @@
               "avg_sentence_words": 8.5,
               "fk_grade": 5.1,
               "long_word_pct": 14.7,
-              "speak_seconds_est": 15.7,
-              "fits_20s": true,
+              "speak_seconds_est": 21.5,
+              "fill_pct": 107.4,
+              "fits_20s": false,
+              "wpm": 95,
               "provenance": "workbook"
             },
             "B1": {
@@ -204,8 +224,10 @@
               "avg_sentence_words": 10.8,
               "fk_grade": 11.4,
               "long_word_pct": 30.2,
-              "speak_seconds_est": 19.8,
-              "fits_20s": true,
+              "speak_seconds_est": 23.5,
+              "fill_pct": 117.3,
+              "fits_20s": false,
+              "wpm": 110,
               "provenance": "workbook"
             },
             "B2": {
@@ -215,8 +237,10 @@
               "avg_sentence_words": 11.5,
               "fk_grade": 18.4,
               "long_word_pct": 50.0,
-              "speak_seconds_est": 21.2,
+              "speak_seconds_est": 23.0,
+              "fill_pct": 115.0,
               "fits_20s": false,
+              "wpm": 120,
               "provenance": "workbook"
             }
           },
@@ -241,8 +265,10 @@
               "avg_sentence_words": 8.5,
               "fk_grade": 3.3,
               "long_word_pct": 8.8,
-              "speak_seconds_est": 15.7,
-              "fits_20s": true,
+              "speak_seconds_est": 21.5,
+              "fill_pct": 107.4,
+              "fits_20s": false,
+              "wpm": 95,
               "provenance": "workbook"
             },
             "B1": {
@@ -252,8 +278,10 @@
               "avg_sentence_words": 13.7,
               "fk_grade": 12.5,
               "long_word_pct": 22.0,
-              "speak_seconds_est": 18.9,
-              "fits_20s": true,
+              "speak_seconds_est": 22.4,
+              "fill_pct": 111.8,
+              "fits_20s": false,
+              "wpm": 110,
               "provenance": "workbook"
             },
             "B2": {
@@ -263,8 +291,10 @@
               "avg_sentence_words": 15.7,
               "fk_grade": 16.9,
               "long_word_pct": 40.4,
-              "speak_seconds_est": 21.7,
+              "speak_seconds_est": 23.5,
+              "fill_pct": 117.5,
               "fits_20s": false,
+              "wpm": 120,
               "provenance": "workbook"
             }
           },
@@ -289,8 +319,10 @@
               "avg_sentence_words": 11.0,
               "fk_grade": 6.2,
               "long_word_pct": 9.1,
-              "speak_seconds_est": 15.2,
-              "fits_20s": true,
+              "speak_seconds_est": 20.8,
+              "fill_pct": 104.2,
+              "fits_20s": false,
+              "wpm": 95,
               "provenance": "workbook"
             },
             "B1": {
@@ -300,8 +332,10 @@
               "avg_sentence_words": 14.0,
               "fk_grade": 12.1,
               "long_word_pct": 21.4,
-              "speak_seconds_est": 19.4,
-              "fits_20s": true,
+              "speak_seconds_est": 22.9,
+              "fill_pct": 114.5,
+              "fits_20s": false,
+              "wpm": 110,
               "provenance": "workbook"
             },
             "B2": {
@@ -311,8 +345,10 @@
               "avg_sentence_words": 15.3,
               "fk_grade": 16.0,
               "long_word_pct": 30.4,
-              "speak_seconds_est": 21.2,
+              "speak_seconds_est": 23.0,
+              "fill_pct": 115.0,
               "fits_20s": false,
+              "wpm": 120,
               "provenance": "workbook"
             }
           },
@@ -346,8 +382,10 @@
               "avg_sentence_words": 15.5,
               "fk_grade": 8.3,
               "long_word_pct": 12.9,
-              "speak_seconds_est": 14.3,
+              "speak_seconds_est": 19.6,
+              "fill_pct": 97.9,
               "fits_20s": true,
+              "wpm": 95,
               "provenance": "workbook"
             },
             "B1": {
@@ -357,8 +395,10 @@
               "avg_sentence_words": 14.3,
               "fk_grade": 12.8,
               "long_word_pct": 20.9,
-              "speak_seconds_est": 19.8,
-              "fits_20s": true,
+              "speak_seconds_est": 23.5,
+              "fill_pct": 117.3,
+              "fits_20s": false,
+              "wpm": 110,
               "provenance": "workbook"
             },
             "B2": {
@@ -368,8 +408,10 @@
               "avg_sentence_words": 16.0,
               "fk_grade": 18.9,
               "long_word_pct": 39.6,
-              "speak_seconds_est": 22.2,
+              "speak_seconds_est": 24.0,
+              "fill_pct": 120.0,
               "fits_20s": false,
+              "wpm": 120,
               "provenance": "workbook"
             }
           },
@@ -394,8 +436,10 @@
               "avg_sentence_words": 10.7,
               "fk_grade": 6.6,
               "long_word_pct": 18.8,
-              "speak_seconds_est": 14.8,
-              "fits_20s": true,
+              "speak_seconds_est": 20.2,
+              "fill_pct": 101.1,
+              "fits_20s": false,
+              "wpm": 95,
               "provenance": "workbook"
             },
             "B1": {
@@ -405,8 +449,10 @@
               "avg_sentence_words": 21.0,
               "fk_grade": 17.3,
               "long_word_pct": 31.0,
-              "speak_seconds_est": 19.4,
-              "fits_20s": true,
+              "speak_seconds_est": 22.9,
+              "fill_pct": 114.5,
+              "fits_20s": false,
+              "wpm": 110,
               "provenance": "workbook"
             },
             "B2": {
@@ -416,8 +462,10 @@
               "avg_sentence_words": 23.0,
               "fk_grade": 20.3,
               "long_word_pct": 39.1,
-              "speak_seconds_est": 21.2,
+              "speak_seconds_est": 23.0,
+              "fill_pct": 115.0,
               "fits_20s": false,
+              "wpm": 120,
               "provenance": "workbook"
             }
           },
@@ -442,8 +490,10 @@
               "avg_sentence_words": 16.5,
               "fk_grade": 10.9,
               "long_word_pct": 24.2,
-              "speak_seconds_est": 15.2,
-              "fits_20s": true,
+              "speak_seconds_est": 20.8,
+              "fill_pct": 104.2,
+              "fits_20s": false,
+              "wpm": 95,
               "provenance": "workbook"
             },
             "B1": {
@@ -453,8 +503,10 @@
               "avg_sentence_words": 13.7,
               "fk_grade": 15.1,
               "long_word_pct": 31.7,
-              "speak_seconds_est": 18.9,
-              "fits_20s": true,
+              "speak_seconds_est": 22.4,
+              "fill_pct": 111.8,
+              "fits_20s": false,
+              "wpm": 110,
               "provenance": "workbook"
             },
             "B2": {
@@ -464,8 +516,10 @@
               "avg_sentence_words": 15.0,
               "fk_grade": 17.8,
               "long_word_pct": 44.4,
-              "speak_seconds_est": 20.8,
+              "speak_seconds_est": 22.5,
+              "fill_pct": 112.5,
               "fits_20s": false,
+              "wpm": 120,
               "provenance": "workbook"
             }
           },
@@ -499,8 +553,10 @@
               "avg_sentence_words": 10.3,
               "fk_grade": 7.1,
               "long_word_pct": 12.9,
-              "speak_seconds_est": 14.3,
+              "speak_seconds_est": 19.6,
+              "fill_pct": 97.9,
               "fits_20s": true,
+              "wpm": 95,
               "provenance": "workbook"
             },
             "B1": {
@@ -510,8 +566,10 @@
               "avg_sentence_words": 20.5,
               "fk_grade": 17.7,
               "long_word_pct": 36.6,
-              "speak_seconds_est": 18.9,
-              "fits_20s": true,
+              "speak_seconds_est": 22.4,
+              "fill_pct": 111.8,
+              "fits_20s": false,
+              "wpm": 110,
               "provenance": "workbook"
             },
             "B2": {
@@ -521,8 +579,10 @@
               "avg_sentence_words": 15.3,
               "fk_grade": 17.6,
               "long_word_pct": 41.3,
-              "speak_seconds_est": 21.2,
+              "speak_seconds_est": 23.0,
+              "fill_pct": 115.0,
               "fits_20s": false,
+              "wpm": 120,
               "provenance": "workbook"
             }
           },
@@ -547,8 +607,10 @@
               "avg_sentence_words": 10.7,
               "fk_grade": 5.5,
               "long_word_pct": 21.9,
-              "speak_seconds_est": 14.8,
-              "fits_20s": true,
+              "speak_seconds_est": 20.2,
+              "fill_pct": 101.1,
+              "fits_20s": false,
+              "wpm": 95,
               "provenance": "workbook"
             },
             "B1": {
@@ -558,19 +620,23 @@
               "avg_sentence_words": 20.5,
               "fk_grade": 18.6,
               "long_word_pct": 46.3,
-              "speak_seconds_est": 18.9,
-              "fits_20s": true,
+              "speak_seconds_est": 22.4,
+              "fill_pct": 111.8,
+              "fits_20s": false,
+              "wpm": 110,
               "provenance": "workbook"
             },
             "B2": {
               "text": "Digital integration is now widespread, with over 80% of schools incorporating advanced technology like AI learning assistants. These adaptive algorithms personalize academic content based on individual student performance. This connects classroom environments to our thriving technology sector while simultaneously teaching the ethical use of artificial intelligence.",
-              "words": 45,
+              "words": 46,
               "sentences": 3,
-              "avg_sentence_words": 15.0,
-              "fk_grade": 18.3,
-              "long_word_pct": 48.9,
-              "speak_seconds_est": 20.8,
+              "avg_sentence_words": 15.3,
+              "fk_grade": 18.4,
+              "long_word_pct": 47.8,
+              "speak_seconds_est": 23.0,
+              "fill_pct": 115.0,
               "fits_20s": false,
+              "wpm": 120,
               "provenance": "workbook"
             }
           },
@@ -597,8 +663,10 @@
               "avg_sentence_words": 11.0,
               "fk_grade": 7.7,
               "long_word_pct": 12.1,
-              "speak_seconds_est": 15.2,
-              "fits_20s": true,
+              "speak_seconds_est": 20.8,
+              "fill_pct": 104.2,
+              "fits_20s": false,
+              "wpm": 95,
               "provenance": "workbook"
             },
             "B1": {
@@ -608,8 +676,10 @@
               "avg_sentence_words": 13.7,
               "fk_grade": 17.1,
               "long_word_pct": 51.2,
-              "speak_seconds_est": 18.9,
-              "fits_20s": true,
+              "speak_seconds_est": 22.4,
+              "fill_pct": 111.8,
+              "fits_20s": false,
+              "wpm": 110,
               "provenance": "workbook"
             },
             "B2": {
@@ -619,8 +689,10 @@
               "avg_sentence_words": 15.0,
               "fk_grade": 17.8,
               "long_word_pct": 55.6,
-              "speak_seconds_est": 20.8,
+              "speak_seconds_est": 22.5,
+              "fill_pct": 112.5,
               "fits_20s": false,
+              "wpm": 120,
               "provenance": "workbook"
             }
           },
@@ -654,30 +726,36 @@
               "avg_sentence_words": 10.7,
               "fk_grade": 7.7,
               "long_word_pct": 15.6,
-              "speak_seconds_est": 14.8,
-              "fits_20s": true,
+              "speak_seconds_est": 20.2,
+              "fill_pct": 101.1,
+              "fits_20s": false,
+              "wpm": 95,
               "provenance": "workbook"
             },
             "B1": {
               "text": "The implications are significant: enhanced digital literacy drives economic growth, supporting Taiwan’s $500 billion tech export industry. Moreover, it empowers citizens to tackle global problems, such as using advanced data science and climate technology to build resilient, sustainable environmental solutions.",
-              "words": 40,
+              "words": 41,
               "sentences": 2,
-              "avg_sentence_words": 20.0,
-              "fk_grade": 19.4,
-              "long_word_pct": 42.5,
-              "speak_seconds_est": 18.5,
-              "fits_20s": true,
+              "avg_sentence_words": 20.5,
+              "fk_grade": 19.7,
+              "long_word_pct": 41.5,
+              "speak_seconds_est": 22.4,
+              "fill_pct": 111.8,
+              "fits_20s": false,
+              "wpm": 110,
               "provenance": "workbook"
             },
             "B2": {
               "text": "The implications of our digital strategies are profound. Enhanced technological literacy directly drives economic sustainability, supporting Taiwan's $500 billion tech export industry. Moreover, a digitally literate population empowers our future workforce to utilize advanced data science and climate technology to construct resilient, sustainable environmental solutions globally.",
-              "words": 45,
+              "words": 46,
               "sentences": 3,
-              "avg_sentence_words": 15.0,
-              "fk_grade": 20.9,
-              "long_word_pct": 57.8,
-              "speak_seconds_est": 20.8,
+              "avg_sentence_words": 15.3,
+              "fk_grade": 21.2,
+              "long_word_pct": 56.5,
+              "speak_seconds_est": 23.0,
+              "fill_pct": 115.0,
               "fits_20s": false,
+              "wpm": 120,
               "provenance": "workbook"
             }
           },
@@ -704,8 +782,10 @@
               "avg_sentence_words": 8.2,
               "fk_grade": 5.9,
               "long_word_pct": 15.2,
-              "speak_seconds_est": 15.2,
-              "fits_20s": true,
+              "speak_seconds_est": 20.8,
+              "fill_pct": 104.2,
+              "fits_20s": false,
+              "wpm": 95,
               "provenance": "workbook"
             },
             "B1": {
@@ -715,8 +795,10 @@
               "avg_sentence_words": 14.0,
               "fk_grade": 13.5,
               "long_word_pct": 33.3,
-              "speak_seconds_est": 19.4,
-              "fits_20s": true,
+              "speak_seconds_est": 22.9,
+              "fill_pct": 114.5,
+              "fits_20s": false,
+              "wpm": 110,
               "provenance": "workbook"
             },
             "B2": {
@@ -726,8 +808,10 @@
               "avg_sentence_words": 14.3,
               "fk_grade": 16.6,
               "long_word_pct": 48.8,
-              "speak_seconds_est": 19.8,
-              "fits_20s": true,
+              "speak_seconds_est": 21.5,
+              "fill_pct": 107.5,
+              "fits_20s": false,
+              "wpm": 120,
               "provenance": "workbook"
             }
           },
@@ -752,8 +836,10 @@
               "avg_sentence_words": 11.3,
               "fk_grade": 5.8,
               "long_word_pct": 11.8,
-              "speak_seconds_est": 15.7,
-              "fits_20s": true,
+              "speak_seconds_est": 21.5,
+              "fill_pct": 107.4,
+              "fits_20s": false,
+              "wpm": 95,
               "provenance": "workbook"
             },
             "B1": {
@@ -763,8 +849,10 @@
               "avg_sentence_words": 20.0,
               "fk_grade": 16.4,
               "long_word_pct": 30.0,
-              "speak_seconds_est": 18.5,
-              "fits_20s": true,
+              "speak_seconds_est": 21.8,
+              "fill_pct": 109.1,
+              "fits_20s": false,
+              "wpm": 110,
               "provenance": "workbook"
             },
             "B2": {
@@ -774,8 +862,10 @@
               "avg_sentence_words": 23.0,
               "fk_grade": 19.0,
               "long_word_pct": 34.8,
-              "speak_seconds_est": 21.2,
+              "speak_seconds_est": 23.0,
+              "fill_pct": 115.0,
               "fits_20s": false,
+              "wpm": 120,
               "provenance": "workbook"
             }
           },
@@ -800,8 +890,10 @@
               "avg_sentence_words": 10.3,
               "fk_grade": 12.4,
               "long_word_pct": 22.6,
-              "speak_seconds_est": 14.3,
+              "speak_seconds_est": 19.6,
+              "fill_pct": 97.9,
               "fits_20s": true,
+              "wpm": 95,
               "provenance": "workbook"
             },
             "B1": {
@@ -811,8 +903,10 @@
               "avg_sentence_words": 13.3,
               "fk_grade": 16.2,
               "long_word_pct": 30.0,
-              "speak_seconds_est": 18.5,
-              "fits_20s": true,
+              "speak_seconds_est": 21.8,
+              "fill_pct": 109.1,
+              "fits_20s": false,
+              "wpm": 110,
               "provenance": "workbook"
             },
             "B2": {
@@ -822,8 +916,10 @@
               "avg_sentence_words": 15.3,
               "fk_grade": 16.8,
               "long_word_pct": 34.8,
-              "speak_seconds_est": 21.2,
+              "speak_seconds_est": 23.0,
+              "fill_pct": 115.0,
               "fits_20s": false,
+              "wpm": 120,
               "provenance": "workbook"
             }
           },
@@ -857,30 +953,36 @@
               "avg_sentence_words": 16.5,
               "fk_grade": 8.0,
               "long_word_pct": 18.2,
-              "speak_seconds_est": 15.2,
-              "fits_20s": true,
+              "speak_seconds_est": 20.8,
+              "fill_pct": 104.2,
+              "fits_20s": false,
+              "wpm": 95,
               "provenance": "workbook"
             },
             "B1": {
               "text": "In summary, evaluating SDG 4 highlights Taiwan’s rapid digital progress alongside persistent social issues. Information technology serves as a key tool for our development, but we must make sure that digital education prioritizes fairness and equity for every single citizen.",
-              "words": 40,
+              "words": 41,
               "sentences": 2,
-              "avg_sentence_words": 20.0,
-              "fk_grade": 16.7,
-              "long_word_pct": 27.5,
-              "speak_seconds_est": 18.5,
-              "fits_20s": true,
+              "avg_sentence_words": 20.5,
+              "fk_grade": 16.6,
+              "long_word_pct": 26.8,
+              "speak_seconds_est": 22.4,
+              "fill_pct": 111.8,
+              "fits_20s": false,
+              "wpm": 110,
               "provenance": "workbook"
             },
             "B2": {
               "text": "In summary, evaluating SDG 4 reveals that Taiwan has made significant digital progress, yet stubborn systemic gaps remain. Information technology serves as a powerful instrument for national advancement, but it must be implemented through a framework that prioritizes social equity alongside technical and hardware mastery.",
-              "words": 44,
+              "words": 45,
               "sentences": 2,
-              "avg_sentence_words": 22.0,
-              "fk_grade": 18.5,
-              "long_word_pct": 38.6,
-              "speak_seconds_est": 20.3,
+              "avg_sentence_words": 22.5,
+              "fk_grade": 18.4,
+              "long_word_pct": 37.8,
+              "speak_seconds_est": 22.5,
+              "fill_pct": 112.5,
               "fits_20s": false,
+              "wpm": 120,
               "provenance": "workbook"
             }
           },
@@ -905,8 +1007,10 @@
               "avg_sentence_words": 11.7,
               "fk_grade": 5.1,
               "long_word_pct": 8.6,
-              "speak_seconds_est": 16.2,
-              "fits_20s": true,
+              "speak_seconds_est": 22.1,
+              "fill_pct": 110.5,
+              "fits_20s": false,
+              "wpm": 95,
               "provenance": "workbook"
             },
             "B1": {
@@ -916,8 +1020,10 @@
               "avg_sentence_words": 13.3,
               "fk_grade": 11.4,
               "long_word_pct": 25.0,
-              "speak_seconds_est": 18.5,
-              "fits_20s": true,
+              "speak_seconds_est": 21.8,
+              "fill_pct": 109.1,
+              "fits_20s": false,
+              "wpm": 110,
               "provenance": "workbook"
             },
             "B2": {
@@ -927,8 +1033,10 @@
               "avg_sentence_words": 16.0,
               "fk_grade": 15.2,
               "long_word_pct": 37.5,
-              "speak_seconds_est": 22.2,
+              "speak_seconds_est": 24.0,
+              "fill_pct": 120.0,
               "fits_20s": false,
+              "wpm": 120,
               "provenance": "workbook"
             }
           },
@@ -953,8 +1061,10 @@
               "avg_sentence_words": 16.5,
               "fk_grade": 9.1,
               "long_word_pct": 9.1,
-              "speak_seconds_est": 15.2,
-              "fits_20s": true,
+              "speak_seconds_est": 20.8,
+              "fill_pct": 104.2,
+              "fits_20s": false,
+              "wpm": 95,
               "provenance": "workbook"
             },
             "B1": {
@@ -964,8 +1074,10 @@
               "avg_sentence_words": 19.5,
               "fk_grade": 16.8,
               "long_word_pct": 30.8,
-              "speak_seconds_est": 18.0,
-              "fits_20s": true,
+              "speak_seconds_est": 21.3,
+              "fill_pct": 106.4,
+              "fits_20s": false,
+              "wpm": 110,
               "provenance": "workbook"
             },
             "B2": {
@@ -975,8 +1087,10 @@
               "avg_sentence_words": 21.5,
               "fk_grade": 19.7,
               "long_word_pct": 32.6,
-              "speak_seconds_est": 19.8,
-              "fits_20s": true,
+              "speak_seconds_est": 21.5,
+              "fill_pct": 107.5,
+              "fits_20s": false,
+              "wpm": 120,
               "provenance": "workbook"
             }
           },
@@ -1001,8 +1115,10 @@
               "avg_sentence_words": 6.8,
               "fk_grade": 4.8,
               "long_word_pct": 8.8,
-              "speak_seconds_est": 15.7,
-              "fits_20s": true,
+              "speak_seconds_est": 21.5,
+              "fill_pct": 107.4,
+              "fits_20s": false,
+              "wpm": 95,
               "provenance": "workbook"
             },
             "B1": {
@@ -1012,8 +1128,10 @@
               "avg_sentence_words": 10.5,
               "fk_grade": 9.0,
               "long_word_pct": 19.0,
-              "speak_seconds_est": 19.4,
-              "fits_20s": true,
+              "speak_seconds_est": 22.9,
+              "fill_pct": 114.5,
+              "fits_20s": false,
+              "wpm": 110,
               "provenance": "workbook"
             },
             "B2": {
@@ -1023,8 +1141,10 @@
               "avg_sentence_words": 12.5,
               "fk_grade": 11.9,
               "long_word_pct": 24.0,
-              "speak_seconds_est": 23.1,
+              "speak_seconds_est": 25.0,
+              "fill_pct": 125.0,
               "fits_20s": false,
+              "wpm": 120,
               "provenance": "workbook"
             }
           },
@@ -1041,24 +1161,24 @@
   "level_summary": {
     "A2": {
       "slides": 20,
-      "avg_words": 32.8,
+      "avg_words": 32.9,
       "avg_sentence_words": 11.4,
       "fk_grade": 6.9,
-      "slides_over_20s": 0
+      "slides_over_20s": 17
     },
     "B1": {
       "slides": 20,
-      "avg_words": 41.3,
-      "avg_sentence_words": 15.6,
+      "avg_words": 41.5,
+      "avg_sentence_words": 15.7,
       "fk_grade": 14.5,
-      "slides_over_20s": 2
+      "slides_over_20s": 20
     },
     "B2": {
       "slides": 20,
-      "avg_words": 45.9,
-      "avg_sentence_words": 16.5,
+      "avg_words": 46.1,
+      "avg_sentence_words": 16.6,
       "fk_grade": 17.7,
-      "slides_over_20s": 18
+      "slides_over_20s": 20
     }
   }
 }
