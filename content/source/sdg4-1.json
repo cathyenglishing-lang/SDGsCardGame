@@ -86,17 +86,20 @@
               "workbook_text": "Good morning, everyone. Today, let’s examine SDG 4: Quality Education in Taiwan. Our education system looks good on paper, but does it really help everyone? We need to look closely at science education to see if our schools truly challenge inequality."
             },
             "B2": {
-              "text": "Good morning, everyone. As university students, it is time to critically evaluate SDG 4: Quality Education within Taiwan. While our system appears successful on paper, does it truly promote educational equity, or does it inadvertently reinforce existing social gaps? Today, I will explore this complex reality through science education.",
-              "words": 49,
-              "sentences": 4,
-              "avg_sentence_words": 12.2,
-              "fk_grade": 13.0,
-              "long_word_pct": 24.5,
-              "speak_seconds_est": 24.5,
-              "fill_pct": 122.5,
-              "fits_20s": false,
+              "text": "On paper our rankings are among the most impressive in the world. What I want to examine this morning is whether that reputation survives contact with an ordinary classroom in a provincial township.",
+              "words": 33,
+              "sentences": 2,
+              "avg_sentence_words": 16.5,
+              "fk_grade": 10.5,
+              "long_word_pct": 24.2,
+              "speak_seconds_est": 16.5,
+              "fill_pct": 82.5,
+              "fits_20s": true,
               "wpm": 120,
-              "provenance": "workbook"
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (English teacher role)",
+              "basis": "Replaces the workbook B2 column, which read as written academic prose rather than a spoken talk (openers such as 'Fundamentally,' 'Furthermore,' 'Ultimately,') and failed every slide of the v2 gate. Facts unchanged. Level is carried by syntax — cleft on slides 5 and 18, fronted inversion on slide 12, participle clauses and a reduced relative — rather than by academic vocabulary, which was the defect an external examiner found in the first reference mission.",
+              "workbook_text": "Good morning, everyone. As university students, it is time to critically evaluate SDG 4: Quality Education within Taiwan. While our system appears successful on paper, does it truly promote educational equity, or does it inadvertently reinforce existing social gaps? Today, I will explore this complex reality through science education."
             }
           },
           "numbers": [],
@@ -159,17 +162,20 @@
               "workbook_text": "SDG 4 is about inclusive and fair education for all people. Globally, it helps students overcome poverty. In Taiwan, we have a high-tech economy. Therefore, we must ask: does our education prepare us for the ethical problems in science and technology?"
             },
             "B2": {
-              "text": "Fundamentally, SDG 4 aims to guarantee inclusive, equitable education and lifetime learning opportunities globally, breaking down geographic and economic barriers. In Taiwan’s advanced, high-tech economy, a vital question remains: does our current curriculum adequately prepare us to navigate the profound ethical challenges in science and technology?",
-              "words": 47,
+              "text": "Goal four commits every country to learning that continues for life and excludes nobody, whatever a household earns and wherever it sits on the map. Our entire technology sector rests on that commitment, though its ethics are seldom debated.",
+              "words": 39,
               "sentences": 2,
-              "avg_sentence_words": 23.5,
-              "fk_grade": 19.9,
-              "long_word_pct": 46.8,
-              "speak_seconds_est": 23.5,
-              "fill_pct": 117.5,
-              "fits_20s": false,
+              "avg_sentence_words": 19.5,
+              "fk_grade": 12.3,
+              "long_word_pct": 20.5,
+              "speak_seconds_est": 19.5,
+              "fill_pct": 97.5,
+              "fits_20s": true,
               "wpm": 120,
-              "provenance": "workbook"
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (English teacher role)",
+              "basis": "Replaces the workbook B2 column, which read as written academic prose rather than a spoken talk (openers such as 'Fundamentally,' 'Furthermore,' 'Ultimately,') and failed every slide of the v2 gate. Facts unchanged. Level is carried by syntax — cleft on slides 5 and 18, fronted inversion on slide 12, participle clauses and a reduced relative — rather than by academic vocabulary, which was the defect an external examiner found in the first reference mission.",
+              "workbook_text": "Fundamentally, SDG 4 aims to guarantee inclusive, equitable education and lifetime learning opportunities globally, breaking down geographic and economic barriers. In Taiwan’s advanced, high-tech economy, a vital question remains: does our current curriculum adequately prepare us to navigate the profound ethical challenges in science and technology?"
             }
           },
           "numbers": [],
@@ -232,17 +238,20 @@
               "workbook_text": "Taiwan invests a lot in STEM—Science, Technology, Engineering, and Math. This drives our national growth. However, because of the low birth rate, we must rethink our goals. Are we using our resources effectively to solve the most important problems?"
             },
             "B2": {
-              "text": "Taiwan heavily invests in STEM fields to maintain its global competitive edge in national innovation. However, unprecedented demographic shifts—specifically our record-low birth rate—are forcing a total rethink of our priorities. We must identify these core problems and question if our strategies are genuinely effective.",
-              "words": 46,
-              "sentences": 3,
-              "avg_sentence_words": 15.3,
-              "fk_grade": 14.0,
-              "long_word_pct": 32.6,
-              "speak_seconds_est": 23.0,
-              "fill_pct": 115.0,
-              "fits_20s": false,
+              "text": "Decades of public expenditure on science and mathematics produced the wealth we currently enjoy. With births now at their lowest recorded level, whether that spending still lands where it is most needed has become a legitimate question.",
+              "words": 37,
+              "sentences": 2,
+              "avg_sentence_words": 18.5,
+              "fk_grade": 11.7,
+              "long_word_pct": 21.6,
+              "speak_seconds_est": 18.5,
+              "fill_pct": 92.5,
+              "fits_20s": true,
               "wpm": 120,
-              "provenance": "workbook"
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (English teacher role)",
+              "basis": "Replaces the workbook B2 column, which read as written academic prose rather than a spoken talk (openers such as 'Fundamentally,' 'Furthermore,' 'Ultimately,') and failed every slide of the v2 gate. Facts unchanged. Level is carried by syntax — cleft on slides 5 and 18, fronted inversion on slide 12, participle clauses and a reduced relative — rather than by academic vocabulary, which was the defect an external examiner found in the first reference mission.",
+              "workbook_text": "Taiwan heavily invests in STEM fields to maintain its global competitive edge in national innovation. However, unprecedented demographic shifts—specifically our record-low birth rate—are forcing a total rethink of our priorities. We must identify these core problems and question if our strategies are genuinely effective."
             }
           },
           "numbers": [],
@@ -314,17 +323,20 @@
               "workbook_text": "A major challenge is Taiwan’s declining birth rate. In 1990, there were 300,000 births, but recently it dropped to under 140,000. This causes school closures, especially in rural areas. Is this sustainable if we want to provide equal education for all?"
             },
             "B2": {
-              "text": "A primary challenge is Taiwan’s plummeting birth rate, which has dropped from 300,000 annual births in 1990 to fewer than 140,000 recently. This demographic crisis inevitably triggers school closures, particularly in rural regions, significantly widening the urban-rural divide. We must consider if this trend allows for long-term educational equity.",
-              "words": 52,
-              "sentences": 3,
-              "avg_sentence_words": 17.3,
-              "fk_grade": 16.4,
-              "long_word_pct": 26.9,
-              "speak_seconds_est": 26.0,
-              "fill_pct": 130.0,
-              "fits_20s": false,
+              "text": "The demographic arithmetic is stark: 300,000 babies in 1990 against fewer than 140,000 last year. Country schools are consequently being closed, and the children left behind face a much longer journey to an ordinary lesson.",
+              "words": 37,
+              "sentences": 2,
+              "avg_sentence_words": 18.5,
+              "fk_grade": 13.9,
+              "long_word_pct": 13.5,
+              "speak_seconds_est": 18.5,
+              "fill_pct": 92.5,
+              "fits_20s": true,
               "wpm": 120,
-              "provenance": "workbook"
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (English teacher role)",
+              "basis": "Replaces the workbook B2 column, which read as written academic prose rather than a spoken talk (openers such as 'Fundamentally,' 'Furthermore,' 'Ultimately,') and failed every slide of the v2 gate. Facts unchanged. Level is carried by syntax — cleft on slides 5 and 18, fronted inversion on slide 12, participle clauses and a reduced relative — rather than by academic vocabulary, which was the defect an external examiner found in the first reference mission.",
+              "workbook_text": "A primary challenge is Taiwan’s plummeting birth rate, which has dropped from 300,000 annual births in 1990 to fewer than 140,000 recently. This demographic crisis inevitably triggers school closures, particularly in rural regions, significantly widening the urban-rural divide. We must consider if this trend allows for long-term educational equity."
             }
           },
           "numbers": [
@@ -393,17 +405,20 @@
               "workbook_text": "In STEM fields, students focus too much on exams and rote memorization. This kills creativity. Many students lose interest and stop studying science early. Does this approach really prepare us for real-world challenges, like solving climate change with technology?"
             },
             "B2": {
-              "text": "Within STEM fields, the heavy institutional emphasis on standardized testing often prioritizes rote memorization over creative problem-solving. Consequently, many capable students lose interest and abandon science paths early. This rigid approach raises serious concerns about whether schools genuinely equip us to develop sustainable technology to combat climate change.",
-              "words": 48,
-              "sentences": 3,
-              "avg_sentence_words": 16.0,
-              "fk_grade": 16.7,
-              "long_word_pct": 31.2,
-              "speak_seconds_est": 24.0,
-              "fill_pct": 120.0,
-              "fits_20s": false,
+              "text": "What the laboratory period actually trains is recall, and invention quietly disappears from the room. Pupils who might have developed a genuine passion abandon the subject early, which is poor preparation for anyone facing a warming planet.",
+              "words": 37,
+              "sentences": 2,
+              "avg_sentence_words": 18.5,
+              "fk_grade": 13.0,
+              "long_word_pct": 16.2,
+              "speak_seconds_est": 18.5,
+              "fill_pct": 92.5,
+              "fits_20s": true,
               "wpm": 120,
-              "provenance": "workbook"
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (English teacher role)",
+              "basis": "Replaces the workbook B2 column, which read as written academic prose rather than a spoken talk (openers such as 'Fundamentally,' 'Furthermore,' 'Ultimately,') and failed every slide of the v2 gate. Facts unchanged. Level is carried by syntax — cleft on slides 5 and 18, fronted inversion on slide 12, participle clauses and a reduced relative — rather than by academic vocabulary, which was the defect an external examiner found in the first reference mission.",
+              "workbook_text": "Within STEM fields, the heavy institutional emphasis on standardized testing often prioritizes rote memorization over creative problem-solving. Consequently, many capable students lose interest and abandon science paths early. This rigid approach raises serious concerns about whether schools genuinely equip us to develop sustainable technology to combat climate change."
             }
           },
           "numbers": [],
@@ -466,17 +481,20 @@
               "workbook_text": "There is a clear gap between cities and rural areas. Metropolitan schools have advanced labs, while remote schools face shortages. Data shows a 30% difference in resources. Is our system designed to fix this divide or just ignore it?"
             },
             "B2": {
-              "text": "Furthermore, a persistent structural disparity exists between metropolitan and remote schools. While city classrooms enjoy state-of-the-art laboratories and digital resources, rural schools face severe shortages, with official data indicating a 30% resource gap. Is our system genuinely designed to bridge these divides, or is it simply ignoring them?",
-              "words": 48,
-              "sentences": 3,
-              "avg_sentence_words": 16.0,
-              "fk_grade": 15.5,
-              "long_word_pct": 33.3,
-              "speak_seconds_est": 24.0,
-              "fill_pct": 120.0,
-              "fits_20s": false,
+              "text": "A child in Taipei works in a well-equipped laboratory, while a child two hours away borrows whatever the school possesses. Government surveys measure that difference at around 30%, which a system may be designed to narrow or tolerate.",
+              "words": 38,
+              "sentences": 2,
+              "avg_sentence_words": 19.0,
+              "fk_grade": 12.6,
+              "long_word_pct": 21.1,
+              "speak_seconds_est": 19.0,
+              "fill_pct": 95.0,
+              "fits_20s": true,
               "wpm": 120,
-              "provenance": "workbook"
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (English teacher role)",
+              "basis": "Replaces the workbook B2 column, which read as written academic prose rather than a spoken talk (openers such as 'Fundamentally,' 'Furthermore,' 'Ultimately,') and failed every slide of the v2 gate. Facts unchanged. Level is carried by syntax — cleft on slides 5 and 18, fronted inversion on slide 12, participle clauses and a reduced relative — rather than by academic vocabulary, which was the defect an external examiner found in the first reference mission.",
+              "workbook_text": "Furthermore, a persistent structural disparity exists between metropolitan and remote schools. While city classrooms enjoy state-of-the-art laboratories and digital resources, rural schools face severe shortages, with official data indicating a 30% resource gap. Is our system genuinely designed to bridge these divides, or is it simply ignoring them?"
             }
           },
           "numbers": [
@@ -550,17 +568,20 @@
               "workbook_text": "Despite these issues, Taiwan has successes. Our 12-year free education system has a 99% completion rate. This is higher than the OECD average. This broad access is a strong foundation, but we must ask if the quality of education is actually high."
             },
             "B2": {
-              "text": "Despite these systemic issues, Taiwan has achieved remarkable milestones. Our 12-year compulsory education framework boasts a 99% primary completion rate, notably surpassing the OECD average. While this universal access provides a solid national foundation, we must critically analyze whether high enrollment automatically translates into genuine educational quality.",
-              "words": 47,
-              "sentences": 3,
-              "avg_sentence_words": 15.7,
-              "fk_grade": 19.1,
-              "long_word_pct": 38.3,
-              "speak_seconds_est": 23.5,
-              "fill_pct": 117.5,
-              "fits_20s": false,
+              "text": "Consider the achievements. Nobody pays a cent for the first twelve compulsory years and 99% complete the primary stage, positioning us at the upper end of the OECD, though access was never identical to quality.",
+              "words": 35,
+              "sentences": 2,
+              "avg_sentence_words": 17.5,
+              "fk_grade": 11.5,
+              "long_word_pct": 17.1,
+              "speak_seconds_est": 17.5,
+              "fill_pct": 87.5,
+              "fits_20s": true,
               "wpm": 120,
-              "provenance": "workbook"
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (English teacher role)",
+              "basis": "Replaces the workbook B2 column, which read as written academic prose rather than a spoken talk (openers such as 'Fundamentally,' 'Furthermore,' 'Ultimately,') and failed every slide of the v2 gate. Facts unchanged. Level is carried by syntax — cleft on slides 5 and 18, fronted inversion on slide 12, participle clauses and a reduced relative — rather than by academic vocabulary, which was the defect an external examiner found in the first reference mission.",
+              "workbook_text": "Despite these systemic issues, Taiwan has achieved remarkable milestones. Our 12-year compulsory education framework boasts a 99% primary completion rate, notably surpassing the OECD average. While this universal access provides a solid national foundation, we must critically analyze whether high enrollment automatically translates into genuine educational quality."
             }
           },
           "numbers": [
@@ -627,17 +648,20 @@
               "workbook_text": "Preschool programs are very strong in Taiwan. Government subsidies allow 96% of disadvantaged children to attend. This early help creates a level playing field. It builds basic skills that support STEM learning later and reduces the gap between students."
             },
             "B2": {
-              "text": "Early childhood initiatives are exceptionally strong, with government subsidies enabling 96% of disadvantaged five-year-olds to attend preschool. This early intervention is crucial for leveling the playing field, establishing fundamental cognitive skills that support subsequent STEM learning while mitigating the risk of long-term academic disparities.",
-              "words": 44,
+              "text": "Public money now reaches 96% of five-year-olds from disadvantaged households, placing them inside a preschool classroom. It is there that the counting and the questioning science subsequently depends upon are first acquired.",
+              "words": 32,
               "sentences": 2,
-              "avg_sentence_words": 22.0,
-              "fk_grade": 19.5,
-              "long_word_pct": 45.5,
-              "speak_seconds_est": 22.0,
-              "fill_pct": 110.0,
-              "fits_20s": false,
+              "avg_sentence_words": 16.0,
+              "fk_grade": 12.0,
+              "long_word_pct": 28.1,
+              "speak_seconds_est": 16.0,
+              "fill_pct": 80.0,
+              "fits_20s": true,
               "wpm": 120,
-              "provenance": "workbook"
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (English teacher role)",
+              "basis": "Replaces the workbook B2 column, which read as written academic prose rather than a spoken talk (openers such as 'Fundamentally,' 'Furthermore,' 'Ultimately,') and failed every slide of the v2 gate. Facts unchanged. Level is carried by syntax — cleft on slides 5 and 18, fronted inversion on slide 12, participle clauses and a reduced relative — rather than by academic vocabulary, which was the defect an external examiner found in the first reference mission.",
+              "workbook_text": "Early childhood initiatives are exceptionally strong, with government subsidies enabling 96% of disadvantaged five-year-olds to attend preschool. This early intervention is crucial for leveling the playing field, establishing fundamental cognitive skills that support subsequent STEM learning while mitigating the risk of long-term academic disparities."
             }
           },
           "numbers": [
@@ -702,17 +726,20 @@
               "workbook_text": "Overall, Taiwan’s graduation rates are higher than global standards. We also invest a lot in training teachers to improve classroom quality. However, does high participation hide deeper problems, such as different levels of education depth between different regions?"
             },
             "B2": {
-              "text": "Overall, Taiwan's enrollment and graduation rates consistently exceed global benchmarks across all academic levels. Substantial investments in teacher professional development have also enhanced classroom quality. However, does this high participation mask deeper problems, such as varying depths of educational substance between different geographic regions?",
-              "words": 44,
-              "sentences": 3,
-              "avg_sentence_words": 14.7,
-              "fk_grade": 16.9,
-              "long_word_pct": 40.9,
-              "speak_seconds_est": 22.0,
-              "fill_pct": 110.0,
-              "fits_20s": false,
+              "text": "Completion figures recorded here sit above the world average at every stage, and stronger preparation for teachers has raised the quality of ordinary lessons. Averages of that size, however, can disguise how sharply one county differs from another.",
+              "words": 38,
+              "sentences": 2,
+              "avg_sentence_words": 19.0,
+              "fk_grade": 14.2,
+              "long_word_pct": 21.1,
+              "speak_seconds_est": 19.0,
+              "fill_pct": 95.0,
+              "fits_20s": true,
               "wpm": 120,
-              "provenance": "workbook"
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (English teacher role)",
+              "basis": "Replaces the workbook B2 column, which read as written academic prose rather than a spoken talk (openers such as 'Fundamentally,' 'Furthermore,' 'Ultimately,') and failed every slide of the v2 gate. Facts unchanged. Level is carried by syntax — cleft on slides 5 and 18, fronted inversion on slide 12, participle clauses and a reduced relative — rather than by academic vocabulary, which was the defect an external examiner found in the first reference mission.",
+              "workbook_text": "Overall, Taiwan's enrollment and graduation rates consistently exceed global benchmarks across all academic levels. Substantial investments in teacher professional development have also enhanced classroom quality. However, does this high participation mask deeper problems, such as varying depths of educational substance between different geographic regions?"
             }
           },
           "numbers": [],
@@ -784,17 +811,20 @@
               "workbook_text": "To fix these gaps, Taiwan is funding new STEM curricula. These include hands-on projects rather than just reading books. For example, some programs teach coding and AI ethics early. This makes science more interesting and relevant for young students today."
             },
             "B2": {
-              "text": "To proactively address these resource gaps, Taiwan is implementing inquiry-based STEM curricula. The government actively funds updated programs that prioritize hands-on projects over textbook learning. For instance, new modules introduce coding and AI ethics at an early age, making science immediately relevant and engaging.",
-              "words": 44,
-              "sentences": 3,
-              "avg_sentence_words": 14.7,
-              "fk_grade": 14.8,
-              "long_word_pct": 40.9,
-              "speak_seconds_est": 22.0,
-              "fill_pct": 110.0,
-              "fits_20s": false,
+              "text": "A response is under way. Funding has been redirected towards inquiry-led science, which turns a period into something a class constructs rather than something it reads, and programming reaches pupils years before it reached us.",
+              "words": 35,
+              "sentences": 2,
+              "avg_sentence_words": 17.5,
+              "fk_grade": 11.1,
+              "long_word_pct": 20.0,
+              "speak_seconds_est": 17.5,
+              "fill_pct": 87.5,
+              "fits_20s": true,
               "wpm": 120,
-              "provenance": "workbook"
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (English teacher role)",
+              "basis": "Replaces the workbook B2 column, which read as written academic prose rather than a spoken talk (openers such as 'Fundamentally,' 'Furthermore,' 'Ultimately,') and failed every slide of the v2 gate. Facts unchanged. Level is carried by syntax — cleft on slides 5 and 18, fronted inversion on slide 12, participle clauses and a reduced relative — rather than by academic vocabulary, which was the defect an external examiner found in the first reference mission.",
+              "workbook_text": "To proactively address these resource gaps, Taiwan is implementing inquiry-based STEM curricula. The government actively funds updated programs that prioritize hands-on projects over textbook learning. For instance, new modules introduce coding and AI ethics at an early age, making science immediately relevant and engaging."
             }
           },
           "numbers": [],
@@ -857,17 +887,20 @@
               "workbook_text": "Digital tools are used in over 80% of Taiwanese schools. Students use apps for simulations and experiments. This connects the classroom to our famous semiconductor industry. However, we also need to teach students how to use technology in a responsible way."
             },
             "B2": {
-              "text": "Digital integration is now widespread, with over 80% of Taiwanese schools incorporating advanced tech tools and interactive simulations. This directly connects classroom learning to our thriving semiconductor industry. However, this rapid digitalization also necessitates a stronger focus on digital citizenship and teaching the responsible use of technology.",
-              "words": 47,
-              "sentences": 3,
-              "avg_sentence_words": 15.7,
-              "fk_grade": 17.9,
-              "long_word_pct": 44.7,
-              "speak_seconds_est": 23.5,
-              "fill_pct": 117.5,
-              "fits_20s": false,
+              "text": "Over 80% of institutions have adopted digital teaching, and modelling software lets a hypothesis be tried without a bench. That mirrors how our chip designers work, though using it responsibly still has to be taught.",
+              "words": 35,
+              "sentences": 2,
+              "avg_sentence_words": 17.5,
+              "fk_grade": 11.1,
+              "long_word_pct": 20.0,
+              "speak_seconds_est": 17.5,
+              "fill_pct": 87.5,
+              "fits_20s": true,
               "wpm": 120,
-              "provenance": "workbook"
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (English teacher role)",
+              "basis": "Replaces the workbook B2 column, which read as written academic prose rather than a spoken talk (openers such as 'Fundamentally,' 'Furthermore,' 'Ultimately,') and failed every slide of the v2 gate. Facts unchanged. Level is carried by syntax — cleft on slides 5 and 18, fronted inversion on slide 12, participle clauses and a reduced relative — rather than by academic vocabulary, which was the defect an external examiner found in the first reference mission.",
+              "workbook_text": "Digital integration is now widespread, with over 80% of Taiwanese schools incorporating advanced tech tools and interactive simulations. This directly connects classroom learning to our thriving semiconductor industry. However, this rapid digitalization also necessitates a stronger focus on digital citizenship and teaching the responsible use of technology."
             }
           },
           "numbers": [
@@ -932,17 +965,20 @@
               "workbook_text": "Special programs for gifted students provide internships in tech firms. These programs prepare students for careers in fields like renewable energy. They bridge the gap between school and the real world, helping students become the next generation of problem-solvers."
             },
             "B2": {
-              "text": "Specialized programs designed for gifted students provide competitive internships and mentorships within leading tech firms. These initiatives successfully bridge theoretical science with practical, industrial applications. By fostering these connections, we are actively preparing the next generation of problem-solvers for careers in renewable green technology.",
-              "words": 44,
-              "sentences": 3,
-              "avg_sentence_words": 14.7,
-              "fk_grade": 17.2,
-              "long_word_pct": 47.7,
-              "speak_seconds_est": 22.0,
-              "fill_pct": 110.0,
-              "fits_20s": false,
+              "text": "The strongest candidates compete for placements inside the largest manufacturers, and the people supervising them hand over work with real consequences. Only when a deadline is genuine does the distance between a lecture and a clean-energy job close.",
+              "words": 38,
+              "sentences": 2,
+              "avg_sentence_words": 19.0,
+              "fk_grade": 12.9,
+              "long_word_pct": 23.7,
+              "speak_seconds_est": 19.0,
+              "fill_pct": 95.0,
+              "fits_20s": true,
               "wpm": 120,
-              "provenance": "workbook"
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (English teacher role)",
+              "basis": "Replaces the workbook B2 column, which read as written academic prose rather than a spoken talk (openers such as 'Fundamentally,' 'Furthermore,' 'Ultimately,') and failed every slide of the v2 gate. Facts unchanged. Level is carried by syntax — cleft on slides 5 and 18, fronted inversion on slide 12, participle clauses and a reduced relative — rather than by academic vocabulary, which was the defect an external examiner found in the first reference mission.",
+              "workbook_text": "Specialized programs designed for gifted students provide competitive internships and mentorships within leading tech firms. These initiatives successfully bridge theoretical science with practical, industrial applications. By fostering these connections, we are actively preparing the next generation of problem-solvers for careers in renewable green technology."
             }
           },
           "numbers": [],
@@ -1014,17 +1050,20 @@
               "workbook_text": "Better STEM education drives our economy. Taiwan’s tech exports reach $500 billion every year. Furthermore, it empowers us to solve global problems. We can use science to find climate-resilient solutions and protect our environment for the future."
             },
             "B2": {
-              "text": "The implications of our educational strategies are profound. Enhanced STEM education directly drives economic sustainability, pushing Taiwan's tech exports beyond $500 billion annually. Moreover, a scientifically literate population empowers our society to contribute to global solutions, such as developing the science required for climate-resilient infrastructure.",
-              "words": 45,
-              "sentences": 3,
-              "avg_sentence_words": 15.0,
-              "fk_grade": 19.6,
-              "long_word_pct": 48.9,
-              "speak_seconds_est": 22.5,
-              "fill_pct": 112.5,
-              "fits_20s": false,
+              "text": "Everything taught in these classrooms underpins exports of roughly 500 billion US dollars each year. The identical competence will be required to construct the defences a hotter, wetter island is certain to need.",
+              "words": 33,
+              "sentences": 2,
+              "avg_sentence_words": 16.5,
+              "fk_grade": 11.9,
+              "long_word_pct": 24.2,
+              "speak_seconds_est": 16.5,
+              "fill_pct": 82.5,
+              "fits_20s": true,
               "wpm": 120,
-              "provenance": "workbook"
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (English teacher role)",
+              "basis": "Replaces the workbook B2 column, which read as written academic prose rather than a spoken talk (openers such as 'Fundamentally,' 'Furthermore,' 'Ultimately,') and failed every slide of the v2 gate. Facts unchanged. Level is carried by syntax — cleft on slides 5 and 18, fronted inversion on slide 12, participle clauses and a reduced relative — rather than by academic vocabulary, which was the defect an external examiner found in the first reference mission.",
+              "workbook_text": "The implications of our educational strategies are profound. Enhanced STEM education directly drives economic sustainability, pushing Taiwan's tech exports beyond $500 billion annually. Moreover, a scientifically literate population empowers our society to contribute to global solutions, such as developing the science required for climate-resilient infrastructure."
             }
           },
           "numbers": [
@@ -1090,17 +1129,20 @@
               "workbook_text": "However, we still face challenges, like the gender gap. Women make up only 30% of engineering graduates. Societal stereotypes still exist today. We must challenge these old ideas to make sure that STEM fields are inclusive for everyone."
             },
             "B2": {
-              "text": "Nevertheless, future challenges loom large, particularly the persistent gender disparity where women constitute only 30% of engineering graduates. Deep-seated societal stereotypes continue to discourage female students from entering tech fields. We must actively challenge these outdated biases to ensure true inclusivity and diversity in STEM.",
-              "words": 45,
-              "sentences": 3,
-              "avg_sentence_words": 15.0,
-              "fk_grade": 16.7,
-              "long_word_pct": 44.4,
-              "speak_seconds_est": 22.5,
-              "fill_pct": 112.5,
-              "fits_20s": false,
+              "text": "Progress has not been uniform. Only 30% of engineering graduates are female, because a belief that machines belong to men has proved remarkably durable, and prejudice of that kind wastes ability this country cannot afford to lose.",
+              "words": 37,
+              "sentences": 2,
+              "avg_sentence_words": 18.5,
+              "fk_grade": 13.6,
+              "long_word_pct": 16.2,
+              "speak_seconds_est": 18.5,
+              "fill_pct": 92.5,
+              "fits_20s": true,
               "wpm": 120,
-              "provenance": "workbook"
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (English teacher role)",
+              "basis": "Replaces the workbook B2 column, which read as written academic prose rather than a spoken talk (openers such as 'Fundamentally,' 'Furthermore,' 'Ultimately,') and failed every slide of the v2 gate. Facts unchanged. Level is carried by syntax — cleft on slides 5 and 18, fronted inversion on slide 12, participle clauses and a reduced relative — rather than by academic vocabulary, which was the defect an external examiner found in the first reference mission.",
+              "workbook_text": "Nevertheless, future challenges loom large, particularly the persistent gender disparity where women constitute only 30% of engineering graduates. Deep-seated societal stereotypes continue to discourage female students from entering tech fields. We must actively challenge these outdated biases to ensure true inclusivity and diversity in STEM."
             }
           },
           "numbers": [
@@ -1165,17 +1207,20 @@
               "workbook_text": "If we don’t fix these problems, inequality will get worse and we will waste talent. As college students, we need to question current policies. Are they flexible enough for new trends, like AI-driven jobs or environmental crises?"
             },
             "B2": {
-              "text": "If we fail to address these structural inequalities, the divide will deepen, wasting immense potential talent. As university students, we must continuously question current policies: are they flexible and dynamic enough to adapt to emerging global trends, such as AI-driven job markets and unexpected environmental crises?",
-              "words": 46,
+              "text": "If these divisions are left unaddressed they will widen, and an entire cohort of ability disappears unused. Those of us already at university ought to be asking whether regulation can move as fast as automated labour.",
+              "words": 36,
               "sentences": 2,
-              "avg_sentence_words": 23.0,
-              "fk_grade": 17.0,
-              "long_word_pct": 28.3,
-              "speak_seconds_est": 23.0,
-              "fill_pct": 115.0,
-              "fits_20s": false,
+              "avg_sentence_words": 18.0,
+              "fk_grade": 13.1,
+              "long_word_pct": 16.7,
+              "speak_seconds_est": 18.0,
+              "fill_pct": 90.0,
+              "fits_20s": true,
               "wpm": 120,
-              "provenance": "workbook"
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (English teacher role)",
+              "basis": "Replaces the workbook B2 column, which read as written academic prose rather than a spoken talk (openers such as 'Fundamentally,' 'Furthermore,' 'Ultimately,') and failed every slide of the v2 gate. Facts unchanged. Level is carried by syntax — cleft on slides 5 and 18, fronted inversion on slide 12, participle clauses and a reduced relative — rather than by academic vocabulary, which was the defect an external examiner found in the first reference mission.",
+              "workbook_text": "If we fail to address these structural inequalities, the divide will deepen, wasting immense potential talent. As university students, we must continuously question current policies: are they flexible and dynamic enough to adapt to emerging global trends, such as AI-driven job markets and unexpected environmental crises?"
             }
           },
           "numbers": [],
@@ -1238,17 +1283,20 @@
               "workbook_text": "Education builds a resilient society. But without reforms, Taiwan might fall behind in innovation. Science education must evolve to meet new demands. We need to ensure that our schools are ready for the challenges of the 21st century."
             },
             "B2": {
-              "text": "Ultimately, education is the cornerstone of a resilient and innovative society. However, without meaningful structural reforms, Taiwan risks losing its competitive edge in sustainable technology. Our science education must continuously evolve to meet the rapidly shifting demands of the twenty-first century effectively.",
-              "words": 42,
-              "sentences": 3,
-              "avg_sentence_words": 14.0,
-              "fk_grade": 16.8,
-              "long_word_pct": 35.7,
-              "speak_seconds_est": 21.0,
-              "fill_pct": 105.0,
-              "fits_20s": false,
+              "text": "How well a society withstands shock is determined in its classrooms. Absent genuine structural reform, our advantage in sustainable technology will erode by degrees, because what is taught must match the century being lived.",
+              "words": 34,
+              "sentences": 2,
+              "avg_sentence_words": 17.0,
+              "fk_grade": 11.9,
+              "long_word_pct": 20.6,
+              "speak_seconds_est": 17.0,
+              "fill_pct": 85.0,
+              "fits_20s": true,
               "wpm": 120,
-              "provenance": "workbook"
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (English teacher role)",
+              "basis": "Replaces the workbook B2 column, which read as written academic prose rather than a spoken talk (openers such as 'Fundamentally,' 'Furthermore,' 'Ultimately,') and failed every slide of the v2 gate. Facts unchanged. Level is carried by syntax — cleft on slides 5 and 18, fronted inversion on slide 12, participle clauses and a reduced relative — rather than by academic vocabulary, which was the defect an external examiner found in the first reference mission.",
+              "workbook_text": "Ultimately, education is the cornerstone of a resilient and innovative society. However, without meaningful structural reforms, Taiwan risks losing its competitive edge in sustainable technology. Our science education must continuously evolve to meet the rapidly shifting demands of the twenty-first century effectively."
             }
           },
           "numbers": [
@@ -1322,17 +1370,20 @@
               "workbook_text": "In summary, SDG 4 shows both progress and problems in Taiwan. STEM is a key tool for our development. We have high enrollment, but we must continue to work on making the system fair for every student."
             },
             "B2": {
-              "text": "In summary, evaluating SDG 4 reveals that Taiwan has made significant educational progress, yet stubborn systemic issues remain. STEM education serves as a powerful instrument for national advancement, but it must be implemented through a framework that prioritizes social equity alongside technological mastery.",
-              "words": 43,
+              "text": "Pulling the evidence together, the picture holds real advance beside difficulties that refuse to shift. Science drives national development and attendance remains strong, yet fairness for every pupil is still outstanding.",
+              "words": 31,
               "sentences": 2,
-              "avg_sentence_words": 21.5,
-              "fk_grade": 18.9,
-              "long_word_pct": 37.2,
-              "speak_seconds_est": 21.5,
-              "fill_pct": 107.5,
-              "fits_20s": false,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 12.5,
+              "long_word_pct": 25.8,
+              "speak_seconds_est": 15.5,
+              "fill_pct": 77.5,
+              "fits_20s": true,
               "wpm": 120,
-              "provenance": "workbook"
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (English teacher role)",
+              "basis": "Replaces the workbook B2 column, which read as written academic prose rather than a spoken talk (openers such as 'Fundamentally,' 'Furthermore,' 'Ultimately,') and failed every slide of the v2 gate. Facts unchanged. Level is carried by syntax — cleft on slides 5 and 18, fronted inversion on slide 12, participle clauses and a reduced relative — rather than by academic vocabulary, which was the defect an external examiner found in the first reference mission.",
+              "workbook_text": "In summary, evaluating SDG 4 reveals that Taiwan has made significant educational progress, yet stubborn systemic issues remain. STEM education serves as a powerful instrument for national advancement, but it must be implemented through a framework that prioritizes social equity alongside technological mastery."
             }
           },
           "numbers": [],
@@ -1395,17 +1446,20 @@
               "workbook_text": "We have to challenge the reality of our schools. While our test scores are high, we often forget about creativity and equity. Deep reforms are necessary to make education truly transformative and helpful for all parts of society."
             },
             "B2": {
-              "text": "We must courageously challenge the status quo of our schools. While our international test scores are impressively high, our system frequently overlooks the essential need for creativity and equity. Comprehensive, deep reforms are absolutely necessary to transform education into a truly transformative and inclusive experience.",
-              "words": 45,
-              "sentences": 3,
-              "avg_sentence_words": 15.0,
-              "fk_grade": 15.4,
-              "long_word_pct": 35.6,
-              "speak_seconds_est": 22.5,
-              "fill_pct": 112.5,
-              "fits_20s": false,
+              "text": "International rankings flatter us considerably. What those papers assess is memory, not imagination and certainly not fairness, so real reform means shifting the incentive rather than adding one more test to the calendar.",
+              "words": 33,
+              "sentences": 2,
+              "avg_sentence_words": 16.5,
+              "fk_grade": 13.0,
+              "long_word_pct": 27.3,
+              "speak_seconds_est": 16.5,
+              "fill_pct": 82.5,
+              "fits_20s": true,
               "wpm": 120,
-              "provenance": "workbook"
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (English teacher role)",
+              "basis": "Replaces the workbook B2 column, which read as written academic prose rather than a spoken talk (openers such as 'Fundamentally,' 'Furthermore,' 'Ultimately,') and failed every slide of the v2 gate. Facts unchanged. Level is carried by syntax — cleft on slides 5 and 18, fronted inversion on slide 12, participle clauses and a reduced relative — rather than by academic vocabulary, which was the defect an external examiner found in the first reference mission.",
+              "workbook_text": "We must courageously challenge the status quo of our schools. While our international test scores are impressively high, our system frequently overlooks the essential need for creativity and equity. Comprehensive, deep reforms are absolutely necessary to transform education into a truly transformative and inclusive experience."
             }
           },
           "numbers": [],
@@ -1468,17 +1522,20 @@
               "workbook_text": "Looking forward, we must focus on inclusive STEM education. This means including underrepresented groups and updating our curricula. We need to integrate real-world science applications so that every student sees the value of what they are learning."
             },
             "B2": {
-              "text": "Looking ahead, our strategic focus must shift toward inclusive STEM education for all, especially historically underrepresented groups. We must advocate for modernized, adaptive curricula that integrate real-world scientific applications. This ensures that every single student recognizes the intrinsic value of what they are learning.",
-              "words": 44,
-              "sentences": 3,
-              "avg_sentence_words": 14.7,
-              "fk_grade": 16.1,
-              "long_word_pct": 38.6,
-              "speak_seconds_est": 22.0,
-              "fill_pct": 110.0,
-              "fits_20s": false,
+              "text": "Looking forward, science that includes everyone has to find the populations we routinely miss, and the syllabus demands thorough revision. No course should leave its content unconnected to the world beyond the window.",
+              "words": 33,
+              "sentences": 2,
+              "avg_sentence_words": 16.5,
+              "fk_grade": 10.9,
+              "long_word_pct": 24.2,
+              "speak_seconds_est": 16.5,
+              "fill_pct": 82.5,
+              "fits_20s": true,
               "wpm": 120,
-              "provenance": "workbook"
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (English teacher role)",
+              "basis": "Replaces the workbook B2 column, which read as written academic prose rather than a spoken talk (openers such as 'Fundamentally,' 'Furthermore,' 'Ultimately,') and failed every slide of the v2 gate. Facts unchanged. Level is carried by syntax — cleft on slides 5 and 18, fronted inversion on slide 12, participle clauses and a reduced relative — rather than by academic vocabulary, which was the defect an external examiner found in the first reference mission.",
+              "workbook_text": "Looking ahead, our strategic focus must shift toward inclusive STEM education for all, especially historically underrepresented groups. We must advocate for modernized, adaptive curricula that integrate real-world scientific applications. This ensures that every single student recognizes the intrinsic value of what they are learning."
             }
           },
           "numbers": [],
@@ -1541,17 +1598,20 @@
               "workbook_text": "Thank you for your attention. As students, let’s take action! Participate in discussions, volunteer in programs, or push for change. Together, we can build a more equitable and innovative future. Thank you for listening!"
             },
             "B2": {
-              "text": "Thank you for your attention. As university students, you possess the power to drive meaningful change. Whether you participate in policy debates, volunteer in rural education, or advocate for curriculum reform, your actions matter. Together, we can build a more equitable, innovative, and sustainable future. Let's begin today.",
-              "words": 48,
-              "sentences": 5,
-              "avg_sentence_words": 9.6,
-              "fk_grade": 11.5,
-              "long_word_pct": 27.1,
-              "speak_seconds_est": 24.0,
-              "fill_pct": 120.0,
-              "fits_20s": false,
+              "text": "So I am asking something specific of you. Argue about education policy in public, volunteer where a country school is short of people, or press your faculty to reconsider what it delivers.",
+              "words": 32,
+              "sentences": 2,
+              "avg_sentence_words": 16.0,
+              "fk_grade": 10.9,
+              "long_word_pct": 18.8,
+              "speak_seconds_est": 16.0,
+              "fill_pct": 80.0,
+              "fits_20s": true,
               "wpm": 120,
-              "provenance": "workbook"
+              "provenance": "authored-replacement",
+              "authored_by": "Claude (English teacher role)",
+              "basis": "Replaces the workbook B2 column, which read as written academic prose rather than a spoken talk (openers such as 'Fundamentally,' 'Furthermore,' 'Ultimately,') and failed every slide of the v2 gate. Facts unchanged. Level is carried by syntax — cleft on slides 5 and 18, fronted inversion on slide 12, participle clauses and a reduced relative — rather than by academic vocabulary, which was the defect an external examiner found in the first reference mission.",
+              "workbook_text": "Thank you for your attention. As university students, you possess the power to drive meaningful change. Whether you participate in policy debates, volunteer in rural education, or advocate for curriculum reform, your actions matter. Together, we can build a more equitable, innovative, and sustainable future. Let's begin today."
             }
           },
           "numbers": [],
@@ -1588,10 +1648,10 @@
     },
     "B2": {
       "slides": 20,
-      "avg_words": 45.9,
-      "avg_sentence_words": 16.3,
-      "fk_grade": 16.6,
-      "slides_over_20s": 20
+      "avg_words": 35.1,
+      "avg_sentence_words": 17.6,
+      "fk_grade": 12.2,
+      "slides_over_20s": 0
     }
   }
 }

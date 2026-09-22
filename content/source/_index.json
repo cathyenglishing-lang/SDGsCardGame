@@ -1,6 +1,6 @@
 {
   "content_version": "2026.09.1",
-  "generated_at": "2026-09-22T18:40:20+08:00",
+  "generated_at": "2026-09-22T18:44:19+08:00",
   "source_workbook": "SDGs Pecha Kucha (公用)_new.xlsx",
   "legacy_workbooks_not_used": [
     "SDGs Pecha Kucha (公用).xlsx",
@@ -87,10 +87,10 @@
         },
         "B2": {
           "slides": 20,
-          "avg_words": 45.9,
-          "avg_sentence_words": 16.3,
-          "fk_grade": 16.6,
-          "slides_over_20s": 20
+          "avg_words": 35.1,
+          "avg_sentence_words": 17.6,
+          "fk_grade": 12.2,
+          "slides_over_20s": 0
         }
       }
     },
@@ -393,8 +393,8 @@
   ],
   "issue_counts": {
     "high": 5,
-    "medium": 15,
+    "medium": 13,
     "low": 9,
-    "info": 21
+    "info": 22
   }
 }
