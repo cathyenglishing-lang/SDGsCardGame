@@ -1,4 +1,4 @@
-# sdg5-2 · Leveling the Playing Field (SDG 5)
+# sdg5-2 · Leveling the Playing Field (Women in Sports & Media) (SDG 5)
 
 20 slides · levels A2, B1, B2 · content_version 2026.09.1 · source `sdg5-2`
 

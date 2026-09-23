@@ -1,4 +1,4 @@
-# sdg1 · No Poverty in Taiwan (SDG 1)
+# sdg1 · SDG 1: No Poverty in Taiwan (SDG 1)
 
 20 slides · levels A2, B1, B2 · content_version 2026.09.1 · source `sdg1`
 

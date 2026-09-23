@@ -1,6 +1,6 @@
 # 教材 QA 報告
 
-content_version 2026.09.1 · 產生於 2026-09-23T22:15:02+08:00
+content_version 2026.09.1 · 產生於 2026-09-23T23:14:46+08:00
 
 來源：`SDGs Pecha Kucha (公用)_new.xlsx`（其餘三個工作簿是舊版或子集，未使用：`SDGs Pecha Kucha (公用).xlsx`、`SDGs Pecha Kucha (公用)_自建題庫檔.xlsx`、`SDGsPechaKucha_0526.xlsx`）
 

@@ -659,6 +659,25 @@ def main() -> int:
         all_issues.append({"severity": "high", "where": "sdg1",
                            "issue": f"workbook not found and no preserved copy: {sdg1_path}"})
 
+    # Missions with no workbook sheet at all — the SDGs being written from scratch —
+    # live as hand-authored shells in content/authored/missions/<mission>.source.json
+    # (title, stage/part structure, slide titles; scripts are filled by the overlay
+    # step below). Anything already produced from a workbook sheet is left alone.
+    existing_ids = {m["mission_id"] for m in missions}
+    authored_missions_dir = os.path.join(REPO, "content", "authored", "missions")
+    if os.path.isdir(authored_missions_dir):
+        for fname in sorted(os.listdir(authored_missions_dir)):
+            if not fname.endswith(".source.json"):
+                continue
+            mission_id = fname[: -len(".source.json")]
+            if mission_id in existing_ids:
+                continue
+            with open(os.path.join(authored_missions_dir, fname), encoding="utf-8") as fh:
+                shell = json.load(fh)
+            shell.pop("level_summary", None)
+            missions.append(shell)
+            existing_ids.add(mission_id)
+
     overlay_dir = os.path.join(REPO, "content", "authored", "levels")
     for m in missions:
         all_issues += apply_overlays(m, overlay_dir)

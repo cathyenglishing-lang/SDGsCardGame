@@ -1,4 +1,4 @@
-# sdg9-3 · What Can Humans Do Better Than AI? (SDG 9)
+# sdg9-3 · AI Can Generate, but Humans Create (SDG 9)
 
 12 slides · levels A2, B1, B2 · content_version 2026.09.1 · source `sdg9-3`
 

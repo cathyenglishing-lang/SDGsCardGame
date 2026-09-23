@@ -1,4 +1,4 @@
-# sdg9-2 · How to Talk to AI Like a Scientist (SDG 9)
+# sdg9-2 · Finding Your Human Voice in the Age of AI (SDG 9)
 
 12 slides · levels A2, B1, B2 · content_version 2026.09.1 · source `sdg9-2`
 

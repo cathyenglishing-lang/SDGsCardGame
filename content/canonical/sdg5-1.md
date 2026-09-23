@@ -1,4 +1,4 @@
-# sdg5-1 · A Fair World for Everyone (SDG 5)
+# sdg5-1 · SDG 5: A Fair World for Everyone (SDG 5)
 
 20 slides · levels A2, B1, B2 · content_version 2026.09.1 · source `sdg5-1`
 

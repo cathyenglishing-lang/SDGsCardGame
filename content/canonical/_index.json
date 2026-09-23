@@ -1,6 +1,6 @@
 {
   "content_version": "2026.09.1",
-  "generated_at": "2026-09-23T22:15:07+08:00",
+  "generated_at": "2026-09-23T23:15:15+08:00",
   "levels": [
     "A2",
     "B1",
@@ -73,7 +73,7 @@
     {
       "mission_id": "sdg1",
       "sdg": 1,
-      "title": "No Poverty in Taiwan",
+      "title": "SDG 1: No Poverty in Taiwan",
       "slides": 20,
       "levels": [
         "A2",
@@ -110,6 +110,88 @@
         }
       },
       "source_mission": "sdg1"
+    },
+    {
+      "mission_id": "sdg13-1",
+      "sdg": 13,
+      "title": "SDG 13: Climate Action – Taiwan’s Path to Net Zero",
+      "slides": 20,
+      "levels": [
+        "A2",
+        "B1",
+        "B2"
+      ],
+      "ready": true,
+      "gate": {
+        "A2": [],
+        "B1": [],
+        "B2": []
+      },
+      "level_summary": {
+        "A2": {
+          "slides": 20,
+          "avg_words": 27.3,
+          "avg_sentence_words": 9.1,
+          "fk_grade": 4.2,
+          "slides_over_20s": 0
+        },
+        "B1": {
+          "slides": 20,
+          "avg_words": 31.7,
+          "avg_sentence_words": 13.1,
+          "fk_grade": 7.6,
+          "slides_over_20s": 0
+        },
+        "B2": {
+          "slides": 20,
+          "avg_words": 31.6,
+          "avg_sentence_words": 15.8,
+          "fk_grade": 11.8,
+          "slides_over_20s": 0
+        }
+      },
+      "source_mission": "sdg13-1"
+    },
+    {
+      "mission_id": "sdg13-2",
+      "sdg": 13,
+      "title": "Climate-Resilient Taiwan – Adapting to Extreme Weather",
+      "slides": 20,
+      "levels": [
+        "A2",
+        "B1",
+        "B2"
+      ],
+      "ready": true,
+      "gate": {
+        "A2": [],
+        "B1": [],
+        "B2": []
+      },
+      "level_summary": {
+        "A2": {
+          "slides": 20,
+          "avg_words": 27.6,
+          "avg_sentence_words": 9.2,
+          "fk_grade": 4.2,
+          "slides_over_20s": 0
+        },
+        "B1": {
+          "slides": 20,
+          "avg_words": 31.9,
+          "avg_sentence_words": 15.1,
+          "fk_grade": 8.2,
+          "slides_over_20s": 0
+        },
+        "B2": {
+          "slides": 20,
+          "avg_words": 35.2,
+          "avg_sentence_words": 17.6,
+          "fk_grade": 12.9,
+          "slides_over_20s": 0
+        }
+      },
+      "source_mission": "sdg13-2"
     },
     {
       "mission_id": "sdg4-1",
@@ -196,7 +278,7 @@
     {
       "mission_id": "sdg5-1",
       "sdg": 5,
-      "title": "A Fair World for Everyone",
+      "title": "SDG 5: A Fair World for Everyone",
       "slides": 20,
       "levels": [
         "A2",
@@ -237,7 +319,7 @@
     {
       "mission_id": "sdg5-2",
       "sdg": 5,
-      "title": "Leveling the Playing Field",
+      "title": "Leveling the Playing Field (Women in Sports & Media)",
       "slides": 20,
       "levels": [
         "A2",
@@ -319,7 +401,7 @@
     {
       "mission_id": "sdg9-2",
       "sdg": 9,
-      "title": "How to Talk to AI Like a Scientist",
+      "title": "Finding Your Human Voice in the Age of AI",
       "slides": 12,
       "levels": [
         "A2",
@@ -360,7 +442,7 @@
     {
       "mission_id": "sdg9-3",
       "sdg": 9,
-      "title": "What Can Humans Do Better Than AI?",
+      "title": "AI Can Generate, but Humans Create",
       "slides": 12,
       "levels": [
         "A2",
@@ -397,88 +479,6 @@
         }
       },
       "source_mission": "sdg9-3"
-    },
-    {
-      "mission_id": "sdg13-1",
-      "sdg": 13,
-      "title": "Climate Action: Taiwan's Path to Net Zero",
-      "slides": 20,
-      "levels": [
-        "A2",
-        "B1",
-        "B2"
-      ],
-      "ready": true,
-      "gate": {
-        "A2": [],
-        "B1": [],
-        "B2": []
-      },
-      "level_summary": {
-        "A2": {
-          "slides": 20,
-          "avg_words": 27.3,
-          "avg_sentence_words": 9.1,
-          "fk_grade": 4.2,
-          "slides_over_20s": 0
-        },
-        "B1": {
-          "slides": 20,
-          "avg_words": 31.7,
-          "avg_sentence_words": 13.1,
-          "fk_grade": 7.6,
-          "slides_over_20s": 0
-        },
-        "B2": {
-          "slides": 20,
-          "avg_words": 31.6,
-          "avg_sentence_words": 15.8,
-          "fk_grade": 11.8,
-          "slides_over_20s": 0
-        }
-      },
-      "source_mission": "sdg13-1"
-    },
-    {
-      "mission_id": "sdg13-2",
-      "sdg": 13,
-      "title": "Climate-Resilient Taiwan",
-      "slides": 20,
-      "levels": [
-        "A2",
-        "B1",
-        "B2"
-      ],
-      "ready": true,
-      "gate": {
-        "A2": [],
-        "B1": [],
-        "B2": []
-      },
-      "level_summary": {
-        "A2": {
-          "slides": 20,
-          "avg_words": 27.6,
-          "avg_sentence_words": 9.2,
-          "fk_grade": 4.2,
-          "slides_over_20s": 0
-        },
-        "B1": {
-          "slides": 20,
-          "avg_words": 31.9,
-          "avg_sentence_words": 15.1,
-          "fk_grade": 8.2,
-          "slides_over_20s": 0
-        },
-        "B2": {
-          "slides": 20,
-          "avg_words": 35.2,
-          "avg_sentence_words": 17.6,
-          "fk_grade": 12.9,
-          "slides_over_20s": 0
-        }
-      },
-      "source_mission": "sdg13-2"
     }
   ],
   "ready_count": 10

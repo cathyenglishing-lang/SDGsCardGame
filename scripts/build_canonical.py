@@ -39,20 +39,19 @@ from quality import BAND, FILL_BAND, MAX_JACCARD_MEAN, check_distance, check_lev
 
 LEVELS = ("A2", "B1", "B2")
 
-# every mission on the live site, in the order the cards appear
-CANONICAL = {
-    "sdg1": {"source": "sdg1", "sdg": 1, "title": "No Poverty in Taiwan"},
-    "sdg4-1": {"source": "sdg4-1", "sdg": 4, "title": "Quality Education in Taiwan"},
-    "sdg4-2": {"source": "sdg4-2", "sdg": 4,
-               "title": "Digital Equity and Media Literacy in Taiwan"},
-    "sdg5-1": {"source": "sdg5-1", "sdg": 5, "title": "A Fair World for Everyone"},
-    "sdg5-2": {"source": "sdg5-2", "sdg": 5, "title": "Leveling the Playing Field"},
-    "sdg9-1": {"source": "sdg9-1", "sdg": 9, "title": "Using AI: Can We Trust AI?"},
-    "sdg9-2": {"source": "sdg9-2", "sdg": 9, "title": "How to Talk to AI Like a Scientist"},
-    "sdg9-3": {"source": "sdg9-3", "sdg": 9, "title": "What Can Humans Do Better Than AI?"},
-    "sdg13-1": {"source": "sdg13-1", "sdg": 13, "title": "Climate Action: Taiwan's Path to Net Zero"},
-    "sdg13-2": {"source": "sdg13-2", "sdg": 13, "title": "Climate-Resilient Taiwan"},
-}
+# Every mission in content/source/ ships as its own card — discovered, not
+# hand-listed, so a new mission needs no edit here. sdg9 established the
+# pattern of several missions per goal (9-1/9-2/9-3); the rest now follow it.
+def discover_missions() -> dict:
+    out = {}
+    for fname in sorted(os.listdir(SOURCE)):
+        if not fname.endswith(".json") or fname.startswith("_"):
+            continue
+        mission_id = fname[:-5]
+        with open(os.path.join(SOURCE, fname), encoding="utf-8") as fh:
+            src = json.load(fh)
+        out[mission_id] = {"source": mission_id, "sdg": src["sdg"], "title": src["title"]["en"]}
+    return out
 
 HEADER_FILL = PatternFill("solid", fgColor="1F2937")
 LEVEL_FILL = {"A2": PatternFill("solid", fgColor="DCFCE7"),
@@ -256,13 +255,20 @@ def write_review(m: dict, path: str) -> None:
 def main() -> int:
     os.makedirs(OUT, exist_ok=True)
     missions = []
-    for canon_id, meta in CANONICAL.items():
+    for canon_id, meta in discover_missions().items():
         m = build_mission(canon_id, meta)
         missions.append(m)
         with open(os.path.join(OUT, f"{canon_id}.json"), "w", encoding="utf-8") as fh:
             json.dump(m, fh, ensure_ascii=False, indent=2)
         write_review(m, os.path.join(OUT, f"{canon_id}.md"))
-    write_workbook(missions, os.path.join(OUT, "SDGs_PechaKucha_v1.xlsx"))
+    try:
+        write_workbook(missions, os.path.join(OUT, "SDGs_PechaKucha_v1.xlsx"))
+    except PermissionError:
+        # Windows locks the file while it is open in Excel. The JSON and
+        # Markdown outputs above already wrote successfully, so this is not
+        # fatal — just tell the caller and keep going.
+        print("SDGs_PechaKucha_v1.xlsx is locked (probably open in Excel) — "
+              "skipped, everything else was written", file=sys.stderr)
     index = {
         "content_version": CONTENT_VERSION,
         "generated_at": dt.datetime.now().astimezone().isoformat(timespec="seconds"),
