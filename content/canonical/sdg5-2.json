@@ -17,31 +17,28 @@
     "A2": {
       "slides": 20,
       "avg_words": 28.6,
-      "avg_sentence_words": 9.5,
-      "fk_grade": 4.2,
+      "avg_sentence_words": 9.6,
+      "fk_grade": 4.3,
       "slides_over_20s": 0
     },
     "B1": {
       "slides": 20,
-      "avg_words": 33.5,
-      "avg_sentence_words": 12.1,
-      "fk_grade": 7.2,
+      "avg_words": 33.9,
+      "avg_sentence_words": 12.3,
+      "fk_grade": 7.8,
       "slides_over_20s": 0
     },
     "B2": {
       "slides": 20,
-      "avg_words": 36.5,
-      "avg_sentence_words": 18.3,
-      "fk_grade": 12.2,
+      "avg_words": 36.4,
+      "avg_sentence_words": 18.2,
+      "fk_grade": 12.3,
       "slides_over_20s": 0
     }
   },
   "gate": {
     "A2": [],
-    "B1": [
-      "slide 10: fk 4.8 far below B1 (6.5-10.5) — reads below level",
-      "30% of slides miss a band"
-    ],
+    "B1": [],
     "B2": []
   },
   "distance": {
@@ -51,12 +48,12 @@
       "too_close": {}
     },
     "B1->B2": {
-      "mean": 0.22,
+      "mean": 0.2,
       "pass": true,
       "too_close": {}
     }
   },
-  "ready": false,
+  "ready": true,
   "stages": [
     {
       "part_no": 1,
@@ -238,11 +235,11 @@
               "provenance": "authored-replacement"
             },
             "B2": {
-              "text": "Professional competition was reserved for men until surprisingly recently, and the stated justification was that female bodies would break under serious training. That belief survived for decades, keeping women out of the major international arenas.",
+              "text": "Professional competition was reserved for men until very recently, and the reason given was that female bodies would break under serious training. That belief survived for decades, keeping women out of the major international arenas.",
               "words": 35,
               "sentences": 2,
               "avg_sentence_words": 17.5,
-              "fk_grade": 16.2,
+              "fk_grade": 14.5,
               "speak_seconds_est": 17.5,
               "fits_20s": true,
               "provenance": "authored-replacement"
@@ -452,12 +449,12 @@
           "numbers": [],
           "scripts": {
             "A2": {
-              "text": "Many athletes also work at home. They cook, they clean, they care for their family, and then they start training. Without help at home, a career can end early.",
-              "words": 29,
+              "text": "Many athletes also work at home. They cook, they clean, they care for their family, and then they start training. Their career can end early because nobody helps at home.",
+              "words": 30,
               "sentences": 3,
-              "avg_sentence_words": 9.7,
-              "fk_grade": 4.0,
-              "speak_seconds_est": 18.3,
+              "avg_sentence_words": 10.0,
+              "fk_grade": 4.8,
+              "speak_seconds_est": 18.9,
               "fits_20s": true,
               "provenance": "authored-replacement"
             },
@@ -472,12 +469,12 @@
               "provenance": "authored-replacement"
             },
             "B2": {
-              "text": "The working day does not finish at the stadium gate, because domestic chores and family expectations still wait at home for the athlete rather than for her male teammate. Unsupported, a promising career frequently ends prematurely.",
-              "words": 36,
+              "text": "Her second shift begins when the stadium empties, because domestic chores and family expectations still wait at home for the athlete rather than for her male teammate. Unsupported, a promising career frequently ends prematurely.",
+              "words": 34,
               "sentences": 2,
-              "avg_sentence_words": 18.0,
-              "fk_grade": 12.4,
-              "speak_seconds_est": 18.0,
+              "avg_sentence_words": 17.0,
+              "fk_grade": 12.9,
+              "speak_seconds_est": 17.0,
               "fits_20s": true,
               "provenance": "authored-replacement"
             }
@@ -516,22 +513,22 @@
               "provenance": "authored-replacement"
             },
             "B1": {
-              "text": "Real change begins with the language we choose. If you use \"you play like a girl\" as an insult, you have already told your classmate that she does not belong. Encouragement works far better.",
-              "words": 34,
+              "text": "Genuine change begins with the language we choose. If you use \"you play like a girl\" as an insult, you have already informed your classmate that she does not belong. Simple encouragement usually works much better.",
+              "words": 36,
               "sentences": 3,
-              "avg_sentence_words": 11.3,
-              "fk_grade": 4.8,
-              "speak_seconds_est": 18.5,
+              "avg_sentence_words": 12.0,
+              "fk_grade": 6.8,
+              "speak_seconds_est": 19.6,
               "fits_20s": true,
               "provenance": "authored-replacement"
             },
             "B2": {
-              "text": "Language is where the culture is built, so a phrase like \"you play like a girl\" should disappear from the touchline vocabulary. Encouraged rather than mocked, a beginner keeps turning up, and turning up is most of the job.",
-              "words": 39,
+              "text": "Language is where the culture is actually built, so a phrase like \"you play like a girl\" should vanish from our touchline vocabulary. Encouraged rather than ridiculed, a beginner keeps returning, and returning is most of the battle.",
+              "words": 38,
               "sentences": 2,
-              "avg_sentence_words": 19.5,
-              "fk_grade": 9.3,
-              "speak_seconds_est": 19.5,
+              "avg_sentence_words": 19.0,
+              "fk_grade": 11.1,
+              "speak_seconds_est": 19.0,
               "fits_20s": true,
               "provenance": "authored-replacement"
             }
@@ -596,11 +593,11 @@
           "numbers": [],
           "scripts": {
             "A2": {
-              "text": "Do you hear a joke about a female player? Then say something quickly. One calm voice on the playground can keep a whole team in the game today.",
+              "text": "Do you hear a joke about a female player? Then say something quickly, before the playground decides it is funny. One calm voice can change the game today.",
               "words": 28,
               "sentences": 3,
               "avg_sentence_words": 9.3,
-              "fk_grade": 3.6,
+              "fk_grade": 4.9,
               "speak_seconds_est": 17.7,
               "fits_20s": true,
               "provenance": "authored-replacement"
@@ -705,12 +702,12 @@
               "provenance": "authored-replacement"
             },
             "B1": {
-              "text": "Sports science has joined the effort as well. Wearable trackers now let a player watch her own heart rate, sleep and recovery. Training can then be adjusted long before a serious injury happens.",
-              "words": 33,
+              "text": "Sports science has joined the effort as well. Wearable trackers now allow a player to monitor her own heart rate, sleep and recovery. Training can then be adjusted long before a serious injury happens.",
+              "words": 34,
               "sentences": 3,
-              "avg_sentence_words": 11.0,
-              "fk_grade": 6.2,
-              "speak_seconds_est": 18.0,
+              "avg_sentence_words": 11.3,
+              "fk_grade": 7.2,
+              "speak_seconds_est": 18.5,
               "fits_20s": true,
               "provenance": "authored-replacement"
             },
@@ -750,12 +747,12 @@
               "provenance": "authored-replacement"
             },
             "B1": {
-              "text": "Social media has handed the microphone to the players themselves. They post their daily training, their injuries and their wins. If you share one of those posts, you quietly widen the crowd for them.",
-              "words": 34,
+              "text": "Social media has handed the microphone to the players. They publish their daily training, their injuries and their victories. If you share one of those videos today, you quietly widen the audience for every player.",
+              "words": 35,
               "sentences": 3,
-              "avg_sentence_words": 11.3,
-              "fk_grade": 5.1,
-              "speak_seconds_est": 18.5,
+              "avg_sentence_words": 11.7,
+              "fk_grade": 7.2,
+              "speak_seconds_est": 19.1,
               "fits_20s": true,
               "provenance": "authored-replacement"
             },
@@ -785,31 +782,31 @@
           "numbers": [],
           "scripts": {
             "A2": {
-              "text": "Laws are moving as well. Several countries now pay their national teams the same money for women and men. Governments say that this is good for the country too.",
-              "words": 29,
+              "text": "Laws are moving as well. Several countries now pay their national teams the same money for women and men. Governments do this because it is good for the country too.",
+              "words": 30,
               "sentences": 3,
-              "avg_sentence_words": 9.7,
-              "fk_grade": 4.5,
-              "speak_seconds_est": 18.3,
+              "avg_sentence_words": 10.0,
+              "fk_grade": 4.8,
+              "speak_seconds_est": 18.9,
               "fits_20s": true,
               "provenance": "authored-replacement"
             },
             "B1": {
-              "text": "Several governments have now written equal pay into the rules for national teams. Ministers argue that money spent on women's sport returns to the country. The early evidence tends to support them.",
-              "words": 32,
+              "text": "Several countries have now put equal pay into law for their national squads. Politicians argue that supporting women's sport brings money back to the whole economy. The early figures tend to agree with them.",
+              "words": 34,
               "sentences": 3,
-              "avg_sentence_words": 10.7,
-              "fk_grade": 7.7,
-              "speak_seconds_est": 17.5,
+              "avg_sentence_words": 11.3,
+              "fk_grade": 7.9,
+              "speak_seconds_est": 18.5,
               "fits_20s": true,
               "provenance": "authored-replacement"
             },
             "B2": {
-              "text": "Several governments have now rewritten the rules, requiring national teams to be paid the same. Ministers argue that money spent on women's sport repays itself, although that evidence is younger than the claim.",
+              "text": "Several governments have now rewritten the rules, requiring national teams to be paid the same. Ministers argue that money spent on women's sport repays itself, although that evidence is younger than the enthusiasm.",
               "words": 33,
               "sentences": 2,
               "avg_sentence_words": 16.5,
-              "fk_grade": 10.2,
+              "fk_grade": 10.9,
               "speak_seconds_est": 16.5,
               "fits_20s": true,
               "provenance": "authored-replacement"
@@ -849,12 +846,12 @@
               "provenance": "authored-replacement"
             },
             "B1": {
-              "text": "So where has this journey taken us? We have seen old traditions, unequal prize money and unpaid work at home. We have also seen streaming, wearable data and new laws pushing the other way.",
-              "words": 34,
+              "text": "So where has this journey actually taken us? We have seen ancient traditions, unequal prize money and unpaid work at home. We have also seen streaming, wearable data and new legislation pushing the other way.",
+              "words": 35,
               "sentences": 3,
-              "avg_sentence_words": 11.3,
-              "fk_grade": 5.8,
-              "speak_seconds_est": 18.5,
+              "avg_sentence_words": 11.7,
+              "fk_grade": 7.8,
+              "speak_seconds_est": 19.1,
               "fits_20s": true,
               "provenance": "authored-replacement"
             },
@@ -894,12 +891,12 @@
               "provenance": "authored-replacement"
             },
             "B1": {
-              "text": "This is my own personal promise. From tonight I will follow at least one women's football team and watch whenever they play. Could each of you decide on one similar step before tonight ends?",
-              "words": 34,
+              "text": "This is my own personal promise. From tonight I will follow at least one women's football team and celebrate whenever they play. Could everybody in this room decide on one similar promise before tonight ends?",
+              "words": 35,
               "sentences": 3,
-              "avg_sentence_words": 11.3,
-              "fk_grade": 5.5,
-              "speak_seconds_est": 18.5,
+              "avg_sentence_words": 11.7,
+              "fk_grade": 7.8,
+              "speak_seconds_est": 19.1,
               "fits_20s": true,
               "provenance": "authored-replacement"
             },
@@ -987,21 +984,21 @@
               "provenance": "authored-replacement"
             },
             "B1": {
-              "text": "SDG 5 is a mission for everybody in this hall. When the playing field is genuinely level, the whole team improves, and the crowd gets a better game. I have already picked my side.",
+              "text": "SDG 5 is a mission for everybody in this hall. When the playing field is genuinely level, the whole tournament improves, and the spectators get a better game. I have already picked my side.",
               "words": 34,
               "sentences": 3,
               "avg_sentence_words": 11.3,
-              "fk_grade": 6.2,
+              "fk_grade": 7.6,
               "speak_seconds_est": 18.5,
               "fits_20s": true,
               "provenance": "authored-replacement"
             },
             "B2": {
-              "text": "SDG 5 is not a request addressed to somebody else. When the playing field is genuinely level, the competition improves, the audience grows and the record books finally mean what they claim, and I have already chosen my side.",
+              "text": "SDG 5 is not a request addressed to somebody else. When the playing field is genuinely level, the competition improves, the audience expands and the record books finally mean what they advertise, and I have already chosen my side.",
               "words": 39,
               "sentences": 2,
               "avg_sentence_words": 19.5,
-              "fk_grade": 10.5,
+              "fk_grade": 11.4,
               "speak_seconds_est": 19.5,
               "fits_20s": true,
               "provenance": "authored-replacement"

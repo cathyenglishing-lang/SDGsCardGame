@@ -23,75 +23,37 @@
     },
     "B1": {
       "slides": 12,
-      "avg_words": 33.2,
-      "avg_sentence_words": 29.0,
-      "fk_grade": 17.7,
+      "avg_words": 31.8,
+      "avg_sentence_words": 14.5,
+      "fk_grade": 8.7,
       "slides_over_20s": 0
     },
     "B2": {
       "slides": 12,
-      "avg_words": 33.4,
-      "avg_sentence_words": 29.3,
-      "fk_grade": 20.6,
+      "avg_words": 32.0,
+      "avg_sentence_words": 16.0,
+      "fk_grade": 12.3,
       "slides_over_20s": 0
     }
   },
   "gate": {
     "A2": [],
-    "B1": [
-      "slide 2: sentence 33.0 far above B1 (11.0-16.0); fk 19.1 far above B1 (6.5-10.5); longword 24.2 far above B1 (8.0-17.0)",
-      "slide 3: sentence 32.0 far above B1 (11.0-16.0); fk 18.6 far above B1 (6.5-10.5); longword 25.0 far above B1 (8.0-17.0)",
-      "slide 4: sentence 31.0 far above B1 (11.0-16.0); fk 14.4 far above B1 (6.5-10.5)",
-      "slide 5: longword 21.2 far above B1 (8.0-17.0)",
-      "slide 6: sentence 33.0 far above B1 (11.0-16.0); fk 22.7 far above B1 (6.5-10.5); longword 36.4 far above B1 (8.0-17.0)",
-      "slide 7: sentence 32.0 far above B1 (11.0-16.0); fk 22.3 far above B1 (6.5-10.5); longword 34.4 far above B1 (8.0-17.0)",
-      "slide 8: sentence 34.0 far above B1 (11.0-16.0); fk 22.0 far above B1 (6.5-10.5); longword 20.6 far above B1 (8.0-17.0)",
-      "slide 9: sentence 35.0 far above B1 (11.0-16.0); fk 19.0 far above B1 (6.5-10.5); longword 22.9 far above B1 (8.0-17.0)",
-      "slide 10: sentence 32.0 far above B1 (11.0-16.0); fk 22.3 far above B1 (6.5-10.5); longword 37.5 far above B1 (8.0-17.0)",
-      "slide 11: sentence 35.0 far above B1 (11.0-16.0); fk 16.9 far above B1 (6.5-10.5)",
-      "slide 12: fk 13.3 far above B1 (6.5-10.5); longword 26.5 far above B1 (8.0-17.0)",
-      "42% of slides miss a band"
-    ],
-    "B2": [
-      "slide 1: longword 34.4 far above B2 (15.0-27.0)",
-      "slide 2: sentence 35.0 far above B2 (14.0-20.0); fk 24.0 far above B2 (10.5-15.0)",
-      "slide 3: sentence 33.0 far above B2 (14.0-20.0); fk 21.2 far above B2 (10.5-15.0)",
-      "slide 4: sentence 35.0 far above B2 (14.0-20.0); fk 19.6 far above B2 (10.5-15.0)",
-      "slide 5: longword 37.1 far above B2 (15.0-27.0)",
-      "slide 6: sentence 32.0 far above B2 (14.0-20.0); fk 25.3 far above B2 (10.5-15.0); longword 43.8 far above B2 (15.0-27.0)",
-      "slide 7: sentence 35.0 far above B2 (14.0-20.0); fk 23.7 far above B2 (10.5-15.0); longword 31.4 far above B2 (15.0-27.0)",
-      "slide 8: sentence 34.0 far above B2 (14.0-20.0); fk 23.7 far above B2 (10.5-15.0)",
-      "slide 9: sentence 34.0 far above B2 (14.0-20.0); fk 21.6 far above B2 (10.5-15.0); longword 32.4 far above B2 (15.0-27.0)",
-      "slide 10: sentence 31.0 far above B2 (14.0-20.0); fk 24.3 far above B2 (10.5-15.0); longword 48.4 far above B2 (15.0-27.0)",
-      "slide 11: sentence 33.0 far above B2 (14.0-20.0); fk 19.1 far above B2 (10.5-15.0)"
-    ]
+    "B1": [],
+    "B2": []
   },
   "distance": {
     "A2->B1": {
-      "mean": 0.19,
-      "pass": false,
-      "too_close": {
-        "3": 0.48
-      }
+      "mean": 0.2,
+      "pass": true,
+      "too_close": {}
     },
     "B1->B2": {
-      "mean": 0.57,
-      "pass": false,
-      "too_close": {
-        "12": 0.76,
-        "6": 0.67,
-        "7": 0.66,
-        "11": 0.63,
-        "3": 0.62,
-        "10": 0.61,
-        "8": 0.59,
-        "9": 0.56,
-        "1": 0.5,
-        "2": 0.46
-      }
+      "mean": 0.21,
+      "pass": true,
+      "too_close": {}
     }
   },
-  "ready": false,
+  "ready": true,
   "stages": [
     {
       "part_no": 1,
@@ -119,24 +81,24 @@
               "provenance": "authored-replacement"
             },
             "B1": {
-              "text": "Good morning, everyone. Today, let’s look at United Nations SDG 9, a global plan that encourages all countries to support modern technology and build strong systems for better scientific development around the world.",
-              "words": 34,
+              "text": "Good morning. SDG 9 has one central aim: it asks governments everywhere to fund modern research and to build the kind of strong networks that a scientific nation depends on.",
+              "words": 30,
               "sentences": 2,
-              "avg_sentence_words": 17.0,
-              "fk_grade": 11.5,
-              "speak_seconds_est": 18.5,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 7.6,
+              "speak_seconds_est": 16.4,
               "fits_20s": true,
-              "provenance": "workbook"
+              "provenance": "authored-replacement"
             },
             "B2": {
-              "text": "Good morning, everyone. Today, let’s explore United Nations SDG 9, a global framework that encourages all countries to support modern technological innovation and build strong networks for sustainable scientific development worldwide.",
-              "words": 32,
+              "text": "Good morning. The ninth Sustainable Development Goal is a global framework that commits every country to backing new technology and to building the networks on which our future science depends.",
+              "words": 30,
               "sentences": 2,
-              "avg_sentence_words": 16.0,
-              "fk_grade": 15.0,
-              "speak_seconds_est": 16.0,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 10.7,
+              "speak_seconds_est": 15.0,
               "fits_20s": true,
-              "provenance": "workbook"
+              "provenance": "authored-replacement"
             }
           },
           "authoring": {
@@ -164,24 +126,24 @@
               "provenance": "authored-replacement"
             },
             "B1": {
-              "text": "In our digital world, Artificial Intelligence is changing how we study, do research, and make new tools; however, as AI becomes smarter, an important question remains: what human qualities make us truly irreplaceable?",
+              "text": "Artificial intelligence has changed the way we study, the way we run tests and the way we build new tools. As it becomes more capable, one question keeps returning. What makes us irreplaceable?",
               "words": 33,
-              "sentences": 1,
-              "avg_sentence_words": 33.0,
-              "fk_grade": 19.1,
+              "sentences": 3,
+              "avg_sentence_words": 11.0,
+              "fk_grade": 7.7,
               "speak_seconds_est": 18.0,
               "fits_20s": true,
-              "provenance": "workbook"
+              "provenance": "authored-replacement"
             },
             "B2": {
-              "text": "In this digital era, Artificial Intelligence is rapidly transforming the way we study, conduct research, and develop new technologies; however, as AI becomes increasingly capable, an important question remains: what qualities make humans truly irreplaceable?",
-              "words": 35,
-              "sentences": 1,
-              "avg_sentence_words": 35.0,
-              "fk_grade": 24.0,
-              "speak_seconds_est": 17.5,
+              "text": "Artificial intelligence is transforming how we study, how we conduct research and how we develop new technology. As it grows more capable, one question becomes unavoidable: what makes a human irreplaceable?",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 14.1,
+              "speak_seconds_est": 15.5,
               "fits_20s": true,
-              "provenance": "workbook"
+              "provenance": "authored-replacement"
             }
           },
           "authoring": {
@@ -218,24 +180,24 @@
               "provenance": "authored-replacement"
             },
             "B1": {
-              "text": "Many university science students are excited about AI, but they also feel worried because these tools can write lab reports, summarize science articles, generate computer code, and answer difficult questions within seconds.",
-              "words": 32,
-              "sentences": 1,
-              "avg_sentence_words": 32.0,
-              "fk_grade": 18.6,
-              "speak_seconds_est": 17.5,
+              "text": "Science undergraduates are excited by these tools. They are also nervous, and I understand why. A system that writes a lab report, summarises an article and produces working code in seconds is hard to match.",
+              "words": 35,
+              "sentences": 3,
+              "avg_sentence_words": 11.7,
+              "fk_grade": 8.2,
+              "speak_seconds_est": 19.1,
               "fits_20s": true,
-              "provenance": "workbook"
+              "provenance": "authored-replacement"
             },
             "B2": {
-              "text": "Many university science majors are excited about AI tools but also feel anxious because these systems can write laboratory reports, summarize journal articles, generate computer code, and answer complex scientific questions within seconds.",
-              "words": 33,
-              "sentences": 1,
-              "avg_sentence_words": 33.0,
-              "fk_grade": 21.2,
-              "speak_seconds_est": 16.5,
+              "text": "Science majors are enthusiastic about these systems and anxious about them at the same time. Code produced in seconds, summaries of journal articles and finished laboratory reports now arrive without any effort at all.",
+              "words": 34,
+              "sentences": 2,
+              "avg_sentence_words": 17.0,
+              "fk_grade": 12.2,
+              "speak_seconds_est": 17.0,
               "fits_20s": true,
-              "provenance": "workbook"
+              "provenance": "authored-replacement"
             }
           },
           "authoring": {
@@ -263,24 +225,24 @@
               "provenance": "authored-replacement"
             },
             "B1": {
-              "text": "These worries are easy to understand because AI can do many tasks that used to require human effort; however, doing a task quickly does not mean that AI truly understands science.",
-              "words": 31,
-              "sentences": 1,
-              "avg_sentence_words": 31.0,
-              "fk_grade": 14.4,
-              "speak_seconds_est": 16.9,
-              "fits_20s": true,
-              "provenance": "workbook"
-            },
-            "B2": {
-              "text": "These concerns are completely understandable because AI appears to perform many tasks that once required human effort; however, completing a task efficiently does not mean that AI truly understands science or can replace human scientists.",
-              "words": 35,
-              "sentences": 1,
-              "avg_sentence_words": 35.0,
-              "fk_grade": 19.6,
+              "text": "The nerves are understandable, because machines now handle work that used to need a person. Yet finishing a task fast is not the same as understanding it, and science needs the second.",
+              "words": 32,
+              "sentences": 2,
+              "avg_sentence_words": 16.0,
+              "fk_grade": 8.7,
               "speak_seconds_est": 17.5,
               "fits_20s": true,
-              "provenance": "workbook"
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "The anxiety is reasonable, although it rests on a confusion. A system that completes a task efficiently has understood nothing, and understanding is the part that science is actually made of.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 10.6,
+              "speak_seconds_est": 15.5,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
             }
           },
           "authoring": {
@@ -317,24 +279,24 @@
               "provenance": "authored-replacement"
             },
             "B1": {
-              "text": "Why does this happen? Although AI can find patterns in massive amounts of data, it does not have real understanding because it predicts words based on math probabilities instead of curiosity or reasoning.",
-              "words": 33,
+              "text": "A model can find patterns in enormous amounts of data, but it has no real grasp of what any of those patterns mean. It weighs probabilities instead of asking questions.",
+              "words": 30,
               "sentences": 2,
-              "avg_sentence_words": 16.5,
-              "fk_grade": 10.5,
-              "speak_seconds_est": 18.0,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 8.0,
+              "speak_seconds_est": 16.4,
               "fits_20s": true,
-              "provenance": "workbook"
+              "provenance": "authored-replacement"
             },
             "B2": {
-              "text": "Why does this happen? Although AI can recognize patterns in enormous amounts of data, it does not possess genuine understanding because it predicts language based on mathematical probability rather than curiosity, reasoning, or scientific judgment.",
-              "words": 35,
+              "text": "The mechanism explains the limit. Because a model is trained to predict the next likely word, its fluency reflects a regularity in old text rather than reasoning, curiosity or judgment.",
+              "words": 30,
               "sentences": 2,
-              "avg_sentence_words": 17.5,
-              "fk_grade": 14.8,
-              "speak_seconds_est": 17.5,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 11.1,
+              "speak_seconds_est": 15.0,
               "fits_20s": true,
-              "provenance": "workbook"
+              "provenance": "authored-replacement"
             }
           },
           "authoring": {
@@ -362,24 +324,24 @@
               "provenance": "authored-replacement"
             },
             "B1": {
-              "text": "Human scientists work differently because we ask new questions, design creative experiments, explain surprising laboratory results, and learn from our mistakes, meaning that scientific discovery depends heavily on imagination, hard work, and creativity.",
-              "words": 33,
-              "sentences": 1,
-              "avg_sentence_words": 33.0,
-              "fk_grade": 22.7,
-              "speak_seconds_est": 18.0,
+              "text": "Human researchers behave in a different way. We invent questions nobody has asked before, we design new tests, we puzzle over odd results and we learn from failure. Real discovery still runs on imagination.",
+              "words": 34,
+              "sentences": 3,
+              "avg_sentence_words": 11.3,
+              "fk_grade": 9.0,
+              "speak_seconds_est": 18.5,
               "fits_20s": true,
-              "provenance": "workbook"
+              "provenance": "authored-replacement"
             },
             "B2": {
-              "text": "Human scientists work differently because we ask original questions, design creative experiments, interpret unexpected laboratory results, and learn from failure, meaning that scientific discovery depends heavily on human imagination, persistence, and creativity.",
-              "words": 32,
-              "sentences": 1,
-              "avg_sentence_words": 32.0,
-              "fk_grade": 25.3,
-              "speak_seconds_est": 16.0,
+              "text": "Human researchers move another way, asking fresh questions, designing tests that may fail, reading results nobody saw coming and learning from every failure. Discovery has always depended on imagination and patience.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 13.3,
+              "speak_seconds_est": 15.5,
               "fits_20s": true,
-              "provenance": "workbook"
+              "provenance": "authored-replacement"
             }
           },
           "authoring": {
@@ -416,24 +378,24 @@
               "provenance": "authored-replacement"
             },
             "B1": {
-              "text": "History clearly shows that every great scientific discovery began with human curiosity, and while AI can organize existing information very well, it cannot independently decide which unanswered questions are actually worth studying.",
+              "text": "History is clear about this. Every major breakthrough has begun with somebody who was curious, and although AI can organise what we already know, it cannot decide which question is worth asking.",
               "words": 32,
-              "sentences": 1,
-              "avg_sentence_words": 32.0,
-              "fk_grade": 22.3,
+              "sentences": 2,
+              "avg_sentence_words": 16.0,
+              "fk_grade": 10.2,
               "speak_seconds_est": 17.5,
               "fits_20s": true,
-              "provenance": "workbook"
+              "provenance": "authored-replacement"
             },
             "B2": {
-              "text": "History clearly shows that every major scientific breakthrough began with human curiosity, and while AI can process existing information remarkably well, it cannot independently decide which unanswered questions are actually worth investigating for our future.",
-              "words": 35,
-              "sentences": 1,
-              "avg_sentence_words": 35.0,
-              "fk_grade": 23.7,
-              "speak_seconds_est": 17.5,
+              "text": "History settles the argument. Every breakthrough has started with a person who was curious, and while a model can process what we already know, it cannot judge which unanswered question is worth investigating.",
+              "words": 33,
+              "sentences": 2,
+              "avg_sentence_words": 16.5,
+              "fk_grade": 11.6,
+              "speak_seconds_est": 16.5,
               "fits_20s": true,
-              "provenance": "workbook"
+              "provenance": "authored-replacement"
             }
           },
           "authoring": {
@@ -461,24 +423,24 @@
               "provenance": "authored-replacement"
             },
             "B1": {
-              "text": "Furthermore, science is about more than making results, meaning that human scientists must always consider correct ethics, public safety, green sustainability, and social responsibility, which are human values that computer rules cannot simply generate.",
-              "words": 34,
-              "sentences": 1,
-              "avg_sentence_words": 34.0,
-              "fk_grade": 22.0,
-              "speak_seconds_est": 18.5,
+              "text": "Science is about more than results. If a discovery threatens public safety, the environment or the people around it, someone has to say so, and no computer rule will ever do that.",
+              "words": 32,
+              "sentences": 2,
+              "avg_sentence_words": 16.0,
+              "fk_grade": 9.5,
+              "speak_seconds_est": 17.5,
               "fits_20s": true,
-              "provenance": "workbook"
+              "provenance": "authored-replacement"
             },
             "B2": {
-              "text": "Furthermore, science is about more than producing raw results, meaning that human scientists must always consider ethical choices, public safety, environmental sustainability, and social responsibility, which are human values that algorithms cannot simply generate.",
+              "text": "Science is also more than the production of results. Ethical choice, public safety, environmental sustainability and social responsibility are judgments that a human community makes, and no algorithm can be delegated to make them.",
               "words": 34,
-              "sentences": 1,
-              "avg_sentence_words": 34.0,
-              "fk_grade": 23.7,
+              "sentences": 2,
+              "avg_sentence_words": 17.0,
+              "fk_grade": 15.0,
               "speak_seconds_est": 17.0,
               "fits_20s": true,
-              "provenance": "workbook"
+              "provenance": "authored-replacement"
             }
           },
           "authoring": {
@@ -515,24 +477,24 @@
               "provenance": "authored-replacement"
             },
             "B1": {
-              "text": "Therefore, we should see AI as a helpful partner rather than a replacement for human thinking, because technology can organize information and improve speed, but it should never replace our independent choices or creative minds.",
-              "words": 35,
-              "sentences": 1,
-              "avg_sentence_words": 35.0,
-              "fk_grade": 19.0,
-              "speak_seconds_est": 19.1,
+              "text": "Treat AI as a partner in the work, not as a substitute for thinking. It can organise information and save you hours, but the final judgement must still be yours.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 6.8,
+              "speak_seconds_est": 16.4,
               "fits_20s": true,
-              "provenance": "workbook"
+              "provenance": "authored-replacement"
             },
             "B2": {
-              "text": "Therefore, we should treat AI as a collaborative partner rather than a replacement for human thinking, because technology can organize information and improve efficiency, but it should never replace our independent judgment or creativity.",
-              "words": 34,
-              "sentences": 1,
-              "avg_sentence_words": 34.0,
-              "fk_grade": 21.6,
-              "speak_seconds_est": 17.0,
+              "text": "Treat the system as a collaborator rather than a replacement. It can organise material and raise your efficiency, yet the decision about what actually matters has to stay with the person who signs the paper.",
+              "words": 35,
+              "sentences": 2,
+              "avg_sentence_words": 17.5,
+              "fk_grade": 11.1,
+              "speak_seconds_est": 17.5,
               "fits_20s": true,
-              "provenance": "workbook"
+              "provenance": "authored-replacement"
             }
           },
           "authoring": {
@@ -560,24 +522,24 @@
               "provenance": "authored-replacement"
             },
             "B1": {
-              "text": "As future scientists, we should continue asking meaningful questions, challenging old ideas, and sharing our discoveries responsibly because these special human abilities will remain necessary, no matter how advanced computer technology becomes.",
-              "words": 32,
-              "sentences": 1,
-              "avg_sentence_words": 32.0,
-              "fk_grade": 22.3,
-              "speak_seconds_est": 17.5,
+              "text": "As future scientists, we have to keep asking awkward questions, testing old ideas and sharing our results in an honest way. Those human habits will matter however clever the software gets.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 8.7,
+              "speak_seconds_est": 16.9,
               "fits_20s": true,
-              "provenance": "workbook"
+              "provenance": "authored-replacement"
             },
             "B2": {
-              "text": "As future scientists, we should continue asking meaningful questions, challenging existing ideas, and communicating our discoveries responsibly because these uniquely human abilities will remain essential, regardless of how advanced technology becomes.",
-              "words": 31,
-              "sentences": 1,
-              "avg_sentence_words": 31.0,
-              "fk_grade": 24.3,
-              "speak_seconds_est": 15.5,
+              "text": "As future scientists, we should keep asking uncomfortable questions, testing old ideas and reporting our results with honesty. Those human habits stay essential, however advanced the machine in front of us becomes.",
+              "words": 32,
+              "sentences": 2,
+              "avg_sentence_words": 16.0,
+              "fk_grade": 12.0,
+              "speak_seconds_est": 16.0,
               "fits_20s": true,
-              "provenance": "workbook"
+              "provenance": "authored-replacement"
             }
           },
           "authoring": {
@@ -614,24 +576,24 @@
               "provenance": "authored-replacement"
             },
             "B1": {
-              "text": "In conclusion, SDG 9 reminds us that new innovation is always driven by real people because AI can generate information, but only human beings can create true knowledge, make good choices, and bring meaningful change.",
-              "words": 35,
-              "sentences": 1,
-              "avg_sentence_words": 35.0,
-              "fk_grade": 16.9,
-              "speak_seconds_est": 19.1,
+              "text": "SDG 9 reminds us that new ideas are driven by people. A machine can generate information, but only human beings turn that information into knowledge that somebody can act on.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 9.9,
+              "speak_seconds_est": 16.4,
               "fits_20s": true,
-              "provenance": "workbook"
+              "provenance": "authored-replacement"
             },
             "B2": {
-              "text": "In conclusion, SDG 9 reminds us that innovation is ultimately driven by people because AI can generate information, but only human beings can create true knowledge, make ethical decisions, and inspire meaningful change.",
-              "words": 33,
-              "sentences": 1,
-              "avg_sentence_words": 33.0,
-              "fk_grade": 19.1,
-              "speak_seconds_est": 16.5,
+              "text": "SDG 9 reminds us that innovation is driven by people. A machine generates information, whereas only human beings convert information into knowledge, ethical decisions and change that actually means something.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 13.9,
+              "speak_seconds_est": 15.0,
               "fits_20s": true,
-              "provenance": "workbook"
+              "provenance": "authored-replacement"
             }
           },
           "authoring": {
@@ -659,24 +621,24 @@
               "provenance": "authored-replacement"
             },
             "B1": {
-              "text": "Let us use AI wisely while continuing to develop the curiosity, creativity, and professional responsibility that make great scientists, so we can build a more trustworthy and sustainable future for science together. Thank you.",
-              "words": 34,
-              "sentences": 2,
-              "avg_sentence_words": 17.0,
-              "fk_grade": 13.3,
-              "speak_seconds_est": 18.5,
-              "fits_20s": true,
-              "provenance": "workbook"
-            },
-            "B2": {
-              "text": "Let us embrace AI wisely while continuing to develop the curiosity, creativity, and professional responsibility that define great scientists, so we can build a more trustworthy and sustainable future together. Thank you.",
+              "text": "So let's use AI wisely while we go on developing the curiosity, the creativity and the sense of responsibility that great scientists share. That is how we earn a future worth having.",
               "words": 32,
               "sentences": 2,
               "avg_sentence_words": 16.0,
-              "fk_grade": 14.3,
-              "speak_seconds_est": 16.0,
+              "fk_grade": 9.8,
+              "speak_seconds_est": 17.5,
               "fits_20s": true,
-              "provenance": "workbook"
+              "provenance": "authored-replacement"
+            },
+            "B2": {
+              "text": "So let's use AI with judgement, and go on cultivating the curiosity, the creativity and the professional responsibility that define a scientist. Only then does the future we build become one worth trusting.",
+              "words": 33,
+              "sentences": 2,
+              "avg_sentence_words": 16.5,
+              "fk_grade": 11.6,
+              "speak_seconds_est": 16.5,
+              "fits_20s": true,
+              "provenance": "authored-replacement"
             }
           },
           "authoring": {

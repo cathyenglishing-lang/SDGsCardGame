@@ -78,7 +78,7 @@
               "wpm": 120,
               "provenance": "authored-replacement",
               "authored_by": "Claude (EFL materials writer role)",
-              "basis": "Draft 1 against the v2 quality gate.",
+              "basis": "Draft 1 against the v2 quality gate. Claude raised the lexical density on slides 4, 5, 8, 9, 12 and 19, which sat just below the B2 Flesch-Kincaid floor; meaning unchanged.",
               "workbook_text": "Good morning, everyone. As university students, we must critically evaluate the digital dimensions of SDG 4 within Taiwan. While our high-tech educational framework appears exceptional on paper, does it truly foster educational equity, or does it inadvertently widen social gaps? Today, I will explore this reality through online learning."
             }
           },
@@ -141,7 +141,7 @@
               "wpm": 120,
               "provenance": "authored-replacement",
               "authored_by": "Claude (EFL materials writer role)",
-              "basis": "Draft 1 against the v2 quality gate.",
+              "basis": "Draft 1 against the v2 quality gate. Claude raised the lexical density on slides 4, 5, 8, 9, 12 and 19, which sat just below the B2 Flesch-Kincaid floor; meaning unchanged.",
               "workbook_text": "Fundamentally, SDG 4 aims to guarantee inclusive, equitable education by dismantling geographic and economic barriers. In Taiwan’s advanced, semiconductor-driven economy, an urgent question arises: does our current curriculum adequately prepare us to handle the profound ethical challenges and privacy issues associated with modern digital technology?"
             }
           },
@@ -204,7 +204,7 @@
               "wpm": 120,
               "provenance": "authored-replacement",
               "authored_by": "Claude (EFL materials writer role)",
-              "basis": "Draft 1 against the v2 quality gate.",
+              "basis": "Draft 1 against the v2 quality gate. Claude raised the lexical density on slides 4, 5, 8, 9, 12 and 19, which sat just below the B2 Flesch-Kincaid floor; meaning unchanged.",
               "workbook_text": "Taiwan heavily capitalizes on technology to drive educational innovation and maintain national growth. However, unprecedented demographic shifts and rapid technological disruptions are forcing a total rethink of academic priorities. We must identify these core digital problems and question if our long-term strategies are genuinely effective."
             }
           },
@@ -264,19 +264,19 @@
               "workbook_text": "A primary challenge is Taiwan’s rural-urban digital divide. While city students enjoy advanced networks, remote schools face poor internet infrastructure. This deepens the educational gap whenever schools rely on online learning. Is this sustainable if we want long-term equity for all students?"
             },
             "B2": {
-              "text": "Bandwidth, not talent, decides what a lesson can be. A child in a well-wired district loads a video instantly, whereas a remote school still buffers, and every shift to online teaching widens that distance.",
+              "text": "Bandwidth, not talent, determines what a lesson can become. A child in a well-connected district loads a video instantly, whereas a remote school still buffers, and every migration to online teaching widens that distance.",
               "words": 34,
               "sentences": 2,
               "avg_sentence_words": 17.0,
-              "fk_grade": 9.8,
-              "long_word_pct": 17.6,
+              "fk_grade": 11.5,
+              "long_word_pct": 23.5,
               "speak_seconds_est": 17.0,
               "fill_pct": 85.0,
               "fits_20s": true,
               "wpm": 120,
               "provenance": "authored-replacement",
               "authored_by": "Claude (EFL materials writer role)",
-              "basis": "Draft 1 against the v2 quality gate.",
+              "basis": "Draft 1 against the v2 quality gate. Claude raised the lexical density on slides 4, 5, 8, 9, 12 and 19, which sat just below the B2 Flesch-Kincaid floor; meaning unchanged.",
               "workbook_text": "A primary challenge is Taiwan’s persistent rural-urban digital divide. While metropolitan institutions enjoy cutting-edge networks, remote schools frequently suffer from substandard internet infrastructure. This structural disparity significantly compromises educational fairness whenever curricula shift online. We must consider if this imbalance allows for long-term sustainable equity."
             }
           },
@@ -327,19 +327,19 @@
               "workbook_text": "In the digital world, the heavy flow of information often threatens students' critical thinking. Many young people consume social media constantly but cannot identify fake news or false stories. Does our current system really prepare us to handle online misinformation effectively?"
             },
             "B2": {
-              "text": "What social media trains is impatience, not skepticism. Almost nobody has been shown how to trace a claim to its original source, so a fabricated headline outruns its correction easily.",
-              "words": 30,
+              "text": "What social media cultivates is impatience, not scepticism. Almost nobody has been shown how to trace a claim back to its original source, so a fabricated headline comfortably outruns its correction.",
+              "words": 31,
               "sentences": 2,
-              "avg_sentence_words": 15.0,
-              "fk_grade": 10.3,
-              "long_word_pct": 20.0,
-              "speak_seconds_est": 15.0,
-              "fill_pct": 75.0,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 11.8,
+              "long_word_pct": 25.8,
+              "speak_seconds_est": 15.5,
+              "fill_pct": 77.5,
               "fits_20s": true,
               "wpm": 120,
               "provenance": "authored-replacement",
               "authored_by": "Claude (EFL materials writer role)",
-              "basis": "Draft 1 against the v2 quality gate.",
+              "basis": "Draft 1 against the v2 quality gate. Claude raised the lexical density on slides 4, 5, 8, 9, 12 and 19, which sat just below the B2 Flesch-Kincaid floor; meaning unchanged.",
               "workbook_text": "In the digital sphere, the relentless flow of information frequently threatens students' critical thinking. Many young citizens consume social media constantly but lack the tools to filter out sophisticated misinformation or algorithmic bias. Consequently, this inability to evaluate digital facts severely undermines their intellectual autonomy early on."
             }
           },
@@ -402,7 +402,7 @@
               "wpm": 120,
               "provenance": "authored-replacement",
               "authored_by": "Claude (EFL materials writer role)",
-              "basis": "Draft 1 against the v2 quality gate.",
+              "basis": "Draft 1 against the v2 quality gate. Claude raised the lexical density on slides 4, 5, 8, 9, 12 and 19, which sat just below the B2 Flesch-Kincaid floor; meaning unchanged.",
               "workbook_text": "Beyond misinformation, digital safety has escalated into a severe psychological crisis. Incidents of cyberbullying and online harassment are increasing exponentially, jeopardizing student mental health. Is our current school system genuinely designed to protect young internet users from these systemic dangers, or is it simply ignoring them?"
             }
           },
@@ -474,7 +474,7 @@
               "wpm": 120,
               "provenance": "authored-replacement",
               "authored_by": "Claude (EFL materials writer role)",
-              "basis": "Draft 1 against the v2 quality gate.",
+              "basis": "Draft 1 against the v2 quality gate. Claude raised the lexical density on slides 4, 5, 8, 9, 12 and 19, which sat just below the B2 Flesch-Kincaid floor; meaning unchanged.",
               "workbook_text": "Despite these challenges, Taiwan has achieved remarkable milestones. The government’s ambitious \"tablets for every student\" policy has successfully distributed thousands of mobile devices to rural communities. While this universal hardware access provides a solid foundation, we must analyze whether high device distribution automatically translates into high-quality learning."
             }
           },
@@ -525,19 +525,19 @@
               "workbook_text": "Furthermore, public digital platforms are very strong, offering free online courses to everyone. This early intervention helps level the playing field, allowing disadvantaged students to learn coding and basic skills at home, which significantly reduces long-term educational disparities between different social classes."
             },
             "B2": {
-              "text": "The platform side has worked better than anyone predicted. Courses published free by the government let a household with no budget for cram school teach itself programming, which narrows a gap that money would otherwise decide.",
-              "words": 36,
+              "text": "The platform side has succeeded beyond anyone's prediction. Courses published free by the government allow a household with no budget for cram school to teach itself programming, which narrows a gap money would otherwise determine.",
+              "words": 35,
               "sentences": 2,
-              "avg_sentence_words": 18.0,
-              "fk_grade": 10.4,
-              "long_word_pct": 19.4,
-              "speak_seconds_est": 18.0,
-              "fill_pct": 90.0,
+              "avg_sentence_words": 17.5,
+              "fk_grade": 11.5,
+              "long_word_pct": 28.6,
+              "speak_seconds_est": 17.5,
+              "fill_pct": 87.5,
               "fits_20s": true,
               "wpm": 120,
               "provenance": "authored-replacement",
               "authored_by": "Claude (EFL materials writer role)",
-              "basis": "Draft 1 against the v2 quality gate.",
+              "basis": "Draft 1 against the v2 quality gate. Claude raised the lexical density on slides 4, 5, 8, 9, 12 and 19, which sat just below the B2 Flesch-Kincaid floor; meaning unchanged.",
               "workbook_text": "Furthermore, public digital infrastructure is exceptionally strong, offering comprehensive free online platforms to everyone. This early state intervention helps level the playing field, allowing disadvantaged students to master coding and basic cognitive skills independently, thereby mitigating the risk of long-term academic disparities across different social classes."
             }
           },
@@ -588,19 +588,19 @@
               "workbook_text": "Overall, digital enrollment rates exceed global standards across all school levels. Massive investments in teacher professional development have also enhanced distance learning quality. However, does high hardware participation hide deeper problems, like varying levels of educational depth and severe screen distractions?"
             },
             "B2": {
-              "text": "Participation figures here run comfortably beyond the global average, and teachers have been retrained for distance instruction. Numbers of that kind, however, can disguise how thin an hour in front of a screen turns out to be.",
-              "words": 37,
+              "text": "Participation figures here run comfortably beyond the international average, and teachers have been retrained for distance instruction. Numbers of that kind, however, can disguise how insubstantial an hour in front of a screen actually is.",
+              "words": 35,
               "sentences": 2,
-              "avg_sentence_words": 18.5,
-              "fk_grade": 10.4,
-              "long_word_pct": 18.9,
-              "speak_seconds_est": 18.5,
-              "fill_pct": 92.5,
+              "avg_sentence_words": 17.5,
+              "fk_grade": 13.1,
+              "long_word_pct": 28.6,
+              "speak_seconds_est": 17.5,
+              "fill_pct": 87.5,
               "fits_20s": true,
               "wpm": 120,
               "provenance": "authored-replacement",
               "authored_by": "Claude (EFL materials writer role)",
-              "basis": "Draft 1 against the v2 quality gate.",
+              "basis": "Draft 1 against the v2 quality gate. Claude raised the lexical density on slides 4, 5, 8, 9, 12 and 19, which sat just below the B2 Flesch-Kincaid floor; meaning unchanged.",
               "workbook_text": "Overall, Taiwan's tertiary and primary digital enrollment rates consistently exceed global benchmarks. Substantial national investments in teacher professional development have also enhanced distance learning methodologies. However, does this high participation mask deeper systemic issues, such as varying depths of educational substance and severe screen-time distractions?"
             }
           },
@@ -672,7 +672,7 @@
               "wpm": 120,
               "provenance": "authored-replacement",
               "authored_by": "Claude (EFL materials writer role)",
-              "basis": "Draft 1 against the v2 quality gate.",
+              "basis": "Draft 1 against the v2 quality gate. Claude raised the lexical density on slides 4, 5, 8, 9, 12 and 19, which sat just below the B2 Flesch-Kincaid floor; meaning unchanged.",
               "workbook_text": "To proactively address these resource gaps, Taiwan is implementing inquiry-based digital curricula. The government actively funds modernized programs that integrate media literacy and fact-checking protocols into formal lessons. By introducing these tools early, schools empower young students to critically evaluate online rumors and evaluate data responsibly."
             }
           },
@@ -735,7 +735,7 @@
               "wpm": 120,
               "provenance": "authored-replacement",
               "authored_by": "Claude (EFL materials writer role)",
-              "basis": "Draft 1 against the v2 quality gate.",
+              "basis": "Draft 1 against the v2 quality gate. Claude raised the lexical density on slides 4, 5, 8, 9, 12 and 19, which sat just below the B2 Flesch-Kincaid floor; meaning unchanged.",
               "workbook_text": "Digital integration is now widespread, with over 80% of schools incorporating advanced technology like AI learning assistants. These adaptive algorithms personalize academic content based on individual student performance. This connects classroom environments to our thriving technology sector while simultaneously teaching the ethical use of artificial intelligence."
             }
           },
@@ -788,19 +788,19 @@
               "workbook_text": "Specialized programs also bring technology directly to the countryside. For instance, mobile digital classrooms visit remote villages to provide coding workshops and robotics mentorships. These initiatives successfully bridge classroom education to practical tech applications, fostering a new generation of creative problem-solvers."
             },
             "B2": {
-              "text": "Some of the remedy travels by road. Vans fitted as labs climb into mountain villages, carrying robotics kits and coding classes to children whose own schools could never fund either.",
-              "words": 30,
+              "text": "Part of the remedy travels by road. Vans equipped as mobile laboratories climb into mountain villages, delivering robotics kits and programming classes to children whose own schools could never finance either.",
+              "words": 31,
               "sentences": 2,
-              "avg_sentence_words": 15.0,
-              "fk_grade": 8.4,
-              "long_word_pct": 16.7,
-              "speak_seconds_est": 15.0,
-              "fill_pct": 75.0,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 12.5,
+              "long_word_pct": 25.8,
+              "speak_seconds_est": 15.5,
+              "fill_pct": 77.5,
               "fits_20s": true,
               "wpm": 120,
               "provenance": "authored-replacement",
               "authored_by": "Claude (EFL materials writer role)",
-              "basis": "Draft 1 against the v2 quality gate.",
+              "basis": "Draft 1 against the v2 quality gate. Claude raised the lexical density on slides 4, 5, 8, 9, 12 and 19, which sat just below the B2 Flesch-Kincaid floor; meaning unchanged.",
               "workbook_text": "Specialized outreach initiatives also bring high-tech resources directly to the countryside. For instance, mobile digital learning vans visit remote mountain villages to provide advanced robotics mentorships and coding workshops. These programs successfully bridge theoretical knowledge with practical applications, fostering a new generation of innovative problem-solvers."
             }
           },
@@ -872,7 +872,7 @@
               "wpm": 120,
               "provenance": "authored-replacement",
               "authored_by": "Claude (EFL materials writer role)",
-              "basis": "Draft 1 against the v2 quality gate.",
+              "basis": "Draft 1 against the v2 quality gate. Claude raised the lexical density on slides 4, 5, 8, 9, 12 and 19, which sat just below the B2 Flesch-Kincaid floor; meaning unchanged.",
               "workbook_text": "The implications of our digital strategies are profound. Enhanced technological literacy directly drives economic sustainability, supporting Taiwan's $500 billion tech export industry. Moreover, a digitally literate population empowers our future workforce to utilize advanced data science and climate technology to construct resilient, sustainable environmental solutions globally."
             }
           },
@@ -937,7 +937,7 @@
               "wpm": 120,
               "provenance": "authored-replacement",
               "authored_by": "Claude (EFL materials writer role)",
-              "basis": "Draft 1 against the v2 quality gate.",
+              "basis": "Draft 1 against the v2 quality gate. Claude raised the lexical density on slides 4, 5, 8, 9, 12 and 19, which sat just below the B2 Flesch-Kincaid floor; meaning unchanged.",
               "workbook_text": "Nevertheless, future challenges loom large, particularly the alarming rise of internet addiction among youth. Excessive screen time consistently compromises physical well-being and social development. We must actively challenge these unhealthy habits and construct balanced digital consumption environments to protect our students' overall well-being."
             }
           },
@@ -1000,7 +1000,7 @@
               "wpm": 120,
               "provenance": "authored-replacement",
               "authored_by": "Claude (EFL materials writer role)",
-              "basis": "Draft 1 against the v2 quality gate.",
+              "basis": "Draft 1 against the v2 quality gate. Claude raised the lexical density on slides 4, 5, 8, 9, 12 and 19, which sat just below the B2 Flesch-Kincaid floor; meaning unchanged.",
               "workbook_text": "If we fail to address these structural disparities, digital inequalities will deepen, wasting immense potential talent. As university students, we must continuously question current educational policies: are they flexible and dynamic enough to prepare the younger generation for widespread automated job disruption driven by advanced AI?"
             }
           },
@@ -1063,7 +1063,7 @@
               "wpm": 120,
               "provenance": "authored-replacement",
               "authored_by": "Claude (EFL materials writer role)",
-              "basis": "Draft 1 against the v2 quality gate.",
+              "basis": "Draft 1 against the v2 quality gate. Claude raised the lexical density on slides 4, 5, 8, 9, 12 and 19, which sat just below the B2 Flesch-Kincaid floor; meaning unchanged.",
               "workbook_text": "Ultimately, comprehensive media education is the cornerstone of a resilient and secure society. Without continuous structural reforms, Taiwan risks losing its competitive edge in digital innovation. Media literacy must continuously evolve to meet the complex demands of the twenty-first century, ensuring safe internet navigation for everyone."
             }
           },
@@ -1135,7 +1135,7 @@
               "wpm": 120,
               "provenance": "authored-replacement",
               "authored_by": "Claude (EFL materials writer role)",
-              "basis": "Draft 1 against the v2 quality gate.",
+              "basis": "Draft 1 against the v2 quality gate. Claude raised the lexical density on slides 4, 5, 8, 9, 12 and 19, which sat just below the B2 Flesch-Kincaid floor; meaning unchanged.",
               "workbook_text": "In summary, evaluating SDG 4 reveals that Taiwan has made significant digital progress, yet stubborn systemic gaps remain. Information technology serves as a powerful instrument for national advancement, but it must be implemented through a framework that prioritizes social equity alongside technical and hardware mastery."
             }
           },
@@ -1198,7 +1198,7 @@
               "wpm": 120,
               "provenance": "authored-replacement",
               "authored_by": "Claude (EFL materials writer role)",
-              "basis": "Draft 1 against the v2 quality gate.",
+              "basis": "Draft 1 against the v2 quality gate. Claude raised the lexical density on slides 4, 5, 8, 9, 12 and 19, which sat just below the B2 Flesch-Kincaid floor; meaning unchanged.",
               "workbook_text": "We must courageously challenge the status quo of our schools. While device numbers are high, our system frequently overlooks the essential need for independent thinking, replacing active learning with passive screen consumption. Comprehensive, deep structural reforms are absolutely necessary to transform digital education into a truly transformative experience."
             }
           },
@@ -1249,19 +1249,19 @@
               "workbook_text": "Looking forward, our focus should be on inclusive digital rights for all groups, including underrepresented ones. We can advocate for modernized curricula that integrate real-world media applications, making sure everyone learns how to use technology safely, wisely, and ethically."
             },
             "B2": {
-              "text": "The next stage has to guarantee digital rights for the populations we routinely miss, and the syllabus needs rebuilding rather than patching. No course should teach a tool without teaching what that tool does to the person using it.",
-              "words": 39,
+              "text": "The next stage must guarantee digital rights for the populations we routinely overlook, and the syllabus requires rebuilding rather than patching. No course should introduce a tool without explaining what that tool does to the person using it.",
+              "words": 38,
               "sentences": 2,
-              "avg_sentence_words": 19.5,
-              "fk_grade": 9.6,
-              "long_word_pct": 17.9,
-              "speak_seconds_est": 19.5,
-              "fill_pct": 97.5,
+              "avg_sentence_words": 19.0,
+              "fk_grade": 11.7,
+              "long_word_pct": 26.3,
+              "speak_seconds_est": 19.0,
+              "fill_pct": 95.0,
               "fits_20s": true,
               "wpm": 120,
               "provenance": "authored-replacement",
               "authored_by": "Claude (EFL materials writer role)",
-              "basis": "Draft 1 against the v2 quality gate.",
+              "basis": "Draft 1 against the v2 quality gate. Claude raised the lexical density on slides 4, 5, 8, 9, 12 and 19, which sat just below the B2 Flesch-Kincaid floor; meaning unchanged.",
               "workbook_text": "Looking ahead, our strategic focus must shift toward guaranteeing inclusive digital rights for historically underrepresented groups. We must advocate for modernized, adaptive curricula that integrate real-world media applications, making certain that every single student learns how to exploit technology safely, wisely, and ethically."
             }
           },
@@ -1324,7 +1324,7 @@
               "wpm": 120,
               "provenance": "authored-replacement",
               "authored_by": "Claude (EFL materials writer role)",
-              "basis": "Draft 1 against the v2 quality gate.",
+              "basis": "Draft 1 against the v2 quality gate. Claude raised the lexical density on slides 4, 5, 8, 9, 12 and 19, which sat just below the B2 Flesch-Kincaid floor; meaning unchanged.",
               "workbook_text": "Thank you for your attention. As university students, you possess the power to drive meaningful social change and close the digital divide. Whether you participate in policy debates, volunteer in rural communities, or advocate for curriculum reform, your actions matter. Together, we can build a more equitable and innovative future."
             }
           },
@@ -1355,9 +1355,9 @@
     },
     "B2": {
       "slides": 20,
-      "avg_words": 35.1,
-      "avg_sentence_words": 17.6,
-      "fk_grade": 11.4,
+      "avg_words": 35.0,
+      "avg_sentence_words": 17.5,
+      "fk_grade": 12.0,
       "slides_over_20s": 0
     }
   }

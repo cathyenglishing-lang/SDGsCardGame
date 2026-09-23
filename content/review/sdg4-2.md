@@ -26,7 +26,7 @@ SDG 4 · 20 slides · levels: A2, B1, B2 · content_version 2026.09.1
 | --- | --- | --- | --- | --- | --- |
 | A2 | 20 | 28.9 | 9.1 | 4.3 | 0 |
 | B1 | 20 | 34.5 | 11.7 | 7.4 | 0 |
-| B2 | 20 | 35.1 | 17.6 | 11.4 | 0 |
+| B2 | 20 | 35.0 | 17.5 | 12.0 | 0 |
 
 ## Part 1 · Introduction（引言：破題與定義）
 
@@ -72,7 +72,7 @@ SDG 4 · 20 slides · levels: A2, B1, B2 · content_version 2026.09.1
 - **B1**（36 字 / 每句 12.0 字 / 約 19.6 秒）
   > The divide starts with the connection itself. A city student streams a lesson without thinking, while a school in the mountains waits for a page to load. The gap grows every time the curriculum moves online.
 - **B2**（34 字 / 每句 17.0 字 / 約 17.0 秒）
-  > Bandwidth, not talent, decides what a lesson can be. A child in a well-wired district loads a video instantly, whereas a remote school still buffers, and every shift to online teaching widens that distance.
+  > Bandwidth, not talent, determines what a lesson can become. A child in a well-connected district loads a video instantly, whereas a remote school still buffers, and every migration to online teaching widens that distance.
 
 ### Slide 5 · Fake news threatens student critical thinking（假新聞與錯誤訊息扼殺學生的批判性思考）
 
@@ -80,8 +80,8 @@ SDG 4 · 20 slides · levels: A2, B1, B2 · content_version 2026.09.1
   > Next, think about fake news. Many of us live on social media, and false stories fly past all day. Few students stop to check them, so our thinking gets lazy.
 - **B1**（34 字 / 每句 11.3 字 / 約 18.5 秒）
   > Information arrives faster than anyone can check it. Most of us scroll through social media for hours, yet almost nobody has been taught how to test a story. Our judgement weakens without us noticing.
-- **B2**（30 字 / 每句 15.0 字 / 約 15.0 秒）
-  > What social media trains is impatience, not skepticism. Almost nobody has been shown how to trace a claim to its original source, so a fabricated headline outruns its correction easily.
+- **B2**（31 字 / 每句 15.5 字 / 約 15.5 秒）
+  > What social media cultivates is impatience, not scepticism. Almost nobody has been shown how to trace a claim back to its original source, so a fabricated headline comfortably outruns its correction.
 
 ### Slide 6 · Cyberbullying risks student online safety（網路霸凌與資安問題威脅校園數位安全）
 
@@ -112,8 +112,8 @@ SDG 4 · 20 slides · levels: A2, B1, B2 · content_version 2026.09.1
   > The government also pays for free study websites. A family with little money can still get good lessons at home. That makes the game fairer for us all.
 - **B1**（34 字 / 每句 11.3 字 / 約 18.5 秒）
   > Public platforms are the quieter success story. Free courses have been put online by the government. A disadvantaged family can now learn coding at the kitchen table, and that quietly narrows the class gap.
-- **B2**（36 字 / 每句 18.0 字 / 約 18.0 秒）
-  > The platform side has worked better than anyone predicted. Courses published free by the government let a household with no budget for cram school teach itself programming, which narrows a gap that money would otherwise decide.
+- **B2**（35 字 / 每句 17.5 字 / 約 17.5 秒）
+  > The platform side has succeeded beyond anyone's prediction. Courses published free by the government allow a household with no budget for cram school to teach itself programming, which narrows a gap money would otherwise determine.
 
 ### Slide 9 · Broad digital teacher training enhances quality（大規模教師數位知能培訓，提升遠距教學品質）
 
@@ -121,8 +121,8 @@ SDG 4 · 20 slides · levels: A2, B1, B2 · content_version 2026.09.1
   > Our teachers also learn new digital skills. But when a class stares at screens every day, does the learning get better? Or do they just get tired?
 - **B1**（35 字 / 每句 11.7 字 / 約 19.1 秒）
   > Our schools sit above the world average for how many students take part. Teachers have been given serious training in distance teaching. But a laptop in every hand can hide how shallow a lesson becomes.
-- **B2**（37 字 / 每句 18.5 字 / 約 18.5 秒）
-  > Participation figures here run comfortably beyond the global average, and teachers have been retrained for distance instruction. Numbers of that kind, however, can disguise how thin an hour in front of a screen turns out to be.
+- **B2**（35 字 / 每句 17.5 字 / 約 17.5 秒）
+  > Participation figures here run comfortably beyond the international average, and teachers have been retrained for distance instruction. Numbers of that kind, however, can disguise how insubstantial an hour in front of a screen actually is.
 
 ## Part 4 · Solutions（解方：做法與取捨）
 
@@ -154,8 +154,8 @@ SDG 4 · 20 slides · levels: A2, B1, B2 · content_version 2026.09.1
   > In the mountains, a van brings the lab to the village. It carries laptops, robots and coding games. Children who live far away still get to build something.
 - **B1**（36 字 / 每句 12.0 字 / 約 19.6 秒）
   > Some of the answers have to travel by road. Vans fitted out as digital classrooms now drive into the mountain villages. They carry robotics kits and coding workshops to the children who would never meet them.
-- **B2**（30 字 / 每句 15.0 字 / 約 15.0 秒）
-  > Some of the remedy travels by road. Vans fitted as labs climb into mountain villages, carrying robotics kits and coding classes to children whose own schools could never fund either.
+- **B2**（31 字 / 每句 15.5 字 / 約 15.5 秒）
+  > Part of the remedy travels by road. Vans equipped as mobile laboratories climb into mountain villages, delivering robotics kits and programming classes to children whose own schools could never finance either.
 
 ## Part 5 · Implications（影響：推論後果）
 
@@ -228,8 +228,8 @@ SDG 4 · 20 slides · levels: A2, B1, B2 · content_version 2026.09.1
   > In the future, digital rights must cover everyone. That includes the groups we usually forget. Ask for lessons that show us how the internet really works in real life.
 - **B1**（34 字 / 每句 11.3 字 / 約 18.5 秒）
   > In the years ahead, digital rights have to include the groups that usually get left out. The curriculum needs a proper update. Every course should connect its content to the internet students actually use.
-- **B2**（39 字 / 每句 19.5 字 / 約 19.5 秒）
-  > The next stage has to guarantee digital rights for the populations we routinely miss, and the syllabus needs rebuilding rather than patching. No course should teach a tool without teaching what that tool does to the person using it.
+- **B2**（38 字 / 每句 19.0 字 / 約 19.0 秒）
+  > The next stage must guarantee digital rights for the populations we routinely overlook, and the syllabus requires rebuilding rather than patching. No course should introduce a tool without explaining what that tool does to the person using it.
 
 ### Slide 20 · Act together equitable digital future now（攜手並進，共創包容且公平的數位未來，就在當下）
 

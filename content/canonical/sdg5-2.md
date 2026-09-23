@@ -4,11 +4,11 @@
 
 | 級別 | 每張字數 | 每句字數 | FK | 超過 20 秒 | 級距檢查 |
 | --- | --- | --- | --- | --- | --- |
-| A2 | 28.6 | 9.5 | 4.2 | 0 | 通過 |
-| B1 | 33.5 | 12.1 | 7.2 | 0 | slide 10: fk 4.8 far below B1 (6.5-10.5) — reads below level；30% of slides miss a band |
-| B2 | 36.5 | 18.3 | 12.2 | 0 | 通過 |
+| A2 | 28.6 | 9.6 | 4.3 | 0 | 通過 |
+| B1 | 33.9 | 12.3 | 7.8 | 0 | 通過 |
+| B2 | 36.4 | 18.2 | 12.3 | 0 | 通過 |
 
-相鄰兩級的詞彙重疊（上限 0.34）：A2->B1 0.2、B1->B2 0.22
+相鄰兩級的詞彙重疊（上限 0.34）：A2->B1 0.2、B1->B2 0.2
 
 ## Part 1 · Introduction（引言：破題與定義）
 
@@ -52,7 +52,7 @@
 - **B1**（36 字 / 每句 12.0 字 / 19.6 秒 ·（本版新寫））
   > Sport at the top used to belong to men alone. Officials claimed that women were too weak for heavy training or long marathons. That excuse has kept female players out of major international events for decades.
 - **B2**（35 字 / 每句 17.5 字 / 17.5 秒 ·（本版新寫））
-  > Professional competition was reserved for men until surprisingly recently, and the stated justification was that female bodies would break under serious training. That belief survived for decades, keeping women out of the major international arenas.
+  > Professional competition was reserved for men until very recently, and the reason given was that female bodies would break under serious training. That belief survived for decades, keeping women out of the major international arenas.
 
 ### 5. Impact on Childhood
 
@@ -96,12 +96,12 @@
 
 ### 9. Unseen Work at Home
 
-- **A2**（29 字 / 每句 9.7 字 / 18.3 秒 ·（本版新寫））
-  > Many athletes also work at home. They cook, they clean, they care for their family, and then they start training. Without help at home, a career can end early.
+- **A2**（30 字 / 每句 10.0 字 / 18.9 秒 ·（本版新寫））
+  > Many athletes also work at home. They cook, they clean, they care for their family, and then they start training. Their career can end early because nobody helps at home.
 - **B1**（35 字 / 每句 11.7 字 / 19.1 秒 ·（本版新寫））
   > The working day does not end at the stadium gate. Athletes still go home to the chores and the family expectations. If nobody at home shares that load, a promising career will simply finish early.
-- **B2**（36 字 / 每句 18.0 字 / 18.0 秒 ·（本版新寫））
-  > The working day does not finish at the stadium gate, because domestic chores and family expectations still wait at home for the athlete rather than for her male teammate. Unsupported, a promising career frequently ends prematurely.
+- **B2**（34 字 / 每句 17.0 字 / 17.0 秒 ·（本版新寫））
+  > Her second shift begins when the stadium empties, because domestic chores and family expectations still wait at home for the athlete rather than for her male teammate. Unsupported, a promising career frequently ends prematurely.
 
 ## Part 4 · Solutions（解方：做法與取捨）
 
@@ -111,10 +111,10 @@
 
 - **A2**（29 字 / 每句 9.7 字 / 18.3 秒 ·（本版新寫））
   > Change starts with the words we use every day. We should stop using "you play like a girl" as an insult. Say something kind instead, and everybody keeps playing.
-- **B1**（34 字 / 每句 11.3 字 / 18.5 秒 ·（本版新寫））
-  > Real change begins with the language we choose. If you use "you play like a girl" as an insult, you have already told your classmate that she does not belong. Encouragement works far better.
-- **B2**（39 字 / 每句 19.5 字 / 19.5 秒 ·（本版新寫））
-  > Language is where the culture is built, so a phrase like "you play like a girl" should disappear from the touchline vocabulary. Encouraged rather than mocked, a beginner keeps turning up, and turning up is most of the job.
+- **B1**（36 字 / 每句 12.0 字 / 19.6 秒 ·（本版新寫））
+  > Genuine change begins with the language we choose. If you use "you play like a girl" as an insult, you have already informed your classmate that she does not belong. Simple encouragement usually works much better.
+- **B2**（38 字 / 每句 19.0 字 / 19.0 秒 ·（本版新寫））
+  > Language is where the culture is actually built, so a phrase like "you play like a girl" should vanish from our touchline vocabulary. Encouraged rather than ridiculed, a beginner keeps returning, and returning is most of the battle.
 
 ### 11. Sharing Tasks at Home
 
@@ -128,7 +128,7 @@
 ### 12. Standing Up for Others
 
 - **A2**（28 字 / 每句 9.3 字 / 17.7 秒 ·（本版新寫））
-  > Do you hear a joke about a female player? Then say something quickly. One calm voice on the playground can keep a whole team in the game today.
+  > Do you hear a joke about a female player? Then say something quickly, before the playground decides it is funny. One calm voice can change the game today.
 - **B1**（30 字 / 每句 15.0 字 / 16.4 秒 ·（本版新寫））
   > Sideline jokes are never harmless. If you hear one aimed at a female player, answer it immediately, because the silence around a joke is what makes the next one easier.
 - **B2**（37 字 / 每句 18.5 字 / 18.5 秒 ·（本版新寫））
@@ -151,8 +151,8 @@
 
 - **A2**（29 字 / 每句 9.7 字 / 18.3 秒 ·（本版新寫））
   > Sports science helps too. Many players now wear a small tracker on the wrist. This technology counts every heart beat, so they can train safely and improve every week.
-- **B1**（33 字 / 每句 11.0 字 / 18.0 秒 ·（本版新寫））
-  > Sports science has joined the effort as well. Wearable trackers now let a player watch her own heart rate, sleep and recovery. Training can then be adjusted long before a serious injury happens.
+- **B1**（34 字 / 每句 11.3 字 / 18.5 秒 ·（本版新寫））
+  > Sports science has joined the effort as well. Wearable trackers now allow a player to monitor her own heart rate, sleep and recovery. Training can then be adjusted long before a serious injury happens.
 - **B2**（34 字 / 每句 17.0 字 / 17.0 秒 ·（本版新寫））
   > Sports science has begun to help as well, since wearable trackers now record heart rate, sleep and recovery in detail. Training adjusted around that information tends to prevent injuries rather than repair them afterwards.
 
@@ -160,19 +160,19 @@
 
 - **A2**（26 字 / 每句 8.7 字 / 16.4 秒 ·（本版新寫））
   > Look at your phone again. Famous players share their training videos there every day. Their stories reach millions of young fans, so share the good ones.
-- **B1**（34 字 / 每句 11.3 字 / 18.5 秒 ·（本版新寫））
-  > Social media has handed the microphone to the players themselves. They post their daily training, their injuries and their wins. If you share one of those posts, you quietly widen the crowd for them.
+- **B1**（35 字 / 每句 11.7 字 / 19.1 秒 ·（本版新寫））
+  > Social media has handed the microphone to the players. They publish their daily training, their injuries and their victories. If you share one of those videos today, you quietly widen the audience for every player.
 - **B2**（35 字 / 每句 17.5 字 / 17.5 秒 ·（本版新寫））
   > Social media has handed athletes their own broadcasting rights, and the training footage they publish reaches audiences that no federation ever assembled. Stories written by the women themselves travel further than any official highlight package.
 
 ### 16. New Laws for Fairness
 
-- **A2**（29 字 / 每句 9.7 字 / 18.3 秒 ·（本版新寫））
-  > Laws are moving as well. Several countries now pay their national teams the same money for women and men. Governments say that this is good for the country too.
-- **B1**（32 字 / 每句 10.7 字 / 17.5 秒 ·（本版新寫））
-  > Several governments have now written equal pay into the rules for national teams. Ministers argue that money spent on women's sport returns to the country. The early evidence tends to support them.
+- **A2**（30 字 / 每句 10.0 字 / 18.9 秒 ·（本版新寫））
+  > Laws are moving as well. Several countries now pay their national teams the same money for women and men. Governments do this because it is good for the country too.
+- **B1**（34 字 / 每句 11.3 字 / 18.5 秒 ·（本版新寫））
+  > Several countries have now put equal pay into law for their national squads. Politicians argue that supporting women's sport brings money back to the whole economy. The early figures tend to agree with them.
 - **B2**（33 字 / 每句 16.5 字 / 16.5 秒 ·（本版新寫））
-  > Several governments have now rewritten the rules, requiring national teams to be paid the same. Ministers argue that money spent on women's sport repays itself, although that evidence is younger than the claim.
+  > Several governments have now rewritten the rules, requiring national teams to be paid the same. Ministers argue that money spent on women's sport repays itself, although that evidence is younger than the enthusiasm.
 
 ## Part 6 · Call to action（結語：總結與號召）
 
@@ -182,8 +182,8 @@
 
 - **A2**（30 字 / 每句 10.0 字 / 18.9 秒 ·（本版新寫））
   > Let's look back for a moment. Equality in sport touches our schools, our jobs and our homes. It is a real goal, so let's support female players, coaches and reporters.
-- **B1**（34 字 / 每句 11.3 字 / 18.5 秒 ·（本版新寫））
-  > So where has this journey taken us? We have seen old traditions, unequal prize money and unpaid work at home. We have also seen streaming, wearable data and new laws pushing the other way.
+- **B1**（35 字 / 每句 11.7 字 / 19.1 秒 ·（本版新寫））
+  > So where has this journey actually taken us? We have seen ancient traditions, unequal prize money and unpaid work at home. We have also seen streaming, wearable data and new legislation pushing the other way.
 - **B2**（38 字 / 每句 19.0 字 / 19.0 秒 ·（本版新寫））
   > So where does the argument stand? We have traced exclusion, unequal prize money and unpaid work at home, and set against them streaming, wearable data and legislation, which together make athletic equality a plan rather than a slogan.
 
@@ -191,8 +191,8 @@
 
 - **A2**（27 字 / 每句 9.0 字 / 17.1 秒 ·（本版新寫））
   > Here is my promise. I will watch a women's game every month, and I will cheer for my favourite team. So what is your small action today?
-- **B1**（34 字 / 每句 11.3 字 / 18.5 秒 ·（本版新寫））
-  > This is my own personal promise. From tonight I will follow at least one women's football team and watch whenever they play. Could each of you decide on one similar step before tonight ends?
+- **B1**（35 字 / 每句 11.7 字 / 19.1 秒 ·（本版新寫））
+  > This is my own personal promise. From tonight I will follow at least one women's football team and celebrate whenever they play. Could everybody in this room decide on one similar promise before tonight ends?
 - **B2**（35 字 / 每句 17.5 字 / 17.5 秒 ·（本版新寫））
   > My own commitment is deliberately specific: I will follow one women's team, pay for the subscription and discuss their fixtures like any other sport. I would ask everybody here to choose one comparable habit tonight.
 
@@ -211,6 +211,6 @@
 - **A2**（29 字 / 每句 9.7 字 / 18.3 秒 ·（本版新寫））
   > SDG 5 is a mission for you and for me. When the playing field is equal, every team becomes stronger. That is the game I really want to play.
 - **B1**（34 字 / 每句 11.3 字 / 18.5 秒 ·（本版新寫））
-  > SDG 5 is a mission for everybody in this hall. When the playing field is genuinely level, the whole team improves, and the crowd gets a better game. I have already picked my side.
+  > SDG 5 is a mission for everybody in this hall. When the playing field is genuinely level, the whole tournament improves, and the spectators get a better game. I have already picked my side.
 - **B2**（39 字 / 每句 19.5 字 / 19.5 秒 ·（本版新寫））
-  > SDG 5 is not a request addressed to somebody else. When the playing field is genuinely level, the competition improves, the audience grows and the record books finally mean what they claim, and I have already chosen my side.
+  > SDG 5 is not a request addressed to somebody else. When the playing field is genuinely level, the competition improves, the audience expands and the record books finally mean what they advertise, and I have already chosen my side.
