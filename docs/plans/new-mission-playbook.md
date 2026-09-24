@@ -170,6 +170,24 @@ used — read `scripts/quality.py` and `scripts/grammar_range.py` directly if a
 failure reason isn't obvious; they are short and the comments explain the
 "why," not just the "what."
 
+## 6a. If you have to stop before it passes
+
+`content/canonical/` is a deliverable folder — teachers and the eventual game
+build open it directly, so it holds only missions that pass. A mission that is
+still failing when you run out of time does not belong in
+`content/authored/missions/` or `content/authored/levels/` either, because
+those two folders are exactly what `scripts/extract_content.py` scans, and a
+failing mission left there pollutes `content/source/` and blocks a clean
+`python scripts/gate.py` run for everyone else.
+
+Move it instead: `git mv` its shell and overlay files to
+`content/drafts/missions/<mission_id>.source.json` and
+`content/drafts/levels/<mission_id>.<LEVEL>.json` — identical format, just
+outside the scanned folders. Say in your final report exactly how far it got
+(gate output, what's still failing) so the next agent can pick it up. When
+someone resumes it, the first step is moving it back with `git mv` before
+touching anything else.
+
 ## 7. What to report back
 
 For each mission: the final gate + grammar-range output, the facts you used

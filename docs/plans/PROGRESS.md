@@ -5,7 +5,7 @@ from the repo — no state lives only in a chat transcript.
 
 ## Phase 1 — DONE: level the five existing SDGs (10 missions)
 
-All ten missions that had workbook source (sdg1, sdg4-1, sdg4-2, sdg5-1, sdg5-2,
+All ten missions that had workbook source (sdg1-1, sdg4-1, sdg4-2, sdg5-1, sdg5-2,
 sdg9-1, sdg9-2, sdg9-3, sdg13-1, sdg13-2) pass the four-part gate and the
 grammatical-range check at A2/B1/B2. Full detail: doc tab "教材品質稽核",
 commits through `da4430c`.
@@ -20,16 +20,46 @@ game build is a later, separately-directed phase.
 ### What "3 missions each" requires
 
 Checkpoint 2026-09-24: 22 of 51 done. Paused here on user instruction — not a
-stop, a landing point. Resume by finishing the three mid-flight missions, then
+stop, a landing point. Resume by finishing the four mid-flight missions, then
 continuing the queued SDGs below.
+
+sdg1 was renamed to **sdg1-1** in this checkpoint, so every family now follows
+the same `<sdg>-<n>` numbering with no bare exception (sdg1, sdg4-1/2, sdg5-1/2,
+sdg9-1/2/3, sdg13-1/2 previously had sdg1 as the odd one out).
+
+### The drafts folder
+
+`content/drafts/missions/` and `content/drafts/levels/` hold shells/overlays
+that are mid-authoring or failing the gate — the same file formats as
+`content/authored/missions/` and `content/authored/levels/`, just outside the
+folders `scripts/extract_content.py` scans. A mission in drafts does not appear
+in `content/source/`, `content/canonical/`, or `python scripts/gate.py` at all;
+`content/canonical/` in particular is a deliverable folder now — it holds only
+what actually passes (both build_canonical.py and extract_content.py
+self-clean their output folders on every run, removing anything stale).
+
+**To resume a draft:** `git mv` its file(s) from `content/drafts/` back to the
+matching `content/authored/` folder, then `python scripts/extract_content.py`
+picks it up and `python scripts/gate.py overlay <mission>` works normally
+again. Do this the moment you start working on it, not after it passes — a
+mission being actively fixed belongs in `content/authored/`, same as any other
+in-progress mission; `content/drafts/` is for a mission nobody is currently
+touching.
+
+Currently in drafts:
+- `sdg4-3` (Vocational Education) — all three levels written but failing hard:
+  65-80% soft-miss rate, 0.40-0.47 vocabulary distance between levels (the
+  three levels are substantially the same text). Needs a rewrite, not a patch.
+- `sdg3-3`, `sdg5-3`, `sdg13-3` — shell only (topic, 20-slide outline written),
+  no level text yet.
 
 | SDG | Status |
 | --- | --- |
-| 1 No Poverty | done — sdg1, sdg1-2, sdg1-3 all pass |
+| 1 No Poverty | done — sdg1-1, sdg1-2, sdg1-3 all pass |
 | 2 Zero Hunger | done — sdg2-1/2/3 all pass |
-| 3 Good Health | sdg3-1, sdg3-2 pass; sdg3-3 has its shell (topic + 20-slide outline) but no level text yet |
-| 4 Quality Education | sdg4-1, sdg4-2 pass; sdg4-3 has all three levels written but fails — 65-80% soft-miss rate, 0.40-0.47 vocabulary distance between levels (needs a rewrite, not a patch) |
-| 5 Gender Equality | sdg5-1, sdg5-2 pass; sdg5-3 has its shell but no level text yet |
+| 3 Good Health | sdg3-1, sdg3-2 pass; sdg3-3 in `content/drafts/` (shell only) |
+| 4 Quality Education | sdg4-1, sdg4-2 pass; sdg4-3 in `content/drafts/` (written, failing) |
+| 5 Gender Equality | sdg5-1, sdg5-2 pass; sdg5-3 in `content/drafts/` (shell only) |
 | 6 Clean Water | done — sdg6-1, sdg6-2 pass |
 | 7 Clean Energy | done — sdg7-1/2/3 all pass |
 | 8 Decent Work | not started |
@@ -37,7 +67,7 @@ continuing the queued SDGs below.
 | 10 Reduced Inequalities | not started |
 | 11 Sustainable Cities | not started |
 | 12 Responsible Consumption | not started |
-| 13 Climate Action | sdg13-1, sdg13-2 pass; sdg13-3 has its shell but no level text yet |
+| 13 Climate Action | sdg13-1, sdg13-2 pass; sdg13-3 in `content/drafts/` (shell only) |
 | 14 Life Below Water | not started |
 | 15 Life on Land | not started |
 | 16 Peace/Justice/Institutions | not started |

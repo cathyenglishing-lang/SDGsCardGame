@@ -1,5 +1,5 @@
 {
-  "mission_id": "sdg1",
+  "mission_id": "sdg1-1",
   "sdg": 1,
   "title": {
     "en": "SDG 1: No Poverty in Taiwan",
@@ -8,7 +8,12 @@
   "shape": "flat",
   "source": {
     "workbook": "SDGsPechaKucha_SDG1_0526.xlsx (deleted; preserved copy)",
-    "preserved_at": "content\\authored\\missions\\sdg1.source.json"
+    "sheet": "SDG1",
+    "level_columns": {
+      "A2": "E",
+      "A1": "F",
+      "B1": "G"
+    }
   },
   "narrative_brief": "",
   "stages": [

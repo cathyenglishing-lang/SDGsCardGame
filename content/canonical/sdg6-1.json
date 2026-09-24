@@ -1,0 +1,933 @@
+{
+  "mission_id": "sdg6-1",
+  "sdg": 6,
+  "title": {
+    "en": "Taiwan's Water Paradox: Too Much Rain, Not Enough Water",
+    "zh": null
+  },
+  "content_version": "2026.09.1",
+  "levels": [
+    "A2",
+    "B1",
+    "B2"
+  ],
+  "source_mission": "sdg6-1",
+  "slide_count": 20,
+  "level_summary": {
+    "A2": {
+      "slides": 20,
+      "avg_words": 28.4,
+      "avg_sentence_words": 9.7,
+      "fk_grade": 4.8,
+      "slides_over_20s": 0
+    },
+    "B1": {
+      "slides": 20,
+      "avg_words": 30.4,
+      "avg_sentence_words": 14.9,
+      "fk_grade": 9.3,
+      "slides_over_20s": 0
+    },
+    "B2": {
+      "slides": 20,
+      "avg_words": 34.5,
+      "avg_sentence_words": 17.2,
+      "fk_grade": 12.1,
+      "slides_over_20s": 0
+    }
+  },
+  "gate": {
+    "A2": [],
+    "B1": [],
+    "B2": []
+  },
+  "distance": {
+    "A2->B1": {
+      "mean": 0.26,
+      "pass": true,
+      "too_close": {}
+    },
+    "B1->B2": {
+      "mean": 0.29,
+      "pass": true,
+      "too_close": {}
+    }
+  },
+  "ready": true,
+  "stages": [
+    {
+      "part_no": 1,
+      "function_en": "Introduction",
+      "function_zh": "引言：破題與定義",
+      "language_pattern": "rhetorical questions / X is about ...",
+      "source_description": "Part 1: Introduction (Slides 1-3: hook on the flood/drought contradiction, SDG 6 definition, Taiwan's rainfall-vs-usable-water paradox)",
+      "slides": [
+        {
+          "slide_no": 1,
+          "title": {
+            "en": "Taiwan's strange water problem",
+            "zh": "台灣奇特的水問題"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Taiwan has a strange water problem. In some years, we must save every drop. In other years, heavy rain causes terrible floods. Why does this happen to us?",
+              "words": 28,
+              "sentences": 4,
+              "avg_sentence_words": 7.0,
+              "fk_grade": 3.6,
+              "speak_seconds_est": 17.7,
+              "fits_20s": true,
+              "provenance": "authored"
+            },
+            "B1": {
+              "text": "Have you ever noticed Taiwan's strange relationship with water? Some years the government rations our tap water, while other years that same rain floods the very same streets.",
+              "words": 28,
+              "sentences": 2,
+              "avg_sentence_words": 14.0,
+              "fk_grade": 8.0,
+              "speak_seconds_est": 15.3,
+              "fits_20s": true,
+              "provenance": "authored"
+            },
+            "B2": {
+              "text": "What makes Taiwan's whole water story so strange is this: in one single year the government is rationing our tap water. In the very next, however, that same abundant rainfall is left flooding the identical streets instead.",
+              "words": 37,
+              "sentences": 2,
+              "avg_sentence_words": 18.5,
+              "fk_grade": 10.4,
+              "speak_seconds_est": 18.5,
+              "fits_20s": true,
+              "provenance": "authored"
+            }
+          },
+          "authoring": {}
+        },
+        {
+          "slide_no": 2,
+          "title": {
+            "en": "SDG 6: clean water for all",
+            "zh": "SDG 6：潔淨水資源與衛生"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "SDG 6 means clean water and toilets for everyone. It is not only about having enough water. The water must also be safe and fair for all people.",
+              "words": 28,
+              "sentences": 3,
+              "avg_sentence_words": 9.3,
+              "fk_grade": 4.9,
+              "speak_seconds_est": 17.7,
+              "fits_20s": true,
+              "provenance": "authored"
+            },
+            "B1": {
+              "text": "SDG 6 promises clean water and sanitation for everyone. That means far more than simply having enough water — it means water that stays truly safe, dependable and fairly shared.",
+              "words": 29,
+              "sentences": 2,
+              "avg_sentence_words": 14.5,
+              "fk_grade": 9.6,
+              "speak_seconds_est": 15.8,
+              "fits_20s": true,
+              "provenance": "authored"
+            },
+            "B2": {
+              "text": "SDG 6 promises clean water and sanitation for everyone, and that pledge goes well beyond simple volume. Water also has to stay genuinely safe, dependable and fairly distributed for all.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 10.7,
+              "speak_seconds_est": 15.0,
+              "fits_20s": true,
+              "provenance": "authored"
+            }
+          },
+          "authoring": {}
+        },
+        {
+          "slide_no": 3,
+          "title": {
+            "en": "Abundant rain, scarce usable water",
+            "zh": "雨量豐沛卻缺乏可用水"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Each year, Taiwan gets a huge amount of rain — about 2,500mm. That is 2.5 times the world average. But each person can only use a fifth of that amount.",
+              "words": 31,
+              "sentences": 3,
+              "avg_sentence_words": 10.3,
+              "fk_grade": 3.7,
+              "speak_seconds_est": 19.6,
+              "fits_20s": true,
+              "provenance": "authored"
+            },
+            "B1": {
+              "text": "Taiwan collects around 2,500mm of rainfall annually, roughly 2.5 times the global norm. However, each person here can actually draw on only a fifth of that same figure.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 8.4,
+              "speak_seconds_est": 16.4,
+              "fits_20s": true,
+              "provenance": "authored"
+            },
+            "B2": {
+              "text": "Taiwan's annual rainfall of roughly 2,500mm amounts to about 2.5 times the global norm. Yet the volume of water actually available per capita comes to only a fifth of that same international benchmark.",
+              "words": 35,
+              "sentences": 2,
+              "avg_sentence_words": 17.5,
+              "fk_grade": 11.1,
+              "speak_seconds_est": 17.5,
+              "fits_20s": true,
+              "provenance": "authored"
+            }
+          },
+          "authoring": {}
+        }
+      ]
+    },
+    {
+      "part_no": 2,
+      "function_en": "Problem",
+      "function_zh": "問題指認：趨勢與因果",
+      "language_pattern": "present progressive for trends / this causes ...",
+      "source_description": "Part 2: Problem (Slides 4-6: steep terrain and short rivers, typhoon dependency and the 2021 no-typhoon drought, reservoir sedimentation)",
+      "slides": [
+        {
+          "slide_no": 4,
+          "title": {
+            "en": "Steep mountains, short rivers",
+            "zh": "地勢陡峭河川短促"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Taiwan's mountains are steep, and its rivers are short. So rain runs fast into the sea. Most rain falls between May and October, so the rest of the year is dry.",
+              "words": 31,
+              "sentences": 3,
+              "avg_sentence_words": 10.3,
+              "fk_grade": 2.9,
+              "speak_seconds_est": 19.6,
+              "fits_20s": true,
+              "provenance": "authored"
+            },
+            "B1": {
+              "text": "Because our mountains are steep and our rivers are short, rainwater rushes into the ocean before engineers can store it. Most of that rain falls between May and October each year.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 7.6,
+              "speak_seconds_est": 16.9,
+              "fits_20s": true,
+              "provenance": "authored"
+            },
+            "B2": {
+              "text": "Because the terrain is steep and the rivers are short, rainwater reaching the coast is largely lost to the ocean within hours. Concentrated mostly in the May-to-October wet season, that rainfall leaves the remaining months comparatively parched.",
+              "words": 37,
+              "sentences": 2,
+              "avg_sentence_words": 18.5,
+              "fk_grade": 12.4,
+              "speak_seconds_est": 18.5,
+              "fits_20s": true,
+              "provenance": "authored"
+            }
+          },
+          "authoring": {}
+        },
+        {
+          "slide_no": 5,
+          "title": {
+            "en": "When the typhoons don't come",
+            "zh": "當颱風不再造訪"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Typhoons and summer rain give us over half of our yearly water. In 2021, no typhoon came for the first time in 56 years. A bad drought soon followed.",
+              "words": 29,
+              "sentences": 3,
+              "avg_sentence_words": 9.7,
+              "fk_grade": 4.9,
+              "speak_seconds_est": 18.3,
+              "fits_20s": true,
+              "provenance": "authored"
+            },
+            "B1": {
+              "text": "More than half of Taiwan's water each year comes from typhoons and the summer plum rains. That reliable pattern collapsed in 2021. For the first time in 56 years, none made landfall, and severe drought began.",
+              "words": 36,
+              "sentences": 3,
+              "avg_sentence_words": 12.0,
+              "fk_grade": 6.5,
+              "speak_seconds_est": 19.6,
+              "fits_20s": true,
+              "provenance": "authored"
+            },
+            "B2": {
+              "text": "Well over half of Taiwan's yearly water supply has historically depended on typhoons and the summer plum rains. That dependency was exposed in 2021, when the island went its first year without a typhoon landfall in 56, triggering drought immediately.",
+              "words": 40,
+              "sentences": 2,
+              "avg_sentence_words": 20.0,
+              "fk_grade": 13.5,
+              "speak_seconds_est": 20.0,
+              "fits_20s": true,
+              "provenance": "authored"
+            }
+          },
+          "authoring": {}
+        },
+        {
+          "slide_no": 6,
+          "title": {
+            "en": "Mud is quietly stealing capacity",
+            "zh": "泥沙悄悄侵蝕庫容"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Every year, mud slowly fills up our reservoirs. Deji Reservoir has already lost about 47% of its space this way. A full reservoir on paper may still be empty underwater.",
+              "words": 30,
+              "sentences": 3,
+              "avg_sentence_words": 10.0,
+              "fk_grade": 7.6,
+              "speak_seconds_est": 18.9,
+              "fits_20s": true,
+              "provenance": "authored"
+            },
+            "B1": {
+              "text": "There is a quieter danger too, called sediment. Mud washing down from the mountains has silted up our reservoirs, and Deji Reservoir alone has lost about 47% of its storage space.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 8.7,
+              "speak_seconds_est": 16.9,
+              "fits_20s": true,
+              "provenance": "authored"
+            },
+            "B2": {
+              "text": "A quieter threat is sediment, mud washed down from the mountains and settling into our reservoirs. Deji Reservoir has lost roughly 47% of its storage this way, capacity that exists on paper but not underwater.",
+              "words": 35,
+              "sentences": 2,
+              "avg_sentence_words": 17.5,
+              "fk_grade": 10.8,
+              "speak_seconds_est": 17.5,
+              "fits_20s": true,
+              "provenance": "authored"
+            }
+          },
+          "authoring": {}
+        }
+      ]
+    },
+    {
+      "part_no": 3,
+      "function_en": "Achievements",
+      "function_zh": "成果：舉證與比較",
+      "language_pattern": "present perfect / comparatives",
+      "source_description": "Part 3: Achievements (Slides 7-9: the 2021 drought numbers and how Taiwan held on, desilting progress, supply diversification)",
+      "slides": [
+        {
+          "slide_no": 7,
+          "title": {
+            "en": "2021: reservoirs near empty",
+            "zh": "2021：水庫近乎見底"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "In 2021, 17 of 19 big reservoirs fell below half full. Baoshan No. 2 dropped to 7%, and Techi to 4.4%. Water was cut for over a million homes.",
+              "words": 30,
+              "sentences": 4,
+              "avg_sentence_words": 7.5,
+              "fk_grade": 5.0,
+              "speak_seconds_est": 18.9,
+              "fits_20s": true,
+              "provenance": "authored"
+            },
+            "B1": {
+              "text": "During that 2021 drought, 17 of our 19 major reservoirs dropped below half full, with Baoshan No.2 falling to about 7 percent. Even then, our taps never completely ran dry.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 9.9,
+              "speak_seconds_est": 16.9,
+              "fits_20s": true,
+              "provenance": "authored"
+            },
+            "B2": {
+              "text": "During the 2021 drought, 17 of 19 major reservoirs fell below half capacity, and Baoshan No.2 was recorded at only about 7%. Although rationing continued for months, the system never ran completely dry.",
+              "words": 34,
+              "sentences": 2,
+              "avg_sentence_words": 17.0,
+              "fk_grade": 12.6,
+              "speak_seconds_est": 17.0,
+              "fits_20s": true,
+              "provenance": "authored"
+            }
+          },
+          "authoring": {}
+        },
+        {
+          "slide_no": 8,
+          "title": {
+            "en": "Clearing more mud than arrives",
+            "zh": "清淤量超過淤積量"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Since 2022, workers have removed more mud than flows in each year. The Shihmen tunnel has run since September 2023. It clears mud and also stops floods.",
+              "words": 27,
+              "sentences": 3,
+              "avg_sentence_words": 9.0,
+              "fk_grade": 5.8,
+              "speak_seconds_est": 17.1,
+              "fits_20s": true,
+              "provenance": "authored"
+            },
+            "B1": {
+              "text": "Since 2022, crews have officially cleared more mud than flows in each year, say Water Resources Agency figures. A desilting tunnel at Shihmen, running since 2023, clears mud and also lowers flood risk.",
+              "words": 33,
+              "sentences": 2,
+              "avg_sentence_words": 16.5,
+              "fk_grade": 11.2,
+              "speak_seconds_est": 18.0,
+              "fits_20s": true,
+              "provenance": "authored"
+            },
+            "B2": {
+              "text": "It is dredging, not luck, that now clears more sediment than flows in each year, based on Water Resources Agency data collected since 2022. A tunnel at Shihmen, running since 2023, cuts sediment while raising flood capacity.",
+              "words": 37,
+              "sentences": 2,
+              "avg_sentence_words": 18.5,
+              "fk_grade": 12.4,
+              "speak_seconds_est": 18.5,
+              "fits_20s": true,
+              "provenance": "authored"
+            }
+          },
+          "authoring": {}
+        },
+        {
+          "slide_no": 9,
+          "title": {
+            "en": "New supply, fewer leaks",
+            "zh": "新水源與更少漏水"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "A new plant in Hsinchu now makes 13,000 tonnes of water a day. Old pipes also leak less water now, down from 20% to about 14%.",
+              "words": 27,
+              "sentences": 2,
+              "avg_sentence_words": 13.5,
+              "fk_grade": 7.2,
+              "speak_seconds_est": 17.1,
+              "fits_20s": true,
+              "provenance": "authored"
+            },
+            "B1": {
+              "text": "Supply is slowly diversifying, led by a desalination plant in Hsinchu that now makes about 13,000 tonnes of water daily. Also, pipe leakage has dropped from roughly 20% to about 14%.",
+              "words": 32,
+              "sentences": 2,
+              "avg_sentence_words": 16.0,
+              "fk_grade": 11.7,
+              "speak_seconds_est": 17.5,
+              "fits_20s": true,
+              "provenance": "authored"
+            },
+            "B2": {
+              "text": "Supply is being deliberately diversified. A desalination plant in Hsinchu now generates approximately 13,000 tonnes daily, while network leakage has fallen from about 20% a decade ago to roughly 14% today.",
+              "words": 32,
+              "sentences": 2,
+              "avg_sentence_words": 16.0,
+              "fk_grade": 16.5,
+              "speak_seconds_est": 16.0,
+              "fits_20s": true,
+              "provenance": "authored"
+            }
+          },
+          "authoring": {}
+        }
+      ]
+    },
+    {
+      "part_no": 4,
+      "function_en": "Solutions",
+      "function_zh": "解方：做法與取捨",
+      "language_pattern": "instead of + V-ing / modal verbs",
+      "source_description": "Part 4: Solutions (Slides 10-12: diversifying supply, replacing aging pipes, the hard case for pricing reform)",
+      "slides": [
+        {
+          "slide_no": 10,
+          "title": {
+            "en": "Building supply in parallel",
+            "zh": "多元並行的供水系統"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Taiwan cannot use reservoirs alone anymore. New pipes now move water between regions in a dry year. We also make water from the sea and from used water.",
+              "words": 28,
+              "sentences": 3,
+              "avg_sentence_words": 9.3,
+              "fk_grade": 6.2,
+              "speak_seconds_est": 17.7,
+              "fits_20s": true,
+              "provenance": "authored"
+            },
+            "B1": {
+              "text": "Taiwan no longer relies on reservoirs alone these days. New pipes can now shift water between river basins during any shortage, and desalination also adds extra supply too.",
+              "words": 28,
+              "sentences": 2,
+              "avg_sentence_words": 14.0,
+              "fk_grade": 10.5,
+              "speak_seconds_est": 15.3,
+              "fits_20s": true,
+              "provenance": "authored"
+            },
+            "B2": {
+              "text": "Rather than depending on reservoirs alone, Taiwan is building alternative supply routes today. New plants, treated water and new pipes now move water wherever a shortage strikes, all at once.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 10.7,
+              "speak_seconds_est": 15.0,
+              "fits_20s": true,
+              "provenance": "authored"
+            }
+          },
+          "authoring": {}
+        },
+        {
+          "slide_no": 11,
+          "title": {
+            "en": "New pipes, not just new plants",
+            "zh": "換管線而非只蓋新廠"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "New treatment plants are not enough on their own. Old pipes must be fixed too, or we lose water we already cleaned. We should not waste what we have.",
+              "words": 29,
+              "sentences": 3,
+              "avg_sentence_words": 9.7,
+              "fk_grade": 3.2,
+              "speak_seconds_est": 18.3,
+              "fits_20s": true,
+              "provenance": "authored"
+            },
+            "B1": {
+              "text": "Building new supply is not enough by itself. Taiwan must also keep replacing its aging underground pipes, because water that has already been purified should not simply leak into the ground.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 9.9,
+              "speak_seconds_est": 16.9,
+              "fits_20s": true,
+              "provenance": "authored"
+            },
+            "B2": {
+              "text": "New capacity alone will never solve this whole infrastructure problem. Taiwan must also keep replacing its ageing pipes, instead of quietly losing water it has already spent real money purifying and treating.",
+              "words": 32,
+              "sentences": 2,
+              "avg_sentence_words": 16.0,
+              "fk_grade": 12.0,
+              "speak_seconds_est": 16.0,
+              "fits_20s": true,
+              "provenance": "authored"
+            }
+          },
+          "authoring": {}
+        },
+        {
+          "slide_no": 12,
+          "title": {
+            "en": "The hardest fix: the price",
+            "zh": "最難的解方：水價"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Water here costs only NT$11 for one tonne. That is far cheaper than in the US or the UK. A higher price could stop waste, but poor families would suffer.",
+              "words": 31,
+              "sentences": 3,
+              "avg_sentence_words": 10.3,
+              "fk_grade": 3.3,
+              "speak_seconds_est": 19.6,
+              "fits_20s": true,
+              "provenance": "authored"
+            },
+            "B1": {
+              "text": "Water in Taiwan costs only about NT$11 per tonne, several times cheaper than in the US or the UK. A higher price might encourage saving, but it would burden vulnerable families.",
+              "words": 32,
+              "sentences": 2,
+              "avg_sentence_words": 16.0,
+              "fk_grade": 9.5,
+              "speak_seconds_est": 17.5,
+              "fits_20s": true,
+              "provenance": "authored"
+            },
+            "B2": {
+              "text": "A more contentious solution here involves economics and price. Water sold at only about NT$11 per tonne is several times cheaper than in the US or UK, though raising it would burden struggling households.",
+              "words": 35,
+              "sentences": 2,
+              "avg_sentence_words": 17.5,
+              "fk_grade": 10.5,
+              "speak_seconds_est": 17.5,
+              "fits_20s": true,
+              "provenance": "authored"
+            }
+          },
+          "authoring": {}
+        }
+      ]
+    },
+    {
+      "part_no": 5,
+      "function_en": "Implications",
+      "function_zh": "影響：推論後果",
+      "language_pattern": "first conditional / however",
+      "source_description": "Part 5: Implications (Slides 13-16: climate change destabilising typhoons, flood risk rising alongside drought risk, the farm-vs-city trade-off, the cost to ordinary households) - one continuous tension: climate change is tightening the paradox, and the squeeze lands on real people",
+      "slides": [
+        {
+          "slide_no": 13,
+          "title": {
+            "en": "Climate change and the typhoon pattern",
+            "zh": "氣候變遷擾亂颱風規律"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Climate change now hits our typhoons. Experts say big storms will not come as often. Our reservoirs need rain every single year to stay full.",
+              "words": 25,
+              "sentences": 3,
+              "avg_sentence_words": 8.3,
+              "fk_grade": 3.7,
+              "speak_seconds_est": 15.8,
+              "fits_20s": true,
+              "provenance": "authored"
+            },
+            "B1": {
+              "text": "Climate change is disrupting the typhoon pattern our reservoirs depend on. Scientists now expect that seasonal timing to become far less predictable in the years ahead of us.",
+              "words": 28,
+              "sentences": 2,
+              "avg_sentence_words": 14.0,
+              "fk_grade": 9.3,
+              "speak_seconds_est": 15.3,
+              "fits_20s": true,
+              "provenance": "authored"
+            },
+            "B2": {
+              "text": "Climate change is steadily destabilising the very typhoon pattern this entire system was originally built around. Scientists now warn that seasonal timing will likely keep growing less predictable in the years ahead.",
+              "words": 32,
+              "sentences": 2,
+              "avg_sentence_words": 16.0,
+              "fk_grade": 12.8,
+              "speak_seconds_est": 16.0,
+              "fits_20s": true,
+              "provenance": "authored"
+            }
+          },
+          "authoring": {}
+        },
+        {
+          "slide_no": 14,
+          "title": {
+            "en": "More rain, still not solved",
+            "zh": "雨更多卻沒有解決問題"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "But when a typhoon comes now, the rain falls too fast and hard. Reservoirs cannot hold it all, so floods happen instead. More rain does not fix our problem.",
+              "words": 29,
+              "sentences": 3,
+              "avg_sentence_words": 9.7,
+              "fk_grade": 3.2,
+              "speak_seconds_est": 18.3,
+              "fits_20s": true,
+              "provenance": "authored"
+            },
+            "B1": {
+              "text": "However, when typhoons do arrive, the rain now tends to fall in shorter, heavier bursts. Reservoirs cannot fully capture it, so flooding happens instead of steady, useful storage.",
+              "words": 28,
+              "sentences": 2,
+              "avg_sentence_words": 14.0,
+              "fk_grade": 9.3,
+              "speak_seconds_est": 15.3,
+              "fits_20s": true,
+              "provenance": "authored"
+            },
+            "B2": {
+              "text": "However, when typhoons do finally arrive, rainfall increasingly comes as short, intense bursts that reservoirs simply cannot absorb in time. That produces floods rather than the steady storage the whole system actually needs.",
+              "words": 33,
+              "sentences": 2,
+              "avg_sentence_words": 16.5,
+              "fk_grade": 11.9,
+              "speak_seconds_est": 16.5,
+              "fits_20s": true,
+              "provenance": "authored"
+            }
+          },
+          "authoring": {}
+        },
+        {
+          "slide_no": 15,
+          "title": {
+            "en": "Farms give way first",
+            "zh": "農業率先讓步"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "When a drought hits, farmers must leave fields empty first. This saves water for cities and factories. Farms use over 70% of our water but make under 2% of our GDP.",
+              "words": 31,
+              "sentences": 3,
+              "avg_sentence_words": 10.3,
+              "fk_grade": 4.4,
+              "speak_seconds_est": 19.6,
+              "fits_20s": true,
+              "provenance": "authored"
+            },
+            "B1": {
+              "text": "If a serious drought hits during planting season, farmers can lose their fields to fallowing first. Agriculture takes over 70% of our water supply but earns under 2% of our GDP.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 8.3,
+              "speak_seconds_est": 16.9,
+              "fits_20s": true,
+              "provenance": "authored"
+            },
+            "B2": {
+              "text": "A stark asymmetry drives this trade-off: agriculture uses over 70% of Taiwan's water yet generates under 2% of GDP. That gap is why farmers are usually first asked to fallow fields when a serious drought strikes during planting season.",
+              "words": 39,
+              "sentences": 2,
+              "avg_sentence_words": 19.5,
+              "fk_grade": 12.0,
+              "speak_seconds_est": 19.5,
+              "fits_20s": true,
+              "provenance": "authored"
+            }
+          },
+          "authoring": {}
+        },
+        {
+          "slide_no": 16,
+          "title": {
+            "en": "A dry tap at home",
+            "zh": "家中乾涸的水龍頭"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "This is not only about money. In 2021, many families and students had no water for two whole months. That was real life, not just numbers on a page.",
+              "words": 29,
+              "sentences": 3,
+              "avg_sentence_words": 9.7,
+              "fk_grade": 5.3,
+              "speak_seconds_est": 18.3,
+              "fits_20s": true,
+              "provenance": "authored"
+            },
+            "B1": {
+              "text": "This trade-off also reaches many ordinary families too. In 2021, water cuts hit daily life for students and their families for two whole months, so it is not just an idea.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 9.5,
+              "speak_seconds_est": 16.9,
+              "fits_20s": true,
+              "provenance": "authored"
+            },
+            "B2": {
+              "text": "That trade-off eventually reaches ordinary households as well. In 2021, rationing disrupted daily life for students and families for two full months, turning an abstract paradox into a very real, dry tap at home.",
+              "words": 34,
+              "sentences": 2,
+              "avg_sentence_words": 17.0,
+              "fk_grade": 12.2,
+              "speak_seconds_est": 17.0,
+              "fits_20s": true,
+              "provenance": "authored"
+            }
+          },
+          "authoring": {}
+        }
+      ]
+    },
+    {
+      "part_no": 6,
+      "function_en": "Call to action",
+      "function_zh": "結語：總結與號召",
+      "language_pattern": "to wrap up ... / let's ...",
+      "source_description": "Part 6: Call to action (Slides 17-20: summary of the paradox, reframing away from individual blame, what students can do, closing call)",
+      "slides": [
+        {
+          "slide_no": 17,
+          "title": {
+            "en": "The gap climate keeps widening",
+            "zh": "氣候持續擴大的落差"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "To sum up, Taiwan gets huge rain but very little water we can use. A hotter climate is making this gap even harder to close.",
+              "words": 25,
+              "sentences": 2,
+              "avg_sentence_words": 12.5,
+              "fk_grade": 5.3,
+              "speak_seconds_est": 15.8,
+              "fits_20s": true,
+              "provenance": "authored"
+            },
+            "B1": {
+              "text": "To sum up, Taiwan faces heavy rainfall sitting right alongside real water scarcity. A warming climate is making that gap even harder to manage with every passing year.",
+              "words": 28,
+              "sentences": 2,
+              "avg_sentence_words": 14.0,
+              "fk_grade": 9.7,
+              "speak_seconds_est": 15.3,
+              "fits_20s": true,
+              "provenance": "authored"
+            },
+            "B2": {
+              "text": "To sum up, Taiwan combines heavy rainfall with real scarcity of usable water, and a warming climate is steadily widening that gap rather than closing it. That squeeze is only projected to intensify going forward.",
+              "words": 35,
+              "sentences": 2,
+              "avg_sentence_words": 17.5,
+              "fk_grade": 11.5,
+              "speak_seconds_est": 17.5,
+              "fits_20s": true,
+              "provenance": "authored"
+            }
+          },
+          "authoring": {}
+        },
+        {
+          "slide_no": 18,
+          "title": {
+            "en": "Not a habit problem, a system problem",
+            "zh": "不是習慣問題而是系統問題"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "This is not really about people wasting water. Land shape, old pipes and climate add up together. Blaming only daily habits misses the real cause.",
+              "words": 25,
+              "sentences": 3,
+              "avg_sentence_words": 8.3,
+              "fk_grade": 6.1,
+              "speak_seconds_est": 15.8,
+              "fits_20s": true,
+              "provenance": "authored"
+            },
+            "B1": {
+              "text": "We should reframe this problem, because it is not really about people wasting water carelessly. Geography, old systems and climate are compounding each other, and blame alone misses the real system.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 10.2,
+              "speak_seconds_est": 16.9,
+              "fits_20s": true,
+              "provenance": "authored"
+            },
+            "B2": {
+              "text": "It is geography, ageing pipes and a changing climate compounding each other that drives this crisis — not individuals carelessly wasting water at home. Blaming habits alone lets the underlying system quietly off the hook.",
+              "words": 34,
+              "sentences": 2,
+              "avg_sentence_words": 17.0,
+              "fk_grade": 11.9,
+              "speak_seconds_est": 17.0,
+              "fits_20s": true,
+              "provenance": "authored"
+            }
+          },
+          "authoring": {}
+        },
+        {
+          "slide_no": 19,
+          "title": {
+            "en": "What you can actually do",
+            "zh": "你能做的實際行動"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "So what can you do? Study the water data that the government shares online. Support better pipes and fair prices, or study engineering to help fix this.",
+              "words": 27,
+              "sentences": 3,
+              "avg_sentence_words": 9.0,
+              "fk_grade": 6.3,
+              "speak_seconds_est": 17.1,
+              "fits_20s": true,
+              "provenance": "authored"
+            },
+            "B1": {
+              "text": "So what can students actually do? You can study the public data the Water Resources Agency shares, support pipe and pricing reform, or choose a career in engineering or policy.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 10.3,
+              "speak_seconds_est": 16.4,
+              "fits_20s": true,
+              "provenance": "authored"
+            },
+            "B2": {
+              "text": "What can students actually contribute? Beyond studying data the Water Resources Agency already publishes, you might support pricing reform, or pursue engineering or policy work built around exactly this problem.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 13.1,
+              "speak_seconds_est": 15.0,
+              "fits_20s": true,
+              "provenance": "authored"
+            }
+          },
+          "authoring": {}
+        },
+        {
+          "slide_no": 20,
+          "title": {
+            "en": "Engineer a system for whatever comes",
+            "zh": "打造能應對未來的系統"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Taiwan needs fresh ideas for a drier future. Let's not just wait and hope for rain. Let's use our skills to build a smarter water system for everyone.",
+              "words": 28,
+              "sentences": 3,
+              "avg_sentence_words": 9.3,
+              "fk_grade": 3.2,
+              "speak_seconds_est": 17.7,
+              "fits_20s": true,
+              "provenance": "authored"
+            },
+            "B1": {
+              "text": "Taiwan needs fresh thinking for a drier future. Let's stop simply hoping the rain arrives on schedule, and let's start building a system that can handle whatever climate we get.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 8.0,
+              "speak_seconds_est": 16.4,
+              "fits_20s": true,
+              "provenance": "authored"
+            },
+            "B2": {
+              "text": "What Taiwan needs now is genuine innovation built for a drier future, not further optimism that rainfall will simply arrive on schedule. Let's take what we're learning here and engineer infrastructure resilient enough for whatever climate actually comes.",
+              "words": 38,
+              "sentences": 2,
+              "avg_sentence_words": 19.0,
+              "fk_grade": 12.6,
+              "speak_seconds_est": 19.0,
+              "fits_20s": true,
+              "provenance": "authored"
+            }
+          },
+          "authoring": {}
+        }
+      ]
+    }
+  ]
+}

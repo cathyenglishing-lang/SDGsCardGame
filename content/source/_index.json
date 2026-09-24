@@ -1,6 +1,6 @@
 {
   "content_version": "2026.09.1",
-  "generated_at": "2026-09-24T23:17:18+08:00",
+  "generated_at": "2026-09-24T23:26:03+08:00",
   "source_workbook": "SDGs Pecha Kucha (公用)_new.xlsx",
   "legacy_workbooks_not_used": [
     "SDGs Pecha Kucha (公用).xlsx",
@@ -8,49 +8,6 @@
     "SDGsPechaKucha_0526.xlsx"
   ],
   "missions": [
-    {
-      "mission_id": "sdg1",
-      "sdg": 1,
-      "title_en": "SDG 1: No Poverty in Taiwan",
-      "slides": 20,
-      "stages": 6,
-      "levels": [
-        "A1",
-        "A2",
-        "B1",
-        "B2"
-      ],
-      "level_summary": {
-        "A1": {
-          "slides": 20,
-          "avg_words": 18.7,
-          "avg_sentence_words": 8.0,
-          "fk_grade": 4.5,
-          "slides_over_20s": 0
-        },
-        "A2": {
-          "slides": 20,
-          "avg_words": 29.4,
-          "avg_sentence_words": 9.8,
-          "fk_grade": 5.0,
-          "slides_over_20s": 0
-        },
-        "B1": {
-          "slides": 20,
-          "avg_words": 35.2,
-          "avg_sentence_words": 11.7,
-          "fk_grade": 8.4,
-          "slides_over_20s": 0
-        },
-        "B2": {
-          "slides": 20,
-          "avg_words": 37.4,
-          "avg_sentence_words": 18.7,
-          "fk_grade": 12.8,
-          "slides_over_20s": 0
-        }
-      }
-    },
     {
       "mission_id": "sdg4-1",
       "sdg": 4,
@@ -391,6 +348,49 @@
       }
     },
     {
+      "mission_id": "sdg1-1",
+      "sdg": 1,
+      "title_en": "SDG 1: No Poverty in Taiwan",
+      "slides": 20,
+      "stages": 6,
+      "levels": [
+        "A1",
+        "A2",
+        "B1",
+        "B2"
+      ],
+      "level_summary": {
+        "A1": {
+          "slides": 20,
+          "avg_words": 18.7,
+          "avg_sentence_words": 8.0,
+          "fk_grade": 4.5,
+          "slides_over_20s": 0
+        },
+        "A2": {
+          "slides": 20,
+          "avg_words": 29.4,
+          "avg_sentence_words": 9.8,
+          "fk_grade": 5.0,
+          "slides_over_20s": 0
+        },
+        "B1": {
+          "slides": 20,
+          "avg_words": 35.2,
+          "avg_sentence_words": 11.7,
+          "fk_grade": 8.4,
+          "slides_over_20s": 0
+        },
+        "B2": {
+          "slides": 20,
+          "avg_words": 37.4,
+          "avg_sentence_words": 18.7,
+          "fk_grade": 12.8,
+          "slides_over_20s": 0
+        }
+      }
+    },
+    {
       "mission_id": "sdg1-2",
       "sdg": 1,
       "title_en": "The Working Poor: When a Job Isn't Enough",
@@ -459,15 +459,6 @@
           "slides_over_20s": 0
         }
       }
-    },
-    {
-      "mission_id": "sdg13-3",
-      "sdg": 13,
-      "title_en": "Carbon Border Taxes: Can Taiwan's Exporters Survive the Green Transition?",
-      "slides": 20,
-      "stages": 6,
-      "levels": [],
-      "level_summary": {}
     },
     {
       "mission_id": "sdg2-1",
@@ -643,59 +634,6 @@
           "slides_over_20s": 0
         }
       }
-    },
-    {
-      "mission_id": "sdg3-3",
-      "sdg": 3,
-      "title_en": "Can Wearables and AI Predict the Next Pandemic?",
-      "slides": 20,
-      "stages": 6,
-      "levels": [],
-      "level_summary": {}
-    },
-    {
-      "mission_id": "sdg4-3",
-      "sdg": 4,
-      "title_en": "Vocational Education: Taiwan's Underrated Path",
-      "slides": 20,
-      "stages": 6,
-      "levels": [
-        "A2",
-        "B1",
-        "B2"
-      ],
-      "level_summary": {
-        "A2": {
-          "slides": 20,
-          "avg_words": 25.1,
-          "avg_sentence_words": 8.5,
-          "fk_grade": 5.0,
-          "slides_over_20s": 0
-        },
-        "B1": {
-          "slides": 20,
-          "avg_words": 31.9,
-          "avg_sentence_words": 14.0,
-          "fk_grade": 9.0,
-          "slides_over_20s": 0
-        },
-        "B2": {
-          "slides": 20,
-          "avg_words": 34.5,
-          "avg_sentence_words": 16.6,
-          "fk_grade": 12.4,
-          "slides_over_20s": 0
-        }
-      }
-    },
-    {
-      "mission_id": "sdg5-3",
-      "sdg": 5,
-      "title_en": "Women in Engineering: Closing Taiwan's STEM Gender Gap",
-      "slides": 20,
-      "stages": 6,
-      "levels": [],
-      "level_summary": {}
     },
     {
       "mission_id": "sdg6-1",
@@ -874,9 +812,9 @@
     }
   ],
   "issue_counts": {
-    "high": 9,
+    "high": 0,
     "medium": 2,
-    "low": 33,
-    "info": 72
+    "low": 26,
+    "info": 68
   }
 }

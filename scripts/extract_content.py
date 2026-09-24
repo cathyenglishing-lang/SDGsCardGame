@@ -639,25 +639,15 @@ def main() -> int:
     for mission_id, (sdg, title, sheets) in TALL_SHEETS.items():
         m = extract_tall(wb, mission_id, sdg, title, sheets)
         missions.append(m)
-    # SDG 1 came from a workbook outside teach_material that has since been deleted.
-    # The extracted copy is preserved in the repo, so fall back to it.
+    # SDG 1-1 originally came from a workbook outside teach_material; that
+    # workbook is long gone (SDG1_WORKBOOK below is dead unless it reappears),
+    # so its content lives on as a preserved shell —
+    # content/authored/missions/sdg1-1.source.json — same as every other
+    # mission with no workbook sheet. The generic loop right below picks it up;
+    # it needs no special case of its own any more.
     sdg1_path = os.path.normpath(os.path.join(args.material, SDG1_WORKBOOK))
-    preserved = os.path.join(REPO, "content", "authored", "missions", "sdg1.source.json")
     if os.path.exists(sdg1_path):
-        missions.insert(0, extract_flat(sdg1_path, "sdg1", 1, "SDG1", "No Poverty in Taiwan"))
-    elif os.path.exists(preserved):
-        with open(preserved, encoding="utf-8") as fh:
-            frozen = json.load(fh)
-        frozen.pop("level_summary", None)
-        frozen["source"] = {"workbook": "SDGsPechaKucha_SDG1_0526.xlsx (deleted; preserved copy)",
-                            "preserved_at": os.path.relpath(preserved, REPO)}
-        missions.insert(0, frozen)
-        all_issues.append({"severity": "info", "where": "sdg1",
-                           "issue": "source workbook is gone; using the preserved extract in "
-                                    "content/authored/missions/sdg1.source.json"})
-    else:
-        all_issues.append({"severity": "high", "where": "sdg1",
-                           "issue": f"workbook not found and no preserved copy: {sdg1_path}"})
+        missions.insert(0, extract_flat(sdg1_path, "sdg1-1", 1, "SDG1", "No Poverty in Taiwan"))
 
     # Missions with no workbook sheet at all — the SDGs being written from scratch —
     # live as hand-authored shells in content/authored/missions/<mission>.source.json
@@ -698,6 +688,20 @@ def main() -> int:
         with open(os.path.join(OUT_SOURCE, f"{m['mission_id']}.json"), "w", encoding="utf-8") as fh:
             json.dump(m, fh, ensure_ascii=False, indent=2)
         write_review(m, os.path.join(OUT_REVIEW, f"{m['mission_id']}.md"))
+
+    # Self-cleaning: both folders are generated from what's discovered right
+    # now, so a mission that was renamed, moved to content/drafts/, or removed
+    # should not leave its old file sitting here — that stale file is exactly
+    # what caused "sdg1" to keep appearing in the gate output after it was
+    # renamed to "sdg1-1".
+    keep_source = {f"{m['mission_id']}.json" for m in missions} | {"_index.json"}
+    for fname in os.listdir(OUT_SOURCE):
+        if fname not in keep_source:
+            os.remove(os.path.join(OUT_SOURCE, fname))
+    keep_review = {f"{m['mission_id']}.md" for m in missions} | {"QA-REPORT.md"}
+    for fname in os.listdir(OUT_REVIEW):
+        if fname not in keep_review:
+            os.remove(os.path.join(OUT_REVIEW, fname))
 
     index = {
         "content_version": CONTENT_VERSION,

@@ -256,13 +256,36 @@ def main() -> int:
     os.makedirs(OUT, exist_ok=True)
     missions = []
     for canon_id, meta in discover_missions().items():
-        m = build_mission(canon_id, meta)
-        missions.append(m)
-        with open(os.path.join(OUT, f"{canon_id}.json"), "w", encoding="utf-8") as fh:
+        missions.append(build_mission(canon_id, meta))
+
+    # canonical/ is the deliverable folder — what a teacher or the game build
+    # opens without needing to know anything about the pipeline. It holds only
+    # missions that actually pass the gate; a mission mid-authoring or failing
+    # never lands here, no matter how far along it is. That state lives in
+    # content/source/ (machine-readable, every mission) and content/review/
+    # (human-readable, every mission) instead.
+    ready = [m for m in missions if m["ready"]]
+    for m in ready:
+        with open(os.path.join(OUT, f"{m['mission_id']}.json"), "w", encoding="utf-8") as fh:
             json.dump(m, fh, ensure_ascii=False, indent=2)
-        write_review(m, os.path.join(OUT, f"{canon_id}.md"))
+        write_review(m, os.path.join(OUT, f"{m['mission_id']}.md"))
+
+    # Self-cleaning: a mission that used to be ready and no longer is (or was
+    # renamed) leaves a stale file behind otherwise — this folder is generated,
+    # so nothing should linger in it that the current build didn't just write.
+    keep = {f"{m['mission_id']}.json" for m in ready} | {f"{m['mission_id']}.md" for m in ready}
+    keep |= {"_index.json", "SDGs_PechaKucha_v1.xlsx"}
+    removed = []
+    for fname in os.listdir(OUT):
+        if fname not in keep:
+            os.remove(os.path.join(OUT, fname))
+            removed.append(fname)
+    if removed:
+        print(f"removed {len(removed)} stale file(s) from content/canonical: "
+              f"{', '.join(sorted(removed))}", file=sys.stderr)
+
     try:
-        write_workbook(missions, os.path.join(OUT, "SDGs_PechaKucha_v1.xlsx"))
+        write_workbook(ready, os.path.join(OUT, "SDGs_PechaKucha_v1.xlsx"))
     except PermissionError:
         # Windows locks the file while it is open in Excel. The JSON and
         # Markdown outputs above already wrote successfully, so this is not
@@ -276,14 +299,20 @@ def main() -> int:
         "level_bands": BAND,
         "fill_band": FILL_BAND,
         "max_level_overlap": MAX_JACCARD_MEAN,
+        # Every discovered mission is listed here for tracking, ready or not —
+        # this is a manifest, not a deliverable. `in_canonical` says whether the
+        # per-mission json/md actually got written to this folder; only READY
+        # missions do.
         "missions": [
             {"mission_id": m["mission_id"], "sdg": m["sdg"], "title": m["title"]["en"],
              "slides": m["slide_count"], "levels": m["levels"], "ready": m["ready"],
+             "in_canonical": m["ready"],
              "gate": m["gate"], "level_summary": m["level_summary"],
              "source_mission": m["source_mission"]}
             for m in missions
         ],
-        "ready_count": sum(1 for m in missions if m["ready"]),
+        "ready_count": len(ready),
+        "discovered_count": len(missions),
     }
     with open(os.path.join(OUT, "_index.json"), "w", encoding="utf-8") as fh:
         json.dump(index, fh, ensure_ascii=False, indent=2)

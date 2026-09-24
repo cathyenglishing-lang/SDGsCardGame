@@ -1,6 +1,6 @@
 {
   "content_version": "2026.09.1",
-  "generated_at": "2026-09-23T23:15:15+08:00",
+  "generated_at": "2026-09-24T23:26:14+08:00",
   "levels": [
     "A2",
     "B1",
@@ -71,7 +71,7 @@
   "max_level_overlap": 0.34,
   "missions": [
     {
-      "mission_id": "sdg1",
+      "mission_id": "sdg1-1",
       "sdg": 1,
       "title": "SDG 1: No Poverty in Taiwan",
       "slides": 20,
@@ -81,6 +81,7 @@
         "B2"
       ],
       "ready": true,
+      "in_canonical": true,
       "gate": {
         "A2": [],
         "B1": [],
@@ -109,7 +110,91 @@
           "slides_over_20s": 0
         }
       },
-      "source_mission": "sdg1"
+      "source_mission": "sdg1-1"
+    },
+    {
+      "mission_id": "sdg1-2",
+      "sdg": 1,
+      "title": "The Working Poor: When a Job Isn't Enough",
+      "slides": 20,
+      "levels": [
+        "A2",
+        "B1",
+        "B2"
+      ],
+      "ready": true,
+      "in_canonical": true,
+      "gate": {
+        "A2": [],
+        "B1": [],
+        "B2": []
+      },
+      "level_summary": {
+        "A2": {
+          "slides": 20,
+          "avg_words": 27.1,
+          "avg_sentence_words": 8.9,
+          "fk_grade": 5.0,
+          "slides_over_20s": 0
+        },
+        "B1": {
+          "slides": 20,
+          "avg_words": 31.3,
+          "avg_sentence_words": 14.5,
+          "fk_grade": 8.6,
+          "slides_over_20s": 0
+        },
+        "B2": {
+          "slides": 20,
+          "avg_words": 34.9,
+          "avg_sentence_words": 17.4,
+          "fk_grade": 12.0,
+          "slides_over_20s": 0
+        }
+      },
+      "source_mission": "sdg1-2"
+    },
+    {
+      "mission_id": "sdg1-3",
+      "sdg": 1,
+      "title": "Breaking the Cycle: Education as an Escape from Poverty",
+      "slides": 20,
+      "levels": [
+        "A2",
+        "B1",
+        "B2"
+      ],
+      "ready": true,
+      "in_canonical": true,
+      "gate": {
+        "A2": [],
+        "B1": [],
+        "B2": []
+      },
+      "level_summary": {
+        "A2": {
+          "slides": 20,
+          "avg_words": 25.6,
+          "avg_sentence_words": 8.5,
+          "fk_grade": 4.3,
+          "slides_over_20s": 0
+        },
+        "B1": {
+          "slides": 20,
+          "avg_words": 29.6,
+          "avg_sentence_words": 14.5,
+          "fk_grade": 8.8,
+          "slides_over_20s": 0
+        },
+        "B2": {
+          "slides": 20,
+          "avg_words": 31.9,
+          "avg_sentence_words": 16.0,
+          "fk_grade": 12.2,
+          "slides_over_20s": 0
+        }
+      },
+      "source_mission": "sdg1-3"
     },
     {
       "mission_id": "sdg13-1",
@@ -122,6 +207,7 @@
         "B2"
       ],
       "ready": true,
+      "in_canonical": true,
       "gate": {
         "A2": [],
         "B1": [],
@@ -163,6 +249,7 @@
         "B2"
       ],
       "ready": true,
+      "in_canonical": true,
       "gate": {
         "A2": [],
         "B1": [],
@@ -194,6 +281,216 @@
       "source_mission": "sdg13-2"
     },
     {
+      "mission_id": "sdg2-1",
+      "sdg": 2,
+      "title": "Taiwan's Food Security in a Changing Climate",
+      "slides": 20,
+      "levels": [
+        "A2",
+        "B1",
+        "B2"
+      ],
+      "ready": true,
+      "in_canonical": true,
+      "gate": {
+        "A2": [],
+        "B1": [],
+        "B2": []
+      },
+      "level_summary": {
+        "A2": {
+          "slides": 20,
+          "avg_words": 26.4,
+          "avg_sentence_words": 8.9,
+          "fk_grade": 5.4,
+          "slides_over_20s": 0
+        },
+        "B1": {
+          "slides": 20,
+          "avg_words": 30.4,
+          "avg_sentence_words": 14.6,
+          "fk_grade": 9.0,
+          "slides_over_20s": 0
+        },
+        "B2": {
+          "slides": 20,
+          "avg_words": 31.5,
+          "avg_sentence_words": 15.8,
+          "fk_grade": 13.0,
+          "slides_over_20s": 0
+        }
+      },
+      "source_mission": "sdg2-1"
+    },
+    {
+      "mission_id": "sdg2-2",
+      "sdg": 2,
+      "title": "From Farm to Lab: Can Biotech Feed Taiwan?",
+      "slides": 20,
+      "levels": [
+        "A2",
+        "B1",
+        "B2"
+      ],
+      "ready": true,
+      "in_canonical": true,
+      "gate": {
+        "A2": [],
+        "B1": [],
+        "B2": []
+      },
+      "level_summary": {
+        "A2": {
+          "slides": 20,
+          "avg_words": 27.6,
+          "avg_sentence_words": 9.3,
+          "fk_grade": 4.9,
+          "slides_over_20s": 0
+        },
+        "B1": {
+          "slides": 20,
+          "avg_words": 30.6,
+          "avg_sentence_words": 14.2,
+          "fk_grade": 8.7,
+          "slides_over_20s": 0
+        },
+        "B2": {
+          "slides": 20,
+          "avg_words": 31.6,
+          "avg_sentence_words": 15.8,
+          "fk_grade": 13.5,
+          "slides_over_20s": 0
+        }
+      },
+      "source_mission": "sdg2-2"
+    },
+    {
+      "mission_id": "sdg2-3",
+      "sdg": 2,
+      "title": "The Hunger You Don't See: Food Deserts and School Lunches",
+      "slides": 20,
+      "levels": [
+        "A2",
+        "B1",
+        "B2"
+      ],
+      "ready": true,
+      "in_canonical": true,
+      "gate": {
+        "A2": [],
+        "B1": [],
+        "B2": []
+      },
+      "level_summary": {
+        "A2": {
+          "slides": 20,
+          "avg_words": 25.2,
+          "avg_sentence_words": 9.4,
+          "fk_grade": 5.0,
+          "slides_over_20s": 0
+        },
+        "B1": {
+          "slides": 20,
+          "avg_words": 31.0,
+          "avg_sentence_words": 13.8,
+          "fk_grade": 8.6,
+          "slides_over_20s": 0
+        },
+        "B2": {
+          "slides": 20,
+          "avg_words": 30.9,
+          "avg_sentence_words": 15.5,
+          "fk_grade": 12.2,
+          "slides_over_20s": 0
+        }
+      },
+      "source_mission": "sdg2-3"
+    },
+    {
+      "mission_id": "sdg3-1",
+      "sdg": 3,
+      "title": "Taiwan's Health System Under Pressure: NHI at a Crossroads",
+      "slides": 20,
+      "levels": [
+        "A2",
+        "B1",
+        "B2"
+      ],
+      "ready": true,
+      "in_canonical": true,
+      "gate": {
+        "A2": [],
+        "B1": [],
+        "B2": []
+      },
+      "level_summary": {
+        "A2": {
+          "slides": 20,
+          "avg_words": 28.1,
+          "avg_sentence_words": 9.6,
+          "fk_grade": 4.5,
+          "slides_over_20s": 0
+        },
+        "B1": {
+          "slides": 20,
+          "avg_words": 33.5,
+          "avg_sentence_words": 12.2,
+          "fk_grade": 8.0,
+          "slides_over_20s": 0
+        },
+        "B2": {
+          "slides": 20,
+          "avg_words": 33.5,
+          "avg_sentence_words": 16.8,
+          "fk_grade": 12.1,
+          "slides_over_20s": 0
+        }
+      },
+      "source_mission": "sdg3-1"
+    },
+    {
+      "mission_id": "sdg3-2",
+      "sdg": 3,
+      "title": "The Mental Health Crisis on Campus",
+      "slides": 20,
+      "levels": [
+        "A2",
+        "B1",
+        "B2"
+      ],
+      "ready": true,
+      "in_canonical": true,
+      "gate": {
+        "A2": [],
+        "B1": [],
+        "B2": []
+      },
+      "level_summary": {
+        "A2": {
+          "slides": 20,
+          "avg_words": 28.6,
+          "avg_sentence_words": 9.4,
+          "fk_grade": 4.3,
+          "slides_over_20s": 0
+        },
+        "B1": {
+          "slides": 20,
+          "avg_words": 34.7,
+          "avg_sentence_words": 12.4,
+          "fk_grade": 7.4,
+          "slides_over_20s": 0
+        },
+        "B2": {
+          "slides": 20,
+          "avg_words": 37.5,
+          "avg_sentence_words": 18.5,
+          "fk_grade": 12.2,
+          "slides_over_20s": 0
+        }
+      },
+      "source_mission": "sdg3-2"
+    },
+    {
       "mission_id": "sdg4-1",
       "sdg": 4,
       "title": "Quality Education in Taiwan",
@@ -204,6 +501,7 @@
         "B2"
       ],
       "ready": true,
+      "in_canonical": true,
       "gate": {
         "A2": [],
         "B1": [],
@@ -245,6 +543,7 @@
         "B2"
       ],
       "ready": true,
+      "in_canonical": true,
       "gate": {
         "A2": [],
         "B1": [],
@@ -286,6 +585,7 @@
         "B2"
       ],
       "ready": true,
+      "in_canonical": true,
       "gate": {
         "A2": [],
         "B1": [],
@@ -327,6 +627,7 @@
         "B2"
       ],
       "ready": true,
+      "in_canonical": true,
       "gate": {
         "A2": [],
         "B1": [],
@@ -358,6 +659,216 @@
       "source_mission": "sdg5-2"
     },
     {
+      "mission_id": "sdg6-1",
+      "sdg": 6,
+      "title": "Taiwan's Water Paradox: Too Much Rain, Not Enough Water",
+      "slides": 20,
+      "levels": [
+        "A2",
+        "B1",
+        "B2"
+      ],
+      "ready": true,
+      "in_canonical": true,
+      "gate": {
+        "A2": [],
+        "B1": [],
+        "B2": []
+      },
+      "level_summary": {
+        "A2": {
+          "slides": 20,
+          "avg_words": 28.4,
+          "avg_sentence_words": 9.7,
+          "fk_grade": 4.8,
+          "slides_over_20s": 0
+        },
+        "B1": {
+          "slides": 20,
+          "avg_words": 30.4,
+          "avg_sentence_words": 14.9,
+          "fk_grade": 9.3,
+          "slides_over_20s": 0
+        },
+        "B2": {
+          "slides": 20,
+          "avg_words": 34.5,
+          "avg_sentence_words": 17.2,
+          "fk_grade": 12.1,
+          "slides_over_20s": 0
+        }
+      },
+      "source_mission": "sdg6-1"
+    },
+    {
+      "mission_id": "sdg6-2",
+      "sdg": 6,
+      "title": "The Chip Industry's Thirst: Semiconductors and Water Scarcity",
+      "slides": 20,
+      "levels": [
+        "A2",
+        "B1",
+        "B2"
+      ],
+      "ready": true,
+      "in_canonical": true,
+      "gate": {
+        "A2": [],
+        "B1": [],
+        "B2": []
+      },
+      "level_summary": {
+        "A2": {
+          "slides": 20,
+          "avg_words": 28.2,
+          "avg_sentence_words": 8.5,
+          "fk_grade": 5.4,
+          "slides_over_20s": 0
+        },
+        "B1": {
+          "slides": 20,
+          "avg_words": 30.6,
+          "avg_sentence_words": 14.7,
+          "fk_grade": 9.4,
+          "slides_over_20s": 0
+        },
+        "B2": {
+          "slides": 20,
+          "avg_words": 32.0,
+          "avg_sentence_words": 16.0,
+          "fk_grade": 12.1,
+          "slides_over_20s": 0
+        }
+      },
+      "source_mission": "sdg6-2"
+    },
+    {
+      "mission_id": "sdg7-1",
+      "sdg": 7,
+      "title": "Can Taiwan Really Reach Its Renewable Energy Target?",
+      "slides": 20,
+      "levels": [
+        "A2",
+        "B1",
+        "B2"
+      ],
+      "ready": true,
+      "in_canonical": true,
+      "gate": {
+        "A2": [],
+        "B1": [],
+        "B2": []
+      },
+      "level_summary": {
+        "A2": {
+          "slides": 20,
+          "avg_words": 28.5,
+          "avg_sentence_words": 8.5,
+          "fk_grade": 4.1,
+          "slides_over_20s": 0
+        },
+        "B1": {
+          "slides": 20,
+          "avg_words": 30.0,
+          "avg_sentence_words": 15.0,
+          "fk_grade": 9.3,
+          "slides_over_20s": 0
+        },
+        "B2": {
+          "slides": 20,
+          "avg_words": 32.5,
+          "avg_sentence_words": 16.2,
+          "fk_grade": 12.2,
+          "slides_over_20s": 0
+        }
+      },
+      "source_mission": "sdg7-1"
+    },
+    {
+      "mission_id": "sdg7-2",
+      "sdg": 7,
+      "title": "The Nuclear Question: Taiwan's Energy Trilemma",
+      "slides": 20,
+      "levels": [
+        "A2",
+        "B1",
+        "B2"
+      ],
+      "ready": true,
+      "in_canonical": true,
+      "gate": {
+        "A2": [],
+        "B1": [],
+        "B2": []
+      },
+      "level_summary": {
+        "A2": {
+          "slides": 20,
+          "avg_words": 27.3,
+          "avg_sentence_words": 9.1,
+          "fk_grade": 5.2,
+          "slides_over_20s": 0
+        },
+        "B1": {
+          "slides": 20,
+          "avg_words": 30.1,
+          "avg_sentence_words": 15.1,
+          "fk_grade": 9.4,
+          "slides_over_20s": 0
+        },
+        "B2": {
+          "slides": 20,
+          "avg_words": 32.1,
+          "avg_sentence_words": 16.1,
+          "fk_grade": 12.7,
+          "slides_over_20s": 0
+        }
+      },
+      "source_mission": "sdg7-2"
+    },
+    {
+      "mission_id": "sdg7-3",
+      "sdg": 7,
+      "title": "Powering the Future: Batteries, Grids, and Smart Homes",
+      "slides": 20,
+      "levels": [
+        "A2",
+        "B1",
+        "B2"
+      ],
+      "ready": true,
+      "in_canonical": true,
+      "gate": {
+        "A2": [],
+        "B1": [],
+        "B2": []
+      },
+      "level_summary": {
+        "A2": {
+          "slides": 20,
+          "avg_words": 28.5,
+          "avg_sentence_words": 9.5,
+          "fk_grade": 4.8,
+          "slides_over_20s": 0
+        },
+        "B1": {
+          "slides": 20,
+          "avg_words": 30.2,
+          "avg_sentence_words": 15.1,
+          "fk_grade": 9.0,
+          "slides_over_20s": 0
+        },
+        "B2": {
+          "slides": 20,
+          "avg_words": 33.1,
+          "avg_sentence_words": 16.6,
+          "fk_grade": 12.1,
+          "slides_over_20s": 0
+        }
+      },
+      "source_mission": "sdg7-3"
+    },
+    {
       "mission_id": "sdg9-1",
       "sdg": 9,
       "title": "Using AI: Can We Trust AI?",
@@ -368,6 +879,7 @@
         "B2"
       ],
       "ready": true,
+      "in_canonical": true,
       "gate": {
         "A2": [],
         "B1": [],
@@ -409,6 +921,7 @@
         "B2"
       ],
       "ready": true,
+      "in_canonical": true,
       "gate": {
         "A2": [],
         "B1": [],
@@ -450,6 +963,7 @@
         "B2"
       ],
       "ready": true,
+      "in_canonical": true,
       "gate": {
         "A2": [],
         "B1": [],
@@ -481,5 +995,6 @@
       "source_mission": "sdg9-3"
     }
   ],
-  "ready_count": 10
+  "ready_count": 22,
+  "discovered_count": 22
 }

@@ -1,0 +1,933 @@
+{
+  "mission_id": "sdg3-1",
+  "sdg": 3,
+  "title": {
+    "en": "Taiwan's Health System Under Pressure: NHI at a Crossroads",
+    "zh": null
+  },
+  "content_version": "2026.09.1",
+  "levels": [
+    "A2",
+    "B1",
+    "B2"
+  ],
+  "source_mission": "sdg3-1",
+  "slide_count": 20,
+  "level_summary": {
+    "A2": {
+      "slides": 20,
+      "avg_words": 28.1,
+      "avg_sentence_words": 9.6,
+      "fk_grade": 4.5,
+      "slides_over_20s": 0
+    },
+    "B1": {
+      "slides": 20,
+      "avg_words": 33.5,
+      "avg_sentence_words": 12.2,
+      "fk_grade": 8.0,
+      "slides_over_20s": 0
+    },
+    "B2": {
+      "slides": 20,
+      "avg_words": 33.5,
+      "avg_sentence_words": 16.8,
+      "fk_grade": 12.1,
+      "slides_over_20s": 0
+    }
+  },
+  "gate": {
+    "A2": [],
+    "B1": [],
+    "B2": []
+  },
+  "distance": {
+    "A2->B1": {
+      "mean": 0.19,
+      "pass": true,
+      "too_close": {}
+    },
+    "B1->B2": {
+      "mean": 0.27,
+      "pass": true,
+      "too_close": {}
+    }
+  },
+  "ready": true,
+  "stages": [
+    {
+      "part_no": 1,
+      "function_en": "Introduction",
+      "function_zh": "引言：破題與定義",
+      "language_pattern": "rhetorical questions / X is about ...",
+      "source_description": "Part 1: Introduction (Slides 1-3: hook on the NHI card everyone carries, SDG 3 definition, Taiwan's NHI as a globally studied system)",
+      "slides": [
+        {
+          "slide_no": 1,
+          "title": {
+            "en": "The Card in Your Wallet",
+            "zh": "你錢包裡的健保卡"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "You carry a small green card in your wallet. It pays for your doctor, your medicine and your dentist. Today I want to ask: can Taiwan keep paying for it?",
+              "words": 30,
+              "sentences": 3,
+              "avg_sentence_words": 10.0,
+              "fk_grade": 3.3,
+              "speak_seconds_est": 18.9,
+              "fits_20s": true,
+              "provenance": "authored"
+            },
+            "B1": {
+              "text": "Most of us carry an NHI card without ever asking what actually keeps it funded. It pays for doctors, medicine and dental care whenever we need them. So can Taiwan realistically keep affording it?",
+              "words": 34,
+              "sentences": 3,
+              "avg_sentence_words": 11.3,
+              "fk_grade": 7.6,
+              "speak_seconds_est": 18.5,
+              "fits_20s": true,
+              "provenance": "authored"
+            },
+            "B2": {
+              "text": "An NHI card sits in nearly every wallet on this island, yet few of us ever interrogate what keeps the system financially solvent behind it. Long-term sustainability, not present-day access, is now the genuinely open question.",
+              "words": 36,
+              "sentences": 2,
+              "avg_sentence_words": 18.0,
+              "fk_grade": 12.7,
+              "speak_seconds_est": 18.0,
+              "fits_20s": true,
+              "provenance": "authored"
+            }
+          },
+          "authoring": {}
+        },
+        {
+          "slide_no": 2,
+          "title": {
+            "en": "What SDG 3 Asks",
+            "zh": "SDG 3 的訴求"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "SDG 3 has one clear goal: good health and well-being for everyone. It means care for the body and the mind, at every age, in every country. Taiwan takes this seriously.",
+              "words": 31,
+              "sentences": 3,
+              "avg_sentence_words": 10.3,
+              "fk_grade": 5.2,
+              "speak_seconds_est": 19.6,
+              "fits_20s": true,
+              "provenance": "authored"
+            },
+            "B1": {
+              "text": "SDG 3 sets one global objective: good health and well-being for the body and the mind together. Taiwan pursued something close to this for three decades, long before that particular name existed.",
+              "words": 32,
+              "sentences": 2,
+              "avg_sentence_words": 16.0,
+              "fk_grade": 9.5,
+              "speak_seconds_est": 17.5,
+              "fits_20s": true,
+              "provenance": "authored"
+            },
+            "B2": {
+              "text": "SDG 3 establishes a single global objective, covering mental wellbeing alongside physical health, and Taiwan has pursued something like it for three decades already. The system simply lacked that particular name until recently.",
+              "words": 33,
+              "sentences": 2,
+              "avg_sentence_words": 16.5,
+              "fk_grade": 14.1,
+              "speak_seconds_est": 16.5,
+              "fits_20s": true,
+              "provenance": "authored"
+            }
+          },
+          "authoring": {}
+        },
+        {
+          "slide_no": 3,
+          "title": {
+            "en": "A System the World Studies",
+            "zh": "世界研究的制度"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Taiwan built one big health insurance plan in 1995. We call it NHI. Almost every person here has this card, and doctors around the world still study how it works.",
+              "words": 30,
+              "sentences": 3,
+              "avg_sentence_words": 10.0,
+              "fk_grade": 5.2,
+              "speak_seconds_est": 18.9,
+              "fits_20s": true,
+              "provenance": "authored"
+            },
+            "B1": {
+              "text": "Taiwan's National Health Insurance has run as one unified plan since 1995. It now covers almost every resident on this crowded island. That is why health systems abroad have studied it for decades.",
+              "words": 33,
+              "sentences": 3,
+              "avg_sentence_words": 11.0,
+              "fk_grade": 8.7,
+              "speak_seconds_est": 18.0,
+              "fits_20s": true,
+              "provenance": "authored"
+            },
+            "B2": {
+              "text": "Run as a single, unified plan since 1995, Taiwan's National Health Insurance now covers nearly the entire resident population. That is precisely why health economists abroad keep studying it as a model system.",
+              "words": 33,
+              "sentences": 2,
+              "avg_sentence_words": 16.5,
+              "fk_grade": 13.0,
+              "speak_seconds_est": 16.5,
+              "fits_20s": true,
+              "provenance": "authored"
+            }
+          },
+          "authoring": {}
+        }
+      ]
+    },
+    {
+      "part_no": 2,
+      "function_en": "Problem",
+      "function_zh": "問題指認：趨勢與因果",
+      "language_pattern": "present progressive for trends / this causes ...",
+      "source_description": "Part 2: Problem (Slides 4-6: Taiwan becomes a super-aged society, the cost curve, the frozen premium rate)",
+      "slides": [
+        {
+          "slide_no": 4,
+          "title": {
+            "en": "Taiwan Turns Super-Aged",
+            "zh": "台灣邁入超高齡社會"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "In 2025, Taiwan passed a big number. One in five people is now 65 or older. This is called a super-aged society, and it changes how much health care we need.",
+              "words": 31,
+              "sentences": 3,
+              "avg_sentence_words": 10.3,
+              "fk_grade": 6.3,
+              "speak_seconds_est": 19.6,
+              "fits_20s": true,
+              "provenance": "authored"
+            },
+            "B1": {
+              "text": "Taiwan officially became a super-aged society in 2025, with one resident in five now 65 or older. That share has climbed from just 14 percent only seven years earlier. It keeps rising every year.",
+              "words": 34,
+              "sentences": 3,
+              "avg_sentence_words": 11.3,
+              "fk_grade": 9.7,
+              "speak_seconds_est": 18.5,
+              "fits_20s": true,
+              "provenance": "authored"
+            },
+            "B2": {
+              "text": "By 2025, Taiwan had formally entered super-aged territory, with more than a fifth of residents aged 65 or above. Only seven years earlier that fraction sat at a mere 14 percent, and the upward trajectory continues.",
+              "words": 36,
+              "sentences": 2,
+              "avg_sentence_words": 18.0,
+              "fk_grade": 13.4,
+              "speak_seconds_est": 18.0,
+              "fits_20s": true,
+              "provenance": "authored"
+            }
+          },
+          "authoring": {}
+        },
+        {
+          "slide_no": 5,
+          "title": {
+            "en": "The Cost Curve Bends Up",
+            "zh": "醫療成本節節攀升"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "More older people means more visits to the hospital. Medical costs are rising fast every single year. Experts say the bill could grow much bigger before 2050.",
+              "words": 27,
+              "sentences": 3,
+              "avg_sentence_words": 9.0,
+              "fk_grade": 7.1,
+              "speak_seconds_est": 17.1,
+              "fits_20s": true,
+              "provenance": "authored"
+            },
+            "B1": {
+              "text": "As the population ages, medical spending keeps climbing right along with it. Experts expect health costs to grow much bigger in the decades ahead. Older patients simply need more medical care, more often than not.",
+              "words": 35,
+              "sentences": 3,
+              "avg_sentence_words": 11.7,
+              "fk_grade": 7.8,
+              "speak_seconds_est": 19.1,
+              "fits_20s": true,
+              "provenance": "authored"
+            },
+            "B2": {
+              "text": "As the population ages, national medical spending is projected to expand many times over in the coming decades. That growth is driven less by any single crisis than by the accumulated needs of older patients.",
+              "words": 35,
+              "sentences": 2,
+              "avg_sentence_words": 17.5,
+              "fk_grade": 12.5,
+              "speak_seconds_est": 17.5,
+              "fits_20s": true,
+              "provenance": "authored"
+            }
+          },
+          "authoring": {}
+        },
+        {
+          "slide_no": 6,
+          "title": {
+            "en": "The Frozen Number",
+            "zh": "凍結的費率"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Here is the strange part. Health insurance rates stayed the same after 2021. But the safety fund gets smaller every single year, and nobody wants to raise the price.",
+              "words": 29,
+              "sentences": 3,
+              "avg_sentence_words": 9.7,
+              "fk_grade": 6.1,
+              "speak_seconds_est": 18.3,
+              "fits_20s": true,
+              "provenance": "authored"
+            },
+            "B1": {
+              "text": "Here is the part that should worry you. The premium rate has not moved since 2021, even as costs keep increasing around it. Meanwhile, the safety reserve supporting the whole system keeps shrinking.",
+              "words": 33,
+              "sentences": 3,
+              "avg_sentence_words": 11.0,
+              "fk_grade": 7.7,
+              "speak_seconds_est": 18.0,
+              "fits_20s": true,
+              "provenance": "authored"
+            },
+            "B2": {
+              "text": "What should concern you is this: the premium rate has remained frozen since 2021, even as expenditures keep climbing around it. Meanwhile, the safety reserve underpinning the entire system has been quietly contracting, year after year.",
+              "words": 36,
+              "sentences": 2,
+              "avg_sentence_words": 18.0,
+              "fk_grade": 12.7,
+              "speak_seconds_est": 18.0,
+              "fits_20s": true,
+              "provenance": "authored"
+            }
+          },
+          "authoring": {}
+        }
+      ]
+    },
+    {
+      "part_no": 3,
+      "function_en": "Achievements",
+      "function_zh": "成果：舉證與比較",
+      "language_pattern": "present perfect / comparatives",
+      "source_description": "Part 3: Achievements (Slides 7-9: near-universal coverage since 1995, cost-efficiency vs OECD peers, the Health Bank/AI data platform)",
+      "slides": [
+        {
+          "slide_no": 7,
+          "title": {
+            "en": "Nearly Universal, Since 1995",
+            "zh": "幾近全民涵蓋，始於1995"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "NHI started in 1995. Now it covers almost everyone on this island. That is a real achievement, and very few countries do this so well.",
+              "words": 25,
+              "sentences": 3,
+              "avg_sentence_words": 8.3,
+              "fk_grade": 6.1,
+              "speak_seconds_est": 15.8,
+              "fits_20s": true,
+              "provenance": "authored"
+            },
+            "B1": {
+              "text": "NHI has covered nearly everyone in Taiwan since 1995, and that achievement has now held for three decades. Very few countries have matched this level of coverage so far.",
+              "words": 29,
+              "sentences": 2,
+              "avg_sentence_words": 14.5,
+              "fk_grade": 10.0,
+              "speak_seconds_est": 15.8,
+              "fits_20s": true,
+              "provenance": "authored"
+            },
+            "B2": {
+              "text": "Nearly universal since it launched in 1995, NHI has sustained that coverage for three decades now. Few developed health systems, including some far wealthier ones, have matched this level of near-universal reach.",
+              "words": 32,
+              "sentences": 2,
+              "avg_sentence_words": 16.0,
+              "fk_grade": 12.8,
+              "speak_seconds_est": 16.0,
+              "fits_20s": true,
+              "provenance": "authored"
+            }
+          },
+          "authoring": {}
+        },
+        {
+          "slide_no": 8,
+          "title": {
+            "en": "Spending Less, Covering More",
+            "zh": "花得少，保障得廣"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Taiwan spends less money on health care than Japan, Korea or the United States. Still, almost everyone here gets care. Nobody pays huge bills to see a doctor.",
+              "words": 28,
+              "sentences": 3,
+              "avg_sentence_words": 9.3,
+              "fk_grade": 5.3,
+              "speak_seconds_est": 17.7,
+              "fits_20s": true,
+              "provenance": "authored"
+            },
+            "B1": {
+              "text": "Taiwan spends a noticeably smaller share of its economy on health care than Japan, South Korea or the United States. Yet it still delivers broad coverage with low out-of-pocket costs. Few systems manage that combination.",
+              "words": 35,
+              "sentences": 3,
+              "avg_sentence_words": 11.7,
+              "fk_grade": 9.2,
+              "speak_seconds_est": 19.1,
+              "fits_20s": true,
+              "provenance": "authored"
+            },
+            "B2": {
+              "text": "Health care in Taiwan consumes a markedly smaller slice of GDP than in Japan, South Korea or the United States. Out-of-pocket costs here remain consistently low while coverage stays comprehensive, a combination few health systems accomplish simultaneously.",
+              "words": 37,
+              "sentences": 2,
+              "avg_sentence_words": 18.5,
+              "fk_grade": 14.3,
+              "speak_seconds_est": 18.5,
+              "fits_20s": true,
+              "provenance": "authored"
+            }
+          },
+          "authoring": {}
+        },
+        {
+          "slide_no": 9,
+          "title": {
+            "en": "A Health Record That Follows You",
+            "zh": "跟著你的健康存摺"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Taiwan built a digital health record called the Health Bank. Millions of people use it, and it can now connect to your smartwatch too.",
+              "words": 24,
+              "sentences": 2,
+              "avg_sentence_words": 12.0,
+              "fk_grade": 5.3,
+              "speak_seconds_est": 15.2,
+              "fits_20s": true,
+              "provenance": "authored"
+            },
+            "B1": {
+              "text": "The NHI Administration has built a digital Health Bank that lets citizens view their own medical records online. Millions of people already use it. It can now pull in data from smartwatches too.",
+              "words": 33,
+              "sentences": 3,
+              "avg_sentence_words": 11.0,
+              "fk_grade": 7.3,
+              "speak_seconds_est": 18.0,
+              "fits_20s": true,
+              "provenance": "authored"
+            },
+            "B2": {
+              "text": "The NHI Administration has built a digital Health Bank, used by millions of citizens, that now accepts data sent from wearable apps. Personal physical data now sits alongside official medical records for the first time.",
+              "words": 35,
+              "sentences": 2,
+              "avg_sentence_words": 17.5,
+              "fk_grade": 11.8,
+              "speak_seconds_est": 17.5,
+              "fits_20s": true,
+              "provenance": "authored"
+            }
+          },
+          "authoring": {}
+        }
+      ]
+    },
+    {
+      "part_no": 4,
+      "function_en": "Solutions",
+      "function_zh": "解方：做法與取捨",
+      "language_pattern": "instead of + V-ing / modal verbs",
+      "source_description": "Part 4: Solutions (Slides 10-12: raise the rate vs widen the base, preventive/family-medicine care, AI-assisted risk prediction)",
+      "slides": [
+        {
+          "slide_no": 10,
+          "title": {
+            "en": "Raise the Rate, or Widen the Base?",
+            "zh": "調漲費率，還是擴大費基？"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Leaders face a hard choice. They can raise the health insurance rate, or they can collect it from more kinds of income. Both choices make someone angry.",
+              "words": 27,
+              "sentences": 3,
+              "avg_sentence_words": 9.0,
+              "fk_grade": 3.2,
+              "speak_seconds_est": 17.1,
+              "fits_20s": true,
+              "provenance": "authored"
+            },
+            "B1": {
+              "text": "Policymakers face a genuine trade-off here. They can raise the premium rate directly, or they can widen the base of income it is collected from. Neither option avoids making somebody in this country unhappy.",
+              "words": 34,
+              "sentences": 3,
+              "avg_sentence_words": 11.3,
+              "fk_grade": 8.6,
+              "speak_seconds_est": 18.5,
+              "fits_20s": true,
+              "provenance": "authored"
+            },
+            "B2": {
+              "text": "Policymakers face a genuine trade-off between two blunt instruments: raising the premium rate outright, or widening the income base it draws from. Neither option leaves everyone equally satisfied, no matter which one is chosen.",
+              "words": 34,
+              "sentences": 2,
+              "avg_sentence_words": 17.0,
+              "fk_grade": 11.9,
+              "speak_seconds_est": 17.0,
+              "fits_20s": true,
+              "provenance": "authored"
+            }
+          },
+          "authoring": {}
+        },
+        {
+          "slide_no": 11,
+          "title": {
+            "en": "Treat Earlier, Not Just Harder",
+            "zh": "提早介入，而非只顧治療"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "One good idea is to catch sickness early. Family doctors can check on patients before they get very sick. This costs less than treating a bad disease later.",
+              "words": 28,
+              "sentences": 3,
+              "avg_sentence_words": 9.3,
+              "fk_grade": 4.9,
+              "speak_seconds_est": 17.7,
+              "fits_20s": true,
+              "provenance": "authored"
+            },
+            "B1": {
+              "text": "One promising fix is catching illness earlier, through family doctors who track patients over time. That beats only treating people once they arrive at a hospital in crisis. Early care is simply cheaper.",
+              "words": 33,
+              "sentences": 3,
+              "avg_sentence_words": 11.0,
+              "fk_grade": 7.7,
+              "speak_seconds_est": 18.0,
+              "fits_20s": true,
+              "provenance": "authored"
+            },
+            "B2": {
+              "text": "One credible fix lies considerably upstream of the hospital. Family doctors, tracking patients over multiple years instead of treating sudden crises, can catch illness while it still remains cheap to manage.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 11.8,
+              "speak_seconds_est": 15.5,
+              "fits_20s": true,
+              "provenance": "authored"
+            }
+          },
+          "authoring": {}
+        },
+        {
+          "slide_no": 12,
+          "title": {
+            "en": "Teaching Algorithms to Watch Risk",
+            "zh": "讓演算法學會示警"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Doctors are now testing smart computer programs. These programs study health data and try to guess who might get sick. The goal is to act early, not late.",
+              "words": 28,
+              "sentences": 3,
+              "avg_sentence_words": 9.3,
+              "fk_grade": 3.6,
+              "speak_seconds_est": 17.7,
+              "fits_20s": true,
+              "provenance": "authored"
+            },
+            "B1": {
+              "text": "The NHI Administration has begun testing AI models, built with partners including Google, that scan health records for early warning signs. The goal is prevention, well before a disease becomes serious.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 10.2,
+              "speak_seconds_est": 16.9,
+              "fits_20s": true,
+              "provenance": "authored"
+            },
+            "B2": {
+              "text": "Piloted with partners including Google, AI models now scan shared medical records to flag long-term disease risk years in advance. The system's posture is shifting from late treatment toward genuine early intervention.",
+              "words": 32,
+              "sentences": 2,
+              "avg_sentence_words": 16.0,
+              "fk_grade": 11.3,
+              "speak_seconds_est": 16.0,
+              "fits_20s": true,
+              "provenance": "authored"
+            }
+          },
+          "authoring": {}
+        }
+      ]
+    },
+    {
+      "part_no": 5,
+      "function_en": "Implications",
+      "function_zh": "影響：推論後果",
+      "language_pattern": "first conditional / however",
+      "source_description": "Part 5: Implications (Slides 13-16: one continuous tension — what happens if the reserve runs dry, who absorbs a premium hike, why copying a foreign rate is not a fix, and why the decision window is closing)",
+      "slides": [
+        {
+          "slide_no": 13,
+          "title": {
+            "en": "If the Reserve Runs Dry",
+            "zh": "如果準備金見底"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Here is the risk. If the safety fund drops too low, the law says the government must act fast. That could mean higher costs or smaller benefits for us.",
+              "words": 29,
+              "sentences": 3,
+              "avg_sentence_words": 9.7,
+              "fk_grade": 3.2,
+              "speak_seconds_est": 18.3,
+              "fits_20s": true,
+              "provenance": "authored"
+            },
+            "B1": {
+              "text": "Here is the risk, stated in the plainest possible terms. If the safety reserve keeps shrinking, it will eventually breach the level regulators require it to hold. The government would then have to act quickly.",
+              "words": 35,
+              "sentences": 3,
+              "avg_sentence_words": 11.7,
+              "fk_grade": 7.2,
+              "speak_seconds_est": 19.1,
+              "fits_20s": true,
+              "provenance": "authored"
+            },
+            "B2": {
+              "text": "Should the safety reserve keep contracting, it will eventually breach the floor regulators require it to hold. At that point, the government would be forced into rapid, less considered action.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 10.3,
+              "speak_seconds_est": 15.0,
+              "fits_20s": true,
+              "provenance": "authored"
+            }
+          },
+          "authoring": {}
+        },
+        {
+          "slide_no": 14,
+          "title": {
+            "en": "Who Pays the Difference?",
+            "zh": "誰來補上差額？"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "So who pays if rates go up? Young workers pay a share of every paycheck. A higher rate would hit new graduates hardest, right when they start their first job.",
+              "words": 30,
+              "sentences": 3,
+              "avg_sentence_words": 10.0,
+              "fk_grade": 3.7,
+              "speak_seconds_est": 18.9,
+              "fits_20s": true,
+              "provenance": "authored"
+            },
+            "B1": {
+              "text": "If premiums do rise, that cost will not be distributed evenly across everyone. Young workers and new graduates already earn the least of anyone in the system. A higher rate would affect them the most severely.",
+              "words": 36,
+              "sentences": 3,
+              "avg_sentence_words": 12.0,
+              "fk_grade": 7.8,
+              "speak_seconds_est": 19.6,
+              "fits_20s": true,
+              "provenance": "authored"
+            },
+            "B2": {
+              "text": "Even if premiums do rise, that additional burden will not be distributed evenly across the population. It is young workers and recent graduates, already earning comparatively little, who would absorb a higher rate most severely.",
+              "words": 35,
+              "sentences": 2,
+              "avg_sentence_words": 17.5,
+              "fk_grade": 14.2,
+              "speak_seconds_est": 17.5,
+              "fits_20s": true,
+              "provenance": "authored"
+            }
+          },
+          "authoring": {}
+        },
+        {
+          "slide_no": 15,
+          "title": {
+            "en": "Copying a Number Is Not a Fix",
+            "zh": "抄一個數字不是解方"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Some people say: just copy Japan's rate. But a bigger number alone will not fix the real problem. Taiwan also has to change how care works, not just its price.",
+              "words": 30,
+              "sentences": 3,
+              "avg_sentence_words": 10.0,
+              "fk_grade": 3.7,
+              "speak_seconds_est": 18.9,
+              "fits_20s": true,
+              "provenance": "authored"
+            },
+            "B1": {
+              "text": "Some argue Taiwan should simply match Japan's or South Korea's higher premium rate. However, a bigger number alone will not explain why expenses keep climbing. Taiwan also needs to reform how care is delivered.",
+              "words": 34,
+              "sentences": 3,
+              "avg_sentence_words": 11.3,
+              "fk_grade": 7.9,
+              "speak_seconds_est": 18.5,
+              "fits_20s": true,
+              "provenance": "authored"
+            },
+            "B2": {
+              "text": "Some insist Taiwan should simply match Japan's or South Korea's higher premium rate. Yet a larger estimate alone does not explain why expenditures keep climbing, nor does it restructure how care is actually administered.",
+              "words": 34,
+              "sentences": 2,
+              "avg_sentence_words": 17.0,
+              "fk_grade": 11.5,
+              "speak_seconds_est": 17.0,
+              "fits_20s": true,
+              "provenance": "authored"
+            }
+          },
+          "authoring": {}
+        },
+        {
+          "slide_no": 16,
+          "title": {
+            "en": "The Window Is Closing",
+            "zh": "窗口正在關閉"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Time is short. Many older workers are retiring right now, so fewer people pay into the system. Taiwan must decide soon, before the choice gets made for us.",
+              "words": 28,
+              "sentences": 3,
+              "avg_sentence_words": 9.3,
+              "fk_grade": 4.9,
+              "speak_seconds_est": 17.7,
+              "fits_20s": true,
+              "provenance": "authored"
+            },
+            "B1": {
+              "text": "The clock is not on Taiwan's side, either. Large numbers of workers are retiring right now, which steadily diminishes the paying population year by year. The reserve needs them at the worst conceivable moment.",
+              "words": 34,
+              "sentences": 3,
+              "avg_sentence_words": 11.3,
+              "fk_grade": 7.2,
+              "speak_seconds_est": 18.5,
+              "fits_20s": true,
+              "provenance": "authored"
+            },
+            "B2": {
+              "text": "Time is not neutral in this story, either. Large cohorts of workers are retiring right now, shrinking the contributing population at precisely the moment the reserve can least afford it.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 9.9,
+              "speak_seconds_est": 15.0,
+              "fits_20s": true,
+              "provenance": "authored"
+            }
+          },
+          "authoring": {}
+        }
+      ]
+    },
+    {
+      "part_no": 6,
+      "function_en": "Call to action",
+      "function_zh": "結語：總結與號召",
+      "language_pattern": "to wrap up ... / let's ...",
+      "source_description": "Part 6: Call to action (Slides 17-20: summary of strength and strain, personal stake, what STEM students can bring, closing ask)",
+      "slides": [
+        {
+          "slide_no": 17,
+          "title": {
+            "en": "Strong Foundation, Real Strain",
+            "zh": "根基穩固，壓力真實"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Let's sum this up. NHI is one of Taiwan's best ideas. But it is also under real pressure, and that pressure grows bigger every year.",
+              "words": 25,
+              "sentences": 3,
+              "avg_sentence_words": 8.3,
+              "fk_grade": 3.7,
+              "speak_seconds_est": 15.8,
+              "fits_20s": true,
+              "provenance": "authored"
+            },
+            "B1": {
+              "text": "So where does that leave us? NHI remains one of Taiwan's genuine achievements, yet it is also carrying real structural strain that has only grown heavier with each passing year.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 7.2,
+              "speak_seconds_est": 16.4,
+              "fits_20s": true,
+              "provenance": "authored"
+            },
+            "B2": {
+              "text": "So where does that leave the system? A substantial achievement, sitting under genuine structural strain, and it is the strain, not the achievement, that has intensified with every passing year.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 9.9,
+              "speak_seconds_est": 15.0,
+              "fits_20s": true,
+              "provenance": "authored"
+            }
+          },
+          "authoring": {}
+        },
+        {
+          "slide_no": 18,
+          "title": {
+            "en": "Your Card, Your Stake",
+            "zh": "你的卡，你的份"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "This is not just a government problem. It is your card, your future premium, and your parents' care. You already have a stake in how this story ends.",
+              "words": 28,
+              "sentences": 3,
+              "avg_sentence_words": 9.3,
+              "fk_grade": 3.6,
+              "speak_seconds_est": 17.7,
+              "fits_20s": true,
+              "provenance": "authored"
+            },
+            "B1": {
+              "text": "This is not an abstract discussion happening somewhere else. It is your card, your future premium and the care your own family will need. That already means you have a genuine stake in how this ends.",
+              "words": 36,
+              "sentences": 3,
+              "avg_sentence_words": 12.0,
+              "fk_grade": 5.5,
+              "speak_seconds_est": 19.6,
+              "fits_20s": true,
+              "provenance": "authored"
+            },
+            "B2": {
+              "text": "None of this is a distant, hypothetical debate. It is the premium you will eventually pay, and the care your own family will eventually require, regardless of whether you have seriously paused to consider it.",
+              "words": 35,
+              "sentences": 2,
+              "avg_sentence_words": 17.5,
+              "fk_grade": 11.1,
+              "speak_seconds_est": 17.5,
+              "fits_20s": true,
+              "provenance": "authored"
+            }
+          },
+          "authoring": {}
+        },
+        {
+          "slide_no": 19,
+          "title": {
+            "en": "What STEM Students Can Bring",
+            "zh": "理工科學生能做什麼"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Students like you can help. You can study the data, build better tools, or simply learn the facts and share them. This problem needs sharp minds, not louder complaints.",
+              "words": 29,
+              "sentences": 3,
+              "avg_sentence_words": 9.7,
+              "fk_grade": 3.2,
+              "speak_seconds_est": 18.3,
+              "fits_20s": true,
+              "provenance": "authored"
+            },
+            "B1": {
+              "text": "Students in STEM fields have real tools to offer here. They can interpret data honestly, build better prediction models, or simply know the trade-offs well enough to argue for one clearly. That matters too.",
+              "words": 34,
+              "sentences": 3,
+              "avg_sentence_words": 11.3,
+              "fk_grade": 6.2,
+              "speak_seconds_est": 18.5,
+              "fits_20s": true,
+              "provenance": "authored"
+            },
+            "B2": {
+              "text": "STEM students bring something specific to this problem. They can read data honestly, build models that predict risk rather than merely describe it, and argue for trade-offs precisely rather than emotionally.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 11.4,
+              "speak_seconds_est": 15.5,
+              "fits_20s": true,
+              "provenance": "authored"
+            }
+          },
+          "authoring": {}
+        },
+        {
+          "slide_no": 20,
+          "title": {
+            "en": "A System Worth Keeping",
+            "zh": "一個值得留住的制度"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Taiwan built something special. Almost everyone here gets care, and the price stays fair. What we choose now will shape this system for a long time.",
+              "words": 26,
+              "sentences": 3,
+              "avg_sentence_words": 8.7,
+              "fk_grade": 3.2,
+              "speak_seconds_est": 16.4,
+              "fits_20s": true,
+              "provenance": "authored"
+            },
+            "B1": {
+              "text": "Taiwan has built something genuinely rare: broad coverage at a fair price for almost everyone. Let's work to keep it that way. What happens over the next three decades depends on the choices we make today.",
+              "words": 36,
+              "sentences": 3,
+              "avg_sentence_words": 12.0,
+              "fk_grade": 6.8,
+              "speak_seconds_est": 19.6,
+              "fits_20s": true,
+              "provenance": "authored"
+            },
+            "B2": {
+              "text": "Taiwan has built something genuinely rare here: substantial coverage at a price few comparable economies can match. What happens over the next three decades begins with what we, not someone else, choose to do today.",
+              "words": 35,
+              "sentences": 2,
+              "avg_sentence_words": 17.5,
+              "fk_grade": 10.8,
+              "speak_seconds_est": 17.5,
+              "fits_20s": true,
+              "provenance": "authored"
+            }
+          },
+          "authoring": {}
+        }
+      ]
+    }
+  ]
+}

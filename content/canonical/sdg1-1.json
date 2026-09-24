@@ -1,5 +1,5 @@
 {
-  "mission_id": "sdg1",
+  "mission_id": "sdg1-1",
   "sdg": 1,
   "title": {
     "en": "SDG 1: No Poverty in Taiwan",
@@ -11,7 +11,7 @@
     "B1",
     "B2"
   ],
-  "source_mission": "sdg1",
+  "source_mission": "sdg1-1",
   "slide_count": 20,
   "level_summary": {
     "A2": {
