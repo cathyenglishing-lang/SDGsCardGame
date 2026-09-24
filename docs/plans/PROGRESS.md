@@ -19,29 +19,33 @@ game build is a later, separately-directed phase.
 
 ### What "3 missions each" requires
 
-| SDG | Have | Need | Status |
-| --- | --- | --- | --- |
-| 1 No Poverty | 1 (sdg1) | +2 | not started |
-| 2 Zero Hunger | 0 | +3 | not started |
-| 3 Good Health | 0 | +3 | not started |
-| 4 Quality Education | 2 (sdg4-1/2) | +1 | not started |
-| 5 Gender Equality | 2 (sdg5-1/2) | +1 | not started |
-| 6 Clean Water | 0 | +3 | not started |
-| 7 Clean Energy | 0 | +3 | not started |
-| 8 Decent Work | 0 | +3 | not started |
-| 9 Industry/Innovation | 3 (sdg9-1/2/3) | 0 | done |
-| 10 Reduced Inequalities | 0 | +3 | not started |
-| 11 Sustainable Cities | 0 | +3 | not started |
-| 12 Responsible Consumption | 0 | +3 | not started |
-| 13 Climate Action | 2 (sdg13-1/2) | +1 | not started |
-| 14 Life Below Water | 0 | +3 | not started |
-| 15 Life on Land | 0 | +3 | not started |
-| 16 Peace/Justice/Institutions | 0 | +3 | not started |
-| 17 Partnerships | 0 | +3 | not started |
+Checkpoint 2026-09-24: 22 of 51 done. Paused here on user instruction — not a
+stop, a landing point. Resume by finishing the three mid-flight missions, then
+continuing the queued SDGs below.
 
-41 new missions total. Proposed topics for all of them are in the doc tab
-"SDGs 教材擴充計畫" — that is the source of truth for what each agent is
-writing; this file tracks completion state only.
+| SDG | Status |
+| --- | --- |
+| 1 No Poverty | done — sdg1, sdg1-2, sdg1-3 all pass |
+| 2 Zero Hunger | done — sdg2-1/2/3 all pass |
+| 3 Good Health | sdg3-1, sdg3-2 pass; sdg3-3 has its shell (topic + 20-slide outline) but no level text yet |
+| 4 Quality Education | sdg4-1, sdg4-2 pass; sdg4-3 has all three levels written but fails — 65-80% soft-miss rate, 0.40-0.47 vocabulary distance between levels (needs a rewrite, not a patch) |
+| 5 Gender Equality | sdg5-1, sdg5-2 pass; sdg5-3 has its shell but no level text yet |
+| 6 Clean Water | done — sdg6-1, sdg6-2 pass |
+| 7 Clean Energy | done — sdg7-1/2/3 all pass |
+| 8 Decent Work | not started |
+| 9 Industry/Innovation | done (phase 1) — sdg9-1/2/3 all pass |
+| 10 Reduced Inequalities | not started |
+| 11 Sustainable Cities | not started |
+| 12 Responsible Consumption | not started |
+| 13 Climate Action | sdg13-1, sdg13-2 pass; sdg13-3 has its shell but no level text yet |
+| 14 Life Below Water | not started |
+| 15 Life on Land | not started |
+| 16 Peace/Justice/Institutions | not started |
+| 17 Partnerships | not started |
+
+Proposed topics for all 41 new missions are in the doc tab "SDGs 教材擴充計畫" —
+that is the source of truth for what each agent is writing; this file tracks
+completion state only.
 
 ### Infrastructure built for this phase
 
