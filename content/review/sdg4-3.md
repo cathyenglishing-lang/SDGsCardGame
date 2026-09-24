@@ -6,9 +6,9 @@ SDG 4 · 20 slides · levels: A2, B1, B2 · content_version 2026.09.1
 
 | 級別 | 張數 | 每張字數 | 每句字數 | FK | 超過 20 秒 |
 | --- | --- | --- | --- | --- | --- |
-| A2 | 20 | 25.1 | 8.3 | 5.0 | 0 |
+| A2 | 20 | 25.1 | 8.5 | 5.0 | 0 |
 | B1 | 20 | 31.9 | 14.0 | 9.0 | 0 |
-| B2 | 20 | 34.5 | 16.6 | 12.4 | 1 |
+| B2 | 20 | 34.5 | 16.6 | 12.4 | 0 |
 
 ## Part 1 · Introduction（引言：破題與定義）
 
@@ -103,8 +103,8 @@ SDG 4 · 20 slides · levels: A2, B1, B2 · content_version 2026.09.1
   > There is also a training program based on Germany's system. Students work three days and study two days each week. Its graduates found jobs at a 94.9 percent rate.
 - **B1**（36 字 / 每句 12.0 字 / 約 19.6 秒）
   > There is also a Dual-Track program modeled on Germany's system. Students work at least three days and attend class two or three days each week. Its 2021 graduates found jobs at a 94.9 percent rate.
-- **B2**（41 字 / 每句 13.7 字 / 約 20.5 秒 ⚠️ 超過 20 秒）
-  > A Dual-Track Training program is modeled on Germany's apprenticeship system. It requires students to work three days and attend class two or three days weekly. Its 2021 cohort reached a 94.9 percent employment rate, a figure few university majors match.
+- **B2**（40 字 / 每句 13.3 字 / 約 20.0 秒）
+  > A Dual-Track Training program is modeled on Germany's apprenticeship system. It requires students to work three days and attend class two or three days weekly. Its 2021 cohort reached a 94.9 percent employment rate that few university majors match.
 
 ## Part 4 · Solutions（解方：做法與取捨）
 
@@ -147,8 +147,8 @@ SDG 4 · 20 slides · levels: A2, B1, B2 · content_version 2026.09.1
 
 - **A2**（26 字 / 每句 8.7 字 / 約 16.4 秒）
   > Here is the real tension. If plants need skilled workers, fewer trade grads becomes a real danger. Even chip factories need trained workers, not only engineers.
-- **B1**（31 字 / 每句 15.5 字 / 約 16.9 秒）
-  > Here is where the real tension begins. If Taiwan's factories depend this much on skilled workers, then fewer trade students becomes a serious danger for the industries that made Taiwan famous.
+- **B1**（32 字 / 每句 16.0 字 / 約 17.5 秒）
+  > Here is where the real tension begins. If Taiwan's factories depend this much on skilled workers, then a shrinking pipeline could become a serious danger for the industries that made Taiwan famous.
 - **B2**（34 字 / 每句 17.0 字 / 約 17.0 秒）
   > Here is where the real tension begins. If Taiwan's export factories depend this much on skilled workers, then a shrinking trade-school pipeline threatens the very industries that made the island famous, chip plants included.
 
@@ -195,8 +195,8 @@ SDG 4 · 20 slides · levels: A2, B1, B2 · content_version 2026.09.1
 
 ### Slide 18 · Why This Concerns Every Major
 
-- **A2**（24 字 / 每句 8.0 字 / 約 15.2 秒）
-  > This matters even if you study something else entirely. Taiwan's whole economy needs both kinds of workers. One path cannot succeed without the other.
+- **A2**（24 字 / 每句 12.0 字 / 約 15.2 秒）
+  > This matters even if you study something else today. Taiwan really needs both kinds of workers, because one path cannot succeed without the other.
 - **B1**（34 字 / 每句 17.0 字 / 約 18.5 秒）
   > This matters even if your own major has nothing to do with a workshop. Taiwan's whole economy depends on both kinds of graduates working together, and one path simply cannot thrive without the other.
 - **B2**（36 字 / 每句 18.0 字 / 約 18.0 秒）

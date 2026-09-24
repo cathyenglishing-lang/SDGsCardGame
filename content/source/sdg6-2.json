@@ -1001,12 +1001,12 @@
           "numbers": [],
           "scripts": {
             "A2": {
-              "text": "To sum up, chip production needs enormous water. Taiwan does not have much water to spare. Factories have started recycling a lot, but the problem with farmers is still not solved.",
+              "text": "To sum up, chip production needs enormous water today. Taiwan does not have much water to spare. Factories have started reusing water, but the problem with farmers is still not solved.",
               "words": 31,
               "sentences": 3,
               "avg_sentence_words": 10.3,
-              "fk_grade": 5.9,
-              "long_word_pct": 12.9,
+              "fk_grade": 6.3,
+              "long_word_pct": 9.7,
               "speak_seconds_est": 19.6,
               "fill_pct": 97.9,
               "fits_20s": true,
@@ -1232,7 +1232,7 @@
       "slides": 20,
       "avg_words": 28.2,
       "avg_sentence_words": 8.5,
-      "fk_grade": 5.3,
+      "fk_grade": 5.4,
       "slides_over_20s": 0
     },
     "B1": {

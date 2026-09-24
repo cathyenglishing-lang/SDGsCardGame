@@ -542,15 +542,15 @@
               "workbook_text": null
             },
             "B2": {
-              "text": "A Dual-Track Training program is modeled on Germany's apprenticeship system. It requires students to work three days and attend class two or three days weekly. Its 2021 cohort reached a 94.9 percent employment rate, a figure few university majors match.",
-              "words": 41,
+              "text": "A Dual-Track Training program is modeled on Germany's apprenticeship system. It requires students to work three days and attend class two or three days weekly. Its 2021 cohort reached a 94.9 percent employment rate that few university majors match.",
+              "words": 40,
               "sentences": 3,
-              "avg_sentence_words": 13.7,
-              "fk_grade": 10.7,
-              "long_word_pct": 19.5,
-              "speak_seconds_est": 20.5,
-              "fill_pct": 102.5,
-              "fits_20s": false,
+              "avg_sentence_words": 13.3,
+              "fk_grade": 10.6,
+              "long_word_pct": 20.0,
+              "speak_seconds_est": 20.0,
+              "fill_pct": 100.0,
+              "fits_20s": true,
               "wpm": 120,
               "provenance": "authored",
               "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
@@ -776,14 +776,14 @@
               "workbook_text": null
             },
             "B1": {
-              "text": "Here is where the real tension begins. If Taiwan's factories depend this much on skilled workers, then fewer trade students becomes a serious danger for the industries that made Taiwan famous.",
-              "words": 31,
+              "text": "Here is where the real tension begins. If Taiwan's factories depend this much on skilled workers, then a shrinking pipeline could become a serious danger for the industries that made Taiwan famous.",
+              "words": 32,
               "sentences": 2,
-              "avg_sentence_words": 15.5,
+              "avg_sentence_words": 16.0,
               "fk_grade": 9.1,
-              "long_word_pct": 12.9,
-              "speak_seconds_est": 16.9,
-              "fill_pct": 84.5,
+              "long_word_pct": 15.6,
+              "speak_seconds_est": 17.5,
+              "fill_pct": 87.3,
               "fits_20s": true,
               "wpm": 110,
               "provenance": "authored",
@@ -1059,12 +1059,12 @@
           "numbers": [],
           "scripts": {
             "A2": {
-              "text": "This matters even if you study something else entirely. Taiwan's whole economy needs both kinds of workers. One path cannot succeed without the other.",
+              "text": "This matters even if you study something else today. Taiwan really needs both kinds of workers, because one path cannot succeed without the other.",
               "words": 24,
-              "sentences": 3,
-              "avg_sentence_words": 8.0,
-              "fk_grade": 8.2,
-              "long_word_pct": 12.5,
+              "sentences": 2,
+              "avg_sentence_words": 12.0,
+              "fk_grade": 7.8,
+              "long_word_pct": 4.2,
               "speak_seconds_est": 15.2,
               "fill_pct": 75.8,
               "fits_20s": true,
@@ -1231,7 +1231,7 @@
     "A2": {
       "slides": 20,
       "avg_words": 25.1,
-      "avg_sentence_words": 8.3,
+      "avg_sentence_words": 8.5,
       "fk_grade": 5.0,
       "slides_over_20s": 0
     },
@@ -1247,7 +1247,7 @@
       "avg_words": 34.5,
       "avg_sentence_words": 16.6,
       "fk_grade": 12.4,
-      "slides_over_20s": 1
+      "slides_over_20s": 0
     }
   }
 }

@@ -1,6 +1,6 @@
 # 教材 QA 報告
 
-content_version 2026.09.1 · 產生於 2026-09-24T18:20:33+08:00
+content_version 2026.09.1 · 產生於 2026-09-24T23:17:18+08:00
 
 來源：`SDGs Pecha Kucha (公用)_new.xlsx`（其餘三個工作簿是舊版或子集，未使用：`SDGs Pecha Kucha (公用).xlsx`、`SDGs Pecha Kucha (公用)_自建題庫檔.xlsx`、`SDGsPechaKucha_0526.xlsx`）
 
@@ -18,11 +18,10 @@ content_version 2026.09.1 · 產生於 2026-09-24T18:20:33+08:00
 - **sdg5-3** — level B1 missing
 - **sdg5-3** — level B2 missing
 
-## 建議處理（3）
+## 建議處理（2）
 
 - **sdg4-1 A1** — avg 32 words per slide exceeds A1 spec (32)
 - **sdg4-1 A1** — 14 slides need more than 20 s at 130 wpm: [1, 2, 3, 4, 5, 6, 7, 8]...
-- **sdg4-3 B2** — 1 slides need more than 20 s at 130 wpm: [9]
 
 ## 待補（33）
 

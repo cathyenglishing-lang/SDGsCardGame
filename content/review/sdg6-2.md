@@ -10,7 +10,7 @@ SDG 6 · 20 slides · levels: A2, B1, B2 · content_version 2026.09.1
 
 | 級別 | 張數 | 每張字數 | 每句字數 | FK | 超過 20 秒 |
 | --- | --- | --- | --- | --- | --- |
-| A2 | 20 | 28.2 | 8.5 | 5.3 | 0 |
+| A2 | 20 | 28.2 | 8.5 | 5.4 | 0 |
 | B1 | 20 | 30.6 | 14.7 | 9.4 | 0 |
 | B2 | 20 | 32.0 | 16.0 | 12.1 | 0 |
 
@@ -191,7 +191,7 @@ SDG 6 · 20 slides · levels: A2, B1, B2 · content_version 2026.09.1
 ### Slide 17 · Real progress, unresolved trade-off（真實進展與未解的取捨）
 
 - **A2**（31 字 / 每句 10.3 字 / 約 19.6 秒）
-  > To sum up, chip production needs enormous water. Taiwan does not have much water to spare. Factories have started recycling a lot, but the problem with farmers is still not solved.
+  > To sum up, chip production needs enormous water today. Taiwan does not have much water to spare. Factories have started reusing water, but the problem with farmers is still not solved.
 - **B1**（31 字 / 每句 15.5 字 / 約 16.9 秒）
   > To sum up, making chips needs enormous amounts of water, and Taiwan has little to spare. The industry has responded with real recycling, yet the problem with farming still remains unsolved.
 - **B2**（32 字 / 每句 16.0 字 / 約 16.0 秒）
