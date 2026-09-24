@@ -26,7 +26,56 @@
             "zh": null
           },
           "numbers": [],
-          "scripts": {}
+          "scripts": {
+            "A2": {
+              "text": "Imagine telling your parents you want to skip university for a trade school. Many students never say it. Why does that idea feel so hard?",
+              "words": 25,
+              "sentences": 3,
+              "avg_sentence_words": 8.3,
+              "fk_grade": 5.1,
+              "long_word_pct": 8.0,
+              "speak_seconds_est": 15.8,
+              "fill_pct": 78.9,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg4-1 (STEM/exam pressure) and sdg4-2 (digital equity/media literacy): the status and outcomes of vocational/technical education specifically. Facts and sources: vocational-school enrollment share fell from 59.6% (98th academic year) to 46.68% (112th academic year), a 16-year low; ratio was 7:3 forty-plus years ago; academic track overtook vocational in the 108th academic year; by the 113th academic year, general-track students ~279,000 (down 11,000) vs vocational students ~210,000 (down 52,000) (udn.com, CNA reporting Ministry of Education statistics, 2024-2025). Stigma ('black hands'/blue-collar label vs 'craftsman'/'technician' respect elsewhere) and parental credential-insistence even alongside direct-to-job tracks (Global Views Monthly, Liberty Times, CNA, 2024-2025). WorldSkills 2024 (47th, Lyon): Taiwan 58 competitors/50 trades, 2 gold/3 silver/10 bronze/28 excellence, 4th of 69 countries (Ministry of Labor press release Sep 2024, via udn.com/TBO Taiwan). WorldSkills Asia 2025 (Taipei, hosted by Taiwan): back-to-back overall team champion, 17 gold/9 silver/5 bronze/2 excellence youth + 5 gold junior, among 30 countries (Ministry of Labor 2025). Dual-Track Training Flagship Program (modeled on Germany's dual system): work 3+ days/week, school 2-3 days/week, 2021 cohort employment rate 94.9% (Workforce Development Agency). 2023 starting salaries: senior-high/vocational ~NT$28,000/month, university ~NT$33,000/month, graduate school ~NT$49,000/month; share starting at minimum wage: 58.3% senior-high/vocational, 23.9% university, 4.4% graduate school (Ministry of Labor 112-year new-hire wage statistics, via Global Views Monthly).",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "Imagine telling your parents that you would rather attend a vocational school than a university. Very few students actually say it out loud. Why does that idea feel so uncomfortable?",
+              "words": 30,
+              "sentences": 3,
+              "avg_sentence_words": 10.0,
+              "fk_grade": 8.8,
+              "long_word_pct": 16.7,
+              "speak_seconds_est": 16.4,
+              "fill_pct": 81.8,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg4-1 (STEM/exam pressure) and sdg4-2 (digital equity/media literacy): the status and outcomes of vocational/technical education specifically. Facts and sources: vocational-school enrollment share fell from 59.6% (98th academic year) to 46.68% (112th academic year), a 16-year low; ratio was 7:3 forty-plus years ago; academic track overtook vocational in the 108th academic year; by the 113th academic year, general-track students ~279,000 (down 11,000) vs vocational students ~210,000 (down 52,000) (udn.com, CNA reporting Ministry of Education statistics, 2024-2025). Stigma ('black hands'/blue-collar label vs 'craftsman'/'technician' respect elsewhere) and parental credential-insistence even alongside direct-to-job tracks (Global Views Monthly, Liberty Times, CNA, 2024-2025). WorldSkills 2024 (47th, Lyon): Taiwan 58 competitors/50 trades, 2 gold/3 silver/10 bronze/28 excellence, 4th of 69 countries (Ministry of Labor press release Sep 2024, via udn.com/TBO Taiwan). WorldSkills Asia 2025 (Taipei, hosted by Taiwan): back-to-back overall team champion, 17 gold/9 silver/5 bronze/2 excellence youth + 5 gold junior, among 30 countries (Ministry of Labor 2025). Dual-Track Training Flagship Program (modeled on Germany's dual system): work 3+ days/week, school 2-3 days/week, 2021 cohort employment rate 94.9% (Workforce Development Agency). 2023 starting salaries: senior-high/vocational ~NT$28,000/month, university ~NT$33,000/month, graduate school ~NT$49,000/month; share starting at minimum wage: 58.3% senior-high/vocational, 23.9% university, 4.4% graduate school (Ministry of Labor 112-year new-hire wage statistics, via Global Views Monthly).",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "Imagine confessing to your parents that you would genuinely prefer a vocational school over a university degree, when almost nobody voices that preference aloud. Why does admitting it still feel so shameful?",
+              "words": 32,
+              "sentences": 2,
+              "avg_sentence_words": 16.0,
+              "fk_grade": 12.8,
+              "long_word_pct": 21.9,
+              "speak_seconds_est": 16.0,
+              "fill_pct": 80.0,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg4-1 (STEM/exam pressure) and sdg4-2 (digital equity/media literacy): the status and outcomes of vocational/technical education specifically. Facts and sources: vocational-school enrollment share fell from 59.6% (98th academic year) to 46.68% (112th academic year), a 16-year low; ratio was 7:3 forty-plus years ago; academic track overtook vocational in the 108th academic year; by the 113th academic year, general-track students ~279,000 (down 11,000) vs vocational students ~210,000 (down 52,000) (udn.com, CNA reporting Ministry of Education statistics, 2024-2025). Stigma ('black hands'/blue-collar label vs 'craftsman'/'technician' respect elsewhere) and parental credential-insistence even alongside direct-to-job tracks (Global Views Monthly, Liberty Times, CNA, 2024-2025). WorldSkills 2024 (47th, Lyon): Taiwan 58 competitors/50 trades, 2 gold/3 silver/10 bronze/28 excellence, 4th of 69 countries (Ministry of Labor press release Sep 2024, via udn.com/TBO Taiwan). WorldSkills Asia 2025 (Taipei, hosted by Taiwan): back-to-back overall team champion, 17 gold/9 silver/5 bronze/2 excellence youth + 5 gold junior, among 30 countries (Ministry of Labor 2025). Dual-Track Training Flagship Program (modeled on Germany's dual system): work 3+ days/week, school 2-3 days/week, 2021 cohort employment rate 94.9% (Workforce Development Agency). 2023 starting salaries: senior-high/vocational ~NT$28,000/month, university ~NT$33,000/month, graduate school ~NT$49,000/month; share starting at minimum wage: 58.3% senior-high/vocational, 23.9% university, 4.4% graduate school (Ministry of Labor 112-year new-hire wage statistics, via Global Views Monthly).",
+              "workbook_text": null
+            }
+          }
         },
         {
           "slide_no": 2,
@@ -35,7 +84,56 @@
             "zh": null
           },
           "numbers": [],
-          "scripts": {}
+          "scripts": {
+            "A2": {
+              "text": "SDG 4 wants good schools for everyone. That does not mean just one path. Taiwan's trade schools also teach real skills for real jobs.",
+              "words": 24,
+              "sentences": 3,
+              "avg_sentence_words": 8.0,
+              "fk_grade": 1.3,
+              "long_word_pct": 8.3,
+              "speak_seconds_est": 15.2,
+              "fill_pct": 75.8,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg4-1 (STEM/exam pressure) and sdg4-2 (digital equity/media literacy): the status and outcomes of vocational/technical education specifically. Facts and sources: vocational-school enrollment share fell from 59.6% (98th academic year) to 46.68% (112th academic year), a 16-year low; ratio was 7:3 forty-plus years ago; academic track overtook vocational in the 108th academic year; by the 113th academic year, general-track students ~279,000 (down 11,000) vs vocational students ~210,000 (down 52,000) (udn.com, CNA reporting Ministry of Education statistics, 2024-2025). Stigma ('black hands'/blue-collar label vs 'craftsman'/'technician' respect elsewhere) and parental credential-insistence even alongside direct-to-job tracks (Global Views Monthly, Liberty Times, CNA, 2024-2025). WorldSkills 2024 (47th, Lyon): Taiwan 58 competitors/50 trades, 2 gold/3 silver/10 bronze/28 excellence, 4th of 69 countries (Ministry of Labor press release Sep 2024, via udn.com/TBO Taiwan). WorldSkills Asia 2025 (Taipei, hosted by Taiwan): back-to-back overall team champion, 17 gold/9 silver/5 bronze/2 excellence youth + 5 gold junior, among 30 countries (Ministry of Labor 2025). Dual-Track Training Flagship Program (modeled on Germany's dual system): work 3+ days/week, school 2-3 days/week, 2021 cohort employment rate 94.9% (Workforce Development Agency). 2023 starting salaries: senior-high/vocational ~NT$28,000/month, university ~NT$33,000/month, graduate school ~NT$49,000/month; share starting at minimum wage: 58.3% senior-high/vocational, 23.9% university, 4.4% graduate school (Ministry of Labor 112-year new-hire wage statistics, via Global Views Monthly).",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "SDG 4 calls for quality education for everyone, and that promise was never meant to describe only one path. Taiwan's technical and vocational system trains real skills for real jobs, and it deserves equal respect.",
+              "words": 35,
+              "sentences": 2,
+              "avg_sentence_words": 17.5,
+              "fk_grade": 10.5,
+              "long_word_pct": 20.0,
+              "speak_seconds_est": 19.1,
+              "fill_pct": 95.5,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg4-1 (STEM/exam pressure) and sdg4-2 (digital equity/media literacy): the status and outcomes of vocational/technical education specifically. Facts and sources: vocational-school enrollment share fell from 59.6% (98th academic year) to 46.68% (112th academic year), a 16-year low; ratio was 7:3 forty-plus years ago; academic track overtook vocational in the 108th academic year; by the 113th academic year, general-track students ~279,000 (down 11,000) vs vocational students ~210,000 (down 52,000) (udn.com, CNA reporting Ministry of Education statistics, 2024-2025). Stigma ('black hands'/blue-collar label vs 'craftsman'/'technician' respect elsewhere) and parental credential-insistence even alongside direct-to-job tracks (Global Views Monthly, Liberty Times, CNA, 2024-2025). WorldSkills 2024 (47th, Lyon): Taiwan 58 competitors/50 trades, 2 gold/3 silver/10 bronze/28 excellence, 4th of 69 countries (Ministry of Labor press release Sep 2024, via udn.com/TBO Taiwan). WorldSkills Asia 2025 (Taipei, hosted by Taiwan): back-to-back overall team champion, 17 gold/9 silver/5 bronze/2 excellence youth + 5 gold junior, among 30 countries (Ministry of Labor 2025). Dual-Track Training Flagship Program (modeled on Germany's dual system): work 3+ days/week, school 2-3 days/week, 2021 cohort employment rate 94.9% (Workforce Development Agency). 2023 starting salaries: senior-high/vocational ~NT$28,000/month, university ~NT$33,000/month, graduate school ~NT$49,000/month; share starting at minimum wage: 58.3% senior-high/vocational, 23.9% university, 4.4% graduate school (Ministry of Labor 112-year new-hire wage statistics, via Global Views Monthly).",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "SDG 4 commits every country to quality education for all, a promise that was never intended to describe a single approved path. Taiwan's technical and vocational education system trains genuine, employable skills, yet it rarely receives equal respect.",
+              "words": 38,
+              "sentences": 2,
+              "avg_sentence_words": 19.0,
+              "fk_grade": 14.8,
+              "long_word_pct": 26.3,
+              "speak_seconds_est": 19.0,
+              "fill_pct": 95.0,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg4-1 (STEM/exam pressure) and sdg4-2 (digital equity/media literacy): the status and outcomes of vocational/technical education specifically. Facts and sources: vocational-school enrollment share fell from 59.6% (98th academic year) to 46.68% (112th academic year), a 16-year low; ratio was 7:3 forty-plus years ago; academic track overtook vocational in the 108th academic year; by the 113th academic year, general-track students ~279,000 (down 11,000) vs vocational students ~210,000 (down 52,000) (udn.com, CNA reporting Ministry of Education statistics, 2024-2025). Stigma ('black hands'/blue-collar label vs 'craftsman'/'technician' respect elsewhere) and parental credential-insistence even alongside direct-to-job tracks (Global Views Monthly, Liberty Times, CNA, 2024-2025). WorldSkills 2024 (47th, Lyon): Taiwan 58 competitors/50 trades, 2 gold/3 silver/10 bronze/28 excellence, 4th of 69 countries (Ministry of Labor press release Sep 2024, via udn.com/TBO Taiwan). WorldSkills Asia 2025 (Taipei, hosted by Taiwan): back-to-back overall team champion, 17 gold/9 silver/5 bronze/2 excellence youth + 5 gold junior, among 30 countries (Ministry of Labor 2025). Dual-Track Training Flagship Program (modeled on Germany's dual system): work 3+ days/week, school 2-3 days/week, 2021 cohort employment rate 94.9% (Workforce Development Agency). 2023 starting salaries: senior-high/vocational ~NT$28,000/month, university ~NT$33,000/month, graduate school ~NT$49,000/month; share starting at minimum wage: 58.3% senior-high/vocational, 23.9% university, 4.4% graduate school (Ministry of Labor 112-year new-hire wage statistics, via Global Views Monthly).",
+              "workbook_text": null
+            }
+          }
         },
         {
           "slide_no": 3,
@@ -44,7 +142,56 @@
             "zh": null
           },
           "numbers": [],
-          "scripts": {}
+          "scripts": {
+            "A2": {
+              "text": "Taiwan's plants need many skilled workers. But fewer students pick that path now. In 2024, only 210,000 people learned a trade in school.",
+              "words": 24,
+              "sentences": 3,
+              "avg_sentence_words": 8.0,
+              "fk_grade": 7.2,
+              "long_word_pct": 8.3,
+              "speak_seconds_est": 15.2,
+              "fill_pct": 75.8,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg4-1 (STEM/exam pressure) and sdg4-2 (digital equity/media literacy): the status and outcomes of vocational/technical education specifically. Facts and sources: vocational-school enrollment share fell from 59.6% (98th academic year) to 46.68% (112th academic year), a 16-year low; ratio was 7:3 forty-plus years ago; academic track overtook vocational in the 108th academic year; by the 113th academic year, general-track students ~279,000 (down 11,000) vs vocational students ~210,000 (down 52,000) (udn.com, CNA reporting Ministry of Education statistics, 2024-2025). Stigma ('black hands'/blue-collar label vs 'craftsman'/'technician' respect elsewhere) and parental credential-insistence even alongside direct-to-job tracks (Global Views Monthly, Liberty Times, CNA, 2024-2025). WorldSkills 2024 (47th, Lyon): Taiwan 58 competitors/50 trades, 2 gold/3 silver/10 bronze/28 excellence, 4th of 69 countries (Ministry of Labor press release Sep 2024, via udn.com/TBO Taiwan). WorldSkills Asia 2025 (Taipei, hosted by Taiwan): back-to-back overall team champion, 17 gold/9 silver/5 bronze/2 excellence youth + 5 gold junior, among 30 countries (Ministry of Labor 2025). Dual-Track Training Flagship Program (modeled on Germany's dual system): work 3+ days/week, school 2-3 days/week, 2021 cohort employment rate 94.9% (Workforce Development Agency). 2023 starting salaries: senior-high/vocational ~NT$28,000/month, university ~NT$33,000/month, graduate school ~NT$49,000/month; share starting at minimum wage: 58.3% senior-high/vocational, 23.9% university, 4.4% graduate school (Ministry of Labor 112-year new-hire wage statistics, via Global Views Monthly).",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "Taiwan's factories and chip plants depend heavily on skilled workers. Yet fewer students choose that path now. By the 113th school year, only about 210,000 students remained in technical programs, well below past levels.",
+              "words": 35,
+              "sentences": 3,
+              "avg_sentence_words": 11.7,
+              "fk_grade": 8.9,
+              "long_word_pct": 20.0,
+              "speak_seconds_est": 19.1,
+              "fill_pct": 95.5,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg4-1 (STEM/exam pressure) and sdg4-2 (digital equity/media literacy): the status and outcomes of vocational/technical education specifically. Facts and sources: vocational-school enrollment share fell from 59.6% (98th academic year) to 46.68% (112th academic year), a 16-year low; ratio was 7:3 forty-plus years ago; academic track overtook vocational in the 108th academic year; by the 113th academic year, general-track students ~279,000 (down 11,000) vs vocational students ~210,000 (down 52,000) (udn.com, CNA reporting Ministry of Education statistics, 2024-2025). Stigma ('black hands'/blue-collar label vs 'craftsman'/'technician' respect elsewhere) and parental credential-insistence even alongside direct-to-job tracks (Global Views Monthly, Liberty Times, CNA, 2024-2025). WorldSkills 2024 (47th, Lyon): Taiwan 58 competitors/50 trades, 2 gold/3 silver/10 bronze/28 excellence, 4th of 69 countries (Ministry of Labor press release Sep 2024, via udn.com/TBO Taiwan). WorldSkills Asia 2025 (Taipei, hosted by Taiwan): back-to-back overall team champion, 17 gold/9 silver/5 bronze/2 excellence youth + 5 gold junior, among 30 countries (Ministry of Labor 2025). Dual-Track Training Flagship Program (modeled on Germany's dual system): work 3+ days/week, school 2-3 days/week, 2021 cohort employment rate 94.9% (Workforce Development Agency). 2023 starting salaries: senior-high/vocational ~NT$28,000/month, university ~NT$33,000/month, graduate school ~NT$49,000/month; share starting at minimum wage: 58.3% senior-high/vocational, 23.9% university, 4.4% graduate school (Ministry of Labor 112-year new-hire wage statistics, via Global Views Monthly).",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "Taiwan's manufacturing base depends on skilled technicians as much as on engineers. Yet enrollment in that very track keeps declining every year. By the 113th school year, technical programs held only about 210,000 students, well below past levels.",
+              "words": 39,
+              "sentences": 3,
+              "avg_sentence_words": 13.0,
+              "fk_grade": 10.4,
+              "long_word_pct": 23.1,
+              "speak_seconds_est": 19.5,
+              "fill_pct": 97.5,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg4-1 (STEM/exam pressure) and sdg4-2 (digital equity/media literacy): the status and outcomes of vocational/technical education specifically. Facts and sources: vocational-school enrollment share fell from 59.6% (98th academic year) to 46.68% (112th academic year), a 16-year low; ratio was 7:3 forty-plus years ago; academic track overtook vocational in the 108th academic year; by the 113th academic year, general-track students ~279,000 (down 11,000) vs vocational students ~210,000 (down 52,000) (udn.com, CNA reporting Ministry of Education statistics, 2024-2025). Stigma ('black hands'/blue-collar label vs 'craftsman'/'technician' respect elsewhere) and parental credential-insistence even alongside direct-to-job tracks (Global Views Monthly, Liberty Times, CNA, 2024-2025). WorldSkills 2024 (47th, Lyon): Taiwan 58 competitors/50 trades, 2 gold/3 silver/10 bronze/28 excellence, 4th of 69 countries (Ministry of Labor press release Sep 2024, via udn.com/TBO Taiwan). WorldSkills Asia 2025 (Taipei, hosted by Taiwan): back-to-back overall team champion, 17 gold/9 silver/5 bronze/2 excellence youth + 5 gold junior, among 30 countries (Ministry of Labor 2025). Dual-Track Training Flagship Program (modeled on Germany's dual system): work 3+ days/week, school 2-3 days/week, 2021 cohort employment rate 94.9% (Workforce Development Agency). 2023 starting salaries: senior-high/vocational ~NT$28,000/month, university ~NT$33,000/month, graduate school ~NT$49,000/month; share starting at minimum wage: 58.3% senior-high/vocational, 23.9% university, 4.4% graduate school (Ministry of Labor 112-year new-hire wage statistics, via Global Views Monthly).",
+              "workbook_text": null
+            }
+          }
         }
       ]
     },
@@ -62,7 +209,56 @@
             "zh": null
           },
           "numbers": [],
-          "scripts": {}
+          "scripts": {
+            "A2": {
+              "text": "The numbers are falling fast. Long ago, seven in ten students chose a technical school. Today, general high schools have far more students instead.",
+              "words": 24,
+              "sentences": 3,
+              "avg_sentence_words": 8.0,
+              "fk_grade": 5.2,
+              "long_word_pct": 12.5,
+              "speak_seconds_est": 15.2,
+              "fill_pct": 75.8,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg4-1 (STEM/exam pressure) and sdg4-2 (digital equity/media literacy): the status and outcomes of vocational/technical education specifically. Facts and sources: vocational-school enrollment share fell from 59.6% (98th academic year) to 46.68% (112th academic year), a 16-year low; ratio was 7:3 forty-plus years ago; academic track overtook vocational in the 108th academic year; by the 113th academic year, general-track students ~279,000 (down 11,000) vs vocational students ~210,000 (down 52,000) (udn.com, CNA reporting Ministry of Education statistics, 2024-2025). Stigma ('black hands'/blue-collar label vs 'craftsman'/'technician' respect elsewhere) and parental credential-insistence even alongside direct-to-job tracks (Global Views Monthly, Liberty Times, CNA, 2024-2025). WorldSkills 2024 (47th, Lyon): Taiwan 58 competitors/50 trades, 2 gold/3 silver/10 bronze/28 excellence, 4th of 69 countries (Ministry of Labor press release Sep 2024, via udn.com/TBO Taiwan). WorldSkills Asia 2025 (Taipei, hosted by Taiwan): back-to-back overall team champion, 17 gold/9 silver/5 bronze/2 excellence youth + 5 gold junior, among 30 countries (Ministry of Labor 2025). Dual-Track Training Flagship Program (modeled on Germany's dual system): work 3+ days/week, school 2-3 days/week, 2021 cohort employment rate 94.9% (Workforce Development Agency). 2023 starting salaries: senior-high/vocational ~NT$28,000/month, university ~NT$33,000/month, graduate school ~NT$49,000/month; share starting at minimum wage: 58.3% senior-high/vocational, 23.9% university, 4.4% graduate school (Ministry of Labor 112-year new-hire wage statistics, via Global Views Monthly).",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "The numbers are dropping fast. Forty years ago, seven students in ten chose a technical high school, but general high schools have now overtaken vocational schools in size.",
+              "words": 28,
+              "sentences": 2,
+              "avg_sentence_words": 14.0,
+              "fk_grade": 8.4,
+              "long_word_pct": 17.9,
+              "speak_seconds_est": 15.3,
+              "fill_pct": 76.4,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg4-1 (STEM/exam pressure) and sdg4-2 (digital equity/media literacy): the status and outcomes of vocational/technical education specifically. Facts and sources: vocational-school enrollment share fell from 59.6% (98th academic year) to 46.68% (112th academic year), a 16-year low; ratio was 7:3 forty-plus years ago; academic track overtook vocational in the 108th academic year; by the 113th academic year, general-track students ~279,000 (down 11,000) vs vocational students ~210,000 (down 52,000) (udn.com, CNA reporting Ministry of Education statistics, 2024-2025). Stigma ('black hands'/blue-collar label vs 'craftsman'/'technician' respect elsewhere) and parental credential-insistence even alongside direct-to-job tracks (Global Views Monthly, Liberty Times, CNA, 2024-2025). WorldSkills 2024 (47th, Lyon): Taiwan 58 competitors/50 trades, 2 gold/3 silver/10 bronze/28 excellence, 4th of 69 countries (Ministry of Labor press release Sep 2024, via udn.com/TBO Taiwan). WorldSkills Asia 2025 (Taipei, hosted by Taiwan): back-to-back overall team champion, 17 gold/9 silver/5 bronze/2 excellence youth + 5 gold junior, among 30 countries (Ministry of Labor 2025). Dual-Track Training Flagship Program (modeled on Germany's dual system): work 3+ days/week, school 2-3 days/week, 2021 cohort employment rate 94.9% (Workforce Development Agency). 2023 starting salaries: senior-high/vocational ~NT$28,000/month, university ~NT$33,000/month, graduate school ~NT$49,000/month; share starting at minimum wage: 58.3% senior-high/vocational, 23.9% university, 4.4% graduate school (Ministry of Labor 112-year new-hire wage statistics, via Global Views Monthly).",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "The decline is striking. Forty years ago, roughly seven students in ten enrolled in a technical high school, yet general academic high schools have since overtaken vocational schools in total enrollment, a reversal nobody predicted.",
+              "words": 35,
+              "sentences": 2,
+              "avg_sentence_words": 17.5,
+              "fk_grade": 13.5,
+              "long_word_pct": 28.6,
+              "speak_seconds_est": 17.5,
+              "fill_pct": 87.5,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg4-1 (STEM/exam pressure) and sdg4-2 (digital equity/media literacy): the status and outcomes of vocational/technical education specifically. Facts and sources: vocational-school enrollment share fell from 59.6% (98th academic year) to 46.68% (112th academic year), a 16-year low; ratio was 7:3 forty-plus years ago; academic track overtook vocational in the 108th academic year; by the 113th academic year, general-track students ~279,000 (down 11,000) vs vocational students ~210,000 (down 52,000) (udn.com, CNA reporting Ministry of Education statistics, 2024-2025). Stigma ('black hands'/blue-collar label vs 'craftsman'/'technician' respect elsewhere) and parental credential-insistence even alongside direct-to-job tracks (Global Views Monthly, Liberty Times, CNA, 2024-2025). WorldSkills 2024 (47th, Lyon): Taiwan 58 competitors/50 trades, 2 gold/3 silver/10 bronze/28 excellence, 4th of 69 countries (Ministry of Labor press release Sep 2024, via udn.com/TBO Taiwan). WorldSkills Asia 2025 (Taipei, hosted by Taiwan): back-to-back overall team champion, 17 gold/9 silver/5 bronze/2 excellence youth + 5 gold junior, among 30 countries (Ministry of Labor 2025). Dual-Track Training Flagship Program (modeled on Germany's dual system): work 3+ days/week, school 2-3 days/week, 2021 cohort employment rate 94.9% (Workforce Development Agency). 2023 starting salaries: senior-high/vocational ~NT$28,000/month, university ~NT$33,000/month, graduate school ~NT$49,000/month; share starting at minimum wage: 58.3% senior-high/vocational, 23.9% university, 4.4% graduate school (Ministry of Labor 112-year new-hire wage statistics, via Global Views Monthly).",
+              "workbook_text": null
+            }
+          }
         },
         {
           "slide_no": 5,
@@ -71,7 +267,56 @@
             "zh": null
           },
           "numbers": [],
-          "scripts": {}
+          "scripts": {
+            "A2": {
+              "text": "There is an old label for these graduates: black hands. In other countries, the same worker is called a craftsman. Words like this matter.",
+              "words": 24,
+              "sentences": 3,
+              "avg_sentence_words": 8.0,
+              "fk_grade": 3.8,
+              "long_word_pct": 12.5,
+              "speak_seconds_est": 15.2,
+              "fill_pct": 75.8,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg4-1 (STEM/exam pressure) and sdg4-2 (digital equity/media literacy): the status and outcomes of vocational/technical education specifically. Facts and sources: vocational-school enrollment share fell from 59.6% (98th academic year) to 46.68% (112th academic year), a 16-year low; ratio was 7:3 forty-plus years ago; academic track overtook vocational in the 108th academic year; by the 113th academic year, general-track students ~279,000 (down 11,000) vs vocational students ~210,000 (down 52,000) (udn.com, CNA reporting Ministry of Education statistics, 2024-2025). Stigma ('black hands'/blue-collar label vs 'craftsman'/'technician' respect elsewhere) and parental credential-insistence even alongside direct-to-job tracks (Global Views Monthly, Liberty Times, CNA, 2024-2025). WorldSkills 2024 (47th, Lyon): Taiwan 58 competitors/50 trades, 2 gold/3 silver/10 bronze/28 excellence, 4th of 69 countries (Ministry of Labor press release Sep 2024, via udn.com/TBO Taiwan). WorldSkills Asia 2025 (Taipei, hosted by Taiwan): back-to-back overall team champion, 17 gold/9 silver/5 bronze/2 excellence youth + 5 gold junior, among 30 countries (Ministry of Labor 2025). Dual-Track Training Flagship Program (modeled on Germany's dual system): work 3+ days/week, school 2-3 days/week, 2021 cohort employment rate 94.9% (Workforce Development Agency). 2023 starting salaries: senior-high/vocational ~NT$28,000/month, university ~NT$33,000/month, graduate school ~NT$49,000/month; share starting at minimum wage: 58.3% senior-high/vocational, 23.9% university, 4.4% graduate school (Ministry of Labor 112-year new-hire wage statistics, via Global Views Monthly).",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "There is a harsh label that still follows these graduates: black hands, a term for a manual worker. In countries with strong vocational systems, the same person is respectfully called a craftsman instead.",
+              "words": 33,
+              "sentences": 2,
+              "avg_sentence_words": 16.5,
+              "fk_grade": 9.1,
+              "long_word_pct": 15.2,
+              "speak_seconds_est": 18.0,
+              "fill_pct": 90.0,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg4-1 (STEM/exam pressure) and sdg4-2 (digital equity/media literacy): the status and outcomes of vocational/technical education specifically. Facts and sources: vocational-school enrollment share fell from 59.6% (98th academic year) to 46.68% (112th academic year), a 16-year low; ratio was 7:3 forty-plus years ago; academic track overtook vocational in the 108th academic year; by the 113th academic year, general-track students ~279,000 (down 11,000) vs vocational students ~210,000 (down 52,000) (udn.com, CNA reporting Ministry of Education statistics, 2024-2025). Stigma ('black hands'/blue-collar label vs 'craftsman'/'technician' respect elsewhere) and parental credential-insistence even alongside direct-to-job tracks (Global Views Monthly, Liberty Times, CNA, 2024-2025). WorldSkills 2024 (47th, Lyon): Taiwan 58 competitors/50 trades, 2 gold/3 silver/10 bronze/28 excellence, 4th of 69 countries (Ministry of Labor press release Sep 2024, via udn.com/TBO Taiwan). WorldSkills Asia 2025 (Taipei, hosted by Taiwan): back-to-back overall team champion, 17 gold/9 silver/5 bronze/2 excellence youth + 5 gold junior, among 30 countries (Ministry of Labor 2025). Dual-Track Training Flagship Program (modeled on Germany's dual system): work 3+ days/week, school 2-3 days/week, 2021 cohort employment rate 94.9% (Workforce Development Agency). 2023 starting salaries: senior-high/vocational ~NT$28,000/month, university ~NT$33,000/month, graduate school ~NT$49,000/month; share starting at minimum wage: 58.3% senior-high/vocational, 23.9% university, 4.4% graduate school (Ministry of Labor 112-year new-hire wage statistics, via Global Views Monthly).",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "A harsh label still clings to these graduates, one that translates roughly as black hands, evoking a grease-stained manual laborer. In countries with genuinely strong vocational systems, that same worker earns the title of craftsman or technician instead.",
+              "words": 38,
+              "sentences": 2,
+              "avg_sentence_words": 19.0,
+              "fk_grade": 12.3,
+              "long_word_pct": 21.1,
+              "speak_seconds_est": 19.0,
+              "fill_pct": 95.0,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg4-1 (STEM/exam pressure) and sdg4-2 (digital equity/media literacy): the status and outcomes of vocational/technical education specifically. Facts and sources: vocational-school enrollment share fell from 59.6% (98th academic year) to 46.68% (112th academic year), a 16-year low; ratio was 7:3 forty-plus years ago; academic track overtook vocational in the 108th academic year; by the 113th academic year, general-track students ~279,000 (down 11,000) vs vocational students ~210,000 (down 52,000) (udn.com, CNA reporting Ministry of Education statistics, 2024-2025). Stigma ('black hands'/blue-collar label vs 'craftsman'/'technician' respect elsewhere) and parental credential-insistence even alongside direct-to-job tracks (Global Views Monthly, Liberty Times, CNA, 2024-2025). WorldSkills 2024 (47th, Lyon): Taiwan 58 competitors/50 trades, 2 gold/3 silver/10 bronze/28 excellence, 4th of 69 countries (Ministry of Labor press release Sep 2024, via udn.com/TBO Taiwan). WorldSkills Asia 2025 (Taipei, hosted by Taiwan): back-to-back overall team champion, 17 gold/9 silver/5 bronze/2 excellence youth + 5 gold junior, among 30 countries (Ministry of Labor 2025). Dual-Track Training Flagship Program (modeled on Germany's dual system): work 3+ days/week, school 2-3 days/week, 2021 cohort employment rate 94.9% (Workforce Development Agency). 2023 starting salaries: senior-high/vocational ~NT$28,000/month, university ~NT$33,000/month, graduate school ~NT$49,000/month; share starting at minimum wage: 58.3% senior-high/vocational, 23.9% university, 4.4% graduate school (Ministry of Labor 112-year new-hire wage statistics, via Global Views Monthly).",
+              "workbook_text": null
+            }
+          }
         },
         {
           "slide_no": 6,
@@ -80,7 +325,56 @@
             "zh": null
           },
           "numbers": [],
-          "scripts": {}
+          "scripts": {
+            "A2": {
+              "text": "Even job-ready programs are not enough for some parents. They still want a college degree too. Without one, a teen can feel like an outsider.",
+              "words": 25,
+              "sentences": 3,
+              "avg_sentence_words": 8.3,
+              "fk_grade": 4.2,
+              "long_word_pct": 12.0,
+              "speak_seconds_est": 15.8,
+              "fill_pct": 78.9,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg4-1 (STEM/exam pressure) and sdg4-2 (digital equity/media literacy): the status and outcomes of vocational/technical education specifically. Facts and sources: vocational-school enrollment share fell from 59.6% (98th academic year) to 46.68% (112th academic year), a 16-year low; ratio was 7:3 forty-plus years ago; academic track overtook vocational in the 108th academic year; by the 113th academic year, general-track students ~279,000 (down 11,000) vs vocational students ~210,000 (down 52,000) (udn.com, CNA reporting Ministry of Education statistics, 2024-2025). Stigma ('black hands'/blue-collar label vs 'craftsman'/'technician' respect elsewhere) and parental credential-insistence even alongside direct-to-job tracks (Global Views Monthly, Liberty Times, CNA, 2024-2025). WorldSkills 2024 (47th, Lyon): Taiwan 58 competitors/50 trades, 2 gold/3 silver/10 bronze/28 excellence, 4th of 69 countries (Ministry of Labor press release Sep 2024, via udn.com/TBO Taiwan). WorldSkills Asia 2025 (Taipei, hosted by Taiwan): back-to-back overall team champion, 17 gold/9 silver/5 bronze/2 excellence youth + 5 gold junior, among 30 countries (Ministry of Labor 2025). Dual-Track Training Flagship Program (modeled on Germany's dual system): work 3+ days/week, school 2-3 days/week, 2021 cohort employment rate 94.9% (Workforce Development Agency). 2023 starting salaries: senior-high/vocational ~NT$28,000/month, university ~NT$33,000/month, graduate school ~NT$49,000/month; share starting at minimum wage: 58.3% senior-high/vocational, 23.9% university, 4.4% graduate school (Ministry of Labor 112-year new-hire wage statistics, via Global Views Monthly).",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "Even when a direct-to-job technical program exists, some parents still insist their child also earn a university degree. A teenager without one can quickly start to feel like a social outsider.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 10.6,
+              "long_word_pct": 16.1,
+              "speak_seconds_est": 16.9,
+              "fill_pct": 84.5,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg4-1 (STEM/exam pressure) and sdg4-2 (digital equity/media literacy): the status and outcomes of vocational/technical education specifically. Facts and sources: vocational-school enrollment share fell from 59.6% (98th academic year) to 46.68% (112th academic year), a 16-year low; ratio was 7:3 forty-plus years ago; academic track overtook vocational in the 108th academic year; by the 113th academic year, general-track students ~279,000 (down 11,000) vs vocational students ~210,000 (down 52,000) (udn.com, CNA reporting Ministry of Education statistics, 2024-2025). Stigma ('black hands'/blue-collar label vs 'craftsman'/'technician' respect elsewhere) and parental credential-insistence even alongside direct-to-job tracks (Global Views Monthly, Liberty Times, CNA, 2024-2025). WorldSkills 2024 (47th, Lyon): Taiwan 58 competitors/50 trades, 2 gold/3 silver/10 bronze/28 excellence, 4th of 69 countries (Ministry of Labor press release Sep 2024, via udn.com/TBO Taiwan). WorldSkills Asia 2025 (Taipei, hosted by Taiwan): back-to-back overall team champion, 17 gold/9 silver/5 bronze/2 excellence youth + 5 gold junior, among 30 countries (Ministry of Labor 2025). Dual-Track Training Flagship Program (modeled on Germany's dual system): work 3+ days/week, school 2-3 days/week, 2021 cohort employment rate 94.9% (Workforce Development Agency). 2023 starting salaries: senior-high/vocational ~NT$28,000/month, university ~NT$33,000/month, graduate school ~NT$49,000/month; share starting at minimum wage: 58.3% senior-high/vocational, 23.9% university, 4.4% graduate school (Ministry of Labor 112-year new-hire wage statistics, via Global Views Monthly).",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "Even where a direct-to-employment technical program genuinely exists, many parents still insist their child also collect a university credential alongside it. A teenager who skips university risks being treated as a social outsider among peers.",
+              "words": 35,
+              "sentences": 2,
+              "avg_sentence_words": 17.5,
+              "fk_grade": 15.2,
+              "long_word_pct": 25.7,
+              "speak_seconds_est": 17.5,
+              "fill_pct": 87.5,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg4-1 (STEM/exam pressure) and sdg4-2 (digital equity/media literacy): the status and outcomes of vocational/technical education specifically. Facts and sources: vocational-school enrollment share fell from 59.6% (98th academic year) to 46.68% (112th academic year), a 16-year low; ratio was 7:3 forty-plus years ago; academic track overtook vocational in the 108th academic year; by the 113th academic year, general-track students ~279,000 (down 11,000) vs vocational students ~210,000 (down 52,000) (udn.com, CNA reporting Ministry of Education statistics, 2024-2025). Stigma ('black hands'/blue-collar label vs 'craftsman'/'technician' respect elsewhere) and parental credential-insistence even alongside direct-to-job tracks (Global Views Monthly, Liberty Times, CNA, 2024-2025). WorldSkills 2024 (47th, Lyon): Taiwan 58 competitors/50 trades, 2 gold/3 silver/10 bronze/28 excellence, 4th of 69 countries (Ministry of Labor press release Sep 2024, via udn.com/TBO Taiwan). WorldSkills Asia 2025 (Taipei, hosted by Taiwan): back-to-back overall team champion, 17 gold/9 silver/5 bronze/2 excellence youth + 5 gold junior, among 30 countries (Ministry of Labor 2025). Dual-Track Training Flagship Program (modeled on Germany's dual system): work 3+ days/week, school 2-3 days/week, 2021 cohort employment rate 94.9% (Workforce Development Agency). 2023 starting salaries: senior-high/vocational ~NT$28,000/month, university ~NT$33,000/month, graduate school ~NT$49,000/month; share starting at minimum wage: 58.3% senior-high/vocational, 23.9% university, 4.4% graduate school (Ministry of Labor 112-year new-hire wage statistics, via Global Views Monthly).",
+              "workbook_text": null
+            }
+          }
         }
       ]
     },
@@ -98,7 +392,56 @@
             "zh": null
           },
           "numbers": [],
-          "scripts": {}
+          "scripts": {
+            "A2": {
+              "text": "Now for some pride. At the 2024 WorldSkills contest in France, Taiwan sent 58 young competitors. They won 2 gold medals and ranked 4th among 69 countries.",
+              "words": 27,
+              "sentences": 3,
+              "avg_sentence_words": 9.0,
+              "fk_grade": 6.3,
+              "long_word_pct": 11.1,
+              "speak_seconds_est": 17.1,
+              "fill_pct": 85.3,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg4-1 (STEM/exam pressure) and sdg4-2 (digital equity/media literacy): the status and outcomes of vocational/technical education specifically. Facts and sources: vocational-school enrollment share fell from 59.6% (98th academic year) to 46.68% (112th academic year), a 16-year low; ratio was 7:3 forty-plus years ago; academic track overtook vocational in the 108th academic year; by the 113th academic year, general-track students ~279,000 (down 11,000) vs vocational students ~210,000 (down 52,000) (udn.com, CNA reporting Ministry of Education statistics, 2024-2025). Stigma ('black hands'/blue-collar label vs 'craftsman'/'technician' respect elsewhere) and parental credential-insistence even alongside direct-to-job tracks (Global Views Monthly, Liberty Times, CNA, 2024-2025). WorldSkills 2024 (47th, Lyon): Taiwan 58 competitors/50 trades, 2 gold/3 silver/10 bronze/28 excellence, 4th of 69 countries (Ministry of Labor press release Sep 2024, via udn.com/TBO Taiwan). WorldSkills Asia 2025 (Taipei, hosted by Taiwan): back-to-back overall team champion, 17 gold/9 silver/5 bronze/2 excellence youth + 5 gold junior, among 30 countries (Ministry of Labor 2025). Dual-Track Training Flagship Program (modeled on Germany's dual system): work 3+ days/week, school 2-3 days/week, 2021 cohort employment rate 94.9% (Workforce Development Agency). 2023 starting salaries: senior-high/vocational ~NT$28,000/month, university ~NT$33,000/month, graduate school ~NT$49,000/month; share starting at minimum wage: 58.3% senior-high/vocational, 23.9% university, 4.4% graduate school (Ministry of Labor 112-year new-hire wage statistics, via Global Views Monthly).",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "Now for some real pride. At the 2024 WorldSkills event in Lyon, France, Taiwan sent 58 competitors across 50 trades. The team won 2 gold, 3 silver, and 10 bronze medals, ranking 4th among 69 countries.",
+              "words": 36,
+              "sentences": 3,
+              "avg_sentence_words": 12.0,
+              "fk_grade": 7.4,
+              "long_word_pct": 8.3,
+              "speak_seconds_est": 19.6,
+              "fill_pct": 98.2,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg4-1 (STEM/exam pressure) and sdg4-2 (digital equity/media literacy): the status and outcomes of vocational/technical education specifically. Facts and sources: vocational-school enrollment share fell from 59.6% (98th academic year) to 46.68% (112th academic year), a 16-year low; ratio was 7:3 forty-plus years ago; academic track overtook vocational in the 108th academic year; by the 113th academic year, general-track students ~279,000 (down 11,000) vs vocational students ~210,000 (down 52,000) (udn.com, CNA reporting Ministry of Education statistics, 2024-2025). Stigma ('black hands'/blue-collar label vs 'craftsman'/'technician' respect elsewhere) and parental credential-insistence even alongside direct-to-job tracks (Global Views Monthly, Liberty Times, CNA, 2024-2025). WorldSkills 2024 (47th, Lyon): Taiwan 58 competitors/50 trades, 2 gold/3 silver/10 bronze/28 excellence, 4th of 69 countries (Ministry of Labor press release Sep 2024, via udn.com/TBO Taiwan). WorldSkills Asia 2025 (Taipei, hosted by Taiwan): back-to-back overall team champion, 17 gold/9 silver/5 bronze/2 excellence youth + 5 gold junior, among 30 countries (Ministry of Labor 2025). Dual-Track Training Flagship Program (modeled on Germany's dual system): work 3+ days/week, school 2-3 days/week, 2021 cohort employment rate 94.9% (Workforce Development Agency). 2023 starting salaries: senior-high/vocational ~NT$28,000/month, university ~NT$33,000/month, graduate school ~NT$49,000/month; share starting at minimum wage: 58.3% senior-high/vocational, 23.9% university, 4.4% graduate school (Ministry of Labor 112-year new-hire wage statistics, via Global Views Monthly).",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "Now for some genuine pride. At the 2024 WorldSkills competition held in Lyon, France, Taiwan fielded 58 competitors across 50 trades, and the team collected 2 gold, 3 silver, and 10 bronze medals, finishing 4th among 69 competing countries.",
+              "words": 39,
+              "sentences": 2,
+              "avg_sentence_words": 19.5,
+              "fk_grade": 12.6,
+              "long_word_pct": 17.9,
+              "speak_seconds_est": 19.5,
+              "fill_pct": 97.5,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg4-1 (STEM/exam pressure) and sdg4-2 (digital equity/media literacy): the status and outcomes of vocational/technical education specifically. Facts and sources: vocational-school enrollment share fell from 59.6% (98th academic year) to 46.68% (112th academic year), a 16-year low; ratio was 7:3 forty-plus years ago; academic track overtook vocational in the 108th academic year; by the 113th academic year, general-track students ~279,000 (down 11,000) vs vocational students ~210,000 (down 52,000) (udn.com, CNA reporting Ministry of Education statistics, 2024-2025). Stigma ('black hands'/blue-collar label vs 'craftsman'/'technician' respect elsewhere) and parental credential-insistence even alongside direct-to-job tracks (Global Views Monthly, Liberty Times, CNA, 2024-2025). WorldSkills 2024 (47th, Lyon): Taiwan 58 competitors/50 trades, 2 gold/3 silver/10 bronze/28 excellence, 4th of 69 countries (Ministry of Labor press release Sep 2024, via udn.com/TBO Taiwan). WorldSkills Asia 2025 (Taipei, hosted by Taiwan): back-to-back overall team champion, 17 gold/9 silver/5 bronze/2 excellence youth + 5 gold junior, among 30 countries (Ministry of Labor 2025). Dual-Track Training Flagship Program (modeled on Germany's dual system): work 3+ days/week, school 2-3 days/week, 2021 cohort employment rate 94.9% (Workforce Development Agency). 2023 starting salaries: senior-high/vocational ~NT$28,000/month, university ~NT$33,000/month, graduate school ~NT$49,000/month; share starting at minimum wage: 58.3% senior-high/vocational, 23.9% university, 4.4% graduate school (Ministry of Labor 112-year new-hire wage statistics, via Global Views Monthly).",
+              "workbook_text": null
+            }
+          }
         },
         {
           "slide_no": 8,
@@ -107,7 +450,56 @@
             "zh": null
           },
           "numbers": [],
-          "scripts": {}
+          "scripts": {
+            "A2": {
+              "text": "Taiwan then hosted the 2025 Asia skills contest in Taipei. The team won first place again there. That makes two wins in a row.",
+              "words": 24,
+              "sentences": 3,
+              "avg_sentence_words": 8.0,
+              "fk_grade": 4.2,
+              "long_word_pct": 0.0,
+              "speak_seconds_est": 15.2,
+              "fill_pct": 75.8,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg4-1 (STEM/exam pressure) and sdg4-2 (digital equity/media literacy): the status and outcomes of vocational/technical education specifically. Facts and sources: vocational-school enrollment share fell from 59.6% (98th academic year) to 46.68% (112th academic year), a 16-year low; ratio was 7:3 forty-plus years ago; academic track overtook vocational in the 108th academic year; by the 113th academic year, general-track students ~279,000 (down 11,000) vs vocational students ~210,000 (down 52,000) (udn.com, CNA reporting Ministry of Education statistics, 2024-2025). Stigma ('black hands'/blue-collar label vs 'craftsman'/'technician' respect elsewhere) and parental credential-insistence even alongside direct-to-job tracks (Global Views Monthly, Liberty Times, CNA, 2024-2025). WorldSkills 2024 (47th, Lyon): Taiwan 58 competitors/50 trades, 2 gold/3 silver/10 bronze/28 excellence, 4th of 69 countries (Ministry of Labor press release Sep 2024, via udn.com/TBO Taiwan). WorldSkills Asia 2025 (Taipei, hosted by Taiwan): back-to-back overall team champion, 17 gold/9 silver/5 bronze/2 excellence youth + 5 gold junior, among 30 countries (Ministry of Labor 2025). Dual-Track Training Flagship Program (modeled on Germany's dual system): work 3+ days/week, school 2-3 days/week, 2021 cohort employment rate 94.9% (Workforce Development Agency). 2023 starting salaries: senior-high/vocational ~NT$28,000/month, university ~NT$33,000/month, graduate school ~NT$49,000/month; share starting at minimum wage: 58.3% senior-high/vocational, 23.9% university, 4.4% graduate school (Ministry of Labor 112-year new-hire wage statistics, via Global Views Monthly).",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "Taiwan then hosted the 2025 WorldSkills Asia event in Taipei. The team has won the top prize again, making it two wins in a row among 30 countries.",
+              "words": 28,
+              "sentences": 2,
+              "avg_sentence_words": 14.0,
+              "fk_grade": 7.6,
+              "long_word_pct": 7.1,
+              "speak_seconds_est": 15.3,
+              "fill_pct": 76.4,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg4-1 (STEM/exam pressure) and sdg4-2 (digital equity/media literacy): the status and outcomes of vocational/technical education specifically. Facts and sources: vocational-school enrollment share fell from 59.6% (98th academic year) to 46.68% (112th academic year), a 16-year low; ratio was 7:3 forty-plus years ago; academic track overtook vocational in the 108th academic year; by the 113th academic year, general-track students ~279,000 (down 11,000) vs vocational students ~210,000 (down 52,000) (udn.com, CNA reporting Ministry of Education statistics, 2024-2025). Stigma ('black hands'/blue-collar label vs 'craftsman'/'technician' respect elsewhere) and parental credential-insistence even alongside direct-to-job tracks (Global Views Monthly, Liberty Times, CNA, 2024-2025). WorldSkills 2024 (47th, Lyon): Taiwan 58 competitors/50 trades, 2 gold/3 silver/10 bronze/28 excellence, 4th of 69 countries (Ministry of Labor press release Sep 2024, via udn.com/TBO Taiwan). WorldSkills Asia 2025 (Taipei, hosted by Taiwan): back-to-back overall team champion, 17 gold/9 silver/5 bronze/2 excellence youth + 5 gold junior, among 30 countries (Ministry of Labor 2025). Dual-Track Training Flagship Program (modeled on Germany's dual system): work 3+ days/week, school 2-3 days/week, 2021 cohort employment rate 94.9% (Workforce Development Agency). 2023 starting salaries: senior-high/vocational ~NT$28,000/month, university ~NT$33,000/month, graduate school ~NT$49,000/month; share starting at minimum wage: 58.3% senior-high/vocational, 23.9% university, 4.4% graduate school (Ministry of Labor 112-year new-hire wage statistics, via Global Views Monthly).",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "Taiwan subsequently hosted the 2025 WorldSkills Asia competition in Taipei. Its team has secured the overall championship for a second consecutive time, prevailing again among 30 competing countries and regions.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 15.0,
+              "long_word_pct": 26.7,
+              "speak_seconds_est": 15.0,
+              "fill_pct": 75.0,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg4-1 (STEM/exam pressure) and sdg4-2 (digital equity/media literacy): the status and outcomes of vocational/technical education specifically. Facts and sources: vocational-school enrollment share fell from 59.6% (98th academic year) to 46.68% (112th academic year), a 16-year low; ratio was 7:3 forty-plus years ago; academic track overtook vocational in the 108th academic year; by the 113th academic year, general-track students ~279,000 (down 11,000) vs vocational students ~210,000 (down 52,000) (udn.com, CNA reporting Ministry of Education statistics, 2024-2025). Stigma ('black hands'/blue-collar label vs 'craftsman'/'technician' respect elsewhere) and parental credential-insistence even alongside direct-to-job tracks (Global Views Monthly, Liberty Times, CNA, 2024-2025). WorldSkills 2024 (47th, Lyon): Taiwan 58 competitors/50 trades, 2 gold/3 silver/10 bronze/28 excellence, 4th of 69 countries (Ministry of Labor press release Sep 2024, via udn.com/TBO Taiwan). WorldSkills Asia 2025 (Taipei, hosted by Taiwan): back-to-back overall team champion, 17 gold/9 silver/5 bronze/2 excellence youth + 5 gold junior, among 30 countries (Ministry of Labor 2025). Dual-Track Training Flagship Program (modeled on Germany's dual system): work 3+ days/week, school 2-3 days/week, 2021 cohort employment rate 94.9% (Workforce Development Agency). 2023 starting salaries: senior-high/vocational ~NT$28,000/month, university ~NT$33,000/month, graduate school ~NT$49,000/month; share starting at minimum wage: 58.3% senior-high/vocational, 23.9% university, 4.4% graduate school (Ministry of Labor 112-year new-hire wage statistics, via Global Views Monthly).",
+              "workbook_text": null
+            }
+          }
         },
         {
           "slide_no": 9,
@@ -116,7 +508,56 @@
             "zh": null
           },
           "numbers": [],
-          "scripts": {}
+          "scripts": {
+            "A2": {
+              "text": "There is also a training program based on Germany's system. Students work three days and study two days each week. Its graduates found jobs at a 94.9 percent rate.",
+              "words": 30,
+              "sentences": 3,
+              "avg_sentence_words": 10.0,
+              "fk_grade": 5.2,
+              "long_word_pct": 13.3,
+              "speak_seconds_est": 18.9,
+              "fill_pct": 94.7,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg4-1 (STEM/exam pressure) and sdg4-2 (digital equity/media literacy): the status and outcomes of vocational/technical education specifically. Facts and sources: vocational-school enrollment share fell from 59.6% (98th academic year) to 46.68% (112th academic year), a 16-year low; ratio was 7:3 forty-plus years ago; academic track overtook vocational in the 108th academic year; by the 113th academic year, general-track students ~279,000 (down 11,000) vs vocational students ~210,000 (down 52,000) (udn.com, CNA reporting Ministry of Education statistics, 2024-2025). Stigma ('black hands'/blue-collar label vs 'craftsman'/'technician' respect elsewhere) and parental credential-insistence even alongside direct-to-job tracks (Global Views Monthly, Liberty Times, CNA, 2024-2025). WorldSkills 2024 (47th, Lyon): Taiwan 58 competitors/50 trades, 2 gold/3 silver/10 bronze/28 excellence, 4th of 69 countries (Ministry of Labor press release Sep 2024, via udn.com/TBO Taiwan). WorldSkills Asia 2025 (Taipei, hosted by Taiwan): back-to-back overall team champion, 17 gold/9 silver/5 bronze/2 excellence youth + 5 gold junior, among 30 countries (Ministry of Labor 2025). Dual-Track Training Flagship Program (modeled on Germany's dual system): work 3+ days/week, school 2-3 days/week, 2021 cohort employment rate 94.9% (Workforce Development Agency). 2023 starting salaries: senior-high/vocational ~NT$28,000/month, university ~NT$33,000/month, graduate school ~NT$49,000/month; share starting at minimum wage: 58.3% senior-high/vocational, 23.9% university, 4.4% graduate school (Ministry of Labor 112-year new-hire wage statistics, via Global Views Monthly).",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "There is also a Dual-Track program modeled on Germany's system. Students work at least three days and attend class two or three days each week. Its 2021 graduates found jobs at a 94.9 percent rate.",
+              "words": 36,
+              "sentences": 3,
+              "avg_sentence_words": 12.0,
+              "fk_grade": 6.5,
+              "long_word_pct": 11.1,
+              "speak_seconds_est": 19.6,
+              "fill_pct": 98.2,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg4-1 (STEM/exam pressure) and sdg4-2 (digital equity/media literacy): the status and outcomes of vocational/technical education specifically. Facts and sources: vocational-school enrollment share fell from 59.6% (98th academic year) to 46.68% (112th academic year), a 16-year low; ratio was 7:3 forty-plus years ago; academic track overtook vocational in the 108th academic year; by the 113th academic year, general-track students ~279,000 (down 11,000) vs vocational students ~210,000 (down 52,000) (udn.com, CNA reporting Ministry of Education statistics, 2024-2025). Stigma ('black hands'/blue-collar label vs 'craftsman'/'technician' respect elsewhere) and parental credential-insistence even alongside direct-to-job tracks (Global Views Monthly, Liberty Times, CNA, 2024-2025). WorldSkills 2024 (47th, Lyon): Taiwan 58 competitors/50 trades, 2 gold/3 silver/10 bronze/28 excellence, 4th of 69 countries (Ministry of Labor press release Sep 2024, via udn.com/TBO Taiwan). WorldSkills Asia 2025 (Taipei, hosted by Taiwan): back-to-back overall team champion, 17 gold/9 silver/5 bronze/2 excellence youth + 5 gold junior, among 30 countries (Ministry of Labor 2025). Dual-Track Training Flagship Program (modeled on Germany's dual system): work 3+ days/week, school 2-3 days/week, 2021 cohort employment rate 94.9% (Workforce Development Agency). 2023 starting salaries: senior-high/vocational ~NT$28,000/month, university ~NT$33,000/month, graduate school ~NT$49,000/month; share starting at minimum wage: 58.3% senior-high/vocational, 23.9% university, 4.4% graduate school (Ministry of Labor 112-year new-hire wage statistics, via Global Views Monthly).",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "A Dual-Track Training program is modeled on Germany's apprenticeship system. It requires students to work three days and attend class two or three days weekly. Its 2021 cohort reached a 94.9 percent employment rate, a figure few university majors match.",
+              "words": 41,
+              "sentences": 3,
+              "avg_sentence_words": 13.7,
+              "fk_grade": 10.7,
+              "long_word_pct": 19.5,
+              "speak_seconds_est": 20.5,
+              "fill_pct": 102.5,
+              "fits_20s": false,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg4-1 (STEM/exam pressure) and sdg4-2 (digital equity/media literacy): the status and outcomes of vocational/technical education specifically. Facts and sources: vocational-school enrollment share fell from 59.6% (98th academic year) to 46.68% (112th academic year), a 16-year low; ratio was 7:3 forty-plus years ago; academic track overtook vocational in the 108th academic year; by the 113th academic year, general-track students ~279,000 (down 11,000) vs vocational students ~210,000 (down 52,000) (udn.com, CNA reporting Ministry of Education statistics, 2024-2025). Stigma ('black hands'/blue-collar label vs 'craftsman'/'technician' respect elsewhere) and parental credential-insistence even alongside direct-to-job tracks (Global Views Monthly, Liberty Times, CNA, 2024-2025). WorldSkills 2024 (47th, Lyon): Taiwan 58 competitors/50 trades, 2 gold/3 silver/10 bronze/28 excellence, 4th of 69 countries (Ministry of Labor press release Sep 2024, via udn.com/TBO Taiwan). WorldSkills Asia 2025 (Taipei, hosted by Taiwan): back-to-back overall team champion, 17 gold/9 silver/5 bronze/2 excellence youth + 5 gold junior, among 30 countries (Ministry of Labor 2025). Dual-Track Training Flagship Program (modeled on Germany's dual system): work 3+ days/week, school 2-3 days/week, 2021 cohort employment rate 94.9% (Workforce Development Agency). 2023 starting salaries: senior-high/vocational ~NT$28,000/month, university ~NT$33,000/month, graduate school ~NT$49,000/month; share starting at minimum wage: 58.3% senior-high/vocational, 23.9% university, 4.4% graduate school (Ministry of Labor 112-year new-hire wage statistics, via Global Views Monthly).",
+              "workbook_text": null
+            }
+          }
         }
       ]
     },
@@ -134,7 +575,56 @@
             "zh": null
           },
           "numbers": [],
-          "scripts": {}
+          "scripts": {
+            "A2": {
+              "text": "Instead of only sitting in classrooms, students could learn on the job too. This mixes real work with real study. Both sides gain something useful.",
+              "words": 25,
+              "sentences": 3,
+              "avg_sentence_words": 8.3,
+              "fk_grade": 5.1,
+              "long_word_pct": 12.0,
+              "speak_seconds_est": 15.8,
+              "fill_pct": 78.9,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg4-1 (STEM/exam pressure) and sdg4-2 (digital equity/media literacy): the status and outcomes of vocational/technical education specifically. Facts and sources: vocational-school enrollment share fell from 59.6% (98th academic year) to 46.68% (112th academic year), a 16-year low; ratio was 7:3 forty-plus years ago; academic track overtook vocational in the 108th academic year; by the 113th academic year, general-track students ~279,000 (down 11,000) vs vocational students ~210,000 (down 52,000) (udn.com, CNA reporting Ministry of Education statistics, 2024-2025). Stigma ('black hands'/blue-collar label vs 'craftsman'/'technician' respect elsewhere) and parental credential-insistence even alongside direct-to-job tracks (Global Views Monthly, Liberty Times, CNA, 2024-2025). WorldSkills 2024 (47th, Lyon): Taiwan 58 competitors/50 trades, 2 gold/3 silver/10 bronze/28 excellence, 4th of 69 countries (Ministry of Labor press release Sep 2024, via udn.com/TBO Taiwan). WorldSkills Asia 2025 (Taipei, hosted by Taiwan): back-to-back overall team champion, 17 gold/9 silver/5 bronze/2 excellence youth + 5 gold junior, among 30 countries (Ministry of Labor 2025). Dual-Track Training Flagship Program (modeled on Germany's dual system): work 3+ days/week, school 2-3 days/week, 2021 cohort employment rate 94.9% (Workforce Development Agency). 2023 starting salaries: senior-high/vocational ~NT$28,000/month, university ~NT$33,000/month, graduate school ~NT$49,000/month; share starting at minimum wage: 58.3% senior-high/vocational, 23.9% university, 4.4% graduate school (Ministry of Labor 112-year new-hire wage statistics, via Global Views Monthly).",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "Instead of separating classroom years from job training entirely, more schools could adopt this dual model, mixing paid work with real study. Both sides gain something useful from it.",
+              "words": 29,
+              "sentences": 2,
+              "avg_sentence_words": 14.5,
+              "fk_grade": 9.2,
+              "long_word_pct": 17.2,
+              "speak_seconds_est": 15.8,
+              "fill_pct": 79.1,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg4-1 (STEM/exam pressure) and sdg4-2 (digital equity/media literacy): the status and outcomes of vocational/technical education specifically. Facts and sources: vocational-school enrollment share fell from 59.6% (98th academic year) to 46.68% (112th academic year), a 16-year low; ratio was 7:3 forty-plus years ago; academic track overtook vocational in the 108th academic year; by the 113th academic year, general-track students ~279,000 (down 11,000) vs vocational students ~210,000 (down 52,000) (udn.com, CNA reporting Ministry of Education statistics, 2024-2025). Stigma ('black hands'/blue-collar label vs 'craftsman'/'technician' respect elsewhere) and parental credential-insistence even alongside direct-to-job tracks (Global Views Monthly, Liberty Times, CNA, 2024-2025). WorldSkills 2024 (47th, Lyon): Taiwan 58 competitors/50 trades, 2 gold/3 silver/10 bronze/28 excellence, 4th of 69 countries (Ministry of Labor press release Sep 2024, via udn.com/TBO Taiwan). WorldSkills Asia 2025 (Taipei, hosted by Taiwan): back-to-back overall team champion, 17 gold/9 silver/5 bronze/2 excellence youth + 5 gold junior, among 30 countries (Ministry of Labor 2025). Dual-Track Training Flagship Program (modeled on Germany's dual system): work 3+ days/week, school 2-3 days/week, 2021 cohort employment rate 94.9% (Workforce Development Agency). 2023 starting salaries: senior-high/vocational ~NT$28,000/month, university ~NT$33,000/month, graduate school ~NT$49,000/month; share starting at minimum wage: 58.3% senior-high/vocational, 23.9% university, 4.4% graduate school (Ministry of Labor 112-year new-hire wage statistics, via Global Views Monthly).",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "Instead of confining technical education to a classroom alone, more schools could adopt this dual model, blending paid work with structured study every week. Both sides gain something real from it.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 10.2,
+              "long_word_pct": 22.6,
+              "speak_seconds_est": 15.5,
+              "fill_pct": 77.5,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg4-1 (STEM/exam pressure) and sdg4-2 (digital equity/media literacy): the status and outcomes of vocational/technical education specifically. Facts and sources: vocational-school enrollment share fell from 59.6% (98th academic year) to 46.68% (112th academic year), a 16-year low; ratio was 7:3 forty-plus years ago; academic track overtook vocational in the 108th academic year; by the 113th academic year, general-track students ~279,000 (down 11,000) vs vocational students ~210,000 (down 52,000) (udn.com, CNA reporting Ministry of Education statistics, 2024-2025). Stigma ('black hands'/blue-collar label vs 'craftsman'/'technician' respect elsewhere) and parental credential-insistence even alongside direct-to-job tracks (Global Views Monthly, Liberty Times, CNA, 2024-2025). WorldSkills 2024 (47th, Lyon): Taiwan 58 competitors/50 trades, 2 gold/3 silver/10 bronze/28 excellence, 4th of 69 countries (Ministry of Labor press release Sep 2024, via udn.com/TBO Taiwan). WorldSkills Asia 2025 (Taipei, hosted by Taiwan): back-to-back overall team champion, 17 gold/9 silver/5 bronze/2 excellence youth + 5 gold junior, among 30 countries (Ministry of Labor 2025). Dual-Track Training Flagship Program (modeled on Germany's dual system): work 3+ days/week, school 2-3 days/week, 2021 cohort employment rate 94.9% (Workforce Development Agency). 2023 starting salaries: senior-high/vocational ~NT$28,000/month, university ~NT$33,000/month, graduate school ~NT$49,000/month; share starting at minimum wage: 58.3% senior-high/vocational, 23.9% university, 4.4% graduate school (Ministry of Labor 112-year new-hire wage statistics, via Global Views Monthly).",
+              "workbook_text": null
+            }
+          }
         },
         {
           "slide_no": 11,
@@ -143,7 +633,56 @@
             "zh": null
           },
           "numbers": [],
-          "scripts": {}
+          "scripts": {
+            "A2": {
+              "text": "Old workshops with old tools hurt study badly. Schools should buy new machines, not just new labs. Skills must match what factories use today.",
+              "words": 24,
+              "sentences": 3,
+              "avg_sentence_words": 8.0,
+              "fk_grade": 3.3,
+              "long_word_pct": 12.5,
+              "speak_seconds_est": 15.2,
+              "fill_pct": 75.8,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg4-1 (STEM/exam pressure) and sdg4-2 (digital equity/media literacy): the status and outcomes of vocational/technical education specifically. Facts and sources: vocational-school enrollment share fell from 59.6% (98th academic year) to 46.68% (112th academic year), a 16-year low; ratio was 7:3 forty-plus years ago; academic track overtook vocational in the 108th academic year; by the 113th academic year, general-track students ~279,000 (down 11,000) vs vocational students ~210,000 (down 52,000) (udn.com, CNA reporting Ministry of Education statistics, 2024-2025). Stigma ('black hands'/blue-collar label vs 'craftsman'/'technician' respect elsewhere) and parental credential-insistence even alongside direct-to-job tracks (Global Views Monthly, Liberty Times, CNA, 2024-2025). WorldSkills 2024 (47th, Lyon): Taiwan 58 competitors/50 trades, 2 gold/3 silver/10 bronze/28 excellence, 4th of 69 countries (Ministry of Labor press release Sep 2024, via udn.com/TBO Taiwan). WorldSkills Asia 2025 (Taipei, hosted by Taiwan): back-to-back overall team champion, 17 gold/9 silver/5 bronze/2 excellence youth + 5 gold junior, among 30 countries (Ministry of Labor 2025). Dual-Track Training Flagship Program (modeled on Germany's dual system): work 3+ days/week, school 2-3 days/week, 2021 cohort employment rate 94.9% (Workforce Development Agency). 2023 starting salaries: senior-high/vocational ~NT$28,000/month, university ~NT$33,000/month, graduate school ~NT$49,000/month; share starting at minimum wage: 58.3% senior-high/vocational, 23.9% university, 4.4% graduate school (Ministry of Labor 112-year new-hire wage statistics, via Global Views Monthly).",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "Old workshops with old tools hold learning back badly. Schools should buy new machines, not only new labs, so that skills taught actually match what factories use today.",
+              "words": 28,
+              "sentences": 2,
+              "avg_sentence_words": 14.0,
+              "fk_grade": 6.3,
+              "long_word_pct": 17.9,
+              "speak_seconds_est": 15.3,
+              "fill_pct": 76.4,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg4-1 (STEM/exam pressure) and sdg4-2 (digital equity/media literacy): the status and outcomes of vocational/technical education specifically. Facts and sources: vocational-school enrollment share fell from 59.6% (98th academic year) to 46.68% (112th academic year), a 16-year low; ratio was 7:3 forty-plus years ago; academic track overtook vocational in the 108th academic year; by the 113th academic year, general-track students ~279,000 (down 11,000) vs vocational students ~210,000 (down 52,000) (udn.com, CNA reporting Ministry of Education statistics, 2024-2025). Stigma ('black hands'/blue-collar label vs 'craftsman'/'technician' respect elsewhere) and parental credential-insistence even alongside direct-to-job tracks (Global Views Monthly, Liberty Times, CNA, 2024-2025). WorldSkills 2024 (47th, Lyon): Taiwan 58 competitors/50 trades, 2 gold/3 silver/10 bronze/28 excellence, 4th of 69 countries (Ministry of Labor press release Sep 2024, via udn.com/TBO Taiwan). WorldSkills Asia 2025 (Taipei, hosted by Taiwan): back-to-back overall team champion, 17 gold/9 silver/5 bronze/2 excellence youth + 5 gold junior, among 30 countries (Ministry of Labor 2025). Dual-Track Training Flagship Program (modeled on Germany's dual system): work 3+ days/week, school 2-3 days/week, 2021 cohort employment rate 94.9% (Workforce Development Agency). 2023 starting salaries: senior-high/vocational ~NT$28,000/month, university ~NT$33,000/month, graduate school ~NT$49,000/month; share starting at minimum wage: 58.3% senior-high/vocational, 23.9% university, 4.4% graduate school (Ministry of Labor 112-year new-hire wage statistics, via Global Views Monthly).",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "Outdated workshops with old machines hold learning back. Schools should invest in modern tools rather than only upgrading academic labs, so that skills taught match what factories actually use today.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 9.9,
+              "long_word_pct": 26.7,
+              "speak_seconds_est": 15.0,
+              "fill_pct": 75.0,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg4-1 (STEM/exam pressure) and sdg4-2 (digital equity/media literacy): the status and outcomes of vocational/technical education specifically. Facts and sources: vocational-school enrollment share fell from 59.6% (98th academic year) to 46.68% (112th academic year), a 16-year low; ratio was 7:3 forty-plus years ago; academic track overtook vocational in the 108th academic year; by the 113th academic year, general-track students ~279,000 (down 11,000) vs vocational students ~210,000 (down 52,000) (udn.com, CNA reporting Ministry of Education statistics, 2024-2025). Stigma ('black hands'/blue-collar label vs 'craftsman'/'technician' respect elsewhere) and parental credential-insistence even alongside direct-to-job tracks (Global Views Monthly, Liberty Times, CNA, 2024-2025). WorldSkills 2024 (47th, Lyon): Taiwan 58 competitors/50 trades, 2 gold/3 silver/10 bronze/28 excellence, 4th of 69 countries (Ministry of Labor press release Sep 2024, via udn.com/TBO Taiwan). WorldSkills Asia 2025 (Taipei, hosted by Taiwan): back-to-back overall team champion, 17 gold/9 silver/5 bronze/2 excellence youth + 5 gold junior, among 30 countries (Ministry of Labor 2025). Dual-Track Training Flagship Program (modeled on Germany's dual system): work 3+ days/week, school 2-3 days/week, 2021 cohort employment rate 94.9% (Workforce Development Agency). 2023 starting salaries: senior-high/vocational ~NT$28,000/month, university ~NT$33,000/month, graduate school ~NT$49,000/month; share starting at minimum wage: 58.3% senior-high/vocational, 23.9% university, 4.4% graduate school (Ministry of Labor 112-year new-hire wage statistics, via Global Views Monthly).",
+              "workbook_text": null
+            }
+          }
         },
         {
           "slide_no": 12,
@@ -152,7 +691,56 @@
             "zh": null
           },
           "numbers": [],
-          "scripts": {}
+          "scripts": {
+            "A2": {
+              "text": "Middle school counselors could help too. Instead of naming university first, they could praise both paths equally. That kind of change could start early.",
+              "words": 24,
+              "sentences": 3,
+              "avg_sentence_words": 8.0,
+              "fk_grade": 5.2,
+              "long_word_pct": 8.3,
+              "speak_seconds_est": 15.2,
+              "fill_pct": 75.8,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg4-1 (STEM/exam pressure) and sdg4-2 (digital equity/media literacy): the status and outcomes of vocational/technical education specifically. Facts and sources: vocational-school enrollment share fell from 59.6% (98th academic year) to 46.68% (112th academic year), a 16-year low; ratio was 7:3 forty-plus years ago; academic track overtook vocational in the 108th academic year; by the 113th academic year, general-track students ~279,000 (down 11,000) vs vocational students ~210,000 (down 52,000) (udn.com, CNA reporting Ministry of Education statistics, 2024-2025). Stigma ('black hands'/blue-collar label vs 'craftsman'/'technician' respect elsewhere) and parental credential-insistence even alongside direct-to-job tracks (Global Views Monthly, Liberty Times, CNA, 2024-2025). WorldSkills 2024 (47th, Lyon): Taiwan 58 competitors/50 trades, 2 gold/3 silver/10 bronze/28 excellence, 4th of 69 countries (Ministry of Labor press release Sep 2024, via udn.com/TBO Taiwan). WorldSkills Asia 2025 (Taipei, hosted by Taiwan): back-to-back overall team champion, 17 gold/9 silver/5 bronze/2 excellence youth + 5 gold junior, among 30 countries (Ministry of Labor 2025). Dual-Track Training Flagship Program (modeled on Germany's dual system): work 3+ days/week, school 2-3 days/week, 2021 cohort employment rate 94.9% (Workforce Development Agency). 2023 starting salaries: senior-high/vocational ~NT$28,000/month, university ~NT$33,000/month, graduate school ~NT$49,000/month; share starting at minimum wage: 58.3% senior-high/vocational, 23.9% university, 4.4% graduate school (Ministry of Labor 112-year new-hire wage statistics, via Global Views Monthly).",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "Middle school counselors could help shift this culture too. Instead of always presenting university as the default choice, they could present a vocational path as an equally respected option from the very start.",
+              "words": 33,
+              "sentences": 2,
+              "avg_sentence_words": 16.5,
+              "fk_grade": 10.9,
+              "long_word_pct": 15.2,
+              "speak_seconds_est": 18.0,
+              "fill_pct": 90.0,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg4-1 (STEM/exam pressure) and sdg4-2 (digital equity/media literacy): the status and outcomes of vocational/technical education specifically. Facts and sources: vocational-school enrollment share fell from 59.6% (98th academic year) to 46.68% (112th academic year), a 16-year low; ratio was 7:3 forty-plus years ago; academic track overtook vocational in the 108th academic year; by the 113th academic year, general-track students ~279,000 (down 11,000) vs vocational students ~210,000 (down 52,000) (udn.com, CNA reporting Ministry of Education statistics, 2024-2025). Stigma ('black hands'/blue-collar label vs 'craftsman'/'technician' respect elsewhere) and parental credential-insistence even alongside direct-to-job tracks (Global Views Monthly, Liberty Times, CNA, 2024-2025). WorldSkills 2024 (47th, Lyon): Taiwan 58 competitors/50 trades, 2 gold/3 silver/10 bronze/28 excellence, 4th of 69 countries (Ministry of Labor press release Sep 2024, via udn.com/TBO Taiwan). WorldSkills Asia 2025 (Taipei, hosted by Taiwan): back-to-back overall team champion, 17 gold/9 silver/5 bronze/2 excellence youth + 5 gold junior, among 30 countries (Ministry of Labor 2025). Dual-Track Training Flagship Program (modeled on Germany's dual system): work 3+ days/week, school 2-3 days/week, 2021 cohort employment rate 94.9% (Workforce Development Agency). 2023 starting salaries: senior-high/vocational ~NT$28,000/month, university ~NT$33,000/month, graduate school ~NT$49,000/month; share starting at minimum wage: 58.3% senior-high/vocational, 23.9% university, 4.4% graduate school (Ministry of Labor 112-year new-hire wage statistics, via Global Views Monthly).",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "Middle school counselors could help reshape this culture as well. Instead of habitually presenting university as the default trajectory, they could frame a vocational path as an equally prestigious option from the very beginning of course selection.",
+              "words": 37,
+              "sentences": 2,
+              "avg_sentence_words": 18.5,
+              "fk_grade": 13.6,
+              "long_word_pct": 24.3,
+              "speak_seconds_est": 18.5,
+              "fill_pct": 92.5,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg4-1 (STEM/exam pressure) and sdg4-2 (digital equity/media literacy): the status and outcomes of vocational/technical education specifically. Facts and sources: vocational-school enrollment share fell from 59.6% (98th academic year) to 46.68% (112th academic year), a 16-year low; ratio was 7:3 forty-plus years ago; academic track overtook vocational in the 108th academic year; by the 113th academic year, general-track students ~279,000 (down 11,000) vs vocational students ~210,000 (down 52,000) (udn.com, CNA reporting Ministry of Education statistics, 2024-2025). Stigma ('black hands'/blue-collar label vs 'craftsman'/'technician' respect elsewhere) and parental credential-insistence even alongside direct-to-job tracks (Global Views Monthly, Liberty Times, CNA, 2024-2025). WorldSkills 2024 (47th, Lyon): Taiwan 58 competitors/50 trades, 2 gold/3 silver/10 bronze/28 excellence, 4th of 69 countries (Ministry of Labor press release Sep 2024, via udn.com/TBO Taiwan). WorldSkills Asia 2025 (Taipei, hosted by Taiwan): back-to-back overall team champion, 17 gold/9 silver/5 bronze/2 excellence youth + 5 gold junior, among 30 countries (Ministry of Labor 2025). Dual-Track Training Flagship Program (modeled on Germany's dual system): work 3+ days/week, school 2-3 days/week, 2021 cohort employment rate 94.9% (Workforce Development Agency). 2023 starting salaries: senior-high/vocational ~NT$28,000/month, university ~NT$33,000/month, graduate school ~NT$49,000/month; share starting at minimum wage: 58.3% senior-high/vocational, 23.9% university, 4.4% graduate school (Ministry of Labor 112-year new-hire wage statistics, via Global Views Monthly).",
+              "workbook_text": null
+            }
+          }
         }
       ]
     },
@@ -170,7 +758,56 @@
             "zh": null
           },
           "numbers": [],
-          "scripts": {}
+          "scripts": {
+            "A2": {
+              "text": "Here is the real tension. If plants need skilled workers, fewer trade grads becomes a real danger. Even chip factories need trained workers, not only engineers.",
+              "words": 26,
+              "sentences": 3,
+              "avg_sentence_words": 8.7,
+              "fk_grade": 6.4,
+              "long_word_pct": 7.7,
+              "speak_seconds_est": 16.4,
+              "fill_pct": 82.1,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg4-1 (STEM/exam pressure) and sdg4-2 (digital equity/media literacy): the status and outcomes of vocational/technical education specifically. Facts and sources: vocational-school enrollment share fell from 59.6% (98th academic year) to 46.68% (112th academic year), a 16-year low; ratio was 7:3 forty-plus years ago; academic track overtook vocational in the 108th academic year; by the 113th academic year, general-track students ~279,000 (down 11,000) vs vocational students ~210,000 (down 52,000) (udn.com, CNA reporting Ministry of Education statistics, 2024-2025). Stigma ('black hands'/blue-collar label vs 'craftsman'/'technician' respect elsewhere) and parental credential-insistence even alongside direct-to-job tracks (Global Views Monthly, Liberty Times, CNA, 2024-2025). WorldSkills 2024 (47th, Lyon): Taiwan 58 competitors/50 trades, 2 gold/3 silver/10 bronze/28 excellence, 4th of 69 countries (Ministry of Labor press release Sep 2024, via udn.com/TBO Taiwan). WorldSkills Asia 2025 (Taipei, hosted by Taiwan): back-to-back overall team champion, 17 gold/9 silver/5 bronze/2 excellence youth + 5 gold junior, among 30 countries (Ministry of Labor 2025). Dual-Track Training Flagship Program (modeled on Germany's dual system): work 3+ days/week, school 2-3 days/week, 2021 cohort employment rate 94.9% (Workforce Development Agency). 2023 starting salaries: senior-high/vocational ~NT$28,000/month, university ~NT$33,000/month, graduate school ~NT$49,000/month; share starting at minimum wage: 58.3% senior-high/vocational, 23.9% university, 4.4% graduate school (Ministry of Labor 112-year new-hire wage statistics, via Global Views Monthly).",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "Here is where the real tension begins. If Taiwan's factories depend this much on skilled workers, then fewer trade students becomes a serious danger for the industries that made Taiwan famous.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 9.1,
+              "long_word_pct": 12.9,
+              "speak_seconds_est": 16.9,
+              "fill_pct": 84.5,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg4-1 (STEM/exam pressure) and sdg4-2 (digital equity/media literacy): the status and outcomes of vocational/technical education specifically. Facts and sources: vocational-school enrollment share fell from 59.6% (98th academic year) to 46.68% (112th academic year), a 16-year low; ratio was 7:3 forty-plus years ago; academic track overtook vocational in the 108th academic year; by the 113th academic year, general-track students ~279,000 (down 11,000) vs vocational students ~210,000 (down 52,000) (udn.com, CNA reporting Ministry of Education statistics, 2024-2025). Stigma ('black hands'/blue-collar label vs 'craftsman'/'technician' respect elsewhere) and parental credential-insistence even alongside direct-to-job tracks (Global Views Monthly, Liberty Times, CNA, 2024-2025). WorldSkills 2024 (47th, Lyon): Taiwan 58 competitors/50 trades, 2 gold/3 silver/10 bronze/28 excellence, 4th of 69 countries (Ministry of Labor press release Sep 2024, via udn.com/TBO Taiwan). WorldSkills Asia 2025 (Taipei, hosted by Taiwan): back-to-back overall team champion, 17 gold/9 silver/5 bronze/2 excellence youth + 5 gold junior, among 30 countries (Ministry of Labor 2025). Dual-Track Training Flagship Program (modeled on Germany's dual system): work 3+ days/week, school 2-3 days/week, 2021 cohort employment rate 94.9% (Workforce Development Agency). 2023 starting salaries: senior-high/vocational ~NT$28,000/month, university ~NT$33,000/month, graduate school ~NT$49,000/month; share starting at minimum wage: 58.3% senior-high/vocational, 23.9% university, 4.4% graduate school (Ministry of Labor 112-year new-hire wage statistics, via Global Views Monthly).",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "Here is where the real tension begins. If Taiwan's export factories depend this much on skilled workers, then a shrinking trade-school pipeline threatens the very industries that made the island famous, chip plants included.",
+              "words": 34,
+              "sentences": 2,
+              "avg_sentence_words": 17.0,
+              "fk_grade": 10.5,
+              "long_word_pct": 23.5,
+              "speak_seconds_est": 17.0,
+              "fill_pct": 85.0,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg4-1 (STEM/exam pressure) and sdg4-2 (digital equity/media literacy): the status and outcomes of vocational/technical education specifically. Facts and sources: vocational-school enrollment share fell from 59.6% (98th academic year) to 46.68% (112th academic year), a 16-year low; ratio was 7:3 forty-plus years ago; academic track overtook vocational in the 108th academic year; by the 113th academic year, general-track students ~279,000 (down 11,000) vs vocational students ~210,000 (down 52,000) (udn.com, CNA reporting Ministry of Education statistics, 2024-2025). Stigma ('black hands'/blue-collar label vs 'craftsman'/'technician' respect elsewhere) and parental credential-insistence even alongside direct-to-job tracks (Global Views Monthly, Liberty Times, CNA, 2024-2025). WorldSkills 2024 (47th, Lyon): Taiwan 58 competitors/50 trades, 2 gold/3 silver/10 bronze/28 excellence, 4th of 69 countries (Ministry of Labor press release Sep 2024, via udn.com/TBO Taiwan). WorldSkills Asia 2025 (Taipei, hosted by Taiwan): back-to-back overall team champion, 17 gold/9 silver/5 bronze/2 excellence youth + 5 gold junior, among 30 countries (Ministry of Labor 2025). Dual-Track Training Flagship Program (modeled on Germany's dual system): work 3+ days/week, school 2-3 days/week, 2021 cohort employment rate 94.9% (Workforce Development Agency). 2023 starting salaries: senior-high/vocational ~NT$28,000/month, university ~NT$33,000/month, graduate school ~NT$49,000/month; share starting at minimum wage: 58.3% senior-high/vocational, 23.9% university, 4.4% graduate school (Ministry of Labor 112-year new-hire wage statistics, via Global Views Monthly).",
+              "workbook_text": null
+            }
+          }
         },
         {
           "slide_no": 14,
@@ -179,7 +816,56 @@
             "zh": null
           },
           "numbers": [],
-          "scripts": {}
+          "scripts": {
+            "A2": {
+              "text": "However, parents are not just stubborn. One new trade job in 2023 paid about NT$28,000 a month. One college job paid about NT$33,000.",
+              "words": 27,
+              "sentences": 3,
+              "avg_sentence_words": 9.0,
+              "fk_grade": 6.7,
+              "long_word_pct": 3.7,
+              "speak_seconds_est": 17.1,
+              "fill_pct": 85.3,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg4-1 (STEM/exam pressure) and sdg4-2 (digital equity/media literacy): the status and outcomes of vocational/technical education specifically. Facts and sources: vocational-school enrollment share fell from 59.6% (98th academic year) to 46.68% (112th academic year), a 16-year low; ratio was 7:3 forty-plus years ago; academic track overtook vocational in the 108th academic year; by the 113th academic year, general-track students ~279,000 (down 11,000) vs vocational students ~210,000 (down 52,000) (udn.com, CNA reporting Ministry of Education statistics, 2024-2025). Stigma ('black hands'/blue-collar label vs 'craftsman'/'technician' respect elsewhere) and parental credential-insistence even alongside direct-to-job tracks (Global Views Monthly, Liberty Times, CNA, 2024-2025). WorldSkills 2024 (47th, Lyon): Taiwan 58 competitors/50 trades, 2 gold/3 silver/10 bronze/28 excellence, 4th of 69 countries (Ministry of Labor press release Sep 2024, via udn.com/TBO Taiwan). WorldSkills Asia 2025 (Taipei, hosted by Taiwan): back-to-back overall team champion, 17 gold/9 silver/5 bronze/2 excellence youth + 5 gold junior, among 30 countries (Ministry of Labor 2025). Dual-Track Training Flagship Program (modeled on Germany's dual system): work 3+ days/week, school 2-3 days/week, 2021 cohort employment rate 94.9% (Workforce Development Agency). 2023 starting salaries: senior-high/vocational ~NT$28,000/month, university ~NT$33,000/month, graduate school ~NT$49,000/month; share starting at minimum wage: 58.3% senior-high/vocational, 23.9% university, 4.4% graduate school (Ministry of Labor 112-year new-hire wage statistics, via Global Views Monthly).",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "However, parents are not simply being old-fashioned here. In 2023, a new vocational-level hire earned about NT$28,000 a month. A university graduate starting out earned roughly NT$33,000.",
+              "words": 31,
+              "sentences": 3,
+              "avg_sentence_words": 10.3,
+              "fk_grade": 12.0,
+              "long_word_pct": 16.1,
+              "speak_seconds_est": 16.9,
+              "fill_pct": 84.5,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg4-1 (STEM/exam pressure) and sdg4-2 (digital equity/media literacy): the status and outcomes of vocational/technical education specifically. Facts and sources: vocational-school enrollment share fell from 59.6% (98th academic year) to 46.68% (112th academic year), a 16-year low; ratio was 7:3 forty-plus years ago; academic track overtook vocational in the 108th academic year; by the 113th academic year, general-track students ~279,000 (down 11,000) vs vocational students ~210,000 (down 52,000) (udn.com, CNA reporting Ministry of Education statistics, 2024-2025). Stigma ('black hands'/blue-collar label vs 'craftsman'/'technician' respect elsewhere) and parental credential-insistence even alongside direct-to-job tracks (Global Views Monthly, Liberty Times, CNA, 2024-2025). WorldSkills 2024 (47th, Lyon): Taiwan 58 competitors/50 trades, 2 gold/3 silver/10 bronze/28 excellence, 4th of 69 countries (Ministry of Labor press release Sep 2024, via udn.com/TBO Taiwan). WorldSkills Asia 2025 (Taipei, hosted by Taiwan): back-to-back overall team champion, 17 gold/9 silver/5 bronze/2 excellence youth + 5 gold junior, among 30 countries (Ministry of Labor 2025). Dual-Track Training Flagship Program (modeled on Germany's dual system): work 3+ days/week, school 2-3 days/week, 2021 cohort employment rate 94.9% (Workforce Development Agency). 2023 starting salaries: senior-high/vocational ~NT$28,000/month, university ~NT$33,000/month, graduate school ~NT$49,000/month; share starting at minimum wage: 58.3% senior-high/vocational, 23.9% university, 4.4% graduate school (Ministry of Labor 112-year new-hire wage statistics, via Global Views Monthly).",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "However, parental hesitation is not merely old-fashioned thinking here. In 2023, a new vocational hire earned around NT$28,000 monthly, while a university graduate earned roughly NT$33,000.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 16.2,
+              "long_word_pct": 23.3,
+              "speak_seconds_est": 15.0,
+              "fill_pct": 75.0,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg4-1 (STEM/exam pressure) and sdg4-2 (digital equity/media literacy): the status and outcomes of vocational/technical education specifically. Facts and sources: vocational-school enrollment share fell from 59.6% (98th academic year) to 46.68% (112th academic year), a 16-year low; ratio was 7:3 forty-plus years ago; academic track overtook vocational in the 108th academic year; by the 113th academic year, general-track students ~279,000 (down 11,000) vs vocational students ~210,000 (down 52,000) (udn.com, CNA reporting Ministry of Education statistics, 2024-2025). Stigma ('black hands'/blue-collar label vs 'craftsman'/'technician' respect elsewhere) and parental credential-insistence even alongside direct-to-job tracks (Global Views Monthly, Liberty Times, CNA, 2024-2025). WorldSkills 2024 (47th, Lyon): Taiwan 58 competitors/50 trades, 2 gold/3 silver/10 bronze/28 excellence, 4th of 69 countries (Ministry of Labor press release Sep 2024, via udn.com/TBO Taiwan). WorldSkills Asia 2025 (Taipei, hosted by Taiwan): back-to-back overall team champion, 17 gold/9 silver/5 bronze/2 excellence youth + 5 gold junior, among 30 countries (Ministry of Labor 2025). Dual-Track Training Flagship Program (modeled on Germany's dual system): work 3+ days/week, school 2-3 days/week, 2021 cohort employment rate 94.9% (Workforce Development Agency). 2023 starting salaries: senior-high/vocational ~NT$28,000/month, university ~NT$33,000/month, graduate school ~NT$49,000/month; share starting at minimum wage: 58.3% senior-high/vocational, 23.9% university, 4.4% graduate school (Ministry of Labor 112-year new-hire wage statistics, via Global Views Monthly).",
+              "workbook_text": null
+            }
+          }
         },
         {
           "slide_no": 15,
@@ -188,7 +874,56 @@
             "zh": null
           },
           "numbers": [],
-          "scripts": {}
+          "scripts": {
+            "A2": {
+              "text": "However, that pay gap hits new workers hardest. Over half of trade-school grads start at minimum wage. Only about a quarter of college grads do.",
+              "words": 25,
+              "sentences": 3,
+              "avg_sentence_words": 8.3,
+              "fk_grade": 5.6,
+              "long_word_pct": 4.0,
+              "speak_seconds_est": 15.8,
+              "fill_pct": 78.9,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg4-1 (STEM/exam pressure) and sdg4-2 (digital equity/media literacy): the status and outcomes of vocational/technical education specifically. Facts and sources: vocational-school enrollment share fell from 59.6% (98th academic year) to 46.68% (112th academic year), a 16-year low; ratio was 7:3 forty-plus years ago; academic track overtook vocational in the 108th academic year; by the 113th academic year, general-track students ~279,000 (down 11,000) vs vocational students ~210,000 (down 52,000) (udn.com, CNA reporting Ministry of Education statistics, 2024-2025). Stigma ('black hands'/blue-collar label vs 'craftsman'/'technician' respect elsewhere) and parental credential-insistence even alongside direct-to-job tracks (Global Views Monthly, Liberty Times, CNA, 2024-2025). WorldSkills 2024 (47th, Lyon): Taiwan 58 competitors/50 trades, 2 gold/3 silver/10 bronze/28 excellence, 4th of 69 countries (Ministry of Labor press release Sep 2024, via udn.com/TBO Taiwan). WorldSkills Asia 2025 (Taipei, hosted by Taiwan): back-to-back overall team champion, 17 gold/9 silver/5 bronze/2 excellence youth + 5 gold junior, among 30 countries (Ministry of Labor 2025). Dual-Track Training Flagship Program (modeled on Germany's dual system): work 3+ days/week, school 2-3 days/week, 2021 cohort employment rate 94.9% (Workforce Development Agency). 2023 starting salaries: senior-high/vocational ~NT$28,000/month, university ~NT$33,000/month, graduate school ~NT$49,000/month; share starting at minimum wage: 58.3% senior-high/vocational, 23.9% university, 4.4% graduate school (Ministry of Labor 112-year new-hire wage statistics, via Global Views Monthly).",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "However, that pay gap concentrates most heavily at the very start of a career. About 58 percent of vocational new hires begin at minimum wage. Only 24 percent of university graduates do.",
+              "words": 32,
+              "sentences": 3,
+              "avg_sentence_words": 10.7,
+              "fk_grade": 10.7,
+              "long_word_pct": 12.5,
+              "speak_seconds_est": 17.5,
+              "fill_pct": 87.3,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg4-1 (STEM/exam pressure) and sdg4-2 (digital equity/media literacy): the status and outcomes of vocational/technical education specifically. Facts and sources: vocational-school enrollment share fell from 59.6% (98th academic year) to 46.68% (112th academic year), a 16-year low; ratio was 7:3 forty-plus years ago; academic track overtook vocational in the 108th academic year; by the 113th academic year, general-track students ~279,000 (down 11,000) vs vocational students ~210,000 (down 52,000) (udn.com, CNA reporting Ministry of Education statistics, 2024-2025). Stigma ('black hands'/blue-collar label vs 'craftsman'/'technician' respect elsewhere) and parental credential-insistence even alongside direct-to-job tracks (Global Views Monthly, Liberty Times, CNA, 2024-2025). WorldSkills 2024 (47th, Lyon): Taiwan 58 competitors/50 trades, 2 gold/3 silver/10 bronze/28 excellence, 4th of 69 countries (Ministry of Labor press release Sep 2024, via udn.com/TBO Taiwan). WorldSkills Asia 2025 (Taipei, hosted by Taiwan): back-to-back overall team champion, 17 gold/9 silver/5 bronze/2 excellence youth + 5 gold junior, among 30 countries (Ministry of Labor 2025). Dual-Track Training Flagship Program (modeled on Germany's dual system): work 3+ days/week, school 2-3 days/week, 2021 cohort employment rate 94.9% (Workforce Development Agency). 2023 starting salaries: senior-high/vocational ~NT$28,000/month, university ~NT$33,000/month, graduate school ~NT$49,000/month; share starting at minimum wage: 58.3% senior-high/vocational, 23.9% university, 4.4% graduate school (Ministry of Labor 112-year new-hire wage statistics, via Global Views Monthly).",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "However, that pay gap concentrates almost entirely at career entry. Roughly 58 percent of vocational new hires begin exactly at minimum wage, while only about 24 percent of university graduates start there.",
+              "words": 32,
+              "sentences": 2,
+              "avg_sentence_words": 16.0,
+              "fk_grade": 15.0,
+              "long_word_pct": 15.6,
+              "speak_seconds_est": 16.0,
+              "fill_pct": 80.0,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg4-1 (STEM/exam pressure) and sdg4-2 (digital equity/media literacy): the status and outcomes of vocational/technical education specifically. Facts and sources: vocational-school enrollment share fell from 59.6% (98th academic year) to 46.68% (112th academic year), a 16-year low; ratio was 7:3 forty-plus years ago; academic track overtook vocational in the 108th academic year; by the 113th academic year, general-track students ~279,000 (down 11,000) vs vocational students ~210,000 (down 52,000) (udn.com, CNA reporting Ministry of Education statistics, 2024-2025). Stigma ('black hands'/blue-collar label vs 'craftsman'/'technician' respect elsewhere) and parental credential-insistence even alongside direct-to-job tracks (Global Views Monthly, Liberty Times, CNA, 2024-2025). WorldSkills 2024 (47th, Lyon): Taiwan 58 competitors/50 trades, 2 gold/3 silver/10 bronze/28 excellence, 4th of 69 countries (Ministry of Labor press release Sep 2024, via udn.com/TBO Taiwan). WorldSkills Asia 2025 (Taipei, hosted by Taiwan): back-to-back overall team champion, 17 gold/9 silver/5 bronze/2 excellence youth + 5 gold junior, among 30 countries (Ministry of Labor 2025). Dual-Track Training Flagship Program (modeled on Germany's dual system): work 3+ days/week, school 2-3 days/week, 2021 cohort employment rate 94.9% (Workforce Development Agency). 2023 starting salaries: senior-high/vocational ~NT$28,000/month, university ~NT$33,000/month, graduate school ~NT$49,000/month; share starting at minimum wage: 58.3% senior-high/vocational, 23.9% university, 4.4% graduate school (Ministry of Labor 112-year new-hire wage statistics, via Global Views Monthly).",
+              "workbook_text": null
+            }
+          }
         },
         {
           "slide_no": 16,
@@ -197,7 +932,56 @@
             "zh": null
           },
           "numbers": [],
-          "scripts": {}
+          "scripts": {
+            "A2": {
+              "text": "However, a first paycheck is not a whole career. Skilled workers who win medals often earn much more later. A short-term gap can close over time.",
+              "words": 26,
+              "sentences": 3,
+              "avg_sentence_words": 8.7,
+              "fk_grade": 5.0,
+              "long_word_pct": 7.7,
+              "speak_seconds_est": 16.4,
+              "fill_pct": 82.1,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg4-1 (STEM/exam pressure) and sdg4-2 (digital equity/media literacy): the status and outcomes of vocational/technical education specifically. Facts and sources: vocational-school enrollment share fell from 59.6% (98th academic year) to 46.68% (112th academic year), a 16-year low; ratio was 7:3 forty-plus years ago; academic track overtook vocational in the 108th academic year; by the 113th academic year, general-track students ~279,000 (down 11,000) vs vocational students ~210,000 (down 52,000) (udn.com, CNA reporting Ministry of Education statistics, 2024-2025). Stigma ('black hands'/blue-collar label vs 'craftsman'/'technician' respect elsewhere) and parental credential-insistence even alongside direct-to-job tracks (Global Views Monthly, Liberty Times, CNA, 2024-2025). WorldSkills 2024 (47th, Lyon): Taiwan 58 competitors/50 trades, 2 gold/3 silver/10 bronze/28 excellence, 4th of 69 countries (Ministry of Labor press release Sep 2024, via udn.com/TBO Taiwan). WorldSkills Asia 2025 (Taipei, hosted by Taiwan): back-to-back overall team champion, 17 gold/9 silver/5 bronze/2 excellence youth + 5 gold junior, among 30 countries (Ministry of Labor 2025). Dual-Track Training Flagship Program (modeled on Germany's dual system): work 3+ days/week, school 2-3 days/week, 2021 cohort employment rate 94.9% (Workforce Development Agency). 2023 starting salaries: senior-high/vocational ~NT$28,000/month, university ~NT$33,000/month, graduate school ~NT$49,000/month; share starting at minimum wage: 58.3% senior-high/vocational, 23.9% university, 4.4% graduate school (Ministry of Labor 112-year new-hire wage statistics, via Global Views Monthly).",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "However, a first paycheck rarely tells the whole story of a career. Skilled technicians, especially the kind who win WorldSkills medals, often close or reverse that early pay gap within just a few years.",
+              "words": 34,
+              "sentences": 2,
+              "avg_sentence_words": 17.0,
+              "fk_grade": 9.8,
+              "long_word_pct": 11.8,
+              "speak_seconds_est": 18.5,
+              "fill_pct": 92.7,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg4-1 (STEM/exam pressure) and sdg4-2 (digital equity/media literacy): the status and outcomes of vocational/technical education specifically. Facts and sources: vocational-school enrollment share fell from 59.6% (98th academic year) to 46.68% (112th academic year), a 16-year low; ratio was 7:3 forty-plus years ago; academic track overtook vocational in the 108th academic year; by the 113th academic year, general-track students ~279,000 (down 11,000) vs vocational students ~210,000 (down 52,000) (udn.com, CNA reporting Ministry of Education statistics, 2024-2025). Stigma ('black hands'/blue-collar label vs 'craftsman'/'technician' respect elsewhere) and parental credential-insistence even alongside direct-to-job tracks (Global Views Monthly, Liberty Times, CNA, 2024-2025). WorldSkills 2024 (47th, Lyon): Taiwan 58 competitors/50 trades, 2 gold/3 silver/10 bronze/28 excellence, 4th of 69 countries (Ministry of Labor press release Sep 2024, via udn.com/TBO Taiwan). WorldSkills Asia 2025 (Taipei, hosted by Taiwan): back-to-back overall team champion, 17 gold/9 silver/5 bronze/2 excellence youth + 5 gold junior, among 30 countries (Ministry of Labor 2025). Dual-Track Training Flagship Program (modeled on Germany's dual system): work 3+ days/week, school 2-3 days/week, 2021 cohort employment rate 94.9% (Workforce Development Agency). 2023 starting salaries: senior-high/vocational ~NT$28,000/month, university ~NT$33,000/month, graduate school ~NT$49,000/month; share starting at minimum wage: 58.3% senior-high/vocational, 23.9% university, 4.4% graduate school (Ministry of Labor 112-year new-hire wage statistics, via Global Views Monthly).",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "However, a starting salary rarely captures the full arc of a career. Skilled technicians, particularly those winning WorldSkills medals, frequently close or even reverse that early pay gap within a matter of years, not decades.",
+              "words": 35,
+              "sentences": 2,
+              "avg_sentence_words": 17.5,
+              "fk_grade": 12.8,
+              "long_word_pct": 17.1,
+              "speak_seconds_est": 17.5,
+              "fill_pct": 87.5,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg4-1 (STEM/exam pressure) and sdg4-2 (digital equity/media literacy): the status and outcomes of vocational/technical education specifically. Facts and sources: vocational-school enrollment share fell from 59.6% (98th academic year) to 46.68% (112th academic year), a 16-year low; ratio was 7:3 forty-plus years ago; academic track overtook vocational in the 108th academic year; by the 113th academic year, general-track students ~279,000 (down 11,000) vs vocational students ~210,000 (down 52,000) (udn.com, CNA reporting Ministry of Education statistics, 2024-2025). Stigma ('black hands'/blue-collar label vs 'craftsman'/'technician' respect elsewhere) and parental credential-insistence even alongside direct-to-job tracks (Global Views Monthly, Liberty Times, CNA, 2024-2025). WorldSkills 2024 (47th, Lyon): Taiwan 58 competitors/50 trades, 2 gold/3 silver/10 bronze/28 excellence, 4th of 69 countries (Ministry of Labor press release Sep 2024, via udn.com/TBO Taiwan). WorldSkills Asia 2025 (Taipei, hosted by Taiwan): back-to-back overall team champion, 17 gold/9 silver/5 bronze/2 excellence youth + 5 gold junior, among 30 countries (Ministry of Labor 2025). Dual-Track Training Flagship Program (modeled on Germany's dual system): work 3+ days/week, school 2-3 days/week, 2021 cohort employment rate 94.9% (Workforce Development Agency). 2023 starting salaries: senior-high/vocational ~NT$28,000/month, university ~NT$33,000/month, graduate school ~NT$49,000/month; share starting at minimum wage: 58.3% senior-high/vocational, 23.9% university, 4.4% graduate school (Ministry of Labor 112-year new-hire wage statistics, via Global Views Monthly).",
+              "workbook_text": null
+            }
+          }
         }
       ]
     },
@@ -215,7 +999,56 @@
             "zh": null
           },
           "numbers": [],
-          "scripts": {}
+          "scripts": {
+            "A2": {
+              "text": "So here is where things stand. Fewer students choose technical schools each year. Yet these same schools keep winning medals and keep finding jobs.",
+              "words": 24,
+              "sentences": 3,
+              "avg_sentence_words": 8.0,
+              "fk_grade": 2.8,
+              "long_word_pct": 8.3,
+              "speak_seconds_est": 15.2,
+              "fill_pct": 75.8,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg4-1 (STEM/exam pressure) and sdg4-2 (digital equity/media literacy): the status and outcomes of vocational/technical education specifically. Facts and sources: vocational-school enrollment share fell from 59.6% (98th academic year) to 46.68% (112th academic year), a 16-year low; ratio was 7:3 forty-plus years ago; academic track overtook vocational in the 108th academic year; by the 113th academic year, general-track students ~279,000 (down 11,000) vs vocational students ~210,000 (down 52,000) (udn.com, CNA reporting Ministry of Education statistics, 2024-2025). Stigma ('black hands'/blue-collar label vs 'craftsman'/'technician' respect elsewhere) and parental credential-insistence even alongside direct-to-job tracks (Global Views Monthly, Liberty Times, CNA, 2024-2025). WorldSkills 2024 (47th, Lyon): Taiwan 58 competitors/50 trades, 2 gold/3 silver/10 bronze/28 excellence, 4th of 69 countries (Ministry of Labor press release Sep 2024, via udn.com/TBO Taiwan). WorldSkills Asia 2025 (Taipei, hosted by Taiwan): back-to-back overall team champion, 17 gold/9 silver/5 bronze/2 excellence youth + 5 gold junior, among 30 countries (Ministry of Labor 2025). Dual-Track Training Flagship Program (modeled on Germany's dual system): work 3+ days/week, school 2-3 days/week, 2021 cohort employment rate 94.9% (Workforce Development Agency). 2023 starting salaries: senior-high/vocational ~NT$28,000/month, university ~NT$33,000/month, graduate school ~NT$49,000/month; share starting at minimum wage: 58.3% senior-high/vocational, 23.9% university, 4.4% graduate school (Ministry of Labor 112-year new-hire wage statistics, via Global Views Monthly).",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "So here is where things actually stand. Enrollment in technical schools keeps falling year after year, yet those same schools keep winning international medals and keep placing graduates into steady jobs.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 9.5,
+              "long_word_pct": 16.1,
+              "speak_seconds_est": 16.9,
+              "fill_pct": 84.5,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg4-1 (STEM/exam pressure) and sdg4-2 (digital equity/media literacy): the status and outcomes of vocational/technical education specifically. Facts and sources: vocational-school enrollment share fell from 59.6% (98th academic year) to 46.68% (112th academic year), a 16-year low; ratio was 7:3 forty-plus years ago; academic track overtook vocational in the 108th academic year; by the 113th academic year, general-track students ~279,000 (down 11,000) vs vocational students ~210,000 (down 52,000) (udn.com, CNA reporting Ministry of Education statistics, 2024-2025). Stigma ('black hands'/blue-collar label vs 'craftsman'/'technician' respect elsewhere) and parental credential-insistence even alongside direct-to-job tracks (Global Views Monthly, Liberty Times, CNA, 2024-2025). WorldSkills 2024 (47th, Lyon): Taiwan 58 competitors/50 trades, 2 gold/3 silver/10 bronze/28 excellence, 4th of 69 countries (Ministry of Labor press release Sep 2024, via udn.com/TBO Taiwan). WorldSkills Asia 2025 (Taipei, hosted by Taiwan): back-to-back overall team champion, 17 gold/9 silver/5 bronze/2 excellence youth + 5 gold junior, among 30 countries (Ministry of Labor 2025). Dual-Track Training Flagship Program (modeled on Germany's dual system): work 3+ days/week, school 2-3 days/week, 2021 cohort employment rate 94.9% (Workforce Development Agency). 2023 starting salaries: senior-high/vocational ~NT$28,000/month, university ~NT$33,000/month, graduate school ~NT$49,000/month; share starting at minimum wage: 58.3% senior-high/vocational, 23.9% university, 4.4% graduate school (Ministry of Labor 112-year new-hire wage statistics, via Global Views Monthly).",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "So here is where matters genuinely stand today. Enrollment in technical schools keeps declining year after year, yet these same schools keep winning medals while placing graduates into steady jobs.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 9.9,
+              "long_word_pct": 16.7,
+              "speak_seconds_est": 15.0,
+              "fill_pct": 75.0,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg4-1 (STEM/exam pressure) and sdg4-2 (digital equity/media literacy): the status and outcomes of vocational/technical education specifically. Facts and sources: vocational-school enrollment share fell from 59.6% (98th academic year) to 46.68% (112th academic year), a 16-year low; ratio was 7:3 forty-plus years ago; academic track overtook vocational in the 108th academic year; by the 113th academic year, general-track students ~279,000 (down 11,000) vs vocational students ~210,000 (down 52,000) (udn.com, CNA reporting Ministry of Education statistics, 2024-2025). Stigma ('black hands'/blue-collar label vs 'craftsman'/'technician' respect elsewhere) and parental credential-insistence even alongside direct-to-job tracks (Global Views Monthly, Liberty Times, CNA, 2024-2025). WorldSkills 2024 (47th, Lyon): Taiwan 58 competitors/50 trades, 2 gold/3 silver/10 bronze/28 excellence, 4th of 69 countries (Ministry of Labor press release Sep 2024, via udn.com/TBO Taiwan). WorldSkills Asia 2025 (Taipei, hosted by Taiwan): back-to-back overall team champion, 17 gold/9 silver/5 bronze/2 excellence youth + 5 gold junior, among 30 countries (Ministry of Labor 2025). Dual-Track Training Flagship Program (modeled on Germany's dual system): work 3+ days/week, school 2-3 days/week, 2021 cohort employment rate 94.9% (Workforce Development Agency). 2023 starting salaries: senior-high/vocational ~NT$28,000/month, university ~NT$33,000/month, graduate school ~NT$49,000/month; share starting at minimum wage: 58.3% senior-high/vocational, 23.9% university, 4.4% graduate school (Ministry of Labor 112-year new-hire wage statistics, via Global Views Monthly).",
+              "workbook_text": null
+            }
+          }
         },
         {
           "slide_no": 18,
@@ -224,7 +1057,56 @@
             "zh": null
           },
           "numbers": [],
-          "scripts": {}
+          "scripts": {
+            "A2": {
+              "text": "This matters even if you study something else entirely. Taiwan's whole economy needs both kinds of workers. One path cannot succeed without the other.",
+              "words": 24,
+              "sentences": 3,
+              "avg_sentence_words": 8.0,
+              "fk_grade": 8.2,
+              "long_word_pct": 12.5,
+              "speak_seconds_est": 15.2,
+              "fill_pct": 75.8,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg4-1 (STEM/exam pressure) and sdg4-2 (digital equity/media literacy): the status and outcomes of vocational/technical education specifically. Facts and sources: vocational-school enrollment share fell from 59.6% (98th academic year) to 46.68% (112th academic year), a 16-year low; ratio was 7:3 forty-plus years ago; academic track overtook vocational in the 108th academic year; by the 113th academic year, general-track students ~279,000 (down 11,000) vs vocational students ~210,000 (down 52,000) (udn.com, CNA reporting Ministry of Education statistics, 2024-2025). Stigma ('black hands'/blue-collar label vs 'craftsman'/'technician' respect elsewhere) and parental credential-insistence even alongside direct-to-job tracks (Global Views Monthly, Liberty Times, CNA, 2024-2025). WorldSkills 2024 (47th, Lyon): Taiwan 58 competitors/50 trades, 2 gold/3 silver/10 bronze/28 excellence, 4th of 69 countries (Ministry of Labor press release Sep 2024, via udn.com/TBO Taiwan). WorldSkills Asia 2025 (Taipei, hosted by Taiwan): back-to-back overall team champion, 17 gold/9 silver/5 bronze/2 excellence youth + 5 gold junior, among 30 countries (Ministry of Labor 2025). Dual-Track Training Flagship Program (modeled on Germany's dual system): work 3+ days/week, school 2-3 days/week, 2021 cohort employment rate 94.9% (Workforce Development Agency). 2023 starting salaries: senior-high/vocational ~NT$28,000/month, university ~NT$33,000/month, graduate school ~NT$49,000/month; share starting at minimum wage: 58.3% senior-high/vocational, 23.9% university, 4.4% graduate school (Ministry of Labor 112-year new-hire wage statistics, via Global Views Monthly).",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "This matters even if your own major has nothing to do with a workshop. Taiwan's whole economy depends on both kinds of graduates working together, and one path simply cannot thrive without the other.",
+              "words": 34,
+              "sentences": 2,
+              "avg_sentence_words": 17.0,
+              "fk_grade": 9.8,
+              "long_word_pct": 11.8,
+              "speak_seconds_est": 18.5,
+              "fill_pct": 92.7,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg4-1 (STEM/exam pressure) and sdg4-2 (digital equity/media literacy): the status and outcomes of vocational/technical education specifically. Facts and sources: vocational-school enrollment share fell from 59.6% (98th academic year) to 46.68% (112th academic year), a 16-year low; ratio was 7:3 forty-plus years ago; academic track overtook vocational in the 108th academic year; by the 113th academic year, general-track students ~279,000 (down 11,000) vs vocational students ~210,000 (down 52,000) (udn.com, CNA reporting Ministry of Education statistics, 2024-2025). Stigma ('black hands'/blue-collar label vs 'craftsman'/'technician' respect elsewhere) and parental credential-insistence even alongside direct-to-job tracks (Global Views Monthly, Liberty Times, CNA, 2024-2025). WorldSkills 2024 (47th, Lyon): Taiwan 58 competitors/50 trades, 2 gold/3 silver/10 bronze/28 excellence, 4th of 69 countries (Ministry of Labor press release Sep 2024, via udn.com/TBO Taiwan). WorldSkills Asia 2025 (Taipei, hosted by Taiwan): back-to-back overall team champion, 17 gold/9 silver/5 bronze/2 excellence youth + 5 gold junior, among 30 countries (Ministry of Labor 2025). Dual-Track Training Flagship Program (modeled on Germany's dual system): work 3+ days/week, school 2-3 days/week, 2021 cohort employment rate 94.9% (Workforce Development Agency). 2023 starting salaries: senior-high/vocational ~NT$28,000/month, university ~NT$33,000/month, graduate school ~NT$49,000/month; share starting at minimum wage: 58.3% senior-high/vocational, 23.9% university, 4.4% graduate school (Ministry of Labor 112-year new-hire wage statistics, via Global Views Monthly).",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "This matters regardless of your own field of study. Taiwan's entire economy depends on both kinds of graduates functioning together, and neither pathway can genuinely thrive while the other is quietly starved of respect and resources.",
+              "words": 36,
+              "sentences": 2,
+              "avg_sentence_words": 18.0,
+              "fk_grade": 12.4,
+              "long_word_pct": 19.4,
+              "speak_seconds_est": 18.0,
+              "fill_pct": 90.0,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg4-1 (STEM/exam pressure) and sdg4-2 (digital equity/media literacy): the status and outcomes of vocational/technical education specifically. Facts and sources: vocational-school enrollment share fell from 59.6% (98th academic year) to 46.68% (112th academic year), a 16-year low; ratio was 7:3 forty-plus years ago; academic track overtook vocational in the 108th academic year; by the 113th academic year, general-track students ~279,000 (down 11,000) vs vocational students ~210,000 (down 52,000) (udn.com, CNA reporting Ministry of Education statistics, 2024-2025). Stigma ('black hands'/blue-collar label vs 'craftsman'/'technician' respect elsewhere) and parental credential-insistence even alongside direct-to-job tracks (Global Views Monthly, Liberty Times, CNA, 2024-2025). WorldSkills 2024 (47th, Lyon): Taiwan 58 competitors/50 trades, 2 gold/3 silver/10 bronze/28 excellence, 4th of 69 countries (Ministry of Labor press release Sep 2024, via udn.com/TBO Taiwan). WorldSkills Asia 2025 (Taipei, hosted by Taiwan): back-to-back overall team champion, 17 gold/9 silver/5 bronze/2 excellence youth + 5 gold junior, among 30 countries (Ministry of Labor 2025). Dual-Track Training Flagship Program (modeled on Germany's dual system): work 3+ days/week, school 2-3 days/week, 2021 cohort employment rate 94.9% (Workforce Development Agency). 2023 starting salaries: senior-high/vocational ~NT$28,000/month, university ~NT$33,000/month, graduate school ~NT$49,000/month; share starting at minimum wage: 58.3% senior-high/vocational, 23.9% university, 4.4% graduate school (Ministry of Labor 112-year new-hire wage statistics, via Global Views Monthly).",
+              "workbook_text": null
+            }
+          }
         },
         {
           "slide_no": 19,
@@ -233,7 +1115,56 @@
             "zh": null
           },
           "numbers": [],
-          "scripts": {}
+          "scripts": {
+            "A2": {
+              "text": "So question what you grew up believing about school. Ask why a degree feels safer than a skill. Then share a WorldSkills story with someone.",
+              "words": 25,
+              "sentences": 3,
+              "avg_sentence_words": 8.3,
+              "fk_grade": 3.2,
+              "long_word_pct": 12.0,
+              "speak_seconds_est": 15.8,
+              "fill_pct": 78.9,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg4-1 (STEM/exam pressure) and sdg4-2 (digital equity/media literacy): the status and outcomes of vocational/technical education specifically. Facts and sources: vocational-school enrollment share fell from 59.6% (98th academic year) to 46.68% (112th academic year), a 16-year low; ratio was 7:3 forty-plus years ago; academic track overtook vocational in the 108th academic year; by the 113th academic year, general-track students ~279,000 (down 11,000) vs vocational students ~210,000 (down 52,000) (udn.com, CNA reporting Ministry of Education statistics, 2024-2025). Stigma ('black hands'/blue-collar label vs 'craftsman'/'technician' respect elsewhere) and parental credential-insistence even alongside direct-to-job tracks (Global Views Monthly, Liberty Times, CNA, 2024-2025). WorldSkills 2024 (47th, Lyon): Taiwan 58 competitors/50 trades, 2 gold/3 silver/10 bronze/28 excellence, 4th of 69 countries (Ministry of Labor press release Sep 2024, via udn.com/TBO Taiwan). WorldSkills Asia 2025 (Taipei, hosted by Taiwan): back-to-back overall team champion, 17 gold/9 silver/5 bronze/2 excellence youth + 5 gold junior, among 30 countries (Ministry of Labor 2025). Dual-Track Training Flagship Program (modeled on Germany's dual system): work 3+ days/week, school 2-3 days/week, 2021 cohort employment rate 94.9% (Workforce Development Agency). 2023 starting salaries: senior-high/vocational ~NT$28,000/month, university ~NT$33,000/month, graduate school ~NT$49,000/month; share starting at minimum wage: 58.3% senior-high/vocational, 23.9% university, 4.4% graduate school (Ministry of Labor 112-year new-hire wage statistics, via Global Views Monthly).",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "So start by questioning the hierarchy you grew up believing in. Ask yourself honestly why a degree still feels safer than a skill. Then share a WorldSkills story with someone who has never heard one.",
+              "words": 35,
+              "sentences": 3,
+              "avg_sentence_words": 11.7,
+              "fk_grade": 5.5,
+              "long_word_pct": 17.1,
+              "speak_seconds_est": 19.1,
+              "fill_pct": 95.5,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg4-1 (STEM/exam pressure) and sdg4-2 (digital equity/media literacy): the status and outcomes of vocational/technical education specifically. Facts and sources: vocational-school enrollment share fell from 59.6% (98th academic year) to 46.68% (112th academic year), a 16-year low; ratio was 7:3 forty-plus years ago; academic track overtook vocational in the 108th academic year; by the 113th academic year, general-track students ~279,000 (down 11,000) vs vocational students ~210,000 (down 52,000) (udn.com, CNA reporting Ministry of Education statistics, 2024-2025). Stigma ('black hands'/blue-collar label vs 'craftsman'/'technician' respect elsewhere) and parental credential-insistence even alongside direct-to-job tracks (Global Views Monthly, Liberty Times, CNA, 2024-2025). WorldSkills 2024 (47th, Lyon): Taiwan 58 competitors/50 trades, 2 gold/3 silver/10 bronze/28 excellence, 4th of 69 countries (Ministry of Labor press release Sep 2024, via udn.com/TBO Taiwan). WorldSkills Asia 2025 (Taipei, hosted by Taiwan): back-to-back overall team champion, 17 gold/9 silver/5 bronze/2 excellence youth + 5 gold junior, among 30 countries (Ministry of Labor 2025). Dual-Track Training Flagship Program (modeled on Germany's dual system): work 3+ days/week, school 2-3 days/week, 2021 cohort employment rate 94.9% (Workforce Development Agency). 2023 starting salaries: senior-high/vocational ~NT$28,000/month, university ~NT$33,000/month, graduate school ~NT$49,000/month; share starting at minimum wage: 58.3% senior-high/vocational, 23.9% university, 4.4% graduate school (Ministry of Labor 112-year new-hire wage statistics, via Global Views Monthly).",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "So start by questioning the hierarchy you were raised to accept without argument. Ask yourself honestly why a degree still feels safer than a skill, then share a WorldSkills story with someone who has genuinely never heard one.",
+              "words": 38,
+              "sentences": 2,
+              "avg_sentence_words": 19.0,
+              "fk_grade": 9.8,
+              "long_word_pct": 18.4,
+              "speak_seconds_est": 19.0,
+              "fill_pct": 95.0,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg4-1 (STEM/exam pressure) and sdg4-2 (digital equity/media literacy): the status and outcomes of vocational/technical education specifically. Facts and sources: vocational-school enrollment share fell from 59.6% (98th academic year) to 46.68% (112th academic year), a 16-year low; ratio was 7:3 forty-plus years ago; academic track overtook vocational in the 108th academic year; by the 113th academic year, general-track students ~279,000 (down 11,000) vs vocational students ~210,000 (down 52,000) (udn.com, CNA reporting Ministry of Education statistics, 2024-2025). Stigma ('black hands'/blue-collar label vs 'craftsman'/'technician' respect elsewhere) and parental credential-insistence even alongside direct-to-job tracks (Global Views Monthly, Liberty Times, CNA, 2024-2025). WorldSkills 2024 (47th, Lyon): Taiwan 58 competitors/50 trades, 2 gold/3 silver/10 bronze/28 excellence, 4th of 69 countries (Ministry of Labor press release Sep 2024, via udn.com/TBO Taiwan). WorldSkills Asia 2025 (Taipei, hosted by Taiwan): back-to-back overall team champion, 17 gold/9 silver/5 bronze/2 excellence youth + 5 gold junior, among 30 countries (Ministry of Labor 2025). Dual-Track Training Flagship Program (modeled on Germany's dual system): work 3+ days/week, school 2-3 days/week, 2021 cohort employment rate 94.9% (Workforce Development Agency). 2023 starting salaries: senior-high/vocational ~NT$28,000/month, university ~NT$33,000/month, graduate school ~NT$49,000/month; share starting at minimum wage: 58.3% senior-high/vocational, 23.9% university, 4.4% graduate school (Ministry of Labor 112-year new-hire wage statistics, via Global Views Monthly).",
+              "workbook_text": null
+            }
+          }
         },
         {
           "slide_no": 20,
@@ -242,9 +1173,81 @@
             "zh": null
           },
           "numbers": [],
-          "scripts": {}
+          "scripts": {
+            "A2": {
+              "text": "Two paths built this whole island as one. Please respect both diplomas equally from today. Taiwan's future needs every skilled worker it can find.",
+              "words": 24,
+              "sentences": 3,
+              "avg_sentence_words": 8.0,
+              "fk_grade": 6.2,
+              "long_word_pct": 8.3,
+              "speak_seconds_est": 15.2,
+              "fill_pct": 75.8,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg4-1 (STEM/exam pressure) and sdg4-2 (digital equity/media literacy): the status and outcomes of vocational/technical education specifically. Facts and sources: vocational-school enrollment share fell from 59.6% (98th academic year) to 46.68% (112th academic year), a 16-year low; ratio was 7:3 forty-plus years ago; academic track overtook vocational in the 108th academic year; by the 113th academic year, general-track students ~279,000 (down 11,000) vs vocational students ~210,000 (down 52,000) (udn.com, CNA reporting Ministry of Education statistics, 2024-2025). Stigma ('black hands'/blue-collar label vs 'craftsman'/'technician' respect elsewhere) and parental credential-insistence even alongside direct-to-job tracks (Global Views Monthly, Liberty Times, CNA, 2024-2025). WorldSkills 2024 (47th, Lyon): Taiwan 58 competitors/50 trades, 2 gold/3 silver/10 bronze/28 excellence, 4th of 69 countries (Ministry of Labor press release Sep 2024, via udn.com/TBO Taiwan). WorldSkills Asia 2025 (Taipei, hosted by Taiwan): back-to-back overall team champion, 17 gold/9 silver/5 bronze/2 excellence youth + 5 gold junior, among 30 countries (Ministry of Labor 2025). Dual-Track Training Flagship Program (modeled on Germany's dual system): work 3+ days/week, school 2-3 days/week, 2021 cohort employment rate 94.9% (Workforce Development Agency). 2023 starting salaries: senior-high/vocational ~NT$28,000/month, university ~NT$33,000/month, graduate school ~NT$49,000/month; share starting at minimum wage: 58.3% senior-high/vocational, 23.9% university, 4.4% graduate school (Ministry of Labor 112-year new-hire wage statistics, via Global Views Monthly).",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "Two very different paths have built this island, and both diplomas deserve equal and real respect, starting today. Taiwan's future genuinely needs every skilled worker it can find.",
+              "words": 28,
+              "sentences": 2,
+              "avg_sentence_words": 14.0,
+              "fk_grade": 10.1,
+              "long_word_pct": 17.9,
+              "speak_seconds_est": 15.3,
+              "fill_pct": 76.4,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg4-1 (STEM/exam pressure) and sdg4-2 (digital equity/media literacy): the status and outcomes of vocational/technical education specifically. Facts and sources: vocational-school enrollment share fell from 59.6% (98th academic year) to 46.68% (112th academic year), a 16-year low; ratio was 7:3 forty-plus years ago; academic track overtook vocational in the 108th academic year; by the 113th academic year, general-track students ~279,000 (down 11,000) vs vocational students ~210,000 (down 52,000) (udn.com, CNA reporting Ministry of Education statistics, 2024-2025). Stigma ('black hands'/blue-collar label vs 'craftsman'/'technician' respect elsewhere) and parental credential-insistence even alongside direct-to-job tracks (Global Views Monthly, Liberty Times, CNA, 2024-2025). WorldSkills 2024 (47th, Lyon): Taiwan 58 competitors/50 trades, 2 gold/3 silver/10 bronze/28 excellence, 4th of 69 countries (Ministry of Labor press release Sep 2024, via udn.com/TBO Taiwan). WorldSkills Asia 2025 (Taipei, hosted by Taiwan): back-to-back overall team champion, 17 gold/9 silver/5 bronze/2 excellence youth + 5 gold junior, among 30 countries (Ministry of Labor 2025). Dual-Track Training Flagship Program (modeled on Germany's dual system): work 3+ days/week, school 2-3 days/week, 2021 cohort employment rate 94.9% (Workforce Development Agency). 2023 starting salaries: senior-high/vocational ~NT$28,000/month, university ~NT$33,000/month, graduate school ~NT$49,000/month; share starting at minimum wage: 58.3% senior-high/vocational, 23.9% university, 4.4% graduate school (Ministry of Labor 112-year new-hire wage statistics, via Global Views Monthly).",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "Two distinct paths built this island together, and both diplomas deserve equal respect, starting today, not eventually. Taiwan's future genuinely depends on every skilled hand it can find and keep.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 11.1,
+              "long_word_pct": 23.3,
+              "speak_seconds_est": 15.0,
+              "fill_pct": 75.0,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg4-1 (STEM/exam pressure) and sdg4-2 (digital equity/media literacy): the status and outcomes of vocational/technical education specifically. Facts and sources: vocational-school enrollment share fell from 59.6% (98th academic year) to 46.68% (112th academic year), a 16-year low; ratio was 7:3 forty-plus years ago; academic track overtook vocational in the 108th academic year; by the 113th academic year, general-track students ~279,000 (down 11,000) vs vocational students ~210,000 (down 52,000) (udn.com, CNA reporting Ministry of Education statistics, 2024-2025). Stigma ('black hands'/blue-collar label vs 'craftsman'/'technician' respect elsewhere) and parental credential-insistence even alongside direct-to-job tracks (Global Views Monthly, Liberty Times, CNA, 2024-2025). WorldSkills 2024 (47th, Lyon): Taiwan 58 competitors/50 trades, 2 gold/3 silver/10 bronze/28 excellence, 4th of 69 countries (Ministry of Labor press release Sep 2024, via udn.com/TBO Taiwan). WorldSkills Asia 2025 (Taipei, hosted by Taiwan): back-to-back overall team champion, 17 gold/9 silver/5 bronze/2 excellence youth + 5 gold junior, among 30 countries (Ministry of Labor 2025). Dual-Track Training Flagship Program (modeled on Germany's dual system): work 3+ days/week, school 2-3 days/week, 2021 cohort employment rate 94.9% (Workforce Development Agency). 2023 starting salaries: senior-high/vocational ~NT$28,000/month, university ~NT$33,000/month, graduate school ~NT$49,000/month; share starting at minimum wage: 58.3% senior-high/vocational, 23.9% university, 4.4% graduate school (Ministry of Labor 112-year new-hire wage statistics, via Global Views Monthly).",
+              "workbook_text": null
+            }
+          }
         }
       ]
     }
-  ]
+  ],
+  "level_summary": {
+    "A2": {
+      "slides": 20,
+      "avg_words": 25.1,
+      "avg_sentence_words": 8.3,
+      "fk_grade": 5.0,
+      "slides_over_20s": 0
+    },
+    "B1": {
+      "slides": 20,
+      "avg_words": 31.9,
+      "avg_sentence_words": 14.0,
+      "fk_grade": 9.0,
+      "slides_over_20s": 0
+    },
+    "B2": {
+      "slides": 20,
+      "avg_words": 34.5,
+      "avg_sentence_words": 16.6,
+      "fk_grade": 12.4,
+      "slides_over_20s": 1
+    }
+  }
 }

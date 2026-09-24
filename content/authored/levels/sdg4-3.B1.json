@@ -1,0 +1,30 @@
+{
+  "mission_id": "sdg4-3",
+  "level": "B1",
+  "provenance": "authored",
+  "author": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+  "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg4-1 (STEM/exam pressure) and sdg4-2 (digital equity/media literacy): the status and outcomes of vocational/technical education specifically. Facts and sources: vocational-school enrollment share fell from 59.6% (98th academic year) to 46.68% (112th academic year), a 16-year low; ratio was 7:3 forty-plus years ago; academic track overtook vocational in the 108th academic year; by the 113th academic year, general-track students ~279,000 (down 11,000) vs vocational students ~210,000 (down 52,000) (udn.com, CNA reporting Ministry of Education statistics, 2024-2025). Stigma ('black hands'/blue-collar label vs 'craftsman'/'technician' respect elsewhere) and parental credential-insistence even alongside direct-to-job tracks (Global Views Monthly, Liberty Times, CNA, 2024-2025). WorldSkills 2024 (47th, Lyon): Taiwan 58 competitors/50 trades, 2 gold/3 silver/10 bronze/28 excellence, 4th of 69 countries (Ministry of Labor press release Sep 2024, via udn.com/TBO Taiwan). WorldSkills Asia 2025 (Taipei, hosted by Taiwan): back-to-back overall team champion, 17 gold/9 silver/5 bronze/2 excellence youth + 5 gold junior, among 30 countries (Ministry of Labor 2025). Dual-Track Training Flagship Program (modeled on Germany's dual system): work 3+ days/week, school 2-3 days/week, 2021 cohort employment rate 94.9% (Workforce Development Agency). 2023 starting salaries: senior-high/vocational ~NT$28,000/month, university ~NT$33,000/month, graduate school ~NT$49,000/month; share starting at minimum wage: 58.3% senior-high/vocational, 23.9% university, 4.4% graduate school (Ministry of Labor 112-year new-hire wage statistics, via Global Views Monthly).",
+  "reviewed_by": null,
+  "slides": {
+    "1": "Imagine telling your parents that you would rather attend a vocational school than a university. Very few students actually say it out loud. Why does that idea feel so uncomfortable?",
+    "2": "SDG 4 calls for quality education for everyone, and that promise was never meant to describe only one path. Taiwan's technical and vocational system trains real skills for real jobs, and it deserves equal respect.",
+    "3": "Taiwan's factories and chip plants depend heavily on skilled workers. Yet fewer students choose that path now. By the 113th school year, only about 210,000 students remained in technical programs, well below past levels.",
+    "4": "The numbers are dropping fast. Forty years ago, seven students in ten chose a technical high school, but general high schools have now overtaken vocational schools in size.",
+    "5": "There is a harsh label that still follows these graduates: black hands, a term for a manual worker. In countries with strong vocational systems, the same person is respectfully called a craftsman instead.",
+    "6": "Even when a direct-to-job technical program exists, some parents still insist their child also earn a university degree. A teenager without one can quickly start to feel like a social outsider.",
+    "7": "Now for some real pride. At the 2024 WorldSkills event in Lyon, France, Taiwan sent 58 competitors across 50 trades. The team won 2 gold, 3 silver, and 10 bronze medals, ranking 4th among 69 countries.",
+    "8": "Taiwan then hosted the 2025 WorldSkills Asia event in Taipei. The team has won the top prize again, making it two wins in a row among 30 countries.",
+    "9": "There is also a Dual-Track program modeled on Germany's system. Students work at least three days and attend class two or three days each week. Its 2021 graduates found jobs at a 94.9 percent rate.",
+    "10": "Instead of separating classroom years from job training entirely, more schools could adopt this dual model, mixing paid work with real study. Both sides gain something useful from it.",
+    "11": "Old workshops with old tools hold learning back badly. Schools should buy new machines, not only new labs, so that skills taught actually match what factories use today.",
+    "12": "Middle school counselors could help shift this culture too. Instead of always presenting university as the default choice, they could present a vocational path as an equally respected option from the very start.",
+    "13": "Here is where the real tension begins. If Taiwan's factories depend this much on skilled workers, then fewer trade students becomes a serious danger for the industries that made Taiwan famous.",
+    "14": "However, parents are not simply being old-fashioned here. In 2023, a new vocational-level hire earned about NT$28,000 a month. A university graduate starting out earned roughly NT$33,000.",
+    "15": "However, that pay gap concentrates most heavily at the very start of a career. About 58 percent of vocational new hires begin at minimum wage. Only 24 percent of university graduates do.",
+    "16": "However, a first paycheck rarely tells the whole story of a career. Skilled technicians, especially the kind who win WorldSkills medals, often close or reverse that early pay gap within just a few years.",
+    "17": "So here is where things actually stand. Enrollment in technical schools keeps falling year after year, yet those same schools keep winning international medals and keep placing graduates into steady jobs.",
+    "18": "This matters even if your own major has nothing to do with a workshop. Taiwan's whole economy depends on both kinds of graduates working together, and one path simply cannot thrive without the other.",
+    "19": "So start by questioning the hierarchy you grew up believing in. Ask yourself honestly why a degree still feels safer than a skill. Then share a WorldSkills story with someone who has never heard one.",
+    "20": "Two very different paths have built this island, and both diplomas deserve equal and real respect, starting today. Taiwan's future genuinely needs every skilled worker it can find."
+  }
+}

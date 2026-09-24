@@ -1,0 +1,30 @@
+{
+  "mission_id": "sdg4-3",
+  "level": "A2",
+  "provenance": "authored",
+  "author": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+  "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg4-1 (STEM/exam pressure) and sdg4-2 (digital equity/media literacy): the status and outcomes of vocational/technical education specifically. Facts and sources: vocational-school enrollment share fell from 59.6% (98th academic year) to 46.68% (112th academic year), a 16-year low; ratio was 7:3 forty-plus years ago; academic track overtook vocational in the 108th academic year; by the 113th academic year, general-track students ~279,000 (down 11,000) vs vocational students ~210,000 (down 52,000) (udn.com, CNA reporting Ministry of Education statistics, 2024-2025). Stigma ('black hands'/blue-collar label vs 'craftsman'/'technician' respect elsewhere) and parental credential-insistence even alongside direct-to-job tracks (Global Views Monthly, Liberty Times, CNA, 2024-2025). WorldSkills 2024 (47th, Lyon): Taiwan 58 competitors/50 trades, 2 gold/3 silver/10 bronze/28 excellence, 4th of 69 countries (Ministry of Labor press release Sep 2024, via udn.com/TBO Taiwan). WorldSkills Asia 2025 (Taipei, hosted by Taiwan): back-to-back overall team champion, 17 gold/9 silver/5 bronze/2 excellence youth + 5 gold junior, among 30 countries (Ministry of Labor 2025). Dual-Track Training Flagship Program (modeled on Germany's dual system): work 3+ days/week, school 2-3 days/week, 2021 cohort employment rate 94.9% (Workforce Development Agency). 2023 starting salaries: senior-high/vocational ~NT$28,000/month, university ~NT$33,000/month, graduate school ~NT$49,000/month; share starting at minimum wage: 58.3% senior-high/vocational, 23.9% university, 4.4% graduate school (Ministry of Labor 112-year new-hire wage statistics, via Global Views Monthly).",
+  "reviewed_by": null,
+  "slides": {
+    "1": "Imagine telling your parents you want to skip university for a trade school. Many students never say it. Why does that idea feel so hard?",
+    "2": "SDG 4 wants good schools for everyone. That does not mean just one path. Taiwan's trade schools also teach real skills for real jobs.",
+    "3": "Taiwan's plants need many skilled workers. But fewer students pick that path now. In 2024, only 210,000 people learned a trade in school.",
+    "4": "The numbers are falling fast. Long ago, seven in ten students chose a technical school. Today, general high schools have far more students instead.",
+    "5": "There is an old label for these graduates: black hands. In other countries, the same worker is called a craftsman. Words like this matter.",
+    "6": "Even job-ready programs are not enough for some parents. They still want a college degree too. Without one, a teen can feel like an outsider.",
+    "7": "Now for some pride. At the 2024 WorldSkills contest in France, Taiwan sent 58 young competitors. They won 2 gold medals and ranked 4th among 69 countries.",
+    "8": "Taiwan then hosted the 2025 Asia skills contest in Taipei. The team won first place again there. That makes two wins in a row.",
+    "9": "There is also a training program based on Germany's system. Students work three days and study two days each week. Its graduates found jobs at a 94.9 percent rate.",
+    "10": "Instead of only sitting in classrooms, students could learn on the job too. This mixes real work with real study. Both sides gain something useful.",
+    "11": "Old workshops with old tools hurt study badly. Schools should buy new machines, not just new labs. Skills must match what factories use today.",
+    "12": "Middle school counselors could help too. Instead of naming university first, they could praise both paths equally. That kind of change could start early.",
+    "13": "Here is the real tension. If plants need skilled workers, fewer trade grads becomes a real danger. Even chip factories need trained workers, not only engineers.",
+    "14": "However, parents are not just stubborn. One new trade job in 2023 paid about NT$28,000 a month. One college job paid about NT$33,000.",
+    "15": "However, that pay gap hits new workers hardest. Over half of trade-school grads start at minimum wage. Only about a quarter of college grads do.",
+    "16": "However, a first paycheck is not a whole career. Skilled workers who win medals often earn much more later. A short-term gap can close over time.",
+    "17": "So here is where things stand. Fewer students choose technical schools each year. Yet these same schools keep winning medals and keep finding jobs.",
+    "18": "This matters even if you study something else entirely. Taiwan's whole economy needs both kinds of workers. One path cannot succeed without the other.",
+    "19": "So question what you grew up believing about school. Ask why a degree feels safer than a skill. Then share a WorldSkills story with someone.",
+    "20": "Two paths built this whole island as one. Please respect both diplomas equally from today. Taiwan's future needs every skilled worker it can find."
+  }
+}

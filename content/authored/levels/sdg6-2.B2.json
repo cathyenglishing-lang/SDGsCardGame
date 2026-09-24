@@ -1,0 +1,30 @@
+{
+  "mission_id": "sdg6-2",
+  "level": "B2",
+  "provenance": "authored",
+  "author": "Claude + Gemini 3.1 Pro draft, fully rewritten by Claude for band compliance",
+  "basis": "New mission, no workbook source. Facts: Taiwan makes ~90% of the world's most advanced chips, led by TSMC (widely reported industry figure). TSMC total water use ~114 million m3 in 2023 rising to ~129 million m3 in 2024 (TSMC 2024 Sustainability Report, via secondary reporting). Science parks (Hsinchu, Central Taiwan, Southern Taiwan) draw a large, concentrated share of local water supply. 2021 drought: government ordered tech sector to cut water use by up to 20%; TSMC trucked in water (NPR/KPBS Apr 2023; multiple sources). TSMC process water recycling rate reached 90.3% in 2023 (TSMC sustainability report / Semiwiki summary). TSMC Tainan-area fabs used ~19.65 million m3 of reclaimed water in 2024, cutting tap-water use there by ~31% (TSMC 2024 report). Reclaimed-water plants operate in Tainan Science Park (e.g. Anping Reclaimed Water Plant). TSMC has pledged to be 'water positive' by 2030 (company target, not yet achieved). Desalination expanding as backup supply (Hsinchu desal plant). 2021 drought: >74,000 hectares of farmland left fallow, about the size of New York City (NPR/KPBS; Earth.org). Agriculture uses >70% of Taiwan's water but <2% of GDP (Earth.org; multiple sources). Register per docs/plans/new-mission-playbook.md. House rule followed: 'Silicon Shield' never used (per lint rule, this is a cross-strait deterrence term, not an industry nickname).",
+  "reviewed_by": null,
+  "slides": {
+    "1": "It is the sheer scale of water a single chip demands that surprises most people. The chip itself is smaller than a fingernail, yet manufacturing it requires an extraordinary volume of ultra-pure water.",
+    "2": "Clean water and sanitation for everyone, as SDG 6 promises, is a standard that constrains heavy industry as much as anyone else. No factory's growth, however large, should come at everyone else's expense.",
+    "3": "It is TSMC's Taiwan that manufactures roughly 90% of the world's most advanced computer chips. That achievement looks all the more paradoxical given the island's status as one of the planet's most water-stressed places.",
+    "4": "Ultra-pure water gets consumed on a huge scale simply rinsing silicon wafers repeatedly at every stage. Unsurprisingly, TSMC's total water use climbed from about 114 million tonnes in 2023 to roughly 129 million the following year.",
+    "5": "Hsinchu, central Taiwan and the south absorb a strikingly disproportionate share of this demand through their science parks. Each one competes directly with the homes and farms surrounding it for increasingly scarce local supply.",
+    "6": "There is something factories cannot do that farmers can: simply pause. That single constraint is why drought striking during fabrication season poses such a difficult question for Taiwan's chip industry.",
+    "7": "Facing its worst drought in decades, Taiwan saw authorities order the technology sector to cut water use by 20% in 2021. Water was consequently transported in from neighboring regions to keep semiconductor fabs running.",
+    "8": "Having reached 90.3%, TSMC's process water recycling rate now ranks among the very highest of any chip maker worldwide. That marks a substantial improvement achieved since the 2021 crisis.",
+    "9": "Parallel gains have come from reclamation too. TSMC's Tainan-area fabs alone drew on roughly 19.65 million tonnes of reclaimed water in 2024, trimming local tap-water demand there by about 31%.",
+    "10": "Rather than depending solely on fresh reservoir water, science parks now operate dedicated reclaimed-water plants of their own. These plants convert treated wastewater into a supply that fabs can draw on directly.",
+    "11": "Becoming water positive by 2030 is the bold target TSMC has now set for itself. That would mean returning more water to the environment than its own operations actually draw.",
+    "12": "Desalination capacity is being significantly expanded as well. Relying on a single water source leaves fabs exposed, so a more diversified supply genuinely lowers the risk of another emergency order.",
+    "13": "What a repeat drought would cost becomes clear from 2021 alone. Farmers were displaced from more than 74,000 hectares of cropland then, an expanse comparable to New York City, almost overnight.",
+    "14": "What makes that trade-off so stark is a simple asymmetry. Agriculture consumes over 70% of Taiwan's water while generating under 2% of its GDP, whereas chip fabs extract far more value from far less water.",
+    "15": "This is no longer merely a local issue. As Taiwan's chipmakers expand production, including new fabs built overseas, water risk here increasingly threatens supply chains on a genuinely global scale.",
+    "16": "Droughts are steadily growing much harder to predict under a rapidly changing climate. That means the ongoing tension among farms, households and factories seems unlikely to remain a one-time event.",
+    "17": "To sum up, chip manufacturing demands enormous volumes of water that Taiwan can ill afford to spare. Although the industry has responded through genuine recycling, the real tension with agriculture remains unresolved.",
+    "18": "Framing this as factories versus farmers misses the point entirely. What genuinely underlies the conflict is a shared infrastructure and policy failure, one that assigning blame will never actually repair.",
+    "19": "What can students actually contribute here today? Beyond engineering, science and policy work, better tools, careful water monitoring, honest public notes, and real community action on these trade-offs all genuinely count.",
+    "20": "Better choices should not wait for the next drought to force them into existence. What Taiwan genuinely needs now is deliberate, systematic engineering of infrastructure that serves both its industry and its people."
+  }
+}

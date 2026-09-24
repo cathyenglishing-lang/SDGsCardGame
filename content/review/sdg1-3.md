@@ -6,9 +6,9 @@ SDG 1 · 20 slides · levels: A2, B1, B2 · content_version 2026.09.1
 
 | 級別 | 張數 | 每張字數 | 每句字數 | FK | 超過 20 秒 |
 | --- | --- | --- | --- | --- | --- |
-| A2 | 20 | 25.6 | 8.7 | 4.6 | 0 |
+| A2 | 20 | 25.6 | 8.5 | 4.3 | 0 |
 | B1 | 20 | 29.6 | 14.5 | 8.8 | 0 |
-| B2 | 20 | 31.9 | 15.9 | 12.2 | 0 |
+| B2 | 20 | 31.9 | 16.0 | 12.2 | 0 |
 
 ## Part 1 · Introduction（引言：破題與定義）
 
@@ -17,8 +17,8 @@ SDG 1 · 20 slides · levels: A2, B1, B2 · content_version 2026.09.1
 
 ### Slide 1 · Six Times More Likely
 
-- **A2**（25 字 / 每句 8.3 字 / 約 15.8 秒）
-  > Here is a hard fact. A rich student is six times more likely to enter Taiwan's top university than a poor student. Let's ask why.
+- **A2**（27 字 / 每句 9.0 字 / 約 17.1 秒）
+  > Six times over. A rich child has a much better chance to enter Taiwan's excellent top school than a poor child ever does. Let's really ask why.
 - **B1**（30 字 / 每句 15.0 字 / 約 16.4 秒）
   > Here's a fact that should surprise nobody, yet still does. A rich student is about six times more likely to get into Taiwan's top university than a poor student is.
 - **B2**（32 字 / 每句 16.0 字 / 約 16.0 秒）
@@ -35,8 +35,8 @@ SDG 1 · 20 slides · levels: A2, B1, B2 · content_version 2026.09.1
 
 ### Slide 3 · Who Gets Into Taiwan's Top University
 
-- **A2**（29 字 / 每句 9.7 字 / 約 18.3 秒）
-  > Look at the numbers. Students at Taiwan's top school come from homes with over NT$1.5 million a year. Most families in Taiwan earn far less than that.
+- **A2**（25 字 / 每句 8.3 字 / 約 15.8 秒）
+  > Check these numbers. Homes near Taiwan's top school often earn over NT$1.5 million a year. Most Taiwan families earn much less than that.
 - **B1**（30 字 / 每句 15.0 字 / 約 16.4 秒）
   > Look closely at the numbers behind admission. Students at Taiwan's top university usually come from homes earning more than NT$1.5 million a year, far above most Taiwan families.
 - **B2**（34 字 / 每句 17.0 字 / 約 17.0 秒）
@@ -104,7 +104,7 @@ SDG 1 · 20 slides · levels: A2, B1, B2 · content_version 2026.09.1
 - **B1**（28 字 / 每句 14.0 字 / 約 15.3 秒）
   > Money alone rarely solves the whole problem. A scholarship works far better when it arrives alongside a mentor, because guidance often matters as much as the funding itself.
 - **B2**（30 字 / 每句 15.0 字 / 約 15.0 秒）
-  > Financial aid alone rarely solves the underlying problem. A scholarship proves considerably more effective when it is paired with mentorship, since guidance frequently matters as much as the money itself.
+  > Financial aid alone rarely solves the whole underlying problem completely. What actually helps most is pairing a scholarship with mentorship, because guidance is valued as much as the money itself.
 
 ## Part 4 · Solutions（解方：做法與取捨）
 
@@ -114,7 +114,7 @@ SDG 1 · 20 slides · levels: A2, B1, B2 · content_version 2026.09.1
 ### Slide 10 · Funding Need, Not Just Talent
 
 - **A2**（25 字 / 每句 8.3 字 / 約 15.8 秒）
-  > Here is one important idea. Give money to students who need it most. Do not give it only to students with the best test scores.
+  > Here is one important idea. Give money to kids who need it most. Do not give it only to kids with the best test scores.
 - **B1**（28 字 / 每句 14.0 字 / 約 15.3 秒）
   > One clear solution really exists here today. Base aid on financial need, not only on test scores, so support actually reaches the students who require it the most.
 - **B2**（31 字 / 每句 15.5 字 / 約 15.5 秒）
@@ -131,12 +131,12 @@ SDG 1 · 20 slides · levels: A2, B1, B2 · content_version 2026.09.1
 
 ### Slide 12 · Starting Support Before Kindergarten
 
-- **A2**（26 字 / 每句 8.7 字 / 約 16.4 秒）
-  > University help often starts too late for a poor student. Support should begin much earlier, even before kindergarten. Early help closes the gap before it grows.
+- **A2**（27 字 / 每句 9.0 字 / 約 17.1 秒）
+  > By the time you reach university, it is already too late. Early help works best, even before a child starts kindergarten. Waiting only makes the gap bigger.
 - **B1**（30 字 / 每句 15.0 字 / 約 16.4 秒）
   > Waiting until university starts is already too late for many students. Support should begin much earlier, before kindergarten even, since the gap between rich and poor grows every single year.
-- **B2**（33 字 / 每句 16.5 字 / 約 16.5 秒）
-  > Waiting until university intervenes far too late for most students. Support ought to begin much earlier, even before kindergarten, because the gap separating rich and poor widens with every year it remains unaddressed.
+- **B2**（34 字 / 每句 17.0 字 / 約 17.0 秒）
+  > By the time a student reaches university, meaningful intervention already arrives too late. Support ought to begin far earlier, ideally before kindergarten, since the gap separating rich and poor compounds with each passing year.
 
 ## Part 5 · Implications（影響：推論後果）
 
@@ -164,7 +164,7 @@ SDG 1 · 20 slides · levels: A2, B1, B2 · content_version 2026.09.1
 ### Slide 15 · When the Exam Rewards Head Starts
 
 - **A2**（25 字 / 每句 8.3 字 / 約 15.8 秒）
-  > However, the big exam still helps rich kids the most. It rewards years of paid tutoring after school. So the same old cycle can continue.
+  > However, one big exam still favors the rich kids most. Paid lessons after school help them score much higher. The old pattern just keeps going.
 - **B1**（28 字 / 每句 14.0 字 / 約 15.3 秒）
   > However, the entrance exam still rewards exactly what rich families can buy: years of paid lessons. So the same old cycle can quietly continue into the next generation.
 - **B2**（32 字 / 每句 16.0 字 / 約 16.0 秒）
@@ -177,7 +177,7 @@ SDG 1 · 20 slides · levels: A2, B1, B2 · content_version 2026.09.1
 - **B1**（28 字 / 每句 14.0 字 / 約 15.3 秒）
   > However, there is clearly one proven way forward here. Programs that combine funding with a mentor show the strongest results, and that mix actually breaks the old cycle.
 - **B2**（30 字 / 每句 15.0 字 / 約 15.0 秒）
-  > However, a more promising path clearly exists: programs combining funding with steady mentorship show the strongest outcomes. It is this combination, not money alone, that ultimately breaks the whole cycle.
+  > However, a more promising path clearly exists here: programs combining funding with steady mentorship show the strongest outcomes. It is mentorship that ultimately breaks the entire cycle, not money alone.
 
 ## Part 6 · Call to action（結語：總結與號召）
 
@@ -195,8 +195,8 @@ SDG 1 · 20 slides · levels: A2, B1, B2 · content_version 2026.09.1
 
 ### Slide 18 · Why Your Classmates' Stories Matter
 
-- **A2**（24 字 / 每句 12.0 字 / 約 15.2 秒）
-  > This matters in this room right now. Someone near you may already hold this exact scholarship, and their story is not distant at all.
+- **A2**（24 字 / 每句 8.0 字 / 約 15.2 秒）
+  > Look around this room right now. A classmate sitting near you might already get this very help. Their story is close, not far away.
 - **B1**（29 字 / 每句 14.5 字 / 約 15.8 秒）
   > This matters inside this very lecture room right now. Someone sitting near you may already hold exactly this particular scholarship themselves, so their story is not distant at all.
 - **B2**（30 字 / 每句 15.0 字 / 約 15.0 秒）
@@ -205,7 +205,7 @@ SDG 1 · 20 slides · levels: A2, B1, B2 · content_version 2026.09.1
 ### Slide 19 · Tutor, Volunteer, Advocate
 
 - **A2**（24 字 / 每句 8.0 字 / 約 15.2 秒）
-  > So here is your action for today. Tutor a younger student for free. Or ask your school to add a mentor to every scholarship.
+  > Take real action now, starting today. Give free lessons to a younger student. Or tell your school to add a mentor to every scholarship.
 - **B1**（28 字 / 每句 14.0 字 / 約 15.3 秒）
   > So here is something you can actually do today. Volunteer to tutor a younger student, or push your school to attach a mentor to every scholarship it gives.
 - **B2**（30 字 / 每句 15.0 字 / 約 15.0 秒）

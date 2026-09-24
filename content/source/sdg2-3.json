@@ -20,7 +20,56 @@
             "zh": null
           },
           "numbers": [],
-          "scripts": {}
+          "scripts": {
+            "A2": {
+              "text": "Have you ever seen a hungry classmate here at your own university? No, not really. But would you know one if you saw them?",
+              "words": 24,
+              "sentences": 3,
+              "avg_sentence_words": 8.0,
+              "fk_grade": 3.3,
+              "long_word_pct": 8.3,
+              "speak_seconds_est": 15.2,
+              "fill_pct": 75.8,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan relative poverty rate ~6.75-7.53% 2017-2023, 7.43% in 2022 (MOHW); low-income children (0-18) fell 117,012 (2016) to 90,245 (2021), near-poor children fell 135,819 (2016) to 107,010 (2021), together ~200,000 in 2021 (MOHW/CRC 兒少統計專區); Child Welfare League Foundation (兒福聯盟) survey: 20% of disadvantaged children have gone hungry at home and eaten snacks instead of a meal; ~20% rely on snacks when school lunch stops over long holidays; 11.0% of students skip breakfast 3+ days/week and arrive hungry; school lunch policy expanding city by city: Taipei free for all public+private elem/JHS since Sept 2025 (NT$87/NT$92 per meal); Kaohsiung free from 2026 school year (~NT$1.8B/yr, ~180,000 students); Tainan (~NT$56/meal) and Chiayi County (~NT$62/meal) free from 2026; Pingtung County free from 2026; Hsinchu City partial subsidy (NT$40/NT$45) with full waiver for disadvantaged (city government press releases, CNA, 風傳媒, 造咖); 2026 revision of 財政收支劃分法 ended central subsidy for domestic school-lunch ingredients, shifting cost to local budgets; Alliance of Taiwan Foodbanks (台灣食物銀行聯合會, ATF) — ~60 member food banks, ~300 partner NPOs, ~100 community refrigerators (84 fridges+16 freezers) nationwide, Taipei flagship store rescues ~20,000 kg food/yr for 200+ households/month, Hualien warehouse stores 500+ tonnes serving 20+ remote communities/schools (atf.tw); retail food waste — supermarkets/hypermarkets declared ~69,670 tonnes discarded Mar 2017-Jun 2023 (6 yrs), ~11,000 tonnes/yr, ~30 tonnes/day (foodnext.net/食力, government-mandated reporting). Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "You've probably never actually seen a hungry classmate at your own school here, but here's a real question worth asking anyway. Would you know one if you did?",
+              "words": 28,
+              "sentences": 2,
+              "avg_sentence_words": 14.0,
+              "fk_grade": 6.7,
+              "long_word_pct": 14.3,
+              "speak_seconds_est": 15.3,
+              "fill_pct": 76.4,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan relative poverty rate ~6.75-7.53% 2017-2023, 7.43% in 2022 (MOHW); low-income children (0-18) fell 117,012 (2016) to 90,245 (2021), near-poor children fell 135,819 (2016) to 107,010 (2021), together ~200,000 in 2021 (MOHW/CRC 兒少統計專區); Child Welfare League Foundation (兒福聯盟) survey: 20% of disadvantaged children have gone hungry at home and eaten snacks instead of a meal; ~20% rely on snacks when school lunch stops over long holidays; 11.0% of students skip breakfast 3+ days/week and arrive hungry; school lunch policy expanding city by city: Taipei free for all public+private elem/JHS since Sept 2025 (NT$87/NT$92 per meal); Kaohsiung free from 2026 school year (~NT$1.8B/yr, ~180,000 students); Tainan (~NT$56/meal) and Chiayi County (~NT$62/meal) free from 2026; Pingtung County free from 2026; Hsinchu City partial subsidy (NT$40/NT$45) with full waiver for disadvantaged (city government press releases, CNA, 風傳媒, 造咖); 2026 revision of 財政收支劃分法 ended central subsidy for domestic school-lunch ingredients, shifting cost to local budgets; Alliance of Taiwan Foodbanks (台灣食物銀行聯合會, ATF) — ~60 member food banks, ~300 partner NPOs, ~100 community refrigerators (84 fridges+16 freezers) nationwide, Taipei flagship store rescues ~20,000 kg food/yr for 200+ households/month, Hualien warehouse stores 500+ tonnes serving 20+ remote communities/schools (atf.tw); retail food waste — supermarkets/hypermarkets declared ~69,670 tonnes discarded Mar 2017-Jun 2023 (6 yrs), ~11,000 tonnes/yr, ~30 tonnes/day (foodnext.net/食力, government-mandated reporting). Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "Visibly hungry classmates rarely cross paths with most university students here, and that absence really raises an uncomfortable question worth confronting directly. Would you actually recognise one if you did?",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 13.1,
+              "long_word_pct": 30.0,
+              "speak_seconds_est": 15.0,
+              "fill_pct": 75.0,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan relative poverty rate ~6.75-7.53% 2017-2023, 7.43% in 2022 (MOHW); low-income children (0-18) fell 117,012 (2016) to 90,245 (2021), near-poor children fell 135,819 (2016) to 107,010 (2021), together ~200,000 in 2021 (MOHW/CRC 兒少統計專區); Child Welfare League Foundation (兒福聯盟) survey: 20% of disadvantaged children have gone hungry at home and eaten snacks instead of a meal; ~20% rely on snacks when school lunch stops over long holidays; 11.0% of students skip breakfast 3+ days/week and arrive hungry; school lunch policy expanding city by city: Taipei free for all public+private elem/JHS since Sept 2025 (NT$87/NT$92 per meal); Kaohsiung free from 2026 school year (~NT$1.8B/yr, ~180,000 students); Tainan (~NT$56/meal) and Chiayi County (~NT$62/meal) free from 2026; Pingtung County free from 2026; Hsinchu City partial subsidy (NT$40/NT$45) with full waiver for disadvantaged (city government press releases, CNA, 風傳媒, 造咖); 2026 revision of 財政收支劃分法 ended central subsidy for domestic school-lunch ingredients, shifting cost to local budgets; Alliance of Taiwan Foodbanks (台灣食物銀行聯合會, ATF) — ~60 member food banks, ~300 partner NPOs, ~100 community refrigerators (84 fridges+16 freezers) nationwide, Taipei flagship store rescues ~20,000 kg food/yr for 200+ households/month, Hualien warehouse stores 500+ tonnes serving 20+ remote communities/schools (atf.tw); retail food waste — supermarkets/hypermarkets declared ~69,670 tonnes discarded Mar 2017-Jun 2023 (6 yrs), ~11,000 tonnes/yr, ~30 tonnes/day (foodnext.net/食力, government-mandated reporting). Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            }
+          }
         },
         {
           "slide_no": 2,
@@ -29,7 +78,56 @@
             "zh": null
           },
           "numbers": [],
-          "scripts": {}
+          "scripts": {
+            "A2": {
+              "text": "SDG 2 also means hidden hunger. This is not always about zero food. It is about food that is not enough, or not reliable.",
+              "words": 24,
+              "sentences": 3,
+              "avg_sentence_words": 8.0,
+              "fk_grade": 4.2,
+              "long_word_pct": 4.2,
+              "speak_seconds_est": 15.2,
+              "fill_pct": 75.8,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan relative poverty rate ~6.75-7.53% 2017-2023, 7.43% in 2022 (MOHW); low-income children (0-18) fell 117,012 (2016) to 90,245 (2021), near-poor children fell 135,819 (2016) to 107,010 (2021), together ~200,000 in 2021 (MOHW/CRC 兒少統計專區); Child Welfare League Foundation (兒福聯盟) survey: 20% of disadvantaged children have gone hungry at home and eaten snacks instead of a meal; ~20% rely on snacks when school lunch stops over long holidays; 11.0% of students skip breakfast 3+ days/week and arrive hungry; school lunch policy expanding city by city: Taipei free for all public+private elem/JHS since Sept 2025 (NT$87/NT$92 per meal); Kaohsiung free from 2026 school year (~NT$1.8B/yr, ~180,000 students); Tainan (~NT$56/meal) and Chiayi County (~NT$62/meal) free from 2026; Pingtung County free from 2026; Hsinchu City partial subsidy (NT$40/NT$45) with full waiver for disadvantaged (city government press releases, CNA, 風傳媒, 造咖); 2026 revision of 財政收支劃分法 ended central subsidy for domestic school-lunch ingredients, shifting cost to local budgets; Alliance of Taiwan Foodbanks (台灣食物銀行聯合會, ATF) — ~60 member food banks, ~300 partner NPOs, ~100 community refrigerators (84 fridges+16 freezers) nationwide, Taipei flagship store rescues ~20,000 kg food/yr for 200+ households/month, Hualien warehouse stores 500+ tonnes serving 20+ remote communities/schools (atf.tw); retail food waste — supermarkets/hypermarkets declared ~69,670 tonnes discarded Mar 2017-Jun 2023 (6 yrs), ~11,000 tonnes/yr, ~30 tonnes/day (foodnext.net/食力, government-mandated reporting). Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "SDG 2 also covers something we might genuinely call hidden hunger, which isn't about having zero food. It's about food that never arrives on time, or never arrives in enough amounts.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 10.2,
+              "long_word_pct": 6.5,
+              "speak_seconds_est": 16.9,
+              "fill_pct": 84.5,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan relative poverty rate ~6.75-7.53% 2017-2023, 7.43% in 2022 (MOHW); low-income children (0-18) fell 117,012 (2016) to 90,245 (2021), near-poor children fell 135,819 (2016) to 107,010 (2021), together ~200,000 in 2021 (MOHW/CRC 兒少統計專區); Child Welfare League Foundation (兒福聯盟) survey: 20% of disadvantaged children have gone hungry at home and eaten snacks instead of a meal; ~20% rely on snacks when school lunch stops over long holidays; 11.0% of students skip breakfast 3+ days/week and arrive hungry; school lunch policy expanding city by city: Taipei free for all public+private elem/JHS since Sept 2025 (NT$87/NT$92 per meal); Kaohsiung free from 2026 school year (~NT$1.8B/yr, ~180,000 students); Tainan (~NT$56/meal) and Chiayi County (~NT$62/meal) free from 2026; Pingtung County free from 2026; Hsinchu City partial subsidy (NT$40/NT$45) with full waiver for disadvantaged (city government press releases, CNA, 風傳媒, 造咖); 2026 revision of 財政收支劃分法 ended central subsidy for domestic school-lunch ingredients, shifting cost to local budgets; Alliance of Taiwan Foodbanks (台灣食物銀行聯合會, ATF) — ~60 member food banks, ~300 partner NPOs, ~100 community refrigerators (84 fridges+16 freezers) nationwide, Taipei flagship store rescues ~20,000 kg food/yr for 200+ households/month, Hualien warehouse stores 500+ tonnes serving 20+ remote communities/schools (atf.tw); retail food waste — supermarkets/hypermarkets declared ~69,670 tonnes discarded Mar 2017-Jun 2023 (6 yrs), ~11,000 tonnes/yr, ~30 tonnes/day (foodnext.net/食力, government-mandated reporting). Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "Specialists use the term hidden hunger for something different from having zero food available at all. It simply means food arriving unpredictably, or never in a properly sufficient amount for anyone.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 12.5,
+              "long_word_pct": 25.8,
+              "speak_seconds_est": 15.5,
+              "fill_pct": 77.5,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan relative poverty rate ~6.75-7.53% 2017-2023, 7.43% in 2022 (MOHW); low-income children (0-18) fell 117,012 (2016) to 90,245 (2021), near-poor children fell 135,819 (2016) to 107,010 (2021), together ~200,000 in 2021 (MOHW/CRC 兒少統計專區); Child Welfare League Foundation (兒福聯盟) survey: 20% of disadvantaged children have gone hungry at home and eaten snacks instead of a meal; ~20% rely on snacks when school lunch stops over long holidays; 11.0% of students skip breakfast 3+ days/week and arrive hungry; school lunch policy expanding city by city: Taipei free for all public+private elem/JHS since Sept 2025 (NT$87/NT$92 per meal); Kaohsiung free from 2026 school year (~NT$1.8B/yr, ~180,000 students); Tainan (~NT$56/meal) and Chiayi County (~NT$62/meal) free from 2026; Pingtung County free from 2026; Hsinchu City partial subsidy (NT$40/NT$45) with full waiver for disadvantaged (city government press releases, CNA, 風傳媒, 造咖); 2026 revision of 財政收支劃分法 ended central subsidy for domestic school-lunch ingredients, shifting cost to local budgets; Alliance of Taiwan Foodbanks (台灣食物銀行聯合會, ATF) — ~60 member food banks, ~300 partner NPOs, ~100 community refrigerators (84 fridges+16 freezers) nationwide, Taipei flagship store rescues ~20,000 kg food/yr for 200+ households/month, Hualien warehouse stores 500+ tonnes serving 20+ remote communities/schools (atf.tw); retail food waste — supermarkets/hypermarkets declared ~69,670 tonnes discarded Mar 2017-Jun 2023 (6 yrs), ~11,000 tonnes/yr, ~30 tonnes/day (foodnext.net/食力, government-mandated reporting). Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            }
+          }
         },
         {
           "slide_no": 3,
@@ -38,7 +136,56 @@
             "zh": null
           },
           "numbers": [],
-          "scripts": {}
+          "scripts": {
+            "A2": {
+              "text": "Taiwan looks rich in food. There is a small store on almost every corner. Yet close to 200,000 children still live in poor or near-poor homes.",
+              "words": 27,
+              "sentences": 3,
+              "avg_sentence_words": 9.0,
+              "fk_grade": 5.0,
+              "long_word_pct": 7.4,
+              "speak_seconds_est": 17.1,
+              "fill_pct": 85.3,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan relative poverty rate ~6.75-7.53% 2017-2023, 7.43% in 2022 (MOHW); low-income children (0-18) fell 117,012 (2016) to 90,245 (2021), near-poor children fell 135,819 (2016) to 107,010 (2021), together ~200,000 in 2021 (MOHW/CRC 兒少統計專區); Child Welfare League Foundation (兒福聯盟) survey: 20% of disadvantaged children have gone hungry at home and eaten snacks instead of a meal; ~20% rely on snacks when school lunch stops over long holidays; 11.0% of students skip breakfast 3+ days/week and arrive hungry; school lunch policy expanding city by city: Taipei free for all public+private elem/JHS since Sept 2025 (NT$87/NT$92 per meal); Kaohsiung free from 2026 school year (~NT$1.8B/yr, ~180,000 students); Tainan (~NT$56/meal) and Chiayi County (~NT$62/meal) free from 2026; Pingtung County free from 2026; Hsinchu City partial subsidy (NT$40/NT$45) with full waiver for disadvantaged (city government press releases, CNA, 風傳媒, 造咖); 2026 revision of 財政收支劃分法 ended central subsidy for domestic school-lunch ingredients, shifting cost to local budgets; Alliance of Taiwan Foodbanks (台灣食物銀行聯合會, ATF) — ~60 member food banks, ~300 partner NPOs, ~100 community refrigerators (84 fridges+16 freezers) nationwide, Taipei flagship store rescues ~20,000 kg food/yr for 200+ households/month, Hualien warehouse stores 500+ tonnes serving 20+ remote communities/schools (atf.tw); retail food waste — supermarkets/hypermarkets declared ~69,670 tonnes discarded Mar 2017-Jun 2023 (6 yrs), ~11,000 tonnes/yr, ~30 tonnes/day (foodnext.net/食力, government-mandated reporting). Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "Almost 200,000 children in Taiwan were counted as poor or near-poor most recently. Even so, the island seems to have plenty of food everywhere. A corner shop sits on nearly every block.",
+              "words": 33,
+              "sentences": 3,
+              "avg_sentence_words": 11.0,
+              "fk_grade": 8.0,
+              "long_word_pct": 12.1,
+              "speak_seconds_est": 18.0,
+              "fill_pct": 90.0,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan relative poverty rate ~6.75-7.53% 2017-2023, 7.43% in 2022 (MOHW); low-income children (0-18) fell 117,012 (2016) to 90,245 (2021), near-poor children fell 135,819 (2016) to 107,010 (2021), together ~200,000 in 2021 (MOHW/CRC 兒少統計專區); Child Welfare League Foundation (兒福聯盟) survey: 20% of disadvantaged children have gone hungry at home and eaten snacks instead of a meal; ~20% rely on snacks when school lunch stops over long holidays; 11.0% of students skip breakfast 3+ days/week and arrive hungry; school lunch policy expanding city by city: Taipei free for all public+private elem/JHS since Sept 2025 (NT$87/NT$92 per meal); Kaohsiung free from 2026 school year (~NT$1.8B/yr, ~180,000 students); Tainan (~NT$56/meal) and Chiayi County (~NT$62/meal) free from 2026; Pingtung County free from 2026; Hsinchu City partial subsidy (NT$40/NT$45) with full waiver for disadvantaged (city government press releases, CNA, 風傳媒, 造咖); 2026 revision of 財政收支劃分法 ended central subsidy for domestic school-lunch ingredients, shifting cost to local budgets; Alliance of Taiwan Foodbanks (台灣食物銀行聯合會, ATF) — ~60 member food banks, ~300 partner NPOs, ~100 community refrigerators (84 fridges+16 freezers) nationwide, Taipei flagship store rescues ~20,000 kg food/yr for 200+ households/month, Hualien warehouse stores 500+ tonnes serving 20+ remote communities/schools (atf.tw); retail food waste — supermarkets/hypermarkets declared ~69,670 tonnes discarded Mar 2017-Jun 2023 (6 yrs), ~11,000 tonnes/yr, ~30 tonnes/day (foodnext.net/食力, government-mandated reporting). Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "Corner stores saturate nearly every single city block in Taiwan. Despite that, almost 200,000 Taiwanese children were still officially classified as poor or near-poor in the most recent count.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 12.3,
+              "long_word_pct": 20.0,
+              "speak_seconds_est": 15.0,
+              "fill_pct": 75.0,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan relative poverty rate ~6.75-7.53% 2017-2023, 7.43% in 2022 (MOHW); low-income children (0-18) fell 117,012 (2016) to 90,245 (2021), near-poor children fell 135,819 (2016) to 107,010 (2021), together ~200,000 in 2021 (MOHW/CRC 兒少統計專區); Child Welfare League Foundation (兒福聯盟) survey: 20% of disadvantaged children have gone hungry at home and eaten snacks instead of a meal; ~20% rely on snacks when school lunch stops over long holidays; 11.0% of students skip breakfast 3+ days/week and arrive hungry; school lunch policy expanding city by city: Taipei free for all public+private elem/JHS since Sept 2025 (NT$87/NT$92 per meal); Kaohsiung free from 2026 school year (~NT$1.8B/yr, ~180,000 students); Tainan (~NT$56/meal) and Chiayi County (~NT$62/meal) free from 2026; Pingtung County free from 2026; Hsinchu City partial subsidy (NT$40/NT$45) with full waiver for disadvantaged (city government press releases, CNA, 風傳媒, 造咖); 2026 revision of 財政收支劃分法 ended central subsidy for domestic school-lunch ingredients, shifting cost to local budgets; Alliance of Taiwan Foodbanks (台灣食物銀行聯合會, ATF) — ~60 member food banks, ~300 partner NPOs, ~100 community refrigerators (84 fridges+16 freezers) nationwide, Taipei flagship store rescues ~20,000 kg food/yr for 200+ households/month, Hualien warehouse stores 500+ tonnes serving 20+ remote communities/schools (atf.tw); retail food waste — supermarkets/hypermarkets declared ~69,670 tonnes discarded Mar 2017-Jun 2023 (6 yrs), ~11,000 tonnes/yr, ~30 tonnes/day (foodnext.net/食力, government-mandated reporting). Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            }
+          }
         }
       ]
     },
@@ -56,7 +203,56 @@
             "zh": null
           },
           "numbers": [],
-          "scripts": {}
+          "scripts": {
+            "A2": {
+              "text": "One survey found something quite sad. Twenty percent of poor children have gone hungry at home. They ate snacks instead of a real meal that day.",
+              "words": 26,
+              "sentences": 3,
+              "avg_sentence_words": 8.7,
+              "fk_grade": 3.2,
+              "long_word_pct": 7.7,
+              "speak_seconds_est": 16.4,
+              "fill_pct": 82.1,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan relative poverty rate ~6.75-7.53% 2017-2023, 7.43% in 2022 (MOHW); low-income children (0-18) fell 117,012 (2016) to 90,245 (2021), near-poor children fell 135,819 (2016) to 107,010 (2021), together ~200,000 in 2021 (MOHW/CRC 兒少統計專區); Child Welfare League Foundation (兒福聯盟) survey: 20% of disadvantaged children have gone hungry at home and eaten snacks instead of a meal; ~20% rely on snacks when school lunch stops over long holidays; 11.0% of students skip breakfast 3+ days/week and arrive hungry; school lunch policy expanding city by city: Taipei free for all public+private elem/JHS since Sept 2025 (NT$87/NT$92 per meal); Kaohsiung free from 2026 school year (~NT$1.8B/yr, ~180,000 students); Tainan (~NT$56/meal) and Chiayi County (~NT$62/meal) free from 2026; Pingtung County free from 2026; Hsinchu City partial subsidy (NT$40/NT$45) with full waiver for disadvantaged (city government press releases, CNA, 風傳媒, 造咖); 2026 revision of 財政收支劃分法 ended central subsidy for domestic school-lunch ingredients, shifting cost to local budgets; Alliance of Taiwan Foodbanks (台灣食物銀行聯合會, ATF) — ~60 member food banks, ~300 partner NPOs, ~100 community refrigerators (84 fridges+16 freezers) nationwide, Taipei flagship store rescues ~20,000 kg food/yr for 200+ households/month, Hualien warehouse stores 500+ tonnes serving 20+ remote communities/schools (atf.tw); retail food waste — supermarkets/hypermarkets declared ~69,670 tonnes discarded Mar 2017-Jun 2023 (6 yrs), ~11,000 tonnes/yr, ~30 tonnes/day (foodnext.net/食力, government-mandated reporting). Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "Roughly one in five children living in poor households have gone without a proper meal at home. That comes from a countrywide study, and many turned to snack food instead that day.",
+              "words": 32,
+              "sentences": 2,
+              "avg_sentence_words": 16.0,
+              "fk_grade": 7.6,
+              "long_word_pct": 9.4,
+              "speak_seconds_est": 17.5,
+              "fill_pct": 87.3,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan relative poverty rate ~6.75-7.53% 2017-2023, 7.43% in 2022 (MOHW); low-income children (0-18) fell 117,012 (2016) to 90,245 (2021), near-poor children fell 135,819 (2016) to 107,010 (2021), together ~200,000 in 2021 (MOHW/CRC 兒少統計專區); Child Welfare League Foundation (兒福聯盟) survey: 20% of disadvantaged children have gone hungry at home and eaten snacks instead of a meal; ~20% rely on snacks when school lunch stops over long holidays; 11.0% of students skip breakfast 3+ days/week and arrive hungry; school lunch policy expanding city by city: Taipei free for all public+private elem/JHS since Sept 2025 (NT$87/NT$92 per meal); Kaohsiung free from 2026 school year (~NT$1.8B/yr, ~180,000 students); Tainan (~NT$56/meal) and Chiayi County (~NT$62/meal) free from 2026; Pingtung County free from 2026; Hsinchu City partial subsidy (NT$40/NT$45) with full waiver for disadvantaged (city government press releases, CNA, 風傳媒, 造咖); 2026 revision of 財政收支劃分法 ended central subsidy for domestic school-lunch ingredients, shifting cost to local budgets; Alliance of Taiwan Foodbanks (台灣食物銀行聯合會, ATF) — ~60 member food banks, ~300 partner NPOs, ~100 community refrigerators (84 fridges+16 freezers) nationwide, Taipei flagship store rescues ~20,000 kg food/yr for 200+ households/month, Hualien warehouse stores 500+ tonnes serving 20+ remote communities/schools (atf.tw); retail food waste — supermarkets/hypermarkets declared ~69,670 tonnes discarded Mar 2017-Jun 2023 (6 yrs), ~11,000 tonnes/yr, ~30 tonnes/day (foodnext.net/食力, government-mandated reporting). Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "A nationwide study found that approximately one-fifth of children in low-income households have gone without an adequate meal at home. Many simply relied on snack food as a substitute instead.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 11.5,
+              "long_word_pct": 26.7,
+              "speak_seconds_est": 15.0,
+              "fill_pct": 75.0,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan relative poverty rate ~6.75-7.53% 2017-2023, 7.43% in 2022 (MOHW); low-income children (0-18) fell 117,012 (2016) to 90,245 (2021), near-poor children fell 135,819 (2016) to 107,010 (2021), together ~200,000 in 2021 (MOHW/CRC 兒少統計專區); Child Welfare League Foundation (兒福聯盟) survey: 20% of disadvantaged children have gone hungry at home and eaten snacks instead of a meal; ~20% rely on snacks when school lunch stops over long holidays; 11.0% of students skip breakfast 3+ days/week and arrive hungry; school lunch policy expanding city by city: Taipei free for all public+private elem/JHS since Sept 2025 (NT$87/NT$92 per meal); Kaohsiung free from 2026 school year (~NT$1.8B/yr, ~180,000 students); Tainan (~NT$56/meal) and Chiayi County (~NT$62/meal) free from 2026; Pingtung County free from 2026; Hsinchu City partial subsidy (NT$40/NT$45) with full waiver for disadvantaged (city government press releases, CNA, 風傳媒, 造咖); 2026 revision of 財政收支劃分法 ended central subsidy for domestic school-lunch ingredients, shifting cost to local budgets; Alliance of Taiwan Foodbanks (台灣食物銀行聯合會, ATF) — ~60 member food banks, ~300 partner NPOs, ~100 community refrigerators (84 fridges+16 freezers) nationwide, Taipei flagship store rescues ~20,000 kg food/yr for 200+ households/month, Hualien warehouse stores 500+ tonnes serving 20+ remote communities/schools (atf.tw); retail food waste — supermarkets/hypermarkets declared ~69,670 tonnes discarded Mar 2017-Jun 2023 (6 yrs), ~11,000 tonnes/yr, ~30 tonnes/day (foodnext.net/食力, government-mandated reporting). Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            }
+          }
         },
         {
           "slide_no": 5,
@@ -65,7 +261,56 @@
             "zh": null
           },
           "numbers": [],
-          "scripts": {}
+          "scripts": {
+            "A2": {
+              "text": "For many of these children, school lunch is actually their best meal each day. So when summer break starts, that meal simply stops too.",
+              "words": 24,
+              "sentences": 2,
+              "avg_sentence_words": 12.0,
+              "fk_grade": 3.8,
+              "long_word_pct": 8.3,
+              "speak_seconds_est": 15.2,
+              "fill_pct": 75.8,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan relative poverty rate ~6.75-7.53% 2017-2023, 7.43% in 2022 (MOHW); low-income children (0-18) fell 117,012 (2016) to 90,245 (2021), near-poor children fell 135,819 (2016) to 107,010 (2021), together ~200,000 in 2021 (MOHW/CRC 兒少統計專區); Child Welfare League Foundation (兒福聯盟) survey: 20% of disadvantaged children have gone hungry at home and eaten snacks instead of a meal; ~20% rely on snacks when school lunch stops over long holidays; 11.0% of students skip breakfast 3+ days/week and arrive hungry; school lunch policy expanding city by city: Taipei free for all public+private elem/JHS since Sept 2025 (NT$87/NT$92 per meal); Kaohsiung free from 2026 school year (~NT$1.8B/yr, ~180,000 students); Tainan (~NT$56/meal) and Chiayi County (~NT$62/meal) free from 2026; Pingtung County free from 2026; Hsinchu City partial subsidy (NT$40/NT$45) with full waiver for disadvantaged (city government press releases, CNA, 風傳媒, 造咖); 2026 revision of 財政收支劃分法 ended central subsidy for domestic school-lunch ingredients, shifting cost to local budgets; Alliance of Taiwan Foodbanks (台灣食物銀行聯合會, ATF) — ~60 member food banks, ~300 partner NPOs, ~100 community refrigerators (84 fridges+16 freezers) nationwide, Taipei flagship store rescues ~20,000 kg food/yr for 200+ households/month, Hualien warehouse stores 500+ tonnes serving 20+ remote communities/schools (atf.tw); retail food waste — supermarkets/hypermarkets declared ~69,670 tonnes discarded Mar 2017-Jun 2023 (6 yrs), ~11,000 tonnes/yr, ~30 tonnes/day (foodnext.net/食力, government-mandated reporting). Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "For plenty of these children, school lunch has become their single most reliable meal of the entire day. So once summer arrives, that dependable meal simply vanishes along with it.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 8.7,
+              "long_word_pct": 13.3,
+              "speak_seconds_est": 16.4,
+              "fill_pct": 81.8,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan relative poverty rate ~6.75-7.53% 2017-2023, 7.43% in 2022 (MOHW); low-income children (0-18) fell 117,012 (2016) to 90,245 (2021), near-poor children fell 135,819 (2016) to 107,010 (2021), together ~200,000 in 2021 (MOHW/CRC 兒少統計專區); Child Welfare League Foundation (兒福聯盟) survey: 20% of disadvantaged children have gone hungry at home and eaten snacks instead of a meal; ~20% rely on snacks when school lunch stops over long holidays; 11.0% of students skip breakfast 3+ days/week and arrive hungry; school lunch policy expanding city by city: Taipei free for all public+private elem/JHS since Sept 2025 (NT$87/NT$92 per meal); Kaohsiung free from 2026 school year (~NT$1.8B/yr, ~180,000 students); Tainan (~NT$56/meal) and Chiayi County (~NT$62/meal) free from 2026; Pingtung County free from 2026; Hsinchu City partial subsidy (NT$40/NT$45) with full waiver for disadvantaged (city government press releases, CNA, 風傳媒, 造咖); 2026 revision of 財政收支劃分法 ended central subsidy for domestic school-lunch ingredients, shifting cost to local budgets; Alliance of Taiwan Foodbanks (台灣食物銀行聯合會, ATF) — ~60 member food banks, ~300 partner NPOs, ~100 community refrigerators (84 fridges+16 freezers) nationwide, Taipei flagship store rescues ~20,000 kg food/yr for 200+ households/month, Hualien warehouse stores 500+ tonnes serving 20+ remote communities/schools (atf.tw); retail food waste — supermarkets/hypermarkets declared ~69,670 tonnes discarded Mar 2017-Jun 2023 (6 yrs), ~11,000 tonnes/yr, ~30 tonnes/day (foodnext.net/食力, government-mandated reporting). Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "School lunch, for a considerable share of these children, effectively works out as the single meal they can always count on. That reliable anchor point disappears the moment summer begins.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 9.5,
+              "long_word_pct": 16.7,
+              "speak_seconds_est": 15.0,
+              "fill_pct": 75.0,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan relative poverty rate ~6.75-7.53% 2017-2023, 7.43% in 2022 (MOHW); low-income children (0-18) fell 117,012 (2016) to 90,245 (2021), near-poor children fell 135,819 (2016) to 107,010 (2021), together ~200,000 in 2021 (MOHW/CRC 兒少統計專區); Child Welfare League Foundation (兒福聯盟) survey: 20% of disadvantaged children have gone hungry at home and eaten snacks instead of a meal; ~20% rely on snacks when school lunch stops over long holidays; 11.0% of students skip breakfast 3+ days/week and arrive hungry; school lunch policy expanding city by city: Taipei free for all public+private elem/JHS since Sept 2025 (NT$87/NT$92 per meal); Kaohsiung free from 2026 school year (~NT$1.8B/yr, ~180,000 students); Tainan (~NT$56/meal) and Chiayi County (~NT$62/meal) free from 2026; Pingtung County free from 2026; Hsinchu City partial subsidy (NT$40/NT$45) with full waiver for disadvantaged (city government press releases, CNA, 風傳媒, 造咖); 2026 revision of 財政收支劃分法 ended central subsidy for domestic school-lunch ingredients, shifting cost to local budgets; Alliance of Taiwan Foodbanks (台灣食物銀行聯合會, ATF) — ~60 member food banks, ~300 partner NPOs, ~100 community refrigerators (84 fridges+16 freezers) nationwide, Taipei flagship store rescues ~20,000 kg food/yr for 200+ households/month, Hualien warehouse stores 500+ tonnes serving 20+ remote communities/schools (atf.tw); retail food waste — supermarkets/hypermarkets declared ~69,670 tonnes discarded Mar 2017-Jun 2023 (6 yrs), ~11,000 tonnes/yr, ~30 tonnes/day (foodnext.net/食力, government-mandated reporting). Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            }
+          }
         },
         {
           "slide_no": 6,
@@ -74,7 +319,56 @@
             "zh": null
           },
           "numbers": [],
-          "scripts": {}
+          "scripts": {
+            "A2": {
+              "text": "Eleven percent of students skip breakfast most of the week. They sit in class feeling hungry. Hidden hunger looks like being tired, not sick.",
+              "words": 24,
+              "sentences": 3,
+              "avg_sentence_words": 8.0,
+              "fk_grade": 4.2,
+              "long_word_pct": 8.3,
+              "speak_seconds_est": 15.2,
+              "fill_pct": 75.8,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan relative poverty rate ~6.75-7.53% 2017-2023, 7.43% in 2022 (MOHW); low-income children (0-18) fell 117,012 (2016) to 90,245 (2021), near-poor children fell 135,819 (2016) to 107,010 (2021), together ~200,000 in 2021 (MOHW/CRC 兒少統計專區); Child Welfare League Foundation (兒福聯盟) survey: 20% of disadvantaged children have gone hungry at home and eaten snacks instead of a meal; ~20% rely on snacks when school lunch stops over long holidays; 11.0% of students skip breakfast 3+ days/week and arrive hungry; school lunch policy expanding city by city: Taipei free for all public+private elem/JHS since Sept 2025 (NT$87/NT$92 per meal); Kaohsiung free from 2026 school year (~NT$1.8B/yr, ~180,000 students); Tainan (~NT$56/meal) and Chiayi County (~NT$62/meal) free from 2026; Pingtung County free from 2026; Hsinchu City partial subsidy (NT$40/NT$45) with full waiver for disadvantaged (city government press releases, CNA, 風傳媒, 造咖); 2026 revision of 財政收支劃分法 ended central subsidy for domestic school-lunch ingredients, shifting cost to local budgets; Alliance of Taiwan Foodbanks (台灣食物銀行聯合會, ATF) — ~60 member food banks, ~300 partner NPOs, ~100 community refrigerators (84 fridges+16 freezers) nationwide, Taipei flagship store rescues ~20,000 kg food/yr for 200+ households/month, Hualien warehouse stores 500+ tonnes serving 20+ remote communities/schools (atf.tw); retail food waste — supermarkets/hypermarkets declared ~69,670 tonnes discarded Mar 2017-Jun 2023 (6 yrs), ~11,000 tonnes/yr, ~30 tonnes/day (foodnext.net/食力, government-mandated reporting). Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "Almost one student in nine misses breakfast on more than half the school days, arriving to class already hungry. This sort of hunger looks like exhaustion, not obvious starvation.",
+              "words": 29,
+              "sentences": 2,
+              "avg_sentence_words": 14.5,
+              "fk_grade": 8.0,
+              "long_word_pct": 13.8,
+              "speak_seconds_est": 15.8,
+              "fill_pct": 79.1,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan relative poverty rate ~6.75-7.53% 2017-2023, 7.43% in 2022 (MOHW); low-income children (0-18) fell 117,012 (2016) to 90,245 (2021), near-poor children fell 135,819 (2016) to 107,010 (2021), together ~200,000 in 2021 (MOHW/CRC 兒少統計專區); Child Welfare League Foundation (兒福聯盟) survey: 20% of disadvantaged children have gone hungry at home and eaten snacks instead of a meal; ~20% rely on snacks when school lunch stops over long holidays; 11.0% of students skip breakfast 3+ days/week and arrive hungry; school lunch policy expanding city by city: Taipei free for all public+private elem/JHS since Sept 2025 (NT$87/NT$92 per meal); Kaohsiung free from 2026 school year (~NT$1.8B/yr, ~180,000 students); Tainan (~NT$56/meal) and Chiayi County (~NT$62/meal) free from 2026; Pingtung County free from 2026; Hsinchu City partial subsidy (NT$40/NT$45) with full waiver for disadvantaged (city government press releases, CNA, 風傳媒, 造咖); 2026 revision of 財政收支劃分法 ended central subsidy for domestic school-lunch ingredients, shifting cost to local budgets; Alliance of Taiwan Foodbanks (台灣食物銀行聯合會, ATF) — ~60 member food banks, ~300 partner NPOs, ~100 community refrigerators (84 fridges+16 freezers) nationwide, Taipei flagship store rescues ~20,000 kg food/yr for 200+ households/month, Hualien warehouse stores 500+ tonnes serving 20+ remote communities/schools (atf.tw); retail food waste — supermarkets/hypermarkets declared ~69,670 tonnes discarded Mar 2017-Jun 2023 (6 yrs), ~11,000 tonnes/yr, ~30 tonnes/day (foodnext.net/食力, government-mandated reporting). Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "One in nine students reportedly skips breakfast more than half the school week, sitting through lessons while genuinely hungry. Hidden hunger consequently resembles fatigue in class, rather than visible starvation.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 11.9,
+              "long_word_pct": 23.3,
+              "speak_seconds_est": 15.0,
+              "fill_pct": 75.0,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan relative poverty rate ~6.75-7.53% 2017-2023, 7.43% in 2022 (MOHW); low-income children (0-18) fell 117,012 (2016) to 90,245 (2021), near-poor children fell 135,819 (2016) to 107,010 (2021), together ~200,000 in 2021 (MOHW/CRC 兒少統計專區); Child Welfare League Foundation (兒福聯盟) survey: 20% of disadvantaged children have gone hungry at home and eaten snacks instead of a meal; ~20% rely on snacks when school lunch stops over long holidays; 11.0% of students skip breakfast 3+ days/week and arrive hungry; school lunch policy expanding city by city: Taipei free for all public+private elem/JHS since Sept 2025 (NT$87/NT$92 per meal); Kaohsiung free from 2026 school year (~NT$1.8B/yr, ~180,000 students); Tainan (~NT$56/meal) and Chiayi County (~NT$62/meal) free from 2026; Pingtung County free from 2026; Hsinchu City partial subsidy (NT$40/NT$45) with full waiver for disadvantaged (city government press releases, CNA, 風傳媒, 造咖); 2026 revision of 財政收支劃分法 ended central subsidy for domestic school-lunch ingredients, shifting cost to local budgets; Alliance of Taiwan Foodbanks (台灣食物銀行聯合會, ATF) — ~60 member food banks, ~300 partner NPOs, ~100 community refrigerators (84 fridges+16 freezers) nationwide, Taipei flagship store rescues ~20,000 kg food/yr for 200+ households/month, Hualien warehouse stores 500+ tonnes serving 20+ remote communities/schools (atf.tw); retail food waste — supermarkets/hypermarkets declared ~69,670 tonnes discarded Mar 2017-Jun 2023 (6 yrs), ~11,000 tonnes/yr, ~30 tonnes/day (foodnext.net/食力, government-mandated reporting). Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            }
+          }
         }
       ]
     },
@@ -92,7 +386,56 @@
             "zh": null
           },
           "numbers": [],
-          "scripts": {}
+          "scripts": {
+            "A2": {
+              "text": "Here is some good news for once. Since September 2025, Taipei gives free lunch to every student. This covers both elementary and junior high school.",
+              "words": 25,
+              "sentences": 3,
+              "avg_sentence_words": 8.3,
+              "fk_grade": 7.0,
+              "long_word_pct": 8.0,
+              "speak_seconds_est": 15.8,
+              "fill_pct": 78.9,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan relative poverty rate ~6.75-7.53% 2017-2023, 7.43% in 2022 (MOHW); low-income children (0-18) fell 117,012 (2016) to 90,245 (2021), near-poor children fell 135,819 (2016) to 107,010 (2021), together ~200,000 in 2021 (MOHW/CRC 兒少統計專區); Child Welfare League Foundation (兒福聯盟) survey: 20% of disadvantaged children have gone hungry at home and eaten snacks instead of a meal; ~20% rely on snacks when school lunch stops over long holidays; 11.0% of students skip breakfast 3+ days/week and arrive hungry; school lunch policy expanding city by city: Taipei free for all public+private elem/JHS since Sept 2025 (NT$87/NT$92 per meal); Kaohsiung free from 2026 school year (~NT$1.8B/yr, ~180,000 students); Tainan (~NT$56/meal) and Chiayi County (~NT$62/meal) free from 2026; Pingtung County free from 2026; Hsinchu City partial subsidy (NT$40/NT$45) with full waiver for disadvantaged (city government press releases, CNA, 風傳媒, 造咖); 2026 revision of 財政收支劃分法 ended central subsidy for domestic school-lunch ingredients, shifting cost to local budgets; Alliance of Taiwan Foodbanks (台灣食物銀行聯合會, ATF) — ~60 member food banks, ~300 partner NPOs, ~100 community refrigerators (84 fridges+16 freezers) nationwide, Taipei flagship store rescues ~20,000 kg food/yr for 200+ households/month, Hualien warehouse stores 500+ tonnes serving 20+ remote communities/schools (atf.tw); retail food waste — supermarkets/hypermarkets declared ~69,670 tonnes discarded Mar 2017-Jun 2023 (6 yrs), ~11,000 tonnes/yr, ~30 tonnes/day (foodnext.net/食力, government-mandated reporting). Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "Real progress has finally started here. Since September 2025, Taipei has offered free lunch to every student there, now covering both younger and older kids this year too.",
+              "words": 28,
+              "sentences": 2,
+              "avg_sentence_words": 14.0,
+              "fk_grade": 9.7,
+              "long_word_pct": 10.7,
+              "speak_seconds_est": 15.3,
+              "fill_pct": 76.4,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan relative poverty rate ~6.75-7.53% 2017-2023, 7.43% in 2022 (MOHW); low-income children (0-18) fell 117,012 (2016) to 90,245 (2021), near-poor children fell 135,819 (2016) to 107,010 (2021), together ~200,000 in 2021 (MOHW/CRC 兒少統計專區); Child Welfare League Foundation (兒福聯盟) survey: 20% of disadvantaged children have gone hungry at home and eaten snacks instead of a meal; ~20% rely on snacks when school lunch stops over long holidays; 11.0% of students skip breakfast 3+ days/week and arrive hungry; school lunch policy expanding city by city: Taipei free for all public+private elem/JHS since Sept 2025 (NT$87/NT$92 per meal); Kaohsiung free from 2026 school year (~NT$1.8B/yr, ~180,000 students); Tainan (~NT$56/meal) and Chiayi County (~NT$62/meal) free from 2026; Pingtung County free from 2026; Hsinchu City partial subsidy (NT$40/NT$45) with full waiver for disadvantaged (city government press releases, CNA, 風傳媒, 造咖); 2026 revision of 財政收支劃分法 ended central subsidy for domestic school-lunch ingredients, shifting cost to local budgets; Alliance of Taiwan Foodbanks (台灣食物銀行聯合會, ATF) — ~60 member food banks, ~300 partner NPOs, ~100 community refrigerators (84 fridges+16 freezers) nationwide, Taipei flagship store rescues ~20,000 kg food/yr for 200+ households/month, Hualien warehouse stores 500+ tonnes serving 20+ remote communities/schools (atf.tw); retail food waste — supermarkets/hypermarkets declared ~69,670 tonnes discarded Mar 2017-Jun 2023 (6 yrs), ~11,000 tonnes/yr, ~30 tonnes/day (foodnext.net/食力, government-mandated reporting). Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "Genuine momentum has started building recently. Since September 2025, Taipei has provided free lunch to every public and private pupil, covering both elementary and junior high school this year for good.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 12.5,
+              "long_word_pct": 22.6,
+              "speak_seconds_est": 15.5,
+              "fill_pct": 77.5,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan relative poverty rate ~6.75-7.53% 2017-2023, 7.43% in 2022 (MOHW); low-income children (0-18) fell 117,012 (2016) to 90,245 (2021), near-poor children fell 135,819 (2016) to 107,010 (2021), together ~200,000 in 2021 (MOHW/CRC 兒少統計專區); Child Welfare League Foundation (兒福聯盟) survey: 20% of disadvantaged children have gone hungry at home and eaten snacks instead of a meal; ~20% rely on snacks when school lunch stops over long holidays; 11.0% of students skip breakfast 3+ days/week and arrive hungry; school lunch policy expanding city by city: Taipei free for all public+private elem/JHS since Sept 2025 (NT$87/NT$92 per meal); Kaohsiung free from 2026 school year (~NT$1.8B/yr, ~180,000 students); Tainan (~NT$56/meal) and Chiayi County (~NT$62/meal) free from 2026; Pingtung County free from 2026; Hsinchu City partial subsidy (NT$40/NT$45) with full waiver for disadvantaged (city government press releases, CNA, 風傳媒, 造咖); 2026 revision of 財政收支劃分法 ended central subsidy for domestic school-lunch ingredients, shifting cost to local budgets; Alliance of Taiwan Foodbanks (台灣食物銀行聯合會, ATF) — ~60 member food banks, ~300 partner NPOs, ~100 community refrigerators (84 fridges+16 freezers) nationwide, Taipei flagship store rescues ~20,000 kg food/yr for 200+ households/month, Hualien warehouse stores 500+ tonnes serving 20+ remote communities/schools (atf.tw); retail food waste — supermarkets/hypermarkets declared ~69,670 tonnes discarded Mar 2017-Jun 2023 (6 yrs), ~11,000 tonnes/yr, ~30 tonnes/day (foodnext.net/食力, government-mandated reporting). Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            }
+          }
         },
         {
           "slide_no": 8,
@@ -101,7 +444,56 @@
             "zh": null
           },
           "numbers": [],
-          "scripts": {}
+          "scripts": {
+            "A2": {
+              "text": "More cities are joining in too. Kaohsiung will spend about 1.8 billion dollars a year. That helps around 180,000 students get free lunch.",
+              "words": 25,
+              "sentences": 3,
+              "avg_sentence_words": 8.3,
+              "fk_grade": 5.1,
+              "long_word_pct": 8.0,
+              "speak_seconds_est": 15.8,
+              "fill_pct": 78.9,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan relative poverty rate ~6.75-7.53% 2017-2023, 7.43% in 2022 (MOHW); low-income children (0-18) fell 117,012 (2016) to 90,245 (2021), near-poor children fell 135,819 (2016) to 107,010 (2021), together ~200,000 in 2021 (MOHW/CRC 兒少統計專區); Child Welfare League Foundation (兒福聯盟) survey: 20% of disadvantaged children have gone hungry at home and eaten snacks instead of a meal; ~20% rely on snacks when school lunch stops over long holidays; 11.0% of students skip breakfast 3+ days/week and arrive hungry; school lunch policy expanding city by city: Taipei free for all public+private elem/JHS since Sept 2025 (NT$87/NT$92 per meal); Kaohsiung free from 2026 school year (~NT$1.8B/yr, ~180,000 students); Tainan (~NT$56/meal) and Chiayi County (~NT$62/meal) free from 2026; Pingtung County free from 2026; Hsinchu City partial subsidy (NT$40/NT$45) with full waiver for disadvantaged (city government press releases, CNA, 風傳媒, 造咖); 2026 revision of 財政收支劃分法 ended central subsidy for domestic school-lunch ingredients, shifting cost to local budgets; Alliance of Taiwan Foodbanks (台灣食物銀行聯合會, ATF) — ~60 member food banks, ~300 partner NPOs, ~100 community refrigerators (84 fridges+16 freezers) nationwide, Taipei flagship store rescues ~20,000 kg food/yr for 200+ households/month, Hualien warehouse stores 500+ tonnes serving 20+ remote communities/schools (atf.tw); retail food waste — supermarkets/hypermarkets declared ~69,670 tonnes discarded Mar 2017-Jun 2023 (6 yrs), ~11,000 tonnes/yr, ~30 tonnes/day (foodnext.net/食力, government-mandated reporting). Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "Other municipalities have been following that lead as well. Kaohsiung's commitment alone runs to roughly 1.8 billion dollars a year, reaching about 180,000 pupils once things are fully rolled out.",
+              "words": 32,
+              "sentences": 2,
+              "avg_sentence_words": 16.0,
+              "fk_grade": 11.3,
+              "long_word_pct": 15.6,
+              "speak_seconds_est": 17.5,
+              "fill_pct": 87.3,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan relative poverty rate ~6.75-7.53% 2017-2023, 7.43% in 2022 (MOHW); low-income children (0-18) fell 117,012 (2016) to 90,245 (2021), near-poor children fell 135,819 (2016) to 107,010 (2021), together ~200,000 in 2021 (MOHW/CRC 兒少統計專區); Child Welfare League Foundation (兒福聯盟) survey: 20% of disadvantaged children have gone hungry at home and eaten snacks instead of a meal; ~20% rely on snacks when school lunch stops over long holidays; 11.0% of students skip breakfast 3+ days/week and arrive hungry; school lunch policy expanding city by city: Taipei free for all public+private elem/JHS since Sept 2025 (NT$87/NT$92 per meal); Kaohsiung free from 2026 school year (~NT$1.8B/yr, ~180,000 students); Tainan (~NT$56/meal) and Chiayi County (~NT$62/meal) free from 2026; Pingtung County free from 2026; Hsinchu City partial subsidy (NT$40/NT$45) with full waiver for disadvantaged (city government press releases, CNA, 風傳媒, 造咖); 2026 revision of 財政收支劃分法 ended central subsidy for domestic school-lunch ingredients, shifting cost to local budgets; Alliance of Taiwan Foodbanks (台灣食物銀行聯合會, ATF) — ~60 member food banks, ~300 partner NPOs, ~100 community refrigerators (84 fridges+16 freezers) nationwide, Taipei flagship store rescues ~20,000 kg food/yr for 200+ households/month, Hualien warehouse stores 500+ tonnes serving 20+ remote communities/schools (atf.tw); retail food waste — supermarkets/hypermarkets declared ~69,670 tonnes discarded Mar 2017-Jun 2023 (6 yrs), ~11,000 tonnes/yr, ~30 tonnes/day (foodnext.net/食力, government-mandated reporting). Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "A wider rollout is already underway elsewhere too. Kaohsiung's contribution alone runs to roughly 1.8 billion dollars yearly, reaching an estimated 180,000 pupils when the scheme takes full effect.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 12.9,
+              "long_word_pct": 19.4,
+              "speak_seconds_est": 15.5,
+              "fill_pct": 77.5,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan relative poverty rate ~6.75-7.53% 2017-2023, 7.43% in 2022 (MOHW); low-income children (0-18) fell 117,012 (2016) to 90,245 (2021), near-poor children fell 135,819 (2016) to 107,010 (2021), together ~200,000 in 2021 (MOHW/CRC 兒少統計專區); Child Welfare League Foundation (兒福聯盟) survey: 20% of disadvantaged children have gone hungry at home and eaten snacks instead of a meal; ~20% rely on snacks when school lunch stops over long holidays; 11.0% of students skip breakfast 3+ days/week and arrive hungry; school lunch policy expanding city by city: Taipei free for all public+private elem/JHS since Sept 2025 (NT$87/NT$92 per meal); Kaohsiung free from 2026 school year (~NT$1.8B/yr, ~180,000 students); Tainan (~NT$56/meal) and Chiayi County (~NT$62/meal) free from 2026; Pingtung County free from 2026; Hsinchu City partial subsidy (NT$40/NT$45) with full waiver for disadvantaged (city government press releases, CNA, 風傳媒, 造咖); 2026 revision of 財政收支劃分法 ended central subsidy for domestic school-lunch ingredients, shifting cost to local budgets; Alliance of Taiwan Foodbanks (台灣食物銀行聯合會, ATF) — ~60 member food banks, ~300 partner NPOs, ~100 community refrigerators (84 fridges+16 freezers) nationwide, Taipei flagship store rescues ~20,000 kg food/yr for 200+ households/month, Hualien warehouse stores 500+ tonnes serving 20+ remote communities/schools (atf.tw); retail food waste — supermarkets/hypermarkets declared ~69,670 tonnes discarded Mar 2017-Jun 2023 (6 yrs), ~11,000 tonnes/yr, ~30 tonnes/day (foodnext.net/食力, government-mandated reporting). Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            }
+          }
         },
         {
           "slide_no": 9,
@@ -110,7 +502,56 @@
             "zh": null
           },
           "numbers": [],
-          "scripts": {}
+          "scripts": {
+            "A2": {
+              "text": "Food banks also help fill the gaps. A group called the Alliance runs about 100 shared fridges. It connects 60 food banks with almost 300 helpers.",
+              "words": 26,
+              "sentences": 3,
+              "avg_sentence_words": 8.7,
+              "fk_grade": 5.9,
+              "long_word_pct": 7.7,
+              "speak_seconds_est": 16.4,
+              "fill_pct": 82.1,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan relative poverty rate ~6.75-7.53% 2017-2023, 7.43% in 2022 (MOHW); low-income children (0-18) fell 117,012 (2016) to 90,245 (2021), near-poor children fell 135,819 (2016) to 107,010 (2021), together ~200,000 in 2021 (MOHW/CRC 兒少統計專區); Child Welfare League Foundation (兒福聯盟) survey: 20% of disadvantaged children have gone hungry at home and eaten snacks instead of a meal; ~20% rely on snacks when school lunch stops over long holidays; 11.0% of students skip breakfast 3+ days/week and arrive hungry; school lunch policy expanding city by city: Taipei free for all public+private elem/JHS since Sept 2025 (NT$87/NT$92 per meal); Kaohsiung free from 2026 school year (~NT$1.8B/yr, ~180,000 students); Tainan (~NT$56/meal) and Chiayi County (~NT$62/meal) free from 2026; Pingtung County free from 2026; Hsinchu City partial subsidy (NT$40/NT$45) with full waiver for disadvantaged (city government press releases, CNA, 風傳媒, 造咖); 2026 revision of 財政收支劃分法 ended central subsidy for domestic school-lunch ingredients, shifting cost to local budgets; Alliance of Taiwan Foodbanks (台灣食物銀行聯合會, ATF) — ~60 member food banks, ~300 partner NPOs, ~100 community refrigerators (84 fridges+16 freezers) nationwide, Taipei flagship store rescues ~20,000 kg food/yr for 200+ households/month, Hualien warehouse stores 500+ tonnes serving 20+ remote communities/schools (atf.tw); retail food waste — supermarkets/hypermarkets declared ~69,670 tonnes discarded Mar 2017-Jun 2023 (6 yrs), ~11,000 tonnes/yr, ~30 tonnes/day (foodnext.net/食力, government-mandated reporting). Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "Beyond simply filling gaps, food banks now form a genuinely wider network across the island. The Alliance links roughly 60 separate food banks and almost 300 partner groups. It runs about 100 shared fridges too.",
+              "words": 35,
+              "sentences": 3,
+              "avg_sentence_words": 11.7,
+              "fk_grade": 8.5,
+              "long_word_pct": 8.6,
+              "speak_seconds_est": 19.1,
+              "fill_pct": 95.5,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan relative poverty rate ~6.75-7.53% 2017-2023, 7.43% in 2022 (MOHW); low-income children (0-18) fell 117,012 (2016) to 90,245 (2021), near-poor children fell 135,819 (2016) to 107,010 (2021), together ~200,000 in 2021 (MOHW/CRC 兒少統計專區); Child Welfare League Foundation (兒福聯盟) survey: 20% of disadvantaged children have gone hungry at home and eaten snacks instead of a meal; ~20% rely on snacks when school lunch stops over long holidays; 11.0% of students skip breakfast 3+ days/week and arrive hungry; school lunch policy expanding city by city: Taipei free for all public+private elem/JHS since Sept 2025 (NT$87/NT$92 per meal); Kaohsiung free from 2026 school year (~NT$1.8B/yr, ~180,000 students); Tainan (~NT$56/meal) and Chiayi County (~NT$62/meal) free from 2026; Pingtung County free from 2026; Hsinchu City partial subsidy (NT$40/NT$45) with full waiver for disadvantaged (city government press releases, CNA, 風傳媒, 造咖); 2026 revision of 財政收支劃分法 ended central subsidy for domestic school-lunch ingredients, shifting cost to local budgets; Alliance of Taiwan Foodbanks (台灣食物銀行聯合會, ATF) — ~60 member food banks, ~300 partner NPOs, ~100 community refrigerators (84 fridges+16 freezers) nationwide, Taipei flagship store rescues ~20,000 kg food/yr for 200+ households/month, Hualien warehouse stores 500+ tonnes serving 20+ remote communities/schools (atf.tw); retail food waste — supermarkets/hypermarkets declared ~69,670 tonnes discarded Mar 2017-Jun 2023 (6 yrs), ~11,000 tonnes/yr, ~30 tonnes/day (foodnext.net/食力, government-mandated reporting). Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "Food banks are likewise stepping in to close whatever gaps persist. The Alliance currently runs around 100 shared fridges across the island, connecting 60 separate food banks with almost 300 partner charities.",
+              "words": 32,
+              "sentences": 2,
+              "avg_sentence_words": 16.0,
+              "fk_grade": 12.4,
+              "long_word_pct": 25.0,
+              "speak_seconds_est": 16.0,
+              "fill_pct": 80.0,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan relative poverty rate ~6.75-7.53% 2017-2023, 7.43% in 2022 (MOHW); low-income children (0-18) fell 117,012 (2016) to 90,245 (2021), near-poor children fell 135,819 (2016) to 107,010 (2021), together ~200,000 in 2021 (MOHW/CRC 兒少統計專區); Child Welfare League Foundation (兒福聯盟) survey: 20% of disadvantaged children have gone hungry at home and eaten snacks instead of a meal; ~20% rely on snacks when school lunch stops over long holidays; 11.0% of students skip breakfast 3+ days/week and arrive hungry; school lunch policy expanding city by city: Taipei free for all public+private elem/JHS since Sept 2025 (NT$87/NT$92 per meal); Kaohsiung free from 2026 school year (~NT$1.8B/yr, ~180,000 students); Tainan (~NT$56/meal) and Chiayi County (~NT$62/meal) free from 2026; Pingtung County free from 2026; Hsinchu City partial subsidy (NT$40/NT$45) with full waiver for disadvantaged (city government press releases, CNA, 風傳媒, 造咖); 2026 revision of 財政收支劃分法 ended central subsidy for domestic school-lunch ingredients, shifting cost to local budgets; Alliance of Taiwan Foodbanks (台灣食物銀行聯合會, ATF) — ~60 member food banks, ~300 partner NPOs, ~100 community refrigerators (84 fridges+16 freezers) nationwide, Taipei flagship store rescues ~20,000 kg food/yr for 200+ households/month, Hualien warehouse stores 500+ tonnes serving 20+ remote communities/schools (atf.tw); retail food waste — supermarkets/hypermarkets declared ~69,670 tonnes discarded Mar 2017-Jun 2023 (6 yrs), ~11,000 tonnes/yr, ~30 tonnes/day (foodnext.net/食力, government-mandated reporting). Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            }
+          }
         }
       ]
     },
@@ -128,7 +569,56 @@
             "zh": null
           },
           "numbers": [],
-          "scripts": {}
+          "scripts": {
+            "A2": {
+              "text": "Every city actually sets its own lunch price. Some pay 40 dollars a meal, but others pay over 90 dollars. It's messy, but it moves forward.",
+              "words": 26,
+              "sentences": 3,
+              "avg_sentence_words": 8.7,
+              "fk_grade": 5.9,
+              "long_word_pct": 3.8,
+              "speak_seconds_est": 16.4,
+              "fill_pct": 82.1,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan relative poverty rate ~6.75-7.53% 2017-2023, 7.43% in 2022 (MOHW); low-income children (0-18) fell 117,012 (2016) to 90,245 (2021), near-poor children fell 135,819 (2016) to 107,010 (2021), together ~200,000 in 2021 (MOHW/CRC 兒少統計專區); Child Welfare League Foundation (兒福聯盟) survey: 20% of disadvantaged children have gone hungry at home and eaten snacks instead of a meal; ~20% rely on snacks when school lunch stops over long holidays; 11.0% of students skip breakfast 3+ days/week and arrive hungry; school lunch policy expanding city by city: Taipei free for all public+private elem/JHS since Sept 2025 (NT$87/NT$92 per meal); Kaohsiung free from 2026 school year (~NT$1.8B/yr, ~180,000 students); Tainan (~NT$56/meal) and Chiayi County (~NT$62/meal) free from 2026; Pingtung County free from 2026; Hsinchu City partial subsidy (NT$40/NT$45) with full waiver for disadvantaged (city government press releases, CNA, 風傳媒, 造咖); 2026 revision of 財政收支劃分法 ended central subsidy for domestic school-lunch ingredients, shifting cost to local budgets; Alliance of Taiwan Foodbanks (台灣食物銀行聯合會, ATF) — ~60 member food banks, ~300 partner NPOs, ~100 community refrigerators (84 fridges+16 freezers) nationwide, Taipei flagship store rescues ~20,000 kg food/yr for 200+ households/month, Hualien warehouse stores 500+ tonnes serving 20+ remote communities/schools (atf.tw); retail food waste — supermarkets/hypermarkets declared ~69,670 tonnes discarded Mar 2017-Jun 2023 (6 yrs), ~11,000 tonnes/yr, ~30 tonnes/day (foodnext.net/食力, government-mandated reporting). Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "Rather than following one uniform national rule, each city sets its own lunch subsidy. Prices range from about 40 dollars a meal up beyond 90 dollars elsewhere. It's a messy patchwork, though a fast-moving one.",
+              "words": 35,
+              "sentences": 3,
+              "avg_sentence_words": 11.7,
+              "fk_grade": 8.5,
+              "long_word_pct": 14.3,
+              "speak_seconds_est": 19.1,
+              "fill_pct": 95.5,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan relative poverty rate ~6.75-7.53% 2017-2023, 7.43% in 2022 (MOHW); low-income children (0-18) fell 117,012 (2016) to 90,245 (2021), near-poor children fell 135,819 (2016) to 107,010 (2021), together ~200,000 in 2021 (MOHW/CRC 兒少統計專區); Child Welfare League Foundation (兒福聯盟) survey: 20% of disadvantaged children have gone hungry at home and eaten snacks instead of a meal; ~20% rely on snacks when school lunch stops over long holidays; 11.0% of students skip breakfast 3+ days/week and arrive hungry; school lunch policy expanding city by city: Taipei free for all public+private elem/JHS since Sept 2025 (NT$87/NT$92 per meal); Kaohsiung free from 2026 school year (~NT$1.8B/yr, ~180,000 students); Tainan (~NT$56/meal) and Chiayi County (~NT$62/meal) free from 2026; Pingtung County free from 2026; Hsinchu City partial subsidy (NT$40/NT$45) with full waiver for disadvantaged (city government press releases, CNA, 風傳媒, 造咖); 2026 revision of 財政收支劃分法 ended central subsidy for domestic school-lunch ingredients, shifting cost to local budgets; Alliance of Taiwan Foodbanks (台灣食物銀行聯合會, ATF) — ~60 member food banks, ~300 partner NPOs, ~100 community refrigerators (84 fridges+16 freezers) nationwide, Taipei flagship store rescues ~20,000 kg food/yr for 200+ households/month, Hualien warehouse stores 500+ tonnes serving 20+ remote communities/schools (atf.tw); retail food waste — supermarkets/hypermarkets declared ~69,670 tonnes discarded Mar 2017-Jun 2023 (6 yrs), ~11,000 tonnes/yr, ~30 tonnes/day (foodnext.net/食力, government-mandated reporting). Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "No single national formula governs this. Subsidies vary municipality by municipality, from around 40 dollars a meal in some places to over 90 elsewhere, producing an uneven yet rapidly shifting picture.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 15.6,
+              "long_word_pct": 22.6,
+              "speak_seconds_est": 15.5,
+              "fill_pct": 77.5,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan relative poverty rate ~6.75-7.53% 2017-2023, 7.43% in 2022 (MOHW); low-income children (0-18) fell 117,012 (2016) to 90,245 (2021), near-poor children fell 135,819 (2016) to 107,010 (2021), together ~200,000 in 2021 (MOHW/CRC 兒少統計專區); Child Welfare League Foundation (兒福聯盟) survey: 20% of disadvantaged children have gone hungry at home and eaten snacks instead of a meal; ~20% rely on snacks when school lunch stops over long holidays; 11.0% of students skip breakfast 3+ days/week and arrive hungry; school lunch policy expanding city by city: Taipei free for all public+private elem/JHS since Sept 2025 (NT$87/NT$92 per meal); Kaohsiung free from 2026 school year (~NT$1.8B/yr, ~180,000 students); Tainan (~NT$56/meal) and Chiayi County (~NT$62/meal) free from 2026; Pingtung County free from 2026; Hsinchu City partial subsidy (NT$40/NT$45) with full waiver for disadvantaged (city government press releases, CNA, 風傳媒, 造咖); 2026 revision of 財政收支劃分法 ended central subsidy for domestic school-lunch ingredients, shifting cost to local budgets; Alliance of Taiwan Foodbanks (台灣食物銀行聯合會, ATF) — ~60 member food banks, ~300 partner NPOs, ~100 community refrigerators (84 fridges+16 freezers) nationwide, Taipei flagship store rescues ~20,000 kg food/yr for 200+ households/month, Hualien warehouse stores 500+ tonnes serving 20+ remote communities/schools (atf.tw); retail food waste — supermarkets/hypermarkets declared ~69,670 tonnes discarded Mar 2017-Jun 2023 (6 yrs), ~11,000 tonnes/yr, ~30 tonnes/day (foodnext.net/食力, government-mandated reporting). Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            }
+          }
         },
         {
           "slide_no": 11,
@@ -137,7 +627,56 @@
             "zh": null
           },
           "numbers": [],
-          "scripts": {}
+          "scripts": {
+            "A2": {
+              "text": "Food banks now save more than dry cans of food. Taipei's main food bank saves 20,000 kilograms of food each year. That helps 200 families every month.",
+              "words": 28,
+              "sentences": 3,
+              "avg_sentence_words": 9.3,
+              "fk_grade": 5.3,
+              "long_word_pct": 10.7,
+              "speak_seconds_est": 17.7,
+              "fill_pct": 88.4,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan relative poverty rate ~6.75-7.53% 2017-2023, 7.43% in 2022 (MOHW); low-income children (0-18) fell 117,012 (2016) to 90,245 (2021), near-poor children fell 135,819 (2016) to 107,010 (2021), together ~200,000 in 2021 (MOHW/CRC 兒少統計專區); Child Welfare League Foundation (兒福聯盟) survey: 20% of disadvantaged children have gone hungry at home and eaten snacks instead of a meal; ~20% rely on snacks when school lunch stops over long holidays; 11.0% of students skip breakfast 3+ days/week and arrive hungry; school lunch policy expanding city by city: Taipei free for all public+private elem/JHS since Sept 2025 (NT$87/NT$92 per meal); Kaohsiung free from 2026 school year (~NT$1.8B/yr, ~180,000 students); Tainan (~NT$56/meal) and Chiayi County (~NT$62/meal) free from 2026; Pingtung County free from 2026; Hsinchu City partial subsidy (NT$40/NT$45) with full waiver for disadvantaged (city government press releases, CNA, 風傳媒, 造咖); 2026 revision of 財政收支劃分法 ended central subsidy for domestic school-lunch ingredients, shifting cost to local budgets; Alliance of Taiwan Foodbanks (台灣食物銀行聯合會, ATF) — ~60 member food banks, ~300 partner NPOs, ~100 community refrigerators (84 fridges+16 freezers) nationwide, Taipei flagship store rescues ~20,000 kg food/yr for 200+ households/month, Hualien warehouse stores 500+ tonnes serving 20+ remote communities/schools (atf.tw); retail food waste — supermarkets/hypermarkets declared ~69,670 tonnes discarded Mar 2017-Jun 2023 (6 yrs), ~11,000 tonnes/yr, ~30 tonnes/day (foodnext.net/食力, government-mandated reporting). Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "Food banks have expanded well beyond handing out dry canned goods lately. Taipei's main food bank alone rescues roughly 20,000 kilograms of food a year. That helps over 200 households every single month.",
+              "words": 34,
+              "sentences": 3,
+              "avg_sentence_words": 11.3,
+              "fk_grade": 8.6,
+              "long_word_pct": 11.8,
+              "speak_seconds_est": 18.5,
+              "fill_pct": 92.7,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan relative poverty rate ~6.75-7.53% 2017-2023, 7.43% in 2022 (MOHW); low-income children (0-18) fell 117,012 (2016) to 90,245 (2021), near-poor children fell 135,819 (2016) to 107,010 (2021), together ~200,000 in 2021 (MOHW/CRC 兒少統計專區); Child Welfare League Foundation (兒福聯盟) survey: 20% of disadvantaged children have gone hungry at home and eaten snacks instead of a meal; ~20% rely on snacks when school lunch stops over long holidays; 11.0% of students skip breakfast 3+ days/week and arrive hungry; school lunch policy expanding city by city: Taipei free for all public+private elem/JHS since Sept 2025 (NT$87/NT$92 per meal); Kaohsiung free from 2026 school year (~NT$1.8B/yr, ~180,000 students); Tainan (~NT$56/meal) and Chiayi County (~NT$62/meal) free from 2026; Pingtung County free from 2026; Hsinchu City partial subsidy (NT$40/NT$45) with full waiver for disadvantaged (city government press releases, CNA, 風傳媒, 造咖); 2026 revision of 財政收支劃分法 ended central subsidy for domestic school-lunch ingredients, shifting cost to local budgets; Alliance of Taiwan Foodbanks (台灣食物銀行聯合會, ATF) — ~60 member food banks, ~300 partner NPOs, ~100 community refrigerators (84 fridges+16 freezers) nationwide, Taipei flagship store rescues ~20,000 kg food/yr for 200+ households/month, Hualien warehouse stores 500+ tonnes serving 20+ remote communities/schools (atf.tw); retail food waste — supermarkets/hypermarkets declared ~69,670 tonnes discarded Mar 2017-Jun 2023 (6 yrs), ~11,000 tonnes/yr, ~30 tonnes/day (foodnext.net/食力, government-mandated reporting). Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "Distributing canned goods is no longer the whole story for food banks. Taipei's largest operation salvages close to 20,000 kilograms annually, sustaining more than 200 households on a monthly basis.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 13.3,
+              "long_word_pct": 25.8,
+              "speak_seconds_est": 15.5,
+              "fill_pct": 77.5,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan relative poverty rate ~6.75-7.53% 2017-2023, 7.43% in 2022 (MOHW); low-income children (0-18) fell 117,012 (2016) to 90,245 (2021), near-poor children fell 135,819 (2016) to 107,010 (2021), together ~200,000 in 2021 (MOHW/CRC 兒少統計專區); Child Welfare League Foundation (兒福聯盟) survey: 20% of disadvantaged children have gone hungry at home and eaten snacks instead of a meal; ~20% rely on snacks when school lunch stops over long holidays; 11.0% of students skip breakfast 3+ days/week and arrive hungry; school lunch policy expanding city by city: Taipei free for all public+private elem/JHS since Sept 2025 (NT$87/NT$92 per meal); Kaohsiung free from 2026 school year (~NT$1.8B/yr, ~180,000 students); Tainan (~NT$56/meal) and Chiayi County (~NT$62/meal) free from 2026; Pingtung County free from 2026; Hsinchu City partial subsidy (NT$40/NT$45) with full waiver for disadvantaged (city government press releases, CNA, 風傳媒, 造咖); 2026 revision of 財政收支劃分法 ended central subsidy for domestic school-lunch ingredients, shifting cost to local budgets; Alliance of Taiwan Foodbanks (台灣食物銀行聯合會, ATF) — ~60 member food banks, ~300 partner NPOs, ~100 community refrigerators (84 fridges+16 freezers) nationwide, Taipei flagship store rescues ~20,000 kg food/yr for 200+ households/month, Hualien warehouse stores 500+ tonnes serving 20+ remote communities/schools (atf.tw); retail food waste — supermarkets/hypermarkets declared ~69,670 tonnes discarded Mar 2017-Jun 2023 (6 yrs), ~11,000 tonnes/yr, ~30 tonnes/day (foodnext.net/食力, government-mandated reporting). Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            }
+          }
         },
         {
           "slide_no": 12,
@@ -146,7 +685,56 @@
             "zh": null
           },
           "numbers": [],
-          "scripts": {}
+          "scripts": {
+            "A2": {
+              "text": "But someone still has to actually move that food. Turning old bread into a real meal takes fridges, trucks, and real trust. Not every town has that yet.",
+              "words": 28,
+              "sentences": 3,
+              "avg_sentence_words": 9.3,
+              "fk_grade": 3.6,
+              "long_word_pct": 3.6,
+              "speak_seconds_est": 17.7,
+              "fill_pct": 88.4,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan relative poverty rate ~6.75-7.53% 2017-2023, 7.43% in 2022 (MOHW); low-income children (0-18) fell 117,012 (2016) to 90,245 (2021), near-poor children fell 135,819 (2016) to 107,010 (2021), together ~200,000 in 2021 (MOHW/CRC 兒少統計專區); Child Welfare League Foundation (兒福聯盟) survey: 20% of disadvantaged children have gone hungry at home and eaten snacks instead of a meal; ~20% rely on snacks when school lunch stops over long holidays; 11.0% of students skip breakfast 3+ days/week and arrive hungry; school lunch policy expanding city by city: Taipei free for all public+private elem/JHS since Sept 2025 (NT$87/NT$92 per meal); Kaohsiung free from 2026 school year (~NT$1.8B/yr, ~180,000 students); Tainan (~NT$56/meal) and Chiayi County (~NT$62/meal) free from 2026; Pingtung County free from 2026; Hsinchu City partial subsidy (NT$40/NT$45) with full waiver for disadvantaged (city government press releases, CNA, 風傳媒, 造咖); 2026 revision of 財政收支劃分法 ended central subsidy for domestic school-lunch ingredients, shifting cost to local budgets; Alliance of Taiwan Foodbanks (台灣食物銀行聯合會, ATF) — ~60 member food banks, ~300 partner NPOs, ~100 community refrigerators (84 fridges+16 freezers) nationwide, Taipei flagship store rescues ~20,000 kg food/yr for 200+ households/month, Hualien warehouse stores 500+ tonnes serving 20+ remote communities/schools (atf.tw); retail food waste — supermarkets/hypermarkets declared ~69,670 tonnes discarded Mar 2017-Jun 2023 (6 yrs), ~11,000 tonnes/yr, ~30 tonnes/day (foodnext.net/食力, government-mandated reporting). Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "However, if a community hasn't built that trust yet, good food can still end up wasted. It never actually reaches anyone in need. Turning near-expired bread into an actual meal still takes real effort.",
+              "words": 34,
+              "sentences": 3,
+              "avg_sentence_words": 11.3,
+              "fk_grade": 7.2,
+              "long_word_pct": 8.8,
+              "speak_seconds_est": 18.5,
+              "fill_pct": 92.7,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan relative poverty rate ~6.75-7.53% 2017-2023, 7.43% in 2022 (MOHW); low-income children (0-18) fell 117,012 (2016) to 90,245 (2021), near-poor children fell 135,819 (2016) to 107,010 (2021), together ~200,000 in 2021 (MOHW/CRC 兒少統計專區); Child Welfare League Foundation (兒福聯盟) survey: 20% of disadvantaged children have gone hungry at home and eaten snacks instead of a meal; ~20% rely on snacks when school lunch stops over long holidays; 11.0% of students skip breakfast 3+ days/week and arrive hungry; school lunch policy expanding city by city: Taipei free for all public+private elem/JHS since Sept 2025 (NT$87/NT$92 per meal); Kaohsiung free from 2026 school year (~NT$1.8B/yr, ~180,000 students); Tainan (~NT$56/meal) and Chiayi County (~NT$62/meal) free from 2026; Pingtung County free from 2026; Hsinchu City partial subsidy (NT$40/NT$45) with full waiver for disadvantaged (city government press releases, CNA, 風傳媒, 造咖); 2026 revision of 財政收支劃分法 ended central subsidy for domestic school-lunch ingredients, shifting cost to local budgets; Alliance of Taiwan Foodbanks (台灣食物銀行聯合會, ATF) — ~60 member food banks, ~300 partner NPOs, ~100 community refrigerators (84 fridges+16 freezers) nationwide, Taipei flagship store rescues ~20,000 kg food/yr for 200+ households/month, Hualien warehouse stores 500+ tonnes serving 20+ remote communities/schools (atf.tw); retail food waste — supermarkets/hypermarkets declared ~69,670 tonnes discarded Mar 2017-Jun 2023 (6 yrs), ~11,000 tonnes/yr, ~30 tonnes/day (foodnext.net/食力, government-mandated reporting). Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "Should a community lack that established trust and delivery system, however, perfectly good food ends up discarded rather than reaching anyone in need. Converting near-expired bread into an actual meal demands genuine effort.",
+              "words": 33,
+              "sentences": 2,
+              "avg_sentence_words": 16.5,
+              "fk_grade": 13.0,
+              "long_word_pct": 24.2,
+              "speak_seconds_est": 16.5,
+              "fill_pct": 82.5,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan relative poverty rate ~6.75-7.53% 2017-2023, 7.43% in 2022 (MOHW); low-income children (0-18) fell 117,012 (2016) to 90,245 (2021), near-poor children fell 135,819 (2016) to 107,010 (2021), together ~200,000 in 2021 (MOHW/CRC 兒少統計專區); Child Welfare League Foundation (兒福聯盟) survey: 20% of disadvantaged children have gone hungry at home and eaten snacks instead of a meal; ~20% rely on snacks when school lunch stops over long holidays; 11.0% of students skip breakfast 3+ days/week and arrive hungry; school lunch policy expanding city by city: Taipei free for all public+private elem/JHS since Sept 2025 (NT$87/NT$92 per meal); Kaohsiung free from 2026 school year (~NT$1.8B/yr, ~180,000 students); Tainan (~NT$56/meal) and Chiayi County (~NT$62/meal) free from 2026; Pingtung County free from 2026; Hsinchu City partial subsidy (NT$40/NT$45) with full waiver for disadvantaged (city government press releases, CNA, 風傳媒, 造咖); 2026 revision of 財政收支劃分法 ended central subsidy for domestic school-lunch ingredients, shifting cost to local budgets; Alliance of Taiwan Foodbanks (台灣食物銀行聯合會, ATF) — ~60 member food banks, ~300 partner NPOs, ~100 community refrigerators (84 fridges+16 freezers) nationwide, Taipei flagship store rescues ~20,000 kg food/yr for 200+ households/month, Hualien warehouse stores 500+ tonnes serving 20+ remote communities/schools (atf.tw); retail food waste — supermarkets/hypermarkets declared ~69,670 tonnes discarded Mar 2017-Jun 2023 (6 yrs), ~11,000 tonnes/yr, ~30 tonnes/day (foodnext.net/食力, government-mandated reporting). Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            }
+          }
         }
       ]
     },
@@ -164,7 +752,56 @@
             "zh": null
           },
           "numbers": [],
-          "scripts": {}
+          "scripts": {
+            "A2": {
+              "text": "So here is the catch. Free lunch actually depends on which school you go to. Your own city still decides if lunch is free.",
+              "words": 24,
+              "sentences": 3,
+              "avg_sentence_words": 8.0,
+              "fk_grade": 2.3,
+              "long_word_pct": 4.2,
+              "speak_seconds_est": 15.2,
+              "fill_pct": 75.8,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan relative poverty rate ~6.75-7.53% 2017-2023, 7.43% in 2022 (MOHW); low-income children (0-18) fell 117,012 (2016) to 90,245 (2021), near-poor children fell 135,819 (2016) to 107,010 (2021), together ~200,000 in 2021 (MOHW/CRC 兒少統計專區); Child Welfare League Foundation (兒福聯盟) survey: 20% of disadvantaged children have gone hungry at home and eaten snacks instead of a meal; ~20% rely on snacks when school lunch stops over long holidays; 11.0% of students skip breakfast 3+ days/week and arrive hungry; school lunch policy expanding city by city: Taipei free for all public+private elem/JHS since Sept 2025 (NT$87/NT$92 per meal); Kaohsiung free from 2026 school year (~NT$1.8B/yr, ~180,000 students); Tainan (~NT$56/meal) and Chiayi County (~NT$62/meal) free from 2026; Pingtung County free from 2026; Hsinchu City partial subsidy (NT$40/NT$45) with full waiver for disadvantaged (city government press releases, CNA, 風傳媒, 造咖); 2026 revision of 財政收支劃分法 ended central subsidy for domestic school-lunch ingredients, shifting cost to local budgets; Alliance of Taiwan Foodbanks (台灣食物銀行聯合會, ATF) — ~60 member food banks, ~300 partner NPOs, ~100 community refrigerators (84 fridges+16 freezers) nationwide, Taipei flagship store rescues ~20,000 kg food/yr for 200+ households/month, Hualien warehouse stores 500+ tonnes serving 20+ remote communities/schools (atf.tw); retail food waste — supermarkets/hypermarkets declared ~69,670 tonnes discarded Mar 2017-Jun 2023 (6 yrs), ~11,000 tonnes/yr, ~30 tonnes/day (foodnext.net/食力, government-mandated reporting). Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "So here's the catch that rarely gets mentioned by anyone. Whether lunch is actually free still depends entirely on which school a child happens to attend that year.",
+              "words": 28,
+              "sentences": 2,
+              "avg_sentence_words": 14.0,
+              "fk_grade": 8.0,
+              "long_word_pct": 10.7,
+              "speak_seconds_est": 15.3,
+              "fill_pct": 76.4,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan relative poverty rate ~6.75-7.53% 2017-2023, 7.43% in 2022 (MOHW); low-income children (0-18) fell 117,012 (2016) to 90,245 (2021), near-poor children fell 135,819 (2016) to 107,010 (2021), together ~200,000 in 2021 (MOHW/CRC 兒少統計專區); Child Welfare League Foundation (兒福聯盟) survey: 20% of disadvantaged children have gone hungry at home and eaten snacks instead of a meal; ~20% rely on snacks when school lunch stops over long holidays; 11.0% of students skip breakfast 3+ days/week and arrive hungry; school lunch policy expanding city by city: Taipei free for all public+private elem/JHS since Sept 2025 (NT$87/NT$92 per meal); Kaohsiung free from 2026 school year (~NT$1.8B/yr, ~180,000 students); Tainan (~NT$56/meal) and Chiayi County (~NT$62/meal) free from 2026; Pingtung County free from 2026; Hsinchu City partial subsidy (NT$40/NT$45) with full waiver for disadvantaged (city government press releases, CNA, 風傳媒, 造咖); 2026 revision of 財政收支劃分法 ended central subsidy for domestic school-lunch ingredients, shifting cost to local budgets; Alliance of Taiwan Foodbanks (台灣食物銀行聯合會, ATF) — ~60 member food banks, ~300 partner NPOs, ~100 community refrigerators (84 fridges+16 freezers) nationwide, Taipei flagship store rescues ~20,000 kg food/yr for 200+ households/month, Hualien warehouse stores 500+ tonnes serving 20+ remote communities/schools (atf.tw); retail food waste — supermarkets/hypermarkets declared ~69,670 tonnes discarded Mar 2017-Jun 2023 (6 yrs), ~11,000 tonnes/yr, ~30 tonnes/day (foodnext.net/食力, government-mandated reporting). Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "Few people openly acknowledge this particular catch, unfortunately. Genuine access to free lunch still depends entirely on the specific school where a child happens to be enrolled during that year.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 11.9,
+              "long_word_pct": 20.0,
+              "speak_seconds_est": 15.0,
+              "fill_pct": 75.0,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan relative poverty rate ~6.75-7.53% 2017-2023, 7.43% in 2022 (MOHW); low-income children (0-18) fell 117,012 (2016) to 90,245 (2021), near-poor children fell 135,819 (2016) to 107,010 (2021), together ~200,000 in 2021 (MOHW/CRC 兒少統計專區); Child Welfare League Foundation (兒福聯盟) survey: 20% of disadvantaged children have gone hungry at home and eaten snacks instead of a meal; ~20% rely on snacks when school lunch stops over long holidays; 11.0% of students skip breakfast 3+ days/week and arrive hungry; school lunch policy expanding city by city: Taipei free for all public+private elem/JHS since Sept 2025 (NT$87/NT$92 per meal); Kaohsiung free from 2026 school year (~NT$1.8B/yr, ~180,000 students); Tainan (~NT$56/meal) and Chiayi County (~NT$62/meal) free from 2026; Pingtung County free from 2026; Hsinchu City partial subsidy (NT$40/NT$45) with full waiver for disadvantaged (city government press releases, CNA, 風傳媒, 造咖); 2026 revision of 財政收支劃分法 ended central subsidy for domestic school-lunch ingredients, shifting cost to local budgets; Alliance of Taiwan Foodbanks (台灣食物銀行聯合會, ATF) — ~60 member food banks, ~300 partner NPOs, ~100 community refrigerators (84 fridges+16 freezers) nationwide, Taipei flagship store rescues ~20,000 kg food/yr for 200+ households/month, Hualien warehouse stores 500+ tonnes serving 20+ remote communities/schools (atf.tw); retail food waste — supermarkets/hypermarkets declared ~69,670 tonnes discarded Mar 2017-Jun 2023 (6 yrs), ~11,000 tonnes/yr, ~30 tonnes/day (foodnext.net/食力, government-mandated reporting). Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            }
+          }
         },
         {
           "slide_no": 14,
@@ -173,7 +810,56 @@
             "zh": null
           },
           "numbers": [],
-          "scripts": {}
+          "scripts": {
+            "A2": {
+              "text": "In 2026, a new law changed things too. The government stopped paying for local food in school lunches. Now each city must find that money alone.",
+              "words": 26,
+              "sentences": 3,
+              "avg_sentence_words": 8.7,
+              "fk_grade": 5.0,
+              "long_word_pct": 3.8,
+              "speak_seconds_est": 16.4,
+              "fill_pct": 82.1,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan relative poverty rate ~6.75-7.53% 2017-2023, 7.43% in 2022 (MOHW); low-income children (0-18) fell 117,012 (2016) to 90,245 (2021), near-poor children fell 135,819 (2016) to 107,010 (2021), together ~200,000 in 2021 (MOHW/CRC 兒少統計專區); Child Welfare League Foundation (兒福聯盟) survey: 20% of disadvantaged children have gone hungry at home and eaten snacks instead of a meal; ~20% rely on snacks when school lunch stops over long holidays; 11.0% of students skip breakfast 3+ days/week and arrive hungry; school lunch policy expanding city by city: Taipei free for all public+private elem/JHS since Sept 2025 (NT$87/NT$92 per meal); Kaohsiung free from 2026 school year (~NT$1.8B/yr, ~180,000 students); Tainan (~NT$56/meal) and Chiayi County (~NT$62/meal) free from 2026; Pingtung County free from 2026; Hsinchu City partial subsidy (NT$40/NT$45) with full waiver for disadvantaged (city government press releases, CNA, 風傳媒, 造咖); 2026 revision of 財政收支劃分法 ended central subsidy for domestic school-lunch ingredients, shifting cost to local budgets; Alliance of Taiwan Foodbanks (台灣食物銀行聯合會, ATF) — ~60 member food banks, ~300 partner NPOs, ~100 community refrigerators (84 fridges+16 freezers) nationwide, Taipei flagship store rescues ~20,000 kg food/yr for 200+ households/month, Hualien warehouse stores 500+ tonnes serving 20+ remote communities/schools (atf.tw); retail food waste — supermarkets/hypermarkets declared ~69,670 tonnes discarded Mar 2017-Jun 2023 (6 yrs), ~11,000 tonnes/yr, ~30 tonnes/day (foodnext.net/食力, government-mandated reporting). Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "In 2026, a new funding law changed the picture a lot. Central government stopped paying for locally grown ingredients in school lunches, so each city must now cover that cost independently.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 10.2,
+              "long_word_pct": 9.7,
+              "speak_seconds_est": 16.9,
+              "fill_pct": 84.5,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan relative poverty rate ~6.75-7.53% 2017-2023, 7.43% in 2022 (MOHW); low-income children (0-18) fell 117,012 (2016) to 90,245 (2021), near-poor children fell 135,819 (2016) to 107,010 (2021), together ~200,000 in 2021 (MOHW/CRC 兒少統計專區); Child Welfare League Foundation (兒福聯盟) survey: 20% of disadvantaged children have gone hungry at home and eaten snacks instead of a meal; ~20% rely on snacks when school lunch stops over long holidays; 11.0% of students skip breakfast 3+ days/week and arrive hungry; school lunch policy expanding city by city: Taipei free for all public+private elem/JHS since Sept 2025 (NT$87/NT$92 per meal); Kaohsiung free from 2026 school year (~NT$1.8B/yr, ~180,000 students); Tainan (~NT$56/meal) and Chiayi County (~NT$62/meal) free from 2026; Pingtung County free from 2026; Hsinchu City partial subsidy (NT$40/NT$45) with full waiver for disadvantaged (city government press releases, CNA, 風傳媒, 造咖); 2026 revision of 財政收支劃分法 ended central subsidy for domestic school-lunch ingredients, shifting cost to local budgets; Alliance of Taiwan Foodbanks (台灣食物銀行聯合會, ATF) — ~60 member food banks, ~300 partner NPOs, ~100 community refrigerators (84 fridges+16 freezers) nationwide, Taipei flagship store rescues ~20,000 kg food/yr for 200+ households/month, Hualien warehouse stores 500+ tonnes serving 20+ remote communities/schools (atf.tw); retail food waste — supermarkets/hypermarkets declared ~69,670 tonnes discarded Mar 2017-Jun 2023 (6 yrs), ~11,000 tonnes/yr, ~30 tonnes/day (foodnext.net/食力, government-mandated reporting). Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "In 2026, a funding law altered this whole picture quite a bit. Central government subsidy for all locally sourced ingredients was cancelled, meaning each municipality must now absorb that expense independently.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 14.4,
+              "long_word_pct": 16.1,
+              "speak_seconds_est": 15.5,
+              "fill_pct": 77.5,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan relative poverty rate ~6.75-7.53% 2017-2023, 7.43% in 2022 (MOHW); low-income children (0-18) fell 117,012 (2016) to 90,245 (2021), near-poor children fell 135,819 (2016) to 107,010 (2021), together ~200,000 in 2021 (MOHW/CRC 兒少統計專區); Child Welfare League Foundation (兒福聯盟) survey: 20% of disadvantaged children have gone hungry at home and eaten snacks instead of a meal; ~20% rely on snacks when school lunch stops over long holidays; 11.0% of students skip breakfast 3+ days/week and arrive hungry; school lunch policy expanding city by city: Taipei free for all public+private elem/JHS since Sept 2025 (NT$87/NT$92 per meal); Kaohsiung free from 2026 school year (~NT$1.8B/yr, ~180,000 students); Tainan (~NT$56/meal) and Chiayi County (~NT$62/meal) free from 2026; Pingtung County free from 2026; Hsinchu City partial subsidy (NT$40/NT$45) with full waiver for disadvantaged (city government press releases, CNA, 風傳媒, 造咖); 2026 revision of 財政收支劃分法 ended central subsidy for domestic school-lunch ingredients, shifting cost to local budgets; Alliance of Taiwan Foodbanks (台灣食物銀行聯合會, ATF) — ~60 member food banks, ~300 partner NPOs, ~100 community refrigerators (84 fridges+16 freezers) nationwide, Taipei flagship store rescues ~20,000 kg food/yr for 200+ households/month, Hualien warehouse stores 500+ tonnes serving 20+ remote communities/schools (atf.tw); retail food waste — supermarkets/hypermarkets declared ~69,670 tonnes discarded Mar 2017-Jun 2023 (6 yrs), ~11,000 tonnes/yr, ~30 tonnes/day (foodnext.net/食力, government-mandated reporting). Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            }
+          }
         },
         {
           "slide_no": 15,
@@ -182,7 +868,56 @@
             "zh": null
           },
           "numbers": [],
-          "scripts": {}
+          "scripts": {
+            "A2": {
+              "text": "Meanwhile, food still gets thrown away. Big stores alone toss out about 11,000 tonnes of food every year. Food banks are still working hard to catch up.",
+              "words": 28,
+              "sentences": 3,
+              "avg_sentence_words": 9.3,
+              "fk_grade": 5.3,
+              "long_word_pct": 3.6,
+              "speak_seconds_est": 17.7,
+              "fill_pct": 88.4,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan relative poverty rate ~6.75-7.53% 2017-2023, 7.43% in 2022 (MOHW); low-income children (0-18) fell 117,012 (2016) to 90,245 (2021), near-poor children fell 135,819 (2016) to 107,010 (2021), together ~200,000 in 2021 (MOHW/CRC 兒少統計專區); Child Welfare League Foundation (兒福聯盟) survey: 20% of disadvantaged children have gone hungry at home and eaten snacks instead of a meal; ~20% rely on snacks when school lunch stops over long holidays; 11.0% of students skip breakfast 3+ days/week and arrive hungry; school lunch policy expanding city by city: Taipei free for all public+private elem/JHS since Sept 2025 (NT$87/NT$92 per meal); Kaohsiung free from 2026 school year (~NT$1.8B/yr, ~180,000 students); Tainan (~NT$56/meal) and Chiayi County (~NT$62/meal) free from 2026; Pingtung County free from 2026; Hsinchu City partial subsidy (NT$40/NT$45) with full waiver for disadvantaged (city government press releases, CNA, 風傳媒, 造咖); 2026 revision of 財政收支劃分法 ended central subsidy for domestic school-lunch ingredients, shifting cost to local budgets; Alliance of Taiwan Foodbanks (台灣食物銀行聯合會, ATF) — ~60 member food banks, ~300 partner NPOs, ~100 community refrigerators (84 fridges+16 freezers) nationwide, Taipei flagship store rescues ~20,000 kg food/yr for 200+ households/month, Hualien warehouse stores 500+ tonnes serving 20+ remote communities/schools (atf.tw); retail food waste — supermarkets/hypermarkets declared ~69,670 tonnes discarded Mar 2017-Jun 2023 (6 yrs), ~11,000 tonnes/yr, ~30 tonnes/day (foodnext.net/食力, government-mandated reporting). Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "Meanwhile, plenty of food still gets wasted regardless. Large retailers alone report discarding roughly 11,000 tonnes of food a year. Even so, food banks keep struggling to reach every family that needs them.",
+              "words": 34,
+              "sentences": 3,
+              "avg_sentence_words": 11.3,
+              "fk_grade": 8.6,
+              "long_word_pct": 14.7,
+              "speak_seconds_est": 18.5,
+              "fill_pct": 92.7,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan relative poverty rate ~6.75-7.53% 2017-2023, 7.43% in 2022 (MOHW); low-income children (0-18) fell 117,012 (2016) to 90,245 (2021), near-poor children fell 135,819 (2016) to 107,010 (2021), together ~200,000 in 2021 (MOHW/CRC 兒少統計專區); Child Welfare League Foundation (兒福聯盟) survey: 20% of disadvantaged children have gone hungry at home and eaten snacks instead of a meal; ~20% rely on snacks when school lunch stops over long holidays; 11.0% of students skip breakfast 3+ days/week and arrive hungry; school lunch policy expanding city by city: Taipei free for all public+private elem/JHS since Sept 2025 (NT$87/NT$92 per meal); Kaohsiung free from 2026 school year (~NT$1.8B/yr, ~180,000 students); Tainan (~NT$56/meal) and Chiayi County (~NT$62/meal) free from 2026; Pingtung County free from 2026; Hsinchu City partial subsidy (NT$40/NT$45) with full waiver for disadvantaged (city government press releases, CNA, 風傳媒, 造咖); 2026 revision of 財政收支劃分法 ended central subsidy for domestic school-lunch ingredients, shifting cost to local budgets; Alliance of Taiwan Foodbanks (台灣食物銀行聯合會, ATF) — ~60 member food banks, ~300 partner NPOs, ~100 community refrigerators (84 fridges+16 freezers) nationwide, Taipei flagship store rescues ~20,000 kg food/yr for 200+ households/month, Hualien warehouse stores 500+ tonnes serving 20+ remote communities/schools (atf.tw); retail food waste — supermarkets/hypermarkets declared ~69,670 tonnes discarded Mar 2017-Jun 2023 (6 yrs), ~11,000 tonnes/yr, ~30 tonnes/day (foodnext.net/食力, government-mandated reporting). Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "The flip side involves considerable waste, however. Roughly 11,000 tonnes get discarded annually by large retailers alone, even as food banks continue struggling to reach every family requiring help.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 13.5,
+              "long_word_pct": 26.7,
+              "speak_seconds_est": 15.0,
+              "fill_pct": 75.0,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan relative poverty rate ~6.75-7.53% 2017-2023, 7.43% in 2022 (MOHW); low-income children (0-18) fell 117,012 (2016) to 90,245 (2021), near-poor children fell 135,819 (2016) to 107,010 (2021), together ~200,000 in 2021 (MOHW/CRC 兒少統計專區); Child Welfare League Foundation (兒福聯盟) survey: 20% of disadvantaged children have gone hungry at home and eaten snacks instead of a meal; ~20% rely on snacks when school lunch stops over long holidays; 11.0% of students skip breakfast 3+ days/week and arrive hungry; school lunch policy expanding city by city: Taipei free for all public+private elem/JHS since Sept 2025 (NT$87/NT$92 per meal); Kaohsiung free from 2026 school year (~NT$1.8B/yr, ~180,000 students); Tainan (~NT$56/meal) and Chiayi County (~NT$62/meal) free from 2026; Pingtung County free from 2026; Hsinchu City partial subsidy (NT$40/NT$45) with full waiver for disadvantaged (city government press releases, CNA, 風傳媒, 造咖); 2026 revision of 財政收支劃分法 ended central subsidy for domestic school-lunch ingredients, shifting cost to local budgets; Alliance of Taiwan Foodbanks (台灣食物銀行聯合會, ATF) — ~60 member food banks, ~300 partner NPOs, ~100 community refrigerators (84 fridges+16 freezers) nationwide, Taipei flagship store rescues ~20,000 kg food/yr for 200+ households/month, Hualien warehouse stores 500+ tonnes serving 20+ remote communities/schools (atf.tw); retail food waste — supermarkets/hypermarkets declared ~69,670 tonnes discarded Mar 2017-Jun 2023 (6 yrs), ~11,000 tonnes/yr, ~30 tonnes/day (foodnext.net/食力, government-mandated reporting). Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            }
+          }
         },
         {
           "slide_no": 16,
@@ -191,7 +926,56 @@
             "zh": null
           },
           "numbers": [],
-          "scripts": {}
+          "scripts": {
+            "A2": {
+              "text": "So Taiwan actually has enough food. It also has mostly enough new rules. The missing piece is one fair system that reaches every child.",
+              "words": 24,
+              "sentences": 3,
+              "avg_sentence_words": 8.0,
+              "fk_grade": 5.7,
+              "long_word_pct": 4.2,
+              "speak_seconds_est": 15.2,
+              "fill_pct": 75.8,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan relative poverty rate ~6.75-7.53% 2017-2023, 7.43% in 2022 (MOHW); low-income children (0-18) fell 117,012 (2016) to 90,245 (2021), near-poor children fell 135,819 (2016) to 107,010 (2021), together ~200,000 in 2021 (MOHW/CRC 兒少統計專區); Child Welfare League Foundation (兒福聯盟) survey: 20% of disadvantaged children have gone hungry at home and eaten snacks instead of a meal; ~20% rely on snacks when school lunch stops over long holidays; 11.0% of students skip breakfast 3+ days/week and arrive hungry; school lunch policy expanding city by city: Taipei free for all public+private elem/JHS since Sept 2025 (NT$87/NT$92 per meal); Kaohsiung free from 2026 school year (~NT$1.8B/yr, ~180,000 students); Tainan (~NT$56/meal) and Chiayi County (~NT$62/meal) free from 2026; Pingtung County free from 2026; Hsinchu City partial subsidy (NT$40/NT$45) with full waiver for disadvantaged (city government press releases, CNA, 風傳媒, 造咖); 2026 revision of 財政收支劃分法 ended central subsidy for domestic school-lunch ingredients, shifting cost to local budgets; Alliance of Taiwan Foodbanks (台灣食物銀行聯合會, ATF) — ~60 member food banks, ~300 partner NPOs, ~100 community refrigerators (84 fridges+16 freezers) nationwide, Taipei flagship store rescues ~20,000 kg food/yr for 200+ households/month, Hualien warehouse stores 500+ tonnes serving 20+ remote communities/schools (atf.tw); retail food waste — supermarkets/hypermarkets declared ~69,670 tonnes discarded Mar 2017-Jun 2023 (6 yrs), ~11,000 tonnes/yr, ~30 tonnes/day (foodnext.net/食力, government-mandated reporting). Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "So Taiwan genuinely has enough food, and more and more good policy too. What's still missing is one steady, equal system, rather than one depending on luck or location.",
+              "words": 29,
+              "sentences": 2,
+              "avg_sentence_words": 14.5,
+              "fk_grade": 8.4,
+              "long_word_pct": 10.3,
+              "speak_seconds_est": 15.8,
+              "fill_pct": 79.1,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan relative poverty rate ~6.75-7.53% 2017-2023, 7.43% in 2022 (MOHW); low-income children (0-18) fell 117,012 (2016) to 90,245 (2021), near-poor children fell 135,819 (2016) to 107,010 (2021), together ~200,000 in 2021 (MOHW/CRC 兒少統計專區); Child Welfare League Foundation (兒福聯盟) survey: 20% of disadvantaged children have gone hungry at home and eaten snacks instead of a meal; ~20% rely on snacks when school lunch stops over long holidays; 11.0% of students skip breakfast 3+ days/week and arrive hungry; school lunch policy expanding city by city: Taipei free for all public+private elem/JHS since Sept 2025 (NT$87/NT$92 per meal); Kaohsiung free from 2026 school year (~NT$1.8B/yr, ~180,000 students); Tainan (~NT$56/meal) and Chiayi County (~NT$62/meal) free from 2026; Pingtung County free from 2026; Hsinchu City partial subsidy (NT$40/NT$45) with full waiver for disadvantaged (city government press releases, CNA, 風傳媒, 造咖); 2026 revision of 財政收支劃分法 ended central subsidy for domestic school-lunch ingredients, shifting cost to local budgets; Alliance of Taiwan Foodbanks (台灣食物銀行聯合會, ATF) — ~60 member food banks, ~300 partner NPOs, ~100 community refrigerators (84 fridges+16 freezers) nationwide, Taipei flagship store rescues ~20,000 kg food/yr for 200+ households/month, Hualien warehouse stores 500+ tonnes serving 20+ remote communities/schools (atf.tw); retail food waste — supermarkets/hypermarkets declared ~69,670 tonnes discarded Mar 2017-Jun 2023 (6 yrs), ~11,000 tonnes/yr, ~30 tonnes/day (foodnext.net/食力, government-mandated reporting). Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "Taiwan genuinely possesses sufficient food today, and increasingly sufficient policy as well. What remains absent is one consistent, equitable system, rather than one that depends on luck or postcode alone.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 13.1,
+              "long_word_pct": 26.7,
+              "speak_seconds_est": 15.0,
+              "fill_pct": 75.0,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan relative poverty rate ~6.75-7.53% 2017-2023, 7.43% in 2022 (MOHW); low-income children (0-18) fell 117,012 (2016) to 90,245 (2021), near-poor children fell 135,819 (2016) to 107,010 (2021), together ~200,000 in 2021 (MOHW/CRC 兒少統計專區); Child Welfare League Foundation (兒福聯盟) survey: 20% of disadvantaged children have gone hungry at home and eaten snacks instead of a meal; ~20% rely on snacks when school lunch stops over long holidays; 11.0% of students skip breakfast 3+ days/week and arrive hungry; school lunch policy expanding city by city: Taipei free for all public+private elem/JHS since Sept 2025 (NT$87/NT$92 per meal); Kaohsiung free from 2026 school year (~NT$1.8B/yr, ~180,000 students); Tainan (~NT$56/meal) and Chiayi County (~NT$62/meal) free from 2026; Pingtung County free from 2026; Hsinchu City partial subsidy (NT$40/NT$45) with full waiver for disadvantaged (city government press releases, CNA, 風傳媒, 造咖); 2026 revision of 財政收支劃分法 ended central subsidy for domestic school-lunch ingredients, shifting cost to local budgets; Alliance of Taiwan Foodbanks (台灣食物銀行聯合會, ATF) — ~60 member food banks, ~300 partner NPOs, ~100 community refrigerators (84 fridges+16 freezers) nationwide, Taipei flagship store rescues ~20,000 kg food/yr for 200+ households/month, Hualien warehouse stores 500+ tonnes serving 20+ remote communities/schools (atf.tw); retail food waste — supermarkets/hypermarkets declared ~69,670 tonnes discarded Mar 2017-Jun 2023 (6 yrs), ~11,000 tonnes/yr, ~30 tonnes/day (foodnext.net/食力, government-mandated reporting). Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            }
+          }
         }
       ]
     },
@@ -209,7 +993,56 @@
             "zh": null
           },
           "numbers": [],
-          "scripts": {}
+          "scripts": {
+            "A2": {
+              "text": "To sum up, hidden hunger here was never about too little food. It is about food not reaching every single child, every single day.",
+              "words": 24,
+              "sentences": 2,
+              "avg_sentence_words": 12.0,
+              "fk_grade": 7.3,
+              "long_word_pct": 4.2,
+              "speak_seconds_est": 15.2,
+              "fill_pct": 75.8,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan relative poverty rate ~6.75-7.53% 2017-2023, 7.43% in 2022 (MOHW); low-income children (0-18) fell 117,012 (2016) to 90,245 (2021), near-poor children fell 135,819 (2016) to 107,010 (2021), together ~200,000 in 2021 (MOHW/CRC 兒少統計專區); Child Welfare League Foundation (兒福聯盟) survey: 20% of disadvantaged children have gone hungry at home and eaten snacks instead of a meal; ~20% rely on snacks when school lunch stops over long holidays; 11.0% of students skip breakfast 3+ days/week and arrive hungry; school lunch policy expanding city by city: Taipei free for all public+private elem/JHS since Sept 2025 (NT$87/NT$92 per meal); Kaohsiung free from 2026 school year (~NT$1.8B/yr, ~180,000 students); Tainan (~NT$56/meal) and Chiayi County (~NT$62/meal) free from 2026; Pingtung County free from 2026; Hsinchu City partial subsidy (NT$40/NT$45) with full waiver for disadvantaged (city government press releases, CNA, 風傳媒, 造咖); 2026 revision of 財政收支劃分法 ended central subsidy for domestic school-lunch ingredients, shifting cost to local budgets; Alliance of Taiwan Foodbanks (台灣食物銀行聯合會, ATF) — ~60 member food banks, ~300 partner NPOs, ~100 community refrigerators (84 fridges+16 freezers) nationwide, Taipei flagship store rescues ~20,000 kg food/yr for 200+ households/month, Hualien warehouse stores 500+ tonnes serving 20+ remote communities/schools (atf.tw); retail food waste — supermarkets/hypermarkets declared ~69,670 tonnes discarded Mar 2017-Jun 2023 (6 yrs), ~11,000 tonnes/yr, ~30 tonnes/day (foodnext.net/食力, government-mandated reporting). Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "Put another way, this was never really a story about Taiwan genuinely running short of food. Instead, it's a story about food consistently failing to reach every single child, day after day.",
+              "words": 32,
+              "sentences": 2,
+              "avg_sentence_words": 16.0,
+              "fk_grade": 10.6,
+              "long_word_pct": 6.2,
+              "speak_seconds_est": 17.5,
+              "fill_pct": 87.3,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan relative poverty rate ~6.75-7.53% 2017-2023, 7.43% in 2022 (MOHW); low-income children (0-18) fell 117,012 (2016) to 90,245 (2021), near-poor children fell 135,819 (2016) to 107,010 (2021), together ~200,000 in 2021 (MOHW/CRC 兒少統計專區); Child Welfare League Foundation (兒福聯盟) survey: 20% of disadvantaged children have gone hungry at home and eaten snacks instead of a meal; ~20% rely on snacks when school lunch stops over long holidays; 11.0% of students skip breakfast 3+ days/week and arrive hungry; school lunch policy expanding city by city: Taipei free for all public+private elem/JHS since Sept 2025 (NT$87/NT$92 per meal); Kaohsiung free from 2026 school year (~NT$1.8B/yr, ~180,000 students); Tainan (~NT$56/meal) and Chiayi County (~NT$62/meal) free from 2026; Pingtung County free from 2026; Hsinchu City partial subsidy (NT$40/NT$45) with full waiver for disadvantaged (city government press releases, CNA, 風傳媒, 造咖); 2026 revision of 財政收支劃分法 ended central subsidy for domestic school-lunch ingredients, shifting cost to local budgets; Alliance of Taiwan Foodbanks (台灣食物銀行聯合會, ATF) — ~60 member food banks, ~300 partner NPOs, ~100 community refrigerators (84 fridges+16 freezers) nationwide, Taipei flagship store rescues ~20,000 kg food/yr for 200+ households/month, Hualien warehouse stores 500+ tonnes serving 20+ remote communities/schools (atf.tw); retail food waste — supermarkets/hypermarkets declared ~69,670 tonnes discarded Mar 2017-Jun 2023 (6 yrs), ~11,000 tonnes/yr, ~30 tonnes/day (foodnext.net/食力, government-mandated reporting). Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "In summary, hidden hunger here was never fundamentally about a genuine national food shortage. It concerns food that fails to reliably reach every child, on every single day of the year.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 10.6,
+              "long_word_pct": 16.1,
+              "speak_seconds_est": 15.5,
+              "fill_pct": 77.5,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan relative poverty rate ~6.75-7.53% 2017-2023, 7.43% in 2022 (MOHW); low-income children (0-18) fell 117,012 (2016) to 90,245 (2021), near-poor children fell 135,819 (2016) to 107,010 (2021), together ~200,000 in 2021 (MOHW/CRC 兒少統計專區); Child Welfare League Foundation (兒福聯盟) survey: 20% of disadvantaged children have gone hungry at home and eaten snacks instead of a meal; ~20% rely on snacks when school lunch stops over long holidays; 11.0% of students skip breakfast 3+ days/week and arrive hungry; school lunch policy expanding city by city: Taipei free for all public+private elem/JHS since Sept 2025 (NT$87/NT$92 per meal); Kaohsiung free from 2026 school year (~NT$1.8B/yr, ~180,000 students); Tainan (~NT$56/meal) and Chiayi County (~NT$62/meal) free from 2026; Pingtung County free from 2026; Hsinchu City partial subsidy (NT$40/NT$45) with full waiver for disadvantaged (city government press releases, CNA, 風傳媒, 造咖); 2026 revision of 財政收支劃分法 ended central subsidy for domestic school-lunch ingredients, shifting cost to local budgets; Alliance of Taiwan Foodbanks (台灣食物銀行聯合會, ATF) — ~60 member food banks, ~300 partner NPOs, ~100 community refrigerators (84 fridges+16 freezers) nationwide, Taipei flagship store rescues ~20,000 kg food/yr for 200+ households/month, Hualien warehouse stores 500+ tonnes serving 20+ remote communities/schools (atf.tw); retail food waste — supermarkets/hypermarkets declared ~69,670 tonnes discarded Mar 2017-Jun 2023 (6 yrs), ~11,000 tonnes/yr, ~30 tonnes/day (foodnext.net/食力, government-mandated reporting). Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            }
+          }
         },
         {
           "slide_no": 18,
@@ -218,7 +1051,56 @@
             "zh": null
           },
           "numbers": [],
-          "scripts": {}
+          "scripts": {
+            "A2": {
+              "text": "This gap needs real solutions, like smart apps and good delivery routes. In other words, it needs people who study exactly what you study.",
+              "words": 24,
+              "sentences": 2,
+              "avg_sentence_words": 12.0,
+              "fk_grade": 6.8,
+              "long_word_pct": 8.3,
+              "speak_seconds_est": 15.2,
+              "fill_pct": 75.8,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan relative poverty rate ~6.75-7.53% 2017-2023, 7.43% in 2022 (MOHW); low-income children (0-18) fell 117,012 (2016) to 90,245 (2021), near-poor children fell 135,819 (2016) to 107,010 (2021), together ~200,000 in 2021 (MOHW/CRC 兒少統計專區); Child Welfare League Foundation (兒福聯盟) survey: 20% of disadvantaged children have gone hungry at home and eaten snacks instead of a meal; ~20% rely on snacks when school lunch stops over long holidays; 11.0% of students skip breakfast 3+ days/week and arrive hungry; school lunch policy expanding city by city: Taipei free for all public+private elem/JHS since Sept 2025 (NT$87/NT$92 per meal); Kaohsiung free from 2026 school year (~NT$1.8B/yr, ~180,000 students); Tainan (~NT$56/meal) and Chiayi County (~NT$62/meal) free from 2026; Pingtung County free from 2026; Hsinchu City partial subsidy (NT$40/NT$45) with full waiver for disadvantaged (city government press releases, CNA, 風傳媒, 造咖); 2026 revision of 財政收支劃分法 ended central subsidy for domestic school-lunch ingredients, shifting cost to local budgets; Alliance of Taiwan Foodbanks (台灣食物銀行聯合會, ATF) — ~60 member food banks, ~300 partner NPOs, ~100 community refrigerators (84 fridges+16 freezers) nationwide, Taipei flagship store rescues ~20,000 kg food/yr for 200+ households/month, Hualien warehouse stores 500+ tonnes serving 20+ remote communities/schools (atf.tw); retail food waste — supermarkets/hypermarkets declared ~69,670 tonnes discarded Mar 2017-Jun 2023 (6 yrs), ~11,000 tonnes/yr, ~30 tonnes/day (foodnext.net/食力, government-mandated reporting). Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "This gap needs real tech fixes, things like smart routing apps and better delivery routes. That could very easily and genuinely describe someone whose studies already match this problem.",
+              "words": 29,
+              "sentences": 2,
+              "avg_sentence_words": 14.5,
+              "fk_grade": 9.6,
+              "long_word_pct": 10.3,
+              "speak_seconds_est": 15.8,
+              "fill_pct": 79.1,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan relative poverty rate ~6.75-7.53% 2017-2023, 7.43% in 2022 (MOHW); low-income children (0-18) fell 117,012 (2016) to 90,245 (2021), near-poor children fell 135,819 (2016) to 107,010 (2021), together ~200,000 in 2021 (MOHW/CRC 兒少統計專區); Child Welfare League Foundation (兒福聯盟) survey: 20% of disadvantaged children have gone hungry at home and eaten snacks instead of a meal; ~20% rely on snacks when school lunch stops over long holidays; 11.0% of students skip breakfast 3+ days/week and arrive hungry; school lunch policy expanding city by city: Taipei free for all public+private elem/JHS since Sept 2025 (NT$87/NT$92 per meal); Kaohsiung free from 2026 school year (~NT$1.8B/yr, ~180,000 students); Tainan (~NT$56/meal) and Chiayi County (~NT$62/meal) free from 2026; Pingtung County free from 2026; Hsinchu City partial subsidy (NT$40/NT$45) with full waiver for disadvantaged (city government press releases, CNA, 風傳媒, 造咖); 2026 revision of 財政收支劃分法 ended central subsidy for domestic school-lunch ingredients, shifting cost to local budgets; Alliance of Taiwan Foodbanks (台灣食物銀行聯合會, ATF) — ~60 member food banks, ~300 partner NPOs, ~100 community refrigerators (84 fridges+16 freezers) nationwide, Taipei flagship store rescues ~20,000 kg food/yr for 200+ households/month, Hualien warehouse stores 500+ tonnes serving 20+ remote communities/schools (atf.tw); retail food waste — supermarkets/hypermarkets declared ~69,670 tonnes discarded Mar 2017-Jun 2023 (6 yrs), ~11,000 tonnes/yr, ~30 tonnes/day (foodnext.net/食力, government-mandated reporting). Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "This gap needs genuine engineering solutions, things like smart routing software and much better delivery infrastructure. Which could easily describe someone studying exactly what you are pursuing right here and now.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 11.0,
+              "long_word_pct": 25.8,
+              "speak_seconds_est": 15.5,
+              "fill_pct": 77.5,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan relative poverty rate ~6.75-7.53% 2017-2023, 7.43% in 2022 (MOHW); low-income children (0-18) fell 117,012 (2016) to 90,245 (2021), near-poor children fell 135,819 (2016) to 107,010 (2021), together ~200,000 in 2021 (MOHW/CRC 兒少統計專區); Child Welfare League Foundation (兒福聯盟) survey: 20% of disadvantaged children have gone hungry at home and eaten snacks instead of a meal; ~20% rely on snacks when school lunch stops over long holidays; 11.0% of students skip breakfast 3+ days/week and arrive hungry; school lunch policy expanding city by city: Taipei free for all public+private elem/JHS since Sept 2025 (NT$87/NT$92 per meal); Kaohsiung free from 2026 school year (~NT$1.8B/yr, ~180,000 students); Tainan (~NT$56/meal) and Chiayi County (~NT$62/meal) free from 2026; Pingtung County free from 2026; Hsinchu City partial subsidy (NT$40/NT$45) with full waiver for disadvantaged (city government press releases, CNA, 風傳媒, 造咖); 2026 revision of 財政收支劃分法 ended central subsidy for domestic school-lunch ingredients, shifting cost to local budgets; Alliance of Taiwan Foodbanks (台灣食物銀行聯合會, ATF) — ~60 member food banks, ~300 partner NPOs, ~100 community refrigerators (84 fridges+16 freezers) nationwide, Taipei flagship store rescues ~20,000 kg food/yr for 200+ households/month, Hualien warehouse stores 500+ tonnes serving 20+ remote communities/schools (atf.tw); retail food waste — supermarkets/hypermarkets declared ~69,670 tonnes discarded Mar 2017-Jun 2023 (6 yrs), ~11,000 tonnes/yr, ~30 tonnes/day (foodnext.net/食力, government-mandated reporting). Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            }
+          }
         },
         {
           "slide_no": 19,
@@ -227,7 +1109,56 @@
             "zh": null
           },
           "numbers": [],
-          "scripts": {}
+          "scripts": {
+            "A2": {
+              "text": "So next time you happen to pass a shared fridge, remember something simple. It is filling a gap that policy has not closed yet.",
+              "words": 24,
+              "sentences": 2,
+              "avg_sentence_words": 12.0,
+              "fk_grade": 6.3,
+              "long_word_pct": 8.3,
+              "speak_seconds_est": 15.2,
+              "fill_pct": 75.8,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan relative poverty rate ~6.75-7.53% 2017-2023, 7.43% in 2022 (MOHW); low-income children (0-18) fell 117,012 (2016) to 90,245 (2021), near-poor children fell 135,819 (2016) to 107,010 (2021), together ~200,000 in 2021 (MOHW/CRC 兒少統計專區); Child Welfare League Foundation (兒福聯盟) survey: 20% of disadvantaged children have gone hungry at home and eaten snacks instead of a meal; ~20% rely on snacks when school lunch stops over long holidays; 11.0% of students skip breakfast 3+ days/week and arrive hungry; school lunch policy expanding city by city: Taipei free for all public+private elem/JHS since Sept 2025 (NT$87/NT$92 per meal); Kaohsiung free from 2026 school year (~NT$1.8B/yr, ~180,000 students); Tainan (~NT$56/meal) and Chiayi County (~NT$62/meal) free from 2026; Pingtung County free from 2026; Hsinchu City partial subsidy (NT$40/NT$45) with full waiver for disadvantaged (city government press releases, CNA, 風傳媒, 造咖); 2026 revision of 財政收支劃分法 ended central subsidy for domestic school-lunch ingredients, shifting cost to local budgets; Alliance of Taiwan Foodbanks (台灣食物銀行聯合會, ATF) — ~60 member food banks, ~300 partner NPOs, ~100 community refrigerators (84 fridges+16 freezers) nationwide, Taipei flagship store rescues ~20,000 kg food/yr for 200+ households/month, Hualien warehouse stores 500+ tonnes serving 20+ remote communities/schools (atf.tw); retail food waste — supermarkets/hypermarkets declared ~69,670 tonnes discarded Mar 2017-Jun 2023 (6 yrs), ~11,000 tonnes/yr, ~30 tonnes/day (foodnext.net/食力, government-mandated reporting). Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "The next community fridge or donation bin you happen to walk past is doing quiet work. It's covering a gap that official policy simply hasn't closed just yet.",
+              "words": 28,
+              "sentences": 2,
+              "avg_sentence_words": 14.0,
+              "fk_grade": 7.6,
+              "long_word_pct": 14.3,
+              "speak_seconds_est": 15.3,
+              "fill_pct": 76.4,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan relative poverty rate ~6.75-7.53% 2017-2023, 7.43% in 2022 (MOHW); low-income children (0-18) fell 117,012 (2016) to 90,245 (2021), near-poor children fell 135,819 (2016) to 107,010 (2021), together ~200,000 in 2021 (MOHW/CRC 兒少統計專區); Child Welfare League Foundation (兒福聯盟) survey: 20% of disadvantaged children have gone hungry at home and eaten snacks instead of a meal; ~20% rely on snacks when school lunch stops over long holidays; 11.0% of students skip breakfast 3+ days/week and arrive hungry; school lunch policy expanding city by city: Taipei free for all public+private elem/JHS since Sept 2025 (NT$87/NT$92 per meal); Kaohsiung free from 2026 school year (~NT$1.8B/yr, ~180,000 students); Tainan (~NT$56/meal) and Chiayi County (~NT$62/meal) free from 2026; Pingtung County free from 2026; Hsinchu City partial subsidy (NT$40/NT$45) with full waiver for disadvantaged (city government press releases, CNA, 風傳媒, 造咖); 2026 revision of 財政收支劃分法 ended central subsidy for domestic school-lunch ingredients, shifting cost to local budgets; Alliance of Taiwan Foodbanks (台灣食物銀行聯合會, ATF) — ~60 member food banks, ~300 partner NPOs, ~100 community refrigerators (84 fridges+16 freezers) nationwide, Taipei flagship store rescues ~20,000 kg food/yr for 200+ households/month, Hualien warehouse stores 500+ tonnes serving 20+ remote communities/schools (atf.tw); retail food waste — supermarkets/hypermarkets declared ~69,670 tonnes discarded Mar 2017-Jun 2023 (6 yrs), ~11,000 tonnes/yr, ~30 tonnes/day (foodnext.net/食力, government-mandated reporting). Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "Next time you happen to notice a community fridge, or a donation bin for a food bank, consider something worth remembering. It is quietly filling a gap that policy has not yet closed.",
+              "words": 33,
+              "sentences": 2,
+              "avg_sentence_words": 16.5,
+              "fk_grade": 9.4,
+              "long_word_pct": 15.2,
+              "speak_seconds_est": 16.5,
+              "fill_pct": 82.5,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan relative poverty rate ~6.75-7.53% 2017-2023, 7.43% in 2022 (MOHW); low-income children (0-18) fell 117,012 (2016) to 90,245 (2021), near-poor children fell 135,819 (2016) to 107,010 (2021), together ~200,000 in 2021 (MOHW/CRC 兒少統計專區); Child Welfare League Foundation (兒福聯盟) survey: 20% of disadvantaged children have gone hungry at home and eaten snacks instead of a meal; ~20% rely on snacks when school lunch stops over long holidays; 11.0% of students skip breakfast 3+ days/week and arrive hungry; school lunch policy expanding city by city: Taipei free for all public+private elem/JHS since Sept 2025 (NT$87/NT$92 per meal); Kaohsiung free from 2026 school year (~NT$1.8B/yr, ~180,000 students); Tainan (~NT$56/meal) and Chiayi County (~NT$62/meal) free from 2026; Pingtung County free from 2026; Hsinchu City partial subsidy (NT$40/NT$45) with full waiver for disadvantaged (city government press releases, CNA, 風傳媒, 造咖); 2026 revision of 財政收支劃分法 ended central subsidy for domestic school-lunch ingredients, shifting cost to local budgets; Alliance of Taiwan Foodbanks (台灣食物銀行聯合會, ATF) — ~60 member food banks, ~300 partner NPOs, ~100 community refrigerators (84 fridges+16 freezers) nationwide, Taipei flagship store rescues ~20,000 kg food/yr for 200+ households/month, Hualien warehouse stores 500+ tonnes serving 20+ remote communities/schools (atf.tw); retail food waste — supermarkets/hypermarkets declared ~69,670 tonnes discarded Mar 2017-Jun 2023 (6 yrs), ~11,000 tonnes/yr, ~30 tonnes/day (foodnext.net/食力, government-mandated reporting). Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            }
+          }
         },
         {
           "slide_no": 20,
@@ -236,7 +1167,56 @@
             "zh": null
           },
           "numbers": [],
-          "scripts": {}
+          "scripts": {
+            "A2": {
+              "text": "A full food bank should never actually depend on luck. Let's build a system so every child eats well, every day of the year.",
+              "words": 24,
+              "sentences": 2,
+              "avg_sentence_words": 12.0,
+              "fk_grade": 5.3,
+              "long_word_pct": 4.2,
+              "speak_seconds_est": 15.2,
+              "fill_pct": 75.8,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan relative poverty rate ~6.75-7.53% 2017-2023, 7.43% in 2022 (MOHW); low-income children (0-18) fell 117,012 (2016) to 90,245 (2021), near-poor children fell 135,819 (2016) to 107,010 (2021), together ~200,000 in 2021 (MOHW/CRC 兒少統計專區); Child Welfare League Foundation (兒福聯盟) survey: 20% of disadvantaged children have gone hungry at home and eaten snacks instead of a meal; ~20% rely on snacks when school lunch stops over long holidays; 11.0% of students skip breakfast 3+ days/week and arrive hungry; school lunch policy expanding city by city: Taipei free for all public+private elem/JHS since Sept 2025 (NT$87/NT$92 per meal); Kaohsiung free from 2026 school year (~NT$1.8B/yr, ~180,000 students); Tainan (~NT$56/meal) and Chiayi County (~NT$62/meal) free from 2026; Pingtung County free from 2026; Hsinchu City partial subsidy (NT$40/NT$45) with full waiver for disadvantaged (city government press releases, CNA, 風傳媒, 造咖); 2026 revision of 財政收支劃分法 ended central subsidy for domestic school-lunch ingredients, shifting cost to local budgets; Alliance of Taiwan Foodbanks (台灣食物銀行聯合會, ATF) — ~60 member food banks, ~300 partner NPOs, ~100 community refrigerators (84 fridges+16 freezers) nationwide, Taipei flagship store rescues ~20,000 kg food/yr for 200+ households/month, Hualien warehouse stores 500+ tonnes serving 20+ remote communities/schools (atf.tw); retail food waste — supermarkets/hypermarkets declared ~69,670 tonnes discarded Mar 2017-Jun 2023 (6 yrs), ~11,000 tonnes/yr, ~30 tonnes/day (foodnext.net/食力, government-mandated reporting). Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "Whether a food bank stays stocked should never come down to chance. Building a system that reliably feeds every child, day after day, is the actual goal here.",
+              "words": 28,
+              "sentences": 2,
+              "avg_sentence_words": 14.0,
+              "fk_grade": 6.3,
+              "long_word_pct": 7.1,
+              "speak_seconds_est": 15.3,
+              "fill_pct": 76.4,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan relative poverty rate ~6.75-7.53% 2017-2023, 7.43% in 2022 (MOHW); low-income children (0-18) fell 117,012 (2016) to 90,245 (2021), near-poor children fell 135,819 (2016) to 107,010 (2021), together ~200,000 in 2021 (MOHW/CRC 兒少統計專區); Child Welfare League Foundation (兒福聯盟) survey: 20% of disadvantaged children have gone hungry at home and eaten snacks instead of a meal; ~20% rely on snacks when school lunch stops over long holidays; 11.0% of students skip breakfast 3+ days/week and arrive hungry; school lunch policy expanding city by city: Taipei free for all public+private elem/JHS since Sept 2025 (NT$87/NT$92 per meal); Kaohsiung free from 2026 school year (~NT$1.8B/yr, ~180,000 students); Tainan (~NT$56/meal) and Chiayi County (~NT$62/meal) free from 2026; Pingtung County free from 2026; Hsinchu City partial subsidy (NT$40/NT$45) with full waiver for disadvantaged (city government press releases, CNA, 風傳媒, 造咖); 2026 revision of 財政收支劃分法 ended central subsidy for domestic school-lunch ingredients, shifting cost to local budgets; Alliance of Taiwan Foodbanks (台灣食物銀行聯合會, ATF) — ~60 member food banks, ~300 partner NPOs, ~100 community refrigerators (84 fridges+16 freezers) nationwide, Taipei flagship store rescues ~20,000 kg food/yr for 200+ households/month, Hualien warehouse stores 500+ tonnes serving 20+ remote communities/schools (atf.tw); retail food waste — supermarkets/hypermarkets declared ~69,670 tonnes discarded Mar 2017-Jun 2023 (6 yrs), ~11,000 tonnes/yr, ~30 tonnes/day (foodnext.net/食力, government-mandated reporting). Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "Adequate stock at a food bank ought never genuinely hinge on random chance. The genuine objective is engineering a dependable system where every child receives a proper meal, day in and day out.",
+              "words": 33,
+              "sentences": 2,
+              "avg_sentence_words": 16.5,
+              "fk_grade": 10.5,
+              "long_word_pct": 18.2,
+              "speak_seconds_est": 16.5,
+              "fill_pct": 82.5,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan relative poverty rate ~6.75-7.53% 2017-2023, 7.43% in 2022 (MOHW); low-income children (0-18) fell 117,012 (2016) to 90,245 (2021), near-poor children fell 135,819 (2016) to 107,010 (2021), together ~200,000 in 2021 (MOHW/CRC 兒少統計專區); Child Welfare League Foundation (兒福聯盟) survey: 20% of disadvantaged children have gone hungry at home and eaten snacks instead of a meal; ~20% rely on snacks when school lunch stops over long holidays; 11.0% of students skip breakfast 3+ days/week and arrive hungry; school lunch policy expanding city by city: Taipei free for all public+private elem/JHS since Sept 2025 (NT$87/NT$92 per meal); Kaohsiung free from 2026 school year (~NT$1.8B/yr, ~180,000 students); Tainan (~NT$56/meal) and Chiayi County (~NT$62/meal) free from 2026; Pingtung County free from 2026; Hsinchu City partial subsidy (NT$40/NT$45) with full waiver for disadvantaged (city government press releases, CNA, 風傳媒, 造咖); 2026 revision of 財政收支劃分法 ended central subsidy for domestic school-lunch ingredients, shifting cost to local budgets; Alliance of Taiwan Foodbanks (台灣食物銀行聯合會, ATF) — ~60 member food banks, ~300 partner NPOs, ~100 community refrigerators (84 fridges+16 freezers) nationwide, Taipei flagship store rescues ~20,000 kg food/yr for 200+ households/month, Hualien warehouse stores 500+ tonnes serving 20+ remote communities/schools (atf.tw); retail food waste — supermarkets/hypermarkets declared ~69,670 tonnes discarded Mar 2017-Jun 2023 (6 yrs), ~11,000 tonnes/yr, ~30 tonnes/day (foodnext.net/食力, government-mandated reporting). Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            }
+          }
         }
       ]
     }
@@ -246,5 +1226,28 @@
     "workbook": null,
     "note": "authored from scratch; no workbook sheet"
   },
-  "narrative_brief": ""
+  "narrative_brief": "",
+  "level_summary": {
+    "A2": {
+      "slides": 20,
+      "avg_words": 25.2,
+      "avg_sentence_words": 9.4,
+      "fk_grade": 5.0,
+      "slides_over_20s": 0
+    },
+    "B1": {
+      "slides": 20,
+      "avg_words": 31.0,
+      "avg_sentence_words": 13.8,
+      "fk_grade": 8.6,
+      "slides_over_20s": 0
+    },
+    "B2": {
+      "slides": 20,
+      "avg_words": 30.9,
+      "avg_sentence_words": 15.5,
+      "fk_grade": 12.2,
+      "slides_over_20s": 0
+    }
+  }
 }

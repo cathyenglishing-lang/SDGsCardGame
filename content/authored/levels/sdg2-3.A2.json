@@ -1,0 +1,30 @@
+{
+  "mission_id": "sdg2-3",
+  "level": "A2",
+  "provenance": "authored",
+  "author": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+  "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan relative poverty rate ~6.75-7.53% 2017-2023, 7.43% in 2022 (MOHW); low-income children (0-18) fell 117,012 (2016) to 90,245 (2021), near-poor children fell 135,819 (2016) to 107,010 (2021), together ~200,000 in 2021 (MOHW/CRC 兒少統計專區); Child Welfare League Foundation (兒福聯盟) survey: 20% of disadvantaged children have gone hungry at home and eaten snacks instead of a meal; ~20% rely on snacks when school lunch stops over long holidays; 11.0% of students skip breakfast 3+ days/week and arrive hungry; school lunch policy expanding city by city: Taipei free for all public+private elem/JHS since Sept 2025 (NT$87/NT$92 per meal); Kaohsiung free from 2026 school year (~NT$1.8B/yr, ~180,000 students); Tainan (~NT$56/meal) and Chiayi County (~NT$62/meal) free from 2026; Pingtung County free from 2026; Hsinchu City partial subsidy (NT$40/NT$45) with full waiver for disadvantaged (city government press releases, CNA, 風傳媒, 造咖); 2026 revision of 財政收支劃分法 ended central subsidy for domestic school-lunch ingredients, shifting cost to local budgets; Alliance of Taiwan Foodbanks (台灣食物銀行聯合會, ATF) — ~60 member food banks, ~300 partner NPOs, ~100 community refrigerators (84 fridges+16 freezers) nationwide, Taipei flagship store rescues ~20,000 kg food/yr for 200+ households/month, Hualien warehouse stores 500+ tonnes serving 20+ remote communities/schools (atf.tw); retail food waste — supermarkets/hypermarkets declared ~69,670 tonnes discarded Mar 2017-Jun 2023 (6 yrs), ~11,000 tonnes/yr, ~30 tonnes/day (foodnext.net/食力, government-mandated reporting). Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+  "reviewed_by": null,
+  "slides": {
+    "1": "Have you ever seen a hungry classmate here at your own university? No, not really. But would you know one if you saw them?",
+    "2": "SDG 2 also means hidden hunger. This is not always about zero food. It is about food that is not enough, or not reliable.",
+    "3": "Taiwan looks rich in food. There is a small store on almost every corner. Yet close to 200,000 children still live in poor or near-poor homes.",
+    "4": "One survey found something quite sad. Twenty percent of poor children have gone hungry at home. They ate snacks instead of a real meal that day.",
+    "5": "For many of these children, school lunch is actually their best meal each day. So when summer break starts, that meal simply stops too.",
+    "6": "Eleven percent of students skip breakfast most of the week. They sit in class feeling hungry. Hidden hunger looks like being tired, not sick.",
+    "7": "Here is some good news for once. Since September 2025, Taipei gives free lunch to every student. This covers both elementary and junior high school.",
+    "8": "More cities are joining in too. Kaohsiung will spend about 1.8 billion dollars a year. That helps around 180,000 students get free lunch.",
+    "9": "Food banks also help fill the gaps. A group called the Alliance runs about 100 shared fridges. It connects 60 food banks with almost 300 helpers.",
+    "10": "Every city actually sets its own lunch price. Some pay 40 dollars a meal, but others pay over 90 dollars. It's messy, but it moves forward.",
+    "11": "Food banks now save more than dry cans of food. Taipei's main food bank saves 20,000 kilograms of food each year. That helps 200 families every month.",
+    "12": "But someone still has to actually move that food. Turning old bread into a real meal takes fridges, trucks, and real trust. Not every town has that yet.",
+    "13": "So here is the catch. Free lunch actually depends on which school you go to. Your own city still decides if lunch is free.",
+    "14": "In 2026, a new law changed things too. The government stopped paying for local food in school lunches. Now each city must find that money alone.",
+    "15": "Meanwhile, food still gets thrown away. Big stores alone toss out about 11,000 tonnes of food every year. Food banks are still working hard to catch up.",
+    "16": "So Taiwan actually has enough food. It also has mostly enough new rules. The missing piece is one fair system that reaches every child.",
+    "17": "To sum up, hidden hunger here was never about too little food. It is about food not reaching every single child, every single day.",
+    "18": "This gap needs real solutions, like smart apps and good delivery routes. In other words, it needs people who study exactly what you study.",
+    "19": "So next time you happen to pass a shared fridge, remember something simple. It is filling a gap that policy has not closed yet.",
+    "20": "A full food bank should never actually depend on luck. Let's build a system so every child eats well, every day of the year."
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "mission_id": "sdg6-2",
+  "sdg": 6,
+  "title": {"en": "The Chip Industry's Thirst: Semiconductors and Water Scarcity", "zh": "半導體產業與缺水"},
+  "shape": "authored",
+  "source": {"workbook": null, "note": "No workbook sheet exists for this SDG 6 mission; authored from scratch per docs/plans/new-mission-playbook.md."},
+  "narrative_brief": "Taiwan makes about 90% of the world's most advanced chips while also being one of the most water-stressed places on Earth. This talk traces that collision through TSMC's rising water use, the 2021 drought, genuine recycling and reclaiming progress, and the unresolved trade-off between industry and agriculture as droughts grow harder to predict.",
+  "stages": [
+    {
+      "part_no": 1,
+      "source_description": "Part 1: Introduction (Slides 1-3: hook on chip-vs-water scale, SDG 6 definition for industrial users, Taiwan's collision of chip dominance and water stress)",
+      "function_en": "Introduction",
+      "function_zh": "引言：破題與定義",
+      "language_pattern": "rhetorical questions / X is about ...",
+      "slides": [
+        {"slide_no": 1, "title": {"en": "A tiny chip's huge thirst", "zh": "微小晶片的巨大用水量"}, "numbers": [], "scripts": {}},
+        {"slide_no": 2, "title": {"en": "SDG 6 applies to industry too", "zh": "SDG 6 也適用於產業"}, "numbers": [], "scripts": {}},
+        {"slide_no": 3, "title": {"en": "Chip leader, water-stressed island", "zh": "晶片龍頭與缺水島嶼"}, "numbers": [], "scripts": {}}
+      ]
+    },
+    {
+      "part_no": 2,
+      "source_description": "Part 2: Problem (Slides 4-6: TSMC's rising water use, concentrated demand in science parks, the critical drought-during-fab-season question)",
+      "function_en": "Problem",
+      "function_zh": "問題指認：趨勢與因果",
+      "language_pattern": "present progressive for trends / this causes ...",
+      "slides": [
+        {"slide_no": 4, "title": {"en": "Washing wafers, using millions of tonnes", "zh": "洗晶圓耗費百萬噸水"}, "numbers": [], "scripts": {}},
+        {"slide_no": 5, "title": {"en": "Demand concentrated in science parks", "zh": "用水需求集中於科學園區"}, "numbers": [], "scripts": {}},
+        {"slide_no": 6, "title": {"en": "A factory cannot simply pause", "zh": "工廠無法說停就停"}, "numbers": [], "scripts": {}}
+      ]
+    },
+    {
+      "part_no": 3,
+      "source_description": "Part 3: Achievements (Slides 7-9: the 2021 drought test, TSMC's recycling rate, reclaimed water scaling up)",
+      "function_en": "Achievements",
+      "function_zh": "成果：舉證與比較",
+      "language_pattern": "present perfect / comparatives",
+      "slides": [
+        {"slide_no": 7, "title": {"en": "2021: the drought that tested fabs", "zh": "2021：考驗晶圓廠的乾旱"}, "numbers": [], "scripts": {}},
+        {"slide_no": 8, "title": {"en": "A 90.3% recycling rate", "zh": "90.3%的製程用水回收率"}, "numbers": [], "scripts": {}},
+        {"slide_no": 9, "title": {"en": "Reclaimed water, real numbers", "zh": "再生水的具體數字"}, "numbers": [], "scripts": {}}
+      ]
+    },
+    {
+      "part_no": 4,
+      "source_description": "Part 4: Solutions (Slides 10-12: reclaimed-water plants, the water-positive pledge, desalination as backup)",
+      "function_en": "Solutions",
+      "function_zh": "解方：做法與取捨",
+      "language_pattern": "instead of + V-ing / modal verbs",
+      "slides": [
+        {"slide_no": 10, "title": {"en": "Building recycling plants of their own", "zh": "自建再生水廠"}, "numbers": [], "scripts": {}},
+        {"slide_no": 11, "title": {"en": "The water-positive pledge", "zh": "水資源正效益承諾"}, "numbers": [], "scripts": {}},
+        {"slide_no": 12, "title": {"en": "Desalination as insurance", "zh": "海水淡化作為保險"}, "numbers": [], "scripts": {}}
+      ]
+    },
+    {
+      "part_no": 5,
+      "source_description": "Part 5: Implications (Slides 13-16: farmland fallowing, the agriculture-vs-industry asymmetry, the global supply-chain stakes, the recurring climate pattern) - one continuous tension: who bears the cost when a globally vital industry competes with agriculture for scarce water, and why that cost keeps landing on farmers",
+      "function_en": "Implications",
+      "function_zh": "影響：推論後果",
+      "language_pattern": "first conditional / however",
+      "slides": [
+        {"slide_no": 13, "title": {"en": "What a repeat drought would cost", "zh": "再次乾旱的代價"}, "numbers": [], "scripts": {}},
+        {"slide_no": 14, "title": {"en": "70% of water, 2% of GDP", "zh": "七成用水，兩趴GDP"}, "numbers": [], "scripts": {}},
+        {"slide_no": 15, "title": {"en": "A local risk, a global supply chain", "zh": "在地風險牽動全球供應鏈"}, "numbers": [], "scripts": {}},
+        {"slide_no": 16, "title": {"en": "Not a one-time event", "zh": "不會只發生一次"}, "numbers": [], "scripts": {}}
+      ]
+    },
+    {
+      "part_no": 6,
+      "source_description": "Part 6: Call to action (Slides 17-20: summary of the unresolved trade-off, reframing away from blame, what students can do, closing call)",
+      "function_en": "Call to action",
+      "function_zh": "結語：總結與號召",
+      "language_pattern": "to wrap up ... / let's ...",
+      "slides": [
+        {"slide_no": 17, "title": {"en": "Real progress, unresolved trade-off", "zh": "真實進展與未解的取捨"}, "numbers": [], "scripts": {}},
+        {"slide_no": 18, "title": {"en": "Not factories versus farmers", "zh": "不是工廠對抗農民"}, "numbers": [], "scripts": {}},
+        {"slide_no": 19, "title": {"en": "What students can contribute", "zh": "學生能做出的貢獻"}, "numbers": [], "scripts": {}},
+        {"slide_no": 20, "title": {"en": "Engineer the systems we need", "zh": "打造我們需要的系統"}, "numbers": [], "scripts": {}}
+      ]
+    }
+  ]
+}

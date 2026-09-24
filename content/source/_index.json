@@ -1,6 +1,6 @@
 {
   "content_version": "2026.09.1",
-  "generated_at": "2026-09-24T18:09:53+08:00",
+  "generated_at": "2026-09-24T18:20:33+08:00",
   "source_workbook": "SDGs Pecha Kucha (公用)_new.xlsx",
   "legacy_workbooks_not_used": [
     "SDGs Pecha Kucha (公用).xlsx",
@@ -440,8 +440,8 @@
         "A2": {
           "slides": 20,
           "avg_words": 25.6,
-          "avg_sentence_words": 8.7,
-          "fk_grade": 4.6,
+          "avg_sentence_words": 8.5,
+          "fk_grade": 4.3,
           "slides_over_20s": 0
         },
         "B1": {
@@ -454,7 +454,7 @@
         "B2": {
           "slides": 20,
           "avg_words": 31.9,
-          "avg_sentence_words": 15.9,
+          "avg_sentence_words": 16.0,
           "fk_grade": 12.2,
           "slides_over_20s": 0
         }
@@ -545,8 +545,34 @@
       "title_en": "The Hunger You Don't See: Food Deserts and School Lunches",
       "slides": 20,
       "stages": 6,
-      "levels": [],
-      "level_summary": {}
+      "levels": [
+        "A2",
+        "B1",
+        "B2"
+      ],
+      "level_summary": {
+        "A2": {
+          "slides": 20,
+          "avg_words": 25.2,
+          "avg_sentence_words": 9.4,
+          "fk_grade": 5.0,
+          "slides_over_20s": 0
+        },
+        "B1": {
+          "slides": 20,
+          "avg_words": 31.0,
+          "avg_sentence_words": 13.8,
+          "fk_grade": 8.6,
+          "slides_over_20s": 0
+        },
+        "B2": {
+          "slides": 20,
+          "avg_words": 30.9,
+          "avg_sentence_words": 15.5,
+          "fk_grade": 12.2,
+          "slides_over_20s": 0
+        }
+      }
     },
     {
       "mission_id": "sdg3-1",
@@ -633,8 +659,34 @@
       "title_en": "Vocational Education: Taiwan's Underrated Path",
       "slides": 20,
       "stages": 6,
-      "levels": [],
-      "level_summary": {}
+      "levels": [
+        "A2",
+        "B1",
+        "B2"
+      ],
+      "level_summary": {
+        "A2": {
+          "slides": 20,
+          "avg_words": 25.1,
+          "avg_sentence_words": 8.3,
+          "fk_grade": 5.0,
+          "slides_over_20s": 0
+        },
+        "B1": {
+          "slides": 20,
+          "avg_words": 31.9,
+          "avg_sentence_words": 14.0,
+          "fk_grade": 9.0,
+          "slides_over_20s": 0
+        },
+        "B2": {
+          "slides": 20,
+          "avg_words": 34.5,
+          "avg_sentence_words": 16.6,
+          "fk_grade": 12.4,
+          "slides_over_20s": 1
+        }
+      }
     },
     {
       "mission_id": "sdg5-3",
@@ -675,6 +727,41 @@
           "slides": 20,
           "avg_words": 34.5,
           "avg_sentence_words": 17.2,
+          "fk_grade": 12.1,
+          "slides_over_20s": 0
+        }
+      }
+    },
+    {
+      "mission_id": "sdg6-2",
+      "sdg": 6,
+      "title_en": "The Chip Industry's Thirst: Semiconductors and Water Scarcity",
+      "slides": 20,
+      "stages": 6,
+      "levels": [
+        "A2",
+        "B1",
+        "B2"
+      ],
+      "level_summary": {
+        "A2": {
+          "slides": 20,
+          "avg_words": 28.2,
+          "avg_sentence_words": 8.5,
+          "fk_grade": 5.3,
+          "slides_over_20s": 0
+        },
+        "B1": {
+          "slides": 20,
+          "avg_words": 30.6,
+          "avg_sentence_words": 14.7,
+          "fk_grade": 9.4,
+          "slides_over_20s": 0
+        },
+        "B2": {
+          "slides": 20,
+          "avg_words": 32.0,
+          "avg_sentence_words": 16.0,
           "fk_grade": 12.1,
           "slides_over_20s": 0
         }
@@ -787,9 +874,9 @@
     }
   ],
   "issue_counts": {
-    "high": 15,
-    "medium": 2,
-    "low": 32,
-    "info": 63
+    "high": 9,
+    "medium": 3,
+    "low": 33,
+    "info": 72
   }
 }
