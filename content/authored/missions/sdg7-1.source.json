@@ -1,0 +1,245 @@
+{
+  "mission_id": "sdg7-1",
+  "sdg": 7,
+  "title": {
+    "en": "Can Taiwan Really Reach Its Renewable Energy Target?",
+    "zh": null
+  },
+  "narrative_brief": "",
+  "stages": [
+    {
+      "part_no": 1,
+      "source_description": "Part 1: Introduction (Slides 1-3)",
+      "function_en": "Introduction",
+      "function_zh": "引言：破題與定義",
+      "language_pattern": "rhetorical questions / X is about ...",
+      "slides": [
+        {
+          "slide_no": 1,
+          "title": {
+            "en": "Are We Really Getting Greener?",
+            "zh": "我們真的更綠了嗎？"
+          },
+          "numbers": [],
+          "scripts": {}
+        },
+        {
+          "slide_no": 2,
+          "title": {
+            "en": "SDG 7: A Target, Not Just a Feeling",
+            "zh": "SDG7：一個目標，不只是感覺"
+          },
+          "numbers": [],
+          "scripts": {}
+        },
+        {
+          "slide_no": 3,
+          "title": {
+            "en": "Taiwan's Own Number: 20 by 2025",
+            "zh": "台灣自訂的數字：2025年20%"
+          },
+          "numbers": [],
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "part_no": 2,
+      "source_description": "Part 2: Problem (Slides 4-6)",
+      "function_en": "Problem",
+      "function_zh": "問題指認：趨勢與因果",
+      "language_pattern": "present progressive for trends / this causes ...",
+      "slides": [
+        {
+          "slide_no": 4,
+          "title": {
+            "en": "The 2024 Scorecard",
+            "zh": "2024年的成績單"
+          },
+          "numbers": [],
+          "scripts": {}
+        },
+        {
+          "slide_no": 5,
+          "title": {
+            "en": "Solar's Missing Gigawatts",
+            "zh": "太陽光電的缺口"
+          },
+          "numbers": [],
+          "scripts": {}
+        },
+        {
+          "slide_no": 6,
+          "title": {
+            "en": "Offshore Wind Runs Into Headwinds",
+            "zh": "離岸風電遇逆風"
+          },
+          "numbers": [],
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "part_no": 3,
+      "source_description": "Part 3: Achievements (Slides 7-9)",
+      "function_en": "Achievements",
+      "function_zh": "成果：舉證與比較",
+      "language_pattern": "present perfect / comparatives",
+      "slides": [
+        {
+          "slide_no": 7,
+          "title": {
+            "en": "Third in the World, Behind Our Own Bar",
+            "zh": "世界第三，落後自己的目標"
+          },
+          "numbers": [],
+          "scripts": {}
+        },
+        {
+          "slide_no": 8,
+          "title": {
+            "en": "Panels on Roofs, Ponds and Fields",
+            "zh": "屋頂、魚塭與廠房上的光電板"
+          },
+          "numbers": [],
+          "scripts": {}
+        },
+        {
+          "slide_no": 9,
+          "title": {
+            "en": "Moving the Deadline, Not the Target",
+            "zh": "展延期限，不放棄目標"
+          },
+          "numbers": [],
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "part_no": 4,
+      "source_description": "Part 4: Solutions (Slides 10-12)",
+      "function_en": "Solutions",
+      "function_zh": "解方：做法與取捨",
+      "language_pattern": "instead of + V-ing / modal verbs",
+      "slides": [
+        {
+          "slide_no": 10,
+          "title": {
+            "en": "Clearing the Permitting Backlog",
+            "zh": "排除審查與土地障礙"
+          },
+          "numbers": [],
+          "scripts": {}
+        },
+        {
+          "slide_no": 11,
+          "title": {
+            "en": "Financing the Next Wind Auction",
+            "zh": "資助下一輪風場標案"
+          },
+          "numbers": [],
+          "scripts": {}
+        },
+        {
+          "slide_no": 12,
+          "title": {
+            "en": "Betting on Hydrogen and Geothermal Too",
+            "zh": "也押注氫能與地熱"
+          },
+          "numbers": [],
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "part_no": 5,
+      "source_description": "Part 5: Implications (Slides 13-16)",
+      "function_en": "Implications",
+      "function_zh": "影響：推論後果",
+      "language_pattern": "first conditional / however",
+      "slides": [
+        {
+          "slide_no": 13,
+          "title": {
+            "en": "Chips Need Green Power Too",
+            "zh": "晶片也需要綠電"
+          },
+          "numbers": [],
+          "scripts": {}
+        },
+        {
+          "slide_no": 14,
+          "title": {
+            "en": "If 2026 Slips Too",
+            "zh": "如果2026年再次落空"
+          },
+          "numbers": [],
+          "scripts": {}
+        },
+        {
+          "slide_no": 15,
+          "title": {
+            "en": "Who Hosts the Turbines, Who Gets the Power",
+            "zh": "誰承擔風機，誰享用電力"
+          },
+          "numbers": [],
+          "scripts": {}
+        },
+        {
+          "slide_no": 16,
+          "title": {
+            "en": "The Real Test: Delivery, Not Announcement",
+            "zh": "真正的考驗：兌現而非宣布"
+          },
+          "numbers": [],
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "part_no": 6,
+      "source_description": "Part 6: Call to action (Slides 17-20)",
+      "function_en": "Call to action",
+      "function_zh": "結語：總結與號召",
+      "language_pattern": "to wrap up ... / let's ...",
+      "slides": [
+        {
+          "slide_no": 17,
+          "title": {
+            "en": "Progress and the Gap, Side by Side",
+            "zh": "進展與落差並存"
+          },
+          "numbers": [],
+          "scripts": {}
+        },
+        {
+          "slide_no": 18,
+          "title": {
+            "en": "Your Generation Closes This Gap",
+            "zh": "由你們這代人補上缺口"
+          },
+          "numbers": [],
+          "scripts": {}
+        },
+        {
+          "slide_no": 19,
+          "title": {
+            "en": "Ask 'Delivered,' Not 'Announced'",
+            "zh": "該問「做到了嗎」，別只問「說了嗎」"
+          },
+          "numbers": [],
+          "scripts": {}
+        },
+        {
+          "slide_no": 20,
+          "title": {
+            "en": "Move the Date, Not the Destination",
+            "zh": "日期可以延，目的地不能變"
+          },
+          "numbers": [],
+          "scripts": {}
+        }
+      ]
+    }
+  ]
+}

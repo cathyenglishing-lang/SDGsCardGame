@@ -1,0 +1,1253 @@
+{
+  "mission_id": "sdg7-1",
+  "sdg": 7,
+  "title": {
+    "en": "Can Taiwan Really Reach Its Renewable Energy Target?",
+    "zh": null
+  },
+  "narrative_brief": "",
+  "stages": [
+    {
+      "part_no": 1,
+      "source_description": "Part 1: Introduction (Slides 1-3)",
+      "function_en": "Introduction",
+      "function_zh": "引言：破題與定義",
+      "language_pattern": "rhetorical questions / X is about ...",
+      "slides": [
+        {
+          "slide_no": 1,
+          "title": {
+            "en": "Are We Really Getting Greener?",
+            "zh": "我們真的更綠了嗎？"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Look at the new wind turbines on our west coast. See the solar panels on school roofs. Is Taiwan really turning green fast, or is that just talk?",
+              "words": 28,
+              "sentences": 3,
+              "avg_sentence_words": 9.3,
+              "fk_grade": 2.8,
+              "long_word_pct": 3.6,
+              "speak_seconds_est": 17.7,
+              "fill_pct": 88.4,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude + Gemini 3.1 Pro draft, reviewed and rewritten by Claude",
+              "basis": "New mission, no workbook source. Facts: 2017 '20-30-50' legal target for 2025 (Electricity Act revision); 2024 generation mix 42.4% gas / 39.3% coal / 11.6% renewables / 4.2% nuclear (288 TWh, MOEA/EIA-sourced reporting); solar PV target 20GW by 2025 vs ~14.3GW end-2024 / ~15GW end-2025 (EnergyTrend, pv magazine, ICC Tainan); offshore wind target 5.7GW by 2025 vs ~4.6-4.9GW actual (RECCESSARY, Taiwan News, Norton Rose Fulbright); Taiwan ranked 3rd globally for new offshore wind added in 2025 and 5th for total capacity; MOEA reset the 20% deadline to November 2026 (Eco-Business); wind generation +66% 2023->2024, solar ~45%/wind ~31% of renewable mix; 2050 net-zero pathway targets 60-70% renewables by 2050, 40-55GW installed capacity vs 29GW targeted for 2025 (National Development Council); TSMC ~9% of national electricity (SDxCentral/TrendForce). Register per docs/plans/new-mission-playbook.md. Drafted with Gemini 3.1 Pro, then substantially rewritten by Claude for CEFR band conformance, factual precision and tone (softened one overstated 'existential threat' claim in the original draft).",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "You can see wind turbines along our western beaches, and solar panels on our classroom roofs. But has Taiwan actually become green, or does it only talk about it?",
+              "words": 29,
+              "sentences": 2,
+              "avg_sentence_words": 14.5,
+              "fk_grade": 7.6,
+              "long_word_pct": 10.3,
+              "speak_seconds_est": 15.8,
+              "fill_pct": 79.1,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude + Gemini 3.1 Pro draft, reviewed and rewritten by Claude",
+              "basis": "New mission, no workbook source. Facts: 2017 '20-30-50' legal target for 2025 (Electricity Act revision); 2024 generation mix 42.4% gas / 39.3% coal / 11.6% renewables / 4.2% nuclear (288 TWh, MOEA/EIA-sourced reporting); solar PV target 20GW by 2025 vs ~14.3GW end-2024 / ~15GW end-2025 (EnergyTrend, pv magazine, ICC Tainan); offshore wind target 5.7GW by 2025 vs ~4.6-4.9GW actual (RECCESSARY, Taiwan News, Norton Rose Fulbright); Taiwan ranked 3rd globally for new offshore wind added in 2025 and 5th for total capacity; MOEA reset the 20% deadline to November 2026 (Eco-Business); wind generation +66% 2023->2024, solar ~45%/wind ~31% of renewable mix; 2050 net-zero pathway targets 60-70% renewables by 2050, 40-55GW installed capacity vs 29GW targeted for 2025 (National Development Council); TSMC ~9% of national electricity (SDxCentral/TrendForce). Register per docs/plans/new-mission-playbook.md. Drafted with Gemini 3.1 Pro, then substantially rewritten by Claude for CEFR band conformance, factual precision and tone (softened one overstated 'existential threat' claim in the original draft).",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "While wind turbines now line our beaches and solar panels blanket rooftops, one question still lingers unresolved. Is Taiwan really greening as quickly as it claims, or only appearing to?",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 9.9,
+              "long_word_pct": 20.0,
+              "speak_seconds_est": 15.0,
+              "fill_pct": 75.0,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude + Gemini 3.1 Pro draft, reviewed and rewritten by Claude",
+              "basis": "New mission, no workbook source. Facts: 2017 '20-30-50' legal target for 2025 (Electricity Act revision); 2024 generation mix 42.4% gas / 39.3% coal / 11.6% renewables / 4.2% nuclear (288 TWh, MOEA/EIA-sourced reporting); solar PV target 20GW by 2025 vs ~14.3GW end-2024 / ~15GW end-2025 (EnergyTrend, pv magazine, ICC Tainan); offshore wind target 5.7GW by 2025 vs ~4.6-4.9GW actual (RECCESSARY, Taiwan News, Norton Rose Fulbright); Taiwan ranked 3rd globally for new offshore wind added in 2025 and 5th for total capacity; MOEA reset the 20% deadline to November 2026 (Eco-Business); wind generation +66% 2023->2024, solar ~45%/wind ~31% of renewable mix; 2050 net-zero pathway targets 60-70% renewables by 2050, 40-55GW installed capacity vs 29GW targeted for 2025 (National Development Council); TSMC ~9% of national electricity (SDxCentral/TrendForce). Register per docs/plans/new-mission-playbook.md. Drafted with Gemini 3.1 Pro, then substantially rewritten by Claude for CEFR band conformance, factual precision and tone (softened one overstated 'existential threat' claim in the original draft).",
+              "workbook_text": null
+            }
+          }
+        },
+        {
+          "slide_no": 2,
+          "title": {
+            "en": "SDG 7: A Target, Not Just a Feeling",
+            "zh": "SDG7：一個目標，不只是感覺"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "SDG 7 means clean, safe, modern energy for everyone. This talk is not about climate change. It is about our energy targets, and whether we hit them.",
+              "words": 27,
+              "sentences": 3,
+              "avg_sentence_words": 9.0,
+              "fk_grade": 5.0,
+              "long_word_pct": 3.7,
+              "speak_seconds_est": 17.1,
+              "fill_pct": 85.3,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude + Gemini 3.1 Pro draft, reviewed and rewritten by Claude",
+              "basis": "New mission, no workbook source. Facts: 2017 '20-30-50' legal target for 2025 (Electricity Act revision); 2024 generation mix 42.4% gas / 39.3% coal / 11.6% renewables / 4.2% nuclear (288 TWh, MOEA/EIA-sourced reporting); solar PV target 20GW by 2025 vs ~14.3GW end-2024 / ~15GW end-2025 (EnergyTrend, pv magazine, ICC Tainan); offshore wind target 5.7GW by 2025 vs ~4.6-4.9GW actual (RECCESSARY, Taiwan News, Norton Rose Fulbright); Taiwan ranked 3rd globally for new offshore wind added in 2025 and 5th for total capacity; MOEA reset the 20% deadline to November 2026 (Eco-Business); wind generation +66% 2023->2024, solar ~45%/wind ~31% of renewable mix; 2050 net-zero pathway targets 60-70% renewables by 2050, 40-55GW installed capacity vs 29GW targeted for 2025 (National Development Council); TSMC ~9% of national electricity (SDxCentral/TrendForce). Register per docs/plans/new-mission-playbook.md. Drafted with Gemini 3.1 Pro, then substantially rewritten by Claude for CEFR band conformance, factual precision and tone (softened one overstated 'existential threat' claim in the original draft).",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "SDG 7 promises affordable, reliable energy for everyone, though today we will not discuss climate change, because that belongs elsewhere. This talk instead is about our targets and our reality.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 11.1,
+              "long_word_pct": 16.7,
+              "speak_seconds_est": 16.4,
+              "fill_pct": 81.8,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude + Gemini 3.1 Pro draft, reviewed and rewritten by Claude",
+              "basis": "New mission, no workbook source. Facts: 2017 '20-30-50' legal target for 2025 (Electricity Act revision); 2024 generation mix 42.4% gas / 39.3% coal / 11.6% renewables / 4.2% nuclear (288 TWh, MOEA/EIA-sourced reporting); solar PV target 20GW by 2025 vs ~14.3GW end-2024 / ~15GW end-2025 (EnergyTrend, pv magazine, ICC Tainan); offshore wind target 5.7GW by 2025 vs ~4.6-4.9GW actual (RECCESSARY, Taiwan News, Norton Rose Fulbright); Taiwan ranked 3rd globally for new offshore wind added in 2025 and 5th for total capacity; MOEA reset the 20% deadline to November 2026 (Eco-Business); wind generation +66% 2023->2024, solar ~45%/wind ~31% of renewable mix; 2050 net-zero pathway targets 60-70% renewables by 2050, 40-55GW installed capacity vs 29GW targeted for 2025 (National Development Council); TSMC ~9% of national electricity (SDxCentral/TrendForce). Register per docs/plans/new-mission-playbook.md. Drafted with Gemini 3.1 Pro, then substantially rewritten by Claude for CEFR band conformance, factual precision and tone (softened one overstated 'existential threat' claim in the original draft).",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "SDG 7 demands affordable, reliable and sustainable energy for everyone, though this talk will not dwell on climate change itself. It instead interrogates the gap between the targets Taiwan has set and what has actually been delivered.",
+              "words": 37,
+              "sentences": 2,
+              "avg_sentence_words": 18.5,
+              "fk_grade": 12.4,
+              "long_word_pct": 18.9,
+              "speak_seconds_est": 18.5,
+              "fill_pct": 92.5,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude + Gemini 3.1 Pro draft, reviewed and rewritten by Claude",
+              "basis": "New mission, no workbook source. Facts: 2017 '20-30-50' legal target for 2025 (Electricity Act revision); 2024 generation mix 42.4% gas / 39.3% coal / 11.6% renewables / 4.2% nuclear (288 TWh, MOEA/EIA-sourced reporting); solar PV target 20GW by 2025 vs ~14.3GW end-2024 / ~15GW end-2025 (EnergyTrend, pv magazine, ICC Tainan); offshore wind target 5.7GW by 2025 vs ~4.6-4.9GW actual (RECCESSARY, Taiwan News, Norton Rose Fulbright); Taiwan ranked 3rd globally for new offshore wind added in 2025 and 5th for total capacity; MOEA reset the 20% deadline to November 2026 (Eco-Business); wind generation +66% 2023->2024, solar ~45%/wind ~31% of renewable mix; 2050 net-zero pathway targets 60-70% renewables by 2050, 40-55GW installed capacity vs 29GW targeted for 2025 (National Development Council); TSMC ~9% of national electricity (SDxCentral/TrendForce). Register per docs/plans/new-mission-playbook.md. Drafted with Gemini 3.1 Pro, then substantially rewritten by Claude for CEFR band conformance, factual precision and tone (softened one overstated 'existential threat' claim in the original draft).",
+              "workbook_text": null
+            }
+          }
+        },
+        {
+          "slide_no": 3,
+          "title": {
+            "en": "Taiwan's Own Number: 20 by 2025",
+            "zh": "台灣自訂的數字：2025年20%"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "In 2017, Taiwan made a new law for 2025. Renewables should reach 20 percent. Coal should be 30 percent, and gas 50 percent. Today we test that 20 percent number.",
+              "words": 30,
+              "sentences": 4,
+              "avg_sentence_words": 7.5,
+              "fk_grade": 7.0,
+              "long_word_pct": 3.3,
+              "speak_seconds_est": 18.9,
+              "fill_pct": 94.7,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude + Gemini 3.1 Pro draft, reviewed and rewritten by Claude",
+              "basis": "New mission, no workbook source. Facts: 2017 '20-30-50' legal target for 2025 (Electricity Act revision); 2024 generation mix 42.4% gas / 39.3% coal / 11.6% renewables / 4.2% nuclear (288 TWh, MOEA/EIA-sourced reporting); solar PV target 20GW by 2025 vs ~14.3GW end-2024 / ~15GW end-2025 (EnergyTrend, pv magazine, ICC Tainan); offshore wind target 5.7GW by 2025 vs ~4.6-4.9GW actual (RECCESSARY, Taiwan News, Norton Rose Fulbright); Taiwan ranked 3rd globally for new offshore wind added in 2025 and 5th for total capacity; MOEA reset the 20% deadline to November 2026 (Eco-Business); wind generation +66% 2023->2024, solar ~45%/wind ~31% of renewable mix; 2050 net-zero pathway targets 60-70% renewables by 2050, 40-55GW installed capacity vs 29GW targeted for 2025 (National Development Council); TSMC ~9% of national electricity (SDxCentral/TrendForce). Register per docs/plans/new-mission-playbook.md. Drafted with Gemini 3.1 Pro, then substantially rewritten by Claude for CEFR band conformance, factual precision and tone (softened one overstated 'existential threat' claim in the original draft).",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "In 2017, Taiwan's lawmakers locked in a 20-30-50 formula for 2025. Renewables would supply 20 percent of the grid, coal 30 percent, and gas the remaining 50 percent.",
+              "words": 28,
+              "sentences": 2,
+              "avg_sentence_words": 14.0,
+              "fk_grade": 11.4,
+              "long_word_pct": 17.9,
+              "speak_seconds_est": 15.3,
+              "fill_pct": 76.4,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude + Gemini 3.1 Pro draft, reviewed and rewritten by Claude",
+              "basis": "New mission, no workbook source. Facts: 2017 '20-30-50' legal target for 2025 (Electricity Act revision); 2024 generation mix 42.4% gas / 39.3% coal / 11.6% renewables / 4.2% nuclear (288 TWh, MOEA/EIA-sourced reporting); solar PV target 20GW by 2025 vs ~14.3GW end-2024 / ~15GW end-2025 (EnergyTrend, pv magazine, ICC Tainan); offshore wind target 5.7GW by 2025 vs ~4.6-4.9GW actual (RECCESSARY, Taiwan News, Norton Rose Fulbright); Taiwan ranked 3rd globally for new offshore wind added in 2025 and 5th for total capacity; MOEA reset the 20% deadline to November 2026 (Eco-Business); wind generation +66% 2023->2024, solar ~45%/wind ~31% of renewable mix; 2050 net-zero pathway targets 60-70% renewables by 2050, 40-55GW installed capacity vs 29GW targeted for 2025 (National Development Council); TSMC ~9% of national electricity (SDxCentral/TrendForce). Register per docs/plans/new-mission-playbook.md. Drafted with Gemini 3.1 Pro, then substantially rewritten by Claude for CEFR band conformance, factual precision and tone (softened one overstated 'existential threat' claim in the original draft).",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "In 2017, Taiwan legislated the 20-30-50 generation mix for 2025, mandating 20 percent renewables alongside coal and gas. It is precisely this 20 percent figure that will be tested today.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 13.5,
+              "long_word_pct": 23.3,
+              "speak_seconds_est": 15.0,
+              "fill_pct": 75.0,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude + Gemini 3.1 Pro draft, reviewed and rewritten by Claude",
+              "basis": "New mission, no workbook source. Facts: 2017 '20-30-50' legal target for 2025 (Electricity Act revision); 2024 generation mix 42.4% gas / 39.3% coal / 11.6% renewables / 4.2% nuclear (288 TWh, MOEA/EIA-sourced reporting); solar PV target 20GW by 2025 vs ~14.3GW end-2024 / ~15GW end-2025 (EnergyTrend, pv magazine, ICC Tainan); offshore wind target 5.7GW by 2025 vs ~4.6-4.9GW actual (RECCESSARY, Taiwan News, Norton Rose Fulbright); Taiwan ranked 3rd globally for new offshore wind added in 2025 and 5th for total capacity; MOEA reset the 20% deadline to November 2026 (Eco-Business); wind generation +66% 2023->2024, solar ~45%/wind ~31% of renewable mix; 2050 net-zero pathway targets 60-70% renewables by 2050, 40-55GW installed capacity vs 29GW targeted for 2025 (National Development Council); TSMC ~9% of national electricity (SDxCentral/TrendForce). Register per docs/plans/new-mission-playbook.md. Drafted with Gemini 3.1 Pro, then substantially rewritten by Claude for CEFR band conformance, factual precision and tone (softened one overstated 'existential threat' claim in the original draft).",
+              "workbook_text": null
+            }
+          }
+        }
+      ]
+    },
+    {
+      "part_no": 2,
+      "source_description": "Part 2: Problem (Slides 4-6)",
+      "function_en": "Problem",
+      "function_zh": "問題指認：趨勢與因果",
+      "language_pattern": "present progressive for trends / this causes ...",
+      "slides": [
+        {
+          "slide_no": 4,
+          "title": {
+            "en": "The 2024 Scorecard",
+            "zh": "2024年的成績單"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Look at Taiwan's real numbers from 2024. Clean energy reached only 11.6 percent. The target was 20 percent. Coal and gas still make over 80 percent of our power.",
+              "words": 30,
+              "sentences": 4,
+              "avg_sentence_words": 7.5,
+              "fk_grade": 6.2,
+              "long_word_pct": 3.3,
+              "speak_seconds_est": 18.9,
+              "fill_pct": 94.7,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude + Gemini 3.1 Pro draft, reviewed and rewritten by Claude",
+              "basis": "New mission, no workbook source. Facts: 2017 '20-30-50' legal target for 2025 (Electricity Act revision); 2024 generation mix 42.4% gas / 39.3% coal / 11.6% renewables / 4.2% nuclear (288 TWh, MOEA/EIA-sourced reporting); solar PV target 20GW by 2025 vs ~14.3GW end-2024 / ~15GW end-2025 (EnergyTrend, pv magazine, ICC Tainan); offshore wind target 5.7GW by 2025 vs ~4.6-4.9GW actual (RECCESSARY, Taiwan News, Norton Rose Fulbright); Taiwan ranked 3rd globally for new offshore wind added in 2025 and 5th for total capacity; MOEA reset the 20% deadline to November 2026 (Eco-Business); wind generation +66% 2023->2024, solar ~45%/wind ~31% of renewable mix; 2050 net-zero pathway targets 60-70% renewables by 2050, 40-55GW installed capacity vs 29GW targeted for 2025 (National Development Council); TSMC ~9% of national electricity (SDxCentral/TrendForce). Register per docs/plans/new-mission-playbook.md. Drafted with Gemini 3.1 Pro, then substantially rewritten by Claude for CEFR band conformance, factual precision and tone (softened one overstated 'existential threat' claim in the original draft).",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "The real numbers from 2024 tell a different story. Renewables have only reached 11.6 percent, which falls far short of the 20 percent goal, while gas and coal still dominate the grid.",
+              "words": 33,
+              "sentences": 2,
+              "avg_sentence_words": 16.5,
+              "fk_grade": 9.4,
+              "long_word_pct": 9.1,
+              "speak_seconds_est": 18.0,
+              "fill_pct": 90.0,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude + Gemini 3.1 Pro draft, reviewed and rewritten by Claude",
+              "basis": "New mission, no workbook source. Facts: 2017 '20-30-50' legal target for 2025 (Electricity Act revision); 2024 generation mix 42.4% gas / 39.3% coal / 11.6% renewables / 4.2% nuclear (288 TWh, MOEA/EIA-sourced reporting); solar PV target 20GW by 2025 vs ~14.3GW end-2024 / ~15GW end-2025 (EnergyTrend, pv magazine, ICC Tainan); offshore wind target 5.7GW by 2025 vs ~4.6-4.9GW actual (RECCESSARY, Taiwan News, Norton Rose Fulbright); Taiwan ranked 3rd globally for new offshore wind added in 2025 and 5th for total capacity; MOEA reset the 20% deadline to November 2026 (Eco-Business); wind generation +66% 2023->2024, solar ~45%/wind ~31% of renewable mix; 2050 net-zero pathway targets 60-70% renewables by 2050, 40-55GW installed capacity vs 29GW targeted for 2025 (National Development Council); TSMC ~9% of national electricity (SDxCentral/TrendForce). Register per docs/plans/new-mission-playbook.md. Drafted with Gemini 3.1 Pro, then substantially rewritten by Claude for CEFR band conformance, factual precision and tone (softened one overstated 'existential threat' claim in the original draft).",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "The 2024 figures tell a far less flattering story. Renewables, reaching only 11.6 percent, fell well short of the 20 percent mandate, while fossil fuels still supplied over 80 percent of the country's electricity.",
+              "words": 35,
+              "sentences": 2,
+              "avg_sentence_words": 17.5,
+              "fk_grade": 12.8,
+              "long_word_pct": 17.1,
+              "speak_seconds_est": 17.5,
+              "fill_pct": 87.5,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude + Gemini 3.1 Pro draft, reviewed and rewritten by Claude",
+              "basis": "New mission, no workbook source. Facts: 2017 '20-30-50' legal target for 2025 (Electricity Act revision); 2024 generation mix 42.4% gas / 39.3% coal / 11.6% renewables / 4.2% nuclear (288 TWh, MOEA/EIA-sourced reporting); solar PV target 20GW by 2025 vs ~14.3GW end-2024 / ~15GW end-2025 (EnergyTrend, pv magazine, ICC Tainan); offshore wind target 5.7GW by 2025 vs ~4.6-4.9GW actual (RECCESSARY, Taiwan News, Norton Rose Fulbright); Taiwan ranked 3rd globally for new offshore wind added in 2025 and 5th for total capacity; MOEA reset the 20% deadline to November 2026 (Eco-Business); wind generation +66% 2023->2024, solar ~45%/wind ~31% of renewable mix; 2050 net-zero pathway targets 60-70% renewables by 2050, 40-55GW installed capacity vs 29GW targeted for 2025 (National Development Council); TSMC ~9% of national electricity (SDxCentral/TrendForce). Register per docs/plans/new-mission-playbook.md. Drafted with Gemini 3.1 Pro, then substantially rewritten by Claude for CEFR band conformance, factual precision and tone (softened one overstated 'existential threat' claim in the original draft).",
+              "workbook_text": null
+            }
+          }
+        },
+        {
+          "slide_no": 5,
+          "title": {
+            "en": "Solar's Missing Gigawatts",
+            "zh": "太陽光電的缺口"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Our solar goal was 20 gigawatts by 2025. We only built about 15. The work is slow. Land fights and strict rules cause long delays for new panels.",
+              "words": 28,
+              "sentences": 4,
+              "avg_sentence_words": 7.0,
+              "fk_grade": 4.4,
+              "long_word_pct": 3.6,
+              "speak_seconds_est": 17.7,
+              "fill_pct": 88.4,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude + Gemini 3.1 Pro draft, reviewed and rewritten by Claude",
+              "basis": "New mission, no workbook source. Facts: 2017 '20-30-50' legal target for 2025 (Electricity Act revision); 2024 generation mix 42.4% gas / 39.3% coal / 11.6% renewables / 4.2% nuclear (288 TWh, MOEA/EIA-sourced reporting); solar PV target 20GW by 2025 vs ~14.3GW end-2024 / ~15GW end-2025 (EnergyTrend, pv magazine, ICC Tainan); offshore wind target 5.7GW by 2025 vs ~4.6-4.9GW actual (RECCESSARY, Taiwan News, Norton Rose Fulbright); Taiwan ranked 3rd globally for new offshore wind added in 2025 and 5th for total capacity; MOEA reset the 20% deadline to November 2026 (Eco-Business); wind generation +66% 2023->2024, solar ~45%/wind ~31% of renewable mix; 2050 net-zero pathway targets 60-70% renewables by 2050, 40-55GW installed capacity vs 29GW targeted for 2025 (National Development Council); TSMC ~9% of national electricity (SDxCentral/TrendForce). Register per docs/plans/new-mission-playbook.md. Drafted with Gemini 3.1 Pro, then substantially rewritten by Claude for CEFR band conformance, factual precision and tone (softened one overstated 'existential threat' claim in the original draft).",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "The solar target was 20 gigawatts by 2025, yet only about 15 have been installed so far. Tighter rules and land disputes have slowed the permitting process across the island.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 11.1,
+              "long_word_pct": 13.3,
+              "speak_seconds_est": 16.4,
+              "fill_pct": 81.8,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude + Gemini 3.1 Pro draft, reviewed and rewritten by Claude",
+              "basis": "New mission, no workbook source. Facts: 2017 '20-30-50' legal target for 2025 (Electricity Act revision); 2024 generation mix 42.4% gas / 39.3% coal / 11.6% renewables / 4.2% nuclear (288 TWh, MOEA/EIA-sourced reporting); solar PV target 20GW by 2025 vs ~14.3GW end-2024 / ~15GW end-2025 (EnergyTrend, pv magazine, ICC Tainan); offshore wind target 5.7GW by 2025 vs ~4.6-4.9GW actual (RECCESSARY, Taiwan News, Norton Rose Fulbright); Taiwan ranked 3rd globally for new offshore wind added in 2025 and 5th for total capacity; MOEA reset the 20% deadline to November 2026 (Eco-Business); wind generation +66% 2023->2024, solar ~45%/wind ~31% of renewable mix; 2050 net-zero pathway targets 60-70% renewables by 2050, 40-55GW installed capacity vs 29GW targeted for 2025 (National Development Council); TSMC ~9% of national electricity (SDxCentral/TrendForce). Register per docs/plans/new-mission-playbook.md. Drafted with Gemini 3.1 Pro, then substantially rewritten by Claude for CEFR band conformance, factual precision and tone (softened one overstated 'existential threat' claim in the original draft).",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "Although the official 2025 solar target stood at 20 gigawatts, barely 15 have so far been installed. That gap is largely explained by land-use conflicts and very strict permitting rules.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 12.3,
+              "long_word_pct": 26.7,
+              "speak_seconds_est": 15.0,
+              "fill_pct": 75.0,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude + Gemini 3.1 Pro draft, reviewed and rewritten by Claude",
+              "basis": "New mission, no workbook source. Facts: 2017 '20-30-50' legal target for 2025 (Electricity Act revision); 2024 generation mix 42.4% gas / 39.3% coal / 11.6% renewables / 4.2% nuclear (288 TWh, MOEA/EIA-sourced reporting); solar PV target 20GW by 2025 vs ~14.3GW end-2024 / ~15GW end-2025 (EnergyTrend, pv magazine, ICC Tainan); offshore wind target 5.7GW by 2025 vs ~4.6-4.9GW actual (RECCESSARY, Taiwan News, Norton Rose Fulbright); Taiwan ranked 3rd globally for new offshore wind added in 2025 and 5th for total capacity; MOEA reset the 20% deadline to November 2026 (Eco-Business); wind generation +66% 2023->2024, solar ~45%/wind ~31% of renewable mix; 2050 net-zero pathway targets 60-70% renewables by 2050, 40-55GW installed capacity vs 29GW targeted for 2025 (National Development Council); TSMC ~9% of national electricity (SDxCentral/TrendForce). Register per docs/plans/new-mission-playbook.md. Drafted with Gemini 3.1 Pro, then substantially rewritten by Claude for CEFR band conformance, factual precision and tone (softened one overstated 'existential threat' claim in the original draft).",
+              "workbook_text": null
+            }
+          }
+        },
+        {
+          "slide_no": 6,
+          "title": {
+            "en": "Offshore Wind Runs Into Headwinds",
+            "zh": "離岸風電遇逆風"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "We wanted 5.7 gigawatts by 2025. We only reached 4.9. New turbines take too long to build, because costs are high and parts are hard to get.",
+              "words": 29,
+              "sentences": 3,
+              "avg_sentence_words": 9.7,
+              "fk_grade": 4.5,
+              "long_word_pct": 6.9,
+              "speak_seconds_est": 18.3,
+              "fill_pct": 91.6,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude + Gemini 3.1 Pro draft, reviewed and rewritten by Claude",
+              "basis": "New mission, no workbook source. Facts: 2017 '20-30-50' legal target for 2025 (Electricity Act revision); 2024 generation mix 42.4% gas / 39.3% coal / 11.6% renewables / 4.2% nuclear (288 TWh, MOEA/EIA-sourced reporting); solar PV target 20GW by 2025 vs ~14.3GW end-2024 / ~15GW end-2025 (EnergyTrend, pv magazine, ICC Tainan); offshore wind target 5.7GW by 2025 vs ~4.6-4.9GW actual (RECCESSARY, Taiwan News, Norton Rose Fulbright); Taiwan ranked 3rd globally for new offshore wind added in 2025 and 5th for total capacity; MOEA reset the 20% deadline to November 2026 (Eco-Business); wind generation +66% 2023->2024, solar ~45%/wind ~31% of renewable mix; 2050 net-zero pathway targets 60-70% renewables by 2050, 40-55GW installed capacity vs 29GW targeted for 2025 (National Development Council); TSMC ~9% of national electricity (SDxCentral/TrendForce). Register per docs/plans/new-mission-playbook.md. Drafted with Gemini 3.1 Pro, then substantially rewritten by Claude for CEFR band conformance, factual precision and tone (softened one overstated 'existential threat' claim in the original draft).",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "Offshore wind aimed for 5.7 gigawatts, but Taiwan has only reached about 4.9. Rising costs and global supply problems have made recent auctions weaker than planners had hoped.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 8.7,
+              "long_word_pct": 16.7,
+              "speak_seconds_est": 16.4,
+              "fill_pct": 81.8,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude + Gemini 3.1 Pro draft, reviewed and rewritten by Claude",
+              "basis": "New mission, no workbook source. Facts: 2017 '20-30-50' legal target for 2025 (Electricity Act revision); 2024 generation mix 42.4% gas / 39.3% coal / 11.6% renewables / 4.2% nuclear (288 TWh, MOEA/EIA-sourced reporting); solar PV target 20GW by 2025 vs ~14.3GW end-2024 / ~15GW end-2025 (EnergyTrend, pv magazine, ICC Tainan); offshore wind target 5.7GW by 2025 vs ~4.6-4.9GW actual (RECCESSARY, Taiwan News, Norton Rose Fulbright); Taiwan ranked 3rd globally for new offshore wind added in 2025 and 5th for total capacity; MOEA reset the 20% deadline to November 2026 (Eco-Business); wind generation +66% 2023->2024, solar ~45%/wind ~31% of renewable mix; 2050 net-zero pathway targets 60-70% renewables by 2050, 40-55GW installed capacity vs 29GW targeted for 2025 (National Development Council); TSMC ~9% of national electricity (SDxCentral/TrendForce). Register per docs/plans/new-mission-playbook.md. Drafted with Gemini 3.1 Pro, then substantially rewritten by Claude for CEFR band conformance, factual precision and tone (softened one overstated 'existential threat' claim in the original draft).",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "Offshore wind is missing its target too, capping out at roughly 4.9 of a planned 5.7 gigawatts. This shortfall stems primarily from global supply chains and financing costs that have squeezed recent auctions harder than expected.",
+              "words": 38,
+              "sentences": 2,
+              "avg_sentence_words": 19.0,
+              "fk_grade": 10.5,
+              "long_word_pct": 21.1,
+              "speak_seconds_est": 19.0,
+              "fill_pct": 95.0,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude + Gemini 3.1 Pro draft, reviewed and rewritten by Claude",
+              "basis": "New mission, no workbook source. Facts: 2017 '20-30-50' legal target for 2025 (Electricity Act revision); 2024 generation mix 42.4% gas / 39.3% coal / 11.6% renewables / 4.2% nuclear (288 TWh, MOEA/EIA-sourced reporting); solar PV target 20GW by 2025 vs ~14.3GW end-2024 / ~15GW end-2025 (EnergyTrend, pv magazine, ICC Tainan); offshore wind target 5.7GW by 2025 vs ~4.6-4.9GW actual (RECCESSARY, Taiwan News, Norton Rose Fulbright); Taiwan ranked 3rd globally for new offshore wind added in 2025 and 5th for total capacity; MOEA reset the 20% deadline to November 2026 (Eco-Business); wind generation +66% 2023->2024, solar ~45%/wind ~31% of renewable mix; 2050 net-zero pathway targets 60-70% renewables by 2050, 40-55GW installed capacity vs 29GW targeted for 2025 (National Development Council); TSMC ~9% of national electricity (SDxCentral/TrendForce). Register per docs/plans/new-mission-playbook.md. Drafted with Gemini 3.1 Pro, then substantially rewritten by Claude for CEFR band conformance, factual precision and tone (softened one overstated 'existential threat' claim in the original draft).",
+              "workbook_text": null
+            }
+          }
+        }
+      ]
+    },
+    {
+      "part_no": 3,
+      "source_description": "Part 3: Achievements (Slides 7-9)",
+      "function_en": "Achievements",
+      "function_zh": "成果：舉證與比較",
+      "language_pattern": "present perfect / comparatives",
+      "slides": [
+        {
+          "slide_no": 7,
+          "title": {
+            "en": "Third in the World, Behind Our Own Bar",
+            "zh": "世界第三，落後自己的目標"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "We missed our own goal, but we still did well. Taiwan added more new wind power than most countries in 2025. We now rank third in the whole world.",
+              "words": 29,
+              "sentences": 3,
+              "avg_sentence_words": 9.7,
+              "fk_grade": 3.6,
+              "long_word_pct": 3.4,
+              "speak_seconds_est": 18.3,
+              "fill_pct": 91.6,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude + Gemini 3.1 Pro draft, reviewed and rewritten by Claude",
+              "basis": "New mission, no workbook source. Facts: 2017 '20-30-50' legal target for 2025 (Electricity Act revision); 2024 generation mix 42.4% gas / 39.3% coal / 11.6% renewables / 4.2% nuclear (288 TWh, MOEA/EIA-sourced reporting); solar PV target 20GW by 2025 vs ~14.3GW end-2024 / ~15GW end-2025 (EnergyTrend, pv magazine, ICC Tainan); offshore wind target 5.7GW by 2025 vs ~4.6-4.9GW actual (RECCESSARY, Taiwan News, Norton Rose Fulbright); Taiwan ranked 3rd globally for new offshore wind added in 2025 and 5th for total capacity; MOEA reset the 20% deadline to November 2026 (Eco-Business); wind generation +66% 2023->2024, solar ~45%/wind ~31% of renewable mix; 2050 net-zero pathway targets 60-70% renewables by 2050, 40-55GW installed capacity vs 29GW targeted for 2025 (National Development Council); TSMC ~9% of national electricity (SDxCentral/TrendForce). Register per docs/plans/new-mission-playbook.md. Drafted with Gemini 3.1 Pro, then substantially rewritten by Claude for CEFR band conformance, factual precision and tone (softened one overstated 'existential threat' claim in the original draft).",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "Even though Taiwan missed its own target, the record still looks strong worldwide. Taiwan has ranked third globally for new offshore wind added in 2025, ahead of most nations.",
+              "words": 29,
+              "sentences": 2,
+              "avg_sentence_words": 14.5,
+              "fk_grade": 8.8,
+              "long_word_pct": 10.3,
+              "speak_seconds_est": 15.8,
+              "fill_pct": 79.1,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude + Gemini 3.1 Pro draft, reviewed and rewritten by Claude",
+              "basis": "New mission, no workbook source. Facts: 2017 '20-30-50' legal target for 2025 (Electricity Act revision); 2024 generation mix 42.4% gas / 39.3% coal / 11.6% renewables / 4.2% nuclear (288 TWh, MOEA/EIA-sourced reporting); solar PV target 20GW by 2025 vs ~14.3GW end-2024 / ~15GW end-2025 (EnergyTrend, pv magazine, ICC Tainan); offshore wind target 5.7GW by 2025 vs ~4.6-4.9GW actual (RECCESSARY, Taiwan News, Norton Rose Fulbright); Taiwan ranked 3rd globally for new offshore wind added in 2025 and 5th for total capacity; MOEA reset the 20% deadline to November 2026 (Eco-Business); wind generation +66% 2023->2024, solar ~45%/wind ~31% of renewable mix; 2050 net-zero pathway targets 60-70% renewables by 2050, 40-55GW installed capacity vs 29GW targeted for 2025 (National Development Council); TSMC ~9% of national electricity (SDxCentral/TrendForce). Register per docs/plans/new-mission-playbook.md. Drafted with Gemini 3.1 Pro, then substantially rewritten by Claude for CEFR band conformance, factual precision and tone (softened one overstated 'existential threat' claim in the original draft).",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "Despite missing its own target, Taiwan's progress reads as significant worldwide. Ranked third for new offshore wind added in 2025, the country now has more capacity than most developed economies.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 11.9,
+              "long_word_pct": 26.7,
+              "speak_seconds_est": 15.0,
+              "fill_pct": 75.0,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude + Gemini 3.1 Pro draft, reviewed and rewritten by Claude",
+              "basis": "New mission, no workbook source. Facts: 2017 '20-30-50' legal target for 2025 (Electricity Act revision); 2024 generation mix 42.4% gas / 39.3% coal / 11.6% renewables / 4.2% nuclear (288 TWh, MOEA/EIA-sourced reporting); solar PV target 20GW by 2025 vs ~14.3GW end-2024 / ~15GW end-2025 (EnergyTrend, pv magazine, ICC Tainan); offshore wind target 5.7GW by 2025 vs ~4.6-4.9GW actual (RECCESSARY, Taiwan News, Norton Rose Fulbright); Taiwan ranked 3rd globally for new offshore wind added in 2025 and 5th for total capacity; MOEA reset the 20% deadline to November 2026 (Eco-Business); wind generation +66% 2023->2024, solar ~45%/wind ~31% of renewable mix; 2050 net-zero pathway targets 60-70% renewables by 2050, 40-55GW installed capacity vs 29GW targeted for 2025 (National Development Council); TSMC ~9% of national electricity (SDxCentral/TrendForce). Register per docs/plans/new-mission-playbook.md. Drafted with Gemini 3.1 Pro, then substantially rewritten by Claude for CEFR band conformance, factual precision and tone (softened one overstated 'existential threat' claim in the original draft).",
+              "workbook_text": null
+            }
+          }
+        },
+        {
+          "slide_no": 8,
+          "title": {
+            "en": "Panels on Roofs, Ponds and Fields",
+            "zh": "屋頂、魚塭與廠房上的光電板"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "You can see the difference when you travel. Solar panels now sit on school roofs and over fish ponds. Wind power grew fast too. It is much bigger than before.",
+              "words": 30,
+              "sentences": 4,
+              "avg_sentence_words": 7.5,
+              "fk_grade": 2.7,
+              "long_word_pct": 3.3,
+              "speak_seconds_est": 18.9,
+              "fill_pct": 94.7,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude + Gemini 3.1 Pro draft, reviewed and rewritten by Claude",
+              "basis": "New mission, no workbook source. Facts: 2017 '20-30-50' legal target for 2025 (Electricity Act revision); 2024 generation mix 42.4% gas / 39.3% coal / 11.6% renewables / 4.2% nuclear (288 TWh, MOEA/EIA-sourced reporting); solar PV target 20GW by 2025 vs ~14.3GW end-2024 / ~15GW end-2025 (EnergyTrend, pv magazine, ICC Tainan); offshore wind target 5.7GW by 2025 vs ~4.6-4.9GW actual (RECCESSARY, Taiwan News, Norton Rose Fulbright); Taiwan ranked 3rd globally for new offshore wind added in 2025 and 5th for total capacity; MOEA reset the 20% deadline to November 2026 (Eco-Business); wind generation +66% 2023->2024, solar ~45%/wind ~31% of renewable mix; 2050 net-zero pathway targets 60-70% renewables by 2050, 40-55GW installed capacity vs 29GW targeted for 2025 (National Development Council); TSMC ~9% of national electricity (SDxCentral/TrendForce). Register per docs/plans/new-mission-playbook.md. Drafted with Gemini 3.1 Pro, then substantially rewritten by Claude for CEFR band conformance, factual precision and tone (softened one overstated 'existential threat' claim in the original draft).",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "The landscape has genuinely changed around us. Solar panels have spread across fish ponds, school roofs and factory buildings, while wind generation has grown by 66 percent in one year.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 9.1,
+              "long_word_pct": 13.3,
+              "speak_seconds_est": 16.4,
+              "fill_pct": 81.8,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude + Gemini 3.1 Pro draft, reviewed and rewritten by Claude",
+              "basis": "New mission, no workbook source. Facts: 2017 '20-30-50' legal target for 2025 (Electricity Act revision); 2024 generation mix 42.4% gas / 39.3% coal / 11.6% renewables / 4.2% nuclear (288 TWh, MOEA/EIA-sourced reporting); solar PV target 20GW by 2025 vs ~14.3GW end-2024 / ~15GW end-2025 (EnergyTrend, pv magazine, ICC Tainan); offshore wind target 5.7GW by 2025 vs ~4.6-4.9GW actual (RECCESSARY, Taiwan News, Norton Rose Fulbright); Taiwan ranked 3rd globally for new offshore wind added in 2025 and 5th for total capacity; MOEA reset the 20% deadline to November 2026 (Eco-Business); wind generation +66% 2023->2024, solar ~45%/wind ~31% of renewable mix; 2050 net-zero pathway targets 60-70% renewables by 2050, 40-55GW installed capacity vs 29GW targeted for 2025 (National Development Council); TSMC ~9% of national electricity (SDxCentral/TrendForce). Register per docs/plans/new-mission-playbook.md. Drafted with Gemini 3.1 Pro, then substantially rewritten by Claude for CEFR band conformance, factual precision and tone (softened one overstated 'existential threat' claim in the original draft).",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "Solar installations built on fish ponds, school roofs and factory buildings have visibly reshaped the landscape. Wind generation, meanwhile, has climbed 66 percent in a single year, far faster than planners expected.",
+              "words": 32,
+              "sentences": 2,
+              "avg_sentence_words": 16.0,
+              "fk_grade": 11.7,
+              "long_word_pct": 25.0,
+              "speak_seconds_est": 16.0,
+              "fill_pct": 80.0,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude + Gemini 3.1 Pro draft, reviewed and rewritten by Claude",
+              "basis": "New mission, no workbook source. Facts: 2017 '20-30-50' legal target for 2025 (Electricity Act revision); 2024 generation mix 42.4% gas / 39.3% coal / 11.6% renewables / 4.2% nuclear (288 TWh, MOEA/EIA-sourced reporting); solar PV target 20GW by 2025 vs ~14.3GW end-2024 / ~15GW end-2025 (EnergyTrend, pv magazine, ICC Tainan); offshore wind target 5.7GW by 2025 vs ~4.6-4.9GW actual (RECCESSARY, Taiwan News, Norton Rose Fulbright); Taiwan ranked 3rd globally for new offshore wind added in 2025 and 5th for total capacity; MOEA reset the 20% deadline to November 2026 (Eco-Business); wind generation +66% 2023->2024, solar ~45%/wind ~31% of renewable mix; 2050 net-zero pathway targets 60-70% renewables by 2050, 40-55GW installed capacity vs 29GW targeted for 2025 (National Development Council); TSMC ~9% of national electricity (SDxCentral/TrendForce). Register per docs/plans/new-mission-playbook.md. Drafted with Gemini 3.1 Pro, then substantially rewritten by Claude for CEFR band conformance, factual precision and tone (softened one overstated 'existential threat' claim in the original draft).",
+              "workbook_text": null
+            }
+          }
+        },
+        {
+          "slide_no": 9,
+          "title": {
+            "en": "Moving the Deadline, Not the Target",
+            "zh": "展延期限，不放棄目標"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "The government did not cancel the target. They just moved the deadline to November 2026. This new date sounds far away, but we still need much more power.",
+              "words": 28,
+              "sentences": 3,
+              "avg_sentence_words": 9.3,
+              "fk_grade": 5.3,
+              "long_word_pct": 10.7,
+              "speak_seconds_est": 17.7,
+              "fill_pct": 88.4,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude + Gemini 3.1 Pro draft, reviewed and rewritten by Claude",
+              "basis": "New mission, no workbook source. Facts: 2017 '20-30-50' legal target for 2025 (Electricity Act revision); 2024 generation mix 42.4% gas / 39.3% coal / 11.6% renewables / 4.2% nuclear (288 TWh, MOEA/EIA-sourced reporting); solar PV target 20GW by 2025 vs ~14.3GW end-2024 / ~15GW end-2025 (EnergyTrend, pv magazine, ICC Tainan); offshore wind target 5.7GW by 2025 vs ~4.6-4.9GW actual (RECCESSARY, Taiwan News, Norton Rose Fulbright); Taiwan ranked 3rd globally for new offshore wind added in 2025 and 5th for total capacity; MOEA reset the 20% deadline to November 2026 (Eco-Business); wind generation +66% 2023->2024, solar ~45%/wind ~31% of renewable mix; 2050 net-zero pathway targets 60-70% renewables by 2050, 40-55GW installed capacity vs 29GW targeted for 2025 (National Development Council); TSMC ~9% of national electricity (SDxCentral/TrendForce). Register per docs/plans/new-mission-playbook.md. Drafted with Gemini 3.1 Pro, then substantially rewritten by Claude for CEFR band conformance, factual precision and tone (softened one overstated 'existential threat' claim in the original draft).",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "The government has not cancelled its 20 percent goal. Instead, it has pushed the deadline to November 2026, a date that still demands far more power than Taiwan produces right now.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 9.5,
+              "long_word_pct": 16.1,
+              "speak_seconds_est": 16.9,
+              "fill_pct": 84.5,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude + Gemini 3.1 Pro draft, reviewed and rewritten by Claude",
+              "basis": "New mission, no workbook source. Facts: 2017 '20-30-50' legal target for 2025 (Electricity Act revision); 2024 generation mix 42.4% gas / 39.3% coal / 11.6% renewables / 4.2% nuclear (288 TWh, MOEA/EIA-sourced reporting); solar PV target 20GW by 2025 vs ~14.3GW end-2024 / ~15GW end-2025 (EnergyTrend, pv magazine, ICC Tainan); offshore wind target 5.7GW by 2025 vs ~4.6-4.9GW actual (RECCESSARY, Taiwan News, Norton Rose Fulbright); Taiwan ranked 3rd globally for new offshore wind added in 2025 and 5th for total capacity; MOEA reset the 20% deadline to November 2026 (Eco-Business); wind generation +66% 2023->2024, solar ~45%/wind ~31% of renewable mix; 2050 net-zero pathway targets 60-70% renewables by 2050, 40-55GW installed capacity vs 29GW targeted for 2025 (National Development Council); TSMC ~9% of national electricity (SDxCentral/TrendForce). Register per docs/plans/new-mission-playbook.md. Drafted with Gemini 3.1 Pro, then substantially rewritten by Claude for CEFR band conformance, factual precision and tone (softened one overstated 'existential threat' claim in the original draft).",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "Rather than abandoning the shortfall quietly, the government has postponed the 20 percent deadline to November 2026. Meeting even this revised target, however, will demand a construction pace far above current trends.",
+              "words": 32,
+              "sentences": 2,
+              "avg_sentence_words": 16.0,
+              "fk_grade": 13.5,
+              "long_word_pct": 21.9,
+              "speak_seconds_est": 16.0,
+              "fill_pct": 80.0,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude + Gemini 3.1 Pro draft, reviewed and rewritten by Claude",
+              "basis": "New mission, no workbook source. Facts: 2017 '20-30-50' legal target for 2025 (Electricity Act revision); 2024 generation mix 42.4% gas / 39.3% coal / 11.6% renewables / 4.2% nuclear (288 TWh, MOEA/EIA-sourced reporting); solar PV target 20GW by 2025 vs ~14.3GW end-2024 / ~15GW end-2025 (EnergyTrend, pv magazine, ICC Tainan); offshore wind target 5.7GW by 2025 vs ~4.6-4.9GW actual (RECCESSARY, Taiwan News, Norton Rose Fulbright); Taiwan ranked 3rd globally for new offshore wind added in 2025 and 5th for total capacity; MOEA reset the 20% deadline to November 2026 (Eco-Business); wind generation +66% 2023->2024, solar ~45%/wind ~31% of renewable mix; 2050 net-zero pathway targets 60-70% renewables by 2050, 40-55GW installed capacity vs 29GW targeted for 2025 (National Development Council); TSMC ~9% of national electricity (SDxCentral/TrendForce). Register per docs/plans/new-mission-playbook.md. Drafted with Gemini 3.1 Pro, then substantially rewritten by Claude for CEFR band conformance, factual precision and tone (softened one overstated 'existential threat' claim in the original draft).",
+              "workbook_text": null
+            }
+          }
+        }
+      ]
+    },
+    {
+      "part_no": 4,
+      "source_description": "Part 4: Solutions (Slides 10-12)",
+      "function_en": "Solutions",
+      "function_zh": "解方：做法與取捨",
+      "language_pattern": "instead of + V-ing / modal verbs",
+      "slides": [
+        {
+          "slide_no": 10,
+          "title": {
+            "en": "Clearing the Permitting Backlog",
+            "zh": "排除審查與土地障礙"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "How can we fix this? Instead of making solar firms wait for years, Taiwan must change the rules. Leaders should make land permits faster for everyone.",
+              "words": 26,
+              "sentences": 3,
+              "avg_sentence_words": 8.7,
+              "fk_grade": 4.1,
+              "long_word_pct": 3.8,
+              "speak_seconds_est": 16.4,
+              "fill_pct": 82.1,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude + Gemini 3.1 Pro draft, reviewed and rewritten by Claude",
+              "basis": "New mission, no workbook source. Facts: 2017 '20-30-50' legal target for 2025 (Electricity Act revision); 2024 generation mix 42.4% gas / 39.3% coal / 11.6% renewables / 4.2% nuclear (288 TWh, MOEA/EIA-sourced reporting); solar PV target 20GW by 2025 vs ~14.3GW end-2024 / ~15GW end-2025 (EnergyTrend, pv magazine, ICC Tainan); offshore wind target 5.7GW by 2025 vs ~4.6-4.9GW actual (RECCESSARY, Taiwan News, Norton Rose Fulbright); Taiwan ranked 3rd globally for new offshore wind added in 2025 and 5th for total capacity; MOEA reset the 20% deadline to November 2026 (Eco-Business); wind generation +66% 2023->2024, solar ~45%/wind ~31% of renewable mix; 2050 net-zero pathway targets 60-70% renewables by 2050, 40-55GW installed capacity vs 29GW targeted for 2025 (National Development Council); TSMC ~9% of national electricity (SDxCentral/TrendForce). Register per docs/plans/new-mission-playbook.md. Drafted with Gemini 3.1 Pro, then substantially rewritten by Claude for CEFR band conformance, factual precision and tone (softened one overstated 'existential threat' claim in the original draft).",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "Solving the solar delay means reforming the land rules first. Instead of leaving approvals to scattered local offices, the central government could step in so permits move much faster.",
+              "words": 29,
+              "sentences": 2,
+              "avg_sentence_words": 14.5,
+              "fk_grade": 10.0,
+              "long_word_pct": 13.8,
+              "speak_seconds_est": 15.8,
+              "fill_pct": 79.1,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude + Gemini 3.1 Pro draft, reviewed and rewritten by Claude",
+              "basis": "New mission, no workbook source. Facts: 2017 '20-30-50' legal target for 2025 (Electricity Act revision); 2024 generation mix 42.4% gas / 39.3% coal / 11.6% renewables / 4.2% nuclear (288 TWh, MOEA/EIA-sourced reporting); solar PV target 20GW by 2025 vs ~14.3GW end-2024 / ~15GW end-2025 (EnergyTrend, pv magazine, ICC Tainan); offshore wind target 5.7GW by 2025 vs ~4.6-4.9GW actual (RECCESSARY, Taiwan News, Norton Rose Fulbright); Taiwan ranked 3rd globally for new offshore wind added in 2025 and 5th for total capacity; MOEA reset the 20% deadline to November 2026 (Eco-Business); wind generation +66% 2023->2024, solar ~45%/wind ~31% of renewable mix; 2050 net-zero pathway targets 60-70% renewables by 2050, 40-55GW installed capacity vs 29GW targeted for 2025 (National Development Council); TSMC ~9% of national electricity (SDxCentral/TrendForce). Register per docs/plans/new-mission-playbook.md. Drafted with Gemini 3.1 Pro, then substantially rewritten by Claude for CEFR band conformance, factual precision and tone (softened one overstated 'existential threat' claim in the original draft).",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "Fixing the solar shortfall needs real permitting reform. Instead of leaving land-use approvals to scattered local offices, one central authority should handle them, so installations can move ahead without delay.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 12.7,
+              "long_word_pct": 23.3,
+              "speak_seconds_est": 15.0,
+              "fill_pct": 75.0,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude + Gemini 3.1 Pro draft, reviewed and rewritten by Claude",
+              "basis": "New mission, no workbook source. Facts: 2017 '20-30-50' legal target for 2025 (Electricity Act revision); 2024 generation mix 42.4% gas / 39.3% coal / 11.6% renewables / 4.2% nuclear (288 TWh, MOEA/EIA-sourced reporting); solar PV target 20GW by 2025 vs ~14.3GW end-2024 / ~15GW end-2025 (EnergyTrend, pv magazine, ICC Tainan); offshore wind target 5.7GW by 2025 vs ~4.6-4.9GW actual (RECCESSARY, Taiwan News, Norton Rose Fulbright); Taiwan ranked 3rd globally for new offshore wind added in 2025 and 5th for total capacity; MOEA reset the 20% deadline to November 2026 (Eco-Business); wind generation +66% 2023->2024, solar ~45%/wind ~31% of renewable mix; 2050 net-zero pathway targets 60-70% renewables by 2050, 40-55GW installed capacity vs 29GW targeted for 2025 (National Development Council); TSMC ~9% of national electricity (SDxCentral/TrendForce). Register per docs/plans/new-mission-playbook.md. Drafted with Gemini 3.1 Pro, then substantially rewritten by Claude for CEFR band conformance, factual precision and tone (softened one overstated 'existential threat' claim in the original draft).",
+              "workbook_text": null
+            }
+          }
+        },
+        {
+          "slide_no": 11,
+          "title": {
+            "en": "Financing the Next Wind Auction",
+            "zh": "資助下一輪風場標案"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "For wind power, we must bring investors back. Instead of running small auctions, Taiwan should offer bigger, safer deals. This could help pay for rising costs.",
+              "words": 26,
+              "sentences": 3,
+              "avg_sentence_words": 8.7,
+              "fk_grade": 4.6,
+              "long_word_pct": 7.7,
+              "speak_seconds_est": 16.4,
+              "fill_pct": 82.1,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude + Gemini 3.1 Pro draft, reviewed and rewritten by Claude",
+              "basis": "New mission, no workbook source. Facts: 2017 '20-30-50' legal target for 2025 (Electricity Act revision); 2024 generation mix 42.4% gas / 39.3% coal / 11.6% renewables / 4.2% nuclear (288 TWh, MOEA/EIA-sourced reporting); solar PV target 20GW by 2025 vs ~14.3GW end-2024 / ~15GW end-2025 (EnergyTrend, pv magazine, ICC Tainan); offshore wind target 5.7GW by 2025 vs ~4.6-4.9GW actual (RECCESSARY, Taiwan News, Norton Rose Fulbright); Taiwan ranked 3rd globally for new offshore wind added in 2025 and 5th for total capacity; MOEA reset the 20% deadline to November 2026 (Eco-Business); wind generation +66% 2023->2024, solar ~45%/wind ~31% of renewable mix; 2050 net-zero pathway targets 60-70% renewables by 2050, 40-55GW installed capacity vs 29GW targeted for 2025 (National Development Council); TSMC ~9% of national electricity (SDxCentral/TrendForce). Register per docs/plans/new-mission-playbook.md. Drafted with Gemini 3.1 Pro, then substantially rewritten by Claude for CEFR band conformance, factual precision and tone (softened one overstated 'existential threat' claim in the original draft).",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "Winning back investor trust matters just as much for wind power. Instead of holding small, weak auctions, Taiwan should offer bigger contracts that can actually cover today's higher turbine costs.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 9.1,
+              "long_word_pct": 13.3,
+              "speak_seconds_est": 16.4,
+              "fill_pct": 81.8,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude + Gemini 3.1 Pro draft, reviewed and rewritten by Claude",
+              "basis": "New mission, no workbook source. Facts: 2017 '20-30-50' legal target for 2025 (Electricity Act revision); 2024 generation mix 42.4% gas / 39.3% coal / 11.6% renewables / 4.2% nuclear (288 TWh, MOEA/EIA-sourced reporting); solar PV target 20GW by 2025 vs ~14.3GW end-2024 / ~15GW end-2025 (EnergyTrend, pv magazine, ICC Tainan); offshore wind target 5.7GW by 2025 vs ~4.6-4.9GW actual (RECCESSARY, Taiwan News, Norton Rose Fulbright); Taiwan ranked 3rd globally for new offshore wind added in 2025 and 5th for total capacity; MOEA reset the 20% deadline to November 2026 (Eco-Business); wind generation +66% 2023->2024, solar ~45%/wind ~31% of renewable mix; 2050 net-zero pathway targets 60-70% renewables by 2050, 40-55GW installed capacity vs 29GW targeted for 2025 (National Development Council); TSMC ~9% of national electricity (SDxCentral/TrendForce). Register per docs/plans/new-mission-playbook.md. Drafted with Gemini 3.1 Pro, then substantially rewritten by Claude for CEFR band conformance, factual precision and tone (softened one overstated 'existential threat' claim in the original draft).",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "Investor confidence in offshore wind must also be restored. Instead of running weak auctions, Taiwan should guarantee larger rounds, which could offset some of the inflation squeezing global supply chains.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 9.9,
+              "long_word_pct": 26.7,
+              "speak_seconds_est": 15.0,
+              "fill_pct": 75.0,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude + Gemini 3.1 Pro draft, reviewed and rewritten by Claude",
+              "basis": "New mission, no workbook source. Facts: 2017 '20-30-50' legal target for 2025 (Electricity Act revision); 2024 generation mix 42.4% gas / 39.3% coal / 11.6% renewables / 4.2% nuclear (288 TWh, MOEA/EIA-sourced reporting); solar PV target 20GW by 2025 vs ~14.3GW end-2024 / ~15GW end-2025 (EnergyTrend, pv magazine, ICC Tainan); offshore wind target 5.7GW by 2025 vs ~4.6-4.9GW actual (RECCESSARY, Taiwan News, Norton Rose Fulbright); Taiwan ranked 3rd globally for new offshore wind added in 2025 and 5th for total capacity; MOEA reset the 20% deadline to November 2026 (Eco-Business); wind generation +66% 2023->2024, solar ~45%/wind ~31% of renewable mix; 2050 net-zero pathway targets 60-70% renewables by 2050, 40-55GW installed capacity vs 29GW targeted for 2025 (National Development Council); TSMC ~9% of national electricity (SDxCentral/TrendForce). Register per docs/plans/new-mission-playbook.md. Drafted with Gemini 3.1 Pro, then substantially rewritten by Claude for CEFR band conformance, factual precision and tone (softened one overstated 'existential threat' claim in the original draft).",
+              "workbook_text": null
+            }
+          }
+        },
+        {
+          "slide_no": 12,
+          "title": {
+            "en": "Betting on Hydrogen and Geothermal Too",
+            "zh": "也押注氫能與地熱"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "We can also try new energy, like hydrogen and heat from the earth. Instead of only using wind and sun, we should test these too. New tech may take longer.",
+              "words": 30,
+              "sentences": 3,
+              "avg_sentence_words": 10.0,
+              "fk_grade": 3.7,
+              "long_word_pct": 3.3,
+              "speak_seconds_est": 18.9,
+              "fill_pct": 94.7,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude + Gemini 3.1 Pro draft, reviewed and rewritten by Claude",
+              "basis": "New mission, no workbook source. Facts: 2017 '20-30-50' legal target for 2025 (Electricity Act revision); 2024 generation mix 42.4% gas / 39.3% coal / 11.6% renewables / 4.2% nuclear (288 TWh, MOEA/EIA-sourced reporting); solar PV target 20GW by 2025 vs ~14.3GW end-2024 / ~15GW end-2025 (EnergyTrend, pv magazine, ICC Tainan); offshore wind target 5.7GW by 2025 vs ~4.6-4.9GW actual (RECCESSARY, Taiwan News, Norton Rose Fulbright); Taiwan ranked 3rd globally for new offshore wind added in 2025 and 5th for total capacity; MOEA reset the 20% deadline to November 2026 (Eco-Business); wind generation +66% 2023->2024, solar ~45%/wind ~31% of renewable mix; 2050 net-zero pathway targets 60-70% renewables by 2050, 40-55GW installed capacity vs 29GW targeted for 2025 (National Development Council); TSMC ~9% of national electricity (SDxCentral/TrendForce). Register per docs/plans/new-mission-playbook.md. Drafted with Gemini 3.1 Pro, then substantially rewritten by Claude for CEFR band conformance, factual precision and tone (softened one overstated 'existential threat' claim in the original draft).",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "The 2050 plan also counts on hydrogen and geothermal power. Instead of relying only on solar and wind, Taiwan should diversify, though newer options will need more time to mature.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 9.9,
+              "long_word_pct": 10.0,
+              "speak_seconds_est": 16.4,
+              "fill_pct": 81.8,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude + Gemini 3.1 Pro draft, reviewed and rewritten by Claude",
+              "basis": "New mission, no workbook source. Facts: 2017 '20-30-50' legal target for 2025 (Electricity Act revision); 2024 generation mix 42.4% gas / 39.3% coal / 11.6% renewables / 4.2% nuclear (288 TWh, MOEA/EIA-sourced reporting); solar PV target 20GW by 2025 vs ~14.3GW end-2024 / ~15GW end-2025 (EnergyTrend, pv magazine, ICC Tainan); offshore wind target 5.7GW by 2025 vs ~4.6-4.9GW actual (RECCESSARY, Taiwan News, Norton Rose Fulbright); Taiwan ranked 3rd globally for new offshore wind added in 2025 and 5th for total capacity; MOEA reset the 20% deadline to November 2026 (Eco-Business); wind generation +66% 2023->2024, solar ~45%/wind ~31% of renewable mix; 2050 net-zero pathway targets 60-70% renewables by 2050, 40-55GW installed capacity vs 29GW targeted for 2025 (National Development Council); TSMC ~9% of national electricity (SDxCentral/TrendForce). Register per docs/plans/new-mission-playbook.md. Drafted with Gemini 3.1 Pro, then substantially rewritten by Claude for CEFR band conformance, factual precision and tone (softened one overstated 'existential threat' claim in the original draft).",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "The 2050 pathway also includes hydrogen and geothermal power. Instead of relying only on proven renewables, Taiwan should diversify, although this trades the readiness of wind and solar for technology that remains unproven.",
+              "words": 33,
+              "sentences": 2,
+              "avg_sentence_words": 16.5,
+              "fk_grade": 14.8,
+              "long_word_pct": 27.3,
+              "speak_seconds_est": 16.5,
+              "fill_pct": 82.5,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude + Gemini 3.1 Pro draft, reviewed and rewritten by Claude",
+              "basis": "New mission, no workbook source. Facts: 2017 '20-30-50' legal target for 2025 (Electricity Act revision); 2024 generation mix 42.4% gas / 39.3% coal / 11.6% renewables / 4.2% nuclear (288 TWh, MOEA/EIA-sourced reporting); solar PV target 20GW by 2025 vs ~14.3GW end-2024 / ~15GW end-2025 (EnergyTrend, pv magazine, ICC Tainan); offshore wind target 5.7GW by 2025 vs ~4.6-4.9GW actual (RECCESSARY, Taiwan News, Norton Rose Fulbright); Taiwan ranked 3rd globally for new offshore wind added in 2025 and 5th for total capacity; MOEA reset the 20% deadline to November 2026 (Eco-Business); wind generation +66% 2023->2024, solar ~45%/wind ~31% of renewable mix; 2050 net-zero pathway targets 60-70% renewables by 2050, 40-55GW installed capacity vs 29GW targeted for 2025 (National Development Council); TSMC ~9% of national electricity (SDxCentral/TrendForce). Register per docs/plans/new-mission-playbook.md. Drafted with Gemini 3.1 Pro, then substantially rewritten by Claude for CEFR band conformance, factual precision and tone (softened one overstated 'existential threat' claim in the original draft).",
+              "workbook_text": null
+            }
+          }
+        }
+      ]
+    },
+    {
+      "part_no": 5,
+      "source_description": "Part 5: Implications (Slides 13-16)",
+      "function_en": "Implications",
+      "function_zh": "影響：推論後果",
+      "language_pattern": "first conditional / however",
+      "slides": [
+        {
+          "slide_no": 13,
+          "title": {
+            "en": "Chips Need Green Power Too",
+            "zh": "晶片也需要綠電"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Our chip factories use huge amounts of power. Global buyers want green power for their chips. Without it, they may look elsewhere. That is a real risk for Taiwan.",
+              "words": 29,
+              "sentences": 4,
+              "avg_sentence_words": 7.2,
+              "fk_grade": 3.1,
+              "long_word_pct": 6.9,
+              "speak_seconds_est": 18.3,
+              "fill_pct": 91.6,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude + Gemini 3.1 Pro draft, reviewed and rewritten by Claude",
+              "basis": "New mission, no workbook source. Facts: 2017 '20-30-50' legal target for 2025 (Electricity Act revision); 2024 generation mix 42.4% gas / 39.3% coal / 11.6% renewables / 4.2% nuclear (288 TWh, MOEA/EIA-sourced reporting); solar PV target 20GW by 2025 vs ~14.3GW end-2024 / ~15GW end-2025 (EnergyTrend, pv magazine, ICC Tainan); offshore wind target 5.7GW by 2025 vs ~4.6-4.9GW actual (RECCESSARY, Taiwan News, Norton Rose Fulbright); Taiwan ranked 3rd globally for new offshore wind added in 2025 and 5th for total capacity; MOEA reset the 20% deadline to November 2026 (Eco-Business); wind generation +66% 2023->2024, solar ~45%/wind ~31% of renewable mix; 2050 net-zero pathway targets 60-70% renewables by 2050, 40-55GW installed capacity vs 29GW targeted for 2025 (National Development Council); TSMC ~9% of national electricity (SDxCentral/TrendForce). Register per docs/plans/new-mission-playbook.md. Drafted with Gemini 3.1 Pro, then substantially rewritten by Claude for CEFR band conformance, factual precision and tone (softened one overstated 'existential threat' claim in the original draft).",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "Our chip plants use huge amounts of power every single day. If verified green power is not delivered soon, global clients that demand it could simply take their business elsewhere.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 9.1,
+              "long_word_pct": 13.3,
+              "speak_seconds_est": 16.4,
+              "fill_pct": 81.8,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude + Gemini 3.1 Pro draft, reviewed and rewritten by Claude",
+              "basis": "New mission, no workbook source. Facts: 2017 '20-30-50' legal target for 2025 (Electricity Act revision); 2024 generation mix 42.4% gas / 39.3% coal / 11.6% renewables / 4.2% nuclear (288 TWh, MOEA/EIA-sourced reporting); solar PV target 20GW by 2025 vs ~14.3GW end-2024 / ~15GW end-2025 (EnergyTrend, pv magazine, ICC Tainan); offshore wind target 5.7GW by 2025 vs ~4.6-4.9GW actual (RECCESSARY, Taiwan News, Norton Rose Fulbright); Taiwan ranked 3rd globally for new offshore wind added in 2025 and 5th for total capacity; MOEA reset the 20% deadline to November 2026 (Eco-Business); wind generation +66% 2023->2024, solar ~45%/wind ~31% of renewable mix; 2050 net-zero pathway targets 60-70% renewables by 2050, 40-55GW installed capacity vs 29GW targeted for 2025 (National Development Council); TSMC ~9% of national electricity (SDxCentral/TrendForce). Register per docs/plans/new-mission-playbook.md. Drafted with Gemini 3.1 Pro, then substantially rewritten by Claude for CEFR band conformance, factual precision and tone (softened one overstated 'existential threat' claim in the original draft).",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "Taiwan's chip industry uses vast amounts of electricity. If clean power is not delivered quickly enough, global clients may look elsewhere, turning an environmental shortfall into a genuine competitive risk.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 13.5,
+              "long_word_pct": 26.7,
+              "speak_seconds_est": 15.0,
+              "fill_pct": 75.0,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude + Gemini 3.1 Pro draft, reviewed and rewritten by Claude",
+              "basis": "New mission, no workbook source. Facts: 2017 '20-30-50' legal target for 2025 (Electricity Act revision); 2024 generation mix 42.4% gas / 39.3% coal / 11.6% renewables / 4.2% nuclear (288 TWh, MOEA/EIA-sourced reporting); solar PV target 20GW by 2025 vs ~14.3GW end-2024 / ~15GW end-2025 (EnergyTrend, pv magazine, ICC Tainan); offshore wind target 5.7GW by 2025 vs ~4.6-4.9GW actual (RECCESSARY, Taiwan News, Norton Rose Fulbright); Taiwan ranked 3rd globally for new offshore wind added in 2025 and 5th for total capacity; MOEA reset the 20% deadline to November 2026 (Eco-Business); wind generation +66% 2023->2024, solar ~45%/wind ~31% of renewable mix; 2050 net-zero pathway targets 60-70% renewables by 2050, 40-55GW installed capacity vs 29GW targeted for 2025 (National Development Council); TSMC ~9% of national electricity (SDxCentral/TrendForce). Register per docs/plans/new-mission-playbook.md. Drafted with Gemini 3.1 Pro, then substantially rewritten by Claude for CEFR band conformance, factual precision and tone (softened one overstated 'existential threat' claim in the original draft).",
+              "workbook_text": null
+            }
+          }
+        },
+        {
+          "slide_no": 14,
+          "title": {
+            "en": "If 2026 Slips Too",
+            "zh": "如果2026年再次落空"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "We must meet the new 2026 date. If we miss it again, investors may lose trust. Less trust means higher costs, and that stops more new projects.",
+              "words": 27,
+              "sentences": 3,
+              "avg_sentence_words": 9.0,
+              "fk_grade": 3.2,
+              "long_word_pct": 7.4,
+              "speak_seconds_est": 17.1,
+              "fill_pct": 85.3,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude + Gemini 3.1 Pro draft, reviewed and rewritten by Claude",
+              "basis": "New mission, no workbook source. Facts: 2017 '20-30-50' legal target for 2025 (Electricity Act revision); 2024 generation mix 42.4% gas / 39.3% coal / 11.6% renewables / 4.2% nuclear (288 TWh, MOEA/EIA-sourced reporting); solar PV target 20GW by 2025 vs ~14.3GW end-2024 / ~15GW end-2025 (EnergyTrend, pv magazine, ICC Tainan); offshore wind target 5.7GW by 2025 vs ~4.6-4.9GW actual (RECCESSARY, Taiwan News, Norton Rose Fulbright); Taiwan ranked 3rd globally for new offshore wind added in 2025 and 5th for total capacity; MOEA reset the 20% deadline to November 2026 (Eco-Business); wind generation +66% 2023->2024, solar ~45%/wind ~31% of renewable mix; 2050 net-zero pathway targets 60-70% renewables by 2050, 40-55GW installed capacity vs 29GW targeted for 2025 (National Development Council); TSMC ~9% of national electricity (SDxCentral/TrendForce). Register per docs/plans/new-mission-playbook.md. Drafted with Gemini 3.1 Pro, then substantially rewritten by Claude for CEFR band conformance, factual precision and tone (softened one overstated 'existential threat' claim in the original draft).",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "The pressure is now on that new 2026 date. If this delayed goal slips again, investor trust will weaken further, and weaker trust is exactly what caused the last shortfall.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 8.0,
+              "long_word_pct": 10.0,
+              "speak_seconds_est": 16.4,
+              "fill_pct": 81.8,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude + Gemini 3.1 Pro draft, reviewed and rewritten by Claude",
+              "basis": "New mission, no workbook source. Facts: 2017 '20-30-50' legal target for 2025 (Electricity Act revision); 2024 generation mix 42.4% gas / 39.3% coal / 11.6% renewables / 4.2% nuclear (288 TWh, MOEA/EIA-sourced reporting); solar PV target 20GW by 2025 vs ~14.3GW end-2024 / ~15GW end-2025 (EnergyTrend, pv magazine, ICC Tainan); offshore wind target 5.7GW by 2025 vs ~4.6-4.9GW actual (RECCESSARY, Taiwan News, Norton Rose Fulbright); Taiwan ranked 3rd globally for new offshore wind added in 2025 and 5th for total capacity; MOEA reset the 20% deadline to November 2026 (Eco-Business); wind generation +66% 2023->2024, solar ~45%/wind ~31% of renewable mix; 2050 net-zero pathway targets 60-70% renewables by 2050, 40-55GW installed capacity vs 29GW targeted for 2025 (National Development Council); TSMC ~9% of national electricity (SDxCentral/TrendForce). Register per docs/plans/new-mission-playbook.md. Drafted with Gemini 3.1 Pro, then substantially rewritten by Claude for CEFR band conformance, factual precision and tone (softened one overstated 'existential threat' claim in the original draft).",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "The new November 2026 date is therefore quite critical for everyone involved. If this target is missed once again, investor confidence will drop even further, causing the same problem that produced the original shortfall in the first place.",
+              "words": 38,
+              "sentences": 2,
+              "avg_sentence_words": 19.0,
+              "fk_grade": 12.9,
+              "long_word_pct": 26.3,
+              "speak_seconds_est": 19.0,
+              "fill_pct": 95.0,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude + Gemini 3.1 Pro draft, reviewed and rewritten by Claude",
+              "basis": "New mission, no workbook source. Facts: 2017 '20-30-50' legal target for 2025 (Electricity Act revision); 2024 generation mix 42.4% gas / 39.3% coal / 11.6% renewables / 4.2% nuclear (288 TWh, MOEA/EIA-sourced reporting); solar PV target 20GW by 2025 vs ~14.3GW end-2024 / ~15GW end-2025 (EnergyTrend, pv magazine, ICC Tainan); offshore wind target 5.7GW by 2025 vs ~4.6-4.9GW actual (RECCESSARY, Taiwan News, Norton Rose Fulbright); Taiwan ranked 3rd globally for new offshore wind added in 2025 and 5th for total capacity; MOEA reset the 20% deadline to November 2026 (Eco-Business); wind generation +66% 2023->2024, solar ~45%/wind ~31% of renewable mix; 2050 net-zero pathway targets 60-70% renewables by 2050, 40-55GW installed capacity vs 29GW targeted for 2025 (National Development Council); TSMC ~9% of national electricity (SDxCentral/TrendForce). Register per docs/plans/new-mission-playbook.md. Drafted with Gemini 3.1 Pro, then substantially rewritten by Claude for CEFR band conformance, factual precision and tone (softened one overstated 'existential threat' claim in the original draft).",
+              "workbook_text": null
+            }
+          }
+        },
+        {
+          "slide_no": 15,
+          "title": {
+            "en": "Who Hosts the Turbines, Who Gets the Power",
+            "zh": "誰承擔風機，誰享用電力"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "This problem needs more than money to fix. If we build wind farms fast, local towns feel the change first. People near the turbines do not always get the power.",
+              "words": 30,
+              "sentences": 3,
+              "avg_sentence_words": 10.0,
+              "fk_grade": 3.3,
+              "long_word_pct": 3.3,
+              "speak_seconds_est": 18.9,
+              "fill_pct": 94.7,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude + Gemini 3.1 Pro draft, reviewed and rewritten by Claude",
+              "basis": "New mission, no workbook source. Facts: 2017 '20-30-50' legal target for 2025 (Electricity Act revision); 2024 generation mix 42.4% gas / 39.3% coal / 11.6% renewables / 4.2% nuclear (288 TWh, MOEA/EIA-sourced reporting); solar PV target 20GW by 2025 vs ~14.3GW end-2024 / ~15GW end-2025 (EnergyTrend, pv magazine, ICC Tainan); offshore wind target 5.7GW by 2025 vs ~4.6-4.9GW actual (RECCESSARY, Taiwan News, Norton Rose Fulbright); Taiwan ranked 3rd globally for new offshore wind added in 2025 and 5th for total capacity; MOEA reset the 20% deadline to November 2026 (Eco-Business); wind generation +66% 2023->2024, solar ~45%/wind ~31% of renewable mix; 2050 net-zero pathway targets 60-70% renewables by 2050, 40-55GW installed capacity vs 29GW targeted for 2025 (National Development Council); TSMC ~9% of national electricity (SDxCentral/TrendForce). Register per docs/plans/new-mission-playbook.md. Drafted with Gemini 3.1 Pro, then substantially rewritten by Claude for CEFR band conformance, factual precision and tone (softened one overstated 'existential threat' claim in the original draft).",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "Restoring that trust is not only about money, though money matters too. If wind farms are built too quickly, local communities could feel the disruption first, without gaining much power.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 8.7,
+              "long_word_pct": 10.0,
+              "speak_seconds_est": 16.4,
+              "fill_pct": 81.8,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude + Gemini 3.1 Pro draft, reviewed and rewritten by Claude",
+              "basis": "New mission, no workbook source. Facts: 2017 '20-30-50' legal target for 2025 (Electricity Act revision); 2024 generation mix 42.4% gas / 39.3% coal / 11.6% renewables / 4.2% nuclear (288 TWh, MOEA/EIA-sourced reporting); solar PV target 20GW by 2025 vs ~14.3GW end-2024 / ~15GW end-2025 (EnergyTrend, pv magazine, ICC Tainan); offshore wind target 5.7GW by 2025 vs ~4.6-4.9GW actual (RECCESSARY, Taiwan News, Norton Rose Fulbright); Taiwan ranked 3rd globally for new offshore wind added in 2025 and 5th for total capacity; MOEA reset the 20% deadline to November 2026 (Eco-Business); wind generation +66% 2023->2024, solar ~45%/wind ~31% of renewable mix; 2050 net-zero pathway targets 60-70% renewables by 2050, 40-55GW installed capacity vs 29GW targeted for 2025 (National Development Council); TSMC ~9% of national electricity (SDxCentral/TrendForce). Register per docs/plans/new-mission-playbook.md. Drafted with Gemini 3.1 Pro, then substantially rewritten by Claude for CEFR band conformance, factual precision and tone (softened one overstated 'existential threat' claim in the original draft).",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "Restoring credibility, however, extends beyond financial metrics alone. Should deployment be pushed forward too fast, host communities will bear the physical impact, even though they rarely benefit from the power generated.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 14.4,
+              "long_word_pct": 22.6,
+              "speak_seconds_est": 15.5,
+              "fill_pct": 77.5,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude + Gemini 3.1 Pro draft, reviewed and rewritten by Claude",
+              "basis": "New mission, no workbook source. Facts: 2017 '20-30-50' legal target for 2025 (Electricity Act revision); 2024 generation mix 42.4% gas / 39.3% coal / 11.6% renewables / 4.2% nuclear (288 TWh, MOEA/EIA-sourced reporting); solar PV target 20GW by 2025 vs ~14.3GW end-2024 / ~15GW end-2025 (EnergyTrend, pv magazine, ICC Tainan); offshore wind target 5.7GW by 2025 vs ~4.6-4.9GW actual (RECCESSARY, Taiwan News, Norton Rose Fulbright); Taiwan ranked 3rd globally for new offshore wind added in 2025 and 5th for total capacity; MOEA reset the 20% deadline to November 2026 (Eco-Business); wind generation +66% 2023->2024, solar ~45%/wind ~31% of renewable mix; 2050 net-zero pathway targets 60-70% renewables by 2050, 40-55GW installed capacity vs 29GW targeted for 2025 (National Development Council); TSMC ~9% of national electricity (SDxCentral/TrendForce). Register per docs/plans/new-mission-playbook.md. Drafted with Gemini 3.1 Pro, then substantially rewritten by Claude for CEFR band conformance, factual precision and tone (softened one overstated 'existential threat' claim in the original draft).",
+              "workbook_text": null
+            }
+          }
+        },
+        {
+          "slide_no": 16,
+          "title": {
+            "en": "The Real Test: Delivery, Not Announcement",
+            "zh": "真正的考驗：兌現而非宣布"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "So this problem is not only about money. If we only chase one number, we lose people's trust. The real test is hitting the goal, and keeping that trust too.",
+              "words": 30,
+              "sentences": 3,
+              "avg_sentence_words": 10.0,
+              "fk_grade": 3.7,
+              "long_word_pct": 3.3,
+              "speak_seconds_est": 18.9,
+              "fill_pct": 94.7,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude + Gemini 3.1 Pro draft, reviewed and rewritten by Claude",
+              "basis": "New mission, no workbook source. Facts: 2017 '20-30-50' legal target for 2025 (Electricity Act revision); 2024 generation mix 42.4% gas / 39.3% coal / 11.6% renewables / 4.2% nuclear (288 TWh, MOEA/EIA-sourced reporting); solar PV target 20GW by 2025 vs ~14.3GW end-2024 / ~15GW end-2025 (EnergyTrend, pv magazine, ICC Tainan); offshore wind target 5.7GW by 2025 vs ~4.6-4.9GW actual (RECCESSARY, Taiwan News, Norton Rose Fulbright); Taiwan ranked 3rd globally for new offshore wind added in 2025 and 5th for total capacity; MOEA reset the 20% deadline to November 2026 (Eco-Business); wind generation +66% 2023->2024, solar ~45%/wind ~31% of renewable mix; 2050 net-zero pathway targets 60-70% renewables by 2050, 40-55GW installed capacity vs 29GW targeted for 2025 (National Development Council); TSMC ~9% of national electricity (SDxCentral/TrendForce). Register per docs/plans/new-mission-playbook.md. Drafted with Gemini 3.1 Pro, then substantially rewritten by Claude for CEFR band conformance, factual precision and tone (softened one overstated 'existential threat' claim in the original draft).",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "These economic and local pressures are all closely connected. If we ignore the communities that host this equipment, public support will fade fast, so the real test is keeping trust.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 9.5,
+              "long_word_pct": 16.7,
+              "speak_seconds_est": 16.4,
+              "fill_pct": 81.8,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude + Gemini 3.1 Pro draft, reviewed and rewritten by Claude",
+              "basis": "New mission, no workbook source. Facts: 2017 '20-30-50' legal target for 2025 (Electricity Act revision); 2024 generation mix 42.4% gas / 39.3% coal / 11.6% renewables / 4.2% nuclear (288 TWh, MOEA/EIA-sourced reporting); solar PV target 20GW by 2025 vs ~14.3GW end-2024 / ~15GW end-2025 (EnergyTrend, pv magazine, ICC Tainan); offshore wind target 5.7GW by 2025 vs ~4.6-4.9GW actual (RECCESSARY, Taiwan News, Norton Rose Fulbright); Taiwan ranked 3rd globally for new offshore wind added in 2025 and 5th for total capacity; MOEA reset the 20% deadline to November 2026 (Eco-Business); wind generation +66% 2023->2024, solar ~45%/wind ~31% of renewable mix; 2050 net-zero pathway targets 60-70% renewables by 2050, 40-55GW installed capacity vs 29GW targeted for 2025 (National Development Council); TSMC ~9% of national electricity (SDxCentral/TrendForce). Register per docs/plans/new-mission-playbook.md. Drafted with Gemini 3.1 Pro, then substantially rewritten by Claude for CEFR band conformance, factual precision and tone (softened one overstated 'existential threat' claim in the original draft).",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "These economic and equity concerns are inextricably linked to one another. Only when community voices are genuinely respected will public support remain intact, and hitting a target is never the same as sustaining people's trust.",
+              "words": 35,
+              "sentences": 2,
+              "avg_sentence_words": 17.5,
+              "fk_grade": 14.2,
+              "long_word_pct": 22.9,
+              "speak_seconds_est": 17.5,
+              "fill_pct": 87.5,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude + Gemini 3.1 Pro draft, reviewed and rewritten by Claude",
+              "basis": "New mission, no workbook source. Facts: 2017 '20-30-50' legal target for 2025 (Electricity Act revision); 2024 generation mix 42.4% gas / 39.3% coal / 11.6% renewables / 4.2% nuclear (288 TWh, MOEA/EIA-sourced reporting); solar PV target 20GW by 2025 vs ~14.3GW end-2024 / ~15GW end-2025 (EnergyTrend, pv magazine, ICC Tainan); offshore wind target 5.7GW by 2025 vs ~4.6-4.9GW actual (RECCESSARY, Taiwan News, Norton Rose Fulbright); Taiwan ranked 3rd globally for new offshore wind added in 2025 and 5th for total capacity; MOEA reset the 20% deadline to November 2026 (Eco-Business); wind generation +66% 2023->2024, solar ~45%/wind ~31% of renewable mix; 2050 net-zero pathway targets 60-70% renewables by 2050, 40-55GW installed capacity vs 29GW targeted for 2025 (National Development Council); TSMC ~9% of national electricity (SDxCentral/TrendForce). Register per docs/plans/new-mission-playbook.md. Drafted with Gemini 3.1 Pro, then substantially rewritten by Claude for CEFR band conformance, factual precision and tone (softened one overstated 'existential threat' claim in the original draft).",
+              "workbook_text": null
+            }
+          }
+        }
+      ]
+    },
+    {
+      "part_no": 6,
+      "source_description": "Part 6: Call to action (Slides 17-20)",
+      "function_en": "Call to action",
+      "function_zh": "結語：總結與號召",
+      "language_pattern": "to wrap up ... / let's ...",
+      "slides": [
+        {
+          "slide_no": 17,
+          "title": {
+            "en": "Progress and the Gap, Side by Side",
+            "zh": "進展與落差並存"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "To wrap up, we made real progress. We built new turbines and reached a top world ranking. But our real numbers are still far from our own legal target.",
+              "words": 29,
+              "sentences": 3,
+              "avg_sentence_words": 9.7,
+              "fk_grade": 3.2,
+              "long_word_pct": 6.9,
+              "speak_seconds_est": 18.3,
+              "fill_pct": 91.6,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude + Gemini 3.1 Pro draft, reviewed and rewritten by Claude",
+              "basis": "New mission, no workbook source. Facts: 2017 '20-30-50' legal target for 2025 (Electricity Act revision); 2024 generation mix 42.4% gas / 39.3% coal / 11.6% renewables / 4.2% nuclear (288 TWh, MOEA/EIA-sourced reporting); solar PV target 20GW by 2025 vs ~14.3GW end-2024 / ~15GW end-2025 (EnergyTrend, pv magazine, ICC Tainan); offshore wind target 5.7GW by 2025 vs ~4.6-4.9GW actual (RECCESSARY, Taiwan News, Norton Rose Fulbright); Taiwan ranked 3rd globally for new offshore wind added in 2025 and 5th for total capacity; MOEA reset the 20% deadline to November 2026 (Eco-Business); wind generation +66% 2023->2024, solar ~45%/wind ~31% of renewable mix; 2050 net-zero pathway targets 60-70% renewables by 2050, 40-55GW installed capacity vs 29GW targeted for 2025 (National Development Council); TSMC ~9% of national electricity (SDxCentral/TrendForce). Register per docs/plans/new-mission-playbook.md. Drafted with Gemini 3.1 Pro, then substantially rewritten by Claude for CEFR band conformance, factual precision and tone (softened one overstated 'existential threat' claim in the original draft).",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "To wrap up, real progress clearly exists across Taiwan today. We have built turbines, spread solar panels, and earned a top-five global ranking, yet our reality sits behind our legal targets.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 9.5,
+              "long_word_pct": 9.7,
+              "speak_seconds_est": 16.9,
+              "fill_pct": 84.5,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude + Gemini 3.1 Pro draft, reviewed and rewritten by Claude",
+              "basis": "New mission, no workbook source. Facts: 2017 '20-30-50' legal target for 2025 (Electricity Act revision); 2024 generation mix 42.4% gas / 39.3% coal / 11.6% renewables / 4.2% nuclear (288 TWh, MOEA/EIA-sourced reporting); solar PV target 20GW by 2025 vs ~14.3GW end-2024 / ~15GW end-2025 (EnergyTrend, pv magazine, ICC Tainan); offshore wind target 5.7GW by 2025 vs ~4.6-4.9GW actual (RECCESSARY, Taiwan News, Norton Rose Fulbright); Taiwan ranked 3rd globally for new offshore wind added in 2025 and 5th for total capacity; MOEA reset the 20% deadline to November 2026 (Eco-Business); wind generation +66% 2023->2024, solar ~45%/wind ~31% of renewable mix; 2050 net-zero pathway targets 60-70% renewables by 2050, 40-55GW installed capacity vs 29GW targeted for 2025 (National Development Council); TSMC ~9% of national electricity (SDxCentral/TrendForce). Register per docs/plans/new-mission-playbook.md. Drafted with Gemini 3.1 Pro, then substantially rewritten by Claude for CEFR band conformance, factual precision and tone (softened one overstated 'existential threat' claim in the original draft).",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "To wrap up, although real progress is evident, from growing turbines to a top-five global ranking, a real gap remains. Our generation reality still sits well behind the statutory targets we ourselves set.",
+              "words": 33,
+              "sentences": 2,
+              "avg_sentence_words": 16.5,
+              "fk_grade": 10.9,
+              "long_word_pct": 21.2,
+              "speak_seconds_est": 16.5,
+              "fill_pct": 82.5,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude + Gemini 3.1 Pro draft, reviewed and rewritten by Claude",
+              "basis": "New mission, no workbook source. Facts: 2017 '20-30-50' legal target for 2025 (Electricity Act revision); 2024 generation mix 42.4% gas / 39.3% coal / 11.6% renewables / 4.2% nuclear (288 TWh, MOEA/EIA-sourced reporting); solar PV target 20GW by 2025 vs ~14.3GW end-2024 / ~15GW end-2025 (EnergyTrend, pv magazine, ICC Tainan); offshore wind target 5.7GW by 2025 vs ~4.6-4.9GW actual (RECCESSARY, Taiwan News, Norton Rose Fulbright); Taiwan ranked 3rd globally for new offshore wind added in 2025 and 5th for total capacity; MOEA reset the 20% deadline to November 2026 (Eco-Business); wind generation +66% 2023->2024, solar ~45%/wind ~31% of renewable mix; 2050 net-zero pathway targets 60-70% renewables by 2050, 40-55GW installed capacity vs 29GW targeted for 2025 (National Development Council); TSMC ~9% of national electricity (SDxCentral/TrendForce). Register per docs/plans/new-mission-playbook.md. Drafted with Gemini 3.1 Pro, then substantially rewritten by Claude for CEFR band conformance, factual precision and tone (softened one overstated 'existential threat' claim in the original draft).",
+              "workbook_text": null
+            }
+          }
+        },
+        {
+          "slide_no": 18,
+          "title": {
+            "en": "Your Generation Closes This Gap",
+            "zh": "由你們這代人補上缺口"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "This matters to you right now. You are Taiwan's future engineers. You will build the grids and the batteries. Your work can finally close this big energy gap.",
+              "words": 28,
+              "sentences": 4,
+              "avg_sentence_words": 7.0,
+              "fk_grade": 3.6,
+              "long_word_pct": 10.7,
+              "speak_seconds_est": 17.7,
+              "fill_pct": 88.4,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude + Gemini 3.1 Pro draft, reviewed and rewritten by Claude",
+              "basis": "New mission, no workbook source. Facts: 2017 '20-30-50' legal target for 2025 (Electricity Act revision); 2024 generation mix 42.4% gas / 39.3% coal / 11.6% renewables / 4.2% nuclear (288 TWh, MOEA/EIA-sourced reporting); solar PV target 20GW by 2025 vs ~14.3GW end-2024 / ~15GW end-2025 (EnergyTrend, pv magazine, ICC Tainan); offshore wind target 5.7GW by 2025 vs ~4.6-4.9GW actual (RECCESSARY, Taiwan News, Norton Rose Fulbright); Taiwan ranked 3rd globally for new offshore wind added in 2025 and 5th for total capacity; MOEA reset the 20% deadline to November 2026 (Eco-Business); wind generation +66% 2023->2024, solar ~45%/wind ~31% of renewable mix; 2050 net-zero pathway targets 60-70% renewables by 2050, 40-55GW installed capacity vs 29GW targeted for 2025 (National Development Council); TSMC ~9% of national electricity (SDxCentral/TrendForce). Register per docs/plans/new-mission-playbook.md. Drafted with Gemini 3.1 Pro, then substantially rewritten by Claude for CEFR band conformance, factual precision and tone (softened one overstated 'existential threat' claim in the original draft).",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "This gap matters to everyone sitting in this room. You are the students who will become the engineers designing the grid connections and storage systems that finally close this divide.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 8.7,
+              "long_word_pct": 16.7,
+              "speak_seconds_est": 16.4,
+              "fill_pct": 81.8,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude + Gemini 3.1 Pro draft, reviewed and rewritten by Claude",
+              "basis": "New mission, no workbook source. Facts: 2017 '20-30-50' legal target for 2025 (Electricity Act revision); 2024 generation mix 42.4% gas / 39.3% coal / 11.6% renewables / 4.2% nuclear (288 TWh, MOEA/EIA-sourced reporting); solar PV target 20GW by 2025 vs ~14.3GW end-2024 / ~15GW end-2025 (EnergyTrend, pv magazine, ICC Tainan); offshore wind target 5.7GW by 2025 vs ~4.6-4.9GW actual (RECCESSARY, Taiwan News, Norton Rose Fulbright); Taiwan ranked 3rd globally for new offshore wind added in 2025 and 5th for total capacity; MOEA reset the 20% deadline to November 2026 (Eco-Business); wind generation +66% 2023->2024, solar ~45%/wind ~31% of renewable mix; 2050 net-zero pathway targets 60-70% renewables by 2050, 40-55GW installed capacity vs 29GW targeted for 2025 (National Development Council); TSMC ~9% of national electricity (SDxCentral/TrendForce). Register per docs/plans/new-mission-playbook.md. Drafted with Gemini 3.1 Pro, then substantially rewritten by Claude for CEFR band conformance, factual precision and tone (softened one overstated 'existential threat' claim in the original draft).",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "This shortfall carries particular weight for a STEM audience. It is you who will engineer the solutions, designing the grid infrastructure and storage systems required to finally close this gap.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 10.3,
+              "long_word_pct": 26.7,
+              "speak_seconds_est": 15.0,
+              "fill_pct": 75.0,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude + Gemini 3.1 Pro draft, reviewed and rewritten by Claude",
+              "basis": "New mission, no workbook source. Facts: 2017 '20-30-50' legal target for 2025 (Electricity Act revision); 2024 generation mix 42.4% gas / 39.3% coal / 11.6% renewables / 4.2% nuclear (288 TWh, MOEA/EIA-sourced reporting); solar PV target 20GW by 2025 vs ~14.3GW end-2024 / ~15GW end-2025 (EnergyTrend, pv magazine, ICC Tainan); offshore wind target 5.7GW by 2025 vs ~4.6-4.9GW actual (RECCESSARY, Taiwan News, Norton Rose Fulbright); Taiwan ranked 3rd globally for new offshore wind added in 2025 and 5th for total capacity; MOEA reset the 20% deadline to November 2026 (Eco-Business); wind generation +66% 2023->2024, solar ~45%/wind ~31% of renewable mix; 2050 net-zero pathway targets 60-70% renewables by 2050, 40-55GW installed capacity vs 29GW targeted for 2025 (National Development Council); TSMC ~9% of national electricity (SDxCentral/TrendForce). Register per docs/plans/new-mission-playbook.md. Drafted with Gemini 3.1 Pro, then substantially rewritten by Claude for CEFR band conformance, factual precision and tone (softened one overstated 'existential threat' claim in the original draft).",
+              "workbook_text": null
+            }
+          }
+        },
+        {
+          "slide_no": 19,
+          "title": {
+            "en": "Ask 'Delivered,' Not 'Announced'",
+            "zh": "該問「做到了嗎」，別只問「說了嗎」"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Let's look at the facts closely. Do not just ask what leaders promised. Ask what they actually built. Join local talks about where new solar farms should go.",
+              "words": 28,
+              "sentences": 4,
+              "avg_sentence_words": 7.0,
+              "fk_grade": 3.2,
+              "long_word_pct": 7.1,
+              "speak_seconds_est": 17.7,
+              "fill_pct": 88.4,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude + Gemini 3.1 Pro draft, reviewed and rewritten by Claude",
+              "basis": "New mission, no workbook source. Facts: 2017 '20-30-50' legal target for 2025 (Electricity Act revision); 2024 generation mix 42.4% gas / 39.3% coal / 11.6% renewables / 4.2% nuclear (288 TWh, MOEA/EIA-sourced reporting); solar PV target 20GW by 2025 vs ~14.3GW end-2024 / ~15GW end-2025 (EnergyTrend, pv magazine, ICC Tainan); offshore wind target 5.7GW by 2025 vs ~4.6-4.9GW actual (RECCESSARY, Taiwan News, Norton Rose Fulbright); Taiwan ranked 3rd globally for new offshore wind added in 2025 and 5th for total capacity; MOEA reset the 20% deadline to November 2026 (Eco-Business); wind generation +66% 2023->2024, solar ~45%/wind ~31% of renewable mix; 2050 net-zero pathway targets 60-70% renewables by 2050, 40-55GW installed capacity vs 29GW targeted for 2025 (National Development Council); TSMC ~9% of national electricity (SDxCentral/TrendForce). Register per docs/plans/new-mission-playbook.md. Drafted with Gemini 3.1 Pro, then substantially rewritten by Claude for CEFR band conformance, factual precision and tone (softened one overstated 'existential threat' claim in the original draft).",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "Let's study the data much more critically from now on. Stop asking only what was announced, and start asking what has actually been delivered, then join the debates that shape it.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 8.7,
+              "long_word_pct": 12.9,
+              "speak_seconds_est": 16.9,
+              "fill_pct": 84.5,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude + Gemini 3.1 Pro draft, reviewed and rewritten by Claude",
+              "basis": "New mission, no workbook source. Facts: 2017 '20-30-50' legal target for 2025 (Electricity Act revision); 2024 generation mix 42.4% gas / 39.3% coal / 11.6% renewables / 4.2% nuclear (288 TWh, MOEA/EIA-sourced reporting); solar PV target 20GW by 2025 vs ~14.3GW end-2024 / ~15GW end-2025 (EnergyTrend, pv magazine, ICC Tainan); offshore wind target 5.7GW by 2025 vs ~4.6-4.9GW actual (RECCESSARY, Taiwan News, Norton Rose Fulbright); Taiwan ranked 3rd globally for new offshore wind added in 2025 and 5th for total capacity; MOEA reset the 20% deadline to November 2026 (Eco-Business); wind generation +66% 2023->2024, solar ~45%/wind ~31% of renewable mix; 2050 net-zero pathway targets 60-70% renewables by 2050, 40-55GW installed capacity vs 29GW targeted for 2025 (National Development Council); TSMC ~9% of national electricity (SDxCentral/TrendForce). Register per docs/plans/new-mission-playbook.md. Drafted with Gemini 3.1 Pro, then substantially rewritten by Claude for CEFR band conformance, factual precision and tone (softened one overstated 'existential threat' claim in the original draft).",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "Let's commit to reading the data more critically from now on. We must look beyond announced ambitions and demand delivered results, then take part in the local debates where these decisions are actually made.",
+              "words": 34,
+              "sentences": 2,
+              "avg_sentence_words": 17.0,
+              "fk_grade": 10.5,
+              "long_word_pct": 17.6,
+              "speak_seconds_est": 17.0,
+              "fill_pct": 85.0,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude + Gemini 3.1 Pro draft, reviewed and rewritten by Claude",
+              "basis": "New mission, no workbook source. Facts: 2017 '20-30-50' legal target for 2025 (Electricity Act revision); 2024 generation mix 42.4% gas / 39.3% coal / 11.6% renewables / 4.2% nuclear (288 TWh, MOEA/EIA-sourced reporting); solar PV target 20GW by 2025 vs ~14.3GW end-2024 / ~15GW end-2025 (EnergyTrend, pv magazine, ICC Tainan); offshore wind target 5.7GW by 2025 vs ~4.6-4.9GW actual (RECCESSARY, Taiwan News, Norton Rose Fulbright); Taiwan ranked 3rd globally for new offshore wind added in 2025 and 5th for total capacity; MOEA reset the 20% deadline to November 2026 (Eco-Business); wind generation +66% 2023->2024, solar ~45%/wind ~31% of renewable mix; 2050 net-zero pathway targets 60-70% renewables by 2050, 40-55GW installed capacity vs 29GW targeted for 2025 (National Development Council); TSMC ~9% of national electricity (SDxCentral/TrendForce). Register per docs/plans/new-mission-playbook.md. Drafted with Gemini 3.1 Pro, then substantially rewritten by Claude for CEFR band conformance, factual precision and tone (softened one overstated 'existential threat' claim in the original draft).",
+              "workbook_text": null
+            }
+          }
+        },
+        {
+          "slide_no": 20,
+          "title": {
+            "en": "Move the Date, Not the Destination",
+            "zh": "日期可以延，目的地不能變"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Remember one last thing before we go. The target date may move again someday. But our green destination must never, ever change. Let's finish this whole job together.",
+              "words": 28,
+              "sentences": 4,
+              "avg_sentence_words": 7.0,
+              "fk_grade": 5.7,
+              "long_word_pct": 10.7,
+              "speak_seconds_est": 17.7,
+              "fill_pct": 88.4,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude + Gemini 3.1 Pro draft, reviewed and rewritten by Claude",
+              "basis": "New mission, no workbook source. Facts: 2017 '20-30-50' legal target for 2025 (Electricity Act revision); 2024 generation mix 42.4% gas / 39.3% coal / 11.6% renewables / 4.2% nuclear (288 TWh, MOEA/EIA-sourced reporting); solar PV target 20GW by 2025 vs ~14.3GW end-2024 / ~15GW end-2025 (EnergyTrend, pv magazine, ICC Tainan); offshore wind target 5.7GW by 2025 vs ~4.6-4.9GW actual (RECCESSARY, Taiwan News, Norton Rose Fulbright); Taiwan ranked 3rd globally for new offshore wind added in 2025 and 5th for total capacity; MOEA reset the 20% deadline to November 2026 (Eco-Business); wind generation +66% 2023->2024, solar ~45%/wind ~31% of renewable mix; 2050 net-zero pathway targets 60-70% renewables by 2050, 40-55GW installed capacity vs 29GW targeted for 2025 (National Development Council); TSMC ~9% of national electricity (SDxCentral/TrendForce). Register per docs/plans/new-mission-playbook.md. Drafted with Gemini 3.1 Pro, then substantially rewritten by Claude for CEFR band conformance, factual precision and tone (softened one overstated 'existential threat' claim in the original draft).",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "Let's carry just one thought forward from today. Governments can always push a deadline back, but our destination should never move, so let's make sure Taiwan actually arrives there.",
+              "words": 29,
+              "sentences": 2,
+              "avg_sentence_words": 14.5,
+              "fk_grade": 8.4,
+              "long_word_pct": 13.8,
+              "speak_seconds_est": 15.8,
+              "fill_pct": 79.1,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude + Gemini 3.1 Pro draft, reviewed and rewritten by Claude",
+              "basis": "New mission, no workbook source. Facts: 2017 '20-30-50' legal target for 2025 (Electricity Act revision); 2024 generation mix 42.4% gas / 39.3% coal / 11.6% renewables / 4.2% nuclear (288 TWh, MOEA/EIA-sourced reporting); solar PV target 20GW by 2025 vs ~14.3GW end-2024 / ~15GW end-2025 (EnergyTrend, pv magazine, ICC Tainan); offshore wind target 5.7GW by 2025 vs ~4.6-4.9GW actual (RECCESSARY, Taiwan News, Norton Rose Fulbright); Taiwan ranked 3rd globally for new offshore wind added in 2025 and 5th for total capacity; MOEA reset the 20% deadline to November 2026 (Eco-Business); wind generation +66% 2023->2024, solar ~45%/wind ~31% of renewable mix; 2050 net-zero pathway targets 60-70% renewables by 2050, 40-55GW installed capacity vs 29GW targeted for 2025 (National Development Council); TSMC ~9% of national electricity (SDxCentral/TrendForce). Register per docs/plans/new-mission-playbook.md. Drafted with Gemini 3.1 Pro, then substantially rewritten by Claude for CEFR band conformance, factual precision and tone (softened one overstated 'existential threat' claim in the original draft).",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "Let's close with a guiding principle for the years ahead. The government may shift its deadlines once again, although our ultimate destination must remain fixed, because real change only counts once delivered.",
+              "words": 32,
+              "sentences": 2,
+              "avg_sentence_words": 16.0,
+              "fk_grade": 10.6,
+              "long_word_pct": 21.9,
+              "speak_seconds_est": 16.0,
+              "fill_pct": 80.0,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude + Gemini 3.1 Pro draft, reviewed and rewritten by Claude",
+              "basis": "New mission, no workbook source. Facts: 2017 '20-30-50' legal target for 2025 (Electricity Act revision); 2024 generation mix 42.4% gas / 39.3% coal / 11.6% renewables / 4.2% nuclear (288 TWh, MOEA/EIA-sourced reporting); solar PV target 20GW by 2025 vs ~14.3GW end-2024 / ~15GW end-2025 (EnergyTrend, pv magazine, ICC Tainan); offshore wind target 5.7GW by 2025 vs ~4.6-4.9GW actual (RECCESSARY, Taiwan News, Norton Rose Fulbright); Taiwan ranked 3rd globally for new offshore wind added in 2025 and 5th for total capacity; MOEA reset the 20% deadline to November 2026 (Eco-Business); wind generation +66% 2023->2024, solar ~45%/wind ~31% of renewable mix; 2050 net-zero pathway targets 60-70% renewables by 2050, 40-55GW installed capacity vs 29GW targeted for 2025 (National Development Council); TSMC ~9% of national electricity (SDxCentral/TrendForce). Register per docs/plans/new-mission-playbook.md. Drafted with Gemini 3.1 Pro, then substantially rewritten by Claude for CEFR band conformance, factual precision and tone (softened one overstated 'existential threat' claim in the original draft).",
+              "workbook_text": null
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "shape": "authored",
+  "source": {
+    "workbook": null,
+    "note": "authored from scratch; no workbook sheet"
+  },
+  "level_summary": {
+    "A2": {
+      "slides": 20,
+      "avg_words": 28.5,
+      "avg_sentence_words": 8.5,
+      "fk_grade": 4.1,
+      "slides_over_20s": 0
+    },
+    "B1": {
+      "slides": 20,
+      "avg_words": 30.0,
+      "avg_sentence_words": 15.0,
+      "fk_grade": 9.3,
+      "slides_over_20s": 0
+    },
+    "B2": {
+      "slides": 20,
+      "avg_words": 32.5,
+      "avg_sentence_words": 16.2,
+      "fk_grade": 12.2,
+      "slides_over_20s": 0
+    }
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "mission_id": "sdg2-1",
+  "sdg": 2,
+  "title": {
+    "en": "Taiwan's Food Security in a Changing Climate",
+    "zh": null
+  },
+  "stages": [
+    {
+      "part_no": 1,
+      "source_description": "Part 1: Introduction (Slides 1-3: hook on post-typhoon shelves, SDG 2 as food security, Taiwan's 30.7% self-sufficiency headline)",
+      "function_en": "Introduction",
+      "function_zh": "引言：破題與定義",
+      "language_pattern": "rhetorical questions / X is about ...",
+      "slides": [
+        {"slide_no": 1, "title": {"en": "Thin shelves after a storm", "zh": null}, "numbers": [], "scripts": {}},
+        {"slide_no": 2, "title": {"en": "SDG 2 is food security, not just hunger", "zh": null}, "numbers": [], "scripts": {}},
+        {"slide_no": 3, "title": {"en": "An island that eats mostly imported food", "zh": null}, "numbers": [], "scripts": {}}
+      ]
+    },
+    {
+      "part_no": 2,
+      "source_description": "Part 2: Problem (Slides 4-6: self-sufficiency's 18-year low, grain vs rice gap, the hidden dependency at the dinner table)",
+      "function_en": "Problem",
+      "function_zh": "問題指認：趨勢與因果",
+      "language_pattern": "present progressive for trends / this causes ...",
+      "slides": [
+        {"slide_no": 4, "title": {"en": "An 18-year low", "zh": null}, "numbers": [], "scripts": {}},
+        {"slide_no": 5, "title": {"en": "Rice is homegrown, most grain is not", "zh": null}, "numbers": [], "scripts": {}},
+        {"slide_no": 6, "title": {"en": "The hidden dependency on your plate", "zh": null}, "numbers": [], "scripts": {}}
+      ]
+    },
+    {
+      "part_no": 3,
+      "source_description": "Part 3: Achievements (Slides 7-9: rice production strength, the legal rice reserve, the Grand Grain Silo conversion plan)",
+      "function_en": "Achievements",
+      "function_zh": "成果：舉證與比較",
+      "language_pattern": "present perfect / comparatives",
+      "slides": [
+        {"slide_no": 7, "title": {"en": "Rice: a real national strength", "zh": null}, "numbers": [], "scripts": {}},
+        {"slide_no": 8, "title": {"en": "A reserve bigger than the law requires", "zh": null}, "numbers": [], "scripts": {}},
+        {"slide_no": 9, "title": {"en": "The Grand Grain Silo plan", "zh": null}, "numbers": [], "scripts": {}}
+      ]
+    },
+    {
+      "part_no": 4,
+      "source_description": "Part 4: Solutions (Slides 10-12: contract-farmed feed grain, feed-rice research, the cost trade-off of growing it here)",
+      "function_en": "Solutions",
+      "function_zh": "解方：做法與取捨",
+      "language_pattern": "instead of + V-ing / modal verbs",
+      "slides": [
+        {"slide_no": 10, "title": {"en": "Turning idle paddies into feed grain", "zh": null}, "numbers": [], "scripts": {}},
+        {"slide_no": 11, "title": {"en": "Feed rice as a substitute crop", "zh": null}, "numbers": [], "scripts": {}},
+        {"slide_no": 12, "title": {"en": "Self-sufficiency is not a free win", "zh": null}, "numbers": [], "scripts": {}}
+      ]
+    },
+    {
+      "part_no": 5,
+      "source_description": "Part 5: Implications (Slides 13-16: one throughline — efficient global trade vs. thin resilience when a shock hits both sides at once)",
+      "function_en": "Implications",
+      "function_zh": "影響：推論後果",
+      "language_pattern": "first conditional / however",
+      "slides": [
+        {"slide_no": 13, "title": {"en": "Buying cheap works, most years", "zh": null}, "numbers": [], "scripts": {}},
+        {"slide_no": 14, "title": {"en": "A quota that does not flex", "zh": null}, "numbers": [], "scripts": {}},
+        {"slide_no": 15, "title": {"en": "How thin the buffer really is", "zh": null}, "numbers": [], "scripts": {}},
+        {"slide_no": 16, "title": {"en": "Efficiency and resilience pull apart", "zh": null}, "numbers": [], "scripts": {}}
+      ]
+    },
+    {
+      "part_no": 6,
+      "source_description": "Part 6: Call to action (Slides 17-20: two numbers at once, why STEM students decide the trade-off, a concrete ask, closing claim)",
+      "function_en": "Call to action",
+      "function_zh": "結語：總結與號召",
+      "language_pattern": "to wrap up ... / let's ...",
+      "slides": [
+        {"slide_no": 17, "title": {"en": "Two numbers, one island", "zh": null}, "numbers": [], "scripts": {}},
+        {"slide_no": 18, "title": {"en": "Why this is your trade-off to make", "zh": null}, "numbers": [], "scripts": {}},
+        {"slide_no": 19, "title": {"en": "Know where your food comes from", "zh": null}, "numbers": [], "scripts": {}},
+        {"slide_no": 20, "title": {"en": "A full plate is not guaranteed", "zh": null}, "numbers": [], "scripts": {}}
+      ]
+    }
+  ]
+}

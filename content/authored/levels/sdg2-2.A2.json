@@ -1,0 +1,30 @@
+{
+  "mission_id": "sdg2-2",
+  "level": "A2",
+  "provenance": "authored",
+  "author": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+  "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan's average farmer age ~64 (official avg rose 53.4 in 2005 to 58.4 by 2020, DGBAS); agricultural workforce fell from ~1.55M (1978) to ~530,000 (2022), an ~66% drop, 80%+ now middle-aged/elderly (農傳媒, DGBAS census); YesHealth Group / 源鮮智慧農場 R&D team 2008, founded 2013, Taoyuan hydroponic plant factory, exported whole-farm tech to Shenzhen (2018), Denmark (2019), reached Vatican, combined daily output 4,400+ kg, WEF Technology Pioneer (company site, business press); NYCU 5G smart farm — real-time AI/5G soil sensors, year-round white strawberries, turmeric curcumin up 3-4x; Tainan City + 經緯航太科技 AI photo-based disease ID across 10 crop types; NTU Bio-Industrial Mechatronics orchid disease-recognition robot; Academia Sinica Agricultural Biotechnology Research Center (ABRC) — stress-tolerance (drought/disease/salinity) crop gene research, described only in general terms, no specific gene/variety invented; World Vegetable Center (WorldVeg), Tainan, founded 1971 as Asian Vegetable Research and Development Center (AVRDC) by Taiwan/US/Japan/Korea/Thailand/Philippines/South Vietnam + ADB, renamed 2008; grouper (石斑魚) aquaculture #1 world production value/#2 volume (2008 FAO), 30+ yrs breeding history, AIoT ponds monitor O2/temp/pH, Fisheries Agency's first onshore leopard coral grouper (東星斑) farming; plant-factory lighting ~50% setup cost, electricity ~1/3 running cost (up to 27% per Japanese estimate), un-subsidised indoor produce often costs more than field-grown, sector fragmented; Taiwan bans domestic GMO cultivation but allows labelled GMO feed/grain imports; grouper-farming know-how leaked to China competitors, Taiwan grouper export value fell ~NT$2.9-3 billion (TVBS, 台灣光華雜誌). \"ASIAGA\" named in the task brief could not be verified as a distinct real entity; the closest verified real institute matching that description is the World Vegetable Center (WorldVeg/AVRDC), Tainan — used instead. Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+  "reviewed_by": null,
+  "slides": {
+    "1": "Picture lettuce growing in a warehouse with no windows and no sun. Pink lights shine on it all day. Is this still really farming?",
+    "2": "SDG 2 wants farming that can last and survive shocks. So here is the real question today. Can new technology replace farmers Taiwan is quickly losing?",
+    "3": "The average farmer in Taiwan is now about 64 years old. This is a story about workers, not only about food. Machines may need to help soon.",
+    "4": "Taiwan actually had 1.55 million farm workers back in 1978. Only 530,000 people were left by 2022. Most of them are old now, not young at all.",
+    "5": "Farm work is hard, and the pay is often low. Young people usually do not want this job. So land actually gets rented out, or it just sits empty.",
+    "6": "So seriously think about this for a moment. Without new workers or new tools, who will grow our food twenty years from now? Who will catch our fish?",
+    "7": "Here is some real progress. A company called YesHealth built a huge indoor farm in Taoyuan. It even sold its whole farming system abroad, to Shenzhen, Denmark, and the Vatican.",
+    "8": "Smart sensors are helping too. A university built a farm using 5G and AI. It now grows strawberries outside their normal season and boosts turmeric's health value greatly.",
+    "9": "Fish farming has changed as well. Taiwan is a world leader in growing grouper fish. Smart sensors actually watch the water daily. They help raise a new fish species on land.",
+    "10": "A new app in Tainan can check a photo instead of only trusting a farmer's eyes. It finds plant disease in ten different crops. It works before real damage spreads.",
+    "11": "Scientists in Tainan are also breeding tougher plants. This work began back in 1971. It still helps feed people, both here in Taiwan and far away.",
+    "12": "But there's a catch here too. Taiwan still bans growing modified crops on its own farms, even while it freely imports modified grain instead.",
+    "13": "Every LED light needs real power. Lighting alone can cost about half of a new indoor farm's setup. So every leaf of lettuce carries a hidden power bill.",
+    "14": "Without any state help, that power bill adds up fast. Indoor lettuce often costs more than lettuce grown outside. The clever solution can price itself out of the market.",
+    "15": "The same problem hits fish farming too. Taiwan's grouper skills leaked to farms in China. Taiwan's grouper exports then dropped by about three billion dollars.",
+    "16": "So the technology itself was never the hardest part. Making it cheap, legal, and safe from copying is harder. That is the real challenge still facing Taiwan.",
+    "17": "To sum up, Taiwan already has real working technology. This is not just lab talk or a small test. Genes, LED lights, and smart sensors are already working together.",
+    "18": "This is not someone else's problem to fix, ever. We need engineers and computer experts working here. Maybe that means you, right here today.",
+    "19": "So here is a question worth asking. Think about a cheaper light, or a faster sensor. What could that do for an old farmer with no one to take over?",
+    "20": "This strange warehouse might be tomorrow's real farm. Let's build it the right way. We should not wait until the last old farmer quietly leaves the field."
+  }
+}

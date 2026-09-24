@@ -1,0 +1,1253 @@
+{
+  "mission_id": "sdg1-2",
+  "sdg": 1,
+  "title": {
+    "en": "The Working Poor: When a Job Isn't Enough",
+    "zh": null
+  },
+  "shape": "authored",
+  "source": {
+    "workbook": null,
+    "note": "written from scratch per docs/plans/new-mission-playbook.md; no workbook sheet exists for this mission"
+  },
+  "narrative_brief": "",
+  "stages": [
+    {
+      "part_no": 1,
+      "source_description": "Part 1: Introduction (Slides 1-3: hook on working while still being poor, SDG 1 angle on working poverty specifically, ground in Taiwan's minimum wage and cost of living)",
+      "function_en": "Introduction",
+      "function_zh": "引言：破題與定義",
+      "language_pattern": "rhetorical questions / X is about ...",
+      "slides": [
+        {
+          "slide_no": 1,
+          "title": {
+            "en": "A Job That Still Isn't Enough",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Meet a typical student here. She studies in the day and delivers food at night. She works hard every week, but her bank account never grows.",
+              "words": 26,
+              "sentences": 3,
+              "avg_sentence_words": 8.7,
+              "fk_grade": 4.1,
+              "long_word_pct": 3.8,
+              "speak_seconds_est": 16.4,
+              "fill_pct": 82.1,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-3 (education/mobility framing): the labor market specifically. Facts and sources: minimum wage NT$29,500/month, NT$196/hour from 1 Jan 2026 (up from NT$28,590/NT$190 in 2025), 10th consecutive annual rise, cumulative +47.4% monthly/+63.3% hourly, 2.47 million workers benefiting (Ministry of Labor announcements via Taiwan News/Focus Taiwan, Sep-Dec 2025). OECD low-wage threshold ~NT$390,000/year; 1.26 million full-time employees (16.8%) below it in 2024; median regular monthly wage ~NT$37,000 (DGBAS 2024 wage statistics via Liberty Times). Atypical (part-time/temporary/dispatch) employment over 800,000 workers in 2024 (DGBAS Manpower Utilization Survey via 人間福報). Delivery riders ~88,000 by end of 2020, historically classified as contractors excluded from the Labor Standards Act; 2019 rider deaths triggered union push (Rest of World, New Bloom Magazine, GBLL). Delivery Workers Rights Protection and Delivery Platform Management Act: passed by Legislative Yuan 6 Jan 2026, promulgated 21 Jan 2026, effective 21 Jul 2026; NT$45/order floor rising with minimum wage, mandatory group accident insurance and liability insurance, deactivation appeal process (Legislative Yuan, Ministry of Labor, CNA, Taipei Times, Jul 2026). Rev.2: trimmed word counts that exceeded the 20-second cap (comma-formatted figures like NT$29,500 tokenize as multiple spoken words), and simplified vocabulary that pushed long-word% above the A2 band.",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "Picture someone balancing daytime classes with a demanding night shift delivering food. Even after a hard term of steady work, her savings still refuse to grow, no matter how hard she works.",
+              "words": 32,
+              "sentences": 2,
+              "avg_sentence_words": 16.0,
+              "fk_grade": 8.7,
+              "long_word_pct": 9.4,
+              "speak_seconds_est": 17.5,
+              "fill_pct": 87.3,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-3 (education/mobility framing): the labor market specifically. Facts and sources: minimum wage NT$29,500/month, NT$196/hour from 1 Jan 2026 (up from NT$28,590/NT$190 in 2025), 10th consecutive annual rise, cumulative +47.4% monthly/+63.3% hourly, 2.47 million workers benefiting (Ministry of Labor announcements via Taiwan News/Focus Taiwan, Sep-Dec 2025). OECD low-wage threshold ~NT$390,000/year; 1.26 million full-time employees (16.8%) below it in 2024; median regular monthly wage ~NT$37,000 (DGBAS 2024 wage statistics via Liberty Times). Atypical (part-time/temporary/dispatch) employment over 800,000 workers in 2024 (DGBAS Manpower Utilization Survey via 人間福報). Delivery riders ~88,000 by end of 2020, historically classified as contractors excluded from the Labor Standards Act; 2019 rider deaths triggered union push (Rest of World, New Bloom Magazine, GBLL). Delivery Workers Rights Protection and Delivery Platform Management Act: passed by Legislative Yuan 6 Jan 2026, promulgated 21 Jan 2026, effective 21 Jul 2026; NT$45/order floor rising with minimum wage, mandatory group accident insurance and liability insurance, deactivation appeal process (Legislative Yuan, Ministry of Labor, CNA, Taipei Times, Jul 2026). Rev.2: split run-on sentences that exceeded the B1 sentence-length/FK band (the full statutory law name in particular is long and unavoidable, so it is paraphrased at B1/A2 and the full title reserved for context), and diversified vocabulary against the A2 and B2 texts to reduce content-word overlap.",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "Imagine a student juggling lectures by day and delivering food orders by night, someone whose hours already accumulate into a full-time job. Working this hard, she still refuses to call her situation secure, and neither should we.",
+              "words": 37,
+              "sentences": 2,
+              "avg_sentence_words": 18.5,
+              "fk_grade": 11.4,
+              "long_word_pct": 16.2,
+              "speak_seconds_est": 18.5,
+              "fill_pct": 92.5,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-3 (education/mobility framing): the labor market specifically. Facts and sources: minimum wage NT$29,500/month, NT$196/hour from 1 Jan 2026 (up from NT$28,590/NT$190 in 2025), 10th consecutive annual rise, cumulative +47.4% monthly/+63.3% hourly, 2.47 million workers benefiting (Ministry of Labor announcements via Taiwan News/Focus Taiwan, Sep-Dec 2025). OECD low-wage threshold ~NT$390,000/year; 1.26 million full-time employees (16.8%) below it in 2024; median regular monthly wage ~NT$37,000 (DGBAS 2024 wage statistics via Liberty Times). Atypical (part-time/temporary/dispatch) employment over 800,000 workers in 2024 (DGBAS Manpower Utilization Survey via 人間福報). Delivery riders ~88,000 by end of 2020, historically classified as contractors excluded from the Labor Standards Act; 2019 rider deaths triggered union push (Rest of World, New Bloom Magazine, GBLL). Delivery Workers Rights Protection and Delivery Platform Management Act: passed by Legislative Yuan 6 Jan 2026, promulgated 21 Jan 2026, effective 21 Jul 2026; NT$45/order floor rising with minimum wage, mandatory group accident insurance and liability insurance, deactivation appeal process (Legislative Yuan, Ministry of Labor, CNA, Taipei Times, Jul 2026). Rev.2: split run-on sentences that blew past the 20-second cap, rebalanced long-word% into the B2 band (some slides were over-dense, one was under), and added concession/passive/participle-clause/cleft instances so B2 carries the grammar range a CEFR examiner expects, not just harder vocabulary.",
+              "workbook_text": null
+            }
+          }
+        },
+        {
+          "slide_no": 2,
+          "title": {
+            "en": "SDG 1 Beyond the Safety Net",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "SDG 1 wants to end poverty. Most people think about welfare and shelters. But today is different. Some people have a steady job, and they are still poor.",
+              "words": 28,
+              "sentences": 4,
+              "avg_sentence_words": 7.0,
+              "fk_grade": 3.6,
+              "long_word_pct": 7.1,
+              "speak_seconds_est": 17.7,
+              "fill_pct": 88.4,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-3 (education/mobility framing): the labor market specifically. Facts and sources: minimum wage NT$29,500/month, NT$196/hour from 1 Jan 2026 (up from NT$28,590/NT$190 in 2025), 10th consecutive annual rise, cumulative +47.4% monthly/+63.3% hourly, 2.47 million workers benefiting (Ministry of Labor announcements via Taiwan News/Focus Taiwan, Sep-Dec 2025). OECD low-wage threshold ~NT$390,000/year; 1.26 million full-time employees (16.8%) below it in 2024; median regular monthly wage ~NT$37,000 (DGBAS 2024 wage statistics via Liberty Times). Atypical (part-time/temporary/dispatch) employment over 800,000 workers in 2024 (DGBAS Manpower Utilization Survey via 人間福報). Delivery riders ~88,000 by end of 2020, historically classified as contractors excluded from the Labor Standards Act; 2019 rider deaths triggered union push (Rest of World, New Bloom Magazine, GBLL). Delivery Workers Rights Protection and Delivery Platform Management Act: passed by Legislative Yuan 6 Jan 2026, promulgated 21 Jan 2026, effective 21 Jul 2026; NT$45/order floor rising with minimum wage, mandatory group accident insurance and liability insurance, deactivation appeal process (Legislative Yuan, Ministry of Labor, CNA, Taipei Times, Jul 2026). Rev.2: trimmed word counts that exceeded the 20-second cap (comma-formatted figures like NT$29,500 tokenize as multiple spoken words), and simplified vocabulary that pushed long-word% above the A2 band.",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "SDG 1 aims to eliminate poverty in every form, and most people think of welfare or a shelter. This talk examines a different group: people who work consistently and still remain poor.",
+              "words": 32,
+              "sentences": 2,
+              "avg_sentence_words": 16.0,
+              "fk_grade": 9.8,
+              "long_word_pct": 12.5,
+              "speak_seconds_est": 17.5,
+              "fill_pct": 87.3,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-3 (education/mobility framing): the labor market specifically. Facts and sources: minimum wage NT$29,500/month, NT$196/hour from 1 Jan 2026 (up from NT$28,590/NT$190 in 2025), 10th consecutive annual rise, cumulative +47.4% monthly/+63.3% hourly, 2.47 million workers benefiting (Ministry of Labor announcements via Taiwan News/Focus Taiwan, Sep-Dec 2025). OECD low-wage threshold ~NT$390,000/year; 1.26 million full-time employees (16.8%) below it in 2024; median regular monthly wage ~NT$37,000 (DGBAS 2024 wage statistics via Liberty Times). Atypical (part-time/temporary/dispatch) employment over 800,000 workers in 2024 (DGBAS Manpower Utilization Survey via 人間福報). Delivery riders ~88,000 by end of 2020, historically classified as contractors excluded from the Labor Standards Act; 2019 rider deaths triggered union push (Rest of World, New Bloom Magazine, GBLL). Delivery Workers Rights Protection and Delivery Platform Management Act: passed by Legislative Yuan 6 Jan 2026, promulgated 21 Jan 2026, effective 21 Jul 2026; NT$45/order floor rising with minimum wage, mandatory group accident insurance and liability insurance, deactivation appeal process (Legislative Yuan, Ministry of Labor, CNA, Taipei Times, Jul 2026). Rev.2: split run-on sentences that exceeded the B1 sentence-length/FK band (the full statutory law name in particular is long and unavoidable, so it is paraphrased at B1/A2 and the full title reserved for context), and diversified vocabulary against the A2 and B2 texts to reduce content-word overlap.",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "SDG 1's mandate is to end poverty in every form, a goal most people associate with welfare payments and emergency shelters. This talk instead examines a group that is often overlooked: people who work hard and remain poor regardless.",
+              "words": 39,
+              "sentences": 2,
+              "avg_sentence_words": 19.5,
+              "fk_grade": 11.7,
+              "long_word_pct": 17.9,
+              "speak_seconds_est": 19.5,
+              "fill_pct": 97.5,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-3 (education/mobility framing): the labor market specifically. Facts and sources: minimum wage NT$29,500/month, NT$196/hour from 1 Jan 2026 (up from NT$28,590/NT$190 in 2025), 10th consecutive annual rise, cumulative +47.4% monthly/+63.3% hourly, 2.47 million workers benefiting (Ministry of Labor announcements via Taiwan News/Focus Taiwan, Sep-Dec 2025). OECD low-wage threshold ~NT$390,000/year; 1.26 million full-time employees (16.8%) below it in 2024; median regular monthly wage ~NT$37,000 (DGBAS 2024 wage statistics via Liberty Times). Atypical (part-time/temporary/dispatch) employment over 800,000 workers in 2024 (DGBAS Manpower Utilization Survey via 人間福報). Delivery riders ~88,000 by end of 2020, historically classified as contractors excluded from the Labor Standards Act; 2019 rider deaths triggered union push (Rest of World, New Bloom Magazine, GBLL). Delivery Workers Rights Protection and Delivery Platform Management Act: passed by Legislative Yuan 6 Jan 2026, promulgated 21 Jan 2026, effective 21 Jul 2026; NT$45/order floor rising with minimum wage, mandatory group accident insurance and liability insurance, deactivation appeal process (Legislative Yuan, Ministry of Labor, CNA, Taipei Times, Jul 2026). Rev.2: split run-on sentences that blew past the 20-second cap, rebalanced long-word% into the B2 band (some slides were over-dense, one was under), and added concession/passive/participle-clause/cleft instances so B2 carries the grammar range a CEFR examiner expects, not just harder vocabulary.",
+              "workbook_text": null
+            }
+          }
+        },
+        {
+          "slide_no": 3,
+          "title": {
+            "en": "Minimum Wage on a High-Cost Island",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Taiwan's minimum wage is now NT$29,500 a month. That is NT$196 for every hour of work. Many of you earn close to this number in a part-time job.",
+              "words": 31,
+              "sentences": 3,
+              "avg_sentence_words": 10.3,
+              "fk_grade": 5.2,
+              "long_word_pct": 6.5,
+              "speak_seconds_est": 19.6,
+              "fill_pct": 97.9,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-3 (education/mobility framing): the labor market specifically. Facts and sources: minimum wage NT$29,500/month, NT$196/hour from 1 Jan 2026 (up from NT$28,590/NT$190 in 2025), 10th consecutive annual rise, cumulative +47.4% monthly/+63.3% hourly, 2.47 million workers benefiting (Ministry of Labor announcements via Taiwan News/Focus Taiwan, Sep-Dec 2025). OECD low-wage threshold ~NT$390,000/year; 1.26 million full-time employees (16.8%) below it in 2024; median regular monthly wage ~NT$37,000 (DGBAS 2024 wage statistics via Liberty Times). Atypical (part-time/temporary/dispatch) employment over 800,000 workers in 2024 (DGBAS Manpower Utilization Survey via 人間福報). Delivery riders ~88,000 by end of 2020, historically classified as contractors excluded from the Labor Standards Act; 2019 rider deaths triggered union push (Rest of World, New Bloom Magazine, GBLL). Delivery Workers Rights Protection and Delivery Platform Management Act: passed by Legislative Yuan 6 Jan 2026, promulgated 21 Jan 2026, effective 21 Jul 2026; NT$45/order floor rising with minimum wage, mandatory group accident insurance and liability insurance, deactivation appeal process (Legislative Yuan, Ministry of Labor, CNA, Taipei Times, Jul 2026). Rev.2: trimmed word counts that exceeded the 20-second cap (comma-formatted figures like NT$29,500 tokenize as multiple spoken words), and simplified vocabulary that pushed long-word% above the A2 band.",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "Since the start of 2026, the legal pay floor has climbed to NT$29,500 a month, equivalent to NT$196 an hour. If you already hold a part-time job, that figure might look familiar.",
+              "words": 35,
+              "sentences": 2,
+              "avg_sentence_words": 17.5,
+              "fk_grade": 9.4,
+              "long_word_pct": 8.6,
+              "speak_seconds_est": 19.1,
+              "fill_pct": 95.5,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-3 (education/mobility framing): the labor market specifically. Facts and sources: minimum wage NT$29,500/month, NT$196/hour from 1 Jan 2026 (up from NT$28,590/NT$190 in 2025), 10th consecutive annual rise, cumulative +47.4% monthly/+63.3% hourly, 2.47 million workers benefiting (Ministry of Labor announcements via Taiwan News/Focus Taiwan, Sep-Dec 2025). OECD low-wage threshold ~NT$390,000/year; 1.26 million full-time employees (16.8%) below it in 2024; median regular monthly wage ~NT$37,000 (DGBAS 2024 wage statistics via Liberty Times). Atypical (part-time/temporary/dispatch) employment over 800,000 workers in 2024 (DGBAS Manpower Utilization Survey via 人間福報). Delivery riders ~88,000 by end of 2020, historically classified as contractors excluded from the Labor Standards Act; 2019 rider deaths triggered union push (Rest of World, New Bloom Magazine, GBLL). Delivery Workers Rights Protection and Delivery Platform Management Act: passed by Legislative Yuan 6 Jan 2026, promulgated 21 Jan 2026, effective 21 Jul 2026; NT$45/order floor rising with minimum wage, mandatory group accident insurance and liability insurance, deactivation appeal process (Legislative Yuan, Ministry of Labor, CNA, Taipei Times, Jul 2026). Rev.2: split run-on sentences that exceeded the B1 sentence-length/FK band (the full statutory law name in particular is long and unavoidable, so it is paraphrased at B1/A2 and the full title reserved for context), and diversified vocabulary against the A2 and B2 texts to reduce content-word overlap.",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "Since January 2026, Taiwan's minimum wage has stood at NT$29,500 monthly, equivalent to NT$196 hourly. For many students listening today, that number represents not an abstract statistic but the precise amount appearing on their own payslip.",
+              "words": 39,
+              "sentences": 2,
+              "avg_sentence_words": 19.5,
+              "fk_grade": 14.1,
+              "long_word_pct": 20.5,
+              "speak_seconds_est": 19.5,
+              "fill_pct": 97.5,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-3 (education/mobility framing): the labor market specifically. Facts and sources: minimum wage NT$29,500/month, NT$196/hour from 1 Jan 2026 (up from NT$28,590/NT$190 in 2025), 10th consecutive annual rise, cumulative +47.4% monthly/+63.3% hourly, 2.47 million workers benefiting (Ministry of Labor announcements via Taiwan News/Focus Taiwan, Sep-Dec 2025). OECD low-wage threshold ~NT$390,000/year; 1.26 million full-time employees (16.8%) below it in 2024; median regular monthly wage ~NT$37,000 (DGBAS 2024 wage statistics via Liberty Times). Atypical (part-time/temporary/dispatch) employment over 800,000 workers in 2024 (DGBAS Manpower Utilization Survey via 人間福報). Delivery riders ~88,000 by end of 2020, historically classified as contractors excluded from the Labor Standards Act; 2019 rider deaths triggered union push (Rest of World, New Bloom Magazine, GBLL). Delivery Workers Rights Protection and Delivery Platform Management Act: passed by Legislative Yuan 6 Jan 2026, promulgated 21 Jan 2026, effective 21 Jul 2026; NT$45/order floor rising with minimum wage, mandatory group accident insurance and liability insurance, deactivation appeal process (Legislative Yuan, Ministry of Labor, CNA, Taipei Times, Jul 2026). Rev.2: split run-on sentences that blew past the 20-second cap, rebalanced long-word% into the B2 band (some slides were over-dense, one was under), and added concession/passive/participle-clause/cleft instances so B2 carries the grammar range a CEFR examiner expects, not just harder vocabulary.",
+              "workbook_text": null
+            }
+          }
+        }
+      ]
+    },
+    {
+      "part_no": 2,
+      "source_description": "Part 2: Problem (Slides 4-6: the low-wage line, the rise of atypical/gig employment, platform delivery work with no safety net)",
+      "function_en": "Problem",
+      "function_zh": "問題指認：趨勢與因果",
+      "language_pattern": "present progressive for trends / this causes ...",
+      "slides": [
+        {
+          "slide_no": 4,
+          "title": {
+            "en": "Working Below the Low-Wage Line",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Taiwan uses a simple test for low pay: two-thirds of the average wage. That line sits near NT$390,000 a year. About 1.26 million workers earn less than that.",
+              "words": 31,
+              "sentences": 3,
+              "avg_sentence_words": 10.3,
+              "fk_grade": 5.6,
+              "long_word_pct": 3.2,
+              "speak_seconds_est": 19.6,
+              "fill_pct": 97.9,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-3 (education/mobility framing): the labor market specifically. Facts and sources: minimum wage NT$29,500/month, NT$196/hour from 1 Jan 2026 (up from NT$28,590/NT$190 in 2025), 10th consecutive annual rise, cumulative +47.4% monthly/+63.3% hourly, 2.47 million workers benefiting (Ministry of Labor announcements via Taiwan News/Focus Taiwan, Sep-Dec 2025). OECD low-wage threshold ~NT$390,000/year; 1.26 million full-time employees (16.8%) below it in 2024; median regular monthly wage ~NT$37,000 (DGBAS 2024 wage statistics via Liberty Times). Atypical (part-time/temporary/dispatch) employment over 800,000 workers in 2024 (DGBAS Manpower Utilization Survey via 人間福報). Delivery riders ~88,000 by end of 2020, historically classified as contractors excluded from the Labor Standards Act; 2019 rider deaths triggered union push (Rest of World, New Bloom Magazine, GBLL). Delivery Workers Rights Protection and Delivery Platform Management Act: passed by Legislative Yuan 6 Jan 2026, promulgated 21 Jan 2026, effective 21 Jul 2026; NT$45/order floor rising with minimum wage, mandatory group accident insurance and liability insurance, deactivation appeal process (Legislative Yuan, Ministry of Labor, CNA, Taipei Times, Jul 2026). Rev.2: trimmed word counts that exceeded the 20-second cap (comma-formatted figures like NT$29,500 tokenize as multiple spoken words), and simplified vocabulary that pushed long-word% above the A2 band.",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "By definition, anyone earning less than two-thirds of the median salary counts as low-paid. That threshold sits at roughly NT$390,000 a year. In 2024, some 1.26 million full-time employees fell under it.",
+              "words": 35,
+              "sentences": 3,
+              "avg_sentence_words": 11.7,
+              "fk_grade": 8.9,
+              "long_word_pct": 17.1,
+              "speak_seconds_est": 19.1,
+              "fill_pct": 95.5,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-3 (education/mobility framing): the labor market specifically. Facts and sources: minimum wage NT$29,500/month, NT$196/hour from 1 Jan 2026 (up from NT$28,590/NT$190 in 2025), 10th consecutive annual rise, cumulative +47.4% monthly/+63.3% hourly, 2.47 million workers benefiting (Ministry of Labor announcements via Taiwan News/Focus Taiwan, Sep-Dec 2025). OECD low-wage threshold ~NT$390,000/year; 1.26 million full-time employees (16.8%) below it in 2024; median regular monthly wage ~NT$37,000 (DGBAS 2024 wage statistics via Liberty Times). Atypical (part-time/temporary/dispatch) employment over 800,000 workers in 2024 (DGBAS Manpower Utilization Survey via 人間福報). Delivery riders ~88,000 by end of 2020, historically classified as contractors excluded from the Labor Standards Act; 2019 rider deaths triggered union push (Rest of World, New Bloom Magazine, GBLL). Delivery Workers Rights Protection and Delivery Platform Management Act: passed by Legislative Yuan 6 Jan 2026, promulgated 21 Jan 2026, effective 21 Jul 2026; NT$45/order floor rising with minimum wage, mandatory group accident insurance and liability insurance, deactivation appeal process (Legislative Yuan, Ministry of Labor, CNA, Taipei Times, Jul 2026). Rev.2: split run-on sentences that exceeded the B1 sentence-length/FK band (the full statutory law name in particular is long and unavoidable, so it is paraphrased at B1/A2 and the full title reserved for context), and diversified vocabulary against the A2 and B2 texts to reduce content-word overlap.",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "Taiwan calculates a low-wage threshold at two-thirds of the median wage, near NT$390,000 a year. In 2024, around 1.26 million employees were classified as low-wage earners, while the median monthly wage sat at about NT$37,000.",
+              "words": 40,
+              "sentences": 2,
+              "avg_sentence_words": 20.0,
+              "fk_grade": 12.9,
+              "long_word_pct": 17.5,
+              "speak_seconds_est": 20.0,
+              "fill_pct": 100.0,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-3 (education/mobility framing): the labor market specifically. Facts and sources: minimum wage NT$29,500/month, NT$196/hour from 1 Jan 2026 (up from NT$28,590/NT$190 in 2025), 10th consecutive annual rise, cumulative +47.4% monthly/+63.3% hourly, 2.47 million workers benefiting (Ministry of Labor announcements via Taiwan News/Focus Taiwan, Sep-Dec 2025). OECD low-wage threshold ~NT$390,000/year; 1.26 million full-time employees (16.8%) below it in 2024; median regular monthly wage ~NT$37,000 (DGBAS 2024 wage statistics via Liberty Times). Atypical (part-time/temporary/dispatch) employment over 800,000 workers in 2024 (DGBAS Manpower Utilization Survey via 人間福報). Delivery riders ~88,000 by end of 2020, historically classified as contractors excluded from the Labor Standards Act; 2019 rider deaths triggered union push (Rest of World, New Bloom Magazine, GBLL). Delivery Workers Rights Protection and Delivery Platform Management Act: passed by Legislative Yuan 6 Jan 2026, promulgated 21 Jan 2026, effective 21 Jul 2026; NT$45/order floor rising with minimum wage, mandatory group accident insurance and liability insurance, deactivation appeal process (Legislative Yuan, Ministry of Labor, CNA, Taipei Times, Jul 2026). Rev.2: split run-on sentences that blew past the 20-second cap, rebalanced long-word% into the B2 band (some slides were over-dense, one was under), and added concession/passive/participle-clause/cleft instances so B2 carries the grammar range a CEFR examiner expects, not just harder vocabulary.",
+              "workbook_text": null
+            }
+          }
+        },
+        {
+          "slide_no": 5,
+          "title": {
+            "en": "The Rise of Atypical Work",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Not every job in Taiwan is full-time or stable. In 2024, over 800,000 people had part-time jobs. These jobs come with less safety.",
+              "words": 24,
+              "sentences": 3,
+              "avg_sentence_words": 8.0,
+              "fk_grade": 7.7,
+              "long_word_pct": 8.3,
+              "speak_seconds_est": 15.2,
+              "fill_pct": 75.8,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-3 (education/mobility framing): the labor market specifically. Facts and sources: minimum wage NT$29,500/month, NT$196/hour from 1 Jan 2026 (up from NT$28,590/NT$190 in 2025), 10th consecutive annual rise, cumulative +47.4% monthly/+63.3% hourly, 2.47 million workers benefiting (Ministry of Labor announcements via Taiwan News/Focus Taiwan, Sep-Dec 2025). OECD low-wage threshold ~NT$390,000/year; 1.26 million full-time employees (16.8%) below it in 2024; median regular monthly wage ~NT$37,000 (DGBAS 2024 wage statistics via Liberty Times). Atypical (part-time/temporary/dispatch) employment over 800,000 workers in 2024 (DGBAS Manpower Utilization Survey via 人間福報). Delivery riders ~88,000 by end of 2020, historically classified as contractors excluded from the Labor Standards Act; 2019 rider deaths triggered union push (Rest of World, New Bloom Magazine, GBLL). Delivery Workers Rights Protection and Delivery Platform Management Act: passed by Legislative Yuan 6 Jan 2026, promulgated 21 Jan 2026, effective 21 Jul 2026; NT$45/order floor rising with minimum wage, mandatory group accident insurance and liability insurance, deactivation appeal process (Legislative Yuan, Ministry of Labor, CNA, Taipei Times, Jul 2026). Rev.2: trimmed word counts that exceeded the 20-second cap (comma-formatted figures like NT$29,500 tokenize as multiple spoken words), and simplified vocabulary that pushed long-word% above the A2 band.",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "Not every job here is full-time or stable. By 2024, over 800,000 people in Taiwan held part-time jobs, temporary jobs, or dispatch jobs. Many of them offered little job security.",
+              "words": 31,
+              "sentences": 3,
+              "avg_sentence_words": 10.3,
+              "fk_grade": 10.1,
+              "long_word_pct": 16.1,
+              "speak_seconds_est": 16.9,
+              "fill_pct": 84.5,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-3 (education/mobility framing): the labor market specifically. Facts and sources: minimum wage NT$29,500/month, NT$196/hour from 1 Jan 2026 (up from NT$28,590/NT$190 in 2025), 10th consecutive annual rise, cumulative +47.4% monthly/+63.3% hourly, 2.47 million workers benefiting (Ministry of Labor announcements via Taiwan News/Focus Taiwan, Sep-Dec 2025). OECD low-wage threshold ~NT$390,000/year; 1.26 million full-time employees (16.8%) below it in 2024; median regular monthly wage ~NT$37,000 (DGBAS 2024 wage statistics via Liberty Times). Atypical (part-time/temporary/dispatch) employment over 800,000 workers in 2024 (DGBAS Manpower Utilization Survey via 人間福報). Delivery riders ~88,000 by end of 2020, historically classified as contractors excluded from the Labor Standards Act; 2019 rider deaths triggered union push (Rest of World, New Bloom Magazine, GBLL). Delivery Workers Rights Protection and Delivery Platform Management Act: passed by Legislative Yuan 6 Jan 2026, promulgated 21 Jan 2026, effective 21 Jul 2026; NT$45/order floor rising with minimum wage, mandatory group accident insurance and liability insurance, deactivation appeal process (Legislative Yuan, Ministry of Labor, CNA, Taipei Times, Jul 2026). Rev.2: split run-on sentences that exceeded the B1 sentence-length/FK band (the full statutory law name in particular is long and unavoidable, so it is paraphrased at B1/A2 and the full title reserved for context), and diversified vocabulary against the A2 and B2 texts to reduce content-word overlap.",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "A large share of Taiwan's workforce sits outside full-time work. By 2024, more than 800,000 people held part-time, temporary, or dispatch jobs, roles that rarely offer real job security.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 11.5,
+              "long_word_pct": 23.3,
+              "speak_seconds_est": 15.0,
+              "fill_pct": 75.0,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-3 (education/mobility framing): the labor market specifically. Facts and sources: minimum wage NT$29,500/month, NT$196/hour from 1 Jan 2026 (up from NT$28,590/NT$190 in 2025), 10th consecutive annual rise, cumulative +47.4% monthly/+63.3% hourly, 2.47 million workers benefiting (Ministry of Labor announcements via Taiwan News/Focus Taiwan, Sep-Dec 2025). OECD low-wage threshold ~NT$390,000/year; 1.26 million full-time employees (16.8%) below it in 2024; median regular monthly wage ~NT$37,000 (DGBAS 2024 wage statistics via Liberty Times). Atypical (part-time/temporary/dispatch) employment over 800,000 workers in 2024 (DGBAS Manpower Utilization Survey via 人間福報). Delivery riders ~88,000 by end of 2020, historically classified as contractors excluded from the Labor Standards Act; 2019 rider deaths triggered union push (Rest of World, New Bloom Magazine, GBLL). Delivery Workers Rights Protection and Delivery Platform Management Act: passed by Legislative Yuan 6 Jan 2026, promulgated 21 Jan 2026, effective 21 Jul 2026; NT$45/order floor rising with minimum wage, mandatory group accident insurance and liability insurance, deactivation appeal process (Legislative Yuan, Ministry of Labor, CNA, Taipei Times, Jul 2026). Rev.2: split run-on sentences that blew past the 20-second cap, rebalanced long-word% into the B2 band (some slides were over-dense, one was under), and added concession/passive/participle-clause/cleft instances so B2 carries the grammar range a CEFR examiner expects, not just harder vocabulary.",
+              "workbook_text": null
+            }
+          }
+        },
+        {
+          "slide_no": 6,
+          "title": {
+            "en": "Gig Work Without a Safety Net",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Look at food delivery riders. About 88,000 people rode for Uber Eats or foodpanda by 2020. For years, firms called them contractors. The law did not help them.",
+              "words": 29,
+              "sentences": 4,
+              "avg_sentence_words": 7.2,
+              "fk_grade": 6.4,
+              "long_word_pct": 10.3,
+              "speak_seconds_est": 18.3,
+              "fill_pct": 91.6,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-3 (education/mobility framing): the labor market specifically. Facts and sources: minimum wage NT$29,500/month, NT$196/hour from 1 Jan 2026 (up from NT$28,590/NT$190 in 2025), 10th consecutive annual rise, cumulative +47.4% monthly/+63.3% hourly, 2.47 million workers benefiting (Ministry of Labor announcements via Taiwan News/Focus Taiwan, Sep-Dec 2025). OECD low-wage threshold ~NT$390,000/year; 1.26 million full-time employees (16.8%) below it in 2024; median regular monthly wage ~NT$37,000 (DGBAS 2024 wage statistics via Liberty Times). Atypical (part-time/temporary/dispatch) employment over 800,000 workers in 2024 (DGBAS Manpower Utilization Survey via 人間福報). Delivery riders ~88,000 by end of 2020, historically classified as contractors excluded from the Labor Standards Act; 2019 rider deaths triggered union push (Rest of World, New Bloom Magazine, GBLL). Delivery Workers Rights Protection and Delivery Platform Management Act: passed by Legislative Yuan 6 Jan 2026, promulgated 21 Jan 2026, effective 21 Jul 2026; NT$45/order floor rising with minimum wage, mandatory group accident insurance and liability insurance, deactivation appeal process (Legislative Yuan, Ministry of Labor, CNA, Taipei Times, Jul 2026). Rev.2: trimmed word counts that exceeded the 20-second cap (comma-formatted figures like NT$29,500 tokenize as multiple spoken words), and simplified vocabulary that pushed long-word% above the A2 band.",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "Food delivery work shows the pattern clearly. About 88,000 riders were active for Uber Eats and foodpanda by 2020. Firms labeled them contractors, which kept the Labor Standards Act from applying to them.",
+              "words": 34,
+              "sentences": 3,
+              "avg_sentence_words": 11.3,
+              "fk_grade": 9.0,
+              "long_word_pct": 14.7,
+              "speak_seconds_est": 18.5,
+              "fill_pct": 92.7,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-3 (education/mobility framing): the labor market specifically. Facts and sources: minimum wage NT$29,500/month, NT$196/hour from 1 Jan 2026 (up from NT$28,590/NT$190 in 2025), 10th consecutive annual rise, cumulative +47.4% monthly/+63.3% hourly, 2.47 million workers benefiting (Ministry of Labor announcements via Taiwan News/Focus Taiwan, Sep-Dec 2025). OECD low-wage threshold ~NT$390,000/year; 1.26 million full-time employees (16.8%) below it in 2024; median regular monthly wage ~NT$37,000 (DGBAS 2024 wage statistics via Liberty Times). Atypical (part-time/temporary/dispatch) employment over 800,000 workers in 2024 (DGBAS Manpower Utilization Survey via 人間福報). Delivery riders ~88,000 by end of 2020, historically classified as contractors excluded from the Labor Standards Act; 2019 rider deaths triggered union push (Rest of World, New Bloom Magazine, GBLL). Delivery Workers Rights Protection and Delivery Platform Management Act: passed by Legislative Yuan 6 Jan 2026, promulgated 21 Jan 2026, effective 21 Jul 2026; NT$45/order floor rising with minimum wage, mandatory group accident insurance and liability insurance, deactivation appeal process (Legislative Yuan, Ministry of Labor, CNA, Taipei Times, Jul 2026). Rev.2: split run-on sentences that exceeded the B1 sentence-length/FK band (the full statutory law name in particular is long and unavoidable, so it is paraphrased at B1/A2 and the full title reserved for context), and diversified vocabulary against the A2 and B2 texts to reduce content-word overlap.",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "Food delivery riders illustrate this precarity clearly. By 2020, roughly 88,000 people were riding for Uber Eats or foodpanda, yet these platforms classified them as contractors for years, so riders were excluded from the Labor Standards Act.",
+              "words": 38,
+              "sentences": 2,
+              "avg_sentence_words": 19.0,
+              "fk_grade": 13.6,
+              "long_word_pct": 23.7,
+              "speak_seconds_est": 19.0,
+              "fill_pct": 95.0,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-3 (education/mobility framing): the labor market specifically. Facts and sources: minimum wage NT$29,500/month, NT$196/hour from 1 Jan 2026 (up from NT$28,590/NT$190 in 2025), 10th consecutive annual rise, cumulative +47.4% monthly/+63.3% hourly, 2.47 million workers benefiting (Ministry of Labor announcements via Taiwan News/Focus Taiwan, Sep-Dec 2025). OECD low-wage threshold ~NT$390,000/year; 1.26 million full-time employees (16.8%) below it in 2024; median regular monthly wage ~NT$37,000 (DGBAS 2024 wage statistics via Liberty Times). Atypical (part-time/temporary/dispatch) employment over 800,000 workers in 2024 (DGBAS Manpower Utilization Survey via 人間福報). Delivery riders ~88,000 by end of 2020, historically classified as contractors excluded from the Labor Standards Act; 2019 rider deaths triggered union push (Rest of World, New Bloom Magazine, GBLL). Delivery Workers Rights Protection and Delivery Platform Management Act: passed by Legislative Yuan 6 Jan 2026, promulgated 21 Jan 2026, effective 21 Jul 2026; NT$45/order floor rising with minimum wage, mandatory group accident insurance and liability insurance, deactivation appeal process (Legislative Yuan, Ministry of Labor, CNA, Taipei Times, Jul 2026). Rev.2: split run-on sentences that blew past the 20-second cap, rebalanced long-word% into the B2 band (some slides were over-dense, one was under), and added concession/passive/participle-clause/cleft instances so B2 carries the grammar range a CEFR examiner expects, not just harder vocabulary.",
+              "workbook_text": null
+            }
+          }
+        }
+      ]
+    },
+    {
+      "part_no": 3,
+      "source_description": "Part 3: Achievements (Slides 7-9: a decade of minimum-wage rises, the 2026 delivery-worker protection law, contractor-to-protected-worker comparison)",
+      "function_en": "Achievements",
+      "function_zh": "成果：舉證與比較",
+      "language_pattern": "present perfect / comparatives",
+      "slides": [
+        {
+          "slide_no": 7,
+          "title": {
+            "en": "A Decade of Minimum-Wage Rises",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Now for some good news. Taiwan steadily raised the minimum wage every year for ten years in a row. Since that started, the monthly wage grew by 47.4%.",
+              "words": 29,
+              "sentences": 3,
+              "avg_sentence_words": 9.7,
+              "fk_grade": 4.5,
+              "long_word_pct": 3.4,
+              "speak_seconds_est": 18.3,
+              "fill_pct": 91.6,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-3 (education/mobility framing): the labor market specifically. Facts and sources: minimum wage NT$29,500/month, NT$196/hour from 1 Jan 2026 (up from NT$28,590/NT$190 in 2025), 10th consecutive annual rise, cumulative +47.4% monthly/+63.3% hourly, 2.47 million workers benefiting (Ministry of Labor announcements via Taiwan News/Focus Taiwan, Sep-Dec 2025). OECD low-wage threshold ~NT$390,000/year; 1.26 million full-time employees (16.8%) below it in 2024; median regular monthly wage ~NT$37,000 (DGBAS 2024 wage statistics via Liberty Times). Atypical (part-time/temporary/dispatch) employment over 800,000 workers in 2024 (DGBAS Manpower Utilization Survey via 人間福報). Delivery riders ~88,000 by end of 2020, historically classified as contractors excluded from the Labor Standards Act; 2019 rider deaths triggered union push (Rest of World, New Bloom Magazine, GBLL). Delivery Workers Rights Protection and Delivery Platform Management Act: passed by Legislative Yuan 6 Jan 2026, promulgated 21 Jan 2026, effective 21 Jul 2026; NT$45/order floor rising with minimum wage, mandatory group accident insurance and liability insurance, deactivation appeal process (Legislative Yuan, Ministry of Labor, CNA, Taipei Times, Jul 2026). Rev.2: trimmed word counts that exceeded the 20-second cap (comma-formatted figures like NT$29,500 tokenize as multiple spoken words), and simplified vocabulary that pushed long-word% above the A2 band.",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "Here is some real progress. Taiwan has raised its minimum wage for ten consecutive years, and the monthly figure has grown by 47.4% since that run of increases began.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 7.6,
+              "long_word_pct": 10.0,
+              "speak_seconds_est": 16.4,
+              "fill_pct": 81.8,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-3 (education/mobility framing): the labor market specifically. Facts and sources: minimum wage NT$29,500/month, NT$196/hour from 1 Jan 2026 (up from NT$28,590/NT$190 in 2025), 10th consecutive annual rise, cumulative +47.4% monthly/+63.3% hourly, 2.47 million workers benefiting (Ministry of Labor announcements via Taiwan News/Focus Taiwan, Sep-Dec 2025). OECD low-wage threshold ~NT$390,000/year; 1.26 million full-time employees (16.8%) below it in 2024; median regular monthly wage ~NT$37,000 (DGBAS 2024 wage statistics via Liberty Times). Atypical (part-time/temporary/dispatch) employment over 800,000 workers in 2024 (DGBAS Manpower Utilization Survey via 人間福報). Delivery riders ~88,000 by end of 2020, historically classified as contractors excluded from the Labor Standards Act; 2019 rider deaths triggered union push (Rest of World, New Bloom Magazine, GBLL). Delivery Workers Rights Protection and Delivery Platform Management Act: passed by Legislative Yuan 6 Jan 2026, promulgated 21 Jan 2026, effective 21 Jul 2026; NT$45/order floor rising with minimum wage, mandatory group accident insurance and liability insurance, deactivation appeal process (Legislative Yuan, Ministry of Labor, CNA, Taipei Times, Jul 2026). Rev.2: split run-on sentences that exceeded the B1 sentence-length/FK band (the full statutory law name in particular is long and unavoidable, so it is paraphrased at B1/A2 and the full title reserved for context), and diversified vocabulary against the A2 and B2 texts to reduce content-word overlap.",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "Genuine, measurable progress has occurred here. Taiwan has consistently raised its minimum wage for ten consecutive years, a trajectory that has lifted the monthly figure by 47.4% and the hourly figure by 63.3%.",
+              "words": 35,
+              "sentences": 2,
+              "avg_sentence_words": 17.5,
+              "fk_grade": 12.1,
+              "long_word_pct": 17.1,
+              "speak_seconds_est": 17.5,
+              "fill_pct": 87.5,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-3 (education/mobility framing): the labor market specifically. Facts and sources: minimum wage NT$29,500/month, NT$196/hour from 1 Jan 2026 (up from NT$28,590/NT$190 in 2025), 10th consecutive annual rise, cumulative +47.4% monthly/+63.3% hourly, 2.47 million workers benefiting (Ministry of Labor announcements via Taiwan News/Focus Taiwan, Sep-Dec 2025). OECD low-wage threshold ~NT$390,000/year; 1.26 million full-time employees (16.8%) below it in 2024; median regular monthly wage ~NT$37,000 (DGBAS 2024 wage statistics via Liberty Times). Atypical (part-time/temporary/dispatch) employment over 800,000 workers in 2024 (DGBAS Manpower Utilization Survey via 人間福報). Delivery riders ~88,000 by end of 2020, historically classified as contractors excluded from the Labor Standards Act; 2019 rider deaths triggered union push (Rest of World, New Bloom Magazine, GBLL). Delivery Workers Rights Protection and Delivery Platform Management Act: passed by Legislative Yuan 6 Jan 2026, promulgated 21 Jan 2026, effective 21 Jul 2026; NT$45/order floor rising with minimum wage, mandatory group accident insurance and liability insurance, deactivation appeal process (Legislative Yuan, Ministry of Labor, CNA, Taipei Times, Jul 2026). Rev.2: split run-on sentences that blew past the 20-second cap, rebalanced long-word% into the B2 band (some slides were over-dense, one was under), and added concession/passive/participle-clause/cleft instances so B2 carries the grammar range a CEFR examiner expects, not just harder vocabulary.",
+              "workbook_text": null
+            }
+          }
+        },
+        {
+          "slide_no": 8,
+          "title": {
+            "en": "A New Law for Delivery Riders",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "In 2026, Taiwan passed a new law for delivery riders. It sets a floor of NT$45 for every order. It also makes insurance the law, not a choice.",
+              "words": 29,
+              "sentences": 3,
+              "avg_sentence_words": 9.7,
+              "fk_grade": 6.9,
+              "long_word_pct": 6.9,
+              "speak_seconds_est": 18.3,
+              "fill_pct": 91.6,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-3 (education/mobility framing): the labor market specifically. Facts and sources: minimum wage NT$29,500/month, NT$196/hour from 1 Jan 2026 (up from NT$28,590/NT$190 in 2025), 10th consecutive annual rise, cumulative +47.4% monthly/+63.3% hourly, 2.47 million workers benefiting (Ministry of Labor announcements via Taiwan News/Focus Taiwan, Sep-Dec 2025). OECD low-wage threshold ~NT$390,000/year; 1.26 million full-time employees (16.8%) below it in 2024; median regular monthly wage ~NT$37,000 (DGBAS 2024 wage statistics via Liberty Times). Atypical (part-time/temporary/dispatch) employment over 800,000 workers in 2024 (DGBAS Manpower Utilization Survey via 人間福報). Delivery riders ~88,000 by end of 2020, historically classified as contractors excluded from the Labor Standards Act; 2019 rider deaths triggered union push (Rest of World, New Bloom Magazine, GBLL). Delivery Workers Rights Protection and Delivery Platform Management Act: passed by Legislative Yuan 6 Jan 2026, promulgated 21 Jan 2026, effective 21 Jul 2026; NT$45/order floor rising with minimum wage, mandatory group accident insurance and liability insurance, deactivation appeal process (Legislative Yuan, Ministry of Labor, CNA, Taipei Times, Jul 2026). Rev.2: trimmed word counts that exceeded the 20-second cap (comma-formatted figures like NT$29,500 tokenize as multiple spoken words), and simplified vocabulary that pushed long-word% above the A2 band.",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "A new law arrived in January 2026, aimed squarely at delivery riders. Platforms must now pay at least NT$45 per order and give them real insurance too.",
+              "words": 28,
+              "sentences": 2,
+              "avg_sentence_words": 14.0,
+              "fk_grade": 9.7,
+              "long_word_pct": 14.3,
+              "speak_seconds_est": 15.3,
+              "fill_pct": 76.4,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-3 (education/mobility framing): the labor market specifically. Facts and sources: minimum wage NT$29,500/month, NT$196/hour from 1 Jan 2026 (up from NT$28,590/NT$190 in 2025), 10th consecutive annual rise, cumulative +47.4% monthly/+63.3% hourly, 2.47 million workers benefiting (Ministry of Labor announcements via Taiwan News/Focus Taiwan, Sep-Dec 2025). OECD low-wage threshold ~NT$390,000/year; 1.26 million full-time employees (16.8%) below it in 2024; median regular monthly wage ~NT$37,000 (DGBAS 2024 wage statistics via Liberty Times). Atypical (part-time/temporary/dispatch) employment over 800,000 workers in 2024 (DGBAS Manpower Utilization Survey via 人間福報). Delivery riders ~88,000 by end of 2020, historically classified as contractors excluded from the Labor Standards Act; 2019 rider deaths triggered union push (Rest of World, New Bloom Magazine, GBLL). Delivery Workers Rights Protection and Delivery Platform Management Act: passed by Legislative Yuan 6 Jan 2026, promulgated 21 Jan 2026, effective 21 Jul 2026; NT$45/order floor rising with minimum wage, mandatory group accident insurance and liability insurance, deactivation appeal process (Legislative Yuan, Ministry of Labor, CNA, Taipei Times, Jul 2026). Rev.2: split run-on sentences that exceeded the B1 sentence-length/FK band (the full statutory law name in particular is long and unavoidable, so it is paraphrased at B1/A2 and the full title reserved for context), and diversified vocabulary against the A2 and B2 texts to reduce content-word overlap.",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "In January 2026, Taiwan enacted a new law: the Delivery Workers Rights Protection and Delivery Platform Management Act. It set NT$45 as the minimum per order, and insurance became required for every platform.",
+              "words": 34,
+              "sentences": 2,
+              "avg_sentence_words": 17.0,
+              "fk_grade": 14.3,
+              "long_word_pct": 23.5,
+              "speak_seconds_est": 17.0,
+              "fill_pct": 85.0,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-3 (education/mobility framing): the labor market specifically. Facts and sources: minimum wage NT$29,500/month, NT$196/hour from 1 Jan 2026 (up from NT$28,590/NT$190 in 2025), 10th consecutive annual rise, cumulative +47.4% monthly/+63.3% hourly, 2.47 million workers benefiting (Ministry of Labor announcements via Taiwan News/Focus Taiwan, Sep-Dec 2025). OECD low-wage threshold ~NT$390,000/year; 1.26 million full-time employees (16.8%) below it in 2024; median regular monthly wage ~NT$37,000 (DGBAS 2024 wage statistics via Liberty Times). Atypical (part-time/temporary/dispatch) employment over 800,000 workers in 2024 (DGBAS Manpower Utilization Survey via 人間福報). Delivery riders ~88,000 by end of 2020, historically classified as contractors excluded from the Labor Standards Act; 2019 rider deaths triggered union push (Rest of World, New Bloom Magazine, GBLL). Delivery Workers Rights Protection and Delivery Platform Management Act: passed by Legislative Yuan 6 Jan 2026, promulgated 21 Jan 2026, effective 21 Jul 2026; NT$45/order floor rising with minimum wage, mandatory group accident insurance and liability insurance, deactivation appeal process (Legislative Yuan, Ministry of Labor, CNA, Taipei Times, Jul 2026). Rev.2: split run-on sentences that blew past the 20-second cap, rebalanced long-word% into the B2 band (some slides were over-dense, one was under), and added concession/passive/participle-clause/cleft instances so B2 carries the grammar range a CEFR examiner expects, not just harder vocabulary.",
+              "workbook_text": null
+            }
+          }
+        },
+        {
+          "slide_no": 9,
+          "title": {
+            "en": "From Contractor to Protected Worker",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Before, a rider had no insurance and no fixed pay. Now, the new law changed that. Riders finally have a floor price and real insurance behind them.",
+              "words": 27,
+              "sentences": 3,
+              "avg_sentence_words": 9.0,
+              "fk_grade": 5.0,
+              "long_word_pct": 7.4,
+              "speak_seconds_est": 17.1,
+              "fill_pct": 85.3,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-3 (education/mobility framing): the labor market specifically. Facts and sources: minimum wage NT$29,500/month, NT$196/hour from 1 Jan 2026 (up from NT$28,590/NT$190 in 2025), 10th consecutive annual rise, cumulative +47.4% monthly/+63.3% hourly, 2.47 million workers benefiting (Ministry of Labor announcements via Taiwan News/Focus Taiwan, Sep-Dec 2025). OECD low-wage threshold ~NT$390,000/year; 1.26 million full-time employees (16.8%) below it in 2024; median regular monthly wage ~NT$37,000 (DGBAS 2024 wage statistics via Liberty Times). Atypical (part-time/temporary/dispatch) employment over 800,000 workers in 2024 (DGBAS Manpower Utilization Survey via 人間福報). Delivery riders ~88,000 by end of 2020, historically classified as contractors excluded from the Labor Standards Act; 2019 rider deaths triggered union push (Rest of World, New Bloom Magazine, GBLL). Delivery Workers Rights Protection and Delivery Platform Management Act: passed by Legislative Yuan 6 Jan 2026, promulgated 21 Jan 2026, effective 21 Jul 2026; NT$45/order floor rising with minimum wage, mandatory group accident insurance and liability insurance, deactivation appeal process (Legislative Yuan, Ministry of Labor, CNA, Taipei Times, Jul 2026). Rev.2: trimmed word counts that exceeded the 20-second cap (comma-formatted figures like NT$29,500 tokenize as multiple spoken words), and simplified vocabulary that pushed long-word% above the A2 band.",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "Riders have moved from having no guaranteed pay or insurance to having both written into law. That change has officially taken effect, since the act became active in July 2026.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 10.3,
+              "long_word_pct": 10.0,
+              "speak_seconds_est": 16.4,
+              "fill_pct": 81.8,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-3 (education/mobility framing): the labor market specifically. Facts and sources: minimum wage NT$29,500/month, NT$196/hour from 1 Jan 2026 (up from NT$28,590/NT$190 in 2025), 10th consecutive annual rise, cumulative +47.4% monthly/+63.3% hourly, 2.47 million workers benefiting (Ministry of Labor announcements via Taiwan News/Focus Taiwan, Sep-Dec 2025). OECD low-wage threshold ~NT$390,000/year; 1.26 million full-time employees (16.8%) below it in 2024; median regular monthly wage ~NT$37,000 (DGBAS 2024 wage statistics via Liberty Times). Atypical (part-time/temporary/dispatch) employment over 800,000 workers in 2024 (DGBAS Manpower Utilization Survey via 人間福報). Delivery riders ~88,000 by end of 2020, historically classified as contractors excluded from the Labor Standards Act; 2019 rider deaths triggered union push (Rest of World, New Bloom Magazine, GBLL). Delivery Workers Rights Protection and Delivery Platform Management Act: passed by Legislative Yuan 6 Jan 2026, promulgated 21 Jan 2026, effective 21 Jul 2026; NT$45/order floor rising with minimum wage, mandatory group accident insurance and liability insurance, deactivation appeal process (Legislative Yuan, Ministry of Labor, CNA, Taipei Times, Jul 2026). Rev.2: split run-on sentences that exceeded the B1 sentence-length/FK band (the full statutory law name in particular is long and unavoidable, so it is paraphrased at B1/A2 and the full title reserved for context), and diversified vocabulary against the A2 and B2 texts to reduce content-word overlap.",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "Riders have moved from an unregulated arrangement, with no guaranteed pay and no mandatory insurance, to a legally protected one. That shift has already taken effect, since the act came into force in July 2026.",
+              "words": 35,
+              "sentences": 2,
+              "avg_sentence_words": 17.5,
+              "fk_grade": 12.8,
+              "long_word_pct": 17.1,
+              "speak_seconds_est": 17.5,
+              "fill_pct": 87.5,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-3 (education/mobility framing): the labor market specifically. Facts and sources: minimum wage NT$29,500/month, NT$196/hour from 1 Jan 2026 (up from NT$28,590/NT$190 in 2025), 10th consecutive annual rise, cumulative +47.4% monthly/+63.3% hourly, 2.47 million workers benefiting (Ministry of Labor announcements via Taiwan News/Focus Taiwan, Sep-Dec 2025). OECD low-wage threshold ~NT$390,000/year; 1.26 million full-time employees (16.8%) below it in 2024; median regular monthly wage ~NT$37,000 (DGBAS 2024 wage statistics via Liberty Times). Atypical (part-time/temporary/dispatch) employment over 800,000 workers in 2024 (DGBAS Manpower Utilization Survey via 人間福報). Delivery riders ~88,000 by end of 2020, historically classified as contractors excluded from the Labor Standards Act; 2019 rider deaths triggered union push (Rest of World, New Bloom Magazine, GBLL). Delivery Workers Rights Protection and Delivery Platform Management Act: passed by Legislative Yuan 6 Jan 2026, promulgated 21 Jan 2026, effective 21 Jul 2026; NT$45/order floor rising with minimum wage, mandatory group accident insurance and liability insurance, deactivation appeal process (Legislative Yuan, Ministry of Labor, CNA, Taipei Times, Jul 2026). Rev.2: split run-on sentences that blew past the 20-second cap, rebalanced long-word% into the B2 band (some slides were over-dense, one was under), and added concession/passive/participle-clause/cleft instances so B2 carries the grammar range a CEFR examiner expects, not just harder vocabulary.",
+              "workbook_text": null
+            }
+          }
+        }
+      ]
+    },
+    {
+      "part_no": 4,
+      "source_description": "Part 4: Solutions (Slides 10-12: raising wages without killing jobs, extending labor law to atypical workers, rider unions and reskilling)",
+      "function_en": "Solutions",
+      "function_zh": "解方：做法與取捨",
+      "language_pattern": "instead of + V-ing / modal verbs",
+      "slides": [
+        {
+          "slide_no": 10,
+          "title": {
+            "en": "Raising Wages Without Losing Jobs",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Should Taiwan raise the minimum wage again? A higher wage could seriously help workers. But a small shop owner might have to cut hours or jobs.",
+              "words": 26,
+              "sentences": 3,
+              "avg_sentence_words": 8.7,
+              "fk_grade": 3.7,
+              "long_word_pct": 3.8,
+              "speak_seconds_est": 16.4,
+              "fill_pct": 82.1,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-3 (education/mobility framing): the labor market specifically. Facts and sources: minimum wage NT$29,500/month, NT$196/hour from 1 Jan 2026 (up from NT$28,590/NT$190 in 2025), 10th consecutive annual rise, cumulative +47.4% monthly/+63.3% hourly, 2.47 million workers benefiting (Ministry of Labor announcements via Taiwan News/Focus Taiwan, Sep-Dec 2025). OECD low-wage threshold ~NT$390,000/year; 1.26 million full-time employees (16.8%) below it in 2024; median regular monthly wage ~NT$37,000 (DGBAS 2024 wage statistics via Liberty Times). Atypical (part-time/temporary/dispatch) employment over 800,000 workers in 2024 (DGBAS Manpower Utilization Survey via 人間福報). Delivery riders ~88,000 by end of 2020, historically classified as contractors excluded from the Labor Standards Act; 2019 rider deaths triggered union push (Rest of World, New Bloom Magazine, GBLL). Delivery Workers Rights Protection and Delivery Platform Management Act: passed by Legislative Yuan 6 Jan 2026, promulgated 21 Jan 2026, effective 21 Jul 2026; NT$45/order floor rising with minimum wage, mandatory group accident insurance and liability insurance, deactivation appeal process (Legislative Yuan, Ministry of Labor, CNA, Taipei Times, Jul 2026). Rev.2: trimmed word counts that exceeded the 20-second cap (comma-formatted figures like NT$29,500 tokenize as multiple spoken words), and simplified vocabulary that pushed long-word% above the A2 band.",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "Should the minimum wage increase even further? A higher floor could substantially close the low-wage gap, but small employers might have to cut hours or staff in order to afford it.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 7.2,
+              "long_word_pct": 12.9,
+              "speak_seconds_est": 16.9,
+              "fill_pct": 84.5,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-3 (education/mobility framing): the labor market specifically. Facts and sources: minimum wage NT$29,500/month, NT$196/hour from 1 Jan 2026 (up from NT$28,590/NT$190 in 2025), 10th consecutive annual rise, cumulative +47.4% monthly/+63.3% hourly, 2.47 million workers benefiting (Ministry of Labor announcements via Taiwan News/Focus Taiwan, Sep-Dec 2025). OECD low-wage threshold ~NT$390,000/year; 1.26 million full-time employees (16.8%) below it in 2024; median regular monthly wage ~NT$37,000 (DGBAS 2024 wage statistics via Liberty Times). Atypical (part-time/temporary/dispatch) employment over 800,000 workers in 2024 (DGBAS Manpower Utilization Survey via 人間福報). Delivery riders ~88,000 by end of 2020, historically classified as contractors excluded from the Labor Standards Act; 2019 rider deaths triggered union push (Rest of World, New Bloom Magazine, GBLL). Delivery Workers Rights Protection and Delivery Platform Management Act: passed by Legislative Yuan 6 Jan 2026, promulgated 21 Jan 2026, effective 21 Jul 2026; NT$45/order floor rising with minimum wage, mandatory group accident insurance and liability insurance, deactivation appeal process (Legislative Yuan, Ministry of Labor, CNA, Taipei Times, Jul 2026). Rev.2: split run-on sentences that exceeded the B1 sentence-length/FK band (the full statutory law name in particular is long and unavoidable, so it is paraphrased at B1/A2 and the full title reserved for context), and diversified vocabulary against the A2 and B2 texts to reduce content-word overlap.",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "Is further growth in the minimum wage actually sustainable? Narrowing the low-wage gap this way sounds appealing, although it may force smaller employers to compensate by cutting hours, staff, or both.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 9.5,
+              "long_word_pct": 25.8,
+              "speak_seconds_est": 15.5,
+              "fill_pct": 77.5,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-3 (education/mobility framing): the labor market specifically. Facts and sources: minimum wage NT$29,500/month, NT$196/hour from 1 Jan 2026 (up from NT$28,590/NT$190 in 2025), 10th consecutive annual rise, cumulative +47.4% monthly/+63.3% hourly, 2.47 million workers benefiting (Ministry of Labor announcements via Taiwan News/Focus Taiwan, Sep-Dec 2025). OECD low-wage threshold ~NT$390,000/year; 1.26 million full-time employees (16.8%) below it in 2024; median regular monthly wage ~NT$37,000 (DGBAS 2024 wage statistics via Liberty Times). Atypical (part-time/temporary/dispatch) employment over 800,000 workers in 2024 (DGBAS Manpower Utilization Survey via 人間福報). Delivery riders ~88,000 by end of 2020, historically classified as contractors excluded from the Labor Standards Act; 2019 rider deaths triggered union push (Rest of World, New Bloom Magazine, GBLL). Delivery Workers Rights Protection and Delivery Platform Management Act: passed by Legislative Yuan 6 Jan 2026, promulgated 21 Jan 2026, effective 21 Jul 2026; NT$45/order floor rising with minimum wage, mandatory group accident insurance and liability insurance, deactivation appeal process (Legislative Yuan, Ministry of Labor, CNA, Taipei Times, Jul 2026). Rev.2: split run-on sentences that blew past the 20-second cap, rebalanced long-word% into the B2 band (some slides were over-dense, one was under), and added concession/passive/participle-clause/cleft instances so B2 carries the grammar range a CEFR examiner expects, not just harder vocabulary.",
+              "workbook_text": null
+            }
+          }
+        },
+        {
+          "slide_no": 11,
+          "title": {
+            "en": "Extending Labor Law to Atypical Work",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Right now, only riders have this new rule. Leaders could also give the same pay floor and insurance to other workers like them too.",
+              "words": 24,
+              "sentences": 2,
+              "avg_sentence_words": 12.0,
+              "fk_grade": 5.3,
+              "long_word_pct": 4.2,
+              "speak_seconds_est": 15.2,
+              "fill_pct": 75.8,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-3 (education/mobility framing): the labor market specifically. Facts and sources: minimum wage NT$29,500/month, NT$196/hour from 1 Jan 2026 (up from NT$28,590/NT$190 in 2025), 10th consecutive annual rise, cumulative +47.4% monthly/+63.3% hourly, 2.47 million workers benefiting (Ministry of Labor announcements via Taiwan News/Focus Taiwan, Sep-Dec 2025). OECD low-wage threshold ~NT$390,000/year; 1.26 million full-time employees (16.8%) below it in 2024; median regular monthly wage ~NT$37,000 (DGBAS 2024 wage statistics via Liberty Times). Atypical (part-time/temporary/dispatch) employment over 800,000 workers in 2024 (DGBAS Manpower Utilization Survey via 人間福報). Delivery riders ~88,000 by end of 2020, historically classified as contractors excluded from the Labor Standards Act; 2019 rider deaths triggered union push (Rest of World, New Bloom Magazine, GBLL). Delivery Workers Rights Protection and Delivery Platform Management Act: passed by Legislative Yuan 6 Jan 2026, promulgated 21 Jan 2026, effective 21 Jul 2026; NT$45/order floor rising with minimum wage, mandatory group accident insurance and liability insurance, deactivation appeal process (Legislative Yuan, Ministry of Labor, CNA, Taipei Times, Jul 2026). Rev.2: trimmed word counts that exceeded the 20-second cap (comma-formatted figures like NT$29,500 tokenize as multiple spoken words), and simplified vocabulary that pushed long-word% above the A2 band.",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "For now, this protection belongs only to riders. Giving the same pay floor and insurance to other workers, such as part-time staff, is well within reach for leaders.",
+              "words": 28,
+              "sentences": 2,
+              "avg_sentence_words": 14.0,
+              "fk_grade": 7.1,
+              "long_word_pct": 10.7,
+              "speak_seconds_est": 15.3,
+              "fill_pct": 76.4,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-3 (education/mobility framing): the labor market specifically. Facts and sources: minimum wage NT$29,500/month, NT$196/hour from 1 Jan 2026 (up from NT$28,590/NT$190 in 2025), 10th consecutive annual rise, cumulative +47.4% monthly/+63.3% hourly, 2.47 million workers benefiting (Ministry of Labor announcements via Taiwan News/Focus Taiwan, Sep-Dec 2025). OECD low-wage threshold ~NT$390,000/year; 1.26 million full-time employees (16.8%) below it in 2024; median regular monthly wage ~NT$37,000 (DGBAS 2024 wage statistics via Liberty Times). Atypical (part-time/temporary/dispatch) employment over 800,000 workers in 2024 (DGBAS Manpower Utilization Survey via 人間福報). Delivery riders ~88,000 by end of 2020, historically classified as contractors excluded from the Labor Standards Act; 2019 rider deaths triggered union push (Rest of World, New Bloom Magazine, GBLL). Delivery Workers Rights Protection and Delivery Platform Management Act: passed by Legislative Yuan 6 Jan 2026, promulgated 21 Jan 2026, effective 21 Jul 2026; NT$45/order floor rising with minimum wage, mandatory group accident insurance and liability insurance, deactivation appeal process (Legislative Yuan, Ministry of Labor, CNA, Taipei Times, Jul 2026). Rev.2: split run-on sentences that exceeded the B1 sentence-length/FK band (the full statutory law name in particular is long and unavoidable, so it is paraphrased at B1/A2 and the full title reserved for context), and diversified vocabulary against the A2 and B2 texts to reduce content-word overlap.",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "Currently, only delivery riders benefit from this rule. Instead of limiting reform to one sector, lawmakers could extend a similar floor to other workers, who otherwise are left without any comparable guarantee.",
+              "words": 32,
+              "sentences": 2,
+              "avg_sentence_words": 16.0,
+              "fk_grade": 13.5,
+              "long_word_pct": 21.9,
+              "speak_seconds_est": 16.0,
+              "fill_pct": 80.0,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-3 (education/mobility framing): the labor market specifically. Facts and sources: minimum wage NT$29,500/month, NT$196/hour from 1 Jan 2026 (up from NT$28,590/NT$190 in 2025), 10th consecutive annual rise, cumulative +47.4% monthly/+63.3% hourly, 2.47 million workers benefiting (Ministry of Labor announcements via Taiwan News/Focus Taiwan, Sep-Dec 2025). OECD low-wage threshold ~NT$390,000/year; 1.26 million full-time employees (16.8%) below it in 2024; median regular monthly wage ~NT$37,000 (DGBAS 2024 wage statistics via Liberty Times). Atypical (part-time/temporary/dispatch) employment over 800,000 workers in 2024 (DGBAS Manpower Utilization Survey via 人間福報). Delivery riders ~88,000 by end of 2020, historically classified as contractors excluded from the Labor Standards Act; 2019 rider deaths triggered union push (Rest of World, New Bloom Magazine, GBLL). Delivery Workers Rights Protection and Delivery Platform Management Act: passed by Legislative Yuan 6 Jan 2026, promulgated 21 Jan 2026, effective 21 Jul 2026; NT$45/order floor rising with minimum wage, mandatory group accident insurance and liability insurance, deactivation appeal process (Legislative Yuan, Ministry of Labor, CNA, Taipei Times, Jul 2026). Rev.2: split run-on sentences that blew past the 20-second cap, rebalanced long-word% into the B2 band (some slides were over-dense, one was under), and added concession/passive/participle-clause/cleft instances so B2 carries the grammar range a CEFR examiner expects, not just harder vocabulary.",
+              "workbook_text": null
+            }
+          }
+        },
+        {
+          "slide_no": 12,
+          "title": {
+            "en": "Riders Organize, Workers Reskill",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "There are other answers too. Riders can join a union instead of working alone. Workers can also learn new skills to move into steady, full-time jobs.",
+              "words": 26,
+              "sentences": 3,
+              "avg_sentence_words": 8.7,
+              "fk_grade": 5.0,
+              "long_word_pct": 3.8,
+              "speak_seconds_est": 16.4,
+              "fill_pct": 82.1,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-3 (education/mobility framing): the labor market specifically. Facts and sources: minimum wage NT$29,500/month, NT$196/hour from 1 Jan 2026 (up from NT$28,590/NT$190 in 2025), 10th consecutive annual rise, cumulative +47.4% monthly/+63.3% hourly, 2.47 million workers benefiting (Ministry of Labor announcements via Taiwan News/Focus Taiwan, Sep-Dec 2025). OECD low-wage threshold ~NT$390,000/year; 1.26 million full-time employees (16.8%) below it in 2024; median regular monthly wage ~NT$37,000 (DGBAS 2024 wage statistics via Liberty Times). Atypical (part-time/temporary/dispatch) employment over 800,000 workers in 2024 (DGBAS Manpower Utilization Survey via 人間福報). Delivery riders ~88,000 by end of 2020, historically classified as contractors excluded from the Labor Standards Act; 2019 rider deaths triggered union push (Rest of World, New Bloom Magazine, GBLL). Delivery Workers Rights Protection and Delivery Platform Management Act: passed by Legislative Yuan 6 Jan 2026, promulgated 21 Jan 2026, effective 21 Jul 2026; NT$45/order floor rising with minimum wage, mandatory group accident insurance and liability insurance, deactivation appeal process (Legislative Yuan, Ministry of Labor, CNA, Taipei Times, Jul 2026). Rev.2: trimmed word counts that exceeded the 20-second cap (comma-formatted figures like NT$29,500 tokenize as multiple spoken words), and simplified vocabulary that pushed long-word% above the A2 band.",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "Unionizing offers another path forward: instead of talking alone, a rider gains more power as part of a group. Meanwhile, new training helps other workers move into steady, full-time jobs.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 9.9,
+              "long_word_pct": 13.3,
+              "speak_seconds_est": 16.4,
+              "fill_pct": 81.8,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-3 (education/mobility framing): the labor market specifically. Facts and sources: minimum wage NT$29,500/month, NT$196/hour from 1 Jan 2026 (up from NT$28,590/NT$190 in 2025), 10th consecutive annual rise, cumulative +47.4% monthly/+63.3% hourly, 2.47 million workers benefiting (Ministry of Labor announcements via Taiwan News/Focus Taiwan, Sep-Dec 2025). OECD low-wage threshold ~NT$390,000/year; 1.26 million full-time employees (16.8%) below it in 2024; median regular monthly wage ~NT$37,000 (DGBAS 2024 wage statistics via Liberty Times). Atypical (part-time/temporary/dispatch) employment over 800,000 workers in 2024 (DGBAS Manpower Utilization Survey via 人間福報). Delivery riders ~88,000 by end of 2020, historically classified as contractors excluded from the Labor Standards Act; 2019 rider deaths triggered union push (Rest of World, New Bloom Magazine, GBLL). Delivery Workers Rights Protection and Delivery Platform Management Act: passed by Legislative Yuan 6 Jan 2026, promulgated 21 Jan 2026, effective 21 Jul 2026; NT$45/order floor rising with minimum wage, mandatory group accident insurance and liability insurance, deactivation appeal process (Legislative Yuan, Ministry of Labor, CNA, Taipei Times, Jul 2026). Rev.2: split run-on sentences that exceeded the B1 sentence-length/FK band (the full statutory law name in particular is long and unavoidable, so it is paraphrased at B1/A2 and the full title reserved for context), and diversified vocabulary against the A2 and B2 texts to reduce content-word overlap.",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "Other genuine solutions exist too, beyond new laws alone. Riders can organize together instead of negotiating alone, while atypical workers more broadly can join training programs that move them into stable, full-time jobs.",
+              "words": 33,
+              "sentences": 2,
+              "avg_sentence_words": 16.5,
+              "fk_grade": 12.3,
+              "long_word_pct": 24.2,
+              "speak_seconds_est": 16.5,
+              "fill_pct": 82.5,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-3 (education/mobility framing): the labor market specifically. Facts and sources: minimum wage NT$29,500/month, NT$196/hour from 1 Jan 2026 (up from NT$28,590/NT$190 in 2025), 10th consecutive annual rise, cumulative +47.4% monthly/+63.3% hourly, 2.47 million workers benefiting (Ministry of Labor announcements via Taiwan News/Focus Taiwan, Sep-Dec 2025). OECD low-wage threshold ~NT$390,000/year; 1.26 million full-time employees (16.8%) below it in 2024; median regular monthly wage ~NT$37,000 (DGBAS 2024 wage statistics via Liberty Times). Atypical (part-time/temporary/dispatch) employment over 800,000 workers in 2024 (DGBAS Manpower Utilization Survey via 人間福報). Delivery riders ~88,000 by end of 2020, historically classified as contractors excluded from the Labor Standards Act; 2019 rider deaths triggered union push (Rest of World, New Bloom Magazine, GBLL). Delivery Workers Rights Protection and Delivery Platform Management Act: passed by Legislative Yuan 6 Jan 2026, promulgated 21 Jan 2026, effective 21 Jul 2026; NT$45/order floor rising with minimum wage, mandatory group accident insurance and liability insurance, deactivation appeal process (Legislative Yuan, Ministry of Labor, CNA, Taipei Times, Jul 2026). Rev.2: split run-on sentences that blew past the 20-second cap, rebalanced long-word% into the B2 band (some slides were over-dense, one was under), and added concession/passive/participle-clause/cleft instances so B2 carries the grammar range a CEFR examiner expects, not just harder vocabulary.",
+              "workbook_text": null
+            }
+          }
+        }
+      ]
+    },
+    {
+      "part_no": 5,
+      "source_description": "Part 5: Implications (Slides 13-16: one continuous tension - low pay delays independence, small employers' dilemma, gaps the new law leaves open, the national cost of insecurity)",
+      "function_en": "Implications",
+      "function_zh": "影響：推論後果",
+      "language_pattern": "first conditional / however",
+      "slides": [
+        {
+          "slide_no": 13,
+          "title": {
+            "en": "When Low Pay Delays Adulthood",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Low pay changes more than a bank account. If young workers cannot save money, they cannot move out or marry. Many also delay starting a family.",
+              "words": 26,
+              "sentences": 3,
+              "avg_sentence_words": 8.7,
+              "fk_grade": 5.5,
+              "long_word_pct": 3.8,
+              "speak_seconds_est": 16.4,
+              "fill_pct": 82.1,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-3 (education/mobility framing): the labor market specifically. Facts and sources: minimum wage NT$29,500/month, NT$196/hour from 1 Jan 2026 (up from NT$28,590/NT$190 in 2025), 10th consecutive annual rise, cumulative +47.4% monthly/+63.3% hourly, 2.47 million workers benefiting (Ministry of Labor announcements via Taiwan News/Focus Taiwan, Sep-Dec 2025). OECD low-wage threshold ~NT$390,000/year; 1.26 million full-time employees (16.8%) below it in 2024; median regular monthly wage ~NT$37,000 (DGBAS 2024 wage statistics via Liberty Times). Atypical (part-time/temporary/dispatch) employment over 800,000 workers in 2024 (DGBAS Manpower Utilization Survey via 人間福報). Delivery riders ~88,000 by end of 2020, historically classified as contractors excluded from the Labor Standards Act; 2019 rider deaths triggered union push (Rest of World, New Bloom Magazine, GBLL). Delivery Workers Rights Protection and Delivery Platform Management Act: passed by Legislative Yuan 6 Jan 2026, promulgated 21 Jan 2026, effective 21 Jul 2026; NT$45/order floor rising with minimum wage, mandatory group accident insurance and liability insurance, deactivation appeal process (Legislative Yuan, Ministry of Labor, CNA, Taipei Times, Jul 2026). Rev.2: trimmed word counts that exceeded the 20-second cap (comma-formatted figures like NT$29,500 tokenize as multiple spoken words), and simplified vocabulary that pushed long-word% above the A2 band.",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "Low, unstable pay changes more than just a bank balance. If young workers cannot save enough money, they will delay moving out, getting married, or even considering their own children.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 8.7,
+              "long_word_pct": 10.0,
+              "speak_seconds_est": 16.4,
+              "fill_pct": 81.8,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-3 (education/mobility framing): the labor market specifically. Facts and sources: minimum wage NT$29,500/month, NT$196/hour from 1 Jan 2026 (up from NT$28,590/NT$190 in 2025), 10th consecutive annual rise, cumulative +47.4% monthly/+63.3% hourly, 2.47 million workers benefiting (Ministry of Labor announcements via Taiwan News/Focus Taiwan, Sep-Dec 2025). OECD low-wage threshold ~NT$390,000/year; 1.26 million full-time employees (16.8%) below it in 2024; median regular monthly wage ~NT$37,000 (DGBAS 2024 wage statistics via Liberty Times). Atypical (part-time/temporary/dispatch) employment over 800,000 workers in 2024 (DGBAS Manpower Utilization Survey via 人間福報). Delivery riders ~88,000 by end of 2020, historically classified as contractors excluded from the Labor Standards Act; 2019 rider deaths triggered union push (Rest of World, New Bloom Magazine, GBLL). Delivery Workers Rights Protection and Delivery Platform Management Act: passed by Legislative Yuan 6 Jan 2026, promulgated 21 Jan 2026, effective 21 Jul 2026; NT$45/order floor rising with minimum wage, mandatory group accident insurance and liability insurance, deactivation appeal process (Legislative Yuan, Ministry of Labor, CNA, Taipei Times, Jul 2026). Rev.2: split run-on sentences that exceeded the B1 sentence-length/FK band (the full statutory law name in particular is long and unavoidable, so it is paraphrased at B1/A2 and the full title reserved for context), and diversified vocabulary against the A2 and B2 texts to reduce content-word overlap.",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "Low and unstable pay reaches far beyond a bank balance. If young workers cannot accumulate savings, they will postpone moving out, marrying, or starting a family, decisions an entire generation is now delaying.",
+              "words": 33,
+              "sentences": 2,
+              "avg_sentence_words": 16.5,
+              "fk_grade": 10.9,
+              "long_word_pct": 24.2,
+              "speak_seconds_est": 16.5,
+              "fill_pct": 82.5,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-3 (education/mobility framing): the labor market specifically. Facts and sources: minimum wage NT$29,500/month, NT$196/hour from 1 Jan 2026 (up from NT$28,590/NT$190 in 2025), 10th consecutive annual rise, cumulative +47.4% monthly/+63.3% hourly, 2.47 million workers benefiting (Ministry of Labor announcements via Taiwan News/Focus Taiwan, Sep-Dec 2025). OECD low-wage threshold ~NT$390,000/year; 1.26 million full-time employees (16.8%) below it in 2024; median regular monthly wage ~NT$37,000 (DGBAS 2024 wage statistics via Liberty Times). Atypical (part-time/temporary/dispatch) employment over 800,000 workers in 2024 (DGBAS Manpower Utilization Survey via 人間福報). Delivery riders ~88,000 by end of 2020, historically classified as contractors excluded from the Labor Standards Act; 2019 rider deaths triggered union push (Rest of World, New Bloom Magazine, GBLL). Delivery Workers Rights Protection and Delivery Platform Management Act: passed by Legislative Yuan 6 Jan 2026, promulgated 21 Jan 2026, effective 21 Jul 2026; NT$45/order floor rising with minimum wage, mandatory group accident insurance and liability insurance, deactivation appeal process (Legislative Yuan, Ministry of Labor, CNA, Taipei Times, Jul 2026). Rev.2: split run-on sentences that blew past the 20-second cap, rebalanced long-word% into the B2 band (some slides were over-dense, one was under), and added concession/passive/participle-clause/cleft instances so B2 carries the grammar range a CEFR examiner expects, not just harder vocabulary.",
+              "workbook_text": null
+            }
+          }
+        },
+        {
+          "slide_no": 14,
+          "title": {
+            "en": "The Small Employer's Dilemma",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "However, small shops feel this pain too. A little noodle stand barely makes a profit. New pay rules or insurance can hurt that owner badly.",
+              "words": 25,
+              "sentences": 3,
+              "avg_sentence_words": 8.3,
+              "fk_grade": 5.6,
+              "long_word_pct": 4.0,
+              "speak_seconds_est": 15.8,
+              "fill_pct": 78.9,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-3 (education/mobility framing): the labor market specifically. Facts and sources: minimum wage NT$29,500/month, NT$196/hour from 1 Jan 2026 (up from NT$28,590/NT$190 in 2025), 10th consecutive annual rise, cumulative +47.4% monthly/+63.3% hourly, 2.47 million workers benefiting (Ministry of Labor announcements via Taiwan News/Focus Taiwan, Sep-Dec 2025). OECD low-wage threshold ~NT$390,000/year; 1.26 million full-time employees (16.8%) below it in 2024; median regular monthly wage ~NT$37,000 (DGBAS 2024 wage statistics via Liberty Times). Atypical (part-time/temporary/dispatch) employment over 800,000 workers in 2024 (DGBAS Manpower Utilization Survey via 人間福報). Delivery riders ~88,000 by end of 2020, historically classified as contractors excluded from the Labor Standards Act; 2019 rider deaths triggered union push (Rest of World, New Bloom Magazine, GBLL). Delivery Workers Rights Protection and Delivery Platform Management Act: passed by Legislative Yuan 6 Jan 2026, promulgated 21 Jan 2026, effective 21 Jul 2026; NT$45/order floor rising with minimum wage, mandatory group accident insurance and liability insurance, deactivation appeal process (Legislative Yuan, Ministry of Labor, CNA, Taipei Times, Jul 2026). Rev.2: trimmed word counts that exceeded the 20-second cap (comma-formatted figures like NT$29,500 tokenize as multiple spoken words), and simplified vocabulary that pushed long-word% above the A2 band.",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "However, big firms are not the only ones affected here. Take a small noodle shop that survives on a thin profit: a higher wage bill or new insurance costs could threaten its future.",
+              "words": 33,
+              "sentences": 2,
+              "avg_sentence_words": 16.5,
+              "fk_grade": 8.0,
+              "long_word_pct": 12.1,
+              "speak_seconds_est": 18.0,
+              "fill_pct": 90.0,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-3 (education/mobility framing): the labor market specifically. Facts and sources: minimum wage NT$29,500/month, NT$196/hour from 1 Jan 2026 (up from NT$28,590/NT$190 in 2025), 10th consecutive annual rise, cumulative +47.4% monthly/+63.3% hourly, 2.47 million workers benefiting (Ministry of Labor announcements via Taiwan News/Focus Taiwan, Sep-Dec 2025). OECD low-wage threshold ~NT$390,000/year; 1.26 million full-time employees (16.8%) below it in 2024; median regular monthly wage ~NT$37,000 (DGBAS 2024 wage statistics via Liberty Times). Atypical (part-time/temporary/dispatch) employment over 800,000 workers in 2024 (DGBAS Manpower Utilization Survey via 人間福報). Delivery riders ~88,000 by end of 2020, historically classified as contractors excluded from the Labor Standards Act; 2019 rider deaths triggered union push (Rest of World, New Bloom Magazine, GBLL). Delivery Workers Rights Protection and Delivery Platform Management Act: passed by Legislative Yuan 6 Jan 2026, promulgated 21 Jan 2026, effective 21 Jul 2026; NT$45/order floor rising with minimum wage, mandatory group accident insurance and liability insurance, deactivation appeal process (Legislative Yuan, Ministry of Labor, CNA, Taipei Times, Jul 2026). Rev.2: split run-on sentences that exceeded the B1 sentence-length/FK band (the full statutory law name in particular is long and unavoidable, so it is paraphrased at B1/A2 and the full title reserved for context), and diversified vocabulary against the A2 and B2 texts to reduce content-word overlap.",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "However, large enterprises are not the only ones exposed here. A small noodle shop, operating on wafer-thin margins, faces a genuine threat from a higher wage bill or a new insurance cost, not merely an inconvenience.",
+              "words": 36,
+              "sentences": 2,
+              "avg_sentence_words": 18.0,
+              "fk_grade": 11.8,
+              "long_word_pct": 13.9,
+              "speak_seconds_est": 18.0,
+              "fill_pct": 90.0,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-3 (education/mobility framing): the labor market specifically. Facts and sources: minimum wage NT$29,500/month, NT$196/hour from 1 Jan 2026 (up from NT$28,590/NT$190 in 2025), 10th consecutive annual rise, cumulative +47.4% monthly/+63.3% hourly, 2.47 million workers benefiting (Ministry of Labor announcements via Taiwan News/Focus Taiwan, Sep-Dec 2025). OECD low-wage threshold ~NT$390,000/year; 1.26 million full-time employees (16.8%) below it in 2024; median regular monthly wage ~NT$37,000 (DGBAS 2024 wage statistics via Liberty Times). Atypical (part-time/temporary/dispatch) employment over 800,000 workers in 2024 (DGBAS Manpower Utilization Survey via 人間福報). Delivery riders ~88,000 by end of 2020, historically classified as contractors excluded from the Labor Standards Act; 2019 rider deaths triggered union push (Rest of World, New Bloom Magazine, GBLL). Delivery Workers Rights Protection and Delivery Platform Management Act: passed by Legislative Yuan 6 Jan 2026, promulgated 21 Jan 2026, effective 21 Jul 2026; NT$45/order floor rising with minimum wage, mandatory group accident insurance and liability insurance, deactivation appeal process (Legislative Yuan, Ministry of Labor, CNA, Taipei Times, Jul 2026). Rev.2: split run-on sentences that blew past the 20-second cap, rebalanced long-word% into the B2 band (some slides were over-dense, one was under), and added concession/passive/participle-clause/cleft instances so B2 carries the grammar range a CEFR examiner expects, not just harder vocabulary.",
+              "workbook_text": null
+            }
+          }
+        },
+        {
+          "slide_no": 15,
+          "title": {
+            "en": "Protection With Gaps",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "However, the new law today only covers riders. A part-time worker or an agency worker still has no pay floor. There is no insurance either.",
+              "words": 25,
+              "sentences": 3,
+              "avg_sentence_words": 8.3,
+              "fk_grade": 6.1,
+              "long_word_pct": 8.0,
+              "speak_seconds_est": 15.8,
+              "fill_pct": 78.9,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-3 (education/mobility framing): the labor market specifically. Facts and sources: minimum wage NT$29,500/month, NT$196/hour from 1 Jan 2026 (up from NT$28,590/NT$190 in 2025), 10th consecutive annual rise, cumulative +47.4% monthly/+63.3% hourly, 2.47 million workers benefiting (Ministry of Labor announcements via Taiwan News/Focus Taiwan, Sep-Dec 2025). OECD low-wage threshold ~NT$390,000/year; 1.26 million full-time employees (16.8%) below it in 2024; median regular monthly wage ~NT$37,000 (DGBAS 2024 wage statistics via Liberty Times). Atypical (part-time/temporary/dispatch) employment over 800,000 workers in 2024 (DGBAS Manpower Utilization Survey via 人間福報). Delivery riders ~88,000 by end of 2020, historically classified as contractors excluded from the Labor Standards Act; 2019 rider deaths triggered union push (Rest of World, New Bloom Magazine, GBLL). Delivery Workers Rights Protection and Delivery Platform Management Act: passed by Legislative Yuan 6 Jan 2026, promulgated 21 Jan 2026, effective 21 Jul 2026; NT$45/order floor rising with minimum wage, mandatory group accident insurance and liability insurance, deactivation appeal process (Legislative Yuan, Ministry of Labor, CNA, Taipei Times, Jul 2026). Rev.2: trimmed word counts that exceeded the 20-second cap (comma-formatted figures like NT$29,500 tokenize as multiple spoken words), and simplified vocabulary that pushed long-word% above the A2 band.",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "However, that new rule stops at the delivery sector's edge. Someone working part-time in retail, or on a dispatch job in a factory, still lacks any wage floor or real cover.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 8.3,
+              "long_word_pct": 12.9,
+              "speak_seconds_est": 16.9,
+              "fill_pct": 84.5,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-3 (education/mobility framing): the labor market specifically. Facts and sources: minimum wage NT$29,500/month, NT$196/hour from 1 Jan 2026 (up from NT$28,590/NT$190 in 2025), 10th consecutive annual rise, cumulative +47.4% monthly/+63.3% hourly, 2.47 million workers benefiting (Ministry of Labor announcements via Taiwan News/Focus Taiwan, Sep-Dec 2025). OECD low-wage threshold ~NT$390,000/year; 1.26 million full-time employees (16.8%) below it in 2024; median regular monthly wage ~NT$37,000 (DGBAS 2024 wage statistics via Liberty Times). Atypical (part-time/temporary/dispatch) employment over 800,000 workers in 2024 (DGBAS Manpower Utilization Survey via 人間福報). Delivery riders ~88,000 by end of 2020, historically classified as contractors excluded from the Labor Standards Act; 2019 rider deaths triggered union push (Rest of World, New Bloom Magazine, GBLL). Delivery Workers Rights Protection and Delivery Platform Management Act: passed by Legislative Yuan 6 Jan 2026, promulgated 21 Jan 2026, effective 21 Jul 2026; NT$45/order floor rising with minimum wage, mandatory group accident insurance and liability insurance, deactivation appeal process (Legislative Yuan, Ministry of Labor, CNA, Taipei Times, Jul 2026). Rev.2: split run-on sentences that exceeded the B1 sentence-length/FK band (the full statutory law name in particular is long and unavoidable, so it is paraphrased at B1/A2 and the full title reserved for context), and diversified vocabulary against the A2 and B2 texts to reduce content-word overlap.",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "However, the new law protects delivery riders here, leaving a large group unprotected. A part-time cashier or a dispatch factory worker still remains without any guaranteed floor or real insurance.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 11.5,
+              "long_word_pct": 23.3,
+              "speak_seconds_est": 15.0,
+              "fill_pct": 75.0,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-3 (education/mobility framing): the labor market specifically. Facts and sources: minimum wage NT$29,500/month, NT$196/hour from 1 Jan 2026 (up from NT$28,590/NT$190 in 2025), 10th consecutive annual rise, cumulative +47.4% monthly/+63.3% hourly, 2.47 million workers benefiting (Ministry of Labor announcements via Taiwan News/Focus Taiwan, Sep-Dec 2025). OECD low-wage threshold ~NT$390,000/year; 1.26 million full-time employees (16.8%) below it in 2024; median regular monthly wage ~NT$37,000 (DGBAS 2024 wage statistics via Liberty Times). Atypical (part-time/temporary/dispatch) employment over 800,000 workers in 2024 (DGBAS Manpower Utilization Survey via 人間福報). Delivery riders ~88,000 by end of 2020, historically classified as contractors excluded from the Labor Standards Act; 2019 rider deaths triggered union push (Rest of World, New Bloom Magazine, GBLL). Delivery Workers Rights Protection and Delivery Platform Management Act: passed by Legislative Yuan 6 Jan 2026, promulgated 21 Jan 2026, effective 21 Jul 2026; NT$45/order floor rising with minimum wage, mandatory group accident insurance and liability insurance, deactivation appeal process (Legislative Yuan, Ministry of Labor, CNA, Taipei Times, Jul 2026). Rev.2: split run-on sentences that blew past the 20-second cap, rebalanced long-word% into the B2 band (some slides were over-dense, one was under), and added concession/passive/participle-clause/cleft instances so B2 carries the grammar range a CEFR examiner expects, not just harder vocabulary.",
+              "workbook_text": null
+            }
+          }
+        },
+        {
+          "slide_no": 16,
+          "title": {
+            "en": "The Cost of Insecurity for Taiwan",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "However, this affects the whole country too. When work feels unsafe, young people wait longer to marry or have kids. That makes Taiwan's birth problem worse.",
+              "words": 26,
+              "sentences": 3,
+              "avg_sentence_words": 8.7,
+              "fk_grade": 5.0,
+              "long_word_pct": 3.8,
+              "speak_seconds_est": 16.4,
+              "fill_pct": 82.1,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-3 (education/mobility framing): the labor market specifically. Facts and sources: minimum wage NT$29,500/month, NT$196/hour from 1 Jan 2026 (up from NT$28,590/NT$190 in 2025), 10th consecutive annual rise, cumulative +47.4% monthly/+63.3% hourly, 2.47 million workers benefiting (Ministry of Labor announcements via Taiwan News/Focus Taiwan, Sep-Dec 2025). OECD low-wage threshold ~NT$390,000/year; 1.26 million full-time employees (16.8%) below it in 2024; median regular monthly wage ~NT$37,000 (DGBAS 2024 wage statistics via Liberty Times). Atypical (part-time/temporary/dispatch) employment over 800,000 workers in 2024 (DGBAS Manpower Utilization Survey via 人間福報). Delivery riders ~88,000 by end of 2020, historically classified as contractors excluded from the Labor Standards Act; 2019 rider deaths triggered union push (Rest of World, New Bloom Magazine, GBLL). Delivery Workers Rights Protection and Delivery Platform Management Act: passed by Legislative Yuan 6 Jan 2026, promulgated 21 Jan 2026, effective 21 Jul 2026; NT$45/order floor rising with minimum wage, mandatory group accident insurance and liability insurance, deactivation appeal process (Legislative Yuan, Ministry of Labor, CNA, Taipei Times, Jul 2026). Rev.2: trimmed word counts that exceeded the 20-second cap (comma-formatted figures like NT$29,500 tokenize as multiple spoken words), and simplified vocabulary that pushed long-word% above the A2 band.",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "However, this problem reaches the whole country. When work feels unsafe, young people delay marriage and children even further, which makes Taiwan's falling birth rate even harder to fix.",
+              "words": 29,
+              "sentences": 2,
+              "avg_sentence_words": 14.5,
+              "fk_grade": 9.2,
+              "long_word_pct": 10.3,
+              "speak_seconds_est": 15.8,
+              "fill_pct": 79.1,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-3 (education/mobility framing): the labor market specifically. Facts and sources: minimum wage NT$29,500/month, NT$196/hour from 1 Jan 2026 (up from NT$28,590/NT$190 in 2025), 10th consecutive annual rise, cumulative +47.4% monthly/+63.3% hourly, 2.47 million workers benefiting (Ministry of Labor announcements via Taiwan News/Focus Taiwan, Sep-Dec 2025). OECD low-wage threshold ~NT$390,000/year; 1.26 million full-time employees (16.8%) below it in 2024; median regular monthly wage ~NT$37,000 (DGBAS 2024 wage statistics via Liberty Times). Atypical (part-time/temporary/dispatch) employment over 800,000 workers in 2024 (DGBAS Manpower Utilization Survey via 人間福報). Delivery riders ~88,000 by end of 2020, historically classified as contractors excluded from the Labor Standards Act; 2019 rider deaths triggered union push (Rest of World, New Bloom Magazine, GBLL). Delivery Workers Rights Protection and Delivery Platform Management Act: passed by Legislative Yuan 6 Jan 2026, promulgated 21 Jan 2026, effective 21 Jul 2026; NT$45/order floor rising with minimum wage, mandatory group accident insurance and liability insurance, deactivation appeal process (Legislative Yuan, Ministry of Labor, CNA, Taipei Times, Jul 2026). Rev.2: split run-on sentences that exceeded the B1 sentence-length/FK band (the full statutory law name in particular is long and unavoidable, so it is paraphrased at B1/A2 and the full title reserved for context), and diversified vocabulary against the A2 and B2 texts to reduce content-word overlap.",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "However, the consequences of this reach the whole country, not just individual households. What this really costs Taiwan is a demographic decline that grows harder to reverse with every delayed marriage and postponed child.",
+              "words": 34,
+              "sentences": 2,
+              "avg_sentence_words": 17.0,
+              "fk_grade": 11.9,
+              "long_word_pct": 17.6,
+              "speak_seconds_est": 17.0,
+              "fill_pct": 85.0,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-3 (education/mobility framing): the labor market specifically. Facts and sources: minimum wage NT$29,500/month, NT$196/hour from 1 Jan 2026 (up from NT$28,590/NT$190 in 2025), 10th consecutive annual rise, cumulative +47.4% monthly/+63.3% hourly, 2.47 million workers benefiting (Ministry of Labor announcements via Taiwan News/Focus Taiwan, Sep-Dec 2025). OECD low-wage threshold ~NT$390,000/year; 1.26 million full-time employees (16.8%) below it in 2024; median regular monthly wage ~NT$37,000 (DGBAS 2024 wage statistics via Liberty Times). Atypical (part-time/temporary/dispatch) employment over 800,000 workers in 2024 (DGBAS Manpower Utilization Survey via 人間福報). Delivery riders ~88,000 by end of 2020, historically classified as contractors excluded from the Labor Standards Act; 2019 rider deaths triggered union push (Rest of World, New Bloom Magazine, GBLL). Delivery Workers Rights Protection and Delivery Platform Management Act: passed by Legislative Yuan 6 Jan 2026, promulgated 21 Jan 2026, effective 21 Jul 2026; NT$45/order floor rising with minimum wage, mandatory group accident insurance and liability insurance, deactivation appeal process (Legislative Yuan, Ministry of Labor, CNA, Taipei Times, Jul 2026). Rev.2: split run-on sentences that blew past the 20-second cap, rebalanced long-word% into the B2 band (some slides were over-dense, one was under), and added concession/passive/participle-clause/cleft instances so B2 carries the grammar range a CEFR examiner expects, not just harder vocabulary.",
+              "workbook_text": null
+            }
+          }
+        }
+      ]
+    },
+    {
+      "part_no": 6,
+      "source_description": "Part 6: Call to action (Slides 17-20: summary, why it matters to students who work part-time or gig jobs, know-your-rights action, closing claim)",
+      "function_en": "Call to action",
+      "function_zh": "結語：總結與號召",
+      "language_pattern": "to wrap up ... / let's ...",
+      "slides": [
+        {
+          "slide_no": 17,
+          "title": {
+            "en": "Progress, and Its Limits",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "So what actually changed here? Pay went up every year for ten years, and riders now have real help. But many other workers still wait for the same thing.",
+              "words": 29,
+              "sentences": 3,
+              "avg_sentence_words": 9.7,
+              "fk_grade": 3.6,
+              "long_word_pct": 3.4,
+              "speak_seconds_est": 18.3,
+              "fill_pct": 91.6,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-3 (education/mobility framing): the labor market specifically. Facts and sources: minimum wage NT$29,500/month, NT$196/hour from 1 Jan 2026 (up from NT$28,590/NT$190 in 2025), 10th consecutive annual rise, cumulative +47.4% monthly/+63.3% hourly, 2.47 million workers benefiting (Ministry of Labor announcements via Taiwan News/Focus Taiwan, Sep-Dec 2025). OECD low-wage threshold ~NT$390,000/year; 1.26 million full-time employees (16.8%) below it in 2024; median regular monthly wage ~NT$37,000 (DGBAS 2024 wage statistics via Liberty Times). Atypical (part-time/temporary/dispatch) employment over 800,000 workers in 2024 (DGBAS Manpower Utilization Survey via 人間福報). Delivery riders ~88,000 by end of 2020, historically classified as contractors excluded from the Labor Standards Act; 2019 rider deaths triggered union push (Rest of World, New Bloom Magazine, GBLL). Delivery Workers Rights Protection and Delivery Platform Management Act: passed by Legislative Yuan 6 Jan 2026, promulgated 21 Jan 2026, effective 21 Jul 2026; NT$45/order floor rising with minimum wage, mandatory group accident insurance and liability insurance, deactivation appeal process (Legislative Yuan, Ministry of Labor, CNA, Taipei Times, Jul 2026). Rev.2: trimmed word counts that exceeded the 20-second cap (comma-formatted figures like NT$29,500 tokenize as multiple spoken words), and simplified vocabulary that pushed long-word% above the A2 band.",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "So where does this leave us? The minimum wage has climbed for a decade, and riders have finally won real protection, yet many atypical workers are still waiting for the same guarantee.",
+              "words": 32,
+              "sentences": 2,
+              "avg_sentence_words": 16.0,
+              "fk_grade": 8.4,
+              "long_word_pct": 9.4,
+              "speak_seconds_est": 17.5,
+              "fill_pct": 87.3,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-3 (education/mobility framing): the labor market specifically. Facts and sources: minimum wage NT$29,500/month, NT$196/hour from 1 Jan 2026 (up from NT$28,590/NT$190 in 2025), 10th consecutive annual rise, cumulative +47.4% monthly/+63.3% hourly, 2.47 million workers benefiting (Ministry of Labor announcements via Taiwan News/Focus Taiwan, Sep-Dec 2025). OECD low-wage threshold ~NT$390,000/year; 1.26 million full-time employees (16.8%) below it in 2024; median regular monthly wage ~NT$37,000 (DGBAS 2024 wage statistics via Liberty Times). Atypical (part-time/temporary/dispatch) employment over 800,000 workers in 2024 (DGBAS Manpower Utilization Survey via 人間福報). Delivery riders ~88,000 by end of 2020, historically classified as contractors excluded from the Labor Standards Act; 2019 rider deaths triggered union push (Rest of World, New Bloom Magazine, GBLL). Delivery Workers Rights Protection and Delivery Platform Management Act: passed by Legislative Yuan 6 Jan 2026, promulgated 21 Jan 2026, effective 21 Jul 2026; NT$45/order floor rising with minimum wage, mandatory group accident insurance and liability insurance, deactivation appeal process (Legislative Yuan, Ministry of Labor, CNA, Taipei Times, Jul 2026). Rev.2: split run-on sentences that exceeded the B1 sentence-length/FK band (the full statutory law name in particular is long and unavoidable, so it is paraphrased at B1/A2 and the full title reserved for context), and diversified vocabulary against the A2 and B2 texts to reduce content-word overlap.",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "Two truths coexist here: a decade of wage increases has genuinely paid off, and riders have finally secured real protection. Yet a much larger group of atypical workers is still left waiting for anything comparable.",
+              "words": 35,
+              "sentences": 2,
+              "avg_sentence_words": 17.5,
+              "fk_grade": 11.5,
+              "long_word_pct": 17.1,
+              "speak_seconds_est": 17.5,
+              "fill_pct": 87.5,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-3 (education/mobility framing): the labor market specifically. Facts and sources: minimum wage NT$29,500/month, NT$196/hour from 1 Jan 2026 (up from NT$28,590/NT$190 in 2025), 10th consecutive annual rise, cumulative +47.4% monthly/+63.3% hourly, 2.47 million workers benefiting (Ministry of Labor announcements via Taiwan News/Focus Taiwan, Sep-Dec 2025). OECD low-wage threshold ~NT$390,000/year; 1.26 million full-time employees (16.8%) below it in 2024; median regular monthly wage ~NT$37,000 (DGBAS 2024 wage statistics via Liberty Times). Atypical (part-time/temporary/dispatch) employment over 800,000 workers in 2024 (DGBAS Manpower Utilization Survey via 人間福報). Delivery riders ~88,000 by end of 2020, historically classified as contractors excluded from the Labor Standards Act; 2019 rider deaths triggered union push (Rest of World, New Bloom Magazine, GBLL). Delivery Workers Rights Protection and Delivery Platform Management Act: passed by Legislative Yuan 6 Jan 2026, promulgated 21 Jan 2026, effective 21 Jul 2026; NT$45/order floor rising with minimum wage, mandatory group accident insurance and liability insurance, deactivation appeal process (Legislative Yuan, Ministry of Labor, CNA, Taipei Times, Jul 2026). Rev.2: split run-on sentences that blew past the 20-second cap, rebalanced long-word% into the B2 band (some slides were over-dense, one was under), and added concession/passive/participle-clause/cleft instances so B2 carries the grammar range a CEFR examiner expects, not just harder vocabulary.",
+              "workbook_text": null
+            }
+          }
+        },
+        {
+          "slide_no": 18,
+          "title": {
+            "en": "Why This Is Your Economy Too",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "This matters to you right now, because many of you already work part-time or deliver food between classes. This is not someone else's story. It is yours.",
+              "words": 27,
+              "sentences": 3,
+              "avg_sentence_words": 9.0,
+              "fk_grade": 5.4,
+              "long_word_pct": 3.7,
+              "speak_seconds_est": 17.1,
+              "fill_pct": 85.3,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-3 (education/mobility framing): the labor market specifically. Facts and sources: minimum wage NT$29,500/month, NT$196/hour from 1 Jan 2026 (up from NT$28,590/NT$190 in 2025), 10th consecutive annual rise, cumulative +47.4% monthly/+63.3% hourly, 2.47 million workers benefiting (Ministry of Labor announcements via Taiwan News/Focus Taiwan, Sep-Dec 2025). OECD low-wage threshold ~NT$390,000/year; 1.26 million full-time employees (16.8%) below it in 2024; median regular monthly wage ~NT$37,000 (DGBAS 2024 wage statistics via Liberty Times). Atypical (part-time/temporary/dispatch) employment over 800,000 workers in 2024 (DGBAS Manpower Utilization Survey via 人間福報). Delivery riders ~88,000 by end of 2020, historically classified as contractors excluded from the Labor Standards Act; 2019 rider deaths triggered union push (Rest of World, New Bloom Magazine, GBLL). Delivery Workers Rights Protection and Delivery Platform Management Act: passed by Legislative Yuan 6 Jan 2026, promulgated 21 Jan 2026, effective 21 Jul 2026; NT$45/order floor rising with minimum wage, mandatory group accident insurance and liability insurance, deactivation appeal process (Legislative Yuan, Ministry of Labor, CNA, Taipei Times, Jul 2026). Rev.2: trimmed word counts that exceeded the 20-second cap (comma-formatted figures like NT$29,500 tokenize as multiple spoken words), and simplified vocabulary that pushed long-word% above the A2 band.",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "This is not a distant issue. Many students in this very room already hold a part-time job or ride for a delivery app between lectures, so this story belongs to you too.",
+              "words": 32,
+              "sentences": 2,
+              "avg_sentence_words": 16.0,
+              "fk_grade": 8.0,
+              "long_word_pct": 12.5,
+              "speak_seconds_est": 17.5,
+              "fill_pct": 87.3,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-3 (education/mobility framing): the labor market specifically. Facts and sources: minimum wage NT$29,500/month, NT$196/hour from 1 Jan 2026 (up from NT$28,590/NT$190 in 2025), 10th consecutive annual rise, cumulative +47.4% monthly/+63.3% hourly, 2.47 million workers benefiting (Ministry of Labor announcements via Taiwan News/Focus Taiwan, Sep-Dec 2025). OECD low-wage threshold ~NT$390,000/year; 1.26 million full-time employees (16.8%) below it in 2024; median regular monthly wage ~NT$37,000 (DGBAS 2024 wage statistics via Liberty Times). Atypical (part-time/temporary/dispatch) employment over 800,000 workers in 2024 (DGBAS Manpower Utilization Survey via 人間福報). Delivery riders ~88,000 by end of 2020, historically classified as contractors excluded from the Labor Standards Act; 2019 rider deaths triggered union push (Rest of World, New Bloom Magazine, GBLL). Delivery Workers Rights Protection and Delivery Platform Management Act: passed by Legislative Yuan 6 Jan 2026, promulgated 21 Jan 2026, effective 21 Jul 2026; NT$45/order floor rising with minimum wage, mandatory group accident insurance and liability insurance, deactivation appeal process (Legislative Yuan, Ministry of Labor, CNA, Taipei Times, Jul 2026). Rev.2: split run-on sentences that exceeded the B1 sentence-length/FK band (the full statutory law name in particular is long and unavoidable, so it is paraphrased at B1/A2 and the full title reserved for context), and diversified vocabulary against the A2 and B2 texts to reduce content-word overlap.",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "This is not an abstract policy debate for someone else entirely. Many students in this room are already working part-time jobs or delivering food between lectures, which makes this story theirs as much as anyone's.",
+              "words": 35,
+              "sentences": 2,
+              "avg_sentence_words": 17.5,
+              "fk_grade": 11.1,
+              "long_word_pct": 20.0,
+              "speak_seconds_est": 17.5,
+              "fill_pct": 87.5,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-3 (education/mobility framing): the labor market specifically. Facts and sources: minimum wage NT$29,500/month, NT$196/hour from 1 Jan 2026 (up from NT$28,590/NT$190 in 2025), 10th consecutive annual rise, cumulative +47.4% monthly/+63.3% hourly, 2.47 million workers benefiting (Ministry of Labor announcements via Taiwan News/Focus Taiwan, Sep-Dec 2025). OECD low-wage threshold ~NT$390,000/year; 1.26 million full-time employees (16.8%) below it in 2024; median regular monthly wage ~NT$37,000 (DGBAS 2024 wage statistics via Liberty Times). Atypical (part-time/temporary/dispatch) employment over 800,000 workers in 2024 (DGBAS Manpower Utilization Survey via 人間福報). Delivery riders ~88,000 by end of 2020, historically classified as contractors excluded from the Labor Standards Act; 2019 rider deaths triggered union push (Rest of World, New Bloom Magazine, GBLL). Delivery Workers Rights Protection and Delivery Platform Management Act: passed by Legislative Yuan 6 Jan 2026, promulgated 21 Jan 2026, effective 21 Jul 2026; NT$45/order floor rising with minimum wage, mandatory group accident insurance and liability insurance, deactivation appeal process (Legislative Yuan, Ministry of Labor, CNA, Taipei Times, Jul 2026). Rev.2: split run-on sentences that blew past the 20-second cap, rebalanced long-word% into the B2 band (some slides were over-dense, one was under), and added concession/passive/participle-clause/cleft instances so B2 carries the grammar range a CEFR examiner expects, not just harder vocabulary.",
+              "workbook_text": null
+            }
+          }
+        },
+        {
+          "slide_no": 19,
+          "title": {
+            "en": "Know Your Rights, Ask Questions",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "So here is your action for today. Find out today's minimum wage, and look at your pay to see if it matches. Also ask about your insurance.",
+              "words": 27,
+              "sentences": 3,
+              "avg_sentence_words": 9.0,
+              "fk_grade": 4.1,
+              "long_word_pct": 3.7,
+              "speak_seconds_est": 17.1,
+              "fill_pct": 85.3,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-3 (education/mobility framing): the labor market specifically. Facts and sources: minimum wage NT$29,500/month, NT$196/hour from 1 Jan 2026 (up from NT$28,590/NT$190 in 2025), 10th consecutive annual rise, cumulative +47.4% monthly/+63.3% hourly, 2.47 million workers benefiting (Ministry of Labor announcements via Taiwan News/Focus Taiwan, Sep-Dec 2025). OECD low-wage threshold ~NT$390,000/year; 1.26 million full-time employees (16.8%) below it in 2024; median regular monthly wage ~NT$37,000 (DGBAS 2024 wage statistics via Liberty Times). Atypical (part-time/temporary/dispatch) employment over 800,000 workers in 2024 (DGBAS Manpower Utilization Survey via 人間福報). Delivery riders ~88,000 by end of 2020, historically classified as contractors excluded from the Labor Standards Act; 2019 rider deaths triggered union push (Rest of World, New Bloom Magazine, GBLL). Delivery Workers Rights Protection and Delivery Platform Management Act: passed by Legislative Yuan 6 Jan 2026, promulgated 21 Jan 2026, effective 21 Jul 2026; NT$45/order floor rising with minimum wage, mandatory group accident insurance and liability insurance, deactivation appeal process (Legislative Yuan, Ministry of Labor, CNA, Taipei Times, Jul 2026). Rev.2: trimmed word counts that exceeded the 20-second cap (comma-formatted figures like NT$29,500 tokenize as multiple spoken words), and simplified vocabulary that pushed long-word% above the A2 band.",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "Start by checking this year's minimum wage carefully, since that number changes annually. If your pay or your delivery app falls short of it, you can ask why.",
+              "words": 28,
+              "sentences": 2,
+              "avg_sentence_words": 14.0,
+              "fk_grade": 7.1,
+              "long_word_pct": 14.3,
+              "speak_seconds_est": 15.3,
+              "fill_pct": 76.4,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-3 (education/mobility framing): the labor market specifically. Facts and sources: minimum wage NT$29,500/month, NT$196/hour from 1 Jan 2026 (up from NT$28,590/NT$190 in 2025), 10th consecutive annual rise, cumulative +47.4% monthly/+63.3% hourly, 2.47 million workers benefiting (Ministry of Labor announcements via Taiwan News/Focus Taiwan, Sep-Dec 2025). OECD low-wage threshold ~NT$390,000/year; 1.26 million full-time employees (16.8%) below it in 2024; median regular monthly wage ~NT$37,000 (DGBAS 2024 wage statistics via Liberty Times). Atypical (part-time/temporary/dispatch) employment over 800,000 workers in 2024 (DGBAS Manpower Utilization Survey via 人間福報). Delivery riders ~88,000 by end of 2020, historically classified as contractors excluded from the Labor Standards Act; 2019 rider deaths triggered union push (Rest of World, New Bloom Magazine, GBLL). Delivery Workers Rights Protection and Delivery Platform Management Act: passed by Legislative Yuan 6 Jan 2026, promulgated 21 Jan 2026, effective 21 Jul 2026; NT$45/order floor rising with minimum wage, mandatory group accident insurance and liability insurance, deactivation appeal process (Legislative Yuan, Ministry of Labor, CNA, Taipei Times, Jul 2026). Rev.2: split run-on sentences that exceeded the B1 sentence-length/FK band (the full statutory law name in particular is long and unavoidable, so it is paraphrased at B1/A2 and the full title reserved for context), and diversified vocabulary against the A2 and B2 texts to reduce content-word overlap.",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "Investigating the current minimum wage yourself is the first step. Should your pay or your delivery app fall short of it, you are entitled to question why, and equally entitled to ask about your insurance coverage.",
+              "words": 36,
+              "sentences": 2,
+              "avg_sentence_words": 18.0,
+              "fk_grade": 10.8,
+              "long_word_pct": 22.2,
+              "speak_seconds_est": 18.0,
+              "fill_pct": 90.0,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-3 (education/mobility framing): the labor market specifically. Facts and sources: minimum wage NT$29,500/month, NT$196/hour from 1 Jan 2026 (up from NT$28,590/NT$190 in 2025), 10th consecutive annual rise, cumulative +47.4% monthly/+63.3% hourly, 2.47 million workers benefiting (Ministry of Labor announcements via Taiwan News/Focus Taiwan, Sep-Dec 2025). OECD low-wage threshold ~NT$390,000/year; 1.26 million full-time employees (16.8%) below it in 2024; median regular monthly wage ~NT$37,000 (DGBAS 2024 wage statistics via Liberty Times). Atypical (part-time/temporary/dispatch) employment over 800,000 workers in 2024 (DGBAS Manpower Utilization Survey via 人間福報). Delivery riders ~88,000 by end of 2020, historically classified as contractors excluded from the Labor Standards Act; 2019 rider deaths triggered union push (Rest of World, New Bloom Magazine, GBLL). Delivery Workers Rights Protection and Delivery Platform Management Act: passed by Legislative Yuan 6 Jan 2026, promulgated 21 Jan 2026, effective 21 Jul 2026; NT$45/order floor rising with minimum wage, mandatory group accident insurance and liability insurance, deactivation appeal process (Legislative Yuan, Ministry of Labor, CNA, Taipei Times, Jul 2026). Rev.2: split run-on sentences that blew past the 20-second cap, rebalanced long-word% into the B2 band (some slides were over-dense, one was under), and added concession/passive/participle-clause/cleft instances so B2 carries the grammar range a CEFR examiner expects, not just harder vocabulary.",
+              "workbook_text": null
+            }
+          }
+        },
+        {
+          "slide_no": 20,
+          "title": {
+            "en": "A Job Should Be Enough",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "A job should really be enough to live on. Taiwan took real steps, but the work is not yet finished. Ask for more. Start with your own job.",
+              "words": 28,
+              "sentences": 4,
+              "avg_sentence_words": 7.0,
+              "fk_grade": 1.0,
+              "long_word_pct": 3.6,
+              "speak_seconds_est": 17.7,
+              "fill_pct": 88.4,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-3 (education/mobility framing): the labor market specifically. Facts and sources: minimum wage NT$29,500/month, NT$196/hour from 1 Jan 2026 (up from NT$28,590/NT$190 in 2025), 10th consecutive annual rise, cumulative +47.4% monthly/+63.3% hourly, 2.47 million workers benefiting (Ministry of Labor announcements via Taiwan News/Focus Taiwan, Sep-Dec 2025). OECD low-wage threshold ~NT$390,000/year; 1.26 million full-time employees (16.8%) below it in 2024; median regular monthly wage ~NT$37,000 (DGBAS 2024 wage statistics via Liberty Times). Atypical (part-time/temporary/dispatch) employment over 800,000 workers in 2024 (DGBAS Manpower Utilization Survey via 人間福報). Delivery riders ~88,000 by end of 2020, historically classified as contractors excluded from the Labor Standards Act; 2019 rider deaths triggered union push (Rest of World, New Bloom Magazine, GBLL). Delivery Workers Rights Protection and Delivery Platform Management Act: passed by Legislative Yuan 6 Jan 2026, promulgated 21 Jan 2026, effective 21 Jul 2026; NT$45/order floor rising with minimum wage, mandatory group accident insurance and liability insurance, deactivation appeal process (Legislative Yuan, Ministry of Labor, CNA, Taipei Times, Jul 2026). Rev.2: trimmed word counts that exceeded the 20-second cap (comma-formatted figures like NT$29,500 tokenize as multiple spoken words), and simplified vocabulary that pushed long-word% above the A2 band.",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "A job should be enough to live on, not just enough to survive it. Taiwan has taken genuine, measurable steps forward. Yet the real work remains unfinished, starting with the very job you currently hold.",
+              "words": 35,
+              "sentences": 3,
+              "avg_sentence_words": 11.7,
+              "fk_grade": 6.8,
+              "long_word_pct": 11.4,
+              "speak_seconds_est": 19.1,
+              "fill_pct": 95.5,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-3 (education/mobility framing): the labor market specifically. Facts and sources: minimum wage NT$29,500/month, NT$196/hour from 1 Jan 2026 (up from NT$28,590/NT$190 in 2025), 10th consecutive annual rise, cumulative +47.4% monthly/+63.3% hourly, 2.47 million workers benefiting (Ministry of Labor announcements via Taiwan News/Focus Taiwan, Sep-Dec 2025). OECD low-wage threshold ~NT$390,000/year; 1.26 million full-time employees (16.8%) below it in 2024; median regular monthly wage ~NT$37,000 (DGBAS 2024 wage statistics via Liberty Times). Atypical (part-time/temporary/dispatch) employment over 800,000 workers in 2024 (DGBAS Manpower Utilization Survey via 人間福報). Delivery riders ~88,000 by end of 2020, historically classified as contractors excluded from the Labor Standards Act; 2019 rider deaths triggered union push (Rest of World, New Bloom Magazine, GBLL). Delivery Workers Rights Protection and Delivery Platform Management Act: passed by Legislative Yuan 6 Jan 2026, promulgated 21 Jan 2026, effective 21 Jul 2026; NT$45/order floor rising with minimum wage, mandatory group accident insurance and liability insurance, deactivation appeal process (Legislative Yuan, Ministry of Labor, CNA, Taipei Times, Jul 2026). Rev.2: split run-on sentences that exceeded the B1 sentence-length/FK band (the full statutory law name in particular is long and unavoidable, so it is paraphrased at B1/A2 and the full title reserved for context), and diversified vocabulary against the A2 and B2 texts to reduce content-word overlap.",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "Sufficiency, not mere survival, ought to be what a wage guarantees. Real, measurable progress has occurred, although the underlying work is far from complete, and it starts by interrogating the very job in front of you.",
+              "words": 36,
+              "sentences": 2,
+              "avg_sentence_words": 18.0,
+              "fk_grade": 10.4,
+              "long_word_pct": 27.8,
+              "speak_seconds_est": 18.0,
+              "fill_pct": 90.0,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-3 (education/mobility framing): the labor market specifically. Facts and sources: minimum wage NT$29,500/month, NT$196/hour from 1 Jan 2026 (up from NT$28,590/NT$190 in 2025), 10th consecutive annual rise, cumulative +47.4% monthly/+63.3% hourly, 2.47 million workers benefiting (Ministry of Labor announcements via Taiwan News/Focus Taiwan, Sep-Dec 2025). OECD low-wage threshold ~NT$390,000/year; 1.26 million full-time employees (16.8%) below it in 2024; median regular monthly wage ~NT$37,000 (DGBAS 2024 wage statistics via Liberty Times). Atypical (part-time/temporary/dispatch) employment over 800,000 workers in 2024 (DGBAS Manpower Utilization Survey via 人間福報). Delivery riders ~88,000 by end of 2020, historically classified as contractors excluded from the Labor Standards Act; 2019 rider deaths triggered union push (Rest of World, New Bloom Magazine, GBLL). Delivery Workers Rights Protection and Delivery Platform Management Act: passed by Legislative Yuan 6 Jan 2026, promulgated 21 Jan 2026, effective 21 Jul 2026; NT$45/order floor rising with minimum wage, mandatory group accident insurance and liability insurance, deactivation appeal process (Legislative Yuan, Ministry of Labor, CNA, Taipei Times, Jul 2026). Rev.2: split run-on sentences that blew past the 20-second cap, rebalanced long-word% into the B2 band (some slides were over-dense, one was under), and added concession/passive/participle-clause/cleft instances so B2 carries the grammar range a CEFR examiner expects, not just harder vocabulary.",
+              "workbook_text": null
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "level_summary": {
+    "A2": {
+      "slides": 20,
+      "avg_words": 27.1,
+      "avg_sentence_words": 8.9,
+      "fk_grade": 5.0,
+      "slides_over_20s": 0
+    },
+    "B1": {
+      "slides": 20,
+      "avg_words": 31.3,
+      "avg_sentence_words": 14.5,
+      "fk_grade": 8.6,
+      "slides_over_20s": 0
+    },
+    "B2": {
+      "slides": 20,
+      "avg_words": 34.9,
+      "avg_sentence_words": 17.4,
+      "fk_grade": 12.0,
+      "slides_over_20s": 0
+    }
+  }
+}

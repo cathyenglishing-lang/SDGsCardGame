@@ -1,0 +1,91 @@
+{
+  "mission_id": "sdg3-2",
+  "sdg": 3,
+  "title": {
+    "en": "The Mental Health Crisis on Campus",
+    "zh": null
+  },
+  "shape": "wide",
+  "source": {
+    "workbook": null,
+    "sheet": null,
+    "note": "No workbook sheet exists for this mission. Authored from scratch per docs/plans/new-mission-playbook.md. Sensitive topic: informative and supportive framing, no graphic detail, always point toward help-seeking."
+  },
+  "narrative_brief": "",
+  "stages": [
+    {
+      "part_no": 1,
+      "source_description": "Part 1: Introduction (Slides 1-3: hook noticing the people around you, SDG 3 covers mental health, campus life beneath the surface)",
+      "function_en": "Introduction",
+      "function_zh": "引言：破題與定義",
+      "language_pattern": "rhetorical questions / X is about ...",
+      "slides": [
+        {"slide_no": 1, "title": {"en": "Look Around This Room", "zh": "看看這個房間"}, "numbers": [], "scripts": {}},
+        {"slide_no": 2, "title": {"en": "SDG 3 Means More Than the Body", "zh": "SDG 3 不只關乎身體"}, "numbers": [], "scripts": {}},
+        {"slide_no": 3, "title": {"en": "Campus Life, Under the Surface", "zh": "校園生活的表象之下"}, "numbers": [], "scripts": {}}
+      ]
+    },
+    {
+      "part_no": 2,
+      "source_description": "Part 2: Problem (Slides 4-6: the scale of depressive tendency among university students, where the pressure comes from, the youth mortality figures that make this urgent)",
+      "function_en": "Problem",
+      "function_zh": "問題指認：趨勢與因果",
+      "language_pattern": "present progressive for trends / this causes ...",
+      "slides": [
+        {"slide_no": 4, "title": {"en": "One in Four", "zh": "四分之一"}, "numbers": [], "scripts": {}},
+        {"slide_no": 5, "title": {"en": "Where the Pressure Comes From", "zh": "壓力從何而來"}, "numbers": [], "scripts": {}},
+        {"slide_no": 6, "title": {"en": "Numbers That Should Worry Us", "zh": "該讓我們擔心的數字"}, "numbers": [], "scripts": {}}
+      ]
+    },
+    {
+      "part_no": 3,
+      "source_description": "Part 3: Achievements (Slides 7-9: the counselor-ratio law finally changes, the 1925 hotline, psychological leave now exists on paper)",
+      "function_en": "Achievements",
+      "function_zh": "成果：舉證與比較",
+      "language_pattern": "present perfect / comparatives",
+      "slides": [
+        {"slide_no": 7, "title": {"en": "A Law Finally Changes", "zh": "法規終於修正"}, "numbers": [], "scripts": {}},
+        {"slide_no": 8, "title": {"en": "A Number to Remember: 1925", "zh": "一個要記住的號碼：1925"}, "numbers": [], "scripts": {}},
+        {"slide_no": 9, "title": {"en": "Leave That Exists on Paper", "zh": "存在於紙面上的假別"}, "numbers": [], "scripts": {}}
+      ]
+    },
+    {
+      "part_no": 4,
+      "source_description": "Part 4: Solutions (Slides 10-12: hiring enough counselors, making help easier to reach, campus-wide prevention instead of waiting for crisis)",
+      "function_en": "Solutions",
+      "function_zh": "解方：做法與取捨",
+      "language_pattern": "instead of + V-ing / modal verbs",
+      "slides": [
+        {"slide_no": 10, "title": {"en": "Hiring Enough Help", "zh": "補足人力"}, "numbers": [], "scripts": {}},
+        {"slide_no": 11, "title": {"en": "Making Help Easier to Reach", "zh": "讓求助更容易"}, "numbers": [], "scripts": {}},
+        {"slide_no": 12, "title": {"en": "Instead of Waiting for a Crisis", "zh": "與其等到危機出現"}, "numbers": [], "scripts": {}}
+      ]
+    },
+    {
+      "part_no": 5,
+      "source_description": "Part 5: Implications (Slides 13-16: one continuous tension — a law that outruns its budget, access that is not the same as trust, a leave nobody takes, and why both structural and cultural fixes are needed together)",
+      "function_en": "Implications",
+      "function_zh": "影響：推論後果",
+      "language_pattern": "first conditional / however",
+      "slides": [
+        {"slide_no": 13, "title": {"en": "If the Law Outruns the Budget", "zh": "如果法規跑在預算前面"}, "numbers": [], "scripts": {}},
+        {"slide_no": 14, "title": {"en": "Access Is Not the Same as Trust", "zh": "有管道不等於有信任"}, "numbers": [], "scripts": {}},
+        {"slide_no": 15, "title": {"en": "A Leave Nobody Takes", "zh": "沒人請的假"}, "numbers": [], "scripts": {}},
+        {"slide_no": 16, "title": {"en": "Two Gaps, One Fix", "zh": "兩個缺口，一個解方"}, "numbers": [], "scripts": {}}
+      ]
+    },
+    {
+      "part_no": 6,
+      "source_description": "Part 6: Call to action (Slides 17-20: summary of progress and gaps, students do not need a perfect system, learn the signs and the number, reaching out is not weakness)",
+      "function_en": "Call to action",
+      "function_zh": "結語：總結與號召",
+      "language_pattern": "to wrap up ... / let's ...",
+      "slides": [
+        {"slide_no": 17, "title": {"en": "Progress, and What It Is Missing", "zh": "進展，以及它還缺少的"}, "numbers": [], "scripts": {}},
+        {"slide_no": 18, "title": {"en": "You Do Not Need a Perfect System", "zh": "你不需要一個完美的系統"}, "numbers": [], "scripts": {}},
+        {"slide_no": 19, "title": {"en": "Learn the Signs, Say the Number", "zh": "認出徵兆，說出號碼"}, "numbers": [], "scripts": {}},
+        {"slide_no": 20, "title": {"en": "Reaching Out Is Not Weakness", "zh": "求助不是軟弱"}, "numbers": [], "scripts": {}}
+      ]
+    }
+  ]
+}

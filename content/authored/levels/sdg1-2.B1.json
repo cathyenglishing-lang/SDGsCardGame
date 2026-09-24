@@ -1,0 +1,30 @@
+{
+  "mission_id": "sdg1-2",
+  "level": "B1",
+  "provenance": "authored",
+  "author": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+  "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-3 (education/mobility framing): the labor market specifically. Facts and sources: minimum wage NT$29,500/month, NT$196/hour from 1 Jan 2026 (up from NT$28,590/NT$190 in 2025), 10th consecutive annual rise, cumulative +47.4% monthly/+63.3% hourly, 2.47 million workers benefiting (Ministry of Labor announcements via Taiwan News/Focus Taiwan, Sep-Dec 2025). OECD low-wage threshold ~NT$390,000/year; 1.26 million full-time employees (16.8%) below it in 2024; median regular monthly wage ~NT$37,000 (DGBAS 2024 wage statistics via Liberty Times). Atypical (part-time/temporary/dispatch) employment over 800,000 workers in 2024 (DGBAS Manpower Utilization Survey via 人間福報). Delivery riders ~88,000 by end of 2020, historically classified as contractors excluded from the Labor Standards Act; 2019 rider deaths triggered union push (Rest of World, New Bloom Magazine, GBLL). Delivery Workers Rights Protection and Delivery Platform Management Act: passed by Legislative Yuan 6 Jan 2026, promulgated 21 Jan 2026, effective 21 Jul 2026; NT$45/order floor rising with minimum wage, mandatory group accident insurance and liability insurance, deactivation appeal process (Legislative Yuan, Ministry of Labor, CNA, Taipei Times, Jul 2026). Rev.2: split run-on sentences that exceeded the B1 sentence-length/FK band (the full statutory law name in particular is long and unavoidable, so it is paraphrased at B1/A2 and the full title reserved for context), and diversified vocabulary against the A2 and B2 texts to reduce content-word overlap.",
+  "reviewed_by": null,
+  "slides": {
+    "1": "Picture someone balancing daytime classes with a demanding night shift delivering food. Even after a hard term of steady work, her savings still refuse to grow, no matter how hard she works.",
+    "2": "SDG 1 aims to eliminate poverty in every form, and most people think of welfare or a shelter. This talk examines a different group: people who work consistently and still remain poor.",
+    "3": "Since the start of 2026, the legal pay floor has climbed to NT$29,500 a month, equivalent to NT$196 an hour. If you already hold a part-time job, that figure might look familiar.",
+    "4": "By definition, anyone earning less than two-thirds of the median salary counts as low-paid. That threshold sits at roughly NT$390,000 a year. In 2024, some 1.26 million full-time employees fell under it.",
+    "5": "Not every job here is full-time or stable. By 2024, over 800,000 people in Taiwan held part-time jobs, temporary jobs, or dispatch jobs. Many of them offered little job security.",
+    "6": "Food delivery work shows the pattern clearly. About 88,000 riders were active for Uber Eats and foodpanda by 2020. Firms labeled them contractors, which kept the Labor Standards Act from applying to them.",
+    "7": "Here is some real progress. Taiwan has raised its minimum wage for ten consecutive years, and the monthly figure has grown by 47.4% since that run of increases began.",
+    "8": "A new law arrived in January 2026, aimed squarely at delivery riders. Platforms must now pay at least NT$45 per order and give them real insurance too.",
+    "9": "Riders have moved from having no guaranteed pay or insurance to having both written into law. That change has officially taken effect, since the act became active in July 2026.",
+    "10": "Should the minimum wage increase even further? A higher floor could substantially close the low-wage gap, but small employers might have to cut hours or staff in order to afford it.",
+    "11": "For now, this protection belongs only to riders. Giving the same pay floor and insurance to other workers, such as part-time staff, is well within reach for leaders.",
+    "12": "Unionizing offers another path forward: instead of talking alone, a rider gains more power as part of a group. Meanwhile, new training helps other workers move into steady, full-time jobs.",
+    "13": "Low, unstable pay changes more than just a bank balance. If young workers cannot save enough money, they will delay moving out, getting married, or even considering their own children.",
+    "14": "However, big firms are not the only ones affected here. Take a small noodle shop that survives on a thin profit: a higher wage bill or new insurance costs could threaten its future.",
+    "15": "However, that new rule stops at the delivery sector's edge. Someone working part-time in retail, or on a dispatch job in a factory, still lacks any wage floor or real cover.",
+    "16": "However, this problem reaches the whole country. When work feels unsafe, young people delay marriage and children even further, which makes Taiwan's falling birth rate even harder to fix.",
+    "17": "So where does this leave us? The minimum wage has climbed for a decade, and riders have finally won real protection, yet many atypical workers are still waiting for the same guarantee.",
+    "18": "This is not a distant issue. Many students in this very room already hold a part-time job or ride for a delivery app between lectures, so this story belongs to you too.",
+    "19": "Start by checking this year's minimum wage carefully, since that number changes annually. If your pay or your delivery app falls short of it, you can ask why.",
+    "20": "A job should be enough to live on, not just enough to survive it. Taiwan has taken genuine, measurable steps forward. Yet the real work remains unfinished, starting with the very job you currently hold."
+  }
+}

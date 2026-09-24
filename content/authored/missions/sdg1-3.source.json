@@ -1,0 +1,250 @@
+{
+  "mission_id": "sdg1-3",
+  "sdg": 1,
+  "title": {
+    "en": "Breaking the Cycle: Education as an Escape from Poverty",
+    "zh": null
+  },
+  "shape": "authored",
+  "source": {
+    "workbook": null,
+    "note": "written from scratch per docs/plans/new-mission-playbook.md; no workbook sheet exists for this mission"
+  },
+  "narrative_brief": "",
+  "stages": [
+    {
+      "part_no": 1,
+      "source_description": "Part 1: Introduction (Slides 1-3: hook on the odds of reaching a top university, SDG 1 angle on education as the mechanism that breaks intergenerational poverty, ground in Taiwan's admissions data)",
+      "function_en": "Introduction",
+      "function_zh": "引言：破題與定義",
+      "language_pattern": "rhetorical questions / X is about ...",
+      "slides": [
+        {
+          "slide_no": 1,
+          "title": {
+            "en": "Six Times More Likely",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {}
+        },
+        {
+          "slide_no": 2,
+          "title": {
+            "en": "SDG 1 Through a Classroom Door",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {}
+        },
+        {
+          "slide_no": 3,
+          "title": {
+            "en": "Who Gets Into Taiwan's Top University",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "part_no": 2,
+      "source_description": "Part 2: Problem (Slides 4-6: how family wealth buys a head start, how elite public universities skew toward richer households, how poverty still traps admitted students)",
+      "function_en": "Problem",
+      "function_zh": "問題指認：趨勢與因果",
+      "language_pattern": "present progressive for trends / this causes ...",
+      "slides": [
+        {
+          "slide_no": 4,
+          "title": {
+            "en": "Cram School and the Price of a Head Start",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {}
+        },
+        {
+          "slide_no": 5,
+          "title": {
+            "en": "When Public Universities Favor the Rich",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {}
+        },
+        {
+          "slide_no": 6,
+          "title": {
+            "en": "Admitted, But Still Trapped",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "part_no": 3,
+      "source_description": "Part 3: Achievements (Slides 7-9: the Stars Program widening rural access, need-based aid for the bottom 40%, scholarships paired with support)",
+      "function_en": "Achievements",
+      "function_zh": "成果：舉證與比較",
+      "language_pattern": "present perfect / comparatives",
+      "slides": [
+        {
+          "slide_no": 7,
+          "title": {
+            "en": "The Stars Program Opens a Side Door",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {}
+        },
+        {
+          "slide_no": 8,
+          "title": {
+            "en": "Aid for the Bottom Forty Percent",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {}
+        },
+        {
+          "slide_no": 9,
+          "title": {
+            "en": "Scholarships Plus Support",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "part_no": 4,
+      "source_description": "Part 4: Solutions (Slides 10-12: funding need instead of only talent, mentors instead of money alone, starting support before kindergarten)",
+      "function_en": "Solutions",
+      "function_zh": "解方：做法與取捨",
+      "language_pattern": "instead of + V-ing / modal verbs",
+      "slides": [
+        {
+          "slide_no": 10,
+          "title": {
+            "en": "Funding Need, Not Just Talent",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {}
+        },
+        {
+          "slide_no": 11,
+          "title": {
+            "en": "Mentors Instead of Money Alone",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {}
+        },
+        {
+          "slide_no": 12,
+          "title": {
+            "en": "Starting Support Before Kindergarten",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "part_no": 5,
+      "source_description": "Part 5: Implications (Slides 13-16: one continuous tension - aid can lift a student, but a degree alone doesn't erase a family's disadvantage, and the exam system still rewards head starts, until money and mentorship are combined)",
+      "function_en": "Implications",
+      "function_zh": "影響：推論後果",
+      "language_pattern": "first conditional / however",
+      "slides": [
+        {
+          "slide_no": 13,
+          "title": {
+            "en": "If Aid Reaches a Student",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {}
+        },
+        {
+          "slide_no": 14,
+          "title": {
+            "en": "A Degree Without a Safety Net",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {}
+        },
+        {
+          "slide_no": 15,
+          "title": {
+            "en": "When the Exam Rewards Head Starts",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {}
+        },
+        {
+          "slide_no": 16,
+          "title": {
+            "en": "Money and Mentorship Together",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "part_no": 6,
+      "source_description": "Part 6: Call to action (Slides 17-20: summary of what the data shows, why classmates' stories matter, concrete action, closing claim)",
+      "function_en": "Call to action",
+      "function_zh": "結語：總結與號召",
+      "language_pattern": "to wrap up ... / let's ...",
+      "slides": [
+        {
+          "slide_no": 17,
+          "title": {
+            "en": "What the Data Actually Shows",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {}
+        },
+        {
+          "slide_no": 18,
+          "title": {
+            "en": "Why Your Classmates' Stories Matter",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {}
+        },
+        {
+          "slide_no": 19,
+          "title": {
+            "en": "Tutor, Volunteer, Advocate",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {}
+        },
+        {
+          "slide_no": 20,
+          "title": {
+            "en": "Open the Same Door for Everyone",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {}
+        }
+      ]
+    }
+  ]
+}

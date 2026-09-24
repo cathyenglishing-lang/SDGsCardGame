@@ -1,0 +1,91 @@
+{
+  "mission_id": "sdg3-1",
+  "sdg": 3,
+  "title": {
+    "en": "Taiwan's Health System Under Pressure: NHI at a Crossroads",
+    "zh": null
+  },
+  "shape": "wide",
+  "source": {
+    "workbook": null,
+    "sheet": null,
+    "note": "No workbook sheet exists for this mission. Authored from scratch per docs/plans/new-mission-playbook.md."
+  },
+  "narrative_brief": "",
+  "stages": [
+    {
+      "part_no": 1,
+      "source_description": "Part 1: Introduction (Slides 1-3: hook on the NHI card everyone carries, SDG 3 definition, Taiwan's NHI as a globally studied system)",
+      "function_en": "Introduction",
+      "function_zh": "引言：破題與定義",
+      "language_pattern": "rhetorical questions / X is about ...",
+      "slides": [
+        {"slide_no": 1, "title": {"en": "The Card in Your Wallet", "zh": "你錢包裡的健保卡"}, "numbers": [], "scripts": {}},
+        {"slide_no": 2, "title": {"en": "What SDG 3 Asks", "zh": "SDG 3 的訴求"}, "numbers": [], "scripts": {}},
+        {"slide_no": 3, "title": {"en": "A System the World Studies", "zh": "世界研究的制度"}, "numbers": [], "scripts": {}}
+      ]
+    },
+    {
+      "part_no": 2,
+      "source_description": "Part 2: Problem (Slides 4-6: Taiwan becomes a super-aged society, the cost curve, the frozen premium rate)",
+      "function_en": "Problem",
+      "function_zh": "問題指認：趨勢與因果",
+      "language_pattern": "present progressive for trends / this causes ...",
+      "slides": [
+        {"slide_no": 4, "title": {"en": "Taiwan Turns Super-Aged", "zh": "台灣邁入超高齡社會"}, "numbers": [], "scripts": {}},
+        {"slide_no": 5, "title": {"en": "The Cost Curve Bends Up", "zh": "醫療成本節節攀升"}, "numbers": [], "scripts": {}},
+        {"slide_no": 6, "title": {"en": "The Frozen Number", "zh": "凍結的費率"}, "numbers": [], "scripts": {}}
+      ]
+    },
+    {
+      "part_no": 3,
+      "source_description": "Part 3: Achievements (Slides 7-9: near-universal coverage since 1995, cost-efficiency vs OECD peers, the Health Bank/AI data platform)",
+      "function_en": "Achievements",
+      "function_zh": "成果：舉證與比較",
+      "language_pattern": "present perfect / comparatives",
+      "slides": [
+        {"slide_no": 7, "title": {"en": "Nearly Universal, Since 1995", "zh": "幾近全民涵蓋，始於1995"}, "numbers": [], "scripts": {}},
+        {"slide_no": 8, "title": {"en": "Spending Less, Covering More", "zh": "花得少，保障得廣"}, "numbers": [], "scripts": {}},
+        {"slide_no": 9, "title": {"en": "A Health Record That Follows You", "zh": "跟著你的健康存摺"}, "numbers": [], "scripts": {}}
+      ]
+    },
+    {
+      "part_no": 4,
+      "source_description": "Part 4: Solutions (Slides 10-12: raise the rate vs widen the base, preventive/family-medicine care, AI-assisted risk prediction)",
+      "function_en": "Solutions",
+      "function_zh": "解方：做法與取捨",
+      "language_pattern": "instead of + V-ing / modal verbs",
+      "slides": [
+        {"slide_no": 10, "title": {"en": "Raise the Rate, or Widen the Base?", "zh": "調漲費率，還是擴大費基？"}, "numbers": [], "scripts": {}},
+        {"slide_no": 11, "title": {"en": "Treat Earlier, Not Just Harder", "zh": "提早介入，而非只顧治療"}, "numbers": [], "scripts": {}},
+        {"slide_no": 12, "title": {"en": "Teaching Algorithms to Watch Risk", "zh": "讓演算法學會示警"}, "numbers": [], "scripts": {}}
+      ]
+    },
+    {
+      "part_no": 5,
+      "source_description": "Part 5: Implications (Slides 13-16: one continuous tension — what happens if the reserve runs dry, who absorbs a premium hike, why copying a foreign rate is not a fix, and why the decision window is closing)",
+      "function_en": "Implications",
+      "function_zh": "影響：推論後果",
+      "language_pattern": "first conditional / however",
+      "slides": [
+        {"slide_no": 13, "title": {"en": "If the Reserve Runs Dry", "zh": "如果準備金見底"}, "numbers": [], "scripts": {}},
+        {"slide_no": 14, "title": {"en": "Who Pays the Difference?", "zh": "誰來補上差額？"}, "numbers": [], "scripts": {}},
+        {"slide_no": 15, "title": {"en": "Copying a Number Is Not a Fix", "zh": "抄一個數字不是解方"}, "numbers": [], "scripts": {}},
+        {"slide_no": 16, "title": {"en": "The Window Is Closing", "zh": "窗口正在關閉"}, "numbers": [], "scripts": {}}
+      ]
+    },
+    {
+      "part_no": 6,
+      "source_description": "Part 6: Call to action (Slides 17-20: summary of strength and strain, personal stake, what STEM students can bring, closing ask)",
+      "function_en": "Call to action",
+      "function_zh": "結語：總結與號召",
+      "language_pattern": "to wrap up ... / let's ...",
+      "slides": [
+        {"slide_no": 17, "title": {"en": "Strong Foundation, Real Strain", "zh": "根基穩固，壓力真實"}, "numbers": [], "scripts": {}},
+        {"slide_no": 18, "title": {"en": "Your Card, Your Stake", "zh": "你的卡，你的份"}, "numbers": [], "scripts": {}},
+        {"slide_no": 19, "title": {"en": "What STEM Students Can Bring", "zh": "理工科學生能做什麼"}, "numbers": [], "scripts": {}},
+        {"slide_no": 20, "title": {"en": "A System Worth Keeping", "zh": "一個值得留住的制度"}, "numbers": [], "scripts": {}}
+      ]
+    }
+  ]
+}

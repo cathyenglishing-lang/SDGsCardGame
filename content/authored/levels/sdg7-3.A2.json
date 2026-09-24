@@ -1,0 +1,30 @@
+{
+  "mission_id": "sdg7-3",
+  "level": "A2",
+  "provenance": "authored",
+  "author": "Claude (Gemini draft unavailable due to API quota; hand-authored to the same standard)",
+  "basis": "New mission, no workbook source. Facts: Taiwan 2024 generation ~11.6% renewables with wind generation +66% 2023->2024 (variability now a material grid share); 3 March 2022 cascading blackout triggered by a single switch malfunction at Hsinta Power Plant, Kaohsiung, cutting power to ~5.49M households (~40% of Taiwan) via cascading grid protection trips (Taiwan News/Bloomberg/CommonWealth); TSMC ~9% of national electricity, semiconductor/data-centre demand rising and less predictable (SDxCentral/TrendForce); Taipower reached ~1GW (1,000MW) of grid-connected battery storage in 2025, incl. the Dongshan 60MW site (operating Nov 2024) and a 20MW system at the Tainan salt-field solar farm (Taipower press releases); Taipower AMI/smart-meter rollout passed 3.5M customers (>80% of consumption) by May 2025, target 6M by 2030 and full replacement by 2035, plus a DER Integration program under Taipower's Smart Grid effort; Taiwan storage market ~1GW/3GWh and >1% of global electrochemical storage by 2025, projected toward 20GWh by 2030, market value ~US$3.1bn (2025) toward ~US$9.8bn (2031) (Infolink-group, Mobility Foresights); LFP batteries ~90% of new grid-scale storage worldwide, trading energy density for thermal stability, longer cycle life (thousands of cycles, 10-15+ years) and lower cost versus NMC/NCA chemistries used in EVs; private-sector example of a Fluence-partnered 100-MW-class storage project. Register per docs/plans/new-mission-playbook.md. Authored by Claude directly (Gemini 3.1 Pro was unavailable for this mission's draft pass due to an API quota limit reached mid-session; content was hand-written to the same standard and iteratively verified against scripts/quality.py and scripts/grammar_range.py).",
+  "reviewed_by": null,
+  "slides": {
+    "1": "At night the sun completely stops shining, and some days the wind stops blowing too. So where does your power come from then? Batteries and smart grids are the answer.",
+    "2": "SDG 7 is not only about clean power. It is also about power that never stops operating. Today's talk is about keeping the lights on all the time.",
+    "3": "Taiwan's whole power grid shook once before. It happened quite badly, really. In 2022, one small switch problem cut power to millions of homes right across the island.",
+    "4": "Clean power now takes up more and more of our grid. Last year wind power jumped a lot, by about 66 percent. So guessing our future power supply is getting harder.",
+    "5": "In 2022, one broken switch in the south caused a chain reaction. Power plants shut down one after another. Almost 5.5 million homes lost power that day.",
+    "6": "Our chip plants now need much more power every year. One plant alone uses about 9 percent of everything we generate. Our grid is too old for this new demand.",
+    "7": "Taipower has now built a huge amount of battery storage. The Dongshan site started work in November 2024. That storage is real and working today.",
+    "8": "Smart meters now sit in over 3.5 million homes. They send data back to Taipower all day. That data helps the grid react much faster.",
+    "9": "Taiwan's storage market was once quite small. Now it is a growing business worth billions of dollars already. By 2030 it could grow even bigger than today.",
+    "10": "Grid batteries do not need long range like a car battery. Instead, they need to be safe and last for years. So most now use a different battery type.",
+    "11": "This type is called LFP. It is safer and lasts far longer than other types. Most new grid batteries in the world now use it.",
+    "12": "Instead of only building power plants, Taipower now lets software move the power around. Your own roof could join this. So could your battery, or even your car.",
+    "13": "More sensors and more software also mean more doors for hackers. Hackers now have many more ways to try. If one system fails, the whole grid could feel it fast.",
+    "14": "All these new batteries and meters cost real money. Someone has to pay for them. Right now, that cost often lands on our electricity bills.",
+    "15": "Not every family can pay for a smart meter, a battery, or an electric car right away. Some families will wait longer. Without a plan, that gap will only get bigger.",
+    "16": "So these same new tools can actually fix one problem well. But they can also create brand new ones. A smart grid must be safe, fair, and shared by everyone.",
+    "17": "To wrap up, Taiwan's grid is being rebuilt right now. New batteries and sensors now work together every day. This is not only about wires and power plants anymore.",
+    "18": "This matters directly to you. You are the future engineers in this room. You will design the next battery, the next chip, or the next line of safety code.",
+    "19": "Learn about the whole system, not just one small part. Ask who gets the new smart tools first, and who has to wait longer. Then go and build something useful yourself.",
+    "20": "We want more than a clean grid. We also want it smart and fair for everyone. Every time you flip a switch, you are now part of building something bigger."
+  }
+}

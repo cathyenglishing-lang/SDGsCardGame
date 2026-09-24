@@ -1,0 +1,250 @@
+{
+  "mission_id": "sdg13-3",
+  "sdg": 13,
+  "title": {
+    "en": "Carbon Border Taxes: Can Taiwan's Exporters Survive the Green Transition?",
+    "zh": null
+  },
+  "shape": "authored",
+  "source": {
+    "workbook": null,
+    "note": "written from scratch per docs/plans/new-mission-playbook.md; no workbook sheet exists for this mission"
+  },
+  "narrative_brief": "",
+  "stages": [
+    {
+      "part_no": 1,
+      "source_description": "Part 1: Introduction (Slides 1-3: hook on an invisible price tag on a steel shipment, SDG 13 angle on climate action crossing into trade rules, ground in Taiwan's extreme trade dependency)",
+      "function_en": "Introduction",
+      "function_zh": "引言：破題與定義",
+      "language_pattern": "rhetorical questions / X is about ...",
+      "slides": [
+        {
+          "slide_no": 1,
+          "title": {
+            "en": "An Invisible Price Tag on Steel",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {}
+        },
+        {
+          "slide_no": 2,
+          "title": {
+            "en": "SDG 13 Crosses a Border",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {}
+        },
+        {
+          "slide_no": 3,
+          "title": {
+            "en": "An Island That Lives on Exports",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "part_no": 2,
+      "source_description": "Part 2: Problem (Slides 4-6: what CBAM actually charges and covers, why steel is Taiwan's first exposure, the scale of the coming bill)",
+      "function_en": "Problem",
+      "function_zh": "問題指認：趨勢與因果",
+      "language_pattern": "present progressive for trends / this causes ...",
+      "slides": [
+        {
+          "slide_no": 4,
+          "title": {
+            "en": "What CBAM Actually Charges",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {}
+        },
+        {
+          "slide_no": 5,
+          "title": {
+            "en": "Steel Is Taiwan's First Exposure",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {}
+        },
+        {
+          "slide_no": 6,
+          "title": {
+            "en": "The Bill Waiting in 2026",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "part_no": 3,
+      "source_description": "Part 3: Achievements (Slides 7-9: Taiwan's own carbon fee already in place, companies now measuring embedded emissions, new SME support stations)",
+      "function_en": "Achievements",
+      "function_zh": "成果：舉證與比較",
+      "language_pattern": "present perfect / comparatives",
+      "slides": [
+        {
+          "slide_no": 7,
+          "title": {
+            "en": "A Carbon Fee Already on the Books",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {}
+        },
+        {
+          "slide_no": 8,
+          "title": {
+            "en": "Measuring What Was Never Measured",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {}
+        },
+        {
+          "slide_no": 9,
+          "title": {
+            "en": "Help Stations for Small Exporters",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "part_no": 4,
+      "source_description": "Part 4: Solutions (Slides 10-12: decarbonizing production instead of only paying, diversifying export markets instead of only emissions, aligning Taiwan's carbon fee with Europe's rule)",
+      "function_en": "Solutions",
+      "function_zh": "解方：做法與取捨",
+      "language_pattern": "instead of + V-ing / modal verbs",
+      "slides": [
+        {
+          "slide_no": 10,
+          "title": {
+            "en": "Decarbonize Instead of Just Paying",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {}
+        },
+        {
+          "slide_no": 11,
+          "title": {
+            "en": "Diversify Markets, Not Just Emissions",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {}
+        },
+        {
+          "slide_no": 12,
+          "title": {
+            "en": "Aligning Taiwan's Fee With Europe's Rule",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "part_no": 5,
+      "source_description": "Part 5: Implications (Slides 13-16: one continuous tension - big exporters can adapt, but small suppliers can't absorb the same cost, and the covered sectors will expand by 2030, until early movers turn the cost into an advantage)",
+      "function_en": "Implications",
+      "function_zh": "影響：推論後果",
+      "language_pattern": "first conditional / however",
+      "slides": [
+        {
+          "slide_no": 13,
+          "title": {
+            "en": "Big Exporters Can Adapt",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {}
+        },
+        {
+          "slide_no": 14,
+          "title": {
+            "en": "Small Suppliers Cannot Absorb the Same Cost",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {}
+        },
+        {
+          "slide_no": 15,
+          "title": {
+            "en": "Today Steel, Tomorrow Everything",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {}
+        },
+        {
+          "slide_no": 16,
+          "title": {
+            "en": "An Early Mover's Advantage",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "part_no": 6,
+      "source_description": "Part 6: Call to action (Slides 17-20: summary of where exporters stand, why engineers decide this outcome, action to ask about a company's carbon plan, closing claim)",
+      "function_en": "Call to action",
+      "function_zh": "結語：總結與號召",
+      "language_pattern": "to wrap up ... / let's ...",
+      "slides": [
+        {
+          "slide_no": 17,
+          "title": {
+            "en": "Where Taiwan's Exporters Stand",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {}
+        },
+        {
+          "slide_no": 18,
+          "title": {
+            "en": "Why Engineers Decide This Outcome",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {}
+        },
+        {
+          "slide_no": 19,
+          "title": {
+            "en": "Ask What a Company's Carbon Plan Is",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {}
+        },
+        {
+          "slide_no": 20,
+          "title": {
+            "en": "Compete on Carbon, Not Just Price",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {}
+        }
+      ]
+    }
+  ]
+}

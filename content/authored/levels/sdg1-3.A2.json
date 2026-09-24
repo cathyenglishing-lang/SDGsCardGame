@@ -1,0 +1,30 @@
+{
+  "mission_id": "sdg1-3",
+  "level": "A2",
+  "provenance": "authored",
+  "author": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+  "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-2 (labor-market framing): social mobility and scholarships specifically. Facts and sources: NTU economics department study using national tax records for the 1993-1995 birth cohort found a child from a rich household is about six times more likely to be admitted to NTU than a child from a poor household; NTU/public-university students' median household income (NTU >NT$1.5M, other public universities >NT$1M) far above the overall sample median (~NT$860,000), producing a 'reverse redistribution' effect since elite public universities receive more government funding per student (報導者/The Reporter coverage of the NTU study, also covered by 商業周刊/今周刊). Stars Program (繁星計畫): multi-track admission by in-school standing rather than only national exam score, designed to widen access for rural/under-resourced students. Ministry of Education's University System Financial Aid Program for Disadvantaged Students (大專校院不利處境學生助學計畫), since the 2007 academic year, targets households in the bottom 40% of income distribution with four kinds of support: tuition subsidy, living stipend, emergency relief, housing subsidy (教育部圓夢助學網/coloan.moe.gov.tw). Early-intervention argument sourced to 獨立評論 commentary on rural education and poverty. Cram-school spending advantage and post-admission cost burden stated in general terms, not invented as precise figures.",
+  "reviewed_by": null,
+  "slides": {
+    "1": "Here is a hard fact. A rich student is six times more likely to enter Taiwan's top university than a poor student. Let's ask why.",
+    "2": "SDG 1 wants to end poverty in every country. This talk looks at one tool: education. Can school really stop poverty from passing to the next child?",
+    "3": "Look at the numbers. Students at Taiwan's top school come from homes with over NT$1.5 million a year. Most families in Taiwan earn far less than that.",
+    "4": "Rich families pay for extra classes after school. These classes help kids do well on big tests. Poor families often cannot pay for this help.",
+    "5": "Here is a strange thing. Top public universities get more money from the government each year. But their kids often come from richer homes.",
+    "6": "Even a poor student who gets in still faces extra costs. They must pay for books and rent. They also lose valuable time they could use to earn money.",
+    "7": "Now here is some really important news. Taiwan created the Stars Program. It judges a student by their school rank, not by one big test alone.",
+    "8": "Taiwan helps poor students in another way too. Since 2007, they can get money from the state each year. This support helps poor families most.",
+    "9": "Money alone is not enough here. A scholarship helps much more when a mentor also helps. Support and money together work better than money by itself.",
+    "10": "Here is one important idea. Give money to students who need it most. Do not give it only to students with the best test scores.",
+    "11": "Money is not the only answer here. Instead of only giving cash, schools could also give each student a personal mentor. A mentor can guide, not just pay.",
+    "12": "University help often starts too late for a poor student. Support should begin much earlier, even before kindergarten. Early help closes the gap before it grows.",
+    "13": "If help arrives early enough in a child's life, a student can finish their degree. Then they can change their whole family's future. This is real hope.",
+    "14": "However, a degree does not fix every problem. It does not pay off family debt. A richer graduate still has more help and more friends.",
+    "15": "However, the big exam still helps rich kids the most. It rewards years of paid tutoring after school. So the same old cycle can continue.",
+    "16": "However, there is a better way. Programs that give both money and a mentor work best. This is how the cycle can finally break.",
+    "17": "So what exactly have we learned today? Rich students still enter more easily, but new programs are helping poorer students too. The story stays mixed.",
+    "18": "This matters in this room right now. Someone near you may already hold this exact scholarship, and their story is not distant at all.",
+    "19": "So here is your action for today. Tutor a younger student for free. Or ask your school to add a mentor to every scholarship.",
+    "20": "Education should really open the exact same door for all. Taiwan has started that important work. Help finish it, one student at a time."
+  }
+}

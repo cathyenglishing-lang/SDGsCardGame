@@ -1,0 +1,1253 @@
+{
+  "mission_id": "sdg1-3",
+  "sdg": 1,
+  "title": {
+    "en": "Breaking the Cycle: Education as an Escape from Poverty",
+    "zh": null
+  },
+  "shape": "authored",
+  "source": {
+    "workbook": null,
+    "note": "written from scratch per docs/plans/new-mission-playbook.md; no workbook sheet exists for this mission"
+  },
+  "narrative_brief": "",
+  "stages": [
+    {
+      "part_no": 1,
+      "source_description": "Part 1: Introduction (Slides 1-3: hook on the odds of reaching a top university, SDG 1 angle on education as the mechanism that breaks intergenerational poverty, ground in Taiwan's admissions data)",
+      "function_en": "Introduction",
+      "function_zh": "引言：破題與定義",
+      "language_pattern": "rhetorical questions / X is about ...",
+      "slides": [
+        {
+          "slide_no": 1,
+          "title": {
+            "en": "Six Times More Likely",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Here is a hard fact. A rich student is six times more likely to enter Taiwan's top university than a poor student. Let's ask why.",
+              "words": 25,
+              "sentences": 3,
+              "avg_sentence_words": 8.3,
+              "fk_grade": 4.7,
+              "long_word_pct": 8.0,
+              "speak_seconds_est": 15.8,
+              "fill_pct": 78.9,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-2 (labor-market framing): social mobility and scholarships specifically. Facts and sources: NTU economics department study using national tax records for the 1993-1995 birth cohort found a child from a rich household is about six times more likely to be admitted to NTU than a child from a poor household; NTU/public-university students' median household income (NTU >NT$1.5M, other public universities >NT$1M) far above the overall sample median (~NT$860,000), producing a 'reverse redistribution' effect since elite public universities receive more government funding per student (報導者/The Reporter coverage of the NTU study, also covered by 商業周刊/今周刊). Stars Program (繁星計畫): multi-track admission by in-school standing rather than only national exam score, designed to widen access for rural/under-resourced students. Ministry of Education's University System Financial Aid Program for Disadvantaged Students (大專校院不利處境學生助學計畫), since the 2007 academic year, targets households in the bottom 40% of income distribution with four kinds of support: tuition subsidy, living stipend, emergency relief, housing subsidy (教育部圓夢助學網/coloan.moe.gov.tw). Early-intervention argument sourced to 獨立評論 commentary on rural education and poverty. Cram-school spending advantage and post-admission cost burden stated in general terms, not invented as precise figures.",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "Here's a fact that should surprise nobody, yet still does. A rich student is about six times more likely to get into Taiwan's top university than a poor student is.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 8.4,
+              "long_word_pct": 10.0,
+              "speak_seconds_est": 16.4,
+              "fill_pct": 81.8,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-2 (labor-market framing): social mobility and scholarships specifically. Facts and sources: NTU economics department study using national tax records for the 1993-1995 birth cohort found a child from a rich household is about six times more likely to be admitted to NTU than a child from a poor household; NTU/public-university students' median household income (NTU >NT$1.5M, other public universities >NT$1M) far above the overall sample median (~NT$860,000), producing a 'reverse redistribution' effect since elite public universities receive more government funding per student (報導者/The Reporter coverage of the NTU study, also covered by 商業周刊/今周刊). Stars Program (繁星計畫): multi-track admission by in-school standing rather than only national exam score, designed to widen access for rural/under-resourced students. Ministry of Education's University System Financial Aid Program for Disadvantaged Students (大專校院不利處境學生助學計畫), since the 2007 academic year, targets households in the bottom 40% of income distribution with four kinds of support: tuition subsidy, living stipend, emergency relief, housing subsidy (教育部圓夢助學網/coloan.moe.gov.tw). Early-intervention argument sourced to 獨立評論 commentary on rural education and poverty. Cram-school spending advantage and post-admission cost burden stated in general terms, not invented as precise figures.",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "Admission data reveal an uncomfortable pattern. A student from a wealthy household is roughly six times more likely to be admitted to Taiwan's most prestigious university than one from a poor household.",
+              "words": 32,
+              "sentences": 2,
+              "avg_sentence_words": 16.0,
+              "fk_grade": 12.8,
+              "long_word_pct": 25.0,
+              "speak_seconds_est": 16.0,
+              "fill_pct": 80.0,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-2 (labor-market framing): social mobility and scholarships specifically. Facts and sources: NTU economics department study using national tax records for the 1993-1995 birth cohort found a child from a rich household is about six times more likely to be admitted to NTU than a child from a poor household; NTU/public-university students' median household income (NTU >NT$1.5M, other public universities >NT$1M) far above the overall sample median (~NT$860,000), producing a 'reverse redistribution' effect since elite public universities receive more government funding per student (報導者/The Reporter coverage of the NTU study, also covered by 商業周刊/今周刊). Stars Program (繁星計畫): multi-track admission by in-school standing rather than only national exam score, designed to widen access for rural/under-resourced students. Ministry of Education's University System Financial Aid Program for Disadvantaged Students (大專校院不利處境學生助學計畫), since the 2007 academic year, targets households in the bottom 40% of income distribution with four kinds of support: tuition subsidy, living stipend, emergency relief, housing subsidy (教育部圓夢助學網/coloan.moe.gov.tw). Early-intervention argument sourced to 獨立評論 commentary on rural education and poverty. Cram-school spending advantage and post-admission cost burden stated in general terms, not invented as precise figures.",
+              "workbook_text": null
+            }
+          }
+        },
+        {
+          "slide_no": 2,
+          "title": {
+            "en": "SDG 1 Through a Classroom Door",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "SDG 1 wants to end poverty in every country. This talk looks at one tool: education. Can school really stop poverty from passing to the next child?",
+              "words": 27,
+              "sentences": 3,
+              "avg_sentence_words": 9.0,
+              "fk_grade": 5.0,
+              "long_word_pct": 3.7,
+              "speak_seconds_est": 17.1,
+              "fill_pct": 85.3,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-2 (labor-market framing): social mobility and scholarships specifically. Facts and sources: NTU economics department study using national tax records for the 1993-1995 birth cohort found a child from a rich household is about six times more likely to be admitted to NTU than a child from a poor household; NTU/public-university students' median household income (NTU >NT$1.5M, other public universities >NT$1M) far above the overall sample median (~NT$860,000), producing a 'reverse redistribution' effect since elite public universities receive more government funding per student (報導者/The Reporter coverage of the NTU study, also covered by 商業周刊/今周刊). Stars Program (繁星計畫): multi-track admission by in-school standing rather than only national exam score, designed to widen access for rural/under-resourced students. Ministry of Education's University System Financial Aid Program for Disadvantaged Students (大專校院不利處境學生助學計畫), since the 2007 academic year, targets households in the bottom 40% of income distribution with four kinds of support: tuition subsidy, living stipend, emergency relief, housing subsidy (教育部圓夢助學網/coloan.moe.gov.tw). Early-intervention argument sourced to 獨立評論 commentary on rural education and poverty. Cram-school spending advantage and post-admission cost burden stated in general terms, not invented as precise figures.",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "SDG 1 aims to end poverty everywhere, and this talk focuses on the one tool people always praise: education. Does school actually break the cycle that passes poverty to the next generation?",
+              "words": 32,
+              "sentences": 2,
+              "avg_sentence_words": 16.0,
+              "fk_grade": 10.2,
+              "long_word_pct": 12.5,
+              "speak_seconds_est": 17.5,
+              "fill_pct": 87.3,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-2 (labor-market framing): social mobility and scholarships specifically. Facts and sources: NTU economics department study using national tax records for the 1993-1995 birth cohort found a child from a rich household is about six times more likely to be admitted to NTU than a child from a poor household; NTU/public-university students' median household income (NTU >NT$1.5M, other public universities >NT$1M) far above the overall sample median (~NT$860,000), producing a 'reverse redistribution' effect since elite public universities receive more government funding per student (報導者/The Reporter coverage of the NTU study, also covered by 商業周刊/今周刊). Stars Program (繁星計畫): multi-track admission by in-school standing rather than only national exam score, designed to widen access for rural/under-resourced students. Ministry of Education's University System Financial Aid Program for Disadvantaged Students (大專校院不利處境學生助學計畫), since the 2007 academic year, targets households in the bottom 40% of income distribution with four kinds of support: tuition subsidy, living stipend, emergency relief, housing subsidy (教育部圓夢助學網/coloan.moe.gov.tw). Early-intervention argument sourced to 獨立評論 commentary on rural education and poverty. Cram-school spending advantage and post-admission cost burden stated in general terms, not invented as precise figures.",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "SDG 1 targets poverty in every form, and this talk interrogates the mechanism most often credited with solving it: education. Does schooling genuinely interrupt the cycle that transmits poverty across generations, or does it just relabel it?",
+              "words": 37,
+              "sentences": 2,
+              "avg_sentence_words": 18.5,
+              "fk_grade": 14.3,
+              "long_word_pct": 24.3,
+              "speak_seconds_est": 18.5,
+              "fill_pct": 92.5,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-2 (labor-market framing): social mobility and scholarships specifically. Facts and sources: NTU economics department study using national tax records for the 1993-1995 birth cohort found a child from a rich household is about six times more likely to be admitted to NTU than a child from a poor household; NTU/public-university students' median household income (NTU >NT$1.5M, other public universities >NT$1M) far above the overall sample median (~NT$860,000), producing a 'reverse redistribution' effect since elite public universities receive more government funding per student (報導者/The Reporter coverage of the NTU study, also covered by 商業周刊/今周刊). Stars Program (繁星計畫): multi-track admission by in-school standing rather than only national exam score, designed to widen access for rural/under-resourced students. Ministry of Education's University System Financial Aid Program for Disadvantaged Students (大專校院不利處境學生助學計畫), since the 2007 academic year, targets households in the bottom 40% of income distribution with four kinds of support: tuition subsidy, living stipend, emergency relief, housing subsidy (教育部圓夢助學網/coloan.moe.gov.tw). Early-intervention argument sourced to 獨立評論 commentary on rural education and poverty. Cram-school spending advantage and post-admission cost burden stated in general terms, not invented as precise figures.",
+              "workbook_text": null
+            }
+          }
+        },
+        {
+          "slide_no": 3,
+          "title": {
+            "en": "Who Gets Into Taiwan's Top University",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Look at the numbers. Students at Taiwan's top school come from homes with over NT$1.5 million a year. Most families in Taiwan earn far less than that.",
+              "words": 29,
+              "sentences": 3,
+              "avg_sentence_words": 9.7,
+              "fk_grade": 3.6,
+              "long_word_pct": 10.3,
+              "speak_seconds_est": 18.3,
+              "fill_pct": 91.6,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-2 (labor-market framing): social mobility and scholarships specifically. Facts and sources: NTU economics department study using national tax records for the 1993-1995 birth cohort found a child from a rich household is about six times more likely to be admitted to NTU than a child from a poor household; NTU/public-university students' median household income (NTU >NT$1.5M, other public universities >NT$1M) far above the overall sample median (~NT$860,000), producing a 'reverse redistribution' effect since elite public universities receive more government funding per student (報導者/The Reporter coverage of the NTU study, also covered by 商業周刊/今周刊). Stars Program (繁星計畫): multi-track admission by in-school standing rather than only national exam score, designed to widen access for rural/under-resourced students. Ministry of Education's University System Financial Aid Program for Disadvantaged Students (大專校院不利處境學生助學計畫), since the 2007 academic year, targets households in the bottom 40% of income distribution with four kinds of support: tuition subsidy, living stipend, emergency relief, housing subsidy (教育部圓夢助學網/coloan.moe.gov.tw). Early-intervention argument sourced to 獨立評論 commentary on rural education and poverty. Cram-school spending advantage and post-admission cost burden stated in general terms, not invented as precise figures.",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "Look closely at the numbers behind admission. Students at Taiwan's top university usually come from homes earning more than NT$1.5 million a year, far above most Taiwan families.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 10.3,
+              "long_word_pct": 16.7,
+              "speak_seconds_est": 16.4,
+              "fill_pct": 81.8,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-2 (labor-market framing): social mobility and scholarships specifically. Facts and sources: NTU economics department study using national tax records for the 1993-1995 birth cohort found a child from a rich household is about six times more likely to be admitted to NTU than a child from a poor household; NTU/public-university students' median household income (NTU >NT$1.5M, other public universities >NT$1M) far above the overall sample median (~NT$860,000), producing a 'reverse redistribution' effect since elite public universities receive more government funding per student (報導者/The Reporter coverage of the NTU study, also covered by 商業周刊/今周刊). Stars Program (繁星計畫): multi-track admission by in-school standing rather than only national exam score, designed to widen access for rural/under-resourced students. Ministry of Education's University System Financial Aid Program for Disadvantaged Students (大專校院不利處境學生助學計畫), since the 2007 academic year, targets households in the bottom 40% of income distribution with four kinds of support: tuition subsidy, living stipend, emergency relief, housing subsidy (教育部圓夢助學網/coloan.moe.gov.tw). Early-intervention argument sourced to 獨立評論 commentary on rural education and poverty. Cram-school spending advantage and post-admission cost burden stated in general terms, not invented as precise figures.",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "The admissions data are stark. Students at Taiwan's most prestigious university typically come from households earning upward of NT$1.5 million a year, well above the national median of roughly NT$860,000.",
+              "words": 34,
+              "sentences": 2,
+              "avg_sentence_words": 17.0,
+              "fk_grade": 12.6,
+              "long_word_pct": 23.5,
+              "speak_seconds_est": 17.0,
+              "fill_pct": 85.0,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-2 (labor-market framing): social mobility and scholarships specifically. Facts and sources: NTU economics department study using national tax records for the 1993-1995 birth cohort found a child from a rich household is about six times more likely to be admitted to NTU than a child from a poor household; NTU/public-university students' median household income (NTU >NT$1.5M, other public universities >NT$1M) far above the overall sample median (~NT$860,000), producing a 'reverse redistribution' effect since elite public universities receive more government funding per student (報導者/The Reporter coverage of the NTU study, also covered by 商業周刊/今周刊). Stars Program (繁星計畫): multi-track admission by in-school standing rather than only national exam score, designed to widen access for rural/under-resourced students. Ministry of Education's University System Financial Aid Program for Disadvantaged Students (大專校院不利處境學生助學計畫), since the 2007 academic year, targets households in the bottom 40% of income distribution with four kinds of support: tuition subsidy, living stipend, emergency relief, housing subsidy (教育部圓夢助學網/coloan.moe.gov.tw). Early-intervention argument sourced to 獨立評論 commentary on rural education and poverty. Cram-school spending advantage and post-admission cost burden stated in general terms, not invented as precise figures.",
+              "workbook_text": null
+            }
+          }
+        }
+      ]
+    },
+    {
+      "part_no": 2,
+      "source_description": "Part 2: Problem (Slides 4-6: how family wealth buys a head start, how elite public universities skew toward richer households, how poverty still traps admitted students)",
+      "function_en": "Problem",
+      "function_zh": "問題指認：趨勢與因果",
+      "language_pattern": "present progressive for trends / this causes ...",
+      "slides": [
+        {
+          "slide_no": 4,
+          "title": {
+            "en": "Cram School and the Price of a Head Start",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Rich families pay for extra classes after school. These classes help kids do well on big tests. Poor families often cannot pay for this help.",
+              "words": 25,
+              "sentences": 3,
+              "avg_sentence_words": 8.3,
+              "fk_grade": 4.2,
+              "long_word_pct": 8.0,
+              "speak_seconds_est": 15.8,
+              "fill_pct": 78.9,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-2 (labor-market framing): social mobility and scholarships specifically. Facts and sources: NTU economics department study using national tax records for the 1993-1995 birth cohort found a child from a rich household is about six times more likely to be admitted to NTU than a child from a poor household; NTU/public-university students' median household income (NTU >NT$1.5M, other public universities >NT$1M) far above the overall sample median (~NT$860,000), producing a 'reverse redistribution' effect since elite public universities receive more government funding per student (報導者/The Reporter coverage of the NTU study, also covered by 商業周刊/今周刊). Stars Program (繁星計畫): multi-track admission by in-school standing rather than only national exam score, designed to widen access for rural/under-resourced students. Ministry of Education's University System Financial Aid Program for Disadvantaged Students (大專校院不利處境學生助學計畫), since the 2007 academic year, targets households in the bottom 40% of income distribution with four kinds of support: tuition subsidy, living stipend, emergency relief, housing subsidy (教育部圓夢助學網/coloan.moe.gov.tw). Early-intervention argument sourced to 獨立評論 commentary on rural education and poverty. Cram-school spending advantage and post-admission cost burden stated in general terms, not invented as precise figures.",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "Wealthier families pay for private lessons after school, and that practice shapes how well a child does on the exams that decide entry. Poorer families often cannot afford the same head start.",
+              "words": 32,
+              "sentences": 2,
+              "avg_sentence_words": 16.0,
+              "fk_grade": 8.7,
+              "long_word_pct": 12.5,
+              "speak_seconds_est": 17.5,
+              "fill_pct": 87.3,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-2 (labor-market framing): social mobility and scholarships specifically. Facts and sources: NTU economics department study using national tax records for the 1993-1995 birth cohort found a child from a rich household is about six times more likely to be admitted to NTU than a child from a poor household; NTU/public-university students' median household income (NTU >NT$1.5M, other public universities >NT$1M) far above the overall sample median (~NT$860,000), producing a 'reverse redistribution' effect since elite public universities receive more government funding per student (報導者/The Reporter coverage of the NTU study, also covered by 商業周刊/今周刊). Stars Program (繁星計畫): multi-track admission by in-school standing rather than only national exam score, designed to widen access for rural/under-resourced students. Ministry of Education's University System Financial Aid Program for Disadvantaged Students (大專校院不利處境學生助學計畫), since the 2007 academic year, targets households in the bottom 40% of income distribution with four kinds of support: tuition subsidy, living stipend, emergency relief, housing subsidy (教育部圓夢助學網/coloan.moe.gov.tw). Early-intervention argument sourced to 獨立評論 commentary on rural education and poverty. Cram-school spending advantage and post-admission cost burden stated in general terms, not invented as precise figures.",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "Wealthier households invest heavily in private tutoring, which quietly shapes how well a child performs on the entrance exams that decide admission. Households without that budget cannot buy the same head start.",
+              "words": 32,
+              "sentences": 2,
+              "avg_sentence_words": 16.0,
+              "fk_grade": 10.6,
+              "long_word_pct": 21.9,
+              "speak_seconds_est": 16.0,
+              "fill_pct": 80.0,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-2 (labor-market framing): social mobility and scholarships specifically. Facts and sources: NTU economics department study using national tax records for the 1993-1995 birth cohort found a child from a rich household is about six times more likely to be admitted to NTU than a child from a poor household; NTU/public-university students' median household income (NTU >NT$1.5M, other public universities >NT$1M) far above the overall sample median (~NT$860,000), producing a 'reverse redistribution' effect since elite public universities receive more government funding per student (報導者/The Reporter coverage of the NTU study, also covered by 商業周刊/今周刊). Stars Program (繁星計畫): multi-track admission by in-school standing rather than only national exam score, designed to widen access for rural/under-resourced students. Ministry of Education's University System Financial Aid Program for Disadvantaged Students (大專校院不利處境學生助學計畫), since the 2007 academic year, targets households in the bottom 40% of income distribution with four kinds of support: tuition subsidy, living stipend, emergency relief, housing subsidy (教育部圓夢助學網/coloan.moe.gov.tw). Early-intervention argument sourced to 獨立評論 commentary on rural education and poverty. Cram-school spending advantage and post-admission cost burden stated in general terms, not invented as precise figures.",
+              "workbook_text": null
+            }
+          }
+        },
+        {
+          "slide_no": 5,
+          "title": {
+            "en": "When Public Universities Favor the Rich",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Here is a strange thing. Top public universities get more money from the government each year. But their kids often come from richer homes.",
+              "words": 24,
+              "sentences": 3,
+              "avg_sentence_words": 8.0,
+              "fk_grade": 4.7,
+              "long_word_pct": 8.3,
+              "speak_seconds_est": 15.2,
+              "fill_pct": 75.8,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-2 (labor-market framing): social mobility and scholarships specifically. Facts and sources: NTU economics department study using national tax records for the 1993-1995 birth cohort found a child from a rich household is about six times more likely to be admitted to NTU than a child from a poor household; NTU/public-university students' median household income (NTU >NT$1.5M, other public universities >NT$1M) far above the overall sample median (~NT$860,000), producing a 'reverse redistribution' effect since elite public universities receive more government funding per student (報導者/The Reporter coverage of the NTU study, also covered by 商業周刊/今周刊). Stars Program (繁星計畫): multi-track admission by in-school standing rather than only national exam score, designed to widen access for rural/under-resourced students. Ministry of Education's University System Financial Aid Program for Disadvantaged Students (大專校院不利處境學生助學計畫), since the 2007 academic year, targets households in the bottom 40% of income distribution with four kinds of support: tuition subsidy, living stipend, emergency relief, housing subsidy (教育部圓夢助學網/coloan.moe.gov.tw). Early-intervention argument sourced to 獨立評論 commentary on rural education and poverty. Cram-school spending advantage and post-admission cost burden stated in general terms, not invented as precise figures.",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "Here is a strange twist: Taiwan's top public universities receive more government funding per student. Yet their student body tends to come from richer homes than average. The system meant to balance things does the opposite.",
+              "words": 36,
+              "sentences": 3,
+              "avg_sentence_words": 12.0,
+              "fk_grade": 7.8,
+              "long_word_pct": 11.1,
+              "speak_seconds_est": 19.6,
+              "fill_pct": 98.2,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-2 (labor-market framing): social mobility and scholarships specifically. Facts and sources: NTU economics department study using national tax records for the 1993-1995 birth cohort found a child from a rich household is about six times more likely to be admitted to NTU than a child from a poor household; NTU/public-university students' median household income (NTU >NT$1.5M, other public universities >NT$1M) far above the overall sample median (~NT$860,000), producing a 'reverse redistribution' effect since elite public universities receive more government funding per student (報導者/The Reporter coverage of the NTU study, also covered by 商業周刊/今周刊). Stars Program (繁星計畫): multi-track admission by in-school standing rather than only national exam score, designed to widen access for rural/under-resourced students. Ministry of Education's University System Financial Aid Program for Disadvantaged Students (大專校院不利處境學生助學計畫), since the 2007 academic year, targets households in the bottom 40% of income distribution with four kinds of support: tuition subsidy, living stipend, emergency relief, housing subsidy (教育部圓夢助學網/coloan.moe.gov.tw). Early-intervention argument sourced to 獨立評論 commentary on rural education and poverty. Cram-school spending advantage and post-admission cost burden stated in general terms, not invented as precise figures.",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "Here lies a genuine puzzle: Taiwan's most prestigious public universities receive much more government funding per student. Yet their enrollment skews toward wealthier households rather than poorer ones, meaning a system designed to equalize things ends up doing the opposite.",
+              "words": 40,
+              "sentences": 2,
+              "avg_sentence_words": 20.0,
+              "fk_grade": 13.5,
+              "long_word_pct": 25.0,
+              "speak_seconds_est": 20.0,
+              "fill_pct": 100.0,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-2 (labor-market framing): social mobility and scholarships specifically. Facts and sources: NTU economics department study using national tax records for the 1993-1995 birth cohort found a child from a rich household is about six times more likely to be admitted to NTU than a child from a poor household; NTU/public-university students' median household income (NTU >NT$1.5M, other public universities >NT$1M) far above the overall sample median (~NT$860,000), producing a 'reverse redistribution' effect since elite public universities receive more government funding per student (報導者/The Reporter coverage of the NTU study, also covered by 商業周刊/今周刊). Stars Program (繁星計畫): multi-track admission by in-school standing rather than only national exam score, designed to widen access for rural/under-resourced students. Ministry of Education's University System Financial Aid Program for Disadvantaged Students (大專校院不利處境學生助學計畫), since the 2007 academic year, targets households in the bottom 40% of income distribution with four kinds of support: tuition subsidy, living stipend, emergency relief, housing subsidy (教育部圓夢助學網/coloan.moe.gov.tw). Early-intervention argument sourced to 獨立評論 commentary on rural education and poverty. Cram-school spending advantage and post-admission cost burden stated in general terms, not invented as precise figures.",
+              "workbook_text": null
+            }
+          }
+        },
+        {
+          "slide_no": 6,
+          "title": {
+            "en": "Admitted, But Still Trapped",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Even a poor student who gets in still faces extra costs. They must pay for books and rent. They also lose valuable time they could use to earn money.",
+              "words": 29,
+              "sentences": 3,
+              "avg_sentence_words": 9.7,
+              "fk_grade": 3.2,
+              "long_word_pct": 3.4,
+              "speak_seconds_est": 18.3,
+              "fill_pct": 91.6,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-2 (labor-market framing): social mobility and scholarships specifically. Facts and sources: NTU economics department study using national tax records for the 1993-1995 birth cohort found a child from a rich household is about six times more likely to be admitted to NTU than a child from a poor household; NTU/public-university students' median household income (NTU >NT$1.5M, other public universities >NT$1M) far above the overall sample median (~NT$860,000), producing a 'reverse redistribution' effect since elite public universities receive more government funding per student (報導者/The Reporter coverage of the NTU study, also covered by 商業周刊/今周刊). Stars Program (繁星計畫): multi-track admission by in-school standing rather than only national exam score, designed to widen access for rural/under-resourced students. Ministry of Education's University System Financial Aid Program for Disadvantaged Students (大專校院不利處境學生助學計畫), since the 2007 academic year, targets households in the bottom 40% of income distribution with four kinds of support: tuition subsidy, living stipend, emergency relief, housing subsidy (教育部圓夢助學網/coloan.moe.gov.tw). Early-intervention argument sourced to 獨立評論 commentary on rural education and poverty. Cram-school spending advantage and post-admission cost burden stated in general terms, not invented as precise figures.",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "Even after admission, a low-income student still faces real costs: tuition, textbooks, and rent all add up fast. Time spent studying is also time they cannot spend earning money.",
+              "words": 29,
+              "sentences": 2,
+              "avg_sentence_words": 14.5,
+              "fk_grade": 8.0,
+              "long_word_pct": 13.8,
+              "speak_seconds_est": 15.8,
+              "fill_pct": 79.1,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-2 (labor-market framing): social mobility and scholarships specifically. Facts and sources: NTU economics department study using national tax records for the 1993-1995 birth cohort found a child from a rich household is about six times more likely to be admitted to NTU than a child from a poor household; NTU/public-university students' median household income (NTU >NT$1.5M, other public universities >NT$1M) far above the overall sample median (~NT$860,000), producing a 'reverse redistribution' effect since elite public universities receive more government funding per student (報導者/The Reporter coverage of the NTU study, also covered by 商業周刊/今周刊). Stars Program (繁星計畫): multi-track admission by in-school standing rather than only national exam score, designed to widen access for rural/under-resourced students. Ministry of Education's University System Financial Aid Program for Disadvantaged Students (大專校院不利處境學生助學計畫), since the 2007 academic year, targets households in the bottom 40% of income distribution with four kinds of support: tuition subsidy, living stipend, emergency relief, housing subsidy (教育部圓夢助學網/coloan.moe.gov.tw). Early-intervention argument sourced to 獨立評論 commentary on rural education and poverty. Cram-school spending advantage and post-admission cost burden stated in general terms, not invented as precise figures.",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "Admission alone does not remove the burden facing a low-income student. They still absorb tuition, textbooks, and rent, while every hour spent studying is an hour not spent earning an income.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 9.1,
+              "long_word_pct": 12.9,
+              "speak_seconds_est": 15.5,
+              "fill_pct": 77.5,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-2 (labor-market framing): social mobility and scholarships specifically. Facts and sources: NTU economics department study using national tax records for the 1993-1995 birth cohort found a child from a rich household is about six times more likely to be admitted to NTU than a child from a poor household; NTU/public-university students' median household income (NTU >NT$1.5M, other public universities >NT$1M) far above the overall sample median (~NT$860,000), producing a 'reverse redistribution' effect since elite public universities receive more government funding per student (報導者/The Reporter coverage of the NTU study, also covered by 商業周刊/今周刊). Stars Program (繁星計畫): multi-track admission by in-school standing rather than only national exam score, designed to widen access for rural/under-resourced students. Ministry of Education's University System Financial Aid Program for Disadvantaged Students (大專校院不利處境學生助學計畫), since the 2007 academic year, targets households in the bottom 40% of income distribution with four kinds of support: tuition subsidy, living stipend, emergency relief, housing subsidy (教育部圓夢助學網/coloan.moe.gov.tw). Early-intervention argument sourced to 獨立評論 commentary on rural education and poverty. Cram-school spending advantage and post-admission cost burden stated in general terms, not invented as precise figures.",
+              "workbook_text": null
+            }
+          }
+        }
+      ]
+    },
+    {
+      "part_no": 3,
+      "source_description": "Part 3: Achievements (Slides 7-9: the Stars Program widening rural access, need-based aid for the bottom 40%, scholarships paired with support)",
+      "function_en": "Achievements",
+      "function_zh": "成果：舉證與比較",
+      "language_pattern": "present perfect / comparatives",
+      "slides": [
+        {
+          "slide_no": 7,
+          "title": {
+            "en": "The Stars Program Opens a Side Door",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Now here is some really important news. Taiwan created the Stars Program. It judges a student by their school rank, not by one big test alone.",
+              "words": 26,
+              "sentences": 3,
+              "avg_sentence_words": 8.7,
+              "fk_grade": 3.7,
+              "long_word_pct": 3.8,
+              "speak_seconds_est": 16.4,
+              "fill_pct": 82.1,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-2 (labor-market framing): social mobility and scholarships specifically. Facts and sources: NTU economics department study using national tax records for the 1993-1995 birth cohort found a child from a rich household is about six times more likely to be admitted to NTU than a child from a poor household; NTU/public-university students' median household income (NTU >NT$1.5M, other public universities >NT$1M) far above the overall sample median (~NT$860,000), producing a 'reverse redistribution' effect since elite public universities receive more government funding per student (報導者/The Reporter coverage of the NTU study, also covered by 商業周刊/今周刊). Stars Program (繁星計畫): multi-track admission by in-school standing rather than only national exam score, designed to widen access for rural/under-resourced students. Ministry of Education's University System Financial Aid Program for Disadvantaged Students (大專校院不利處境學生助學計畫), since the 2007 academic year, targets households in the bottom 40% of income distribution with four kinds of support: tuition subsidy, living stipend, emergency relief, housing subsidy (教育部圓夢助學網/coloan.moe.gov.tw). Early-intervention argument sourced to 獨立評論 commentary on rural education and poverty. Cram-school spending advantage and post-admission cost burden stated in general terms, not invented as precise figures.",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "Here is some genuine progress. Taiwan has built the Stars Program, which judges a student by their ranking inside their own secondary school rather than by one national exam alone.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 8.4,
+              "long_word_pct": 10.0,
+              "speak_seconds_est": 16.4,
+              "fill_pct": 81.8,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-2 (labor-market framing): social mobility and scholarships specifically. Facts and sources: NTU economics department study using national tax records for the 1993-1995 birth cohort found a child from a rich household is about six times more likely to be admitted to NTU than a child from a poor household; NTU/public-university students' median household income (NTU >NT$1.5M, other public universities >NT$1M) far above the overall sample median (~NT$860,000), producing a 'reverse redistribution' effect since elite public universities receive more government funding per student (報導者/The Reporter coverage of the NTU study, also covered by 商業周刊/今周刊). Stars Program (繁星計畫): multi-track admission by in-school standing rather than only national exam score, designed to widen access for rural/under-resourced students. Ministry of Education's University System Financial Aid Program for Disadvantaged Students (大專校院不利處境學生助學計畫), since the 2007 academic year, targets households in the bottom 40% of income distribution with four kinds of support: tuition subsidy, living stipend, emergency relief, housing subsidy (教育部圓夢助學網/coloan.moe.gov.tw). Early-intervention argument sourced to 獨立評論 commentary on rural education and poverty. Cram-school spending advantage and post-admission cost burden stated in general terms, not invented as precise figures.",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "Genuine progress clearly exists here. Taiwan has established the Stars Program, an admissions track that evaluates students by their standing within their own school rather than by a single national exam.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 10.6,
+              "long_word_pct": 22.6,
+              "speak_seconds_est": 15.5,
+              "fill_pct": 77.5,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-2 (labor-market framing): social mobility and scholarships specifically. Facts and sources: NTU economics department study using national tax records for the 1993-1995 birth cohort found a child from a rich household is about six times more likely to be admitted to NTU than a child from a poor household; NTU/public-university students' median household income (NTU >NT$1.5M, other public universities >NT$1M) far above the overall sample median (~NT$860,000), producing a 'reverse redistribution' effect since elite public universities receive more government funding per student (報導者/The Reporter coverage of the NTU study, also covered by 商業周刊/今周刊). Stars Program (繁星計畫): multi-track admission by in-school standing rather than only national exam score, designed to widen access for rural/under-resourced students. Ministry of Education's University System Financial Aid Program for Disadvantaged Students (大專校院不利處境學生助學計畫), since the 2007 academic year, targets households in the bottom 40% of income distribution with four kinds of support: tuition subsidy, living stipend, emergency relief, housing subsidy (教育部圓夢助學網/coloan.moe.gov.tw). Early-intervention argument sourced to 獨立評論 commentary on rural education and poverty. Cram-school spending advantage and post-admission cost burden stated in general terms, not invented as precise figures.",
+              "workbook_text": null
+            }
+          }
+        },
+        {
+          "slide_no": 8,
+          "title": {
+            "en": "Aid for the Bottom Forty Percent",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Taiwan helps poor students in another way too. Since 2007, they can get money from the state each year. This support helps poor families most.",
+              "words": 25,
+              "sentences": 3,
+              "avg_sentence_words": 8.3,
+              "fk_grade": 4.7,
+              "long_word_pct": 8.0,
+              "speak_seconds_est": 15.8,
+              "fill_pct": 78.9,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-2 (labor-market framing): social mobility and scholarships specifically. Facts and sources: NTU economics department study using national tax records for the 1993-1995 birth cohort found a child from a rich household is about six times more likely to be admitted to NTU than a child from a poor household; NTU/public-university students' median household income (NTU >NT$1.5M, other public universities >NT$1M) far above the overall sample median (~NT$860,000), producing a 'reverse redistribution' effect since elite public universities receive more government funding per student (報導者/The Reporter coverage of the NTU study, also covered by 商業周刊/今周刊). Stars Program (繁星計畫): multi-track admission by in-school standing rather than only national exam score, designed to widen access for rural/under-resourced students. Ministry of Education's University System Financial Aid Program for Disadvantaged Students (大專校院不利處境學生助學計畫), since the 2007 academic year, targets households in the bottom 40% of income distribution with four kinds of support: tuition subsidy, living stipend, emergency relief, housing subsidy (教育部圓夢助學網/coloan.moe.gov.tw). Early-intervention argument sourced to 獨立評論 commentary on rural education and poverty. Cram-school spending advantage and post-admission cost burden stated in general terms, not invented as precise figures.",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "Taiwan has also run a wider aid plan since 2007. It offers tuition help, living costs, and even housing support to students from the poorest forty percent of households.",
+              "words": 29,
+              "sentences": 2,
+              "avg_sentence_words": 14.5,
+              "fk_grade": 9.2,
+              "long_word_pct": 6.9,
+              "speak_seconds_est": 15.8,
+              "fill_pct": 79.1,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-2 (labor-market framing): social mobility and scholarships specifically. Facts and sources: NTU economics department study using national tax records for the 1993-1995 birth cohort found a child from a rich household is about six times more likely to be admitted to NTU than a child from a poor household; NTU/public-university students' median household income (NTU >NT$1.5M, other public universities >NT$1M) far above the overall sample median (~NT$860,000), producing a 'reverse redistribution' effect since elite public universities receive more government funding per student (報導者/The Reporter coverage of the NTU study, also covered by 商業周刊/今周刊). Stars Program (繁星計畫): multi-track admission by in-school standing rather than only national exam score, designed to widen access for rural/under-resourced students. Ministry of Education's University System Financial Aid Program for Disadvantaged Students (大專校院不利處境學生助學計畫), since the 2007 academic year, targets households in the bottom 40% of income distribution with four kinds of support: tuition subsidy, living stipend, emergency relief, housing subsidy (教育部圓夢助學網/coloan.moe.gov.tw). Early-intervention argument sourced to 獨立評論 commentary on rural education and poverty. Cram-school spending advantage and post-admission cost burden stated in general terms, not invented as precise figures.",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "Since 2007, Taiwan has run a broader assistance program. It provides tuition subsidies, living stipends, emergency relief, and housing help specifically to students from the poorest forty percent of households.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 13.9,
+              "long_word_pct": 26.7,
+              "speak_seconds_est": 15.0,
+              "fill_pct": 75.0,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-2 (labor-market framing): social mobility and scholarships specifically. Facts and sources: NTU economics department study using national tax records for the 1993-1995 birth cohort found a child from a rich household is about six times more likely to be admitted to NTU than a child from a poor household; NTU/public-university students' median household income (NTU >NT$1.5M, other public universities >NT$1M) far above the overall sample median (~NT$860,000), producing a 'reverse redistribution' effect since elite public universities receive more government funding per student (報導者/The Reporter coverage of the NTU study, also covered by 商業周刊/今周刊). Stars Program (繁星計畫): multi-track admission by in-school standing rather than only national exam score, designed to widen access for rural/under-resourced students. Ministry of Education's University System Financial Aid Program for Disadvantaged Students (大專校院不利處境學生助學計畫), since the 2007 academic year, targets households in the bottom 40% of income distribution with four kinds of support: tuition subsidy, living stipend, emergency relief, housing subsidy (教育部圓夢助學網/coloan.moe.gov.tw). Early-intervention argument sourced to 獨立評論 commentary on rural education and poverty. Cram-school spending advantage and post-admission cost burden stated in general terms, not invented as precise figures.",
+              "workbook_text": null
+            }
+          }
+        },
+        {
+          "slide_no": 9,
+          "title": {
+            "en": "Scholarships Plus Support",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Money alone is not enough here. A scholarship helps much more when a mentor also helps. Support and money together work better than money by itself.",
+              "words": 26,
+              "sentences": 3,
+              "avg_sentence_words": 8.7,
+              "fk_grade": 5.9,
+              "long_word_pct": 7.7,
+              "speak_seconds_est": 16.4,
+              "fill_pct": 82.1,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-2 (labor-market framing): social mobility and scholarships specifically. Facts and sources: NTU economics department study using national tax records for the 1993-1995 birth cohort found a child from a rich household is about six times more likely to be admitted to NTU than a child from a poor household; NTU/public-university students' median household income (NTU >NT$1.5M, other public universities >NT$1M) far above the overall sample median (~NT$860,000), producing a 'reverse redistribution' effect since elite public universities receive more government funding per student (報導者/The Reporter coverage of the NTU study, also covered by 商業周刊/今周刊). Stars Program (繁星計畫): multi-track admission by in-school standing rather than only national exam score, designed to widen access for rural/under-resourced students. Ministry of Education's University System Financial Aid Program for Disadvantaged Students (大專校院不利處境學生助學計畫), since the 2007 academic year, targets households in the bottom 40% of income distribution with four kinds of support: tuition subsidy, living stipend, emergency relief, housing subsidy (教育部圓夢助學網/coloan.moe.gov.tw). Early-intervention argument sourced to 獨立評論 commentary on rural education and poverty. Cram-school spending advantage and post-admission cost burden stated in general terms, not invented as precise figures.",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "Money alone rarely solves the whole problem. A scholarship works far better when it arrives alongside a mentor, because guidance often matters as much as the funding itself.",
+              "words": 28,
+              "sentences": 2,
+              "avg_sentence_words": 14.0,
+              "fk_grade": 10.5,
+              "long_word_pct": 10.7,
+              "speak_seconds_est": 15.3,
+              "fill_pct": 76.4,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-2 (labor-market framing): social mobility and scholarships specifically. Facts and sources: NTU economics department study using national tax records for the 1993-1995 birth cohort found a child from a rich household is about six times more likely to be admitted to NTU than a child from a poor household; NTU/public-university students' median household income (NTU >NT$1.5M, other public universities >NT$1M) far above the overall sample median (~NT$860,000), producing a 'reverse redistribution' effect since elite public universities receive more government funding per student (報導者/The Reporter coverage of the NTU study, also covered by 商業周刊/今周刊). Stars Program (繁星計畫): multi-track admission by in-school standing rather than only national exam score, designed to widen access for rural/under-resourced students. Ministry of Education's University System Financial Aid Program for Disadvantaged Students (大專校院不利處境學生助學計畫), since the 2007 academic year, targets households in the bottom 40% of income distribution with four kinds of support: tuition subsidy, living stipend, emergency relief, housing subsidy (教育部圓夢助學網/coloan.moe.gov.tw). Early-intervention argument sourced to 獨立評論 commentary on rural education and poverty. Cram-school spending advantage and post-admission cost burden stated in general terms, not invented as precise figures.",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "Financial aid alone rarely solves the underlying problem. A scholarship proves considerably more effective when it is paired with mentorship, since guidance frequently matters as much as the money itself.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 12.7,
+              "long_word_pct": 26.7,
+              "speak_seconds_est": 15.0,
+              "fill_pct": 75.0,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-2 (labor-market framing): social mobility and scholarships specifically. Facts and sources: NTU economics department study using national tax records for the 1993-1995 birth cohort found a child from a rich household is about six times more likely to be admitted to NTU than a child from a poor household; NTU/public-university students' median household income (NTU >NT$1.5M, other public universities >NT$1M) far above the overall sample median (~NT$860,000), producing a 'reverse redistribution' effect since elite public universities receive more government funding per student (報導者/The Reporter coverage of the NTU study, also covered by 商業周刊/今周刊). Stars Program (繁星計畫): multi-track admission by in-school standing rather than only national exam score, designed to widen access for rural/under-resourced students. Ministry of Education's University System Financial Aid Program for Disadvantaged Students (大專校院不利處境學生助學計畫), since the 2007 academic year, targets households in the bottom 40% of income distribution with four kinds of support: tuition subsidy, living stipend, emergency relief, housing subsidy (教育部圓夢助學網/coloan.moe.gov.tw). Early-intervention argument sourced to 獨立評論 commentary on rural education and poverty. Cram-school spending advantage and post-admission cost burden stated in general terms, not invented as precise figures.",
+              "workbook_text": null
+            }
+          }
+        }
+      ]
+    },
+    {
+      "part_no": 4,
+      "source_description": "Part 4: Solutions (Slides 10-12: funding need instead of only talent, mentors instead of money alone, starting support before kindergarten)",
+      "function_en": "Solutions",
+      "function_zh": "解方：做法與取捨",
+      "language_pattern": "instead of + V-ing / modal verbs",
+      "slides": [
+        {
+          "slide_no": 10,
+          "title": {
+            "en": "Funding Need, Not Just Talent",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Here is one important idea. Give money to students who need it most. Do not give it only to students with the best test scores.",
+              "words": 25,
+              "sentences": 3,
+              "avg_sentence_words": 8.3,
+              "fk_grade": 3.2,
+              "long_word_pct": 12.0,
+              "speak_seconds_est": 15.8,
+              "fill_pct": 78.9,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-2 (labor-market framing): social mobility and scholarships specifically. Facts and sources: NTU economics department study using national tax records for the 1993-1995 birth cohort found a child from a rich household is about six times more likely to be admitted to NTU than a child from a poor household; NTU/public-university students' median household income (NTU >NT$1.5M, other public universities >NT$1M) far above the overall sample median (~NT$860,000), producing a 'reverse redistribution' effect since elite public universities receive more government funding per student (報導者/The Reporter coverage of the NTU study, also covered by 商業周刊/今周刊). Stars Program (繁星計畫): multi-track admission by in-school standing rather than only national exam score, designed to widen access for rural/under-resourced students. Ministry of Education's University System Financial Aid Program for Disadvantaged Students (大專校院不利處境學生助學計畫), since the 2007 academic year, targets households in the bottom 40% of income distribution with four kinds of support: tuition subsidy, living stipend, emergency relief, housing subsidy (教育部圓夢助學網/coloan.moe.gov.tw). Early-intervention argument sourced to 獨立評論 commentary on rural education and poverty. Cram-school spending advantage and post-admission cost burden stated in general terms, not invented as precise figures.",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "One clear solution really exists here today. Base aid on financial need, not only on test scores, so support actually reaches the students who require it the most.",
+              "words": 28,
+              "sentences": 2,
+              "avg_sentence_words": 14.0,
+              "fk_grade": 8.0,
+              "long_word_pct": 14.3,
+              "speak_seconds_est": 15.3,
+              "fill_pct": 76.4,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-2 (labor-market framing): social mobility and scholarships specifically. Facts and sources: NTU economics department study using national tax records for the 1993-1995 birth cohort found a child from a rich household is about six times more likely to be admitted to NTU than a child from a poor household; NTU/public-university students' median household income (NTU >NT$1.5M, other public universities >NT$1M) far above the overall sample median (~NT$860,000), producing a 'reverse redistribution' effect since elite public universities receive more government funding per student (報導者/The Reporter coverage of the NTU study, also covered by 商業周刊/今周刊). Stars Program (繁星計畫): multi-track admission by in-school standing rather than only national exam score, designed to widen access for rural/under-resourced students. Ministry of Education's University System Financial Aid Program for Disadvantaged Students (大專校院不利處境學生助學計畫), since the 2007 academic year, targets households in the bottom 40% of income distribution with four kinds of support: tuition subsidy, living stipend, emergency relief, housing subsidy (教育部圓夢助學網/coloan.moe.gov.tw). Early-intervention argument sourced to 獨立評論 commentary on rural education and poverty. Cram-school spending advantage and post-admission cost burden stated in general terms, not invented as precise figures.",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "One evident solution involves allocating aid according to financial need rather than exam performance alone. This ensures support reaches those who genuinely require it, not merely those who already tested well.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 14.1,
+              "long_word_pct": 22.6,
+              "speak_seconds_est": 15.5,
+              "fill_pct": 77.5,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-2 (labor-market framing): social mobility and scholarships specifically. Facts and sources: NTU economics department study using national tax records for the 1993-1995 birth cohort found a child from a rich household is about six times more likely to be admitted to NTU than a child from a poor household; NTU/public-university students' median household income (NTU >NT$1.5M, other public universities >NT$1M) far above the overall sample median (~NT$860,000), producing a 'reverse redistribution' effect since elite public universities receive more government funding per student (報導者/The Reporter coverage of the NTU study, also covered by 商業周刊/今周刊). Stars Program (繁星計畫): multi-track admission by in-school standing rather than only national exam score, designed to widen access for rural/under-resourced students. Ministry of Education's University System Financial Aid Program for Disadvantaged Students (大專校院不利處境學生助學計畫), since the 2007 academic year, targets households in the bottom 40% of income distribution with four kinds of support: tuition subsidy, living stipend, emergency relief, housing subsidy (教育部圓夢助學網/coloan.moe.gov.tw). Early-intervention argument sourced to 獨立評論 commentary on rural education and poverty. Cram-school spending advantage and post-admission cost burden stated in general terms, not invented as precise figures.",
+              "workbook_text": null
+            }
+          }
+        },
+        {
+          "slide_no": 11,
+          "title": {
+            "en": "Mentors Instead of Money Alone",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Money is not the only answer here. Instead of only giving cash, schools could also give each student a personal mentor. A mentor can guide, not just pay.",
+              "words": 28,
+              "sentences": 3,
+              "avg_sentence_words": 9.3,
+              "fk_grade": 4.9,
+              "long_word_pct": 3.6,
+              "speak_seconds_est": 17.7,
+              "fill_pct": 88.4,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-2 (labor-market framing): social mobility and scholarships specifically. Facts and sources: NTU economics department study using national tax records for the 1993-1995 birth cohort found a child from a rich household is about six times more likely to be admitted to NTU than a child from a poor household; NTU/public-university students' median household income (NTU >NT$1.5M, other public universities >NT$1M) far above the overall sample median (~NT$860,000), producing a 'reverse redistribution' effect since elite public universities receive more government funding per student (報導者/The Reporter coverage of the NTU study, also covered by 商業周刊/今周刊). Stars Program (繁星計畫): multi-track admission by in-school standing rather than only national exam score, designed to widen access for rural/under-resourced students. Ministry of Education's University System Financial Aid Program for Disadvantaged Students (大專校院不利處境學生助學計畫), since the 2007 academic year, targets households in the bottom 40% of income distribution with four kinds of support: tuition subsidy, living stipend, emergency relief, housing subsidy (教育部圓夢助學網/coloan.moe.gov.tw). Early-intervention argument sourced to 獨立評論 commentary on rural education and poverty. Cram-school spending advantage and post-admission cost burden stated in general terms, not invented as precise figures.",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "Money by itself is not the whole answer. Instead of handing out cash alone, schools could pair every scholarship with a genuine mentor who consistently guides the student.",
+              "words": 28,
+              "sentences": 2,
+              "avg_sentence_words": 14.0,
+              "fk_grade": 9.3,
+              "long_word_pct": 7.1,
+              "speak_seconds_est": 15.3,
+              "fill_pct": 76.4,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-2 (labor-market framing): social mobility and scholarships specifically. Facts and sources: NTU economics department study using national tax records for the 1993-1995 birth cohort found a child from a rich household is about six times more likely to be admitted to NTU than a child from a poor household; NTU/public-university students' median household income (NTU >NT$1.5M, other public universities >NT$1M) far above the overall sample median (~NT$860,000), producing a 'reverse redistribution' effect since elite public universities receive more government funding per student (報導者/The Reporter coverage of the NTU study, also covered by 商業周刊/今周刊). Stars Program (繁星計畫): multi-track admission by in-school standing rather than only national exam score, designed to widen access for rural/under-resourced students. Ministry of Education's University System Financial Aid Program for Disadvantaged Students (大專校院不利處境學生助學計畫), since the 2007 academic year, targets households in the bottom 40% of income distribution with four kinds of support: tuition subsidy, living stipend, emergency relief, housing subsidy (教育部圓夢助學網/coloan.moe.gov.tw). Early-intervention argument sourced to 獨立評論 commentary on rural education and poverty. Cram-school spending advantage and post-admission cost burden stated in general terms, not invented as precise figures.",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "Money alone cannot solve this. Instead of distributing funds in isolation, institutions could pair every scholarship with a dedicated mentor, someone who guides a student rather than simply subsidizing them.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 13.5,
+              "long_word_pct": 20.0,
+              "speak_seconds_est": 15.0,
+              "fill_pct": 75.0,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-2 (labor-market framing): social mobility and scholarships specifically. Facts and sources: NTU economics department study using national tax records for the 1993-1995 birth cohort found a child from a rich household is about six times more likely to be admitted to NTU than a child from a poor household; NTU/public-university students' median household income (NTU >NT$1.5M, other public universities >NT$1M) far above the overall sample median (~NT$860,000), producing a 'reverse redistribution' effect since elite public universities receive more government funding per student (報導者/The Reporter coverage of the NTU study, also covered by 商業周刊/今周刊). Stars Program (繁星計畫): multi-track admission by in-school standing rather than only national exam score, designed to widen access for rural/under-resourced students. Ministry of Education's University System Financial Aid Program for Disadvantaged Students (大專校院不利處境學生助學計畫), since the 2007 academic year, targets households in the bottom 40% of income distribution with four kinds of support: tuition subsidy, living stipend, emergency relief, housing subsidy (教育部圓夢助學網/coloan.moe.gov.tw). Early-intervention argument sourced to 獨立評論 commentary on rural education and poverty. Cram-school spending advantage and post-admission cost burden stated in general terms, not invented as precise figures.",
+              "workbook_text": null
+            }
+          }
+        },
+        {
+          "slide_no": 12,
+          "title": {
+            "en": "Starting Support Before Kindergarten",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "University help often starts too late for a poor student. Support should begin much earlier, even before kindergarten. Early help closes the gap before it grows.",
+              "words": 26,
+              "sentences": 3,
+              "avg_sentence_words": 8.7,
+              "fk_grade": 7.3,
+              "long_word_pct": 7.7,
+              "speak_seconds_est": 16.4,
+              "fill_pct": 82.1,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-2 (labor-market framing): social mobility and scholarships specifically. Facts and sources: NTU economics department study using national tax records for the 1993-1995 birth cohort found a child from a rich household is about six times more likely to be admitted to NTU than a child from a poor household; NTU/public-university students' median household income (NTU >NT$1.5M, other public universities >NT$1M) far above the overall sample median (~NT$860,000), producing a 'reverse redistribution' effect since elite public universities receive more government funding per student (報導者/The Reporter coverage of the NTU study, also covered by 商業周刊/今周刊). Stars Program (繁星計畫): multi-track admission by in-school standing rather than only national exam score, designed to widen access for rural/under-resourced students. Ministry of Education's University System Financial Aid Program for Disadvantaged Students (大專校院不利處境學生助學計畫), since the 2007 academic year, targets households in the bottom 40% of income distribution with four kinds of support: tuition subsidy, living stipend, emergency relief, housing subsidy (教育部圓夢助學網/coloan.moe.gov.tw). Early-intervention argument sourced to 獨立評論 commentary on rural education and poverty. Cram-school spending advantage and post-admission cost burden stated in general terms, not invented as precise figures.",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "Waiting until university starts is already too late for many students. Support should begin much earlier, before kindergarten even, since the gap between rich and poor grows every single year.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 10.7,
+              "long_word_pct": 10.0,
+              "speak_seconds_est": 16.4,
+              "fill_pct": 81.8,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-2 (labor-market framing): social mobility and scholarships specifically. Facts and sources: NTU economics department study using national tax records for the 1993-1995 birth cohort found a child from a rich household is about six times more likely to be admitted to NTU than a child from a poor household; NTU/public-university students' median household income (NTU >NT$1.5M, other public universities >NT$1M) far above the overall sample median (~NT$860,000), producing a 'reverse redistribution' effect since elite public universities receive more government funding per student (報導者/The Reporter coverage of the NTU study, also covered by 商業周刊/今周刊). Stars Program (繁星計畫): multi-track admission by in-school standing rather than only national exam score, designed to widen access for rural/under-resourced students. Ministry of Education's University System Financial Aid Program for Disadvantaged Students (大專校院不利處境學生助學計畫), since the 2007 academic year, targets households in the bottom 40% of income distribution with four kinds of support: tuition subsidy, living stipend, emergency relief, housing subsidy (教育部圓夢助學網/coloan.moe.gov.tw). Early-intervention argument sourced to 獨立評論 commentary on rural education and poverty. Cram-school spending advantage and post-admission cost burden stated in general terms, not invented as precise figures.",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "Waiting until university intervenes far too late for most students. Support ought to begin much earlier, even before kindergarten, because the gap separating rich and poor widens with every year it remains unaddressed.",
+              "words": 33,
+              "sentences": 2,
+              "avg_sentence_words": 16.5,
+              "fk_grade": 13.0,
+              "long_word_pct": 18.2,
+              "speak_seconds_est": 16.5,
+              "fill_pct": 82.5,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-2 (labor-market framing): social mobility and scholarships specifically. Facts and sources: NTU economics department study using national tax records for the 1993-1995 birth cohort found a child from a rich household is about six times more likely to be admitted to NTU than a child from a poor household; NTU/public-university students' median household income (NTU >NT$1.5M, other public universities >NT$1M) far above the overall sample median (~NT$860,000), producing a 'reverse redistribution' effect since elite public universities receive more government funding per student (報導者/The Reporter coverage of the NTU study, also covered by 商業周刊/今周刊). Stars Program (繁星計畫): multi-track admission by in-school standing rather than only national exam score, designed to widen access for rural/under-resourced students. Ministry of Education's University System Financial Aid Program for Disadvantaged Students (大專校院不利處境學生助學計畫), since the 2007 academic year, targets households in the bottom 40% of income distribution with four kinds of support: tuition subsidy, living stipend, emergency relief, housing subsidy (教育部圓夢助學網/coloan.moe.gov.tw). Early-intervention argument sourced to 獨立評論 commentary on rural education and poverty. Cram-school spending advantage and post-admission cost burden stated in general terms, not invented as precise figures.",
+              "workbook_text": null
+            }
+          }
+        }
+      ]
+    },
+    {
+      "part_no": 5,
+      "source_description": "Part 5: Implications (Slides 13-16: one continuous tension - aid can lift a student, but a degree alone doesn't erase a family's disadvantage, and the exam system still rewards head starts, until money and mentorship are combined)",
+      "function_en": "Implications",
+      "function_zh": "影響：推論後果",
+      "language_pattern": "first conditional / however",
+      "slides": [
+        {
+          "slide_no": 13,
+          "title": {
+            "en": "If Aid Reaches a Student",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "If help arrives early enough in a child's life, a student can finish their degree. Then they can change their whole family's future. This is real hope.",
+              "words": 27,
+              "sentences": 3,
+              "avg_sentence_words": 9.0,
+              "fk_grade": 4.1,
+              "long_word_pct": 3.7,
+              "speak_seconds_est": 17.1,
+              "fill_pct": 85.3,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-2 (labor-market framing): social mobility and scholarships specifically. Facts and sources: NTU economics department study using national tax records for the 1993-1995 birth cohort found a child from a rich household is about six times more likely to be admitted to NTU than a child from a poor household; NTU/public-university students' median household income (NTU >NT$1.5M, other public universities >NT$1M) far above the overall sample median (~NT$860,000), producing a 'reverse redistribution' effect since elite public universities receive more government funding per student (報導者/The Reporter coverage of the NTU study, also covered by 商業周刊/今周刊). Stars Program (繁星計畫): multi-track admission by in-school standing rather than only national exam score, designed to widen access for rural/under-resourced students. Ministry of Education's University System Financial Aid Program for Disadvantaged Students (大專校院不利處境學生助學計畫), since the 2007 academic year, targets households in the bottom 40% of income distribution with four kinds of support: tuition subsidy, living stipend, emergency relief, housing subsidy (教育部圓夢助學網/coloan.moe.gov.tw). Early-intervention argument sourced to 獨立評論 commentary on rural education and poverty. Cram-school spending advantage and post-admission cost burden stated in general terms, not invented as precise figures.",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "If aid and mentoring reach a student early enough, that student can finish a degree. That success can genuinely change their whole family's future, not just their own.",
+              "words": 28,
+              "sentences": 2,
+              "avg_sentence_words": 14.0,
+              "fk_grade": 8.0,
+              "long_word_pct": 10.7,
+              "speak_seconds_est": 15.3,
+              "fill_pct": 76.4,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-2 (labor-market framing): social mobility and scholarships specifically. Facts and sources: NTU economics department study using national tax records for the 1993-1995 birth cohort found a child from a rich household is about six times more likely to be admitted to NTU than a child from a poor household; NTU/public-university students' median household income (NTU >NT$1.5M, other public universities >NT$1M) far above the overall sample median (~NT$860,000), producing a 'reverse redistribution' effect since elite public universities receive more government funding per student (報導者/The Reporter coverage of the NTU study, also covered by 商業周刊/今周刊). Stars Program (繁星計畫): multi-track admission by in-school standing rather than only national exam score, designed to widen access for rural/under-resourced students. Ministry of Education's University System Financial Aid Program for Disadvantaged Students (大專校院不利處境學生助學計畫), since the 2007 academic year, targets households in the bottom 40% of income distribution with four kinds of support: tuition subsidy, living stipend, emergency relief, housing subsidy (教育部圓夢助學網/coloan.moe.gov.tw). Early-intervention argument sourced to 獨立評論 commentary on rural education and poverty. Cram-school spending advantage and post-admission cost burden stated in general terms, not invented as precise figures.",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "If financial aid and mentorship reach a student early enough, that student can complete a degree. This can meaningfully alter the trajectory of an entire family, not merely their own prospects.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 10.6,
+              "long_word_pct": 19.4,
+              "speak_seconds_est": 15.5,
+              "fill_pct": 77.5,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-2 (labor-market framing): social mobility and scholarships specifically. Facts and sources: NTU economics department study using national tax records for the 1993-1995 birth cohort found a child from a rich household is about six times more likely to be admitted to NTU than a child from a poor household; NTU/public-university students' median household income (NTU >NT$1.5M, other public universities >NT$1M) far above the overall sample median (~NT$860,000), producing a 'reverse redistribution' effect since elite public universities receive more government funding per student (報導者/The Reporter coverage of the NTU study, also covered by 商業周刊/今周刊). Stars Program (繁星計畫): multi-track admission by in-school standing rather than only national exam score, designed to widen access for rural/under-resourced students. Ministry of Education's University System Financial Aid Program for Disadvantaged Students (大專校院不利處境學生助學計畫), since the 2007 academic year, targets households in the bottom 40% of income distribution with four kinds of support: tuition subsidy, living stipend, emergency relief, housing subsidy (教育部圓夢助學網/coloan.moe.gov.tw). Early-intervention argument sourced to 獨立評論 commentary on rural education and poverty. Cram-school spending advantage and post-admission cost burden stated in general terms, not invented as precise figures.",
+              "workbook_text": null
+            }
+          }
+        },
+        {
+          "slide_no": 14,
+          "title": {
+            "en": "A Degree Without a Safety Net",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "However, a degree does not fix every problem. It does not pay off family debt. A richer graduate still has more help and more friends.",
+              "words": 25,
+              "sentences": 3,
+              "avg_sentence_words": 8.3,
+              "fk_grade": 3.7,
+              "long_word_pct": 4.0,
+              "speak_seconds_est": 15.8,
+              "fill_pct": 78.9,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-2 (labor-market framing): social mobility and scholarships specifically. Facts and sources: NTU economics department study using national tax records for the 1993-1995 birth cohort found a child from a rich household is about six times more likely to be admitted to NTU than a child from a poor household; NTU/public-university students' median household income (NTU >NT$1.5M, other public universities >NT$1M) far above the overall sample median (~NT$860,000), producing a 'reverse redistribution' effect since elite public universities receive more government funding per student (報導者/The Reporter coverage of the NTU study, also covered by 商業周刊/今周刊). Stars Program (繁星計畫): multi-track admission by in-school standing rather than only national exam score, designed to widen access for rural/under-resourced students. Ministry of Education's University System Financial Aid Program for Disadvantaged Students (大專校院不利處境學生助學計畫), since the 2007 academic year, targets households in the bottom 40% of income distribution with four kinds of support: tuition subsidy, living stipend, emergency relief, housing subsidy (教育部圓夢助學網/coloan.moe.gov.tw). Early-intervention argument sourced to 獨立評論 commentary on rural education and poverty. Cram-school spending advantage and post-admission cost burden stated in general terms, not invented as precise figures.",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "However, a degree does not erase everything at once. It cannot pay off a family's old debt, and a richer graduate still starts with far more contacts and support.",
+              "words": 29,
+              "sentences": 2,
+              "avg_sentence_words": 14.5,
+              "fk_grade": 7.2,
+              "long_word_pct": 13.8,
+              "speak_seconds_est": 15.8,
+              "fill_pct": 79.1,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-2 (labor-market framing): social mobility and scholarships specifically. Facts and sources: NTU economics department study using national tax records for the 1993-1995 birth cohort found a child from a rich household is about six times more likely to be admitted to NTU than a child from a poor household; NTU/public-university students' median household income (NTU >NT$1.5M, other public universities >NT$1M) far above the overall sample median (~NT$860,000), producing a 'reverse redistribution' effect since elite public universities receive more government funding per student (報導者/The Reporter coverage of the NTU study, also covered by 商業周刊/今周刊). Stars Program (繁星計畫): multi-track admission by in-school standing rather than only national exam score, designed to widen access for rural/under-resourced students. Ministry of Education's University System Financial Aid Program for Disadvantaged Students (大專校院不利處境學生助學計畫), since the 2007 academic year, targets households in the bottom 40% of income distribution with four kinds of support: tuition subsidy, living stipend, emergency relief, housing subsidy (教育部圓夢助學網/coloan.moe.gov.tw). Early-intervention argument sourced to 獨立評論 commentary on rural education and poverty. Cram-school spending advantage and post-admission cost burden stated in general terms, not invented as precise figures.",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "However, a degree does not automatically erase every disadvantage. It cannot pay off inherited family debt, and a wealthier graduate still enters the job market with a far larger network and more financial support.",
+              "words": 34,
+              "sentences": 2,
+              "avg_sentence_words": 17.0,
+              "fk_grade": 12.6,
+              "long_word_pct": 17.6,
+              "speak_seconds_est": 17.0,
+              "fill_pct": 85.0,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-2 (labor-market framing): social mobility and scholarships specifically. Facts and sources: NTU economics department study using national tax records for the 1993-1995 birth cohort found a child from a rich household is about six times more likely to be admitted to NTU than a child from a poor household; NTU/public-university students' median household income (NTU >NT$1.5M, other public universities >NT$1M) far above the overall sample median (~NT$860,000), producing a 'reverse redistribution' effect since elite public universities receive more government funding per student (報導者/The Reporter coverage of the NTU study, also covered by 商業周刊/今周刊). Stars Program (繁星計畫): multi-track admission by in-school standing rather than only national exam score, designed to widen access for rural/under-resourced students. Ministry of Education's University System Financial Aid Program for Disadvantaged Students (大專校院不利處境學生助學計畫), since the 2007 academic year, targets households in the bottom 40% of income distribution with four kinds of support: tuition subsidy, living stipend, emergency relief, housing subsidy (教育部圓夢助學網/coloan.moe.gov.tw). Early-intervention argument sourced to 獨立評論 commentary on rural education and poverty. Cram-school spending advantage and post-admission cost burden stated in general terms, not invented as precise figures.",
+              "workbook_text": null
+            }
+          }
+        },
+        {
+          "slide_no": 15,
+          "title": {
+            "en": "When the Exam Rewards Head Starts",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "However, the big exam still helps rich kids the most. It rewards years of paid tutoring after school. So the same old cycle can continue.",
+              "words": 25,
+              "sentences": 3,
+              "avg_sentence_words": 8.3,
+              "fk_grade": 3.7,
+              "long_word_pct": 8.0,
+              "speak_seconds_est": 15.8,
+              "fill_pct": 78.9,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-2 (labor-market framing): social mobility and scholarships specifically. Facts and sources: NTU economics department study using national tax records for the 1993-1995 birth cohort found a child from a rich household is about six times more likely to be admitted to NTU than a child from a poor household; NTU/public-university students' median household income (NTU >NT$1.5M, other public universities >NT$1M) far above the overall sample median (~NT$860,000), producing a 'reverse redistribution' effect since elite public universities receive more government funding per student (報導者/The Reporter coverage of the NTU study, also covered by 商業周刊/今周刊). Stars Program (繁星計畫): multi-track admission by in-school standing rather than only national exam score, designed to widen access for rural/under-resourced students. Ministry of Education's University System Financial Aid Program for Disadvantaged Students (大專校院不利處境學生助學計畫), since the 2007 academic year, targets households in the bottom 40% of income distribution with four kinds of support: tuition subsidy, living stipend, emergency relief, housing subsidy (教育部圓夢助學網/coloan.moe.gov.tw). Early-intervention argument sourced to 獨立評論 commentary on rural education and poverty. Cram-school spending advantage and post-admission cost burden stated in general terms, not invented as precise figures.",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "However, the entrance exam still rewards exactly what rich families can buy: years of paid lessons. So the same old cycle can quietly continue into the next generation.",
+              "words": 28,
+              "sentences": 2,
+              "avg_sentence_words": 14.0,
+              "fk_grade": 8.8,
+              "long_word_pct": 14.3,
+              "speak_seconds_est": 15.3,
+              "fill_pct": 76.4,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-2 (labor-market framing): social mobility and scholarships specifically. Facts and sources: NTU economics department study using national tax records for the 1993-1995 birth cohort found a child from a rich household is about six times more likely to be admitted to NTU than a child from a poor household; NTU/public-university students' median household income (NTU >NT$1.5M, other public universities >NT$1M) far above the overall sample median (~NT$860,000), producing a 'reverse redistribution' effect since elite public universities receive more government funding per student (報導者/The Reporter coverage of the NTU study, also covered by 商業周刊/今周刊). Stars Program (繁星計畫): multi-track admission by in-school standing rather than only national exam score, designed to widen access for rural/under-resourced students. Ministry of Education's University System Financial Aid Program for Disadvantaged Students (大專校院不利處境學生助學計畫), since the 2007 academic year, targets households in the bottom 40% of income distribution with four kinds of support: tuition subsidy, living stipend, emergency relief, housing subsidy (教育部圓夢助學網/coloan.moe.gov.tw). Early-intervention argument sourced to 獨立評論 commentary on rural education and poverty. Cram-school spending advantage and post-admission cost burden stated in general terms, not invented as precise figures.",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "However, the entrance exam continues to reward precisely what wealthier families can purchase: years of paid tutoring. That edge allows the same cycle to persist quietly into the next generation as well.",
+              "words": 32,
+              "sentences": 2,
+              "avg_sentence_words": 16.0,
+              "fk_grade": 11.3,
+              "long_word_pct": 25.0,
+              "speak_seconds_est": 16.0,
+              "fill_pct": 80.0,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-2 (labor-market framing): social mobility and scholarships specifically. Facts and sources: NTU economics department study using national tax records for the 1993-1995 birth cohort found a child from a rich household is about six times more likely to be admitted to NTU than a child from a poor household; NTU/public-university students' median household income (NTU >NT$1.5M, other public universities >NT$1M) far above the overall sample median (~NT$860,000), producing a 'reverse redistribution' effect since elite public universities receive more government funding per student (報導者/The Reporter coverage of the NTU study, also covered by 商業周刊/今周刊). Stars Program (繁星計畫): multi-track admission by in-school standing rather than only national exam score, designed to widen access for rural/under-resourced students. Ministry of Education's University System Financial Aid Program for Disadvantaged Students (大專校院不利處境學生助學計畫), since the 2007 academic year, targets households in the bottom 40% of income distribution with four kinds of support: tuition subsidy, living stipend, emergency relief, housing subsidy (教育部圓夢助學網/coloan.moe.gov.tw). Early-intervention argument sourced to 獨立評論 commentary on rural education and poverty. Cram-school spending advantage and post-admission cost burden stated in general terms, not invented as precise figures.",
+              "workbook_text": null
+            }
+          }
+        },
+        {
+          "slide_no": 16,
+          "title": {
+            "en": "Money and Mentorship Together",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "However, there is a better way. Programs that give both money and a mentor work best. This is how the cycle can finally break.",
+              "words": 24,
+              "sentences": 3,
+              "avg_sentence_words": 8.0,
+              "fk_grade": 3.8,
+              "long_word_pct": 4.2,
+              "speak_seconds_est": 15.2,
+              "fill_pct": 75.8,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-2 (labor-market framing): social mobility and scholarships specifically. Facts and sources: NTU economics department study using national tax records for the 1993-1995 birth cohort found a child from a rich household is about six times more likely to be admitted to NTU than a child from a poor household; NTU/public-university students' median household income (NTU >NT$1.5M, other public universities >NT$1M) far above the overall sample median (~NT$860,000), producing a 'reverse redistribution' effect since elite public universities receive more government funding per student (報導者/The Reporter coverage of the NTU study, also covered by 商業周刊/今周刊). Stars Program (繁星計畫): multi-track admission by in-school standing rather than only national exam score, designed to widen access for rural/under-resourced students. Ministry of Education's University System Financial Aid Program for Disadvantaged Students (大專校院不利處境學生助學計畫), since the 2007 academic year, targets households in the bottom 40% of income distribution with four kinds of support: tuition subsidy, living stipend, emergency relief, housing subsidy (教育部圓夢助學網/coloan.moe.gov.tw). Early-intervention argument sourced to 獨立評論 commentary on rural education and poverty. Cram-school spending advantage and post-admission cost burden stated in general terms, not invented as precise figures.",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "However, there is clearly one proven way forward here. Programs that combine funding with a mentor show the strongest results, and that mix actually breaks the old cycle.",
+              "words": 28,
+              "sentences": 2,
+              "avg_sentence_words": 14.0,
+              "fk_grade": 7.6,
+              "long_word_pct": 10.7,
+              "speak_seconds_est": 15.3,
+              "fill_pct": 76.4,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-2 (labor-market framing): social mobility and scholarships specifically. Facts and sources: NTU economics department study using national tax records for the 1993-1995 birth cohort found a child from a rich household is about six times more likely to be admitted to NTU than a child from a poor household; NTU/public-university students' median household income (NTU >NT$1.5M, other public universities >NT$1M) far above the overall sample median (~NT$860,000), producing a 'reverse redistribution' effect since elite public universities receive more government funding per student (報導者/The Reporter coverage of the NTU study, also covered by 商業周刊/今周刊). Stars Program (繁星計畫): multi-track admission by in-school standing rather than only national exam score, designed to widen access for rural/under-resourced students. Ministry of Education's University System Financial Aid Program for Disadvantaged Students (大專校院不利處境學生助學計畫), since the 2007 academic year, targets households in the bottom 40% of income distribution with four kinds of support: tuition subsidy, living stipend, emergency relief, housing subsidy (教育部圓夢助學網/coloan.moe.gov.tw). Early-intervention argument sourced to 獨立評論 commentary on rural education and poverty. Cram-school spending advantage and post-admission cost burden stated in general terms, not invented as precise figures.",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "However, a more promising path clearly exists: programs combining funding with steady mentorship show the strongest outcomes. It is this combination, not money alone, that ultimately breaks the whole cycle.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 12.7,
+              "long_word_pct": 26.7,
+              "speak_seconds_est": 15.0,
+              "fill_pct": 75.0,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-2 (labor-market framing): social mobility and scholarships specifically. Facts and sources: NTU economics department study using national tax records for the 1993-1995 birth cohort found a child from a rich household is about six times more likely to be admitted to NTU than a child from a poor household; NTU/public-university students' median household income (NTU >NT$1.5M, other public universities >NT$1M) far above the overall sample median (~NT$860,000), producing a 'reverse redistribution' effect since elite public universities receive more government funding per student (報導者/The Reporter coverage of the NTU study, also covered by 商業周刊/今周刊). Stars Program (繁星計畫): multi-track admission by in-school standing rather than only national exam score, designed to widen access for rural/under-resourced students. Ministry of Education's University System Financial Aid Program for Disadvantaged Students (大專校院不利處境學生助學計畫), since the 2007 academic year, targets households in the bottom 40% of income distribution with four kinds of support: tuition subsidy, living stipend, emergency relief, housing subsidy (教育部圓夢助學網/coloan.moe.gov.tw). Early-intervention argument sourced to 獨立評論 commentary on rural education and poverty. Cram-school spending advantage and post-admission cost burden stated in general terms, not invented as precise figures.",
+              "workbook_text": null
+            }
+          }
+        }
+      ]
+    },
+    {
+      "part_no": 6,
+      "source_description": "Part 6: Call to action (Slides 17-20: summary of what the data shows, why classmates' stories matter, concrete action, closing claim)",
+      "function_en": "Call to action",
+      "function_zh": "結語：總結與號召",
+      "language_pattern": "to wrap up ... / let's ...",
+      "slides": [
+        {
+          "slide_no": 17,
+          "title": {
+            "en": "What the Data Actually Shows",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "So what exactly have we learned today? Rich students still enter more easily, but new programs are helping poorer students too. The story stays mixed.",
+              "words": 25,
+              "sentences": 3,
+              "avg_sentence_words": 8.3,
+              "fk_grade": 6.1,
+              "long_word_pct": 12.0,
+              "speak_seconds_est": 15.8,
+              "fill_pct": 78.9,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-2 (labor-market framing): social mobility and scholarships specifically. Facts and sources: NTU economics department study using national tax records for the 1993-1995 birth cohort found a child from a rich household is about six times more likely to be admitted to NTU than a child from a poor household; NTU/public-university students' median household income (NTU >NT$1.5M, other public universities >NT$1M) far above the overall sample median (~NT$860,000), producing a 'reverse redistribution' effect since elite public universities receive more government funding per student (報導者/The Reporter coverage of the NTU study, also covered by 商業周刊/今周刊). Stars Program (繁星計畫): multi-track admission by in-school standing rather than only national exam score, designed to widen access for rural/under-resourced students. Ministry of Education's University System Financial Aid Program for Disadvantaged Students (大專校院不利處境學生助學計畫), since the 2007 academic year, targets households in the bottom 40% of income distribution with four kinds of support: tuition subsidy, living stipend, emergency relief, housing subsidy (教育部圓夢助學網/coloan.moe.gov.tw). Early-intervention argument sourced to 獨立評論 commentary on rural education and poverty. Cram-school spending advantage and post-admission cost burden stated in general terms, not invented as precise figures.",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "So what does the data actually show? Rich students still enter top schools more easily, yet the Stars Program and government aid are really helping poorer students catch up.",
+              "words": 29,
+              "sentences": 2,
+              "avg_sentence_words": 14.5,
+              "fk_grade": 7.6,
+              "long_word_pct": 13.8,
+              "speak_seconds_est": 15.8,
+              "fill_pct": 79.1,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-2 (labor-market framing): social mobility and scholarships specifically. Facts and sources: NTU economics department study using national tax records for the 1993-1995 birth cohort found a child from a rich household is about six times more likely to be admitted to NTU than a child from a poor household; NTU/public-university students' median household income (NTU >NT$1.5M, other public universities >NT$1M) far above the overall sample median (~NT$860,000), producing a 'reverse redistribution' effect since elite public universities receive more government funding per student (報導者/The Reporter coverage of the NTU study, also covered by 商業周刊/今周刊). Stars Program (繁星計畫): multi-track admission by in-school standing rather than only national exam score, designed to widen access for rural/under-resourced students. Ministry of Education's University System Financial Aid Program for Disadvantaged Students (大專校院不利處境學生助學計畫), since the 2007 academic year, targets households in the bottom 40% of income distribution with four kinds of support: tuition subsidy, living stipend, emergency relief, housing subsidy (教育部圓夢助學網/coloan.moe.gov.tw). Early-intervention argument sourced to 獨立評論 commentary on rural education and poverty. Cram-school spending advantage and post-admission cost burden stated in general terms, not invented as precise figures.",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "So what does the evidence actually reveal? Wealthier students still gain admission more easily, although the Stars Program and government aid schemes are clearly helping poorer students close that gap.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 9.9,
+              "long_word_pct": 26.7,
+              "speak_seconds_est": 15.0,
+              "fill_pct": 75.0,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-2 (labor-market framing): social mobility and scholarships specifically. Facts and sources: NTU economics department study using national tax records for the 1993-1995 birth cohort found a child from a rich household is about six times more likely to be admitted to NTU than a child from a poor household; NTU/public-university students' median household income (NTU >NT$1.5M, other public universities >NT$1M) far above the overall sample median (~NT$860,000), producing a 'reverse redistribution' effect since elite public universities receive more government funding per student (報導者/The Reporter coverage of the NTU study, also covered by 商業周刊/今周刊). Stars Program (繁星計畫): multi-track admission by in-school standing rather than only national exam score, designed to widen access for rural/under-resourced students. Ministry of Education's University System Financial Aid Program for Disadvantaged Students (大專校院不利處境學生助學計畫), since the 2007 academic year, targets households in the bottom 40% of income distribution with four kinds of support: tuition subsidy, living stipend, emergency relief, housing subsidy (教育部圓夢助學網/coloan.moe.gov.tw). Early-intervention argument sourced to 獨立評論 commentary on rural education and poverty. Cram-school spending advantage and post-admission cost burden stated in general terms, not invented as precise figures.",
+              "workbook_text": null
+            }
+          }
+        },
+        {
+          "slide_no": 18,
+          "title": {
+            "en": "Why Your Classmates' Stories Matter",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "This matters in this room right now. Someone near you may already hold this exact scholarship, and their story is not distant at all.",
+              "words": 24,
+              "sentences": 2,
+              "avg_sentence_words": 12.0,
+              "fk_grade": 5.3,
+              "long_word_pct": 4.2,
+              "speak_seconds_est": 15.2,
+              "fill_pct": 75.8,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-2 (labor-market framing): social mobility and scholarships specifically. Facts and sources: NTU economics department study using national tax records for the 1993-1995 birth cohort found a child from a rich household is about six times more likely to be admitted to NTU than a child from a poor household; NTU/public-university students' median household income (NTU >NT$1.5M, other public universities >NT$1M) far above the overall sample median (~NT$860,000), producing a 'reverse redistribution' effect since elite public universities receive more government funding per student (報導者/The Reporter coverage of the NTU study, also covered by 商業周刊/今周刊). Stars Program (繁星計畫): multi-track admission by in-school standing rather than only national exam score, designed to widen access for rural/under-resourced students. Ministry of Education's University System Financial Aid Program for Disadvantaged Students (大專校院不利處境學生助學計畫), since the 2007 academic year, targets households in the bottom 40% of income distribution with four kinds of support: tuition subsidy, living stipend, emergency relief, housing subsidy (教育部圓夢助學網/coloan.moe.gov.tw). Early-intervention argument sourced to 獨立評論 commentary on rural education and poverty. Cram-school spending advantage and post-admission cost burden stated in general terms, not invented as precise figures.",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "This matters inside this very lecture room right now. Someone sitting near you may already hold exactly this particular scholarship themselves, so their story is not distant at all.",
+              "words": 29,
+              "sentences": 2,
+              "avg_sentence_words": 14.5,
+              "fk_grade": 9.6,
+              "long_word_pct": 10.3,
+              "speak_seconds_est": 15.8,
+              "fill_pct": 79.1,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-2 (labor-market framing): social mobility and scholarships specifically. Facts and sources: NTU economics department study using national tax records for the 1993-1995 birth cohort found a child from a rich household is about six times more likely to be admitted to NTU than a child from a poor household; NTU/public-university students' median household income (NTU >NT$1.5M, other public universities >NT$1M) far above the overall sample median (~NT$860,000), producing a 'reverse redistribution' effect since elite public universities receive more government funding per student (報導者/The Reporter coverage of the NTU study, also covered by 商業周刊/今周刊). Stars Program (繁星計畫): multi-track admission by in-school standing rather than only national exam score, designed to widen access for rural/under-resourced students. Ministry of Education's University System Financial Aid Program for Disadvantaged Students (大專校院不利處境學生助學計畫), since the 2007 academic year, targets households in the bottom 40% of income distribution with four kinds of support: tuition subsidy, living stipend, emergency relief, housing subsidy (教育部圓夢助學網/coloan.moe.gov.tw). Early-intervention argument sourced to 獨立評論 commentary on rural education and poverty. Cram-school spending advantage and post-admission cost burden stated in general terms, not invented as precise figures.",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "This matters inside this very lecture hall today. Someone sitting beside you may already depend entirely on precisely this exact scholarship, which makes the story anything but distant or abstract.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 12.3,
+              "long_word_pct": 16.7,
+              "speak_seconds_est": 15.0,
+              "fill_pct": 75.0,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-2 (labor-market framing): social mobility and scholarships specifically. Facts and sources: NTU economics department study using national tax records for the 1993-1995 birth cohort found a child from a rich household is about six times more likely to be admitted to NTU than a child from a poor household; NTU/public-university students' median household income (NTU >NT$1.5M, other public universities >NT$1M) far above the overall sample median (~NT$860,000), producing a 'reverse redistribution' effect since elite public universities receive more government funding per student (報導者/The Reporter coverage of the NTU study, also covered by 商業周刊/今周刊). Stars Program (繁星計畫): multi-track admission by in-school standing rather than only national exam score, designed to widen access for rural/under-resourced students. Ministry of Education's University System Financial Aid Program for Disadvantaged Students (大專校院不利處境學生助學計畫), since the 2007 academic year, targets households in the bottom 40% of income distribution with four kinds of support: tuition subsidy, living stipend, emergency relief, housing subsidy (教育部圓夢助學網/coloan.moe.gov.tw). Early-intervention argument sourced to 獨立評論 commentary on rural education and poverty. Cram-school spending advantage and post-admission cost burden stated in general terms, not invented as precise figures.",
+              "workbook_text": null
+            }
+          }
+        },
+        {
+          "slide_no": 19,
+          "title": {
+            "en": "Tutor, Volunteer, Advocate",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "So here is your action for today. Tutor a younger student for free. Or ask your school to add a mentor to every scholarship.",
+              "words": 24,
+              "sentences": 3,
+              "avg_sentence_words": 8.0,
+              "fk_grade": 4.2,
+              "long_word_pct": 4.2,
+              "speak_seconds_est": 15.2,
+              "fill_pct": 75.8,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-2 (labor-market framing): social mobility and scholarships specifically. Facts and sources: NTU economics department study using national tax records for the 1993-1995 birth cohort found a child from a rich household is about six times more likely to be admitted to NTU than a child from a poor household; NTU/public-university students' median household income (NTU >NT$1.5M, other public universities >NT$1M) far above the overall sample median (~NT$860,000), producing a 'reverse redistribution' effect since elite public universities receive more government funding per student (報導者/The Reporter coverage of the NTU study, also covered by 商業周刊/今周刊). Stars Program (繁星計畫): multi-track admission by in-school standing rather than only national exam score, designed to widen access for rural/under-resourced students. Ministry of Education's University System Financial Aid Program for Disadvantaged Students (大專校院不利處境學生助學計畫), since the 2007 academic year, targets households in the bottom 40% of income distribution with four kinds of support: tuition subsidy, living stipend, emergency relief, housing subsidy (教育部圓夢助學網/coloan.moe.gov.tw). Early-intervention argument sourced to 獨立評論 commentary on rural education and poverty. Cram-school spending advantage and post-admission cost burden stated in general terms, not invented as precise figures.",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "So here is something you can actually do today. Volunteer to tutor a younger student, or push your school to attach a mentor to every scholarship it gives.",
+              "words": 28,
+              "sentences": 2,
+              "avg_sentence_words": 14.0,
+              "fk_grade": 8.8,
+              "long_word_pct": 14.3,
+              "speak_seconds_est": 15.3,
+              "fill_pct": 76.4,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-2 (labor-market framing): social mobility and scholarships specifically. Facts and sources: NTU economics department study using national tax records for the 1993-1995 birth cohort found a child from a rich household is about six times more likely to be admitted to NTU than a child from a poor household; NTU/public-university students' median household income (NTU >NT$1.5M, other public universities >NT$1M) far above the overall sample median (~NT$860,000), producing a 'reverse redistribution' effect since elite public universities receive more government funding per student (報導者/The Reporter coverage of the NTU study, also covered by 商業周刊/今周刊). Stars Program (繁星計畫): multi-track admission by in-school standing rather than only national exam score, designed to widen access for rural/under-resourced students. Ministry of Education's University System Financial Aid Program for Disadvantaged Students (大專校院不利處境學生助學計畫), since the 2007 academic year, targets households in the bottom 40% of income distribution with four kinds of support: tuition subsidy, living stipend, emergency relief, housing subsidy (教育部圓夢助學網/coloan.moe.gov.tw). Early-intervention argument sourced to 獨立評論 commentary on rural education and poverty. Cram-school spending advantage and post-admission cost burden stated in general terms, not invented as precise figures.",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "So here is a concrete step you can take today. Volunteer to tutor a younger student, or actively advocate for your institution to attach mentorship to every scholarship it awards.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 11.1,
+              "long_word_pct": 23.3,
+              "speak_seconds_est": 15.0,
+              "fill_pct": 75.0,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-2 (labor-market framing): social mobility and scholarships specifically. Facts and sources: NTU economics department study using national tax records for the 1993-1995 birth cohort found a child from a rich household is about six times more likely to be admitted to NTU than a child from a poor household; NTU/public-university students' median household income (NTU >NT$1.5M, other public universities >NT$1M) far above the overall sample median (~NT$860,000), producing a 'reverse redistribution' effect since elite public universities receive more government funding per student (報導者/The Reporter coverage of the NTU study, also covered by 商業周刊/今周刊). Stars Program (繁星計畫): multi-track admission by in-school standing rather than only national exam score, designed to widen access for rural/under-resourced students. Ministry of Education's University System Financial Aid Program for Disadvantaged Students (大專校院不利處境學生助學計畫), since the 2007 academic year, targets households in the bottom 40% of income distribution with four kinds of support: tuition subsidy, living stipend, emergency relief, housing subsidy (教育部圓夢助學網/coloan.moe.gov.tw). Early-intervention argument sourced to 獨立評論 commentary on rural education and poverty. Cram-school spending advantage and post-admission cost burden stated in general terms, not invented as precise figures.",
+              "workbook_text": null
+            }
+          }
+        },
+        {
+          "slide_no": 20,
+          "title": {
+            "en": "Open the Same Door for Everyone",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Education should really open the exact same door for all. Taiwan has started that important work. Help finish it, one student at a time.",
+              "words": 24,
+              "sentences": 3,
+              "avg_sentence_words": 8.0,
+              "fk_grade": 5.2,
+              "long_word_pct": 8.3,
+              "speak_seconds_est": 15.2,
+              "fill_pct": 75.8,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-2 (labor-market framing): social mobility and scholarships specifically. Facts and sources: NTU economics department study using national tax records for the 1993-1995 birth cohort found a child from a rich household is about six times more likely to be admitted to NTU than a child from a poor household; NTU/public-university students' median household income (NTU >NT$1.5M, other public universities >NT$1M) far above the overall sample median (~NT$860,000), producing a 'reverse redistribution' effect since elite public universities receive more government funding per student (報導者/The Reporter coverage of the NTU study, also covered by 商業周刊/今周刊). Stars Program (繁星計畫): multi-track admission by in-school standing rather than only national exam score, designed to widen access for rural/under-resourced students. Ministry of Education's University System Financial Aid Program for Disadvantaged Students (大專校院不利處境學生助學計畫), since the 2007 academic year, targets households in the bottom 40% of income distribution with four kinds of support: tuition subsidy, living stipend, emergency relief, housing subsidy (教育部圓夢助學網/coloan.moe.gov.tw). Early-intervention argument sourced to 獨立評論 commentary on rural education and poverty. Cram-school spending advantage and post-admission cost burden stated in general terms, not invented as precise figures.",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "Education should open the same door for every student, no matter how much money a family actually earns. Taiwan has only started that work, and it needs your generation to finish it.",
+              "words": 32,
+              "sentences": 2,
+              "avg_sentence_words": 16.0,
+              "fk_grade": 9.8,
+              "long_word_pct": 9.4,
+              "speak_seconds_est": 17.5,
+              "fill_pct": 87.3,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-2 (labor-market framing): social mobility and scholarships specifically. Facts and sources: NTU economics department study using national tax records for the 1993-1995 birth cohort found a child from a rich household is about six times more likely to be admitted to NTU than a child from a poor household; NTU/public-university students' median household income (NTU >NT$1.5M, other public universities >NT$1M) far above the overall sample median (~NT$860,000), producing a 'reverse redistribution' effect since elite public universities receive more government funding per student (報導者/The Reporter coverage of the NTU study, also covered by 商業周刊/今周刊). Stars Program (繁星計畫): multi-track admission by in-school standing rather than only national exam score, designed to widen access for rural/under-resourced students. Ministry of Education's University System Financial Aid Program for Disadvantaged Students (大專校院不利處境學生助學計畫), since the 2007 academic year, targets households in the bottom 40% of income distribution with four kinds of support: tuition subsidy, living stipend, emergency relief, housing subsidy (教育部圓夢助學網/coloan.moe.gov.tw). Early-intervention argument sourced to 獨立評論 commentary on rural education and poverty. Cram-school spending advantage and post-admission cost burden stated in general terms, not invented as precise figures.",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "Education ought to open an identical door for every single student, irrespective of family income. Taiwan has merely begun that work, and completing it will fall entirely to your generation.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 13.5,
+              "long_word_pct": 20.0,
+              "speak_seconds_est": 15.0,
+              "fill_pct": 75.0,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+              "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-2 (labor-market framing): social mobility and scholarships specifically. Facts and sources: NTU economics department study using national tax records for the 1993-1995 birth cohort found a child from a rich household is about six times more likely to be admitted to NTU than a child from a poor household; NTU/public-university students' median household income (NTU >NT$1.5M, other public universities >NT$1M) far above the overall sample median (~NT$860,000), producing a 'reverse redistribution' effect since elite public universities receive more government funding per student (報導者/The Reporter coverage of the NTU study, also covered by 商業周刊/今周刊). Stars Program (繁星計畫): multi-track admission by in-school standing rather than only national exam score, designed to widen access for rural/under-resourced students. Ministry of Education's University System Financial Aid Program for Disadvantaged Students (大專校院不利處境學生助學計畫), since the 2007 academic year, targets households in the bottom 40% of income distribution with four kinds of support: tuition subsidy, living stipend, emergency relief, housing subsidy (教育部圓夢助學網/coloan.moe.gov.tw). Early-intervention argument sourced to 獨立評論 commentary on rural education and poverty. Cram-school spending advantage and post-admission cost burden stated in general terms, not invented as precise figures.",
+              "workbook_text": null
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "level_summary": {
+    "A2": {
+      "slides": 20,
+      "avg_words": 25.6,
+      "avg_sentence_words": 8.7,
+      "fk_grade": 4.6,
+      "slides_over_20s": 0
+    },
+    "B1": {
+      "slides": 20,
+      "avg_words": 29.6,
+      "avg_sentence_words": 14.5,
+      "fk_grade": 8.8,
+      "slides_over_20s": 0
+    },
+    "B2": {
+      "slides": 20,
+      "avg_words": 31.9,
+      "avg_sentence_words": 15.9,
+      "fk_grade": 12.2,
+      "slides_over_20s": 0
+    }
+  }
+}

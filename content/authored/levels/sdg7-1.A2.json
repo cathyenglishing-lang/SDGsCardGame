@@ -1,0 +1,30 @@
+{
+  "mission_id": "sdg7-1",
+  "level": "A2",
+  "provenance": "authored",
+  "author": "Claude + Gemini 3.1 Pro draft, reviewed and rewritten by Claude",
+  "basis": "New mission, no workbook source. Facts: 2017 '20-30-50' legal target for 2025 (Electricity Act revision); 2024 generation mix 42.4% gas / 39.3% coal / 11.6% renewables / 4.2% nuclear (288 TWh, MOEA/EIA-sourced reporting); solar PV target 20GW by 2025 vs ~14.3GW end-2024 / ~15GW end-2025 (EnergyTrend, pv magazine, ICC Tainan); offshore wind target 5.7GW by 2025 vs ~4.6-4.9GW actual (RECCESSARY, Taiwan News, Norton Rose Fulbright); Taiwan ranked 3rd globally for new offshore wind added in 2025 and 5th for total capacity; MOEA reset the 20% deadline to November 2026 (Eco-Business); wind generation +66% 2023->2024, solar ~45%/wind ~31% of renewable mix; 2050 net-zero pathway targets 60-70% renewables by 2050, 40-55GW installed capacity vs 29GW targeted for 2025 (National Development Council); TSMC ~9% of national electricity (SDxCentral/TrendForce). Register per docs/plans/new-mission-playbook.md. Drafted with Gemini 3.1 Pro, then substantially rewritten by Claude for CEFR band conformance, factual precision and tone (softened one overstated 'existential threat' claim in the original draft).",
+  "reviewed_by": null,
+  "slides": {
+    "1": "Look at the new wind turbines on our west coast. See the solar panels on school roofs. Is Taiwan really turning green fast, or is that just talk?",
+    "2": "SDG 7 means clean, safe, modern energy for everyone. This talk is not about climate change. It is about our energy targets, and whether we hit them.",
+    "3": "In 2017, Taiwan made a new law for 2025. Renewables should reach 20 percent. Coal should be 30 percent, and gas 50 percent. Today we test that 20 percent number.",
+    "4": "Look at Taiwan's real numbers from 2024. Clean energy reached only 11.6 percent. The target was 20 percent. Coal and gas still make over 80 percent of our power.",
+    "5": "Our solar goal was 20 gigawatts by 2025. We only built about 15. The work is slow. Land fights and strict rules cause long delays for new panels.",
+    "6": "We wanted 5.7 gigawatts by 2025. We only reached 4.9. New turbines take too long to build, because costs are high and parts are hard to get.",
+    "7": "We missed our own goal, but we still did well. Taiwan added more new wind power than most countries in 2025. We now rank third in the whole world.",
+    "8": "You can see the difference when you travel. Solar panels now sit on school roofs and over fish ponds. Wind power grew fast too. It is much bigger than before.",
+    "9": "The government did not cancel the target. They just moved the deadline to November 2026. This new date sounds far away, but we still need much more power.",
+    "10": "How can we fix this? Instead of making solar firms wait for years, Taiwan must change the rules. Leaders should make land permits faster for everyone.",
+    "11": "For wind power, we must bring investors back. Instead of running small auctions, Taiwan should offer bigger, safer deals. This could help pay for rising costs.",
+    "12": "We can also try new energy, like hydrogen and heat from the earth. Instead of only using wind and sun, we should test these too. New tech may take longer.",
+    "13": "Our chip factories use huge amounts of power. Global buyers want green power for their chips. Without it, they may look elsewhere. That is a real risk for Taiwan.",
+    "14": "We must meet the new 2026 date. If we miss it again, investors may lose trust. Less trust means higher costs, and that stops more new projects.",
+    "15": "This problem needs more than money to fix. If we build wind farms fast, local towns feel the change first. People near the turbines do not always get the power.",
+    "16": "So this problem is not only about money. If we only chase one number, we lose people's trust. The real test is hitting the goal, and keeping that trust too.",
+    "17": "To wrap up, we made real progress. We built new turbines and reached a top world ranking. But our real numbers are still far from our own legal target.",
+    "18": "This matters to you right now. You are Taiwan's future engineers. You will build the grids and the batteries. Your work can finally close this big energy gap.",
+    "19": "Let's look at the facts closely. Do not just ask what leaders promised. Ask what they actually built. Join local talks about where new solar farms should go.",
+    "20": "Remember one last thing before we go. The target date may move again someday. But our green destination must never, ever change. Let's finish this whole job together."
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "mission_id": "sdg7-2",
+  "level": "B1",
+  "provenance": "authored",
+  "author": "Claude (Gemini draft unavailable due to API quota; hand-authored to the same standard)",
+  "basis": "New mission, no workbook source. Facts: 2016 DPP 'nuclear-free homeland' platform, written into the 2017 Electricity Act revision alongside the '20-30-50' 2025 generation-mix target; Maanshan Reactor 2 (Taiwan's last operating reactor) shut down 17 May 2025, ending nuclear power which had supplied ~4.2% of 2024 generation (288 TWh total, of which 42.4% gas / 39.3% coal / 11.6% renewables); 23 August 2025 referendum (Proposal No. 21) on restarting Maanshan: 74.2% yes among ~5.8M votes cast (~4.3M yes vs ~1.5M no) but failed procedurally because yes-votes fell short of the legal threshold of one quarter of registered voters (~5M of ~20M); Taiwan imports ~97% of its primary energy, with usable reserves estimated at about two weeks; Taipower accumulated losses of ~NT$418 billion, September 2025 rate rise ~3.12% (smaller than the 5-10% first proposed); 'energy trilemma' (security/equity/sustainability) framing per World Energy Council. Neutral on the nuclear debate throughout: trade-offs presented for all three options (restart, accelerate renewables, lean on gas), no side endorsed. Register per docs/plans/new-mission-playbook.md. Authored by Claude directly (Gemini 3.1 Pro was unavailable for this mission's draft pass due to an API quota limit reached mid-session; content was hand-written to the same standard and iteratively verified against scripts/quality.py and scripts/grammar_range.py).",
+  "reviewed_by": null,
+  "slides": {
+    "1": "Picture the headline from three months ago. On 17 May 2025, Taiwan eventually switched off its last working reactor, though that was not quite the end of this narrative.",
+    "2": "SDG 7 promises affordable, reliable and clean energy for all of us. Today we will use nuclear power as a lens for the energy trilemma, three goals that are hard to balance.",
+    "3": "This policy actually goes back about ten years, to 2016, when a new government promised no nuclear power after 2025. A 2017 law then made that promise official.",
+    "4": "On 17 May 2025, Reactor Two at Maanshan shut down for good. Nuclear power, which had supplied about 4 percent of 2024 generation, has now left Taiwan's grid for good.",
+    "5": "With renewables still behind their own targets, fossil fuels have absorbed most of what nuclear left behind. In 2024, gas and coal already supplied 83 percent of our electricity.",
+    "6": "Public opinion has clearly shifted. In the August referendum, 74.2 percent of votes cast said yes to restarting Maanshan, yet turnout fell short of the legal threshold required to pass.",
+    "7": "Taiwan has changed its power mix over the past ten years. Gas import terminals, offshore wind and solar capacity have all grown, even as nuclear power was phased out completely.",
+    "8": "Nuclear power and renewables both release essentially no carbon, quite unlike coal and gas. So using more coal or gas instead of nuclear power carries a real emissions cost.",
+    "9": "Nuclear power runs steadily in any weather, a quality engineers call baseload. Solar and wind output rises and falls with the sun and wind, which makes grid balancing harder.",
+    "10": "Restarting the plant, as the referendum proposed, could cut emissions and cost quickly. But it would also require new safety reviews and a level of public trust that remains uncertain.",
+    "11": "Building more renewables and storage instead is popular and very clean. But that plan is already behind its own delivery date, so it will not fix things instantly.",
+    "12": "Leaning further on imported gas is cleaner than coal and flexible to run. Yet it would deepen Taiwan's already heavy dependence on energy that must be shipped in from abroad.",
+    "13": "Taiwan can rely on stored energy reserves for only about two weeks, while imports supply nearly 97 percent of everything it uses. A delay in just one shipment tightens that margin a lot.",
+    "14": "Taipower has already lost about NT$418 billion in total losses. If it keeps paying for new plants while prices stay low, its financial problems will only keep getting worse.",
+    "15": "Meeting climate goals means cutting the fossil share of the grid substantially. But neither a nuclear restart nor the renewable build-out can happen fast enough to avoid leaning on gas.",
+    "16": "These three pressures pull against each other constantly. If Taiwan improves security by restarting a reactor, it can ease cost worries too, yet public trust and review time both suffer.",
+    "17": "In short, Taiwan retired its nuclear plants right when the law required. Public support for reversing course then surged only months afterward, and the trilemma is exactly why no option was easy.",
+    "18": "This whole issue is not abstract for the people sitting here today. It will be you, rather than campaign slogans, who eventually decides how the reactors, grids and storage evolve.",
+    "19": "Let's read the emissions, cost and security data closely before choosing a side. Ask what problem a given technology solves, instead of simply picking a team to support.",
+    "20": "Let's leave with one clear thought before we conclude. The next vote, or the next grid blueprint, will be decided with better evidence or with louder slogans, and that choice now belongs to you."
+  }
+}

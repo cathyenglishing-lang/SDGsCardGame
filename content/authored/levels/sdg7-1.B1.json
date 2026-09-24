@@ -1,0 +1,30 @@
+{
+  "mission_id": "sdg7-1",
+  "level": "B1",
+  "provenance": "authored",
+  "author": "Claude + Gemini 3.1 Pro draft, reviewed and rewritten by Claude",
+  "basis": "New mission, no workbook source. Facts: 2017 '20-30-50' legal target for 2025 (Electricity Act revision); 2024 generation mix 42.4% gas / 39.3% coal / 11.6% renewables / 4.2% nuclear (288 TWh, MOEA/EIA-sourced reporting); solar PV target 20GW by 2025 vs ~14.3GW end-2024 / ~15GW end-2025 (EnergyTrend, pv magazine, ICC Tainan); offshore wind target 5.7GW by 2025 vs ~4.6-4.9GW actual (RECCESSARY, Taiwan News, Norton Rose Fulbright); Taiwan ranked 3rd globally for new offshore wind added in 2025 and 5th for total capacity; MOEA reset the 20% deadline to November 2026 (Eco-Business); wind generation +66% 2023->2024, solar ~45%/wind ~31% of renewable mix; 2050 net-zero pathway targets 60-70% renewables by 2050, 40-55GW installed capacity vs 29GW targeted for 2025 (National Development Council); TSMC ~9% of national electricity (SDxCentral/TrendForce). Register per docs/plans/new-mission-playbook.md. Drafted with Gemini 3.1 Pro, then substantially rewritten by Claude for CEFR band conformance, factual precision and tone (softened one overstated 'existential threat' claim in the original draft).",
+  "reviewed_by": null,
+  "slides": {
+    "1": "You can see wind turbines along our western beaches, and solar panels on our classroom roofs. But has Taiwan actually become green, or does it only talk about it?",
+    "2": "SDG 7 promises affordable, reliable energy for everyone, though today we will not discuss climate change, because that belongs elsewhere. This talk instead is about our targets and our reality.",
+    "3": "In 2017, Taiwan's lawmakers locked in a 20-30-50 formula for 2025. Renewables would supply 20 percent of the grid, coal 30 percent, and gas the remaining 50 percent.",
+    "4": "The real numbers from 2024 tell a different story. Renewables have only reached 11.6 percent, which falls far short of the 20 percent goal, while gas and coal still dominate the grid.",
+    "5": "The solar target was 20 gigawatts by 2025, yet only about 15 have been installed so far. Tighter rules and land disputes have slowed the permitting process across the island.",
+    "6": "Offshore wind aimed for 5.7 gigawatts, but Taiwan has only reached about 4.9. Rising costs and global supply problems have made recent auctions weaker than planners had hoped.",
+    "7": "Even though Taiwan missed its own target, the record still looks strong worldwide. Taiwan has ranked third globally for new offshore wind added in 2025, ahead of most nations.",
+    "8": "The landscape has genuinely changed around us. Solar panels have spread across fish ponds, school roofs and factory buildings, while wind generation has grown by 66 percent in one year.",
+    "9": "The government has not cancelled its 20 percent goal. Instead, it has pushed the deadline to November 2026, a date that still demands far more power than Taiwan produces right now.",
+    "10": "Solving the solar delay means reforming the land rules first. Instead of leaving approvals to scattered local offices, the central government could step in so permits move much faster.",
+    "11": "Winning back investor trust matters just as much for wind power. Instead of holding small, weak auctions, Taiwan should offer bigger contracts that can actually cover today's higher turbine costs.",
+    "12": "The 2050 plan also counts on hydrogen and geothermal power. Instead of relying only on solar and wind, Taiwan should diversify, though newer options will need more time to mature.",
+    "13": "Our chip plants use huge amounts of power every single day. If verified green power is not delivered soon, global clients that demand it could simply take their business elsewhere.",
+    "14": "The pressure is now on that new 2026 date. If this delayed goal slips again, investor trust will weaken further, and weaker trust is exactly what caused the last shortfall.",
+    "15": "Restoring that trust is not only about money, though money matters too. If wind farms are built too quickly, local communities could feel the disruption first, without gaining much power.",
+    "16": "These economic and local pressures are all closely connected. If we ignore the communities that host this equipment, public support will fade fast, so the real test is keeping trust.",
+    "17": "To wrap up, real progress clearly exists across Taiwan today. We have built turbines, spread solar panels, and earned a top-five global ranking, yet our reality sits behind our legal targets.",
+    "18": "This gap matters to everyone sitting in this room. You are the students who will become the engineers designing the grid connections and storage systems that finally close this divide.",
+    "19": "Let's study the data much more critically from now on. Stop asking only what was announced, and start asking what has actually been delivered, then join the debates that shape it.",
+    "20": "Let's carry just one thought forward from today. Governments can always push a deadline back, but our destination should never move, so let's make sure Taiwan actually arrives there."
+  }
+}

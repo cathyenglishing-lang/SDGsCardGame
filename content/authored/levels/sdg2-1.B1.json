@@ -1,0 +1,30 @@
+{
+  "mission_id": "sdg2-1",
+  "level": "B1",
+  "provenance": "authored",
+  "author": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+  "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan's overall food self-sufficiency rate (calorie basis) was 30.3% in 2023 (18-year low) and 30.7% in 2024 (Ministry of Agriculture / Agriculture and Food Agency 糧食供需年報, via Focus Taiwan, Taipei Times, 上下游新聞); grain self-sufficiency 25.5% in 2023 vs 26.6% in 2022; rice self-sufficiency near 100% (97.7% in 2023, 24万公頃/~1.21M tonnes/yr); wheat ~0.3%, soybean <1%, feed corn ~2.5% self-sufficient, ~8M tonnes coarse grain imported yearly (SETN, 農傳媒); legal rice reserve minimum 3 months/25% of consumption since 2006, above FAO's 17-18% and Japan/Korea targets, actual stock ~1.06M tonnes (~11 months) per Dec 2025 CNA report; WTO rice import TRQ of 144,720 tonnes/year since 2002 accession; 大糧倉計畫 (Grand Grain Silo plan) since 2016 paying farmers to convert paddies to soybean/feed corn, expanded 2022; Typhoon Krathon Oct 2024 vegetable wholesale price NT$63.7/kg then -17% to NT$52.8/kg (Taiwan News); 2023 rice harvest hurt by irrigation suspension, Typhoon Koinu, winter monsoon. Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+  "reviewed_by": null,
+  "slides": {
+    "1": "A typhoon can empty supermarket shelves within hours, and prices typically jump for a few days before finally settling back down again. But what happens the year that gap simply doesn't close?",
+    "2": "SDG 2 goes well beyond ending hunger in distant countries. It's really about food security, which means having reliable access to enough food every single day, for everyone in Taiwan too.",
+    "3": "Taiwan is a crowded island with a population of roughly 23 million people. Ships transport most of what we actually eat. In 2024, we produced only 30.7 percent of our own food.",
+    "4": "That figure has been sliding for years now. It dropped to an eighteen-year low of 30.3 percent back in 2023, and it has only recovered slightly since that low point.",
+    "5": "The picture changes once you separate the categories. Rice is nearly self-sufficient here, yet overall grain self-sufficiency sits at just 25.5 percent, since most wheat is imported from abroad.",
+    "6": "So the rice sitting on your plate has actually been cultivated here in Taiwan. That's unlike almost everything else you eat today. The bread beside it certainly hasn't, and neither has the cooking oil.",
+    "7": "Rice remains a real strength for Taiwan. Across roughly 240,000 hectares and two harvests a year, farmers have grown about 1.21 million tonnes of rice recently.",
+    "8": "Taiwan has also written real protection into law over the years. A rice reserve must legally cover at least three months of national consumption, which sits well above Japan's own target.",
+    "9": "Since 2016, a government plan called the Grand Grain Silo has paid farmers well across the island. It converts rice paddies into soybean fields instead of leaving good land idle.",
+    "10": "Instead of letting abandoned paddies sit empty after harvest, farmers can now sign a contract to grow feed corn there. That turns unused land into a genuine, valuable source of grain.",
+    "11": "Researchers have also started testing feed rice as animal food instead of relying only on imports. This could make pig farming a little less dependent on a single imported crop.",
+    "12": "However, this clearly isn't a free win for Taiwan. A tonne of soybean grown here costs considerably more than one simply bought abroad, so someone still ultimately pays that difference.",
+    "13": "Buying grain from wherever it happens to be cheapest works well in an ordinary year, most of the time. That's exactly why almost nobody notices how much of our grain is imported.",
+    "14": "If a bad storm hits at home while shipping is delayed abroad, prices can increase quickly on both sides at once. Taiwan's own import rule still applies regardless of the timing.",
+    "15": "The buffer is thinner than it looks, too. Ahead of Typhoon Krathon in 2024, Taipei's wholesale vegetable price spiked hard, then eased back once the storm had finally passed.",
+    "16": "So the same efficient system keeps grocery prices low most years. But it leaves little slack for the year a domestic storm and an overseas delay happen together.",
+    "17": "To sum up, Taiwan really lives inside two very different numbers at once. It's nearly 100 percent self-sufficient in rice, yet only about 30 percent self-sufficient overall right now.",
+    "18": "This trade-off matters directly to you. The planners who will decide how much extra self-sufficiency is worth paying for could easily be sitting in this very room today.",
+    "19": "So here's one concrete, practical ask for today. Pay attention to where your food actually comes from, and follow farm policy closely whenever new stories reach the news.",
+    "20": "Having enough to eat this year says absolutely nothing about what happens next year. So don't wait around for an actual crisis before you finally start asking these difficult questions yourself."
+  }
+}

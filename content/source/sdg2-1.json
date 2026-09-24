@@ -1,0 +1,1253 @@
+{
+  "mission_id": "sdg2-1",
+  "sdg": 2,
+  "title": {
+    "en": "Taiwan's Food Security in a Changing Climate",
+    "zh": null
+  },
+  "stages": [
+    {
+      "part_no": 1,
+      "source_description": "Part 1: Introduction (Slides 1-3: hook on post-typhoon shelves, SDG 2 as food security, Taiwan's 30.7% self-sufficiency headline)",
+      "function_en": "Introduction",
+      "function_zh": "引言：破題與定義",
+      "language_pattern": "rhetorical questions / X is about ...",
+      "slides": [
+        {
+          "slide_no": 1,
+          "title": {
+            "en": "Thin shelves after a storm",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "A typhoon hits Taiwan. Supermarket shelves look empty for a few days, and prices jump fast. Have you ever wondered what happens the next time?",
+              "words": 25,
+              "sentences": 3,
+              "avg_sentence_words": 8.3,
+              "fk_grade": 5.1,
+              "long_word_pct": 8.0,
+              "speak_seconds_est": 15.8,
+              "fill_pct": 78.9,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan's overall food self-sufficiency rate (calorie basis) was 30.3% in 2023 (18-year low) and 30.7% in 2024 (Ministry of Agriculture / Agriculture and Food Agency 糧食供需年報, via Focus Taiwan, Taipei Times, 上下游新聞); grain self-sufficiency 25.5% in 2023 vs 26.6% in 2022; rice self-sufficiency near 100% (97.7% in 2023, 24万公頃/~1.21M tonnes/yr); wheat ~0.3%, soybean <1%, feed corn ~2.5% self-sufficient, ~8M tonnes coarse grain imported yearly (SETN, 農傳媒); legal rice reserve minimum 3 months/25% of consumption since 2006, above FAO's 17-18% and Japan/Korea targets, actual stock ~1.06M tonnes (~11 months) per Dec 2025 CNA report; WTO rice import TRQ of 144,720 tonnes/year since 2002 accession; 大糧倉計畫 (Grand Grain Silo plan) since 2016 paying farmers to convert paddies to soybean/feed corn, expanded 2022; Typhoon Krathon Oct 2024 vegetable wholesale price NT$63.7/kg then -17% to NT$52.8/kg (Taiwan News); 2023 rice harvest hurt by irrigation suspension, Typhoon Koinu, winter monsoon. Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "A typhoon can empty supermarket shelves within hours, and prices typically jump for a few days before finally settling back down again. But what happens the year that gap simply doesn't close?",
+              "words": 32,
+              "sentences": 2,
+              "avg_sentence_words": 16.0,
+              "fk_grade": 9.1,
+              "long_word_pct": 9.4,
+              "speak_seconds_est": 17.5,
+              "fill_pct": 87.3,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan's overall food self-sufficiency rate (calorie basis) was 30.3% in 2023 (18-year low) and 30.7% in 2024 (Ministry of Agriculture / Agriculture and Food Agency 糧食供需年報, via Focus Taiwan, Taipei Times, 上下游新聞); grain self-sufficiency 25.5% in 2023 vs 26.6% in 2022; rice self-sufficiency near 100% (97.7% in 2023, 24万公頃/~1.21M tonnes/yr); wheat ~0.3%, soybean <1%, feed corn ~2.5% self-sufficient, ~8M tonnes coarse grain imported yearly (SETN, 農傳媒); legal rice reserve minimum 3 months/25% of consumption since 2006, above FAO's 17-18% and Japan/Korea targets, actual stock ~1.06M tonnes (~11 months) per Dec 2025 CNA report; WTO rice import TRQ of 144,720 tonnes/year since 2002 accession; 大糧倉計畫 (Grand Grain Silo plan) since 2016 paying farmers to convert paddies to soybean/feed corn, expanded 2022; Typhoon Krathon Oct 2024 vegetable wholesale price NT$63.7/kg then -17% to NT$52.8/kg (Taiwan News); 2023 rice harvest hurt by irrigation suspension, Typhoon Koinu, winter monsoon. Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "A typhoon can strip supermarket shelves completely bare within hours, with prices typically spiking for a few days before supply gradually stabilises. What happens, though, in the year that disruption simply refuses to resolve itself?",
+              "words": 35,
+              "sentences": 2,
+              "avg_sentence_words": 17.5,
+              "fk_grade": 12.8,
+              "long_word_pct": 17.1,
+              "speak_seconds_est": 17.5,
+              "fill_pct": 87.5,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan's overall food self-sufficiency rate (calorie basis) was 30.3% in 2023 (18-year low) and 30.7% in 2024 (Ministry of Agriculture / Agriculture and Food Agency 糧食供需年報, via Focus Taiwan, Taipei Times, 上下游新聞); grain self-sufficiency 25.5% in 2023 vs 26.6% in 2022; rice self-sufficiency near 100% (97.7% in 2023, 24万公頃/~1.21M tonnes/yr); wheat ~0.3%, soybean <1%, feed corn ~2.5% self-sufficient, ~8M tonnes coarse grain imported yearly (SETN, 農傳媒); legal rice reserve minimum 3 months/25% of consumption since 2006, above FAO's 17-18% and Japan/Korea targets, actual stock ~1.06M tonnes (~11 months) per Dec 2025 CNA report; WTO rice import TRQ of 144,720 tonnes/year since 2002 accession; 大糧倉計畫 (Grand Grain Silo plan) since 2016 paying farmers to convert paddies to soybean/feed corn, expanded 2022; Typhoon Krathon Oct 2024 vegetable wholesale price NT$63.7/kg then -17% to NT$52.8/kg (Taiwan News); 2023 rice harvest hurt by irrigation suspension, Typhoon Koinu, winter monsoon. Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            }
+          }
+        },
+        {
+          "slide_no": 2,
+          "title": {
+            "en": "SDG 2 is food security, not just hunger",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "SDG 2 is not only about hunger far away. It means food security: enough safe food, every day, for all of us. That includes Taiwan too.",
+              "words": 26,
+              "sentences": 3,
+              "avg_sentence_words": 8.7,
+              "fk_grade": 5.5,
+              "long_word_pct": 7.7,
+              "speak_seconds_est": 16.4,
+              "fill_pct": 82.1,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan's overall food self-sufficiency rate (calorie basis) was 30.3% in 2023 (18-year low) and 30.7% in 2024 (Ministry of Agriculture / Agriculture and Food Agency 糧食供需年報, via Focus Taiwan, Taipei Times, 上下游新聞); grain self-sufficiency 25.5% in 2023 vs 26.6% in 2022; rice self-sufficiency near 100% (97.7% in 2023, 24万公頃/~1.21M tonnes/yr); wheat ~0.3%, soybean <1%, feed corn ~2.5% self-sufficient, ~8M tonnes coarse grain imported yearly (SETN, 農傳媒); legal rice reserve minimum 3 months/25% of consumption since 2006, above FAO's 17-18% and Japan/Korea targets, actual stock ~1.06M tonnes (~11 months) per Dec 2025 CNA report; WTO rice import TRQ of 144,720 tonnes/year since 2002 accession; 大糧倉計畫 (Grand Grain Silo plan) since 2016 paying farmers to convert paddies to soybean/feed corn, expanded 2022; Typhoon Krathon Oct 2024 vegetable wholesale price NT$63.7/kg then -17% to NT$52.8/kg (Taiwan News); 2023 rice harvest hurt by irrigation suspension, Typhoon Koinu, winter monsoon. Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "SDG 2 goes well beyond ending hunger in distant countries. It's really about food security, which means having reliable access to enough food every single day, for everyone in Taiwan too.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 9.9,
+              "long_word_pct": 12.9,
+              "speak_seconds_est": 16.9,
+              "fill_pct": 84.5,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan's overall food self-sufficiency rate (calorie basis) was 30.3% in 2023 (18-year low) and 30.7% in 2024 (Ministry of Agriculture / Agriculture and Food Agency 糧食供需年報, via Focus Taiwan, Taipei Times, 上下游新聞); grain self-sufficiency 25.5% in 2023 vs 26.6% in 2022; rice self-sufficiency near 100% (97.7% in 2023, 24万公頃/~1.21M tonnes/yr); wheat ~0.3%, soybean <1%, feed corn ~2.5% self-sufficient, ~8M tonnes coarse grain imported yearly (SETN, 農傳媒); legal rice reserve minimum 3 months/25% of consumption since 2006, above FAO's 17-18% and Japan/Korea targets, actual stock ~1.06M tonnes (~11 months) per Dec 2025 CNA report; WTO rice import TRQ of 144,720 tonnes/year since 2002 accession; 大糧倉計畫 (Grand Grain Silo plan) since 2016 paying farmers to convert paddies to soybean/feed corn, expanded 2022; Typhoon Krathon Oct 2024 vegetable wholesale price NT$63.7/kg then -17% to NT$52.8/kg (Taiwan News); 2023 rice harvest hurt by irrigation suspension, Typhoon Koinu, winter monsoon. Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "SDG 2 extends well beyond alleviating hunger in distant countries. It's fundamentally concerned with food security, meaning genuinely reliable daily access to enough food, a standard that applies to Taiwan as much as anywhere else.",
+              "words": 35,
+              "sentences": 2,
+              "avg_sentence_words": 17.5,
+              "fk_grade": 13.1,
+              "long_word_pct": 25.7,
+              "speak_seconds_est": 17.5,
+              "fill_pct": 87.5,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan's overall food self-sufficiency rate (calorie basis) was 30.3% in 2023 (18-year low) and 30.7% in 2024 (Ministry of Agriculture / Agriculture and Food Agency 糧食供需年報, via Focus Taiwan, Taipei Times, 上下游新聞); grain self-sufficiency 25.5% in 2023 vs 26.6% in 2022; rice self-sufficiency near 100% (97.7% in 2023, 24万公頃/~1.21M tonnes/yr); wheat ~0.3%, soybean <1%, feed corn ~2.5% self-sufficient, ~8M tonnes coarse grain imported yearly (SETN, 農傳媒); legal rice reserve minimum 3 months/25% of consumption since 2006, above FAO's 17-18% and Japan/Korea targets, actual stock ~1.06M tonnes (~11 months) per Dec 2025 CNA report; WTO rice import TRQ of 144,720 tonnes/year since 2002 accession; 大糧倉計畫 (Grand Grain Silo plan) since 2016 paying farmers to convert paddies to soybean/feed corn, expanded 2022; Typhoon Krathon Oct 2024 vegetable wholesale price NT$63.7/kg then -17% to NT$52.8/kg (Taiwan News); 2023 rice harvest hurt by irrigation suspension, Typhoon Koinu, winter monsoon. Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            }
+          }
+        },
+        {
+          "slide_no": 3,
+          "title": {
+            "en": "An island that eats mostly imported food",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Taiwan has about 23 million people. Most of our food actually arrives here by ship. In 2024, we grew only 30.7 percent of our own food.",
+              "words": 27,
+              "sentences": 3,
+              "avg_sentence_words": 9.0,
+              "fk_grade": 6.3,
+              "long_word_pct": 3.7,
+              "speak_seconds_est": 17.1,
+              "fill_pct": 85.3,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan's overall food self-sufficiency rate (calorie basis) was 30.3% in 2023 (18-year low) and 30.7% in 2024 (Ministry of Agriculture / Agriculture and Food Agency 糧食供需年報, via Focus Taiwan, Taipei Times, 上下游新聞); grain self-sufficiency 25.5% in 2023 vs 26.6% in 2022; rice self-sufficiency near 100% (97.7% in 2023, 24万公頃/~1.21M tonnes/yr); wheat ~0.3%, soybean <1%, feed corn ~2.5% self-sufficient, ~8M tonnes coarse grain imported yearly (SETN, 農傳媒); legal rice reserve minimum 3 months/25% of consumption since 2006, above FAO's 17-18% and Japan/Korea targets, actual stock ~1.06M tonnes (~11 months) per Dec 2025 CNA report; WTO rice import TRQ of 144,720 tonnes/year since 2002 accession; 大糧倉計畫 (Grand Grain Silo plan) since 2016 paying farmers to convert paddies to soybean/feed corn, expanded 2022; Typhoon Krathon Oct 2024 vegetable wholesale price NT$63.7/kg then -17% to NT$52.8/kg (Taiwan News); 2023 rice harvest hurt by irrigation suspension, Typhoon Koinu, winter monsoon. Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "Taiwan is a crowded island with a population of roughly 23 million people. Ships transport most of what we actually eat. In 2024, we produced only 30.7 percent of our own food.",
+              "words": 33,
+              "sentences": 3,
+              "avg_sentence_words": 11.0,
+              "fk_grade": 8.0,
+              "long_word_pct": 12.1,
+              "speak_seconds_est": 18.0,
+              "fill_pct": 90.0,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan's overall food self-sufficiency rate (calorie basis) was 30.3% in 2023 (18-year low) and 30.7% in 2024 (Ministry of Agriculture / Agriculture and Food Agency 糧食供需年報, via Focus Taiwan, Taipei Times, 上下游新聞); grain self-sufficiency 25.5% in 2023 vs 26.6% in 2022; rice self-sufficiency near 100% (97.7% in 2023, 24万公頃/~1.21M tonnes/yr); wheat ~0.3%, soybean <1%, feed corn ~2.5% self-sufficient, ~8M tonnes coarse grain imported yearly (SETN, 農傳媒); legal rice reserve minimum 3 months/25% of consumption since 2006, above FAO's 17-18% and Japan/Korea targets, actual stock ~1.06M tonnes (~11 months) per Dec 2025 CNA report; WTO rice import TRQ of 144,720 tonnes/year since 2002 accession; 大糧倉計畫 (Grand Grain Silo plan) since 2016 paying farmers to convert paddies to soybean/feed corn, expanded 2022; Typhoon Krathon Oct 2024 vegetable wholesale price NT$63.7/kg then -17% to NT$52.8/kg (Taiwan News); 2023 rice harvest hurt by irrigation suspension, Typhoon Koinu, winter monsoon. Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "Taiwan, a densely populated island of roughly 23 million residents, imports the majority of what it consumes by sea. In 2024, only 30.7 percent of domestic food consumption was actually produced here.",
+              "words": 33,
+              "sentences": 2,
+              "avg_sentence_words": 16.5,
+              "fk_grade": 14.1,
+              "long_word_pct": 24.2,
+              "speak_seconds_est": 16.5,
+              "fill_pct": 82.5,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan's overall food self-sufficiency rate (calorie basis) was 30.3% in 2023 (18-year low) and 30.7% in 2024 (Ministry of Agriculture / Agriculture and Food Agency 糧食供需年報, via Focus Taiwan, Taipei Times, 上下游新聞); grain self-sufficiency 25.5% in 2023 vs 26.6% in 2022; rice self-sufficiency near 100% (97.7% in 2023, 24万公頃/~1.21M tonnes/yr); wheat ~0.3%, soybean <1%, feed corn ~2.5% self-sufficient, ~8M tonnes coarse grain imported yearly (SETN, 農傳媒); legal rice reserve minimum 3 months/25% of consumption since 2006, above FAO's 17-18% and Japan/Korea targets, actual stock ~1.06M tonnes (~11 months) per Dec 2025 CNA report; WTO rice import TRQ of 144,720 tonnes/year since 2002 accession; 大糧倉計畫 (Grand Grain Silo plan) since 2016 paying farmers to convert paddies to soybean/feed corn, expanded 2022; Typhoon Krathon Oct 2024 vegetable wholesale price NT$63.7/kg then -17% to NT$52.8/kg (Taiwan News); 2023 rice harvest hurt by irrigation suspension, Typhoon Koinu, winter monsoon. Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            }
+          }
+        }
+      ]
+    },
+    {
+      "part_no": 2,
+      "source_description": "Part 2: Problem (Slides 4-6: self-sufficiency's 18-year low, grain vs rice gap, the hidden dependency at the dinner table)",
+      "function_en": "Problem",
+      "function_zh": "問題指認：趨勢與因果",
+      "language_pattern": "present progressive for trends / this causes ...",
+      "slides": [
+        {
+          "slide_no": 4,
+          "title": {
+            "en": "An 18-year low",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "That number keeps declining. It dropped to 30.3 percent in 2023, the lowest level in 18 years. It only rose a little after that year.",
+              "words": 26,
+              "sentences": 3,
+              "avg_sentence_words": 8.7,
+              "fk_grade": 6.4,
+              "long_word_pct": 3.8,
+              "speak_seconds_est": 16.4,
+              "fill_pct": 82.1,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan's overall food self-sufficiency rate (calorie basis) was 30.3% in 2023 (18-year low) and 30.7% in 2024 (Ministry of Agriculture / Agriculture and Food Agency 糧食供需年報, via Focus Taiwan, Taipei Times, 上下游新聞); grain self-sufficiency 25.5% in 2023 vs 26.6% in 2022; rice self-sufficiency near 100% (97.7% in 2023, 24万公頃/~1.21M tonnes/yr); wheat ~0.3%, soybean <1%, feed corn ~2.5% self-sufficient, ~8M tonnes coarse grain imported yearly (SETN, 農傳媒); legal rice reserve minimum 3 months/25% of consumption since 2006, above FAO's 17-18% and Japan/Korea targets, actual stock ~1.06M tonnes (~11 months) per Dec 2025 CNA report; WTO rice import TRQ of 144,720 tonnes/year since 2002 accession; 大糧倉計畫 (Grand Grain Silo plan) since 2016 paying farmers to convert paddies to soybean/feed corn, expanded 2022; Typhoon Krathon Oct 2024 vegetable wholesale price NT$63.7/kg then -17% to NT$52.8/kg (Taiwan News); 2023 rice harvest hurt by irrigation suspension, Typhoon Koinu, winter monsoon. Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "That figure has been sliding for years now. It dropped to an eighteen-year low of 30.3 percent back in 2023, and it has only recovered slightly since that low point.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 8.0,
+              "long_word_pct": 9.7,
+              "speak_seconds_est": 16.9,
+              "fill_pct": 84.5,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan's overall food self-sufficiency rate (calorie basis) was 30.3% in 2023 (18-year low) and 30.7% in 2024 (Ministry of Agriculture / Agriculture and Food Agency 糧食供需年報, via Focus Taiwan, Taipei Times, 上下游新聞); grain self-sufficiency 25.5% in 2023 vs 26.6% in 2022; rice self-sufficiency near 100% (97.7% in 2023, 24万公頃/~1.21M tonnes/yr); wheat ~0.3%, soybean <1%, feed corn ~2.5% self-sufficient, ~8M tonnes coarse grain imported yearly (SETN, 農傳媒); legal rice reserve minimum 3 months/25% of consumption since 2006, above FAO's 17-18% and Japan/Korea targets, actual stock ~1.06M tonnes (~11 months) per Dec 2025 CNA report; WTO rice import TRQ of 144,720 tonnes/year since 2002 accession; 大糧倉計畫 (Grand Grain Silo plan) since 2016 paying farmers to convert paddies to soybean/feed corn, expanded 2022; Typhoon Krathon Oct 2024 vegetable wholesale price NT$63.7/kg then -17% to NT$52.8/kg (Taiwan News); 2023 rice harvest hurt by irrigation suspension, Typhoon Koinu, winter monsoon. Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "That figure has been declining for years, rather than improving as officials once hoped. It fell to an eighteen-year low of 30.3 percent in 2023, recovering only marginally since that particular low point.",
+              "words": 34,
+              "sentences": 2,
+              "avg_sentence_words": 17.0,
+              "fk_grade": 11.9,
+              "long_word_pct": 20.6,
+              "speak_seconds_est": 17.0,
+              "fill_pct": 85.0,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan's overall food self-sufficiency rate (calorie basis) was 30.3% in 2023 (18-year low) and 30.7% in 2024 (Ministry of Agriculture / Agriculture and Food Agency 糧食供需年報, via Focus Taiwan, Taipei Times, 上下游新聞); grain self-sufficiency 25.5% in 2023 vs 26.6% in 2022; rice self-sufficiency near 100% (97.7% in 2023, 24万公頃/~1.21M tonnes/yr); wheat ~0.3%, soybean <1%, feed corn ~2.5% self-sufficient, ~8M tonnes coarse grain imported yearly (SETN, 農傳媒); legal rice reserve minimum 3 months/25% of consumption since 2006, above FAO's 17-18% and Japan/Korea targets, actual stock ~1.06M tonnes (~11 months) per Dec 2025 CNA report; WTO rice import TRQ of 144,720 tonnes/year since 2002 accession; 大糧倉計畫 (Grand Grain Silo plan) since 2016 paying farmers to convert paddies to soybean/feed corn, expanded 2022; Typhoon Krathon Oct 2024 vegetable wholesale price NT$63.7/kg then -17% to NT$52.8/kg (Taiwan News); 2023 rice harvest hurt by irrigation suspension, Typhoon Koinu, winter monsoon. Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            }
+          }
+        },
+        {
+          "slide_no": 5,
+          "title": {
+            "en": "Rice is homegrown, most grain is not",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Look closer, and the picture splits. Rice is almost 100 percent homegrown here. But total grain self-sufficiency is only 25.5 percent. That's because most wheat comes from abroad.",
+              "words": 29,
+              "sentences": 4,
+              "avg_sentence_words": 7.2,
+              "fk_grade": 6.8,
+              "long_word_pct": 6.9,
+              "speak_seconds_est": 18.3,
+              "fill_pct": 91.6,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan's overall food self-sufficiency rate (calorie basis) was 30.3% in 2023 (18-year low) and 30.7% in 2024 (Ministry of Agriculture / Agriculture and Food Agency 糧食供需年報, via Focus Taiwan, Taipei Times, 上下游新聞); grain self-sufficiency 25.5% in 2023 vs 26.6% in 2022; rice self-sufficiency near 100% (97.7% in 2023, 24万公頃/~1.21M tonnes/yr); wheat ~0.3%, soybean <1%, feed corn ~2.5% self-sufficient, ~8M tonnes coarse grain imported yearly (SETN, 農傳媒); legal rice reserve minimum 3 months/25% of consumption since 2006, above FAO's 17-18% and Japan/Korea targets, actual stock ~1.06M tonnes (~11 months) per Dec 2025 CNA report; WTO rice import TRQ of 144,720 tonnes/year since 2002 accession; 大糧倉計畫 (Grand Grain Silo plan) since 2016 paying farmers to convert paddies to soybean/feed corn, expanded 2022; Typhoon Krathon Oct 2024 vegetable wholesale price NT$63.7/kg then -17% to NT$52.8/kg (Taiwan News); 2023 rice harvest hurt by irrigation suspension, Typhoon Koinu, winter monsoon. Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "The picture changes once you separate the categories. Rice is nearly self-sufficient here, yet overall grain self-sufficiency sits at just 25.5 percent, since most wheat is imported from abroad.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 10.7,
+              "long_word_pct": 16.7,
+              "speak_seconds_est": 16.4,
+              "fill_pct": 81.8,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan's overall food self-sufficiency rate (calorie basis) was 30.3% in 2023 (18-year low) and 30.7% in 2024 (Ministry of Agriculture / Agriculture and Food Agency 糧食供需年報, via Focus Taiwan, Taipei Times, 上下游新聞); grain self-sufficiency 25.5% in 2023 vs 26.6% in 2022; rice self-sufficiency near 100% (97.7% in 2023, 24万公頃/~1.21M tonnes/yr); wheat ~0.3%, soybean <1%, feed corn ~2.5% self-sufficient, ~8M tonnes coarse grain imported yearly (SETN, 農傳媒); legal rice reserve minimum 3 months/25% of consumption since 2006, above FAO's 17-18% and Japan/Korea targets, actual stock ~1.06M tonnes (~11 months) per Dec 2025 CNA report; WTO rice import TRQ of 144,720 tonnes/year since 2002 accession; 大糧倉計畫 (Grand Grain Silo plan) since 2016 paying farmers to convert paddies to soybean/feed corn, expanded 2022; Typhoon Krathon Oct 2024 vegetable wholesale price NT$63.7/kg then -17% to NT$52.8/kg (Taiwan News); 2023 rice harvest hurt by irrigation suspension, Typhoon Koinu, winter monsoon. Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "Breaking the numbers apart reveals a much sharper picture. Rice approaches near-total self-sufficiency, whereas overall grain self-sufficiency sits at merely 25.5 percent, given that wheat is almost entirely imported from abroad.",
+              "words": 32,
+              "sentences": 2,
+              "avg_sentence_words": 16.0,
+              "fk_grade": 14.6,
+              "long_word_pct": 21.9,
+              "speak_seconds_est": 16.0,
+              "fill_pct": 80.0,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan's overall food self-sufficiency rate (calorie basis) was 30.3% in 2023 (18-year low) and 30.7% in 2024 (Ministry of Agriculture / Agriculture and Food Agency 糧食供需年報, via Focus Taiwan, Taipei Times, 上下游新聞); grain self-sufficiency 25.5% in 2023 vs 26.6% in 2022; rice self-sufficiency near 100% (97.7% in 2023, 24万公頃/~1.21M tonnes/yr); wheat ~0.3%, soybean <1%, feed corn ~2.5% self-sufficient, ~8M tonnes coarse grain imported yearly (SETN, 農傳媒); legal rice reserve minimum 3 months/25% of consumption since 2006, above FAO's 17-18% and Japan/Korea targets, actual stock ~1.06M tonnes (~11 months) per Dec 2025 CNA report; WTO rice import TRQ of 144,720 tonnes/year since 2002 accession; 大糧倉計畫 (Grand Grain Silo plan) since 2016 paying farmers to convert paddies to soybean/feed corn, expanded 2022; Typhoon Krathon Oct 2024 vegetable wholesale price NT$63.7/kg then -17% to NT$52.8/kg (Taiwan News); 2023 rice harvest hurt by irrigation suspension, Typhoon Koinu, winter monsoon. Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            }
+          }
+        },
+        {
+          "slide_no": 6,
+          "title": {
+            "en": "The hidden dependency on your plate",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "So your rice grew here in Taiwan. Your bread almost never did. Even the pig that became your lunch probably ate imported corn instead.",
+              "words": 24,
+              "sentences": 3,
+              "avg_sentence_words": 8.0,
+              "fk_grade": 4.2,
+              "long_word_pct": 8.3,
+              "speak_seconds_est": 15.2,
+              "fill_pct": 75.8,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan's overall food self-sufficiency rate (calorie basis) was 30.3% in 2023 (18-year low) and 30.7% in 2024 (Ministry of Agriculture / Agriculture and Food Agency 糧食供需年報, via Focus Taiwan, Taipei Times, 上下游新聞); grain self-sufficiency 25.5% in 2023 vs 26.6% in 2022; rice self-sufficiency near 100% (97.7% in 2023, 24万公頃/~1.21M tonnes/yr); wheat ~0.3%, soybean <1%, feed corn ~2.5% self-sufficient, ~8M tonnes coarse grain imported yearly (SETN, 農傳媒); legal rice reserve minimum 3 months/25% of consumption since 2006, above FAO's 17-18% and Japan/Korea targets, actual stock ~1.06M tonnes (~11 months) per Dec 2025 CNA report; WTO rice import TRQ of 144,720 tonnes/year since 2002 accession; 大糧倉計畫 (Grand Grain Silo plan) since 2016 paying farmers to convert paddies to soybean/feed corn, expanded 2022; Typhoon Krathon Oct 2024 vegetable wholesale price NT$63.7/kg then -17% to NT$52.8/kg (Taiwan News); 2023 rice harvest hurt by irrigation suspension, Typhoon Koinu, winter monsoon. Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "So the rice sitting on your plate has actually been cultivated here in Taiwan. That's unlike almost everything else you eat today. The bread beside it certainly hasn't, and neither has the cooking oil.",
+              "words": 34,
+              "sentences": 3,
+              "avg_sentence_words": 11.3,
+              "fk_grade": 6.9,
+              "long_word_pct": 11.8,
+              "speak_seconds_est": 18.5,
+              "fill_pct": 92.7,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan's overall food self-sufficiency rate (calorie basis) was 30.3% in 2023 (18-year low) and 30.7% in 2024 (Ministry of Agriculture / Agriculture and Food Agency 糧食供需年報, via Focus Taiwan, Taipei Times, 上下游新聞); grain self-sufficiency 25.5% in 2023 vs 26.6% in 2022; rice self-sufficiency near 100% (97.7% in 2023, 24万公頃/~1.21M tonnes/yr); wheat ~0.3%, soybean <1%, feed corn ~2.5% self-sufficient, ~8M tonnes coarse grain imported yearly (SETN, 農傳媒); legal rice reserve minimum 3 months/25% of consumption since 2006, above FAO's 17-18% and Japan/Korea targets, actual stock ~1.06M tonnes (~11 months) per Dec 2025 CNA report; WTO rice import TRQ of 144,720 tonnes/year since 2002 accession; 大糧倉計畫 (Grand Grain Silo plan) since 2016 paying farmers to convert paddies to soybean/feed corn, expanded 2022; Typhoon Krathon Oct 2024 vegetable wholesale price NT$63.7/kg then -17% to NT$52.8/kg (Taiwan News); 2023 rice harvest hurt by irrigation suspension, Typhoon Koinu, winter monsoon. Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "So the rice occupying your plate was almost certainly cultivated domestically. The bread accompanying it, however, certainly wasn't, nor was the cooking oil in which it happened to be fried.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 10.7,
+              "long_word_pct": 23.3,
+              "speak_seconds_est": 15.0,
+              "fill_pct": 75.0,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan's overall food self-sufficiency rate (calorie basis) was 30.3% in 2023 (18-year low) and 30.7% in 2024 (Ministry of Agriculture / Agriculture and Food Agency 糧食供需年報, via Focus Taiwan, Taipei Times, 上下游新聞); grain self-sufficiency 25.5% in 2023 vs 26.6% in 2022; rice self-sufficiency near 100% (97.7% in 2023, 24万公頃/~1.21M tonnes/yr); wheat ~0.3%, soybean <1%, feed corn ~2.5% self-sufficient, ~8M tonnes coarse grain imported yearly (SETN, 農傳媒); legal rice reserve minimum 3 months/25% of consumption since 2006, above FAO's 17-18% and Japan/Korea targets, actual stock ~1.06M tonnes (~11 months) per Dec 2025 CNA report; WTO rice import TRQ of 144,720 tonnes/year since 2002 accession; 大糧倉計畫 (Grand Grain Silo plan) since 2016 paying farmers to convert paddies to soybean/feed corn, expanded 2022; Typhoon Krathon Oct 2024 vegetable wholesale price NT$63.7/kg then -17% to NT$52.8/kg (Taiwan News); 2023 rice harvest hurt by irrigation suspension, Typhoon Koinu, winter monsoon. Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            }
+          }
+        }
+      ]
+    },
+    {
+      "part_no": 3,
+      "source_description": "Part 3: Achievements (Slides 7-9: rice production strength, the legal rice reserve, the Grand Grain Silo conversion plan)",
+      "function_en": "Achievements",
+      "function_zh": "成果：舉證與比較",
+      "language_pattern": "present perfect / comparatives",
+      "slides": [
+        {
+          "slide_no": 7,
+          "title": {
+            "en": "Rice: a real national strength",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Here is some good news for once. Rice covers about 240,000 hectares of Taiwan. Two harvests a year produce roughly 1.21 million tonnes of rice.",
+              "words": 27,
+              "sentences": 3,
+              "avg_sentence_words": 9.0,
+              "fk_grade": 6.3,
+              "long_word_pct": 7.4,
+              "speak_seconds_est": 17.1,
+              "fill_pct": 85.3,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan's overall food self-sufficiency rate (calorie basis) was 30.3% in 2023 (18-year low) and 30.7% in 2024 (Ministry of Agriculture / Agriculture and Food Agency 糧食供需年報, via Focus Taiwan, Taipei Times, 上下游新聞); grain self-sufficiency 25.5% in 2023 vs 26.6% in 2022; rice self-sufficiency near 100% (97.7% in 2023, 24万公頃/~1.21M tonnes/yr); wheat ~0.3%, soybean <1%, feed corn ~2.5% self-sufficient, ~8M tonnes coarse grain imported yearly (SETN, 農傳媒); legal rice reserve minimum 3 months/25% of consumption since 2006, above FAO's 17-18% and Japan/Korea targets, actual stock ~1.06M tonnes (~11 months) per Dec 2025 CNA report; WTO rice import TRQ of 144,720 tonnes/year since 2002 accession; 大糧倉計畫 (Grand Grain Silo plan) since 2016 paying farmers to convert paddies to soybean/feed corn, expanded 2022; Typhoon Krathon Oct 2024 vegetable wholesale price NT$63.7/kg then -17% to NT$52.8/kg (Taiwan News); 2023 rice harvest hurt by irrigation suspension, Typhoon Koinu, winter monsoon. Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "Rice remains a real strength for Taiwan. Across roughly 240,000 hectares and two harvests a year, farmers have grown about 1.21 million tonnes of rice recently.",
+              "words": 28,
+              "sentences": 2,
+              "avg_sentence_words": 14.0,
+              "fk_grade": 9.3,
+              "long_word_pct": 14.3,
+              "speak_seconds_est": 15.3,
+              "fill_pct": 76.4,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan's overall food self-sufficiency rate (calorie basis) was 30.3% in 2023 (18-year low) and 30.7% in 2024 (Ministry of Agriculture / Agriculture and Food Agency 糧食供需年報, via Focus Taiwan, Taipei Times, 上下游新聞); grain self-sufficiency 25.5% in 2023 vs 26.6% in 2022; rice self-sufficiency near 100% (97.7% in 2023, 24万公頃/~1.21M tonnes/yr); wheat ~0.3%, soybean <1%, feed corn ~2.5% self-sufficient, ~8M tonnes coarse grain imported yearly (SETN, 農傳媒); legal rice reserve minimum 3 months/25% of consumption since 2006, above FAO's 17-18% and Japan/Korea targets, actual stock ~1.06M tonnes (~11 months) per Dec 2025 CNA report; WTO rice import TRQ of 144,720 tonnes/year since 2002 accession; 大糧倉計畫 (Grand Grain Silo plan) since 2016 paying farmers to convert paddies to soybean/feed corn, expanded 2022; Typhoon Krathon Oct 2024 vegetable wholesale price NT$63.7/kg then -17% to NT$52.8/kg (Taiwan News); 2023 rice harvest hurt by irrigation suspension, Typhoon Koinu, winter monsoon. Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "Cultivated across roughly 240,000 hectares in two annual harvests, rice remains genuinely secure here. About 1.21 million tonnes are produced every year, keeping this staple reliably available for everyone.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 15.6,
+              "long_word_pct": 25.8,
+              "speak_seconds_est": 15.5,
+              "fill_pct": 77.5,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan's overall food self-sufficiency rate (calorie basis) was 30.3% in 2023 (18-year low) and 30.7% in 2024 (Ministry of Agriculture / Agriculture and Food Agency 糧食供需年報, via Focus Taiwan, Taipei Times, 上下游新聞); grain self-sufficiency 25.5% in 2023 vs 26.6% in 2022; rice self-sufficiency near 100% (97.7% in 2023, 24万公頃/~1.21M tonnes/yr); wheat ~0.3%, soybean <1%, feed corn ~2.5% self-sufficient, ~8M tonnes coarse grain imported yearly (SETN, 農傳媒); legal rice reserve minimum 3 months/25% of consumption since 2006, above FAO's 17-18% and Japan/Korea targets, actual stock ~1.06M tonnes (~11 months) per Dec 2025 CNA report; WTO rice import TRQ of 144,720 tonnes/year since 2002 accession; 大糧倉計畫 (Grand Grain Silo plan) since 2016 paying farmers to convert paddies to soybean/feed corn, expanded 2022; Typhoon Krathon Oct 2024 vegetable wholesale price NT$63.7/kg then -17% to NT$52.8/kg (Taiwan News); 2023 rice harvest hurt by irrigation suspension, Typhoon Koinu, winter monsoon. Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            }
+          }
+        },
+        {
+          "slide_no": 8,
+          "title": {
+            "en": "A reserve bigger than the law requires",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "The law protects our rice too. Taiwan must always keep a rice reserve for three whole months. That target is higher than Japan's own goal.",
+              "words": 25,
+              "sentences": 3,
+              "avg_sentence_words": 8.3,
+              "fk_grade": 3.2,
+              "long_word_pct": 4.0,
+              "speak_seconds_est": 15.8,
+              "fill_pct": 78.9,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan's overall food self-sufficiency rate (calorie basis) was 30.3% in 2023 (18-year low) and 30.7% in 2024 (Ministry of Agriculture / Agriculture and Food Agency 糧食供需年報, via Focus Taiwan, Taipei Times, 上下游新聞); grain self-sufficiency 25.5% in 2023 vs 26.6% in 2022; rice self-sufficiency near 100% (97.7% in 2023, 24万公頃/~1.21M tonnes/yr); wheat ~0.3%, soybean <1%, feed corn ~2.5% self-sufficient, ~8M tonnes coarse grain imported yearly (SETN, 農傳媒); legal rice reserve minimum 3 months/25% of consumption since 2006, above FAO's 17-18% and Japan/Korea targets, actual stock ~1.06M tonnes (~11 months) per Dec 2025 CNA report; WTO rice import TRQ of 144,720 tonnes/year since 2002 accession; 大糧倉計畫 (Grand Grain Silo plan) since 2016 paying farmers to convert paddies to soybean/feed corn, expanded 2022; Typhoon Krathon Oct 2024 vegetable wholesale price NT$63.7/kg then -17% to NT$52.8/kg (Taiwan News); 2023 rice harvest hurt by irrigation suspension, Typhoon Koinu, winter monsoon. Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "Taiwan has also written real protection into law over the years. A rice reserve must legally cover at least three months of national consumption, which sits well above Japan's own target.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 9.1,
+              "long_word_pct": 9.7,
+              "speak_seconds_est": 16.9,
+              "fill_pct": 84.5,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan's overall food self-sufficiency rate (calorie basis) was 30.3% in 2023 (18-year low) and 30.7% in 2024 (Ministry of Agriculture / Agriculture and Food Agency 糧食供需年報, via Focus Taiwan, Taipei Times, 上下游新聞); grain self-sufficiency 25.5% in 2023 vs 26.6% in 2022; rice self-sufficiency near 100% (97.7% in 2023, 24万公頃/~1.21M tonnes/yr); wheat ~0.3%, soybean <1%, feed corn ~2.5% self-sufficient, ~8M tonnes coarse grain imported yearly (SETN, 農傳媒); legal rice reserve minimum 3 months/25% of consumption since 2006, above FAO's 17-18% and Japan/Korea targets, actual stock ~1.06M tonnes (~11 months) per Dec 2025 CNA report; WTO rice import TRQ of 144,720 tonnes/year since 2002 accession; 大糧倉計畫 (Grand Grain Silo plan) since 2016 paying farmers to convert paddies to soybean/feed corn, expanded 2022; Typhoon Krathon Oct 2024 vegetable wholesale price NT$63.7/kg then -17% to NT$52.8/kg (Taiwan News); 2023 rice harvest hurt by irrigation suspension, Typhoon Koinu, winter monsoon. Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "Legislative protection has also been established for this staple. A mandatory reserve, equal to three months of national consumption, is required by law to exceed Japan's own comparable target clearly.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 13.1,
+              "long_word_pct": 26.7,
+              "speak_seconds_est": 15.0,
+              "fill_pct": 75.0,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan's overall food self-sufficiency rate (calorie basis) was 30.3% in 2023 (18-year low) and 30.7% in 2024 (Ministry of Agriculture / Agriculture and Food Agency 糧食供需年報, via Focus Taiwan, Taipei Times, 上下游新聞); grain self-sufficiency 25.5% in 2023 vs 26.6% in 2022; rice self-sufficiency near 100% (97.7% in 2023, 24万公頃/~1.21M tonnes/yr); wheat ~0.3%, soybean <1%, feed corn ~2.5% self-sufficient, ~8M tonnes coarse grain imported yearly (SETN, 農傳媒); legal rice reserve minimum 3 months/25% of consumption since 2006, above FAO's 17-18% and Japan/Korea targets, actual stock ~1.06M tonnes (~11 months) per Dec 2025 CNA report; WTO rice import TRQ of 144,720 tonnes/year since 2002 accession; 大糧倉計畫 (Grand Grain Silo plan) since 2016 paying farmers to convert paddies to soybean/feed corn, expanded 2022; Typhoon Krathon Oct 2024 vegetable wholesale price NT$63.7/kg then -17% to NT$52.8/kg (Taiwan News); 2023 rice harvest hurt by irrigation suspension, Typhoon Koinu, winter monsoon. Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            }
+          }
+        },
+        {
+          "slide_no": 9,
+          "title": {
+            "en": "The Grand Grain Silo plan",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Back in 2016, a new government plan actually started. People simply call it the Grand Grain Silo. It pays farmers well to grow soybean instead.",
+              "words": 25,
+              "sentences": 3,
+              "avg_sentence_words": 8.3,
+              "fk_grade": 6.1,
+              "long_word_pct": 8.0,
+              "speak_seconds_est": 15.8,
+              "fill_pct": 78.9,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan's overall food self-sufficiency rate (calorie basis) was 30.3% in 2023 (18-year low) and 30.7% in 2024 (Ministry of Agriculture / Agriculture and Food Agency 糧食供需年報, via Focus Taiwan, Taipei Times, 上下游新聞); grain self-sufficiency 25.5% in 2023 vs 26.6% in 2022; rice self-sufficiency near 100% (97.7% in 2023, 24万公頃/~1.21M tonnes/yr); wheat ~0.3%, soybean <1%, feed corn ~2.5% self-sufficient, ~8M tonnes coarse grain imported yearly (SETN, 農傳媒); legal rice reserve minimum 3 months/25% of consumption since 2006, above FAO's 17-18% and Japan/Korea targets, actual stock ~1.06M tonnes (~11 months) per Dec 2025 CNA report; WTO rice import TRQ of 144,720 tonnes/year since 2002 accession; 大糧倉計畫 (Grand Grain Silo plan) since 2016 paying farmers to convert paddies to soybean/feed corn, expanded 2022; Typhoon Krathon Oct 2024 vegetable wholesale price NT$63.7/kg then -17% to NT$52.8/kg (Taiwan News); 2023 rice harvest hurt by irrigation suspension, Typhoon Koinu, winter monsoon. Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "Since 2016, a government plan called the Grand Grain Silo has paid farmers well across the island. It converts rice paddies into soybean fields instead of leaving good land idle.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 8.7,
+              "long_word_pct": 6.7,
+              "speak_seconds_est": 16.4,
+              "fill_pct": 81.8,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan's overall food self-sufficiency rate (calorie basis) was 30.3% in 2023 (18-year low) and 30.7% in 2024 (Ministry of Agriculture / Agriculture and Food Agency 糧食供需年報, via Focus Taiwan, Taipei Times, 上下游新聞); grain self-sufficiency 25.5% in 2023 vs 26.6% in 2022; rice self-sufficiency near 100% (97.7% in 2023, 24万公頃/~1.21M tonnes/yr); wheat ~0.3%, soybean <1%, feed corn ~2.5% self-sufficient, ~8M tonnes coarse grain imported yearly (SETN, 農傳媒); legal rice reserve minimum 3 months/25% of consumption since 2006, above FAO's 17-18% and Japan/Korea targets, actual stock ~1.06M tonnes (~11 months) per Dec 2025 CNA report; WTO rice import TRQ of 144,720 tonnes/year since 2002 accession; 大糧倉計畫 (Grand Grain Silo plan) since 2016 paying farmers to convert paddies to soybean/feed corn, expanded 2022; Typhoon Krathon Oct 2024 vegetable wholesale price NT$63.7/kg then -17% to NT$52.8/kg (Taiwan News); 2023 rice harvest hurt by irrigation suspension, Typhoon Koinu, winter monsoon. Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "Since 2016, the Grand Grain Silo initiative has compensated farmers for converting rice paddies into soybean fields instead. This has gradually eroded decades of entrenched import dependency in the process.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 13.9,
+              "long_word_pct": 20.0,
+              "speak_seconds_est": 15.0,
+              "fill_pct": 75.0,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan's overall food self-sufficiency rate (calorie basis) was 30.3% in 2023 (18-year low) and 30.7% in 2024 (Ministry of Agriculture / Agriculture and Food Agency 糧食供需年報, via Focus Taiwan, Taipei Times, 上下游新聞); grain self-sufficiency 25.5% in 2023 vs 26.6% in 2022; rice self-sufficiency near 100% (97.7% in 2023, 24万公頃/~1.21M tonnes/yr); wheat ~0.3%, soybean <1%, feed corn ~2.5% self-sufficient, ~8M tonnes coarse grain imported yearly (SETN, 農傳媒); legal rice reserve minimum 3 months/25% of consumption since 2006, above FAO's 17-18% and Japan/Korea targets, actual stock ~1.06M tonnes (~11 months) per Dec 2025 CNA report; WTO rice import TRQ of 144,720 tonnes/year since 2002 accession; 大糧倉計畫 (Grand Grain Silo plan) since 2016 paying farmers to convert paddies to soybean/feed corn, expanded 2022; Typhoon Krathon Oct 2024 vegetable wholesale price NT$63.7/kg then -17% to NT$52.8/kg (Taiwan News); 2023 rice harvest hurt by irrigation suspension, Typhoon Koinu, winter monsoon. Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            }
+          }
+        }
+      ]
+    },
+    {
+      "part_no": 4,
+      "source_description": "Part 4: Solutions (Slides 10-12: contract-farmed feed grain, feed-rice research, the cost trade-off of growing it here)",
+      "function_en": "Solutions",
+      "function_zh": "解方：做法與取捨",
+      "language_pattern": "instead of + V-ing / modal verbs",
+      "slides": [
+        {
+          "slide_no": 10,
+          "title": {
+            "en": "Turning idle paddies into feed grain",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Some rice fields used to sit unused after harvest. Today, growers can actually choose to plant corn there instead. That empty ground finally has a purpose again.",
+              "words": 27,
+              "sentences": 3,
+              "avg_sentence_words": 9.0,
+              "fk_grade": 6.3,
+              "long_word_pct": 3.7,
+              "speak_seconds_est": 17.1,
+              "fill_pct": 85.3,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan's overall food self-sufficiency rate (calorie basis) was 30.3% in 2023 (18-year low) and 30.7% in 2024 (Ministry of Agriculture / Agriculture and Food Agency 糧食供需年報, via Focus Taiwan, Taipei Times, 上下游新聞); grain self-sufficiency 25.5% in 2023 vs 26.6% in 2022; rice self-sufficiency near 100% (97.7% in 2023, 24万公頃/~1.21M tonnes/yr); wheat ~0.3%, soybean <1%, feed corn ~2.5% self-sufficient, ~8M tonnes coarse grain imported yearly (SETN, 農傳媒); legal rice reserve minimum 3 months/25% of consumption since 2006, above FAO's 17-18% and Japan/Korea targets, actual stock ~1.06M tonnes (~11 months) per Dec 2025 CNA report; WTO rice import TRQ of 144,720 tonnes/year since 2002 accession; 大糧倉計畫 (Grand Grain Silo plan) since 2016 paying farmers to convert paddies to soybean/feed corn, expanded 2022; Typhoon Krathon Oct 2024 vegetable wholesale price NT$63.7/kg then -17% to NT$52.8/kg (Taiwan News); 2023 rice harvest hurt by irrigation suspension, Typhoon Koinu, winter monsoon. Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "Instead of letting abandoned paddies sit empty after harvest, farmers can now sign a contract to grow feed corn there. That turns unused land into a genuine, valuable source of grain.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 8.7,
+              "long_word_pct": 9.7,
+              "speak_seconds_est": 16.9,
+              "fill_pct": 84.5,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan's overall food self-sufficiency rate (calorie basis) was 30.3% in 2023 (18-year low) and 30.7% in 2024 (Ministry of Agriculture / Agriculture and Food Agency 糧食供需年報, via Focus Taiwan, Taipei Times, 上下游新聞); grain self-sufficiency 25.5% in 2023 vs 26.6% in 2022; rice self-sufficiency near 100% (97.7% in 2023, 24万公頃/~1.21M tonnes/yr); wheat ~0.3%, soybean <1%, feed corn ~2.5% self-sufficient, ~8M tonnes coarse grain imported yearly (SETN, 農傳媒); legal rice reserve minimum 3 months/25% of consumption since 2006, above FAO's 17-18% and Japan/Korea targets, actual stock ~1.06M tonnes (~11 months) per Dec 2025 CNA report; WTO rice import TRQ of 144,720 tonnes/year since 2002 accession; 大糧倉計畫 (Grand Grain Silo plan) since 2016 paying farmers to convert paddies to soybean/feed corn, expanded 2022; Typhoon Krathon Oct 2024 vegetable wholesale price NT$63.7/kg then -17% to NT$52.8/kg (Taiwan News); 2023 rice harvest hurt by irrigation suspension, Typhoon Koinu, winter monsoon. Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "Rather than leaving idle paddies unproductive, farmers can now contract to cultivate feed corn there instead. This effectively converts otherwise wasted land into a modest yet genuine source of domestic grain.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 11.8,
+              "long_word_pct": 22.6,
+              "speak_seconds_est": 15.5,
+              "fill_pct": 77.5,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan's overall food self-sufficiency rate (calorie basis) was 30.3% in 2023 (18-year low) and 30.7% in 2024 (Ministry of Agriculture / Agriculture and Food Agency 糧食供需年報, via Focus Taiwan, Taipei Times, 上下游新聞); grain self-sufficiency 25.5% in 2023 vs 26.6% in 2022; rice self-sufficiency near 100% (97.7% in 2023, 24万公頃/~1.21M tonnes/yr); wheat ~0.3%, soybean <1%, feed corn ~2.5% self-sufficient, ~8M tonnes coarse grain imported yearly (SETN, 農傳媒); legal rice reserve minimum 3 months/25% of consumption since 2006, above FAO's 17-18% and Japan/Korea targets, actual stock ~1.06M tonnes (~11 months) per Dec 2025 CNA report; WTO rice import TRQ of 144,720 tonnes/year since 2002 accession; 大糧倉計畫 (Grand Grain Silo plan) since 2016 paying farmers to convert paddies to soybean/feed corn, expanded 2022; Typhoon Krathon Oct 2024 vegetable wholesale price NT$63.7/kg then -17% to NT$52.8/kg (Taiwan News); 2023 rice harvest hurt by irrigation suspension, Typhoon Koinu, winter monsoon. Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            }
+          }
+        },
+        {
+          "slide_no": 11,
+          "title": {
+            "en": "Feed rice as a substitute crop",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Researchers here are also testing something quite new. They feed pigs with local feed rice instead of imported corn. It's a small step, but a real one.",
+              "words": 27,
+              "sentences": 3,
+              "avg_sentence_words": 9.0,
+              "fk_grade": 4.1,
+              "long_word_pct": 11.1,
+              "speak_seconds_est": 17.1,
+              "fill_pct": 85.3,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan's overall food self-sufficiency rate (calorie basis) was 30.3% in 2023 (18-year low) and 30.7% in 2024 (Ministry of Agriculture / Agriculture and Food Agency 糧食供需年報, via Focus Taiwan, Taipei Times, 上下游新聞); grain self-sufficiency 25.5% in 2023 vs 26.6% in 2022; rice self-sufficiency near 100% (97.7% in 2023, 24万公頃/~1.21M tonnes/yr); wheat ~0.3%, soybean <1%, feed corn ~2.5% self-sufficient, ~8M tonnes coarse grain imported yearly (SETN, 農傳媒); legal rice reserve minimum 3 months/25% of consumption since 2006, above FAO's 17-18% and Japan/Korea targets, actual stock ~1.06M tonnes (~11 months) per Dec 2025 CNA report; WTO rice import TRQ of 144,720 tonnes/year since 2002 accession; 大糧倉計畫 (Grand Grain Silo plan) since 2016 paying farmers to convert paddies to soybean/feed corn, expanded 2022; Typhoon Krathon Oct 2024 vegetable wholesale price NT$63.7/kg then -17% to NT$52.8/kg (Taiwan News); 2023 rice harvest hurt by irrigation suspension, Typhoon Koinu, winter monsoon. Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "Researchers have also started testing feed rice as animal food instead of relying only on imports. This could make pig farming a little less dependent on a single imported crop.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 9.1,
+              "long_word_pct": 10.0,
+              "speak_seconds_est": 16.4,
+              "fill_pct": 81.8,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan's overall food self-sufficiency rate (calorie basis) was 30.3% in 2023 (18-year low) and 30.7% in 2024 (Ministry of Agriculture / Agriculture and Food Agency 糧食供需年報, via Focus Taiwan, Taipei Times, 上下游新聞); grain self-sufficiency 25.5% in 2023 vs 26.6% in 2022; rice self-sufficiency near 100% (97.7% in 2023, 24万公頃/~1.21M tonnes/yr); wheat ~0.3%, soybean <1%, feed corn ~2.5% self-sufficient, ~8M tonnes coarse grain imported yearly (SETN, 農傳媒); legal rice reserve minimum 3 months/25% of consumption since 2006, above FAO's 17-18% and Japan/Korea targets, actual stock ~1.06M tonnes (~11 months) per Dec 2025 CNA report; WTO rice import TRQ of 144,720 tonnes/year since 2002 accession; 大糧倉計畫 (Grand Grain Silo plan) since 2016 paying farmers to convert paddies to soybean/feed corn, expanded 2022; Typhoon Krathon Oct 2024 vegetable wholesale price NT$63.7/kg then -17% to NT$52.8/kg (Taiwan News); 2023 rice harvest hurt by irrigation suspension, Typhoon Koinu, winter monsoon. Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "Researchers here have also begun trialling feed rice as a possible substitute for imported feed grain, for pig farms too. This work could gradually reduce reliance on any single imported commodity.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 10.6,
+              "long_word_pct": 29.0,
+              "speak_seconds_est": 15.5,
+              "fill_pct": 77.5,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan's overall food self-sufficiency rate (calorie basis) was 30.3% in 2023 (18-year low) and 30.7% in 2024 (Ministry of Agriculture / Agriculture and Food Agency 糧食供需年報, via Focus Taiwan, Taipei Times, 上下游新聞); grain self-sufficiency 25.5% in 2023 vs 26.6% in 2022; rice self-sufficiency near 100% (97.7% in 2023, 24万公頃/~1.21M tonnes/yr); wheat ~0.3%, soybean <1%, feed corn ~2.5% self-sufficient, ~8M tonnes coarse grain imported yearly (SETN, 農傳媒); legal rice reserve minimum 3 months/25% of consumption since 2006, above FAO's 17-18% and Japan/Korea targets, actual stock ~1.06M tonnes (~11 months) per Dec 2025 CNA report; WTO rice import TRQ of 144,720 tonnes/year since 2002 accession; 大糧倉計畫 (Grand Grain Silo plan) since 2016 paying farmers to convert paddies to soybean/feed corn, expanded 2022; Typhoon Krathon Oct 2024 vegetable wholesale price NT$63.7/kg then -17% to NT$52.8/kg (Taiwan News); 2023 rice harvest hurt by irrigation suspension, Typhoon Koinu, winter monsoon. Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            }
+          }
+        },
+        {
+          "slide_no": 12,
+          "title": {
+            "en": "Self-sufficiency is not a free win",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "But this is not a free win for anyone. Soybean grown here is far more expensive than soybean bought abroad. Someone always has to pay that extra cost.",
+              "words": 28,
+              "sentences": 3,
+              "avg_sentence_words": 9.3,
+              "fk_grade": 3.6,
+              "long_word_pct": 3.6,
+              "speak_seconds_est": 17.7,
+              "fill_pct": 88.4,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan's overall food self-sufficiency rate (calorie basis) was 30.3% in 2023 (18-year low) and 30.7% in 2024 (Ministry of Agriculture / Agriculture and Food Agency 糧食供需年報, via Focus Taiwan, Taipei Times, 上下游新聞); grain self-sufficiency 25.5% in 2023 vs 26.6% in 2022; rice self-sufficiency near 100% (97.7% in 2023, 24万公頃/~1.21M tonnes/yr); wheat ~0.3%, soybean <1%, feed corn ~2.5% self-sufficient, ~8M tonnes coarse grain imported yearly (SETN, 農傳媒); legal rice reserve minimum 3 months/25% of consumption since 2006, above FAO's 17-18% and Japan/Korea targets, actual stock ~1.06M tonnes (~11 months) per Dec 2025 CNA report; WTO rice import TRQ of 144,720 tonnes/year since 2002 accession; 大糧倉計畫 (Grand Grain Silo plan) since 2016 paying farmers to convert paddies to soybean/feed corn, expanded 2022; Typhoon Krathon Oct 2024 vegetable wholesale price NT$63.7/kg then -17% to NT$52.8/kg (Taiwan News); 2023 rice harvest hurt by irrigation suspension, Typhoon Koinu, winter monsoon. Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "However, this clearly isn't a free win for Taiwan. A tonne of soybean grown here costs considerably more than one simply bought abroad, so someone still ultimately pays that difference.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 9.1,
+              "long_word_pct": 10.0,
+              "speak_seconds_est": 16.4,
+              "fill_pct": 81.8,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan's overall food self-sufficiency rate (calorie basis) was 30.3% in 2023 (18-year low) and 30.7% in 2024 (Ministry of Agriculture / Agriculture and Food Agency 糧食供需年報, via Focus Taiwan, Taipei Times, 上下游新聞); grain self-sufficiency 25.5% in 2023 vs 26.6% in 2022; rice self-sufficiency near 100% (97.7% in 2023, 24万公頃/~1.21M tonnes/yr); wheat ~0.3%, soybean <1%, feed corn ~2.5% self-sufficient, ~8M tonnes coarse grain imported yearly (SETN, 農傳媒); legal rice reserve minimum 3 months/25% of consumption since 2006, above FAO's 17-18% and Japan/Korea targets, actual stock ~1.06M tonnes (~11 months) per Dec 2025 CNA report; WTO rice import TRQ of 144,720 tonnes/year since 2002 accession; 大糧倉計畫 (Grand Grain Silo plan) since 2016 paying farmers to convert paddies to soybean/feed corn, expanded 2022; Typhoon Krathon Oct 2024 vegetable wholesale price NT$63.7/kg then -17% to NT$52.8/kg (Taiwan News); 2023 rice harvest hurt by irrigation suspension, Typhoon Koinu, winter monsoon. Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "This is still not a free achievement, though. A tonne of soybean cultivated domestically is priced much higher than one imported from abroad, so somebody inevitably still absorbs that difference.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 12.3,
+              "long_word_pct": 23.3,
+              "speak_seconds_est": 15.0,
+              "fill_pct": 75.0,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan's overall food self-sufficiency rate (calorie basis) was 30.3% in 2023 (18-year low) and 30.7% in 2024 (Ministry of Agriculture / Agriculture and Food Agency 糧食供需年報, via Focus Taiwan, Taipei Times, 上下游新聞); grain self-sufficiency 25.5% in 2023 vs 26.6% in 2022; rice self-sufficiency near 100% (97.7% in 2023, 24万公頃/~1.21M tonnes/yr); wheat ~0.3%, soybean <1%, feed corn ~2.5% self-sufficient, ~8M tonnes coarse grain imported yearly (SETN, 農傳媒); legal rice reserve minimum 3 months/25% of consumption since 2006, above FAO's 17-18% and Japan/Korea targets, actual stock ~1.06M tonnes (~11 months) per Dec 2025 CNA report; WTO rice import TRQ of 144,720 tonnes/year since 2002 accession; 大糧倉計畫 (Grand Grain Silo plan) since 2016 paying farmers to convert paddies to soybean/feed corn, expanded 2022; Typhoon Krathon Oct 2024 vegetable wholesale price NT$63.7/kg then -17% to NT$52.8/kg (Taiwan News); 2023 rice harvest hurt by irrigation suspension, Typhoon Koinu, winter monsoon. Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            }
+          }
+        }
+      ]
+    },
+    {
+      "part_no": 5,
+      "source_description": "Part 5: Implications (Slides 13-16: one throughline — efficient global trade vs. thin resilience when a shock hits both sides at once)",
+      "function_en": "Implications",
+      "function_zh": "影響：推論後果",
+      "language_pattern": "first conditional / however",
+      "slides": [
+        {
+          "slide_no": 13,
+          "title": {
+            "en": "Buying cheap works, most years",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Farmers everywhere sell grain to the cheapest buyer. That is normal, and it works well most years. That is why almost nobody notices our heavy import numbers.",
+              "words": 27,
+              "sentences": 3,
+              "avg_sentence_words": 9.0,
+              "fk_grade": 5.8,
+              "long_word_pct": 7.4,
+              "speak_seconds_est": 17.1,
+              "fill_pct": 85.3,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan's overall food self-sufficiency rate (calorie basis) was 30.3% in 2023 (18-year low) and 30.7% in 2024 (Ministry of Agriculture / Agriculture and Food Agency 糧食供需年報, via Focus Taiwan, Taipei Times, 上下游新聞); grain self-sufficiency 25.5% in 2023 vs 26.6% in 2022; rice self-sufficiency near 100% (97.7% in 2023, 24万公頃/~1.21M tonnes/yr); wheat ~0.3%, soybean <1%, feed corn ~2.5% self-sufficient, ~8M tonnes coarse grain imported yearly (SETN, 農傳媒); legal rice reserve minimum 3 months/25% of consumption since 2006, above FAO's 17-18% and Japan/Korea targets, actual stock ~1.06M tonnes (~11 months) per Dec 2025 CNA report; WTO rice import TRQ of 144,720 tonnes/year since 2002 accession; 大糧倉計畫 (Grand Grain Silo plan) since 2016 paying farmers to convert paddies to soybean/feed corn, expanded 2022; Typhoon Krathon Oct 2024 vegetable wholesale price NT$63.7/kg then -17% to NT$52.8/kg (Taiwan News); 2023 rice harvest hurt by irrigation suspension, Typhoon Koinu, winter monsoon. Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "Buying grain from wherever it happens to be cheapest works well in an ordinary year, most of the time. That's exactly why almost nobody notices how much of our grain is imported.",
+              "words": 32,
+              "sentences": 2,
+              "avg_sentence_words": 16.0,
+              "fk_grade": 8.4,
+              "long_word_pct": 12.5,
+              "speak_seconds_est": 17.5,
+              "fill_pct": 87.3,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan's overall food self-sufficiency rate (calorie basis) was 30.3% in 2023 (18-year low) and 30.7% in 2024 (Ministry of Agriculture / Agriculture and Food Agency 糧食供需年報, via Focus Taiwan, Taipei Times, 上下游新聞); grain self-sufficiency 25.5% in 2023 vs 26.6% in 2022; rice self-sufficiency near 100% (97.7% in 2023, 24万公頃/~1.21M tonnes/yr); wheat ~0.3%, soybean <1%, feed corn ~2.5% self-sufficient, ~8M tonnes coarse grain imported yearly (SETN, 農傳媒); legal rice reserve minimum 3 months/25% of consumption since 2006, above FAO's 17-18% and Japan/Korea targets, actual stock ~1.06M tonnes (~11 months) per Dec 2025 CNA report; WTO rice import TRQ of 144,720 tonnes/year since 2002 accession; 大糧倉計畫 (Grand Grain Silo plan) since 2016 paying farmers to convert paddies to soybean/feed corn, expanded 2022; Typhoon Krathon Oct 2024 vegetable wholesale price NT$63.7/kg then -17% to NT$52.8/kg (Taiwan News); 2023 rice harvest hurt by irrigation suspension, Typhoon Koinu, winter monsoon. Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "Sourcing grain from whichever market proves cheapest works well enough in an ordinary, uneventful year. That's exactly why our heavy dependence on imports goes largely unexamined by the general public.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 13.1,
+              "long_word_pct": 23.3,
+              "speak_seconds_est": 15.0,
+              "fill_pct": 75.0,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan's overall food self-sufficiency rate (calorie basis) was 30.3% in 2023 (18-year low) and 30.7% in 2024 (Ministry of Agriculture / Agriculture and Food Agency 糧食供需年報, via Focus Taiwan, Taipei Times, 上下游新聞); grain self-sufficiency 25.5% in 2023 vs 26.6% in 2022; rice self-sufficiency near 100% (97.7% in 2023, 24万公頃/~1.21M tonnes/yr); wheat ~0.3%, soybean <1%, feed corn ~2.5% self-sufficient, ~8M tonnes coarse grain imported yearly (SETN, 農傳媒); legal rice reserve minimum 3 months/25% of consumption since 2006, above FAO's 17-18% and Japan/Korea targets, actual stock ~1.06M tonnes (~11 months) per Dec 2025 CNA report; WTO rice import TRQ of 144,720 tonnes/year since 2002 accession; 大糧倉計畫 (Grand Grain Silo plan) since 2016 paying farmers to convert paddies to soybean/feed corn, expanded 2022; Typhoon Krathon Oct 2024 vegetable wholesale price NT$63.7/kg then -17% to NT$52.8/kg (Taiwan News); 2023 rice harvest hurt by irrigation suspension, Typhoon Koinu, winter monsoon. Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            }
+          }
+        },
+        {
+          "slide_no": 14,
+          "title": {
+            "en": "A quota that does not flex",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "But global trade rules do not actually bend for us. Since 2002, Taiwan must import rice every year. That happens even when our own stock is already full.",
+              "words": 28,
+              "sentences": 3,
+              "avg_sentence_words": 9.3,
+              "fk_grade": 6.2,
+              "long_word_pct": 3.6,
+              "speak_seconds_est": 17.7,
+              "fill_pct": 88.4,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan's overall food self-sufficiency rate (calorie basis) was 30.3% in 2023 (18-year low) and 30.7% in 2024 (Ministry of Agriculture / Agriculture and Food Agency 糧食供需年報, via Focus Taiwan, Taipei Times, 上下游新聞); grain self-sufficiency 25.5% in 2023 vs 26.6% in 2022; rice self-sufficiency near 100% (97.7% in 2023, 24万公頃/~1.21M tonnes/yr); wheat ~0.3%, soybean <1%, feed corn ~2.5% self-sufficient, ~8M tonnes coarse grain imported yearly (SETN, 農傳媒); legal rice reserve minimum 3 months/25% of consumption since 2006, above FAO's 17-18% and Japan/Korea targets, actual stock ~1.06M tonnes (~11 months) per Dec 2025 CNA report; WTO rice import TRQ of 144,720 tonnes/year since 2002 accession; 大糧倉計畫 (Grand Grain Silo plan) since 2016 paying farmers to convert paddies to soybean/feed corn, expanded 2022; Typhoon Krathon Oct 2024 vegetable wholesale price NT$63.7/kg then -17% to NT$52.8/kg (Taiwan News); 2023 rice harvest hurt by irrigation suspension, Typhoon Koinu, winter monsoon. Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "If a bad storm hits at home while shipping is delayed abroad, prices can increase quickly on both sides at once. Taiwan's own import rule still applies regardless of the timing.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 8.0,
+              "long_word_pct": 12.9,
+              "speak_seconds_est": 16.9,
+              "fill_pct": 84.5,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan's overall food self-sufficiency rate (calorie basis) was 30.3% in 2023 (18-year low) and 30.7% in 2024 (Ministry of Agriculture / Agriculture and Food Agency 糧食供需年報, via Focus Taiwan, Taipei Times, 上下游新聞); grain self-sufficiency 25.5% in 2023 vs 26.6% in 2022; rice self-sufficiency near 100% (97.7% in 2023, 24万公頃/~1.21M tonnes/yr); wheat ~0.3%, soybean <1%, feed corn ~2.5% self-sufficient, ~8M tonnes coarse grain imported yearly (SETN, 農傳媒); legal rice reserve minimum 3 months/25% of consumption since 2006, above FAO's 17-18% and Japan/Korea targets, actual stock ~1.06M tonnes (~11 months) per Dec 2025 CNA report; WTO rice import TRQ of 144,720 tonnes/year since 2002 accession; 大糧倉計畫 (Grand Grain Silo plan) since 2016 paying farmers to convert paddies to soybean/feed corn, expanded 2022; Typhoon Krathon Oct 2024 vegetable wholesale price NT$63.7/kg then -17% to NT$52.8/kg (Taiwan News); 2023 rice harvest hurt by irrigation suspension, Typhoon Koinu, winter monsoon. Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "Global trade regulations, however, are not adjusted to reflect domestic circumstances. Taiwan has been obligated since 2002 to import a fixed quota of rice annually, regardless of how full domestic reserves already are.",
+              "words": 33,
+              "sentences": 2,
+              "avg_sentence_words": 16.5,
+              "fk_grade": 14.8,
+              "long_word_pct": 27.3,
+              "speak_seconds_est": 16.5,
+              "fill_pct": 82.5,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan's overall food self-sufficiency rate (calorie basis) was 30.3% in 2023 (18-year low) and 30.7% in 2024 (Ministry of Agriculture / Agriculture and Food Agency 糧食供需年報, via Focus Taiwan, Taipei Times, 上下游新聞); grain self-sufficiency 25.5% in 2023 vs 26.6% in 2022; rice self-sufficiency near 100% (97.7% in 2023, 24万公頃/~1.21M tonnes/yr); wheat ~0.3%, soybean <1%, feed corn ~2.5% self-sufficient, ~8M tonnes coarse grain imported yearly (SETN, 農傳媒); legal rice reserve minimum 3 months/25% of consumption since 2006, above FAO's 17-18% and Japan/Korea targets, actual stock ~1.06M tonnes (~11 months) per Dec 2025 CNA report; WTO rice import TRQ of 144,720 tonnes/year since 2002 accession; 大糧倉計畫 (Grand Grain Silo plan) since 2016 paying farmers to convert paddies to soybean/feed corn, expanded 2022; Typhoon Krathon Oct 2024 vegetable wholesale price NT$63.7/kg then -17% to NT$52.8/kg (Taiwan News); 2023 rice harvest hurt by irrigation suspension, Typhoon Koinu, winter monsoon. Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            }
+          }
+        },
+        {
+          "slide_no": 15,
+          "title": {
+            "en": "How thin the buffer really is",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "The buffer is thinner than it looks. Before Typhoon Krathon struck in 2024, vegetable prices jumped fast. They fell back only once the storm had passed.",
+              "words": 26,
+              "sentences": 3,
+              "avg_sentence_words": 8.7,
+              "fk_grade": 6.4,
+              "long_word_pct": 3.8,
+              "speak_seconds_est": 16.4,
+              "fill_pct": 82.1,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan's overall food self-sufficiency rate (calorie basis) was 30.3% in 2023 (18-year low) and 30.7% in 2024 (Ministry of Agriculture / Agriculture and Food Agency 糧食供需年報, via Focus Taiwan, Taipei Times, 上下游新聞); grain self-sufficiency 25.5% in 2023 vs 26.6% in 2022; rice self-sufficiency near 100% (97.7% in 2023, 24万公頃/~1.21M tonnes/yr); wheat ~0.3%, soybean <1%, feed corn ~2.5% self-sufficient, ~8M tonnes coarse grain imported yearly (SETN, 農傳媒); legal rice reserve minimum 3 months/25% of consumption since 2006, above FAO's 17-18% and Japan/Korea targets, actual stock ~1.06M tonnes (~11 months) per Dec 2025 CNA report; WTO rice import TRQ of 144,720 tonnes/year since 2002 accession; 大糧倉計畫 (Grand Grain Silo plan) since 2016 paying farmers to convert paddies to soybean/feed corn, expanded 2022; Typhoon Krathon Oct 2024 vegetable wholesale price NT$63.7/kg then -17% to NT$52.8/kg (Taiwan News); 2023 rice harvest hurt by irrigation suspension, Typhoon Koinu, winter monsoon. Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "The buffer is thinner than it looks, too. Ahead of Typhoon Krathon in 2024, Taipei's wholesale vegetable price spiked hard, then eased back once the storm had finally passed.",
+              "words": 29,
+              "sentences": 2,
+              "avg_sentence_words": 14.5,
+              "fk_grade": 10.0,
+              "long_word_pct": 10.3,
+              "speak_seconds_est": 15.8,
+              "fill_pct": 79.1,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan's overall food self-sufficiency rate (calorie basis) was 30.3% in 2023 (18-year low) and 30.7% in 2024 (Ministry of Agriculture / Agriculture and Food Agency 糧食供需年報, via Focus Taiwan, Taipei Times, 上下游新聞); grain self-sufficiency 25.5% in 2023 vs 26.6% in 2022; rice self-sufficiency near 100% (97.7% in 2023, 24万公頃/~1.21M tonnes/yr); wheat ~0.3%, soybean <1%, feed corn ~2.5% self-sufficient, ~8M tonnes coarse grain imported yearly (SETN, 農傳媒); legal rice reserve minimum 3 months/25% of consumption since 2006, above FAO's 17-18% and Japan/Korea targets, actual stock ~1.06M tonnes (~11 months) per Dec 2025 CNA report; WTO rice import TRQ of 144,720 tonnes/year since 2002 accession; 大糧倉計畫 (Grand Grain Silo plan) since 2016 paying farmers to convert paddies to soybean/feed corn, expanded 2022; Typhoon Krathon Oct 2024 vegetable wholesale price NT$63.7/kg then -17% to NT$52.8/kg (Taiwan News); 2023 rice harvest hurt by irrigation suspension, Typhoon Koinu, winter monsoon. Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "The margin proves considerably thinner than it first appears. Facing Typhoon Krathon in 2024, Taipei's wholesale vegetable price spiked sharply, only gradually easing once the storm had eventually passed through.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 14.3,
+              "long_word_pct": 20.0,
+              "speak_seconds_est": 15.0,
+              "fill_pct": 75.0,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan's overall food self-sufficiency rate (calorie basis) was 30.3% in 2023 (18-year low) and 30.7% in 2024 (Ministry of Agriculture / Agriculture and Food Agency 糧食供需年報, via Focus Taiwan, Taipei Times, 上下游新聞); grain self-sufficiency 25.5% in 2023 vs 26.6% in 2022; rice self-sufficiency near 100% (97.7% in 2023, 24万公頃/~1.21M tonnes/yr); wheat ~0.3%, soybean <1%, feed corn ~2.5% self-sufficient, ~8M tonnes coarse grain imported yearly (SETN, 農傳媒); legal rice reserve minimum 3 months/25% of consumption since 2006, above FAO's 17-18% and Japan/Korea targets, actual stock ~1.06M tonnes (~11 months) per Dec 2025 CNA report; WTO rice import TRQ of 144,720 tonnes/year since 2002 accession; 大糧倉計畫 (Grand Grain Silo plan) since 2016 paying farmers to convert paddies to soybean/feed corn, expanded 2022; Typhoon Krathon Oct 2024 vegetable wholesale price NT$63.7/kg then -17% to NT$52.8/kg (Taiwan News); 2023 rice harvest hurt by irrigation suspension, Typhoon Koinu, winter monsoon. Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            }
+          }
+        },
+        {
+          "slide_no": 16,
+          "title": {
+            "en": "Efficiency and resilience pull apart",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "So cheap imports keep our prices low most years. But they leave very little room for the year when trouble suddenly strikes twice, both here and abroad.",
+              "words": 27,
+              "sentences": 2,
+              "avg_sentence_words": 13.5,
+              "fk_grade": 5.4,
+              "long_word_pct": 3.7,
+              "speak_seconds_est": 17.1,
+              "fill_pct": 85.3,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan's overall food self-sufficiency rate (calorie basis) was 30.3% in 2023 (18-year low) and 30.7% in 2024 (Ministry of Agriculture / Agriculture and Food Agency 糧食供需年報, via Focus Taiwan, Taipei Times, 上下游新聞); grain self-sufficiency 25.5% in 2023 vs 26.6% in 2022; rice self-sufficiency near 100% (97.7% in 2023, 24万公頃/~1.21M tonnes/yr); wheat ~0.3%, soybean <1%, feed corn ~2.5% self-sufficient, ~8M tonnes coarse grain imported yearly (SETN, 農傳媒); legal rice reserve minimum 3 months/25% of consumption since 2006, above FAO's 17-18% and Japan/Korea targets, actual stock ~1.06M tonnes (~11 months) per Dec 2025 CNA report; WTO rice import TRQ of 144,720 tonnes/year since 2002 accession; 大糧倉計畫 (Grand Grain Silo plan) since 2016 paying farmers to convert paddies to soybean/feed corn, expanded 2022; Typhoon Krathon Oct 2024 vegetable wholesale price NT$63.7/kg then -17% to NT$52.8/kg (Taiwan News); 2023 rice harvest hurt by irrigation suspension, Typhoon Koinu, winter monsoon. Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "So the same efficient system keeps grocery prices low most years. But it leaves little slack for the year a domestic storm and an overseas delay happen together.",
+              "words": 28,
+              "sentences": 2,
+              "avg_sentence_words": 14.0,
+              "fk_grade": 8.4,
+              "long_word_pct": 14.3,
+              "speak_seconds_est": 15.3,
+              "fill_pct": 76.4,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan's overall food self-sufficiency rate (calorie basis) was 30.3% in 2023 (18-year low) and 30.7% in 2024 (Ministry of Agriculture / Agriculture and Food Agency 糧食供需年報, via Focus Taiwan, Taipei Times, 上下游新聞); grain self-sufficiency 25.5% in 2023 vs 26.6% in 2022; rice self-sufficiency near 100% (97.7% in 2023, 24万公頃/~1.21M tonnes/yr); wheat ~0.3%, soybean <1%, feed corn ~2.5% self-sufficient, ~8M tonnes coarse grain imported yearly (SETN, 農傳媒); legal rice reserve minimum 3 months/25% of consumption since 2006, above FAO's 17-18% and Japan/Korea targets, actual stock ~1.06M tonnes (~11 months) per Dec 2025 CNA report; WTO rice import TRQ of 144,720 tonnes/year since 2002 accession; 大糧倉計畫 (Grand Grain Silo plan) since 2016 paying farmers to convert paddies to soybean/feed corn, expanded 2022; Typhoon Krathon Oct 2024 vegetable wholesale price NT$63.7/kg then -17% to NT$52.8/kg (Taiwan News); 2023 rice harvest hurt by irrigation suspension, Typhoon Koinu, winter monsoon. Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "What this arrangement reveals is a system engineered for efficiency rather than resilience. It quietly sustains low everyday prices while leaving minimal slack for the year two disruptions coincide unexpectedly.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 14.3,
+              "long_word_pct": 30.0,
+              "speak_seconds_est": 15.0,
+              "fill_pct": 75.0,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan's overall food self-sufficiency rate (calorie basis) was 30.3% in 2023 (18-year low) and 30.7% in 2024 (Ministry of Agriculture / Agriculture and Food Agency 糧食供需年報, via Focus Taiwan, Taipei Times, 上下游新聞); grain self-sufficiency 25.5% in 2023 vs 26.6% in 2022; rice self-sufficiency near 100% (97.7% in 2023, 24万公頃/~1.21M tonnes/yr); wheat ~0.3%, soybean <1%, feed corn ~2.5% self-sufficient, ~8M tonnes coarse grain imported yearly (SETN, 農傳媒); legal rice reserve minimum 3 months/25% of consumption since 2006, above FAO's 17-18% and Japan/Korea targets, actual stock ~1.06M tonnes (~11 months) per Dec 2025 CNA report; WTO rice import TRQ of 144,720 tonnes/year since 2002 accession; 大糧倉計畫 (Grand Grain Silo plan) since 2016 paying farmers to convert paddies to soybean/feed corn, expanded 2022; Typhoon Krathon Oct 2024 vegetable wholesale price NT$63.7/kg then -17% to NT$52.8/kg (Taiwan News); 2023 rice harvest hurt by irrigation suspension, Typhoon Koinu, winter monsoon. Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            }
+          }
+        }
+      ]
+    },
+    {
+      "part_no": 6,
+      "source_description": "Part 6: Call to action (Slides 17-20: two numbers at once, why STEM students decide the trade-off, a concrete ask, closing claim)",
+      "function_en": "Call to action",
+      "function_zh": "結語：總結與號召",
+      "language_pattern": "to wrap up ... / let's ...",
+      "slides": [
+        {
+          "slide_no": 17,
+          "title": {
+            "en": "Two numbers, one island",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "To sum up, Taiwan holds two numbers at once. Rice sits near 100 percent, almost every single year. Everything else sits near only 30 percent instead.",
+              "words": 26,
+              "sentences": 3,
+              "avg_sentence_words": 8.7,
+              "fk_grade": 6.9,
+              "long_word_pct": 3.8,
+              "speak_seconds_est": 16.4,
+              "fill_pct": 82.1,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan's overall food self-sufficiency rate (calorie basis) was 30.3% in 2023 (18-year low) and 30.7% in 2024 (Ministry of Agriculture / Agriculture and Food Agency 糧食供需年報, via Focus Taiwan, Taipei Times, 上下游新聞); grain self-sufficiency 25.5% in 2023 vs 26.6% in 2022; rice self-sufficiency near 100% (97.7% in 2023, 24万公頃/~1.21M tonnes/yr); wheat ~0.3%, soybean <1%, feed corn ~2.5% self-sufficient, ~8M tonnes coarse grain imported yearly (SETN, 農傳媒); legal rice reserve minimum 3 months/25% of consumption since 2006, above FAO's 17-18% and Japan/Korea targets, actual stock ~1.06M tonnes (~11 months) per Dec 2025 CNA report; WTO rice import TRQ of 144,720 tonnes/year since 2002 accession; 大糧倉計畫 (Grand Grain Silo plan) since 2016 paying farmers to convert paddies to soybean/feed corn, expanded 2022; Typhoon Krathon Oct 2024 vegetable wholesale price NT$63.7/kg then -17% to NT$52.8/kg (Taiwan News); 2023 rice harvest hurt by irrigation suspension, Typhoon Koinu, winter monsoon. Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "To sum up, Taiwan really lives inside two very different numbers at once. It's nearly 100 percent self-sufficient in rice, yet only about 30 percent self-sufficient overall right now.",
+              "words": 29,
+              "sentences": 2,
+              "avg_sentence_words": 14.5,
+              "fk_grade": 11.6,
+              "long_word_pct": 10.3,
+              "speak_seconds_est": 15.8,
+              "fill_pct": 79.1,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan's overall food self-sufficiency rate (calorie basis) was 30.3% in 2023 (18-year low) and 30.7% in 2024 (Ministry of Agriculture / Agriculture and Food Agency 糧食供需年報, via Focus Taiwan, Taipei Times, 上下游新聞); grain self-sufficiency 25.5% in 2023 vs 26.6% in 2022; rice self-sufficiency near 100% (97.7% in 2023, 24万公頃/~1.21M tonnes/yr); wheat ~0.3%, soybean <1%, feed corn ~2.5% self-sufficient, ~8M tonnes coarse grain imported yearly (SETN, 農傳媒); legal rice reserve minimum 3 months/25% of consumption since 2006, above FAO's 17-18% and Japan/Korea targets, actual stock ~1.06M tonnes (~11 months) per Dec 2025 CNA report; WTO rice import TRQ of 144,720 tonnes/year since 2002 accession; 大糧倉計畫 (Grand Grain Silo plan) since 2016 paying farmers to convert paddies to soybean/feed corn, expanded 2022; Typhoon Krathon Oct 2024 vegetable wholesale price NT$63.7/kg then -17% to NT$52.8/kg (Taiwan News); 2023 rice harvest hurt by irrigation suspension, Typhoon Koinu, winter monsoon. Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "In summary, Taiwan simultaneously holds two quite contradictory numbers at the same time. It approaches total self-sufficiency in rice alone, yet reaches only around 30 percent self-sufficiency across the entire food supply overall.",
+              "words": 33,
+              "sentences": 2,
+              "avg_sentence_words": 16.5,
+              "fk_grade": 14.8,
+              "long_word_pct": 15.2,
+              "speak_seconds_est": 16.5,
+              "fill_pct": 82.5,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan's overall food self-sufficiency rate (calorie basis) was 30.3% in 2023 (18-year low) and 30.7% in 2024 (Ministry of Agriculture / Agriculture and Food Agency 糧食供需年報, via Focus Taiwan, Taipei Times, 上下游新聞); grain self-sufficiency 25.5% in 2023 vs 26.6% in 2022; rice self-sufficiency near 100% (97.7% in 2023, 24万公頃/~1.21M tonnes/yr); wheat ~0.3%, soybean <1%, feed corn ~2.5% self-sufficient, ~8M tonnes coarse grain imported yearly (SETN, 農傳媒); legal rice reserve minimum 3 months/25% of consumption since 2006, above FAO's 17-18% and Japan/Korea targets, actual stock ~1.06M tonnes (~11 months) per Dec 2025 CNA report; WTO rice import TRQ of 144,720 tonnes/year since 2002 accession; 大糧倉計畫 (Grand Grain Silo plan) since 2016 paying farmers to convert paddies to soybean/feed corn, expanded 2022; Typhoon Krathon Oct 2024 vegetable wholesale price NT$63.7/kg then -17% to NT$52.8/kg (Taiwan News); 2023 rice harvest hurt by irrigation suspension, Typhoon Koinu, winter monsoon. Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            }
+          }
+        },
+        {
+          "slide_no": 18,
+          "title": {
+            "en": "Why this is your trade-off to make",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "This choice is not someone else's problem. Future engineers and farm planners will decide this. Maybe some of you will decide how much extra safety Taiwan buys.",
+              "words": 27,
+              "sentences": 3,
+              "avg_sentence_words": 9.0,
+              "fk_grade": 5.4,
+              "long_word_pct": 7.4,
+              "speak_seconds_est": 17.1,
+              "fill_pct": 85.3,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan's overall food self-sufficiency rate (calorie basis) was 30.3% in 2023 (18-year low) and 30.7% in 2024 (Ministry of Agriculture / Agriculture and Food Agency 糧食供需年報, via Focus Taiwan, Taipei Times, 上下游新聞); grain self-sufficiency 25.5% in 2023 vs 26.6% in 2022; rice self-sufficiency near 100% (97.7% in 2023, 24万公頃/~1.21M tonnes/yr); wheat ~0.3%, soybean <1%, feed corn ~2.5% self-sufficient, ~8M tonnes coarse grain imported yearly (SETN, 農傳媒); legal rice reserve minimum 3 months/25% of consumption since 2006, above FAO's 17-18% and Japan/Korea targets, actual stock ~1.06M tonnes (~11 months) per Dec 2025 CNA report; WTO rice import TRQ of 144,720 tonnes/year since 2002 accession; 大糧倉計畫 (Grand Grain Silo plan) since 2016 paying farmers to convert paddies to soybean/feed corn, expanded 2022; Typhoon Krathon Oct 2024 vegetable wholesale price NT$63.7/kg then -17% to NT$52.8/kg (Taiwan News); 2023 rice harvest hurt by irrigation suspension, Typhoon Koinu, winter monsoon. Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "This trade-off matters directly to you. The planners who will decide how much extra self-sufficiency is worth paying for could easily be sitting in this very room today.",
+              "words": 28,
+              "sentences": 2,
+              "avg_sentence_words": 14.0,
+              "fk_grade": 8.4,
+              "long_word_pct": 14.3,
+              "speak_seconds_est": 15.3,
+              "fill_pct": 76.4,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan's overall food self-sufficiency rate (calorie basis) was 30.3% in 2023 (18-year low) and 30.7% in 2024 (Ministry of Agriculture / Agriculture and Food Agency 糧食供需年報, via Focus Taiwan, Taipei Times, 上下游新聞); grain self-sufficiency 25.5% in 2023 vs 26.6% in 2022; rice self-sufficiency near 100% (97.7% in 2023, 24万公頃/~1.21M tonnes/yr); wheat ~0.3%, soybean <1%, feed corn ~2.5% self-sufficient, ~8M tonnes coarse grain imported yearly (SETN, 農傳媒); legal rice reserve minimum 3 months/25% of consumption since 2006, above FAO's 17-18% and Japan/Korea targets, actual stock ~1.06M tonnes (~11 months) per Dec 2025 CNA report; WTO rice import TRQ of 144,720 tonnes/year since 2002 accession; 大糧倉計畫 (Grand Grain Silo plan) since 2016 paying farmers to convert paddies to soybean/feed corn, expanded 2022; Typhoon Krathon Oct 2024 vegetable wholesale price NT$63.7/kg then -17% to NT$52.8/kg (Taiwan News); 2023 rice harvest hurt by irrigation suspension, Typhoon Koinu, winter monsoon. Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "This trade-off is one your generation stands to inherit directly. It is agronomists and engineers, quite possibly some of you, who will ultimately decide how much self-sufficiency is worth paying for.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 11.4,
+              "long_word_pct": 25.8,
+              "speak_seconds_est": 15.5,
+              "fill_pct": 77.5,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan's overall food self-sufficiency rate (calorie basis) was 30.3% in 2023 (18-year low) and 30.7% in 2024 (Ministry of Agriculture / Agriculture and Food Agency 糧食供需年報, via Focus Taiwan, Taipei Times, 上下游新聞); grain self-sufficiency 25.5% in 2023 vs 26.6% in 2022; rice self-sufficiency near 100% (97.7% in 2023, 24万公頃/~1.21M tonnes/yr); wheat ~0.3%, soybean <1%, feed corn ~2.5% self-sufficient, ~8M tonnes coarse grain imported yearly (SETN, 農傳媒); legal rice reserve minimum 3 months/25% of consumption since 2006, above FAO's 17-18% and Japan/Korea targets, actual stock ~1.06M tonnes (~11 months) per Dec 2025 CNA report; WTO rice import TRQ of 144,720 tonnes/year since 2002 accession; 大糧倉計畫 (Grand Grain Silo plan) since 2016 paying farmers to convert paddies to soybean/feed corn, expanded 2022; Typhoon Krathon Oct 2024 vegetable wholesale price NT$63.7/kg then -17% to NT$52.8/kg (Taiwan News); 2023 rice harvest hurt by irrigation suspension, Typhoon Koinu, winter monsoon. Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            }
+          }
+        },
+        {
+          "slide_no": 19,
+          "title": {
+            "en": "Know where your food comes from",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "So try this one simple habit. Think about where your dinner actually came from. Notice it whenever a new farm rule shows up online.",
+              "words": 24,
+              "sentences": 3,
+              "avg_sentence_words": 8.0,
+              "fk_grade": 4.7,
+              "long_word_pct": 8.3,
+              "speak_seconds_est": 15.2,
+              "fill_pct": 75.8,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan's overall food self-sufficiency rate (calorie basis) was 30.3% in 2023 (18-year low) and 30.7% in 2024 (Ministry of Agriculture / Agriculture and Food Agency 糧食供需年報, via Focus Taiwan, Taipei Times, 上下游新聞); grain self-sufficiency 25.5% in 2023 vs 26.6% in 2022; rice self-sufficiency near 100% (97.7% in 2023, 24万公頃/~1.21M tonnes/yr); wheat ~0.3%, soybean <1%, feed corn ~2.5% self-sufficient, ~8M tonnes coarse grain imported yearly (SETN, 農傳媒); legal rice reserve minimum 3 months/25% of consumption since 2006, above FAO's 17-18% and Japan/Korea targets, actual stock ~1.06M tonnes (~11 months) per Dec 2025 CNA report; WTO rice import TRQ of 144,720 tonnes/year since 2002 accession; 大糧倉計畫 (Grand Grain Silo plan) since 2016 paying farmers to convert paddies to soybean/feed corn, expanded 2022; Typhoon Krathon Oct 2024 vegetable wholesale price NT$63.7/kg then -17% to NT$52.8/kg (Taiwan News); 2023 rice harvest hurt by irrigation suspension, Typhoon Koinu, winter monsoon. Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "So here's one concrete, practical ask for today. Pay attention to where your food actually comes from, and follow farm policy closely whenever new stories reach the news.",
+              "words": 28,
+              "sentences": 2,
+              "avg_sentence_words": 14.0,
+              "fk_grade": 9.3,
+              "long_word_pct": 17.9,
+              "speak_seconds_est": 15.3,
+              "fill_pct": 76.4,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan's overall food self-sufficiency rate (calorie basis) was 30.3% in 2023 (18-year low) and 30.7% in 2024 (Ministry of Agriculture / Agriculture and Food Agency 糧食供需年報, via Focus Taiwan, Taipei Times, 上下游新聞); grain self-sufficiency 25.5% in 2023 vs 26.6% in 2022; rice self-sufficiency near 100% (97.7% in 2023, 24万公頃/~1.21M tonnes/yr); wheat ~0.3%, soybean <1%, feed corn ~2.5% self-sufficient, ~8M tonnes coarse grain imported yearly (SETN, 農傳媒); legal rice reserve minimum 3 months/25% of consumption since 2006, above FAO's 17-18% and Japan/Korea targets, actual stock ~1.06M tonnes (~11 months) per Dec 2025 CNA report; WTO rice import TRQ of 144,720 tonnes/year since 2002 accession; 大糧倉計畫 (Grand Grain Silo plan) since 2016 paying farmers to convert paddies to soybean/feed corn, expanded 2022; Typhoon Krathon Oct 2024 vegetable wholesale price NT$63.7/kg then -17% to NT$52.8/kg (Taiwan News); 2023 rice harvest hurt by irrigation suspension, Typhoon Koinu, winter monsoon. Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "So here is a concrete request worth seriously considering right now. Pay closer attention to where your food is actually sourced, and track agricultural policy as it surfaces within the news.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 10.6,
+              "long_word_pct": 22.6,
+              "speak_seconds_est": 15.5,
+              "fill_pct": 77.5,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan's overall food self-sufficiency rate (calorie basis) was 30.3% in 2023 (18-year low) and 30.7% in 2024 (Ministry of Agriculture / Agriculture and Food Agency 糧食供需年報, via Focus Taiwan, Taipei Times, 上下游新聞); grain self-sufficiency 25.5% in 2023 vs 26.6% in 2022; rice self-sufficiency near 100% (97.7% in 2023, 24万公頃/~1.21M tonnes/yr); wheat ~0.3%, soybean <1%, feed corn ~2.5% self-sufficient, ~8M tonnes coarse grain imported yearly (SETN, 農傳媒); legal rice reserve minimum 3 months/25% of consumption since 2006, above FAO's 17-18% and Japan/Korea targets, actual stock ~1.06M tonnes (~11 months) per Dec 2025 CNA report; WTO rice import TRQ of 144,720 tonnes/year since 2002 accession; 大糧倉計畫 (Grand Grain Silo plan) since 2016 paying farmers to convert paddies to soybean/feed corn, expanded 2022; Typhoon Krathon Oct 2024 vegetable wholesale price NT$63.7/kg then -17% to NT$52.8/kg (Taiwan News); 2023 rice harvest hurt by irrigation suspension, Typhoon Koinu, winter monsoon. Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            }
+          }
+        },
+        {
+          "slide_no": 20,
+          "title": {
+            "en": "A full plate is not guaranteed",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "A full plate today does not promise a full plate tomorrow. It never does. Let's not wait for an empty shelf before we finally ask why.",
+              "words": 26,
+              "sentences": 3,
+              "avg_sentence_words": 8.7,
+              "fk_grade": 3.7,
+              "long_word_pct": 3.8,
+              "speak_seconds_est": 16.4,
+              "fill_pct": 82.1,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan's overall food self-sufficiency rate (calorie basis) was 30.3% in 2023 (18-year low) and 30.7% in 2024 (Ministry of Agriculture / Agriculture and Food Agency 糧食供需年報, via Focus Taiwan, Taipei Times, 上下游新聞); grain self-sufficiency 25.5% in 2023 vs 26.6% in 2022; rice self-sufficiency near 100% (97.7% in 2023, 24万公頃/~1.21M tonnes/yr); wheat ~0.3%, soybean <1%, feed corn ~2.5% self-sufficient, ~8M tonnes coarse grain imported yearly (SETN, 農傳媒); legal rice reserve minimum 3 months/25% of consumption since 2006, above FAO's 17-18% and Japan/Korea targets, actual stock ~1.06M tonnes (~11 months) per Dec 2025 CNA report; WTO rice import TRQ of 144,720 tonnes/year since 2002 accession; 大糧倉計畫 (Grand Grain Silo plan) since 2016 paying farmers to convert paddies to soybean/feed corn, expanded 2022; Typhoon Krathon Oct 2024 vegetable wholesale price NT$63.7/kg then -17% to NT$52.8/kg (Taiwan News); 2023 rice harvest hurt by irrigation suspension, Typhoon Koinu, winter monsoon. Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "Having enough to eat this year says absolutely nothing about what happens next year. So don't wait around for an actual crisis before you finally start asking these difficult questions yourself.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 9.9,
+              "long_word_pct": 12.9,
+              "speak_seconds_est": 16.9,
+              "fill_pct": 84.5,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan's overall food self-sufficiency rate (calorie basis) was 30.3% in 2023 (18-year low) and 30.7% in 2024 (Ministry of Agriculture / Agriculture and Food Agency 糧食供需年報, via Focus Taiwan, Taipei Times, 上下游新聞); grain self-sufficiency 25.5% in 2023 vs 26.6% in 2022; rice self-sufficiency near 100% (97.7% in 2023, 24万公頃/~1.21M tonnes/yr); wheat ~0.3%, soybean <1%, feed corn ~2.5% self-sufficient, ~8M tonnes coarse grain imported yearly (SETN, 農傳媒); legal rice reserve minimum 3 months/25% of consumption since 2006, above FAO's 17-18% and Japan/Korea targets, actual stock ~1.06M tonnes (~11 months) per Dec 2025 CNA report; WTO rice import TRQ of 144,720 tonnes/year since 2002 accession; 大糧倉計畫 (Grand Grain Silo plan) since 2016 paying farmers to convert paddies to soybean/feed corn, expanded 2022; Typhoon Krathon Oct 2024 vegetable wholesale price NT$63.7/kg then -17% to NT$52.8/kg (Taiwan News); 2023 rice harvest hurt by irrigation suspension, Typhoon Koinu, winter monsoon. Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "Current abundance, however, offers no guarantee whatsoever regarding future supply. Rather than passively waiting for an actual crisis to strike, these difficult questions deserve to be raised well in advance.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 12.3,
+              "long_word_pct": 23.3,
+              "speak_seconds_est": 15.0,
+              "fill_pct": 75.0,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+              "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan's overall food self-sufficiency rate (calorie basis) was 30.3% in 2023 (18-year low) and 30.7% in 2024 (Ministry of Agriculture / Agriculture and Food Agency 糧食供需年報, via Focus Taiwan, Taipei Times, 上下游新聞); grain self-sufficiency 25.5% in 2023 vs 26.6% in 2022; rice self-sufficiency near 100% (97.7% in 2023, 24万公頃/~1.21M tonnes/yr); wheat ~0.3%, soybean <1%, feed corn ~2.5% self-sufficient, ~8M tonnes coarse grain imported yearly (SETN, 農傳媒); legal rice reserve minimum 3 months/25% of consumption since 2006, above FAO's 17-18% and Japan/Korea targets, actual stock ~1.06M tonnes (~11 months) per Dec 2025 CNA report; WTO rice import TRQ of 144,720 tonnes/year since 2002 accession; 大糧倉計畫 (Grand Grain Silo plan) since 2016 paying farmers to convert paddies to soybean/feed corn, expanded 2022; Typhoon Krathon Oct 2024 vegetable wholesale price NT$63.7/kg then -17% to NT$52.8/kg (Taiwan News); 2023 rice harvest hurt by irrigation suspension, Typhoon Koinu, winter monsoon. Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+              "workbook_text": null
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "shape": "authored",
+  "source": {
+    "workbook": null,
+    "note": "authored from scratch; no workbook sheet"
+  },
+  "narrative_brief": "",
+  "level_summary": {
+    "A2": {
+      "slides": 20,
+      "avg_words": 26.4,
+      "avg_sentence_words": 8.9,
+      "fk_grade": 5.4,
+      "slides_over_20s": 0
+    },
+    "B1": {
+      "slides": 20,
+      "avg_words": 30.4,
+      "avg_sentence_words": 14.6,
+      "fk_grade": 9.0,
+      "slides_over_20s": 0
+    },
+    "B2": {
+      "slides": 20,
+      "avg_words": 31.5,
+      "avg_sentence_words": 15.8,
+      "fk_grade": 13.0,
+      "slides_over_20s": 0
+    }
+  }
+}

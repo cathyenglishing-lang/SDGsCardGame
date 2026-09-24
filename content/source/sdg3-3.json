@@ -1,0 +1,251 @@
+{
+  "mission_id": "sdg3-3",
+  "sdg": 3,
+  "title": {
+    "en": "Can Wearables and AI Predict the Next Pandemic?",
+    "zh": null
+  },
+  "shape": "wide",
+  "source": {
+    "workbook": null,
+    "sheet": null,
+    "note": "No workbook sheet exists for this mission. Authored from scratch per docs/plans/new-mission-playbook.md."
+  },
+  "narrative_brief": "",
+  "stages": [
+    {
+      "part_no": 1,
+      "source_description": "Part 1: Introduction (Slides 1-3: hook on a device noticing illness before you do, SDG 3's early-warning target, Taiwan's SARS/COVID data-driven track record)",
+      "function_en": "Introduction",
+      "function_zh": "引言：破題與定義",
+      "language_pattern": "rhetorical questions / X is about ...",
+      "slides": [
+        {
+          "slide_no": 1,
+          "title": {
+            "en": "Before You Feel It",
+            "zh": "在你感覺到之前"
+          },
+          "numbers": [],
+          "scripts": {}
+        },
+        {
+          "slide_no": 2,
+          "title": {
+            "en": "SDG 3 and the Next Outbreak",
+            "zh": "SDG 3 與下一場疫情"
+          },
+          "numbers": [],
+          "scripts": {}
+        },
+        {
+          "slide_no": 3,
+          "title": {
+            "en": "An Island That Learned From SARS",
+            "zh": "一座從SARS學到教訓的島"
+          },
+          "numbers": [],
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "part_no": 2,
+      "source_description": "Part 2: Problem (Slides 4-6: symptom-based surveillance arrives late, a huge unused data stream sits on people's wrists, the critical question of whether that gap can close)",
+      "function_en": "Problem",
+      "function_zh": "問題指認：趨勢與因果",
+      "language_pattern": "present progressive for trends / this causes ...",
+      "slides": [
+        {
+          "slide_no": 4,
+          "title": {
+            "en": "Symptoms Arrive Late",
+            "zh": "症狀來得太晚"
+          },
+          "numbers": [],
+          "scripts": {}
+        },
+        {
+          "slide_no": 5,
+          "title": {
+            "en": "A Data Stream on Every Wrist",
+            "zh": "每個手腕上的數據流"
+          },
+          "numbers": [],
+          "scripts": {}
+        },
+        {
+          "slide_no": 6,
+          "title": {
+            "en": "Could the Gap Close?",
+            "zh": "這個落差能縮小嗎？"
+          },
+          "numbers": [],
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "part_no": 3,
+      "source_description": "Part 3: Achievements (Slides 7-9: Taiwan CDC's AI flu-forecasting system, NTUST's one-minute wearable risk screen, the NHI Health Bank's population-scale data platform)",
+      "function_en": "Achievements",
+      "function_zh": "成果：舉證與比較",
+      "language_pattern": "present perfect / comparatives",
+      "slides": [
+        {
+          "slide_no": 7,
+          "title": {
+            "en": "Taiwan Already Forecasts Flu",
+            "zh": "台灣已經在預測流感"
+          },
+          "numbers": [],
+          "scripts": {}
+        },
+        {
+          "slide_no": 8,
+          "title": {
+            "en": "One Minute, Twelve Risks",
+            "zh": "一分鐘，十二種風險"
+          },
+          "numbers": [],
+          "scripts": {}
+        },
+        {
+          "slide_no": 9,
+          "title": {
+            "en": "Half the Island, One Health Record",
+            "zh": "半個台灣，一本健康存摺"
+          },
+          "numbers": [],
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "part_no": 4,
+      "source_description": "Part 4: Solutions (Slides 10-12: feeding wearable signals into the existing surveillance pipeline, what international wearable studies already show, opt-in governance instead of mandates)",
+      "function_en": "Solutions",
+      "function_zh": "解方：做法與取捨",
+      "language_pattern": "instead of + V-ing / modal verbs",
+      "slides": [
+        {
+          "slide_no": 10,
+          "title": {
+            "en": "Feeding the Signal Into the System",
+            "zh": "把訊號接進系統"
+          },
+          "numbers": [],
+          "scripts": {}
+        },
+        {
+          "slide_no": 11,
+          "title": {
+            "en": "What Wrists Revealed Abroad",
+            "zh": "國外手腕揭露的訊號"
+          },
+          "numbers": [],
+          "scripts": {}
+        },
+        {
+          "slide_no": 12,
+          "title": {
+            "en": "Instead of Mandating, Inviting",
+            "zh": "與其強制，不如邀請"
+          },
+          "numbers": [],
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "part_no": 5,
+      "source_description": "Part 5: Implications (Slides 13-16: one continuous tension — the promise of millions of early signals, the privacy barrier that promise runs into, the accuracy/noise barrier even privacy-solved data still has, and why the real question is trust, not the technology)",
+      "function_en": "Implications",
+      "function_zh": "影響：推論後果",
+      "language_pattern": "first conditional / however",
+      "slides": [
+        {
+          "slide_no": 13,
+          "title": {
+            "en": "If Millions Opted In",
+            "zh": "如果數百萬人選擇加入"
+          },
+          "numbers": [],
+          "scripts": {}
+        },
+        {
+          "slide_no": 14,
+          "title": {
+            "en": "But Trust Is Not Given",
+            "zh": "但信任不是天生的"
+          },
+          "numbers": [],
+          "scripts": {}
+        },
+        {
+          "slide_no": 15,
+          "title": {
+            "en": "When Noise Looks Like a Signal",
+            "zh": "當雜訊看起來像訊號"
+          },
+          "numbers": [],
+          "scripts": {}
+        },
+        {
+          "slide_no": 16,
+          "title": {
+            "en": "The Real Question Is Not the Data",
+            "zh": "真正的問題不在數據本身"
+          },
+          "numbers": [],
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "part_no": 6,
+      "source_description": "Part 6: Call to action (Slides 17-20: what Taiwan already has, this is an engineering problem not science fiction, where STEM students fit in, closing ask)",
+      "function_en": "Call to action",
+      "function_zh": "結語：總結與號召",
+      "language_pattern": "to wrap up ... / let's ...",
+      "slides": [
+        {
+          "slide_no": 17,
+          "title": {
+            "en": "What Taiwan Already Has",
+            "zh": "台灣已經擁有的"
+          },
+          "numbers": [],
+          "scripts": {}
+        },
+        {
+          "slide_no": 18,
+          "title": {
+            "en": "An Engineering Problem, Not Science Fiction",
+            "zh": "一個工程問題，不是科幻小說"
+          },
+          "numbers": [],
+          "scripts": {}
+        },
+        {
+          "slide_no": 19,
+          "title": {
+            "en": "Where STEM Students Fit In",
+            "zh": "理工科學生的位置"
+          },
+          "numbers": [],
+          "scripts": {}
+        },
+        {
+          "slide_no": 20,
+          "title": {
+            "en": "Will You Help Build It?",
+            "zh": "你會協助打造它嗎？"
+          },
+          "numbers": [],
+          "scripts": {}
+        }
+      ]
+    }
+  ]
+}

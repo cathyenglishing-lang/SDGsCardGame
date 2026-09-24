@@ -1,0 +1,84 @@
+{
+  "mission_id": "sdg6-1",
+  "sdg": 6,
+  "title": {"en": "Taiwan's Water Paradox: Too Much Rain, Not Enough Water", "zh": "水資源管理的矛盾"},
+  "shape": "authored",
+  "source": {"workbook": null, "note": "No workbook sheet exists for this SDG 6 mission; authored from scratch per docs/plans/new-mission-playbook.md."},
+  "narrative_brief": "Taiwan gets 2.5 times the world's average rainfall but can use only a fifth of the world's average water per person. This talk traces that paradox from geography and typhoon dependency through the 2021 drought, reservoir sedimentation, diversification solutions, and the climate-driven squeeze between flood and drought risk.",
+  "stages": [
+    {
+      "part_no": 1,
+      "source_description": "Part 1: Introduction (Slides 1-3: hook on the flood/drought contradiction, SDG 6 definition, Taiwan's rainfall-vs-usable-water paradox)",
+      "function_en": "Introduction",
+      "function_zh": "引言：破題與定義",
+      "language_pattern": "rhetorical questions / X is about ...",
+      "slides": [
+        {"slide_no": 1, "title": {"en": "Taiwan's strange water problem", "zh": "台灣奇特的水問題"}, "numbers": [], "scripts": {}},
+        {"slide_no": 2, "title": {"en": "SDG 6: clean water for all", "zh": "SDG 6：潔淨水資源與衛生"}, "numbers": [], "scripts": {}},
+        {"slide_no": 3, "title": {"en": "Abundant rain, scarce usable water", "zh": "雨量豐沛卻缺乏可用水"}, "numbers": [], "scripts": {}}
+      ]
+    },
+    {
+      "part_no": 2,
+      "source_description": "Part 2: Problem (Slides 4-6: steep terrain and short rivers, typhoon dependency and the 2021 no-typhoon drought, reservoir sedimentation)",
+      "function_en": "Problem",
+      "function_zh": "問題指認：趨勢與因果",
+      "language_pattern": "present progressive for trends / this causes ...",
+      "slides": [
+        {"slide_no": 4, "title": {"en": "Steep mountains, short rivers", "zh": "地勢陡峭河川短促"}, "numbers": [], "scripts": {}},
+        {"slide_no": 5, "title": {"en": "When the typhoons don't come", "zh": "當颱風不再造訪"}, "numbers": [], "scripts": {}},
+        {"slide_no": 6, "title": {"en": "Mud is quietly stealing capacity", "zh": "泥沙悄悄侵蝕庫容"}, "numbers": [], "scripts": {}}
+      ]
+    },
+    {
+      "part_no": 3,
+      "source_description": "Part 3: Achievements (Slides 7-9: the 2021 drought numbers and how Taiwan held on, desilting progress, supply diversification)",
+      "function_en": "Achievements",
+      "function_zh": "成果：舉證與比較",
+      "language_pattern": "present perfect / comparatives",
+      "slides": [
+        {"slide_no": 7, "title": {"en": "2021: reservoirs near empty", "zh": "2021：水庫近乎見底"}, "numbers": [], "scripts": {}},
+        {"slide_no": 8, "title": {"en": "Clearing more mud than arrives", "zh": "清淤量超過淤積量"}, "numbers": [], "scripts": {}},
+        {"slide_no": 9, "title": {"en": "New supply, fewer leaks", "zh": "新水源與更少漏水"}, "numbers": [], "scripts": {}}
+      ]
+    },
+    {
+      "part_no": 4,
+      "source_description": "Part 4: Solutions (Slides 10-12: diversifying supply, replacing aging pipes, the hard case for pricing reform)",
+      "function_en": "Solutions",
+      "function_zh": "解方：做法與取捨",
+      "language_pattern": "instead of + V-ing / modal verbs",
+      "slides": [
+        {"slide_no": 10, "title": {"en": "Building supply in parallel", "zh": "多元並行的供水系統"}, "numbers": [], "scripts": {}},
+        {"slide_no": 11, "title": {"en": "New pipes, not just new plants", "zh": "換管線而非只蓋新廠"}, "numbers": [], "scripts": {}},
+        {"slide_no": 12, "title": {"en": "The hardest fix: the price", "zh": "最難的解方：水價"}, "numbers": [], "scripts": {}}
+      ]
+    },
+    {
+      "part_no": 5,
+      "source_description": "Part 5: Implications (Slides 13-16: climate change destabilising typhoons, flood risk rising alongside drought risk, the farm-vs-city trade-off, the cost to ordinary households) - one continuous tension: climate change is tightening the paradox, and the squeeze lands on real people",
+      "function_en": "Implications",
+      "function_zh": "影響：推論後果",
+      "language_pattern": "first conditional / however",
+      "slides": [
+        {"slide_no": 13, "title": {"en": "Climate change and the typhoon pattern", "zh": "氣候變遷擾亂颱風規律"}, "numbers": [], "scripts": {}},
+        {"slide_no": 14, "title": {"en": "More rain, still not solved", "zh": "雨更多卻沒有解決問題"}, "numbers": [], "scripts": {}},
+        {"slide_no": 15, "title": {"en": "Farms give way first", "zh": "農業率先讓步"}, "numbers": [], "scripts": {}},
+        {"slide_no": 16, "title": {"en": "A dry tap at home", "zh": "家中乾涸的水龍頭"}, "numbers": [], "scripts": {}}
+      ]
+    },
+    {
+      "part_no": 6,
+      "source_description": "Part 6: Call to action (Slides 17-20: summary of the paradox, reframing away from individual blame, what students can do, closing call)",
+      "function_en": "Call to action",
+      "function_zh": "結語：總結與號召",
+      "language_pattern": "to wrap up ... / let's ...",
+      "slides": [
+        {"slide_no": 17, "title": {"en": "The gap climate keeps widening", "zh": "氣候持續擴大的落差"}, "numbers": [], "scripts": {}},
+        {"slide_no": 18, "title": {"en": "Not a habit problem, a system problem", "zh": "不是習慣問題而是系統問題"}, "numbers": [], "scripts": {}},
+        {"slide_no": 19, "title": {"en": "What you can actually do", "zh": "你能做的實際行動"}, "numbers": [], "scripts": {}},
+        {"slide_no": 20, "title": {"en": "Engineer a system for whatever comes", "zh": "打造能應對未來的系統"}, "numbers": [], "scripts": {}}
+      ]
+    }
+  ]
+}

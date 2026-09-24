@@ -1,0 +1,250 @@
+{
+  "mission_id": "sdg4-3",
+  "sdg": 4,
+  "title": {
+    "en": "Vocational Education: Taiwan's Underrated Path",
+    "zh": null
+  },
+  "shape": "authored",
+  "source": {
+    "workbook": null,
+    "note": "written from scratch per docs/plans/new-mission-playbook.md; no workbook sheet exists for this mission"
+  },
+  "narrative_brief": "",
+  "stages": [
+    {
+      "part_no": 1,
+      "source_description": "Part 1: Introduction (Slides 1-3: hook on telling your parents you'd choose a vocational school, SDG 4 angle that quality education has more than one valid path, ground in Taiwan's technical-vocational system)",
+      "function_en": "Introduction",
+      "function_zh": "引言：破題與定義",
+      "language_pattern": "rhetorical questions / X is about ...",
+      "slides": [
+        {
+          "slide_no": 1,
+          "title": {
+            "en": "Would You Tell Your Parents?",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {}
+        },
+        {
+          "slide_no": 2,
+          "title": {
+            "en": "SDG 4 Has More Than One Path",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {}
+        },
+        {
+          "slide_no": 3,
+          "title": {
+            "en": "An Island Built by Skilled Hands",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "part_no": 2,
+      "source_description": "Part 2: Problem (Slides 4-6: collapsing vocational enrollment, the 'grease monkey' stigma versus the European craftsman model, parents pushing degrees even when a direct-to-job track exists)",
+      "function_en": "Problem",
+      "function_zh": "問題指認：趨勢與因果",
+      "language_pattern": "present progressive for trends / this causes ...",
+      "slides": [
+        {
+          "slide_no": 4,
+          "title": {
+            "en": "A Track Losing Students Fast",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {}
+        },
+        {
+          "slide_no": 5,
+          "title": {
+            "en": "The Label That Won't Go Away",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {}
+        },
+        {
+          "slide_no": 6,
+          "title": {
+            "en": "A Degree Just to Be Safe",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "part_no": 3,
+      "source_description": "Part 3: Achievements (Slides 7-9: WorldSkills medals, Taiwan hosting and winning the Asia championship, the dual-track program's 94.9% employment rate)",
+      "function_en": "Achievements",
+      "function_zh": "成果：舉證與比較",
+      "language_pattern": "present perfect / comparatives",
+      "slides": [
+        {
+          "slide_no": 7,
+          "title": {
+            "en": "Gold Medals the World Doesn't See",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {}
+        },
+        {
+          "slide_no": 8,
+          "title": {
+            "en": "Taiwan Hosts, Taiwan Wins",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {}
+        },
+        {
+          "slide_no": 9,
+          "title": {
+            "en": "A 94.9 Percent Employment Rate",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "part_no": 4,
+      "source_description": "Part 4: Solutions (Slides 10-12: industry-academia cooperation instead of separating school and work, investing in workshops instead of leaving schools under-equipped, counselors presenting vocational school as an equal option)",
+      "function_en": "Solutions",
+      "function_zh": "解方：做法與取捨",
+      "language_pattern": "instead of + V-ing / modal verbs",
+      "slides": [
+        {
+          "slide_no": 10,
+          "title": {
+            "en": "Learning Half the Week on the Job",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {}
+        },
+        {
+          "slide_no": 11,
+          "title": {
+            "en": "Investing in Workshops, Not Just Labs",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {}
+        },
+        {
+          "slide_no": 12,
+          "title": {
+            "en": "Counselors Could Say It First",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "part_no": 5,
+      "source_description": "Part 5: Implications (Slides 13-16: one continuous tension - Taiwan's economy needs technicians, but a university degree still buys a real pay premium, so the starting-salary gap is real, until a full-career view changes the calculation)",
+      "function_en": "Implications",
+      "function_zh": "影響：推論後果",
+      "language_pattern": "first conditional / however",
+      "slides": [
+        {
+          "slide_no": 13,
+          "title": {
+            "en": "An Economy That Needs Technicians",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {}
+        },
+        {
+          "slide_no": 14,
+          "title": {
+            "en": "The Real Reason Parents Hesitate",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {}
+        },
+        {
+          "slide_no": 15,
+          "title": {
+            "en": "When the Starting-Pay Gap Is Real",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {}
+        },
+        {
+          "slide_no": 16,
+          "title": {
+            "en": "A Career, Not Just a First Paycheck",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "part_no": 6,
+      "source_description": "Part 6: Call to action (Slides 17-20: summary of two paths in one economy, why it concerns every major, action to question assumptions, closing claim)",
+      "function_en": "Call to action",
+      "function_zh": "結語：總結與號召",
+      "language_pattern": "to wrap up ... / let's ...",
+      "slides": [
+        {
+          "slide_no": 17,
+          "title": {
+            "en": "Two Paths, One Economy",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {}
+        },
+        {
+          "slide_no": 18,
+          "title": {
+            "en": "Why This Concerns Every Major",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {}
+        },
+        {
+          "slide_no": 19,
+          "title": {
+            "en": "Question the Hierarchy You Grew Up With",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {}
+        },
+        {
+          "slide_no": 20,
+          "title": {
+            "en": "Respect Both Diplomas",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {}
+        }
+      ]
+    }
+  ]
+}

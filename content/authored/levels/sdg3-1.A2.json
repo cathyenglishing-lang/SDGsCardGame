@@ -1,0 +1,30 @@
+{
+  "mission_id": "sdg3-1",
+  "level": "A2",
+  "provenance": "authored",
+  "author": "Claude (English teacher role), researched and drafted directly per docs/plans/new-mission-playbook.md (Gemini quota exhausted at draft time)",
+  "basis": "New mission, no workbook source; authored per docs/plans/new-mission-playbook.md. Facts and sources: NHI single-payer system began 1995, near-universal coverage, run by 衛福部中央健康保險署 (NHI Administration). Premium rate held at 5.17% since 2021, confirmed unchanged for 2025 and 2026 by the NHI committee (全民健康保險會, Nov 2024 meeting; UHO/HakkaNews Nov 2025 coverage), vs South Korea ~7% and Japan ~10%. Safety reserve (安全準備金) projected at ~2.1-2.2 months of benefit payments at end of 2025 per the Nov 2024 committee meeting (mohw.gov.tw cp-4624 series; wantrich.chinatimes.com 2026-05-09 coverage of Minister 石崇良). Taiwan crossed 20% 65+ population in 2025 (467.3万, 20.06%), officially a \"super-aged society\" per Ministry of Interior data (CNA 2026-01-09 reports; 14% threshold reached 2018). Old-age dependency ratio ~27 per 100 working-age residents in 2025 (moi.gov.tw statistical bulletin); longer-range ~2 working-age adults per elderly by 2040 cited via globaltaiwan.org/Brookings commentary — kept general, not stated as a precise official figure. National medical-expenditure long-range projection (~NT$1.3 trillion circa 2020 rising several-fold by mid-century) from a government science-policy forecast (cited via ctee.com.tw), kept in general terms per playbook guidance since the multiple is approximate. Health spending ~6.6-6.9% of GDP vs OECD ~9.7%, Japan ~10.6%, South Korea ~8.4%, US ~17% (mohw.gov.tw national health expenditure report; twreporter.org OECD comparison piece). NHI total annual budget passed NT$800 billion circa 2022 (mohw.gov.tw cp-5020-63299). Health Bank (健康存摺) ~12 million users, several hundred million data views, now linking Google/Apple/Garmin wearable data via SDK (mohw.gov.tw cp-16-79026 Google/NHI Administration release). \"AI-on-DM\" partnership with Google and National Health Research Institutes announced 2024 to predict type-2 diabetes complications, planned to extend to other chronic diseases (blog.google zh-tw 2024 Cloud Summit Taipei release; taiwan-healthcare.org coverage; cohesiondata.com news). Family-medicine/大家醫計畫 integrated-care clinics described only in general terms (\"thousands of clinics\") since an exact current count was not confirmed. No partisan cross-strait framing used. Register and structure per docs/plans/new-mission-playbook.md; calibration matched to content/authored/levels/sdg13-1.*.json.",
+  "reviewed_by": null,
+  "slides": {
+    "1": "You carry a small green card in your wallet. It pays for your doctor, your medicine and your dentist. Today I want to ask: can Taiwan keep paying for it?",
+    "2": "SDG 3 has one clear goal: good health and well-being for everyone. It means care for the body and the mind, at every age, in every country. Taiwan takes this seriously.",
+    "3": "Taiwan built one big health insurance plan in 1995. We call it NHI. Almost every person here has this card, and doctors around the world still study how it works.",
+    "4": "In 2025, Taiwan passed a big number. One in five people is now 65 or older. This is called a super-aged society, and it changes how much health care we need.",
+    "5": "More older people means more visits to the hospital. Medical costs are rising fast every single year. Experts say the bill could grow much bigger before 2050.",
+    "6": "Here is the strange part. Health insurance rates stayed the same after 2021. But the safety fund gets smaller every single year, and nobody wants to raise the price.",
+    "7": "NHI started in 1995. Now it covers almost everyone on this island. That is a real achievement, and very few countries do this so well.",
+    "8": "Taiwan spends less money on health care than Japan, Korea or the United States. Still, almost everyone here gets care. Nobody pays huge bills to see a doctor.",
+    "9": "Taiwan built a digital health record called the Health Bank. Millions of people use it, and it can now connect to your smartwatch too.",
+    "10": "Leaders face a hard choice. They can raise the health insurance rate, or they can collect it from more kinds of income. Both choices make someone angry.",
+    "11": "One good idea is to catch sickness early. Family doctors can check on patients before they get very sick. This costs less than treating a bad disease later.",
+    "12": "Doctors are now testing smart computer programs. These programs study health data and try to guess who might get sick. The goal is to act early, not late.",
+    "13": "Here is the risk. If the safety fund drops too low, the law says the government must act fast. That could mean higher costs or smaller benefits for us.",
+    "14": "So who pays if rates go up? Young workers pay a share of every paycheck. A higher rate would hit new graduates hardest, right when they start their first job.",
+    "15": "Some people say: just copy Japan's rate. But a bigger number alone will not fix the real problem. Taiwan also has to change how care works, not just its price.",
+    "16": "Time is short. Many older workers are retiring right now, so fewer people pay into the system. Taiwan must decide soon, before the choice gets made for us.",
+    "17": "Let's sum this up. NHI is one of Taiwan's best ideas. But it is also under real pressure, and that pressure grows bigger every year.",
+    "18": "This is not just a government problem. It is your card, your future premium, and your parents' care. You already have a stake in how this story ends.",
+    "19": "Students like you can help. You can study the data, build better tools, or simply learn the facts and share them. This problem needs sharp minds, not louder complaints.",
+    "20": "Taiwan built something special. Almost everyone here gets care, and the price stays fair. What we choose now will shape this system for a long time."
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "mission_id": "sdg2-1",
+  "level": "A2",
+  "provenance": "authored",
+  "author": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+  "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan's overall food self-sufficiency rate (calorie basis) was 30.3% in 2023 (18-year low) and 30.7% in 2024 (Ministry of Agriculture / Agriculture and Food Agency 糧食供需年報, via Focus Taiwan, Taipei Times, 上下游新聞); grain self-sufficiency 25.5% in 2023 vs 26.6% in 2022; rice self-sufficiency near 100% (97.7% in 2023, 24万公頃/~1.21M tonnes/yr); wheat ~0.3%, soybean <1%, feed corn ~2.5% self-sufficient, ~8M tonnes coarse grain imported yearly (SETN, 農傳媒); legal rice reserve minimum 3 months/25% of consumption since 2006, above FAO's 17-18% and Japan/Korea targets, actual stock ~1.06M tonnes (~11 months) per Dec 2025 CNA report; WTO rice import TRQ of 144,720 tonnes/year since 2002 accession; 大糧倉計畫 (Grand Grain Silo plan) since 2016 paying farmers to convert paddies to soybean/feed corn, expanded 2022; Typhoon Krathon Oct 2024 vegetable wholesale price NT$63.7/kg then -17% to NT$52.8/kg (Taiwan News); 2023 rice harvest hurt by irrigation suspension, Typhoon Koinu, winter monsoon. Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+  "reviewed_by": null,
+  "slides": {
+    "1": "A typhoon hits Taiwan. Supermarket shelves look empty for a few days, and prices jump fast. Have you ever wondered what happens the next time?",
+    "2": "SDG 2 is not only about hunger far away. It means food security: enough safe food, every day, for all of us. That includes Taiwan too.",
+    "3": "Taiwan has about 23 million people. Most of our food actually arrives here by ship. In 2024, we grew only 30.7 percent of our own food.",
+    "4": "That number keeps declining. It dropped to 30.3 percent in 2023, the lowest level in 18 years. It only rose a little after that year.",
+    "5": "Look closer, and the picture splits. Rice is almost 100 percent homegrown here. But total grain self-sufficiency is only 25.5 percent. That's because most wheat comes from abroad.",
+    "6": "So your rice grew here in Taiwan. Your bread almost never did. Even the pig that became your lunch probably ate imported corn instead.",
+    "7": "Here is some good news for once. Rice covers about 240,000 hectares of Taiwan. Two harvests a year produce roughly 1.21 million tonnes of rice.",
+    "8": "The law protects our rice too. Taiwan must always keep a rice reserve for three whole months. That target is higher than Japan's own goal.",
+    "9": "Back in 2016, a new government plan actually started. People simply call it the Grand Grain Silo. It pays farmers well to grow soybean instead.",
+    "10": "Some rice fields used to sit unused after harvest. Today, growers can actually choose to plant corn there instead. That empty ground finally has a purpose again.",
+    "11": "Researchers here are also testing something quite new. They feed pigs with local feed rice instead of imported corn. It's a small step, but a real one.",
+    "12": "But this is not a free win for anyone. Soybean grown here is far more expensive than soybean bought abroad. Someone always has to pay that extra cost.",
+    "13": "Farmers everywhere sell grain to the cheapest buyer. That is normal, and it works well most years. That is why almost nobody notices our heavy import numbers.",
+    "14": "But global trade rules do not actually bend for us. Since 2002, Taiwan must import rice every year. That happens even when our own stock is already full.",
+    "15": "The buffer is thinner than it looks. Before Typhoon Krathon struck in 2024, vegetable prices jumped fast. They fell back only once the storm had passed.",
+    "16": "So cheap imports keep our prices low most years. But they leave very little room for the year when trouble suddenly strikes twice, both here and abroad.",
+    "17": "To sum up, Taiwan holds two numbers at once. Rice sits near 100 percent, almost every single year. Everything else sits near only 30 percent instead.",
+    "18": "This choice is not someone else's problem. Future engineers and farm planners will decide this. Maybe some of you will decide how much extra safety Taiwan buys.",
+    "19": "So try this one simple habit. Think about where your dinner actually came from. Notice it whenever a new farm rule shows up online.",
+    "20": "A full plate today does not promise a full plate tomorrow. It never does. Let's not wait for an empty shelf before we finally ask why."
+  }
+}

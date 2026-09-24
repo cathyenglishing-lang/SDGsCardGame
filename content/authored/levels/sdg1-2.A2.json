@@ -1,0 +1,30 @@
+{
+  "mission_id": "sdg1-2",
+  "level": "A2",
+  "provenance": "authored",
+  "author": "Claude (English teacher role), drafted directly (Gemini quota exhausted for this session)",
+  "basis": "New mission, no workbook source; written per docs/plans/new-mission-playbook.md, angle distinct from sdg1 (general safety-net framing) and sdg1-3 (education/mobility framing): the labor market specifically. Facts and sources: minimum wage NT$29,500/month, NT$196/hour from 1 Jan 2026 (up from NT$28,590/NT$190 in 2025), 10th consecutive annual rise, cumulative +47.4% monthly/+63.3% hourly, 2.47 million workers benefiting (Ministry of Labor announcements via Taiwan News/Focus Taiwan, Sep-Dec 2025). OECD low-wage threshold ~NT$390,000/year; 1.26 million full-time employees (16.8%) below it in 2024; median regular monthly wage ~NT$37,000 (DGBAS 2024 wage statistics via Liberty Times). Atypical (part-time/temporary/dispatch) employment over 800,000 workers in 2024 (DGBAS Manpower Utilization Survey via 人間福報). Delivery riders ~88,000 by end of 2020, historically classified as contractors excluded from the Labor Standards Act; 2019 rider deaths triggered union push (Rest of World, New Bloom Magazine, GBLL). Delivery Workers Rights Protection and Delivery Platform Management Act: passed by Legislative Yuan 6 Jan 2026, promulgated 21 Jan 2026, effective 21 Jul 2026; NT$45/order floor rising with minimum wage, mandatory group accident insurance and liability insurance, deactivation appeal process (Legislative Yuan, Ministry of Labor, CNA, Taipei Times, Jul 2026). Rev.2: trimmed word counts that exceeded the 20-second cap (comma-formatted figures like NT$29,500 tokenize as multiple spoken words), and simplified vocabulary that pushed long-word% above the A2 band.",
+  "reviewed_by": null,
+  "slides": {
+    "1": "Meet a typical student here. She studies in the day and delivers food at night. She works hard every week, but her bank account never grows.",
+    "2": "SDG 1 wants to end poverty. Most people think about welfare and shelters. But today is different. Some people have a steady job, and they are still poor.",
+    "3": "Taiwan's minimum wage is now NT$29,500 a month. That is NT$196 for every hour of work. Many of you earn close to this number in a part-time job.",
+    "4": "Taiwan uses a simple test for low pay: two-thirds of the average wage. That line sits near NT$390,000 a year. About 1.26 million workers earn less than that.",
+    "5": "Not every job in Taiwan is full-time or stable. In 2024, over 800,000 people had part-time jobs. These jobs come with less safety.",
+    "6": "Look at food delivery riders. About 88,000 people rode for Uber Eats or foodpanda by 2020. For years, firms called them contractors. The law did not help them.",
+    "7": "Now for some good news. Taiwan steadily raised the minimum wage every year for ten years in a row. Since that started, the monthly wage grew by 47.4%.",
+    "8": "In 2026, Taiwan passed a new law for delivery riders. It sets a floor of NT$45 for every order. It also makes insurance the law, not a choice.",
+    "9": "Before, a rider had no insurance and no fixed pay. Now, the new law changed that. Riders finally have a floor price and real insurance behind them.",
+    "10": "Should Taiwan raise the minimum wage again? A higher wage could seriously help workers. But a small shop owner might have to cut hours or jobs.",
+    "11": "Right now, only riders have this new rule. Leaders could also give the same pay floor and insurance to other workers like them too.",
+    "12": "There are other answers too. Riders can join a union instead of working alone. Workers can also learn new skills to move into steady, full-time jobs.",
+    "13": "Low pay changes more than a bank account. If young workers cannot save money, they cannot move out or marry. Many also delay starting a family.",
+    "14": "However, small shops feel this pain too. A little noodle stand barely makes a profit. New pay rules or insurance can hurt that owner badly.",
+    "15": "However, the new law today only covers riders. A part-time worker or an agency worker still has no pay floor. There is no insurance either.",
+    "16": "However, this affects the whole country too. When work feels unsafe, young people wait longer to marry or have kids. That makes Taiwan's birth problem worse.",
+    "17": "So what actually changed here? Pay went up every year for ten years, and riders now have real help. But many other workers still wait for the same thing.",
+    "18": "This matters to you right now, because many of you already work part-time or deliver food between classes. This is not someone else's story. It is yours.",
+    "19": "So here is your action for today. Find out today's minimum wage, and look at your pay to see if it matches. Also ask about your insurance.",
+    "20": "A job should really be enough to live on. Taiwan took real steps, but the work is not yet finished. Ask for more. Start with your own job."
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "mission_id": "sdg7-2",
+  "level": "A2",
+  "provenance": "authored",
+  "author": "Claude (Gemini draft unavailable due to API quota; hand-authored to the same standard)",
+  "basis": "New mission, no workbook source. Facts: 2016 DPP 'nuclear-free homeland' platform, written into the 2017 Electricity Act revision alongside the '20-30-50' 2025 generation-mix target; Maanshan Reactor 2 (Taiwan's last operating reactor) shut down 17 May 2025, ending nuclear power which had supplied ~4.2% of 2024 generation (288 TWh total, of which 42.4% gas / 39.3% coal / 11.6% renewables); 23 August 2025 referendum (Proposal No. 21) on restarting Maanshan: 74.2% yes among ~5.8M votes cast (~4.3M yes vs ~1.5M no) but failed procedurally because yes-votes fell short of the legal threshold of one quarter of registered voters (~5M of ~20M); Taiwan imports ~97% of its primary energy, with usable reserves estimated at about two weeks; Taipower accumulated losses of ~NT$418 billion, September 2025 rate rise ~3.12% (smaller than the 5-10% first proposed); 'energy trilemma' (security/equity/sustainability) framing per World Energy Council. Neutral on the nuclear debate throughout: trade-offs presented for all three options (restart, accelerate renewables, lean on gas), no side endorsed. Register per docs/plans/new-mission-playbook.md. Authored by Claude directly (Gemini 3.1 Pro was unavailable for this mission's draft pass due to an API quota limit reached mid-session; content was hand-written to the same standard and iteratively verified against scripts/quality.py and scripts/grammar_range.py).",
+  "reviewed_by": null,
+  "slides": {
+    "1": "On May 17, 2025, Taiwan turned off its last nuclear reactor. Just three months later, voters were asked to turn it back on completely. So what really changed?",
+    "2": "SDG 7 means safe, reliable, modern energy for everyone. Today we look at nuclear power through one simple idea. There are three goals, and they are hard to reach together.",
+    "3": "This story starts about ten years ago. In 2016, Taiwan chose a bold new plan. There would be no nuclear power after 2025. Today we look back at that long countdown.",
+    "4": "On May 17, 2025, Maanshan's last reactor shut down. This ended over 40 years of nuclear power here. Nuclear made only 4 percent of our power in 2024.",
+    "5": "Gas and coal made over 80 percent of our power in 2024. Nuclear then stopped. Gas and coal filled most of that gap, not renewable energy.",
+    "6": "People's views also moved. In August 2025, most voters who voted said yes to the plant. But not enough people voted, so the vote failed by law.",
+    "7": "What did Taiwan build instead? Over the past ten years, Taiwan added new gas terminals. It also built more wind turbines and solar panels.",
+    "8": "Nuclear and clean energy both release almost no carbon. Coal and gas release much more. So using more coal and gas raises Taiwan's total carbon output.",
+    "9": "Nuclear power runs all day and night, no matter the weather. Solar and wind power change with the sun and wind constantly. That makes the electric grid harder to balance.",
+    "10": "One option is to restart the reactor. This could cut carbon and cost fast, but it needs new safety inspections. Nobody agrees on how long that should take.",
+    "11": "A second option is building clean energy and storage faster. This choice is popular and very green. But it is already behind its own plan.",
+    "12": "A third option is using more imported gas as a bridge fuel. It is cleaner than coal. But Taiwan already imports almost all of its energy.",
+    "13": "Taiwan has only about two weeks of energy reserves. That means we cannot lose any power source easily. If one ship is delayed, that safety margin gets even smaller.",
+    "14": "Taipower has lost huge amounts of money for years. If prices stay too low, the company cannot pay for new power plants and storage.",
+    "15": "The carbon math still has to work. Even without enough new clean power, Taiwan must cut carbon fast. Otherwise gas and coal use will keep rising.",
+    "16": "So no single energy choice wins on all three goals. A safer choice can cost much more money. A cheaper choice can raise carbon. That is the real trilemma.",
+    "17": "To wrap up, Taiwan ended nuclear power right on time. Then voters almost changed that choice months later. The trilemma shows why neither choice was ever simple.",
+    "18": "This matters to you directly, right here in this room. Future engineers will design the reactors, grids and storage. Slogans will not do that work for us.",
+    "19": "Read the real numbers before you choose a side. Ask what problem each technology actually solves. Do not just pick a team to cheer for.",
+    "20": "The next vote, or the next reactor design, will eventually be decided by data or by loud slogans. Let's choose data instead. That choice is what should end this talk."
+  }
+}

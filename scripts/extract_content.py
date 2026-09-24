@@ -518,7 +518,7 @@ def apply_overlays(m: dict, overlay_dir: str) -> list:
 def qa_mission(m: dict) -> list:
     issues = []
     slides = [s for st in m["stages"] for s in st["slides"]]
-    expected = 12 if m["shape"] == "tall" else 20
+    expected = 12 if m.get("shape") == "tall" else 20
     if len(slides) != expected:
         issues.append({"severity": "high", "where": m["mission_id"],
                        "issue": f"slide count {len(slides)}, expected {expected}"})
@@ -675,6 +675,16 @@ def main() -> int:
             with open(os.path.join(authored_missions_dir, fname), encoding="utf-8") as fh:
                 shell = json.load(fh)
             shell.pop("level_summary", None)
+            # The playbook's documented shell schema (docs/plans/new-mission-playbook.md
+            # §5) is only mission_id, sdg, title, stages — the bookkeeping fields below
+            # are conveniences this script adds for workbook-sourced missions. Default
+            # them here instead of requiring every hand-authored shell to carry them, so
+            # a shell mid-authoring (or written exactly to the documented schema) does not
+            # crash extraction for every other mission in the repo.
+            shell.setdefault("shape", "authored")
+            shell.setdefault("source", {"workbook": None,
+                                        "note": "authored from scratch; no workbook sheet"})
+            shell.setdefault("narrative_brief", "")
             missions.append(shell)
             existing_ids.add(mission_id)
 

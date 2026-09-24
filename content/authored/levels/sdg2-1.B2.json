@@ -1,0 +1,30 @@
+{
+  "mission_id": "sdg2-1",
+  "level": "B2",
+  "provenance": "authored",
+  "author": "Claude (English teacher role); Gemini 3.1 Pro draft unavailable (API quota exhausted), authored directly",
+  "basis": "New mission, no workbook source. Researched via WebSearch (Sep 2026). Key facts: Taiwan's overall food self-sufficiency rate (calorie basis) was 30.3% in 2023 (18-year low) and 30.7% in 2024 (Ministry of Agriculture / Agriculture and Food Agency 糧食供需年報, via Focus Taiwan, Taipei Times, 上下游新聞); grain self-sufficiency 25.5% in 2023 vs 26.6% in 2022; rice self-sufficiency near 100% (97.7% in 2023, 24万公頃/~1.21M tonnes/yr); wheat ~0.3%, soybean <1%, feed corn ~2.5% self-sufficient, ~8M tonnes coarse grain imported yearly (SETN, 農傳媒); legal rice reserve minimum 3 months/25% of consumption since 2006, above FAO's 17-18% and Japan/Korea targets, actual stock ~1.06M tonnes (~11 months) per Dec 2025 CNA report; WTO rice import TRQ of 144,720 tonnes/year since 2002 accession; 大糧倉計畫 (Grand Grain Silo plan) since 2016 paying farmers to convert paddies to soybean/feed corn, expanded 2022; Typhoon Krathon Oct 2024 vegetable wholesale price NT$63.7/kg then -17% to NT$52.8/kg (Taiwan News); 2023 rice harvest hurt by irrigation suspension, Typhoon Koinu, winter monsoon. Level is carried by syntax and lexical load per docs/plans/new-mission-playbook.md, not by word count.",
+  "reviewed_by": null,
+  "slides": {
+    "1": "A typhoon can strip supermarket shelves completely bare within hours, with prices typically spiking for a few days before supply gradually stabilises. What happens, though, in the year that disruption simply refuses to resolve itself?",
+    "2": "SDG 2 extends well beyond alleviating hunger in distant countries. It's fundamentally concerned with food security, meaning genuinely reliable daily access to enough food, a standard that applies to Taiwan as much as anywhere else.",
+    "3": "Taiwan, a densely populated island of roughly 23 million residents, imports the majority of what it consumes by sea. In 2024, only 30.7 percent of domestic food consumption was actually produced here.",
+    "4": "That figure has been declining for years, rather than improving as officials once hoped. It fell to an eighteen-year low of 30.3 percent in 2023, recovering only marginally since that particular low point.",
+    "5": "Breaking the numbers apart reveals a much sharper picture. Rice approaches near-total self-sufficiency, whereas overall grain self-sufficiency sits at merely 25.5 percent, given that wheat is almost entirely imported from abroad.",
+    "6": "So the rice occupying your plate was almost certainly cultivated domestically. The bread accompanying it, however, certainly wasn't, nor was the cooking oil in which it happened to be fried.",
+    "7": "Cultivated across roughly 240,000 hectares in two annual harvests, rice remains genuinely secure here. About 1.21 million tonnes are produced every year, keeping this staple reliably available for everyone.",
+    "8": "Legislative protection has also been established for this staple. A mandatory reserve, equal to three months of national consumption, is required by law to exceed Japan's own comparable target clearly.",
+    "9": "Since 2016, the Grand Grain Silo initiative has compensated farmers for converting rice paddies into soybean fields instead. This has gradually eroded decades of entrenched import dependency in the process.",
+    "10": "Rather than leaving idle paddies unproductive, farmers can now contract to cultivate feed corn there instead. This effectively converts otherwise wasted land into a modest yet genuine source of domestic grain.",
+    "11": "Researchers here have also begun trialling feed rice as a possible substitute for imported feed grain, for pig farms too. This work could gradually reduce reliance on any single imported commodity.",
+    "12": "This is still not a free achievement, though. A tonne of soybean cultivated domestically is priced much higher than one imported from abroad, so somebody inevitably still absorbs that difference.",
+    "13": "Sourcing grain from whichever market proves cheapest works well enough in an ordinary, uneventful year. That's exactly why our heavy dependence on imports goes largely unexamined by the general public.",
+    "14": "Global trade regulations, however, are not adjusted to reflect domestic circumstances. Taiwan has been obligated since 2002 to import a fixed quota of rice annually, regardless of how full domestic reserves already are.",
+    "15": "The margin proves considerably thinner than it first appears. Facing Typhoon Krathon in 2024, Taipei's wholesale vegetable price spiked sharply, only gradually easing once the storm had eventually passed through.",
+    "16": "What this arrangement reveals is a system engineered for efficiency rather than resilience. It quietly sustains low everyday prices while leaving minimal slack for the year two disruptions coincide unexpectedly.",
+    "17": "In summary, Taiwan simultaneously holds two quite contradictory numbers at the same time. It approaches total self-sufficiency in rice alone, yet reaches only around 30 percent self-sufficiency across the entire food supply overall.",
+    "18": "This trade-off is one your generation stands to inherit directly. It is agronomists and engineers, quite possibly some of you, who will ultimately decide how much self-sufficiency is worth paying for.",
+    "19": "So here is a concrete request worth seriously considering right now. Pay closer attention to where your food is actually sourced, and track agricultural policy as it surfaces within the news.",
+    "20": "Current abundance, however, offers no guarantee whatsoever regarding future supply. Rather than passively waiting for an actual crisis to strike, these difficult questions deserve to be raised well in advance."
+  }
+}

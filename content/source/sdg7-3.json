@@ -1,0 +1,1253 @@
+{
+  "mission_id": "sdg7-3",
+  "sdg": 7,
+  "title": {
+    "en": "Powering the Future: Batteries, Grids, and Smart Homes",
+    "zh": null
+  },
+  "narrative_brief": "",
+  "stages": [
+    {
+      "part_no": 1,
+      "source_description": "Part 1: Introduction (Slides 1-3)",
+      "function_en": "Introduction",
+      "function_zh": "引言：破題與定義",
+      "language_pattern": "rhetorical questions / X is about ...",
+      "slides": [
+        {
+          "slide_no": 1,
+          "title": {
+            "en": "Where Does the Power Go at Night?",
+            "zh": "晚上發的電去哪了？"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "At night the sun completely stops shining, and some days the wind stops blowing too. So where does your power come from then? Batteries and smart grids are the answer.",
+              "words": 30,
+              "sentences": 3,
+              "avg_sentence_words": 10.0,
+              "fk_grade": 3.7,
+              "long_word_pct": 6.7,
+              "speak_seconds_est": 18.9,
+              "fill_pct": 94.7,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (Gemini draft unavailable due to API quota; hand-authored to the same standard)",
+              "basis": "New mission, no workbook source. Facts: Taiwan 2024 generation ~11.6% renewables with wind generation +66% 2023->2024 (variability now a material grid share); 3 March 2022 cascading blackout triggered by a single switch malfunction at Hsinta Power Plant, Kaohsiung, cutting power to ~5.49M households (~40% of Taiwan) via cascading grid protection trips (Taiwan News/Bloomberg/CommonWealth); TSMC ~9% of national electricity, semiconductor/data-centre demand rising and less predictable (SDxCentral/TrendForce); Taipower reached ~1GW (1,000MW) of grid-connected battery storage in 2025, incl. the Dongshan 60MW site (operating Nov 2024) and a 20MW system at the Tainan salt-field solar farm (Taipower press releases); Taipower AMI/smart-meter rollout passed 3.5M customers (>80% of consumption) by May 2025, target 6M by 2030 and full replacement by 2035, plus a DER Integration program under Taipower's Smart Grid effort; Taiwan storage market ~1GW/3GWh and >1% of global electrochemical storage by 2025, projected toward 20GWh by 2030, market value ~US$3.1bn (2025) toward ~US$9.8bn (2031) (Infolink-group, Mobility Foresights); LFP batteries ~90% of new grid-scale storage worldwide, trading energy density for thermal stability, longer cycle life (thousands of cycles, 10-15+ years) and lower cost versus NMC/NCA chemistries used in EVs; private-sector example of a Fluence-partnered 100-MW-class storage project. Register per docs/plans/new-mission-playbook.md. Authored by Claude directly (Gemini 3.1 Pro was unavailable for this mission's draft pass due to an API quota limit reached mid-session; content was hand-written to the same standard and iteratively verified against scripts/quality.py and scripts/grammar_range.py).",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "At night the sun disappears, and some days the wind barely blows at all. Batteries and smart grids increasingly provide the answer to where our electricity then comes from.",
+              "words": 29,
+              "sentences": 2,
+              "avg_sentence_words": 14.5,
+              "fk_grade": 8.4,
+              "long_word_pct": 13.8,
+              "speak_seconds_est": 15.8,
+              "fill_pct": 79.1,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (Gemini draft unavailable due to API quota; hand-authored to the same standard)",
+              "basis": "New mission, no workbook source. Facts: Taiwan 2024 generation ~11.6% renewables with wind generation +66% 2023->2024 (variability now a material grid share); 3 March 2022 cascading blackout triggered by a single switch malfunction at Hsinta Power Plant, Kaohsiung, cutting power to ~5.49M households (~40% of Taiwan) via cascading grid protection trips (Taiwan News/Bloomberg/CommonWealth); TSMC ~9% of national electricity, semiconductor/data-centre demand rising and less predictable (SDxCentral/TrendForce); Taipower reached ~1GW (1,000MW) of grid-connected battery storage in 2025, incl. the Dongshan 60MW site (operating Nov 2024) and a 20MW system at the Tainan salt-field solar farm (Taipower press releases); Taipower AMI/smart-meter rollout passed 3.5M customers (>80% of consumption) by May 2025, target 6M by 2030 and full replacement by 2035, plus a DER Integration program under Taipower's Smart Grid effort; Taiwan storage market ~1GW/3GWh and >1% of global electrochemical storage by 2025, projected toward 20GWh by 2030, market value ~US$3.1bn (2025) toward ~US$9.8bn (2031) (Infolink-group, Mobility Foresights); LFP batteries ~90% of new grid-scale storage worldwide, trading energy density for thermal stability, longer cycle life (thousands of cycles, 10-15+ years) and lower cost versus NMC/NCA chemistries used in EVs; private-sector example of a Fluence-partnered 100-MW-class storage project. Register per docs/plans/new-mission-playbook.md. Authored by Claude directly (Gemini 3.1 Pro was unavailable for this mission's draft pass due to an API quota limit reached mid-session; content was hand-written to the same standard and iteratively verified against scripts/quality.py and scripts/grammar_range.py).",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "Once the sun sets or the wind falls completely still, conventional generation alone cannot keep the lights on. This discussion investigates precisely where that missing power is actually supposed to come from.",
+              "words": 32,
+              "sentences": 2,
+              "avg_sentence_words": 16.0,
+              "fk_grade": 12.0,
+              "long_word_pct": 25.0,
+              "speak_seconds_est": 16.0,
+              "fill_pct": 80.0,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (Gemini draft unavailable due to API quota; hand-authored to the same standard)",
+              "basis": "New mission, no workbook source. Facts: Taiwan 2024 generation ~11.6% renewables with wind generation +66% 2023->2024 (variability now a material grid share); 3 March 2022 cascading blackout triggered by a single switch malfunction at Hsinta Power Plant, Kaohsiung, cutting power to ~5.49M households (~40% of Taiwan) via cascading grid protection trips (Taiwan News/Bloomberg/CommonWealth); TSMC ~9% of national electricity, semiconductor/data-centre demand rising and less predictable (SDxCentral/TrendForce); Taipower reached ~1GW (1,000MW) of grid-connected battery storage in 2025, incl. the Dongshan 60MW site (operating Nov 2024) and a 20MW system at the Tainan salt-field solar farm (Taipower press releases); Taipower AMI/smart-meter rollout passed 3.5M customers (>80% of consumption) by May 2025, target 6M by 2030 and full replacement by 2035, plus a DER Integration program under Taipower's Smart Grid effort; Taiwan storage market ~1GW/3GWh and >1% of global electrochemical storage by 2025, projected toward 20GWh by 2030, market value ~US$3.1bn (2025) toward ~US$9.8bn (2031) (Infolink-group, Mobility Foresights); LFP batteries ~90% of new grid-scale storage worldwide, trading energy density for thermal stability, longer cycle life (thousands of cycles, 10-15+ years) and lower cost versus NMC/NCA chemistries used in EVs; private-sector example of a Fluence-partnered 100-MW-class storage project. Register per docs/plans/new-mission-playbook.md. Authored by Claude directly (Gemini 3.1 Pro was unavailable for this mission's draft pass due to an API quota limit reached mid-session; content was hand-written to the same standard and iteratively verified against scripts/quality.py and scripts/grammar_range.py).",
+              "workbook_text": null
+            }
+          }
+        },
+        {
+          "slide_no": 2,
+          "title": {
+            "en": "SDG 7's Other Half: Reliable and Modern",
+            "zh": "SDG7的另一半：穩定與現代化"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "SDG 7 is not only about clean power. It is also about power that never stops operating. Today's talk is about keeping the lights on all the time.",
+              "words": 28,
+              "sentences": 3,
+              "avg_sentence_words": 9.3,
+              "fk_grade": 5.3,
+              "long_word_pct": 3.6,
+              "speak_seconds_est": 17.7,
+              "fill_pct": 88.4,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (Gemini draft unavailable due to API quota; hand-authored to the same standard)",
+              "basis": "New mission, no workbook source. Facts: Taiwan 2024 generation ~11.6% renewables with wind generation +66% 2023->2024 (variability now a material grid share); 3 March 2022 cascading blackout triggered by a single switch malfunction at Hsinta Power Plant, Kaohsiung, cutting power to ~5.49M households (~40% of Taiwan) via cascading grid protection trips (Taiwan News/Bloomberg/CommonWealth); TSMC ~9% of national electricity, semiconductor/data-centre demand rising and less predictable (SDxCentral/TrendForce); Taipower reached ~1GW (1,000MW) of grid-connected battery storage in 2025, incl. the Dongshan 60MW site (operating Nov 2024) and a 20MW system at the Tainan salt-field solar farm (Taipower press releases); Taipower AMI/smart-meter rollout passed 3.5M customers (>80% of consumption) by May 2025, target 6M by 2030 and full replacement by 2035, plus a DER Integration program under Taipower's Smart Grid effort; Taiwan storage market ~1GW/3GWh and >1% of global electrochemical storage by 2025, projected toward 20GWh by 2030, market value ~US$3.1bn (2025) toward ~US$9.8bn (2031) (Infolink-group, Mobility Foresights); LFP batteries ~90% of new grid-scale storage worldwide, trading energy density for thermal stability, longer cycle life (thousands of cycles, 10-15+ years) and lower cost versus NMC/NCA chemistries used in EVs; private-sector example of a Fluence-partnered 100-MW-class storage project. Register per docs/plans/new-mission-playbook.md. Authored by Claude directly (Gemini 3.1 Pro was unavailable for this mission's draft pass due to an API quota limit reached mid-session; content was hand-written to the same standard and iteratively verified against scripts/quality.py and scripts/grammar_range.py).",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "SDG 7 is not only about clean power generation, but also about power that keeps working reliably whatever the weather. This talk focuses on keeping a grid that depends on the weather running.",
+              "words": 33,
+              "sentences": 2,
+              "avg_sentence_words": 16.5,
+              "fk_grade": 10.2,
+              "long_word_pct": 9.1,
+              "speak_seconds_est": 18.0,
+              "fill_pct": 90.0,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (Gemini draft unavailable due to API quota; hand-authored to the same standard)",
+              "basis": "New mission, no workbook source. Facts: Taiwan 2024 generation ~11.6% renewables with wind generation +66% 2023->2024 (variability now a material grid share); 3 March 2022 cascading blackout triggered by a single switch malfunction at Hsinta Power Plant, Kaohsiung, cutting power to ~5.49M households (~40% of Taiwan) via cascading grid protection trips (Taiwan News/Bloomberg/CommonWealth); TSMC ~9% of national electricity, semiconductor/data-centre demand rising and less predictable (SDxCentral/TrendForce); Taipower reached ~1GW (1,000MW) of grid-connected battery storage in 2025, incl. the Dongshan 60MW site (operating Nov 2024) and a 20MW system at the Tainan salt-field solar farm (Taipower press releases); Taipower AMI/smart-meter rollout passed 3.5M customers (>80% of consumption) by May 2025, target 6M by 2030 and full replacement by 2035, plus a DER Integration program under Taipower's Smart Grid effort; Taiwan storage market ~1GW/3GWh and >1% of global electrochemical storage by 2025, projected toward 20GWh by 2030, market value ~US$3.1bn (2025) toward ~US$9.8bn (2031) (Infolink-group, Mobility Foresights); LFP batteries ~90% of new grid-scale storage worldwide, trading energy density for thermal stability, longer cycle life (thousands of cycles, 10-15+ years) and lower cost versus NMC/NCA chemistries used in EVs; private-sector example of a Fluence-partnered 100-MW-class storage project. Register per docs/plans/new-mission-playbook.md. Authored by Claude directly (Gemini 3.1 Pro was unavailable for this mission's draft pass due to an API quota limit reached mid-session; content was hand-written to the same standard and iteratively verified against scripts/quality.py and scripts/grammar_range.py).",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "SDG 7 actually covers more than clean generation alone. It equally demands reliability, meaning power that keeps flowing whatever the weather, so today's focus falls squarely on modern, resilient infrastructure.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 13.9,
+              "long_word_pct": 23.3,
+              "speak_seconds_est": 15.0,
+              "fill_pct": 75.0,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (Gemini draft unavailable due to API quota; hand-authored to the same standard)",
+              "basis": "New mission, no workbook source. Facts: Taiwan 2024 generation ~11.6% renewables with wind generation +66% 2023->2024 (variability now a material grid share); 3 March 2022 cascading blackout triggered by a single switch malfunction at Hsinta Power Plant, Kaohsiung, cutting power to ~5.49M households (~40% of Taiwan) via cascading grid protection trips (Taiwan News/Bloomberg/CommonWealth); TSMC ~9% of national electricity, semiconductor/data-centre demand rising and less predictable (SDxCentral/TrendForce); Taipower reached ~1GW (1,000MW) of grid-connected battery storage in 2025, incl. the Dongshan 60MW site (operating Nov 2024) and a 20MW system at the Tainan salt-field solar farm (Taipower press releases); Taipower AMI/smart-meter rollout passed 3.5M customers (>80% of consumption) by May 2025, target 6M by 2030 and full replacement by 2035, plus a DER Integration program under Taipower's Smart Grid effort; Taiwan storage market ~1GW/3GWh and >1% of global electrochemical storage by 2025, projected toward 20GWh by 2030, market value ~US$3.1bn (2025) toward ~US$9.8bn (2031) (Infolink-group, Mobility Foresights); LFP batteries ~90% of new grid-scale storage worldwide, trading energy density for thermal stability, longer cycle life (thousands of cycles, 10-15+ years) and lower cost versus NMC/NCA chemistries used in EVs; private-sector example of a Fluence-partnered 100-MW-class storage project. Register per docs/plans/new-mission-playbook.md. Authored by Claude directly (Gemini 3.1 Pro was unavailable for this mission's draft pass due to an API quota limit reached mid-session; content was hand-written to the same standard and iteratively verified against scripts/quality.py and scripts/grammar_range.py).",
+              "workbook_text": null
+            }
+          }
+        },
+        {
+          "slide_no": 3,
+          "title": {
+            "en": "A Grid That Has Already Wobbled",
+            "zh": "曾經搖晃過的電網"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Taiwan's whole power grid shook once before. It happened quite badly, really. In 2022, one small switch problem cut power to millions of homes right across the island.",
+              "words": 28,
+              "sentences": 3,
+              "avg_sentence_words": 9.3,
+              "fk_grade": 7.0,
+              "long_word_pct": 10.7,
+              "speak_seconds_est": 17.7,
+              "fill_pct": 88.4,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (Gemini draft unavailable due to API quota; hand-authored to the same standard)",
+              "basis": "New mission, no workbook source. Facts: Taiwan 2024 generation ~11.6% renewables with wind generation +66% 2023->2024 (variability now a material grid share); 3 March 2022 cascading blackout triggered by a single switch malfunction at Hsinta Power Plant, Kaohsiung, cutting power to ~5.49M households (~40% of Taiwan) via cascading grid protection trips (Taiwan News/Bloomberg/CommonWealth); TSMC ~9% of national electricity, semiconductor/data-centre demand rising and less predictable (SDxCentral/TrendForce); Taipower reached ~1GW (1,000MW) of grid-connected battery storage in 2025, incl. the Dongshan 60MW site (operating Nov 2024) and a 20MW system at the Tainan salt-field solar farm (Taipower press releases); Taipower AMI/smart-meter rollout passed 3.5M customers (>80% of consumption) by May 2025, target 6M by 2030 and full replacement by 2035, plus a DER Integration program under Taipower's Smart Grid effort; Taiwan storage market ~1GW/3GWh and >1% of global electrochemical storage by 2025, projected toward 20GWh by 2030, market value ~US$3.1bn (2025) toward ~US$9.8bn (2031) (Infolink-group, Mobility Foresights); LFP batteries ~90% of new grid-scale storage worldwide, trading energy density for thermal stability, longer cycle life (thousands of cycles, 10-15+ years) and lower cost versus NMC/NCA chemistries used in EVs; private-sector example of a Fluence-partnered 100-MW-class storage project. Register per docs/plans/new-mission-playbook.md. Authored by Claude directly (Gemini 3.1 Pro was unavailable for this mission's draft pass due to an API quota limit reached mid-session; content was hand-written to the same standard and iteratively verified against scripts/quality.py and scripts/grammar_range.py).",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "Taiwan's power grid has already wobbled once before this. In 2022, a single switch failure triggered a cascade that cut power to millions of households across the island.",
+              "words": 28,
+              "sentences": 2,
+              "avg_sentence_words": 14.0,
+              "fk_grade": 10.1,
+              "long_word_pct": 14.3,
+              "speak_seconds_est": 15.3,
+              "fill_pct": 76.4,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (Gemini draft unavailable due to API quota; hand-authored to the same standard)",
+              "basis": "New mission, no workbook source. Facts: Taiwan 2024 generation ~11.6% renewables with wind generation +66% 2023->2024 (variability now a material grid share); 3 March 2022 cascading blackout triggered by a single switch malfunction at Hsinta Power Plant, Kaohsiung, cutting power to ~5.49M households (~40% of Taiwan) via cascading grid protection trips (Taiwan News/Bloomberg/CommonWealth); TSMC ~9% of national electricity, semiconductor/data-centre demand rising and less predictable (SDxCentral/TrendForce); Taipower reached ~1GW (1,000MW) of grid-connected battery storage in 2025, incl. the Dongshan 60MW site (operating Nov 2024) and a 20MW system at the Tainan salt-field solar farm (Taipower press releases); Taipower AMI/smart-meter rollout passed 3.5M customers (>80% of consumption) by May 2025, target 6M by 2030 and full replacement by 2035, plus a DER Integration program under Taipower's Smart Grid effort; Taiwan storage market ~1GW/3GWh and >1% of global electrochemical storage by 2025, projected toward 20GWh by 2030, market value ~US$3.1bn (2025) toward ~US$9.8bn (2031) (Infolink-group, Mobility Foresights); LFP batteries ~90% of new grid-scale storage worldwide, trading energy density for thermal stability, longer cycle life (thousands of cycles, 10-15+ years) and lower cost versus NMC/NCA chemistries used in EVs; private-sector example of a Fluence-partnered 100-MW-class storage project. Register per docs/plans/new-mission-playbook.md. Authored by Claude directly (Gemini 3.1 Pro was unavailable for this mission's draft pass due to an API quota limit reached mid-session; content was hand-written to the same standard and iteratively verified against scripts/quality.py and scripts/grammar_range.py).",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "Although rarely discussed outside engineering circles, Taiwan's power grid has already buckled once before under pressure. A single switch failure back in 2022 cascaded into serious outages across a wide share of the island.",
+              "words": 34,
+              "sentences": 2,
+              "avg_sentence_words": 17.0,
+              "fk_grade": 13.6,
+              "long_word_pct": 17.6,
+              "speak_seconds_est": 17.0,
+              "fill_pct": 85.0,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (Gemini draft unavailable due to API quota; hand-authored to the same standard)",
+              "basis": "New mission, no workbook source. Facts: Taiwan 2024 generation ~11.6% renewables with wind generation +66% 2023->2024 (variability now a material grid share); 3 March 2022 cascading blackout triggered by a single switch malfunction at Hsinta Power Plant, Kaohsiung, cutting power to ~5.49M households (~40% of Taiwan) via cascading grid protection trips (Taiwan News/Bloomberg/CommonWealth); TSMC ~9% of national electricity, semiconductor/data-centre demand rising and less predictable (SDxCentral/TrendForce); Taipower reached ~1GW (1,000MW) of grid-connected battery storage in 2025, incl. the Dongshan 60MW site (operating Nov 2024) and a 20MW system at the Tainan salt-field solar farm (Taipower press releases); Taipower AMI/smart-meter rollout passed 3.5M customers (>80% of consumption) by May 2025, target 6M by 2030 and full replacement by 2035, plus a DER Integration program under Taipower's Smart Grid effort; Taiwan storage market ~1GW/3GWh and >1% of global electrochemical storage by 2025, projected toward 20GWh by 2030, market value ~US$3.1bn (2025) toward ~US$9.8bn (2031) (Infolink-group, Mobility Foresights); LFP batteries ~90% of new grid-scale storage worldwide, trading energy density for thermal stability, longer cycle life (thousands of cycles, 10-15+ years) and lower cost versus NMC/NCA chemistries used in EVs; private-sector example of a Fluence-partnered 100-MW-class storage project. Register per docs/plans/new-mission-playbook.md. Authored by Claude directly (Gemini 3.1 Pro was unavailable for this mission's draft pass due to an API quota limit reached mid-session; content was hand-written to the same standard and iteratively verified against scripts/quality.py and scripts/grammar_range.py).",
+              "workbook_text": null
+            }
+          }
+        }
+      ]
+    },
+    {
+      "part_no": 2,
+      "source_description": "Part 2: Problem (Slides 4-6)",
+      "function_en": "Problem",
+      "function_zh": "問題指認：趨勢與因果",
+      "language_pattern": "present progressive for trends / this causes ...",
+      "slides": [
+        {
+          "slide_no": 4,
+          "title": {
+            "en": "When Weather Becomes the Fuel",
+            "zh": "當天氣成為燃料"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Clean power now takes up more and more of our grid. Last year wind power jumped a lot, by about 66 percent. So guessing our future power supply is getting harder.",
+              "words": 31,
+              "sentences": 3,
+              "avg_sentence_words": 10.3,
+              "fk_grade": 5.2,
+              "long_word_pct": 3.2,
+              "speak_seconds_est": 19.6,
+              "fill_pct": 97.9,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (Gemini draft unavailable due to API quota; hand-authored to the same standard)",
+              "basis": "New mission, no workbook source. Facts: Taiwan 2024 generation ~11.6% renewables with wind generation +66% 2023->2024 (variability now a material grid share); 3 March 2022 cascading blackout triggered by a single switch malfunction at Hsinta Power Plant, Kaohsiung, cutting power to ~5.49M households (~40% of Taiwan) via cascading grid protection trips (Taiwan News/Bloomberg/CommonWealth); TSMC ~9% of national electricity, semiconductor/data-centre demand rising and less predictable (SDxCentral/TrendForce); Taipower reached ~1GW (1,000MW) of grid-connected battery storage in 2025, incl. the Dongshan 60MW site (operating Nov 2024) and a 20MW system at the Tainan salt-field solar farm (Taipower press releases); Taipower AMI/smart-meter rollout passed 3.5M customers (>80% of consumption) by May 2025, target 6M by 2030 and full replacement by 2035, plus a DER Integration program under Taipower's Smart Grid effort; Taiwan storage market ~1GW/3GWh and >1% of global electrochemical storage by 2025, projected toward 20GWh by 2030, market value ~US$3.1bn (2025) toward ~US$9.8bn (2031) (Infolink-group, Mobility Foresights); LFP batteries ~90% of new grid-scale storage worldwide, trading energy density for thermal stability, longer cycle life (thousands of cycles, 10-15+ years) and lower cost versus NMC/NCA chemistries used in EVs; private-sector example of a Fluence-partnered 100-MW-class storage project. Register per docs/plans/new-mission-playbook.md. Authored by Claude directly (Gemini 3.1 Pro was unavailable for this mission's draft pass due to an API quota limit reached mid-session; content was hand-written to the same standard and iteratively verified against scripts/quality.py and scripts/grammar_range.py).",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "Renewable power now makes up a growing share of the grid. Wind generation alone has increased by about 66 percent in just one year, which makes supply much harder to forecast.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 9.9,
+              "long_word_pct": 12.9,
+              "speak_seconds_est": 16.9,
+              "fill_pct": 84.5,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (Gemini draft unavailable due to API quota; hand-authored to the same standard)",
+              "basis": "New mission, no workbook source. Facts: Taiwan 2024 generation ~11.6% renewables with wind generation +66% 2023->2024 (variability now a material grid share); 3 March 2022 cascading blackout triggered by a single switch malfunction at Hsinta Power Plant, Kaohsiung, cutting power to ~5.49M households (~40% of Taiwan) via cascading grid protection trips (Taiwan News/Bloomberg/CommonWealth); TSMC ~9% of national electricity, semiconductor/data-centre demand rising and less predictable (SDxCentral/TrendForce); Taipower reached ~1GW (1,000MW) of grid-connected battery storage in 2025, incl. the Dongshan 60MW site (operating Nov 2024) and a 20MW system at the Tainan salt-field solar farm (Taipower press releases); Taipower AMI/smart-meter rollout passed 3.5M customers (>80% of consumption) by May 2025, target 6M by 2030 and full replacement by 2035, plus a DER Integration program under Taipower's Smart Grid effort; Taiwan storage market ~1GW/3GWh and >1% of global electrochemical storage by 2025, projected toward 20GWh by 2030, market value ~US$3.1bn (2025) toward ~US$9.8bn (2031) (Infolink-group, Mobility Foresights); LFP batteries ~90% of new grid-scale storage worldwide, trading energy density for thermal stability, longer cycle life (thousands of cycles, 10-15+ years) and lower cost versus NMC/NCA chemistries used in EVs; private-sector example of a Fluence-partnered 100-MW-class storage project. Register per docs/plans/new-mission-playbook.md. Authored by Claude directly (Gemini 3.1 Pro was unavailable for this mission's draft pass due to an API quota limit reached mid-session; content was hand-written to the same standard and iteratively verified against scripts/quality.py and scripts/grammar_range.py).",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "Renewable generation now dominates the grid's day-to-day swings in output. Wind generation alone has climbed roughly 66 percent in a single year, complicating forecasting far beyond what planners once assumed.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 13.9,
+              "long_word_pct": 26.7,
+              "speak_seconds_est": 15.0,
+              "fill_pct": 75.0,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (Gemini draft unavailable due to API quota; hand-authored to the same standard)",
+              "basis": "New mission, no workbook source. Facts: Taiwan 2024 generation ~11.6% renewables with wind generation +66% 2023->2024 (variability now a material grid share); 3 March 2022 cascading blackout triggered by a single switch malfunction at Hsinta Power Plant, Kaohsiung, cutting power to ~5.49M households (~40% of Taiwan) via cascading grid protection trips (Taiwan News/Bloomberg/CommonWealth); TSMC ~9% of national electricity, semiconductor/data-centre demand rising and less predictable (SDxCentral/TrendForce); Taipower reached ~1GW (1,000MW) of grid-connected battery storage in 2025, incl. the Dongshan 60MW site (operating Nov 2024) and a 20MW system at the Tainan salt-field solar farm (Taipower press releases); Taipower AMI/smart-meter rollout passed 3.5M customers (>80% of consumption) by May 2025, target 6M by 2030 and full replacement by 2035, plus a DER Integration program under Taipower's Smart Grid effort; Taiwan storage market ~1GW/3GWh and >1% of global electrochemical storage by 2025, projected toward 20GWh by 2030, market value ~US$3.1bn (2025) toward ~US$9.8bn (2031) (Infolink-group, Mobility Foresights); LFP batteries ~90% of new grid-scale storage worldwide, trading energy density for thermal stability, longer cycle life (thousands of cycles, 10-15+ years) and lower cost versus NMC/NCA chemistries used in EVs; private-sector example of a Fluence-partnered 100-MW-class storage project. Register per docs/plans/new-mission-playbook.md. Authored by Claude directly (Gemini 3.1 Pro was unavailable for this mission's draft pass due to an API quota limit reached mid-session; content was hand-written to the same standard and iteratively verified against scripts/quality.py and scripts/grammar_range.py).",
+              "workbook_text": null
+            }
+          }
+        },
+        {
+          "slide_no": 5,
+          "title": {
+            "en": "One Switch, Five Million Homes",
+            "zh": "一顆開關，五百萬戶"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "In 2022, one broken switch in the south caused a chain reaction. Power plants shut down one after another. Almost 5.5 million homes lost power that day.",
+              "words": 28,
+              "sentences": 3,
+              "avg_sentence_words": 9.3,
+              "fk_grade": 5.8,
+              "long_word_pct": 3.6,
+              "speak_seconds_est": 17.7,
+              "fill_pct": 88.4,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (Gemini draft unavailable due to API quota; hand-authored to the same standard)",
+              "basis": "New mission, no workbook source. Facts: Taiwan 2024 generation ~11.6% renewables with wind generation +66% 2023->2024 (variability now a material grid share); 3 March 2022 cascading blackout triggered by a single switch malfunction at Hsinta Power Plant, Kaohsiung, cutting power to ~5.49M households (~40% of Taiwan) via cascading grid protection trips (Taiwan News/Bloomberg/CommonWealth); TSMC ~9% of national electricity, semiconductor/data-centre demand rising and less predictable (SDxCentral/TrendForce); Taipower reached ~1GW (1,000MW) of grid-connected battery storage in 2025, incl. the Dongshan 60MW site (operating Nov 2024) and a 20MW system at the Tainan salt-field solar farm (Taipower press releases); Taipower AMI/smart-meter rollout passed 3.5M customers (>80% of consumption) by May 2025, target 6M by 2030 and full replacement by 2035, plus a DER Integration program under Taipower's Smart Grid effort; Taiwan storage market ~1GW/3GWh and >1% of global electrochemical storage by 2025, projected toward 20GWh by 2030, market value ~US$3.1bn (2025) toward ~US$9.8bn (2031) (Infolink-group, Mobility Foresights); LFP batteries ~90% of new grid-scale storage worldwide, trading energy density for thermal stability, longer cycle life (thousands of cycles, 10-15+ years) and lower cost versus NMC/NCA chemistries used in EVs; private-sector example of a Fluence-partnered 100-MW-class storage project. Register per docs/plans/new-mission-playbook.md. Authored by Claude directly (Gemini 3.1 Pro was unavailable for this mission's draft pass due to an API quota limit reached mid-session; content was hand-written to the same standard and iteratively verified against scripts/quality.py and scripts/grammar_range.py).",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "In 2022, one broken switch in the south triggered a chain reaction across three regional grids. Almost 5.5 million households lost power within a short window that day.",
+              "words": 29,
+              "sentences": 2,
+              "avg_sentence_words": 14.5,
+              "fk_grade": 8.8,
+              "long_word_pct": 13.8,
+              "speak_seconds_est": 15.8,
+              "fill_pct": 79.1,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (Gemini draft unavailable due to API quota; hand-authored to the same standard)",
+              "basis": "New mission, no workbook source. Facts: Taiwan 2024 generation ~11.6% renewables with wind generation +66% 2023->2024 (variability now a material grid share); 3 March 2022 cascading blackout triggered by a single switch malfunction at Hsinta Power Plant, Kaohsiung, cutting power to ~5.49M households (~40% of Taiwan) via cascading grid protection trips (Taiwan News/Bloomberg/CommonWealth); TSMC ~9% of national electricity, semiconductor/data-centre demand rising and less predictable (SDxCentral/TrendForce); Taipower reached ~1GW (1,000MW) of grid-connected battery storage in 2025, incl. the Dongshan 60MW site (operating Nov 2024) and a 20MW system at the Tainan salt-field solar farm (Taipower press releases); Taipower AMI/smart-meter rollout passed 3.5M customers (>80% of consumption) by May 2025, target 6M by 2030 and full replacement by 2035, plus a DER Integration program under Taipower's Smart Grid effort; Taiwan storage market ~1GW/3GWh and >1% of global electrochemical storage by 2025, projected toward 20GWh by 2030, market value ~US$3.1bn (2025) toward ~US$9.8bn (2031) (Infolink-group, Mobility Foresights); LFP batteries ~90% of new grid-scale storage worldwide, trading energy density for thermal stability, longer cycle life (thousands of cycles, 10-15+ years) and lower cost versus NMC/NCA chemistries used in EVs; private-sector example of a Fluence-partnered 100-MW-class storage project. Register per docs/plans/new-mission-playbook.md. Authored by Claude directly (Gemini 3.1 Pro was unavailable for this mission's draft pass due to an API quota limit reached mid-session; content was hand-written to the same standard and iteratively verified against scripts/quality.py and scripts/grammar_range.py).",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "Back in 2022, a fault in just one switch located in the south rippled outward, cascading across three separate regional grids at once. Within minutes, almost 5.5 million households were left without electricity.",
+              "words": 34,
+              "sentences": 2,
+              "avg_sentence_words": 17.0,
+              "fk_grade": 11.9,
+              "long_word_pct": 14.7,
+              "speak_seconds_est": 17.0,
+              "fill_pct": 85.0,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (Gemini draft unavailable due to API quota; hand-authored to the same standard)",
+              "basis": "New mission, no workbook source. Facts: Taiwan 2024 generation ~11.6% renewables with wind generation +66% 2023->2024 (variability now a material grid share); 3 March 2022 cascading blackout triggered by a single switch malfunction at Hsinta Power Plant, Kaohsiung, cutting power to ~5.49M households (~40% of Taiwan) via cascading grid protection trips (Taiwan News/Bloomberg/CommonWealth); TSMC ~9% of national electricity, semiconductor/data-centre demand rising and less predictable (SDxCentral/TrendForce); Taipower reached ~1GW (1,000MW) of grid-connected battery storage in 2025, incl. the Dongshan 60MW site (operating Nov 2024) and a 20MW system at the Tainan salt-field solar farm (Taipower press releases); Taipower AMI/smart-meter rollout passed 3.5M customers (>80% of consumption) by May 2025, target 6M by 2030 and full replacement by 2035, plus a DER Integration program under Taipower's Smart Grid effort; Taiwan storage market ~1GW/3GWh and >1% of global electrochemical storage by 2025, projected toward 20GWh by 2030, market value ~US$3.1bn (2025) toward ~US$9.8bn (2031) (Infolink-group, Mobility Foresights); LFP batteries ~90% of new grid-scale storage worldwide, trading energy density for thermal stability, longer cycle life (thousands of cycles, 10-15+ years) and lower cost versus NMC/NCA chemistries used in EVs; private-sector example of a Fluence-partnered 100-MW-class storage project. Register per docs/plans/new-mission-playbook.md. Authored by Claude directly (Gemini 3.1 Pro was unavailable for this mission's draft pass due to an API quota limit reached mid-session; content was hand-written to the same standard and iteratively verified against scripts/quality.py and scripts/grammar_range.py).",
+              "workbook_text": null
+            }
+          }
+        },
+        {
+          "slide_no": 6,
+          "title": {
+            "en": "Chips Draw Power Like Never Before",
+            "zh": "晶片用電前所未見"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Our chip plants now need much more power every year. One plant alone uses about 9 percent of everything we generate. Our grid is too old for this new demand.",
+              "words": 30,
+              "sentences": 3,
+              "avg_sentence_words": 10.0,
+              "fk_grade": 5.2,
+              "long_word_pct": 6.7,
+              "speak_seconds_est": 18.9,
+              "fill_pct": 94.7,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (Gemini draft unavailable due to API quota; hand-authored to the same standard)",
+              "basis": "New mission, no workbook source. Facts: Taiwan 2024 generation ~11.6% renewables with wind generation +66% 2023->2024 (variability now a material grid share); 3 March 2022 cascading blackout triggered by a single switch malfunction at Hsinta Power Plant, Kaohsiung, cutting power to ~5.49M households (~40% of Taiwan) via cascading grid protection trips (Taiwan News/Bloomberg/CommonWealth); TSMC ~9% of national electricity, semiconductor/data-centre demand rising and less predictable (SDxCentral/TrendForce); Taipower reached ~1GW (1,000MW) of grid-connected battery storage in 2025, incl. the Dongshan 60MW site (operating Nov 2024) and a 20MW system at the Tainan salt-field solar farm (Taipower press releases); Taipower AMI/smart-meter rollout passed 3.5M customers (>80% of consumption) by May 2025, target 6M by 2030 and full replacement by 2035, plus a DER Integration program under Taipower's Smart Grid effort; Taiwan storage market ~1GW/3GWh and >1% of global electrochemical storage by 2025, projected toward 20GWh by 2030, market value ~US$3.1bn (2025) toward ~US$9.8bn (2031) (Infolink-group, Mobility Foresights); LFP batteries ~90% of new grid-scale storage worldwide, trading energy density for thermal stability, longer cycle life (thousands of cycles, 10-15+ years) and lower cost versus NMC/NCA chemistries used in EVs; private-sector example of a Fluence-partnered 100-MW-class storage project. Register per docs/plans/new-mission-playbook.md. Authored by Claude directly (Gemini 3.1 Pro was unavailable for this mission's draft pass due to an API quota limit reached mid-session; content was hand-written to the same standard and iteratively verified against scripts/quality.py and scripts/grammar_range.py).",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "Chip factories now draw huge and rising amounts of electricity, and one factory alone uses close to 9 percent of the national total. Our grid was never designed for loads like this.",
+              "words": 32,
+              "sentences": 2,
+              "avg_sentence_words": 16.0,
+              "fk_grade": 9.5,
+              "long_word_pct": 12.5,
+              "speak_seconds_est": 17.5,
+              "fill_pct": 87.3,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (Gemini draft unavailable due to API quota; hand-authored to the same standard)",
+              "basis": "New mission, no workbook source. Facts: Taiwan 2024 generation ~11.6% renewables with wind generation +66% 2023->2024 (variability now a material grid share); 3 March 2022 cascading blackout triggered by a single switch malfunction at Hsinta Power Plant, Kaohsiung, cutting power to ~5.49M households (~40% of Taiwan) via cascading grid protection trips (Taiwan News/Bloomberg/CommonWealth); TSMC ~9% of national electricity, semiconductor/data-centre demand rising and less predictable (SDxCentral/TrendForce); Taipower reached ~1GW (1,000MW) of grid-connected battery storage in 2025, incl. the Dongshan 60MW site (operating Nov 2024) and a 20MW system at the Tainan salt-field solar farm (Taipower press releases); Taipower AMI/smart-meter rollout passed 3.5M customers (>80% of consumption) by May 2025, target 6M by 2030 and full replacement by 2035, plus a DER Integration program under Taipower's Smart Grid effort; Taiwan storage market ~1GW/3GWh and >1% of global electrochemical storage by 2025, projected toward 20GWh by 2030, market value ~US$3.1bn (2025) toward ~US$9.8bn (2031) (Infolink-group, Mobility Foresights); LFP batteries ~90% of new grid-scale storage worldwide, trading energy density for thermal stability, longer cycle life (thousands of cycles, 10-15+ years) and lower cost versus NMC/NCA chemistries used in EVs; private-sector example of a Fluence-partnered 100-MW-class storage project. Register per docs/plans/new-mission-playbook.md. Authored by Claude directly (Gemini 3.1 Pro was unavailable for this mission's draft pass due to an API quota limit reached mid-session; content was hand-written to the same standard and iteratively verified against scripts/quality.py and scripts/grammar_range.py).",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "Chip plants now use an enormous and steadily growing share of national power. One firm alone accounts for roughly 9 percent of total demand that older infrastructure was never designed for.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 10.2,
+              "long_word_pct": 19.4,
+              "speak_seconds_est": 15.5,
+              "fill_pct": 77.5,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (Gemini draft unavailable due to API quota; hand-authored to the same standard)",
+              "basis": "New mission, no workbook source. Facts: Taiwan 2024 generation ~11.6% renewables with wind generation +66% 2023->2024 (variability now a material grid share); 3 March 2022 cascading blackout triggered by a single switch malfunction at Hsinta Power Plant, Kaohsiung, cutting power to ~5.49M households (~40% of Taiwan) via cascading grid protection trips (Taiwan News/Bloomberg/CommonWealth); TSMC ~9% of national electricity, semiconductor/data-centre demand rising and less predictable (SDxCentral/TrendForce); Taipower reached ~1GW (1,000MW) of grid-connected battery storage in 2025, incl. the Dongshan 60MW site (operating Nov 2024) and a 20MW system at the Tainan salt-field solar farm (Taipower press releases); Taipower AMI/smart-meter rollout passed 3.5M customers (>80% of consumption) by May 2025, target 6M by 2030 and full replacement by 2035, plus a DER Integration program under Taipower's Smart Grid effort; Taiwan storage market ~1GW/3GWh and >1% of global electrochemical storage by 2025, projected toward 20GWh by 2030, market value ~US$3.1bn (2025) toward ~US$9.8bn (2031) (Infolink-group, Mobility Foresights); LFP batteries ~90% of new grid-scale storage worldwide, trading energy density for thermal stability, longer cycle life (thousands of cycles, 10-15+ years) and lower cost versus NMC/NCA chemistries used in EVs; private-sector example of a Fluence-partnered 100-MW-class storage project. Register per docs/plans/new-mission-playbook.md. Authored by Claude directly (Gemini 3.1 Pro was unavailable for this mission's draft pass due to an API quota limit reached mid-session; content was hand-written to the same standard and iteratively verified against scripts/quality.py and scripts/grammar_range.py).",
+              "workbook_text": null
+            }
+          }
+        }
+      ]
+    },
+    {
+      "part_no": 3,
+      "source_description": "Part 3: Achievements (Slides 7-9)",
+      "function_en": "Achievements",
+      "function_zh": "成果：舉證與比較",
+      "language_pattern": "present perfect / comparatives",
+      "slides": [
+        {
+          "slide_no": 7,
+          "title": {
+            "en": "Taipower Passes One Gigawatt of Storage",
+            "zh": "台電儲能突破一吉瓦"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Taipower has now built a huge amount of battery storage. The Dongshan site started work in November 2024. That storage is real and working today.",
+              "words": 25,
+              "sentences": 3,
+              "avg_sentence_words": 8.3,
+              "fk_grade": 7.0,
+              "long_word_pct": 12.0,
+              "speak_seconds_est": 15.8,
+              "fill_pct": 78.9,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (Gemini draft unavailable due to API quota; hand-authored to the same standard)",
+              "basis": "New mission, no workbook source. Facts: Taiwan 2024 generation ~11.6% renewables with wind generation +66% 2023->2024 (variability now a material grid share); 3 March 2022 cascading blackout triggered by a single switch malfunction at Hsinta Power Plant, Kaohsiung, cutting power to ~5.49M households (~40% of Taiwan) via cascading grid protection trips (Taiwan News/Bloomberg/CommonWealth); TSMC ~9% of national electricity, semiconductor/data-centre demand rising and less predictable (SDxCentral/TrendForce); Taipower reached ~1GW (1,000MW) of grid-connected battery storage in 2025, incl. the Dongshan 60MW site (operating Nov 2024) and a 20MW system at the Tainan salt-field solar farm (Taipower press releases); Taipower AMI/smart-meter rollout passed 3.5M customers (>80% of consumption) by May 2025, target 6M by 2030 and full replacement by 2035, plus a DER Integration program under Taipower's Smart Grid effort; Taiwan storage market ~1GW/3GWh and >1% of global electrochemical storage by 2025, projected toward 20GWh by 2030, market value ~US$3.1bn (2025) toward ~US$9.8bn (2031) (Infolink-group, Mobility Foresights); LFP batteries ~90% of new grid-scale storage worldwide, trading energy density for thermal stability, longer cycle life (thousands of cycles, 10-15+ years) and lower cost versus NMC/NCA chemistries used in EVs; private-sector example of a Fluence-partnered 100-MW-class storage project. Register per docs/plans/new-mission-playbook.md. Authored by Claude directly (Gemini 3.1 Pro was unavailable for this mission's draft pass due to an API quota limit reached mid-session; content was hand-written to the same standard and iteratively verified against scripts/quality.py and scripts/grammar_range.py).",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "Taipower has now reached about one full gigawatt of battery storage connected to the grid. One site, at Dongshan, started running in November 2024, clearly showing the idea works at real scale.",
+              "words": 32,
+              "sentences": 2,
+              "avg_sentence_words": 16.0,
+              "fk_grade": 10.9,
+              "long_word_pct": 15.6,
+              "speak_seconds_est": 17.5,
+              "fill_pct": 87.3,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (Gemini draft unavailable due to API quota; hand-authored to the same standard)",
+              "basis": "New mission, no workbook source. Facts: Taiwan 2024 generation ~11.6% renewables with wind generation +66% 2023->2024 (variability now a material grid share); 3 March 2022 cascading blackout triggered by a single switch malfunction at Hsinta Power Plant, Kaohsiung, cutting power to ~5.49M households (~40% of Taiwan) via cascading grid protection trips (Taiwan News/Bloomberg/CommonWealth); TSMC ~9% of national electricity, semiconductor/data-centre demand rising and less predictable (SDxCentral/TrendForce); Taipower reached ~1GW (1,000MW) of grid-connected battery storage in 2025, incl. the Dongshan 60MW site (operating Nov 2024) and a 20MW system at the Tainan salt-field solar farm (Taipower press releases); Taipower AMI/smart-meter rollout passed 3.5M customers (>80% of consumption) by May 2025, target 6M by 2030 and full replacement by 2035, plus a DER Integration program under Taipower's Smart Grid effort; Taiwan storage market ~1GW/3GWh and >1% of global electrochemical storage by 2025, projected toward 20GWh by 2030, market value ~US$3.1bn (2025) toward ~US$9.8bn (2031) (Infolink-group, Mobility Foresights); LFP batteries ~90% of new grid-scale storage worldwide, trading energy density for thermal stability, longer cycle life (thousands of cycles, 10-15+ years) and lower cost versus NMC/NCA chemistries used in EVs; private-sector example of a Fluence-partnered 100-MW-class storage project. Register per docs/plans/new-mission-playbook.md. Authored by Claude directly (Gemini 3.1 Pro was unavailable for this mission's draft pass due to an API quota limit reached mid-session; content was hand-written to the same standard and iteratively verified against scripts/quality.py and scripts/grammar_range.py).",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "Battery storage on Taiwan's whole grid has now passed one full gigawatt in total. That milestone came partly from the Dongshan site, which first started running back in November 2024.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 9.9,
+              "long_word_pct": 16.7,
+              "speak_seconds_est": 15.0,
+              "fill_pct": 75.0,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (Gemini draft unavailable due to API quota; hand-authored to the same standard)",
+              "basis": "New mission, no workbook source. Facts: Taiwan 2024 generation ~11.6% renewables with wind generation +66% 2023->2024 (variability now a material grid share); 3 March 2022 cascading blackout triggered by a single switch malfunction at Hsinta Power Plant, Kaohsiung, cutting power to ~5.49M households (~40% of Taiwan) via cascading grid protection trips (Taiwan News/Bloomberg/CommonWealth); TSMC ~9% of national electricity, semiconductor/data-centre demand rising and less predictable (SDxCentral/TrendForce); Taipower reached ~1GW (1,000MW) of grid-connected battery storage in 2025, incl. the Dongshan 60MW site (operating Nov 2024) and a 20MW system at the Tainan salt-field solar farm (Taipower press releases); Taipower AMI/smart-meter rollout passed 3.5M customers (>80% of consumption) by May 2025, target 6M by 2030 and full replacement by 2035, plus a DER Integration program under Taipower's Smart Grid effort; Taiwan storage market ~1GW/3GWh and >1% of global electrochemical storage by 2025, projected toward 20GWh by 2030, market value ~US$3.1bn (2025) toward ~US$9.8bn (2031) (Infolink-group, Mobility Foresights); LFP batteries ~90% of new grid-scale storage worldwide, trading energy density for thermal stability, longer cycle life (thousands of cycles, 10-15+ years) and lower cost versus NMC/NCA chemistries used in EVs; private-sector example of a Fluence-partnered 100-MW-class storage project. Register per docs/plans/new-mission-playbook.md. Authored by Claude directly (Gemini 3.1 Pro was unavailable for this mission's draft pass due to an API quota limit reached mid-session; content was hand-written to the same standard and iteratively verified against scripts/quality.py and scripts/grammar_range.py).",
+              "workbook_text": null
+            }
+          }
+        },
+        {
+          "slide_no": 8,
+          "title": {
+            "en": "3.5 Million Meters, Talking Back",
+            "zh": "350萬顆電表，開始回話"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Smart meters now sit in over 3.5 million homes. They send data back to Taipower all day. That data helps the grid react much faster.",
+              "words": 26,
+              "sentences": 3,
+              "avg_sentence_words": 8.7,
+              "fk_grade": 3.7,
+              "long_word_pct": 3.8,
+              "speak_seconds_est": 16.4,
+              "fill_pct": 82.1,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (Gemini draft unavailable due to API quota; hand-authored to the same standard)",
+              "basis": "New mission, no workbook source. Facts: Taiwan 2024 generation ~11.6% renewables with wind generation +66% 2023->2024 (variability now a material grid share); 3 March 2022 cascading blackout triggered by a single switch malfunction at Hsinta Power Plant, Kaohsiung, cutting power to ~5.49M households (~40% of Taiwan) via cascading grid protection trips (Taiwan News/Bloomberg/CommonWealth); TSMC ~9% of national electricity, semiconductor/data-centre demand rising and less predictable (SDxCentral/TrendForce); Taipower reached ~1GW (1,000MW) of grid-connected battery storage in 2025, incl. the Dongshan 60MW site (operating Nov 2024) and a 20MW system at the Tainan salt-field solar farm (Taipower press releases); Taipower AMI/smart-meter rollout passed 3.5M customers (>80% of consumption) by May 2025, target 6M by 2030 and full replacement by 2035, plus a DER Integration program under Taipower's Smart Grid effort; Taiwan storage market ~1GW/3GWh and >1% of global electrochemical storage by 2025, projected toward 20GWh by 2030, market value ~US$3.1bn (2025) toward ~US$9.8bn (2031) (Infolink-group, Mobility Foresights); LFP batteries ~90% of new grid-scale storage worldwide, trading energy density for thermal stability, longer cycle life (thousands of cycles, 10-15+ years) and lower cost versus NMC/NCA chemistries used in EVs; private-sector example of a Fluence-partnered 100-MW-class storage project. Register per docs/plans/new-mission-playbook.md. Authored by Claude directly (Gemini 3.1 Pro was unavailable for this mission's draft pass due to an API quota limit reached mid-session; content was hand-written to the same standard and iteratively verified against scripts/quality.py and scripts/grammar_range.py).",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "Taipower has installed smart meters for over 3.5 million customers, reaching more than 80 percent of all power use. That real-time data is exactly what a smart grid needs.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 8.7,
+              "long_word_pct": 16.7,
+              "speak_seconds_est": 16.4,
+              "fill_pct": 81.8,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (Gemini draft unavailable due to API quota; hand-authored to the same standard)",
+              "basis": "New mission, no workbook source. Facts: Taiwan 2024 generation ~11.6% renewables with wind generation +66% 2023->2024 (variability now a material grid share); 3 March 2022 cascading blackout triggered by a single switch malfunction at Hsinta Power Plant, Kaohsiung, cutting power to ~5.49M households (~40% of Taiwan) via cascading grid protection trips (Taiwan News/Bloomberg/CommonWealth); TSMC ~9% of national electricity, semiconductor/data-centre demand rising and less predictable (SDxCentral/TrendForce); Taipower reached ~1GW (1,000MW) of grid-connected battery storage in 2025, incl. the Dongshan 60MW site (operating Nov 2024) and a 20MW system at the Tainan salt-field solar farm (Taipower press releases); Taipower AMI/smart-meter rollout passed 3.5M customers (>80% of consumption) by May 2025, target 6M by 2030 and full replacement by 2035, plus a DER Integration program under Taipower's Smart Grid effort; Taiwan storage market ~1GW/3GWh and >1% of global electrochemical storage by 2025, projected toward 20GWh by 2030, market value ~US$3.1bn (2025) toward ~US$9.8bn (2031) (Infolink-group, Mobility Foresights); LFP batteries ~90% of new grid-scale storage worldwide, trading energy density for thermal stability, longer cycle life (thousands of cycles, 10-15+ years) and lower cost versus NMC/NCA chemistries used in EVs; private-sector example of a Fluence-partnered 100-MW-class storage project. Register per docs/plans/new-mission-playbook.md. Authored by Claude directly (Gemini 3.1 Pro was unavailable for this mission's draft pass due to an API quota limit reached mid-session; content was hand-written to the same standard and iteratively verified against scripts/quality.py and scripts/grammar_range.py).",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "More than 3.5 million customers across Taiwan now have a Taipower smart meter installed, covering upwards of 80 percent of the country's total power consumption. That constant flow of data is exactly what a modern grid depends on.",
+              "words": 39,
+              "sentences": 2,
+              "avg_sentence_words": 19.5,
+              "fk_grade": 11.7,
+              "long_word_pct": 17.9,
+              "speak_seconds_est": 19.5,
+              "fill_pct": 97.5,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (Gemini draft unavailable due to API quota; hand-authored to the same standard)",
+              "basis": "New mission, no workbook source. Facts: Taiwan 2024 generation ~11.6% renewables with wind generation +66% 2023->2024 (variability now a material grid share); 3 March 2022 cascading blackout triggered by a single switch malfunction at Hsinta Power Plant, Kaohsiung, cutting power to ~5.49M households (~40% of Taiwan) via cascading grid protection trips (Taiwan News/Bloomberg/CommonWealth); TSMC ~9% of national electricity, semiconductor/data-centre demand rising and less predictable (SDxCentral/TrendForce); Taipower reached ~1GW (1,000MW) of grid-connected battery storage in 2025, incl. the Dongshan 60MW site (operating Nov 2024) and a 20MW system at the Tainan salt-field solar farm (Taipower press releases); Taipower AMI/smart-meter rollout passed 3.5M customers (>80% of consumption) by May 2025, target 6M by 2030 and full replacement by 2035, plus a DER Integration program under Taipower's Smart Grid effort; Taiwan storage market ~1GW/3GWh and >1% of global electrochemical storage by 2025, projected toward 20GWh by 2030, market value ~US$3.1bn (2025) toward ~US$9.8bn (2031) (Infolink-group, Mobility Foresights); LFP batteries ~90% of new grid-scale storage worldwide, trading energy density for thermal stability, longer cycle life (thousands of cycles, 10-15+ years) and lower cost versus NMC/NCA chemistries used in EVs; private-sector example of a Fluence-partnered 100-MW-class storage project. Register per docs/plans/new-mission-playbook.md. Authored by Claude directly (Gemini 3.1 Pro was unavailable for this mission's draft pass due to an API quota limit reached mid-session; content was hand-written to the same standard and iteratively verified against scripts/quality.py and scripts/grammar_range.py).",
+              "workbook_text": null
+            }
+          }
+        },
+        {
+          "slide_no": 9,
+          "title": {
+            "en": "From a Niche Market to a Growth Story",
+            "zh": "從利基市場到成長故事"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Taiwan's storage market was once quite small. Now it is a growing business worth billions of dollars already. By 2030 it could grow even bigger than today.",
+              "words": 27,
+              "sentences": 3,
+              "avg_sentence_words": 9.0,
+              "fk_grade": 6.7,
+              "long_word_pct": 11.1,
+              "speak_seconds_est": 17.1,
+              "fill_pct": 85.3,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (Gemini draft unavailable due to API quota; hand-authored to the same standard)",
+              "basis": "New mission, no workbook source. Facts: Taiwan 2024 generation ~11.6% renewables with wind generation +66% 2023->2024 (variability now a material grid share); 3 March 2022 cascading blackout triggered by a single switch malfunction at Hsinta Power Plant, Kaohsiung, cutting power to ~5.49M households (~40% of Taiwan) via cascading grid protection trips (Taiwan News/Bloomberg/CommonWealth); TSMC ~9% of national electricity, semiconductor/data-centre demand rising and less predictable (SDxCentral/TrendForce); Taipower reached ~1GW (1,000MW) of grid-connected battery storage in 2025, incl. the Dongshan 60MW site (operating Nov 2024) and a 20MW system at the Tainan salt-field solar farm (Taipower press releases); Taipower AMI/smart-meter rollout passed 3.5M customers (>80% of consumption) by May 2025, target 6M by 2030 and full replacement by 2035, plus a DER Integration program under Taipower's Smart Grid effort; Taiwan storage market ~1GW/3GWh and >1% of global electrochemical storage by 2025, projected toward 20GWh by 2030, market value ~US$3.1bn (2025) toward ~US$9.8bn (2031) (Infolink-group, Mobility Foresights); LFP batteries ~90% of new grid-scale storage worldwide, trading energy density for thermal stability, longer cycle life (thousands of cycles, 10-15+ years) and lower cost versus NMC/NCA chemistries used in EVs; private-sector example of a Fluence-partnered 100-MW-class storage project. Register per docs/plans/new-mission-playbook.md. Authored by Claude directly (Gemini 3.1 Pro was unavailable for this mission's draft pass due to an API quota limit reached mid-session; content was hand-written to the same standard and iteratively verified against scripts/quality.py and scripts/grammar_range.py).",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "Taiwan's whole storage market has grown from a tiny niche into a business worth billions of dollars. One forecast expects it to keep expanding sharply all the way through 2030.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 9.5,
+              "long_word_pct": 16.7,
+              "speak_seconds_est": 16.4,
+              "fill_pct": 81.8,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (Gemini draft unavailable due to API quota; hand-authored to the same standard)",
+              "basis": "New mission, no workbook source. Facts: Taiwan 2024 generation ~11.6% renewables with wind generation +66% 2023->2024 (variability now a material grid share); 3 March 2022 cascading blackout triggered by a single switch malfunction at Hsinta Power Plant, Kaohsiung, cutting power to ~5.49M households (~40% of Taiwan) via cascading grid protection trips (Taiwan News/Bloomberg/CommonWealth); TSMC ~9% of national electricity, semiconductor/data-centre demand rising and less predictable (SDxCentral/TrendForce); Taipower reached ~1GW (1,000MW) of grid-connected battery storage in 2025, incl. the Dongshan 60MW site (operating Nov 2024) and a 20MW system at the Tainan salt-field solar farm (Taipower press releases); Taipower AMI/smart-meter rollout passed 3.5M customers (>80% of consumption) by May 2025, target 6M by 2030 and full replacement by 2035, plus a DER Integration program under Taipower's Smart Grid effort; Taiwan storage market ~1GW/3GWh and >1% of global electrochemical storage by 2025, projected toward 20GWh by 2030, market value ~US$3.1bn (2025) toward ~US$9.8bn (2031) (Infolink-group, Mobility Foresights); LFP batteries ~90% of new grid-scale storage worldwide, trading energy density for thermal stability, longer cycle life (thousands of cycles, 10-15+ years) and lower cost versus NMC/NCA chemistries used in EVs; private-sector example of a Fluence-partnered 100-MW-class storage project. Register per docs/plans/new-mission-playbook.md. Authored by Claude directly (Gemini 3.1 Pro was unavailable for this mission's draft pass due to an API quota limit reached mid-session; content was hand-written to the same standard and iteratively verified against scripts/quality.py and scripts/grammar_range.py).",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "Taiwan's whole energy-storage sector has expanded from a fairly tiny niche into an industry worth billions of dollars today. One projection expects continued rapid growth all the way through 2030.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 12.3,
+              "long_word_pct": 23.3,
+              "speak_seconds_est": 15.0,
+              "fill_pct": 75.0,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (Gemini draft unavailable due to API quota; hand-authored to the same standard)",
+              "basis": "New mission, no workbook source. Facts: Taiwan 2024 generation ~11.6% renewables with wind generation +66% 2023->2024 (variability now a material grid share); 3 March 2022 cascading blackout triggered by a single switch malfunction at Hsinta Power Plant, Kaohsiung, cutting power to ~5.49M households (~40% of Taiwan) via cascading grid protection trips (Taiwan News/Bloomberg/CommonWealth); TSMC ~9% of national electricity, semiconductor/data-centre demand rising and less predictable (SDxCentral/TrendForce); Taipower reached ~1GW (1,000MW) of grid-connected battery storage in 2025, incl. the Dongshan 60MW site (operating Nov 2024) and a 20MW system at the Tainan salt-field solar farm (Taipower press releases); Taipower AMI/smart-meter rollout passed 3.5M customers (>80% of consumption) by May 2025, target 6M by 2030 and full replacement by 2035, plus a DER Integration program under Taipower's Smart Grid effort; Taiwan storage market ~1GW/3GWh and >1% of global electrochemical storage by 2025, projected toward 20GWh by 2030, market value ~US$3.1bn (2025) toward ~US$9.8bn (2031) (Infolink-group, Mobility Foresights); LFP batteries ~90% of new grid-scale storage worldwide, trading energy density for thermal stability, longer cycle life (thousands of cycles, 10-15+ years) and lower cost versus NMC/NCA chemistries used in EVs; private-sector example of a Fluence-partnered 100-MW-class storage project. Register per docs/plans/new-mission-playbook.md. Authored by Claude directly (Gemini 3.1 Pro was unavailable for this mission's draft pass due to an API quota limit reached mid-session; content was hand-written to the same standard and iteratively verified against scripts/quality.py and scripts/grammar_range.py).",
+              "workbook_text": null
+            }
+          }
+        }
+      ]
+    },
+    {
+      "part_no": 4,
+      "source_description": "Part 4: Solutions (Slides 10-12)",
+      "function_en": "Solutions",
+      "function_zh": "解方：做法與取捨",
+      "language_pattern": "instead of + V-ing / modal verbs",
+      "slides": [
+        {
+          "slide_no": 10,
+          "title": {
+            "en": "Why Grid Batteries Choose Safety Over Range",
+            "zh": "電網儲能為何選安全不選續航"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Grid batteries do not need long range like a car battery. Instead, they need to be safe and last for years. So most now use a different battery type.",
+              "words": 29,
+              "sentences": 3,
+              "avg_sentence_words": 9.7,
+              "fk_grade": 3.6,
+              "long_word_pct": 6.9,
+              "speak_seconds_est": 18.3,
+              "fill_pct": 91.6,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (Gemini draft unavailable due to API quota; hand-authored to the same standard)",
+              "basis": "New mission, no workbook source. Facts: Taiwan 2024 generation ~11.6% renewables with wind generation +66% 2023->2024 (variability now a material grid share); 3 March 2022 cascading blackout triggered by a single switch malfunction at Hsinta Power Plant, Kaohsiung, cutting power to ~5.49M households (~40% of Taiwan) via cascading grid protection trips (Taiwan News/Bloomberg/CommonWealth); TSMC ~9% of national electricity, semiconductor/data-centre demand rising and less predictable (SDxCentral/TrendForce); Taipower reached ~1GW (1,000MW) of grid-connected battery storage in 2025, incl. the Dongshan 60MW site (operating Nov 2024) and a 20MW system at the Tainan salt-field solar farm (Taipower press releases); Taipower AMI/smart-meter rollout passed 3.5M customers (>80% of consumption) by May 2025, target 6M by 2030 and full replacement by 2035, plus a DER Integration program under Taipower's Smart Grid effort; Taiwan storage market ~1GW/3GWh and >1% of global electrochemical storage by 2025, projected toward 20GWh by 2030, market value ~US$3.1bn (2025) toward ~US$9.8bn (2031) (Infolink-group, Mobility Foresights); LFP batteries ~90% of new grid-scale storage worldwide, trading energy density for thermal stability, longer cycle life (thousands of cycles, 10-15+ years) and lower cost versus NMC/NCA chemistries used in EVs; private-sector example of a Fluence-partnered 100-MW-class storage project. Register per docs/plans/new-mission-playbook.md. Authored by Claude directly (Gemini 3.1 Pro was unavailable for this mission's draft pass due to an API quota limit reached mid-session; content was hand-written to the same standard and iteratively verified against scripts/quality.py and scripts/grammar_range.py).",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "Instead of the dense chemistry used in electric cars, most new grid batteries now use a chemistry called LFP. This trades away some range for safety and a longer working life.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 8.7,
+              "long_word_pct": 12.9,
+              "speak_seconds_est": 16.9,
+              "fill_pct": 84.5,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (Gemini draft unavailable due to API quota; hand-authored to the same standard)",
+              "basis": "New mission, no workbook source. Facts: Taiwan 2024 generation ~11.6% renewables with wind generation +66% 2023->2024 (variability now a material grid share); 3 March 2022 cascading blackout triggered by a single switch malfunction at Hsinta Power Plant, Kaohsiung, cutting power to ~5.49M households (~40% of Taiwan) via cascading grid protection trips (Taiwan News/Bloomberg/CommonWealth); TSMC ~9% of national electricity, semiconductor/data-centre demand rising and less predictable (SDxCentral/TrendForce); Taipower reached ~1GW (1,000MW) of grid-connected battery storage in 2025, incl. the Dongshan 60MW site (operating Nov 2024) and a 20MW system at the Tainan salt-field solar farm (Taipower press releases); Taipower AMI/smart-meter rollout passed 3.5M customers (>80% of consumption) by May 2025, target 6M by 2030 and full replacement by 2035, plus a DER Integration program under Taipower's Smart Grid effort; Taiwan storage market ~1GW/3GWh and >1% of global electrochemical storage by 2025, projected toward 20GWh by 2030, market value ~US$3.1bn (2025) toward ~US$9.8bn (2031) (Infolink-group, Mobility Foresights); LFP batteries ~90% of new grid-scale storage worldwide, trading energy density for thermal stability, longer cycle life (thousands of cycles, 10-15+ years) and lower cost versus NMC/NCA chemistries used in EVs; private-sector example of a Fluence-partnered 100-MW-class storage project. Register per docs/plans/new-mission-playbook.md. Authored by Claude directly (Gemini 3.1 Pro was unavailable for this mission's draft pass due to an API quota limit reached mid-session; content was hand-written to the same standard and iteratively verified against scripts/quality.py and scripts/grammar_range.py).",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "Rather than the energy-dense chemistry used in electric cars, most new grid-scale batteries rely on a chemistry known as LFP. That choice trades away some range for durability, safety and lower cost.",
+              "words": 32,
+              "sentences": 2,
+              "avg_sentence_words": 16.0,
+              "fk_grade": 11.7,
+              "long_word_pct": 21.9,
+              "speak_seconds_est": 16.0,
+              "fill_pct": 80.0,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (Gemini draft unavailable due to API quota; hand-authored to the same standard)",
+              "basis": "New mission, no workbook source. Facts: Taiwan 2024 generation ~11.6% renewables with wind generation +66% 2023->2024 (variability now a material grid share); 3 March 2022 cascading blackout triggered by a single switch malfunction at Hsinta Power Plant, Kaohsiung, cutting power to ~5.49M households (~40% of Taiwan) via cascading grid protection trips (Taiwan News/Bloomberg/CommonWealth); TSMC ~9% of national electricity, semiconductor/data-centre demand rising and less predictable (SDxCentral/TrendForce); Taipower reached ~1GW (1,000MW) of grid-connected battery storage in 2025, incl. the Dongshan 60MW site (operating Nov 2024) and a 20MW system at the Tainan salt-field solar farm (Taipower press releases); Taipower AMI/smart-meter rollout passed 3.5M customers (>80% of consumption) by May 2025, target 6M by 2030 and full replacement by 2035, plus a DER Integration program under Taipower's Smart Grid effort; Taiwan storage market ~1GW/3GWh and >1% of global electrochemical storage by 2025, projected toward 20GWh by 2030, market value ~US$3.1bn (2025) toward ~US$9.8bn (2031) (Infolink-group, Mobility Foresights); LFP batteries ~90% of new grid-scale storage worldwide, trading energy density for thermal stability, longer cycle life (thousands of cycles, 10-15+ years) and lower cost versus NMC/NCA chemistries used in EVs; private-sector example of a Fluence-partnered 100-MW-class storage project. Register per docs/plans/new-mission-playbook.md. Authored by Claude directly (Gemini 3.1 Pro was unavailable for this mission's draft pass due to an API quota limit reached mid-session; content was hand-written to the same standard and iteratively verified against scripts/quality.py and scripts/grammar_range.py).",
+              "workbook_text": null
+            }
+          }
+        },
+        {
+          "slide_no": 11,
+          "title": {
+            "en": "Software Moves the Power Now",
+            "zh": "現在是軟體在調度電力"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "This type is called LFP. It is safer and lasts far longer than other types. Most new grid batteries in the world now use it.",
+              "words": 25,
+              "sentences": 3,
+              "avg_sentence_words": 8.3,
+              "fk_grade": 2.8,
+              "long_word_pct": 4.0,
+              "speak_seconds_est": 15.8,
+              "fill_pct": 78.9,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (Gemini draft unavailable due to API quota; hand-authored to the same standard)",
+              "basis": "New mission, no workbook source. Facts: Taiwan 2024 generation ~11.6% renewables with wind generation +66% 2023->2024 (variability now a material grid share); 3 March 2022 cascading blackout triggered by a single switch malfunction at Hsinta Power Plant, Kaohsiung, cutting power to ~5.49M households (~40% of Taiwan) via cascading grid protection trips (Taiwan News/Bloomberg/CommonWealth); TSMC ~9% of national electricity, semiconductor/data-centre demand rising and less predictable (SDxCentral/TrendForce); Taipower reached ~1GW (1,000MW) of grid-connected battery storage in 2025, incl. the Dongshan 60MW site (operating Nov 2024) and a 20MW system at the Tainan salt-field solar farm (Taipower press releases); Taipower AMI/smart-meter rollout passed 3.5M customers (>80% of consumption) by May 2025, target 6M by 2030 and full replacement by 2035, plus a DER Integration program under Taipower's Smart Grid effort; Taiwan storage market ~1GW/3GWh and >1% of global electrochemical storage by 2025, projected toward 20GWh by 2030, market value ~US$3.1bn (2025) toward ~US$9.8bn (2031) (Infolink-group, Mobility Foresights); LFP batteries ~90% of new grid-scale storage worldwide, trading energy density for thermal stability, longer cycle life (thousands of cycles, 10-15+ years) and lower cost versus NMC/NCA chemistries used in EVs; private-sector example of a Fluence-partnered 100-MW-class storage project. Register per docs/plans/new-mission-playbook.md. Authored by Claude directly (Gemini 3.1 Pro was unavailable for this mission's draft pass due to an API quota limit reached mid-session; content was hand-written to the same standard and iteratively verified against scripts/quality.py and scripts/grammar_range.py).",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "LFP battery cells last through thousands of charging cycles and rarely ever catch fire. That combination matters more for a fixed grid battery than raw energy density ever could.",
+              "words": 29,
+              "sentences": 2,
+              "avg_sentence_words": 14.5,
+              "fk_grade": 10.0,
+              "long_word_pct": 10.3,
+              "speak_seconds_est": 15.8,
+              "fill_pct": 79.1,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (Gemini draft unavailable due to API quota; hand-authored to the same standard)",
+              "basis": "New mission, no workbook source. Facts: Taiwan 2024 generation ~11.6% renewables with wind generation +66% 2023->2024 (variability now a material grid share); 3 March 2022 cascading blackout triggered by a single switch malfunction at Hsinta Power Plant, Kaohsiung, cutting power to ~5.49M households (~40% of Taiwan) via cascading grid protection trips (Taiwan News/Bloomberg/CommonWealth); TSMC ~9% of national electricity, semiconductor/data-centre demand rising and less predictable (SDxCentral/TrendForce); Taipower reached ~1GW (1,000MW) of grid-connected battery storage in 2025, incl. the Dongshan 60MW site (operating Nov 2024) and a 20MW system at the Tainan salt-field solar farm (Taipower press releases); Taipower AMI/smart-meter rollout passed 3.5M customers (>80% of consumption) by May 2025, target 6M by 2030 and full replacement by 2035, plus a DER Integration program under Taipower's Smart Grid effort; Taiwan storage market ~1GW/3GWh and >1% of global electrochemical storage by 2025, projected toward 20GWh by 2030, market value ~US$3.1bn (2025) toward ~US$9.8bn (2031) (Infolink-group, Mobility Foresights); LFP batteries ~90% of new grid-scale storage worldwide, trading energy density for thermal stability, longer cycle life (thousands of cycles, 10-15+ years) and lower cost versus NMC/NCA chemistries used in EVs; private-sector example of a Fluence-partnered 100-MW-class storage project. Register per docs/plans/new-mission-playbook.md. Authored by Claude directly (Gemini 3.1 Pro was unavailable for this mission's draft pass due to an API quota limit reached mid-session; content was hand-written to the same standard and iteratively verified against scripts/quality.py and scripts/grammar_range.py).",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "Built for thousands of charge cycles, LFP cells also resist fire remarkably well. That combination suits stationary grid storage far better than the raw energy density that vehicles prize, while keeping overall costs relatively low.",
+              "words": 35,
+              "sentences": 2,
+              "avg_sentence_words": 17.5,
+              "fk_grade": 12.8,
+              "long_word_pct": 17.1,
+              "speak_seconds_est": 17.5,
+              "fill_pct": 87.5,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (Gemini draft unavailable due to API quota; hand-authored to the same standard)",
+              "basis": "New mission, no workbook source. Facts: Taiwan 2024 generation ~11.6% renewables with wind generation +66% 2023->2024 (variability now a material grid share); 3 March 2022 cascading blackout triggered by a single switch malfunction at Hsinta Power Plant, Kaohsiung, cutting power to ~5.49M households (~40% of Taiwan) via cascading grid protection trips (Taiwan News/Bloomberg/CommonWealth); TSMC ~9% of national electricity, semiconductor/data-centre demand rising and less predictable (SDxCentral/TrendForce); Taipower reached ~1GW (1,000MW) of grid-connected battery storage in 2025, incl. the Dongshan 60MW site (operating Nov 2024) and a 20MW system at the Tainan salt-field solar farm (Taipower press releases); Taipower AMI/smart-meter rollout passed 3.5M customers (>80% of consumption) by May 2025, target 6M by 2030 and full replacement by 2035, plus a DER Integration program under Taipower's Smart Grid effort; Taiwan storage market ~1GW/3GWh and >1% of global electrochemical storage by 2025, projected toward 20GWh by 2030, market value ~US$3.1bn (2025) toward ~US$9.8bn (2031) (Infolink-group, Mobility Foresights); LFP batteries ~90% of new grid-scale storage worldwide, trading energy density for thermal stability, longer cycle life (thousands of cycles, 10-15+ years) and lower cost versus NMC/NCA chemistries used in EVs; private-sector example of a Fluence-partnered 100-MW-class storage project. Register per docs/plans/new-mission-playbook.md. Authored by Claude directly (Gemini 3.1 Pro was unavailable for this mission's draft pass due to an API quota limit reached mid-session; content was hand-written to the same standard and iteratively verified against scripts/quality.py and scripts/grammar_range.py).",
+              "workbook_text": null
+            }
+          }
+        },
+        {
+          "slide_no": 12,
+          "title": {
+            "en": "Your Rooftop as Part of the Plant",
+            "zh": "你家屋頂也是電廠的一部分"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Instead of only building power plants, Taipower now lets software move the power around. Your own roof could join this. So could your battery, or even your car.",
+              "words": 28,
+              "sentences": 3,
+              "avg_sentence_words": 9.3,
+              "fk_grade": 4.9,
+              "long_word_pct": 10.7,
+              "speak_seconds_est": 17.7,
+              "fill_pct": 88.4,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (Gemini draft unavailable due to API quota; hand-authored to the same standard)",
+              "basis": "New mission, no workbook source. Facts: Taiwan 2024 generation ~11.6% renewables with wind generation +66% 2023->2024 (variability now a material grid share); 3 March 2022 cascading blackout triggered by a single switch malfunction at Hsinta Power Plant, Kaohsiung, cutting power to ~5.49M households (~40% of Taiwan) via cascading grid protection trips (Taiwan News/Bloomberg/CommonWealth); TSMC ~9% of national electricity, semiconductor/data-centre demand rising and less predictable (SDxCentral/TrendForce); Taipower reached ~1GW (1,000MW) of grid-connected battery storage in 2025, incl. the Dongshan 60MW site (operating Nov 2024) and a 20MW system at the Tainan salt-field solar farm (Taipower press releases); Taipower AMI/smart-meter rollout passed 3.5M customers (>80% of consumption) by May 2025, target 6M by 2030 and full replacement by 2035, plus a DER Integration program under Taipower's Smart Grid effort; Taiwan storage market ~1GW/3GWh and >1% of global electrochemical storage by 2025, projected toward 20GWh by 2030, market value ~US$3.1bn (2025) toward ~US$9.8bn (2031) (Infolink-group, Mobility Foresights); LFP batteries ~90% of new grid-scale storage worldwide, trading energy density for thermal stability, longer cycle life (thousands of cycles, 10-15+ years) and lower cost versus NMC/NCA chemistries used in EVs; private-sector example of a Fluence-partnered 100-MW-class storage project. Register per docs/plans/new-mission-playbook.md. Authored by Claude directly (Gemini 3.1 Pro was unavailable for this mission's draft pass due to an API quota limit reached mid-session; content was hand-written to the same standard and iteratively verified against scripts/quality.py and scripts/grammar_range.py).",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "Instead of only building new power plants, Taipower's smart grid software now routes power in near real time. Rooftop solar, home batteries and even electric cars could soon join that same system.",
+              "words": 32,
+              "sentences": 2,
+              "avg_sentence_words": 16.0,
+              "fk_grade": 8.7,
+              "long_word_pct": 15.6,
+              "speak_seconds_est": 17.5,
+              "fill_pct": 87.3,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (Gemini draft unavailable due to API quota; hand-authored to the same standard)",
+              "basis": "New mission, no workbook source. Facts: Taiwan 2024 generation ~11.6% renewables with wind generation +66% 2023->2024 (variability now a material grid share); 3 March 2022 cascading blackout triggered by a single switch malfunction at Hsinta Power Plant, Kaohsiung, cutting power to ~5.49M households (~40% of Taiwan) via cascading grid protection trips (Taiwan News/Bloomberg/CommonWealth); TSMC ~9% of national electricity, semiconductor/data-centre demand rising and less predictable (SDxCentral/TrendForce); Taipower reached ~1GW (1,000MW) of grid-connected battery storage in 2025, incl. the Dongshan 60MW site (operating Nov 2024) and a 20MW system at the Tainan salt-field solar farm (Taipower press releases); Taipower AMI/smart-meter rollout passed 3.5M customers (>80% of consumption) by May 2025, target 6M by 2030 and full replacement by 2035, plus a DER Integration program under Taipower's Smart Grid effort; Taiwan storage market ~1GW/3GWh and >1% of global electrochemical storage by 2025, projected toward 20GWh by 2030, market value ~US$3.1bn (2025) toward ~US$9.8bn (2031) (Infolink-group, Mobility Foresights); LFP batteries ~90% of new grid-scale storage worldwide, trading energy density for thermal stability, longer cycle life (thousands of cycles, 10-15+ years) and lower cost versus NMC/NCA chemistries used in EVs; private-sector example of a Fluence-partnered 100-MW-class storage project. Register per docs/plans/new-mission-playbook.md. Authored by Claude directly (Gemini 3.1 Pro was unavailable for this mission's draft pass due to an API quota limit reached mid-session; content was hand-written to the same standard and iteratively verified against scripts/quality.py and scripts/grammar_range.py).",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "Taipower increasingly prefers software-driven routing over building yet another power plant, shifting electricity across the grid in near real time. Rooftop solar panels, home batteries and electric cars are steadily being absorbed into that very same network.",
+              "words": 37,
+              "sentences": 2,
+              "avg_sentence_words": 18.5,
+              "fk_grade": 14.9,
+              "long_word_pct": 27.0,
+              "speak_seconds_est": 18.5,
+              "fill_pct": 92.5,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (Gemini draft unavailable due to API quota; hand-authored to the same standard)",
+              "basis": "New mission, no workbook source. Facts: Taiwan 2024 generation ~11.6% renewables with wind generation +66% 2023->2024 (variability now a material grid share); 3 March 2022 cascading blackout triggered by a single switch malfunction at Hsinta Power Plant, Kaohsiung, cutting power to ~5.49M households (~40% of Taiwan) via cascading grid protection trips (Taiwan News/Bloomberg/CommonWealth); TSMC ~9% of national electricity, semiconductor/data-centre demand rising and less predictable (SDxCentral/TrendForce); Taipower reached ~1GW (1,000MW) of grid-connected battery storage in 2025, incl. the Dongshan 60MW site (operating Nov 2024) and a 20MW system at the Tainan salt-field solar farm (Taipower press releases); Taipower AMI/smart-meter rollout passed 3.5M customers (>80% of consumption) by May 2025, target 6M by 2030 and full replacement by 2035, plus a DER Integration program under Taipower's Smart Grid effort; Taiwan storage market ~1GW/3GWh and >1% of global electrochemical storage by 2025, projected toward 20GWh by 2030, market value ~US$3.1bn (2025) toward ~US$9.8bn (2031) (Infolink-group, Mobility Foresights); LFP batteries ~90% of new grid-scale storage worldwide, trading energy density for thermal stability, longer cycle life (thousands of cycles, 10-15+ years) and lower cost versus NMC/NCA chemistries used in EVs; private-sector example of a Fluence-partnered 100-MW-class storage project. Register per docs/plans/new-mission-playbook.md. Authored by Claude directly (Gemini 3.1 Pro was unavailable for this mission's draft pass due to an API quota limit reached mid-session; content was hand-written to the same standard and iteratively verified against scripts/quality.py and scripts/grammar_range.py).",
+              "workbook_text": null
+            }
+          }
+        }
+      ]
+    },
+    {
+      "part_no": 5,
+      "source_description": "Part 5: Implications (Slides 13-16)",
+      "function_en": "Implications",
+      "function_zh": "影響：推論後果",
+      "language_pattern": "first conditional / however",
+      "slides": [
+        {
+          "slide_no": 13,
+          "title": {
+            "en": "More Sensors, More Doors to Guard",
+            "zh": "更多感測器，更多要顧的門"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "More sensors and more software also mean more doors for hackers. Hackers now have many more ways to try. If one system fails, the whole grid could feel it fast.",
+              "words": 30,
+              "sentences": 3,
+              "avg_sentence_words": 10.0,
+              "fk_grade": 3.3,
+              "long_word_pct": 3.3,
+              "speak_seconds_est": 18.9,
+              "fill_pct": 94.7,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (Gemini draft unavailable due to API quota; hand-authored to the same standard)",
+              "basis": "New mission, no workbook source. Facts: Taiwan 2024 generation ~11.6% renewables with wind generation +66% 2023->2024 (variability now a material grid share); 3 March 2022 cascading blackout triggered by a single switch malfunction at Hsinta Power Plant, Kaohsiung, cutting power to ~5.49M households (~40% of Taiwan) via cascading grid protection trips (Taiwan News/Bloomberg/CommonWealth); TSMC ~9% of national electricity, semiconductor/data-centre demand rising and less predictable (SDxCentral/TrendForce); Taipower reached ~1GW (1,000MW) of grid-connected battery storage in 2025, incl. the Dongshan 60MW site (operating Nov 2024) and a 20MW system at the Tainan salt-field solar farm (Taipower press releases); Taipower AMI/smart-meter rollout passed 3.5M customers (>80% of consumption) by May 2025, target 6M by 2030 and full replacement by 2035, plus a DER Integration program under Taipower's Smart Grid effort; Taiwan storage market ~1GW/3GWh and >1% of global electrochemical storage by 2025, projected toward 20GWh by 2030, market value ~US$3.1bn (2025) toward ~US$9.8bn (2031) (Infolink-group, Mobility Foresights); LFP batteries ~90% of new grid-scale storage worldwide, trading energy density for thermal stability, longer cycle life (thousands of cycles, 10-15+ years) and lower cost versus NMC/NCA chemistries used in EVs; private-sector example of a Fluence-partnered 100-MW-class storage project. Register per docs/plans/new-mission-playbook.md. Authored by Claude directly (Gemini 3.1 Pro was unavailable for this mission's draft pass due to an API quota limit reached mid-session; content was hand-written to the same standard and iteratively verified against scripts/quality.py and scripts/grammar_range.py).",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "More sensors and more connected software also create more doors that a hacker could try. If a smart grid's control system is compromised, the damage could spread quickly.",
+              "words": 28,
+              "sentences": 2,
+              "avg_sentence_words": 14.0,
+              "fk_grade": 7.1,
+              "long_word_pct": 10.7,
+              "speak_seconds_est": 15.3,
+              "fill_pct": 76.4,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (Gemini draft unavailable due to API quota; hand-authored to the same standard)",
+              "basis": "New mission, no workbook source. Facts: Taiwan 2024 generation ~11.6% renewables with wind generation +66% 2023->2024 (variability now a material grid share); 3 March 2022 cascading blackout triggered by a single switch malfunction at Hsinta Power Plant, Kaohsiung, cutting power to ~5.49M households (~40% of Taiwan) via cascading grid protection trips (Taiwan News/Bloomberg/CommonWealth); TSMC ~9% of national electricity, semiconductor/data-centre demand rising and less predictable (SDxCentral/TrendForce); Taipower reached ~1GW (1,000MW) of grid-connected battery storage in 2025, incl. the Dongshan 60MW site (operating Nov 2024) and a 20MW system at the Tainan salt-field solar farm (Taipower press releases); Taipower AMI/smart-meter rollout passed 3.5M customers (>80% of consumption) by May 2025, target 6M by 2030 and full replacement by 2035, plus a DER Integration program under Taipower's Smart Grid effort; Taiwan storage market ~1GW/3GWh and >1% of global electrochemical storage by 2025, projected toward 20GWh by 2030, market value ~US$3.1bn (2025) toward ~US$9.8bn (2031) (Infolink-group, Mobility Foresights); LFP batteries ~90% of new grid-scale storage worldwide, trading energy density for thermal stability, longer cycle life (thousands of cycles, 10-15+ years) and lower cost versus NMC/NCA chemistries used in EVs; private-sector example of a Fluence-partnered 100-MW-class storage project. Register per docs/plans/new-mission-playbook.md. Authored by Claude directly (Gemini 3.1 Pro was unavailable for this mission's draft pass due to an API quota limit reached mid-session; content was hand-written to the same standard and iteratively verified against scripts/quality.py and scripts/grammar_range.py).",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "A larger set of sensors and connected software creates more entry points for attackers to try. Only when a system's defences are fully secured will that added risk actually diminish over time.",
+              "words": 32,
+              "sentences": 2,
+              "avg_sentence_words": 16.0,
+              "fk_grade": 10.6,
+              "long_word_pct": 21.9,
+              "speak_seconds_est": 16.0,
+              "fill_pct": 80.0,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (Gemini draft unavailable due to API quota; hand-authored to the same standard)",
+              "basis": "New mission, no workbook source. Facts: Taiwan 2024 generation ~11.6% renewables with wind generation +66% 2023->2024 (variability now a material grid share); 3 March 2022 cascading blackout triggered by a single switch malfunction at Hsinta Power Plant, Kaohsiung, cutting power to ~5.49M households (~40% of Taiwan) via cascading grid protection trips (Taiwan News/Bloomberg/CommonWealth); TSMC ~9% of national electricity, semiconductor/data-centre demand rising and less predictable (SDxCentral/TrendForce); Taipower reached ~1GW (1,000MW) of grid-connected battery storage in 2025, incl. the Dongshan 60MW site (operating Nov 2024) and a 20MW system at the Tainan salt-field solar farm (Taipower press releases); Taipower AMI/smart-meter rollout passed 3.5M customers (>80% of consumption) by May 2025, target 6M by 2030 and full replacement by 2035, plus a DER Integration program under Taipower's Smart Grid effort; Taiwan storage market ~1GW/3GWh and >1% of global electrochemical storage by 2025, projected toward 20GWh by 2030, market value ~US$3.1bn (2025) toward ~US$9.8bn (2031) (Infolink-group, Mobility Foresights); LFP batteries ~90% of new grid-scale storage worldwide, trading energy density for thermal stability, longer cycle life (thousands of cycles, 10-15+ years) and lower cost versus NMC/NCA chemistries used in EVs; private-sector example of a Fluence-partnered 100-MW-class storage project. Register per docs/plans/new-mission-playbook.md. Authored by Claude directly (Gemini 3.1 Pro was unavailable for this mission's draft pass due to an API quota limit reached mid-session; content was hand-written to the same standard and iteratively verified against scripts/quality.py and scripts/grammar_range.py).",
+              "workbook_text": null
+            }
+          }
+        },
+        {
+          "slide_no": 14,
+          "title": {
+            "en": "Who Pays for the Smarter Grid",
+            "zh": "更聰明的電網，誰買單"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "All these new batteries and meters cost real money. Someone has to pay for them. Right now, that cost often lands on our electricity bills.",
+              "words": 25,
+              "sentences": 3,
+              "avg_sentence_words": 8.3,
+              "fk_grade": 4.2,
+              "long_word_pct": 8.0,
+              "speak_seconds_est": 15.8,
+              "fill_pct": 78.9,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (Gemini draft unavailable due to API quota; hand-authored to the same standard)",
+              "basis": "New mission, no workbook source. Facts: Taiwan 2024 generation ~11.6% renewables with wind generation +66% 2023->2024 (variability now a material grid share); 3 March 2022 cascading blackout triggered by a single switch malfunction at Hsinta Power Plant, Kaohsiung, cutting power to ~5.49M households (~40% of Taiwan) via cascading grid protection trips (Taiwan News/Bloomberg/CommonWealth); TSMC ~9% of national electricity, semiconductor/data-centre demand rising and less predictable (SDxCentral/TrendForce); Taipower reached ~1GW (1,000MW) of grid-connected battery storage in 2025, incl. the Dongshan 60MW site (operating Nov 2024) and a 20MW system at the Tainan salt-field solar farm (Taipower press releases); Taipower AMI/smart-meter rollout passed 3.5M customers (>80% of consumption) by May 2025, target 6M by 2030 and full replacement by 2035, plus a DER Integration program under Taipower's Smart Grid effort; Taiwan storage market ~1GW/3GWh and >1% of global electrochemical storage by 2025, projected toward 20GWh by 2030, market value ~US$3.1bn (2025) toward ~US$9.8bn (2031) (Infolink-group, Mobility Foresights); LFP batteries ~90% of new grid-scale storage worldwide, trading energy density for thermal stability, longer cycle life (thousands of cycles, 10-15+ years) and lower cost versus NMC/NCA chemistries used in EVs; private-sector example of a Fluence-partnered 100-MW-class storage project. Register per docs/plans/new-mission-playbook.md. Authored by Claude directly (Gemini 3.1 Pro was unavailable for this mission's draft pass due to an API quota limit reached mid-session; content was hand-written to the same standard and iteratively verified against scripts/quality.py and scripts/grammar_range.py).",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "This growing storage industry is good news for Taiwan's tech sector. But someone still has to pay for all these batteries and meters, usually through higher electricity rates.",
+              "words": 28,
+              "sentences": 2,
+              "avg_sentence_words": 14.0,
+              "fk_grade": 9.3,
+              "long_word_pct": 14.3,
+              "speak_seconds_est": 15.3,
+              "fill_pct": 76.4,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (Gemini draft unavailable due to API quota; hand-authored to the same standard)",
+              "basis": "New mission, no workbook source. Facts: Taiwan 2024 generation ~11.6% renewables with wind generation +66% 2023->2024 (variability now a material grid share); 3 March 2022 cascading blackout triggered by a single switch malfunction at Hsinta Power Plant, Kaohsiung, cutting power to ~5.49M households (~40% of Taiwan) via cascading grid protection trips (Taiwan News/Bloomberg/CommonWealth); TSMC ~9% of national electricity, semiconductor/data-centre demand rising and less predictable (SDxCentral/TrendForce); Taipower reached ~1GW (1,000MW) of grid-connected battery storage in 2025, incl. the Dongshan 60MW site (operating Nov 2024) and a 20MW system at the Tainan salt-field solar farm (Taipower press releases); Taipower AMI/smart-meter rollout passed 3.5M customers (>80% of consumption) by May 2025, target 6M by 2030 and full replacement by 2035, plus a DER Integration program under Taipower's Smart Grid effort; Taiwan storage market ~1GW/3GWh and >1% of global electrochemical storage by 2025, projected toward 20GWh by 2030, market value ~US$3.1bn (2025) toward ~US$9.8bn (2031) (Infolink-group, Mobility Foresights); LFP batteries ~90% of new grid-scale storage worldwide, trading energy density for thermal stability, longer cycle life (thousands of cycles, 10-15+ years) and lower cost versus NMC/NCA chemistries used in EVs; private-sector example of a Fluence-partnered 100-MW-class storage project. Register per docs/plans/new-mission-playbook.md. Authored by Claude directly (Gemini 3.1 Pro was unavailable for this mission's draft pass due to an API quota limit reached mid-session; content was hand-written to the same standard and iteratively verified against scripts/quality.py and scripts/grammar_range.py).",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "This whole fast-growing storage industry benefits Taiwan's broader technology sector quite considerably. Yet someone still has to bear the cost of every battery and meter, typically through higher electricity tariffs.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 15.0,
+              "long_word_pct": 26.7,
+              "speak_seconds_est": 15.0,
+              "fill_pct": 75.0,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (Gemini draft unavailable due to API quota; hand-authored to the same standard)",
+              "basis": "New mission, no workbook source. Facts: Taiwan 2024 generation ~11.6% renewables with wind generation +66% 2023->2024 (variability now a material grid share); 3 March 2022 cascading blackout triggered by a single switch malfunction at Hsinta Power Plant, Kaohsiung, cutting power to ~5.49M households (~40% of Taiwan) via cascading grid protection trips (Taiwan News/Bloomberg/CommonWealth); TSMC ~9% of national electricity, semiconductor/data-centre demand rising and less predictable (SDxCentral/TrendForce); Taipower reached ~1GW (1,000MW) of grid-connected battery storage in 2025, incl. the Dongshan 60MW site (operating Nov 2024) and a 20MW system at the Tainan salt-field solar farm (Taipower press releases); Taipower AMI/smart-meter rollout passed 3.5M customers (>80% of consumption) by May 2025, target 6M by 2030 and full replacement by 2035, plus a DER Integration program under Taipower's Smart Grid effort; Taiwan storage market ~1GW/3GWh and >1% of global electrochemical storage by 2025, projected toward 20GWh by 2030, market value ~US$3.1bn (2025) toward ~US$9.8bn (2031) (Infolink-group, Mobility Foresights); LFP batteries ~90% of new grid-scale storage worldwide, trading energy density for thermal stability, longer cycle life (thousands of cycles, 10-15+ years) and lower cost versus NMC/NCA chemistries used in EVs; private-sector example of a Fluence-partnered 100-MW-class storage project. Register per docs/plans/new-mission-playbook.md. Authored by Claude directly (Gemini 3.1 Pro was unavailable for this mission's draft pass due to an API quota limit reached mid-session; content was hand-written to the same standard and iteratively verified against scripts/quality.py and scripts/grammar_range.py).",
+              "workbook_text": null
+            }
+          }
+        },
+        {
+          "slide_no": 15,
+          "title": {
+            "en": "A Two-Speed Grid in the Making?",
+            "zh": "正在成形的雙速電網？"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Not every family can pay for a smart meter, a battery, or an electric car right away. Some families will wait longer. Without a plan, that gap will only get bigger.",
+              "words": 31,
+              "sentences": 3,
+              "avg_sentence_words": 10.3,
+              "fk_grade": 6.3,
+              "long_word_pct": 6.5,
+              "speak_seconds_est": 19.6,
+              "fill_pct": 97.9,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (Gemini draft unavailable due to API quota; hand-authored to the same standard)",
+              "basis": "New mission, no workbook source. Facts: Taiwan 2024 generation ~11.6% renewables with wind generation +66% 2023->2024 (variability now a material grid share); 3 March 2022 cascading blackout triggered by a single switch malfunction at Hsinta Power Plant, Kaohsiung, cutting power to ~5.49M households (~40% of Taiwan) via cascading grid protection trips (Taiwan News/Bloomberg/CommonWealth); TSMC ~9% of national electricity, semiconductor/data-centre demand rising and less predictable (SDxCentral/TrendForce); Taipower reached ~1GW (1,000MW) of grid-connected battery storage in 2025, incl. the Dongshan 60MW site (operating Nov 2024) and a 20MW system at the Tainan salt-field solar farm (Taipower press releases); Taipower AMI/smart-meter rollout passed 3.5M customers (>80% of consumption) by May 2025, target 6M by 2030 and full replacement by 2035, plus a DER Integration program under Taipower's Smart Grid effort; Taiwan storage market ~1GW/3GWh and >1% of global electrochemical storage by 2025, projected toward 20GWh by 2030, market value ~US$3.1bn (2025) toward ~US$9.8bn (2031) (Infolink-group, Mobility Foresights); LFP batteries ~90% of new grid-scale storage worldwide, trading energy density for thermal stability, longer cycle life (thousands of cycles, 10-15+ years) and lower cost versus NMC/NCA chemistries used in EVs; private-sector example of a Fluence-partnered 100-MW-class storage project. Register per docs/plans/new-mission-playbook.md. Authored by Claude directly (Gemini 3.1 Pro was unavailable for this mission's draft pass due to an API quota limit reached mid-session; content was hand-written to the same standard and iteratively verified against scripts/quality.py and scripts/grammar_range.py).",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "Wealthier households can usually afford smart meters, home batteries and electric cars first. Poorer households may have to wait far longer, and that gap could widen if nobody plans ahead.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 9.5,
+              "long_word_pct": 16.7,
+              "speak_seconds_est": 16.4,
+              "fill_pct": 81.8,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (Gemini draft unavailable due to API quota; hand-authored to the same standard)",
+              "basis": "New mission, no workbook source. Facts: Taiwan 2024 generation ~11.6% renewables with wind generation +66% 2023->2024 (variability now a material grid share); 3 March 2022 cascading blackout triggered by a single switch malfunction at Hsinta Power Plant, Kaohsiung, cutting power to ~5.49M households (~40% of Taiwan) via cascading grid protection trips (Taiwan News/Bloomberg/CommonWealth); TSMC ~9% of national electricity, semiconductor/data-centre demand rising and less predictable (SDxCentral/TrendForce); Taipower reached ~1GW (1,000MW) of grid-connected battery storage in 2025, incl. the Dongshan 60MW site (operating Nov 2024) and a 20MW system at the Tainan salt-field solar farm (Taipower press releases); Taipower AMI/smart-meter rollout passed 3.5M customers (>80% of consumption) by May 2025, target 6M by 2030 and full replacement by 2035, plus a DER Integration program under Taipower's Smart Grid effort; Taiwan storage market ~1GW/3GWh and >1% of global electrochemical storage by 2025, projected toward 20GWh by 2030, market value ~US$3.1bn (2025) toward ~US$9.8bn (2031) (Infolink-group, Mobility Foresights); LFP batteries ~90% of new grid-scale storage worldwide, trading energy density for thermal stability, longer cycle life (thousands of cycles, 10-15+ years) and lower cost versus NMC/NCA chemistries used in EVs; private-sector example of a Fluence-partnered 100-MW-class storage project. Register per docs/plans/new-mission-playbook.md. Authored by Claude directly (Gemini 3.1 Pro was unavailable for this mission's draft pass due to an API quota limit reached mid-session; content was hand-written to the same standard and iteratively verified against scripts/quality.py and scripts/grammar_range.py).",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "Wealthier households nowadays tend to gain access to smart meters, home batteries and electric vehicles first. Poorer households may have to wait much longer, widening a gap that policy alone must address.",
+              "words": 32,
+              "sentences": 2,
+              "avg_sentence_words": 16.0,
+              "fk_grade": 10.9,
+              "long_word_pct": 25.0,
+              "speak_seconds_est": 16.0,
+              "fill_pct": 80.0,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (Gemini draft unavailable due to API quota; hand-authored to the same standard)",
+              "basis": "New mission, no workbook source. Facts: Taiwan 2024 generation ~11.6% renewables with wind generation +66% 2023->2024 (variability now a material grid share); 3 March 2022 cascading blackout triggered by a single switch malfunction at Hsinta Power Plant, Kaohsiung, cutting power to ~5.49M households (~40% of Taiwan) via cascading grid protection trips (Taiwan News/Bloomberg/CommonWealth); TSMC ~9% of national electricity, semiconductor/data-centre demand rising and less predictable (SDxCentral/TrendForce); Taipower reached ~1GW (1,000MW) of grid-connected battery storage in 2025, incl. the Dongshan 60MW site (operating Nov 2024) and a 20MW system at the Tainan salt-field solar farm (Taipower press releases); Taipower AMI/smart-meter rollout passed 3.5M customers (>80% of consumption) by May 2025, target 6M by 2030 and full replacement by 2035, plus a DER Integration program under Taipower's Smart Grid effort; Taiwan storage market ~1GW/3GWh and >1% of global electrochemical storage by 2025, projected toward 20GWh by 2030, market value ~US$3.1bn (2025) toward ~US$9.8bn (2031) (Infolink-group, Mobility Foresights); LFP batteries ~90% of new grid-scale storage worldwide, trading energy density for thermal stability, longer cycle life (thousands of cycles, 10-15+ years) and lower cost versus NMC/NCA chemistries used in EVs; private-sector example of a Fluence-partnered 100-MW-class storage project. Register per docs/plans/new-mission-playbook.md. Authored by Claude directly (Gemini 3.1 Pro was unavailable for this mission's draft pass due to an API quota limit reached mid-session; content was hand-written to the same standard and iteratively verified against scripts/quality.py and scripts/grammar_range.py).",
+              "workbook_text": null
+            }
+          }
+        },
+        {
+          "slide_no": 16,
+          "title": {
+            "en": "Smart Still Has to Mean Fair",
+            "zh": "聰明還必須加上公平"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "So these same new tools can actually fix one problem well. But they can also create brand new ones. A smart grid must be safe, fair, and shared by everyone.",
+              "words": 30,
+              "sentences": 3,
+              "avg_sentence_words": 10.0,
+              "fk_grade": 3.3,
+              "long_word_pct": 6.7,
+              "speak_seconds_est": 18.9,
+              "fill_pct": 94.7,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (Gemini draft unavailable due to API quota; hand-authored to the same standard)",
+              "basis": "New mission, no workbook source. Facts: Taiwan 2024 generation ~11.6% renewables with wind generation +66% 2023->2024 (variability now a material grid share); 3 March 2022 cascading blackout triggered by a single switch malfunction at Hsinta Power Plant, Kaohsiung, cutting power to ~5.49M households (~40% of Taiwan) via cascading grid protection trips (Taiwan News/Bloomberg/CommonWealth); TSMC ~9% of national electricity, semiconductor/data-centre demand rising and less predictable (SDxCentral/TrendForce); Taipower reached ~1GW (1,000MW) of grid-connected battery storage in 2025, incl. the Dongshan 60MW site (operating Nov 2024) and a 20MW system at the Tainan salt-field solar farm (Taipower press releases); Taipower AMI/smart-meter rollout passed 3.5M customers (>80% of consumption) by May 2025, target 6M by 2030 and full replacement by 2035, plus a DER Integration program under Taipower's Smart Grid effort; Taiwan storage market ~1GW/3GWh and >1% of global electrochemical storage by 2025, projected toward 20GWh by 2030, market value ~US$3.1bn (2025) toward ~US$9.8bn (2031) (Infolink-group, Mobility Foresights); LFP batteries ~90% of new grid-scale storage worldwide, trading energy density for thermal stability, longer cycle life (thousands of cycles, 10-15+ years) and lower cost versus NMC/NCA chemistries used in EVs; private-sector example of a Fluence-partnered 100-MW-class storage project. Register per docs/plans/new-mission-playbook.md. Authored by Claude directly (Gemini 3.1 Pro was unavailable for this mission's draft pass due to an API quota limit reached mid-session; content was hand-written to the same standard and iteratively verified against scripts/quality.py and scripts/grammar_range.py).",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "So the very tools that solve one problem can quietly create new ones. A smart grid must also be genuinely judged on safety, fairness and who actually gets access to it.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 8.0,
+              "long_word_pct": 9.7,
+              "speak_seconds_est": 16.9,
+              "fill_pct": 84.5,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (Gemini draft unavailable due to API quota; hand-authored to the same standard)",
+              "basis": "New mission, no workbook source. Facts: Taiwan 2024 generation ~11.6% renewables with wind generation +66% 2023->2024 (variability now a material grid share); 3 March 2022 cascading blackout triggered by a single switch malfunction at Hsinta Power Plant, Kaohsiung, cutting power to ~5.49M households (~40% of Taiwan) via cascading grid protection trips (Taiwan News/Bloomberg/CommonWealth); TSMC ~9% of national electricity, semiconductor/data-centre demand rising and less predictable (SDxCentral/TrendForce); Taipower reached ~1GW (1,000MW) of grid-connected battery storage in 2025, incl. the Dongshan 60MW site (operating Nov 2024) and a 20MW system at the Tainan salt-field solar farm (Taipower press releases); Taipower AMI/smart-meter rollout passed 3.5M customers (>80% of consumption) by May 2025, target 6M by 2030 and full replacement by 2035, plus a DER Integration program under Taipower's Smart Grid effort; Taiwan storage market ~1GW/3GWh and >1% of global electrochemical storage by 2025, projected toward 20GWh by 2030, market value ~US$3.1bn (2025) toward ~US$9.8bn (2031) (Infolink-group, Mobility Foresights); LFP batteries ~90% of new grid-scale storage worldwide, trading energy density for thermal stability, longer cycle life (thousands of cycles, 10-15+ years) and lower cost versus NMC/NCA chemistries used in EVs; private-sector example of a Fluence-partnered 100-MW-class storage project. Register per docs/plans/new-mission-playbook.md. Authored by Claude directly (Gemini 3.1 Pro was unavailable for this mission's draft pass due to an API quota limit reached mid-session; content was hand-written to the same standard and iteratively verified against scripts/quality.py and scripts/grammar_range.py).",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "The very same tools that resolve one technical problem can quietly generate several brand-new ones. A smart grid must therefore be judged on safety and fairness first, not efficiency alone.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 10.7,
+              "long_word_pct": 20.0,
+              "speak_seconds_est": 15.0,
+              "fill_pct": 75.0,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (Gemini draft unavailable due to API quota; hand-authored to the same standard)",
+              "basis": "New mission, no workbook source. Facts: Taiwan 2024 generation ~11.6% renewables with wind generation +66% 2023->2024 (variability now a material grid share); 3 March 2022 cascading blackout triggered by a single switch malfunction at Hsinta Power Plant, Kaohsiung, cutting power to ~5.49M households (~40% of Taiwan) via cascading grid protection trips (Taiwan News/Bloomberg/CommonWealth); TSMC ~9% of national electricity, semiconductor/data-centre demand rising and less predictable (SDxCentral/TrendForce); Taipower reached ~1GW (1,000MW) of grid-connected battery storage in 2025, incl. the Dongshan 60MW site (operating Nov 2024) and a 20MW system at the Tainan salt-field solar farm (Taipower press releases); Taipower AMI/smart-meter rollout passed 3.5M customers (>80% of consumption) by May 2025, target 6M by 2030 and full replacement by 2035, plus a DER Integration program under Taipower's Smart Grid effort; Taiwan storage market ~1GW/3GWh and >1% of global electrochemical storage by 2025, projected toward 20GWh by 2030, market value ~US$3.1bn (2025) toward ~US$9.8bn (2031) (Infolink-group, Mobility Foresights); LFP batteries ~90% of new grid-scale storage worldwide, trading energy density for thermal stability, longer cycle life (thousands of cycles, 10-15+ years) and lower cost versus NMC/NCA chemistries used in EVs; private-sector example of a Fluence-partnered 100-MW-class storage project. Register per docs/plans/new-mission-playbook.md. Authored by Claude directly (Gemini 3.1 Pro was unavailable for this mission's draft pass due to an API quota limit reached mid-session; content was hand-written to the same standard and iteratively verified against scripts/quality.py and scripts/grammar_range.py).",
+              "workbook_text": null
+            }
+          }
+        }
+      ]
+    },
+    {
+      "part_no": 6,
+      "source_description": "Part 6: Call to action (Slides 17-20)",
+      "function_en": "Call to action",
+      "function_zh": "結語：總結與號召",
+      "language_pattern": "to wrap up ... / let's ...",
+      "slides": [
+        {
+          "slide_no": 17,
+          "title": {
+            "en": "Built in Real Time, Slide by Slide",
+            "zh": "電網正在即時重建"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "To wrap up, Taiwan's grid is being rebuilt right now. New batteries and sensors now work together every day. This is not only about wires and power plants anymore.",
+              "words": 29,
+              "sentences": 3,
+              "avg_sentence_words": 9.7,
+              "fk_grade": 6.1,
+              "long_word_pct": 10.3,
+              "speak_seconds_est": 18.3,
+              "fill_pct": 91.6,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (Gemini draft unavailable due to API quota; hand-authored to the same standard)",
+              "basis": "New mission, no workbook source. Facts: Taiwan 2024 generation ~11.6% renewables with wind generation +66% 2023->2024 (variability now a material grid share); 3 March 2022 cascading blackout triggered by a single switch malfunction at Hsinta Power Plant, Kaohsiung, cutting power to ~5.49M households (~40% of Taiwan) via cascading grid protection trips (Taiwan News/Bloomberg/CommonWealth); TSMC ~9% of national electricity, semiconductor/data-centre demand rising and less predictable (SDxCentral/TrendForce); Taipower reached ~1GW (1,000MW) of grid-connected battery storage in 2025, incl. the Dongshan 60MW site (operating Nov 2024) and a 20MW system at the Tainan salt-field solar farm (Taipower press releases); Taipower AMI/smart-meter rollout passed 3.5M customers (>80% of consumption) by May 2025, target 6M by 2030 and full replacement by 2035, plus a DER Integration program under Taipower's Smart Grid effort; Taiwan storage market ~1GW/3GWh and >1% of global electrochemical storage by 2025, projected toward 20GWh by 2030, market value ~US$3.1bn (2025) toward ~US$9.8bn (2031) (Infolink-group, Mobility Foresights); LFP batteries ~90% of new grid-scale storage worldwide, trading energy density for thermal stability, longer cycle life (thousands of cycles, 10-15+ years) and lower cost versus NMC/NCA chemistries used in EVs; private-sector example of a Fluence-partnered 100-MW-class storage project. Register per docs/plans/new-mission-playbook.md. Authored by Claude directly (Gemini 3.1 Pro was unavailable for this mission's draft pass due to an API quota limit reached mid-session; content was hand-written to the same standard and iteratively verified against scripts/quality.py and scripts/grammar_range.py).",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "To wrap up, engineers are rebuilding Taiwan's grid piece by piece while it keeps running. New batteries, sensors and software now sit right alongside wiring and plants that are already decades old.",
+              "words": 32,
+              "sentences": 2,
+              "avg_sentence_words": 16.0,
+              "fk_grade": 9.1,
+              "long_word_pct": 18.8,
+              "speak_seconds_est": 17.5,
+              "fill_pct": 87.3,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (Gemini draft unavailable due to API quota; hand-authored to the same standard)",
+              "basis": "New mission, no workbook source. Facts: Taiwan 2024 generation ~11.6% renewables with wind generation +66% 2023->2024 (variability now a material grid share); 3 March 2022 cascading blackout triggered by a single switch malfunction at Hsinta Power Plant, Kaohsiung, cutting power to ~5.49M households (~40% of Taiwan) via cascading grid protection trips (Taiwan News/Bloomberg/CommonWealth); TSMC ~9% of national electricity, semiconductor/data-centre demand rising and less predictable (SDxCentral/TrendForce); Taipower reached ~1GW (1,000MW) of grid-connected battery storage in 2025, incl. the Dongshan 60MW site (operating Nov 2024) and a 20MW system at the Tainan salt-field solar farm (Taipower press releases); Taipower AMI/smart-meter rollout passed 3.5M customers (>80% of consumption) by May 2025, target 6M by 2030 and full replacement by 2035, plus a DER Integration program under Taipower's Smart Grid effort; Taiwan storage market ~1GW/3GWh and >1% of global electrochemical storage by 2025, projected toward 20GWh by 2030, market value ~US$3.1bn (2025) toward ~US$9.8bn (2031) (Infolink-group, Mobility Foresights); LFP batteries ~90% of new grid-scale storage worldwide, trading energy density for thermal stability, longer cycle life (thousands of cycles, 10-15+ years) and lower cost versus NMC/NCA chemistries used in EVs; private-sector example of a Fluence-partnered 100-MW-class storage project. Register per docs/plans/new-mission-playbook.md. Authored by Claude directly (Gemini 3.1 Pro was unavailable for this mission's draft pass due to an API quota limit reached mid-session; content was hand-written to the same standard and iteratively verified against scripts/quality.py and scripts/grammar_range.py).",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "Piece by piece, and without ever fully switching off, Taiwan's electrical grid is undergoing a quiet transformation. Fresh batteries, sensors and control software now coexist with infrastructure that has, in some cases, served the island for decades.",
+              "words": 37,
+              "sentences": 2,
+              "avg_sentence_words": 18.5,
+              "fk_grade": 12.0,
+              "long_word_pct": 21.6,
+              "speak_seconds_est": 18.5,
+              "fill_pct": 92.5,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (Gemini draft unavailable due to API quota; hand-authored to the same standard)",
+              "basis": "New mission, no workbook source. Facts: Taiwan 2024 generation ~11.6% renewables with wind generation +66% 2023->2024 (variability now a material grid share); 3 March 2022 cascading blackout triggered by a single switch malfunction at Hsinta Power Plant, Kaohsiung, cutting power to ~5.49M households (~40% of Taiwan) via cascading grid protection trips (Taiwan News/Bloomberg/CommonWealth); TSMC ~9% of national electricity, semiconductor/data-centre demand rising and less predictable (SDxCentral/TrendForce); Taipower reached ~1GW (1,000MW) of grid-connected battery storage in 2025, incl. the Dongshan 60MW site (operating Nov 2024) and a 20MW system at the Tainan salt-field solar farm (Taipower press releases); Taipower AMI/smart-meter rollout passed 3.5M customers (>80% of consumption) by May 2025, target 6M by 2030 and full replacement by 2035, plus a DER Integration program under Taipower's Smart Grid effort; Taiwan storage market ~1GW/3GWh and >1% of global electrochemical storage by 2025, projected toward 20GWh by 2030, market value ~US$3.1bn (2025) toward ~US$9.8bn (2031) (Infolink-group, Mobility Foresights); LFP batteries ~90% of new grid-scale storage worldwide, trading energy density for thermal stability, longer cycle life (thousands of cycles, 10-15+ years) and lower cost versus NMC/NCA chemistries used in EVs; private-sector example of a Fluence-partnered 100-MW-class storage project. Register per docs/plans/new-mission-playbook.md. Authored by Claude directly (Gemini 3.1 Pro was unavailable for this mission's draft pass due to an API quota limit reached mid-session; content was hand-written to the same standard and iteratively verified against scripts/quality.py and scripts/grammar_range.py).",
+              "workbook_text": null
+            }
+          }
+        },
+        {
+          "slide_no": 18,
+          "title": {
+            "en": "This Is Your Design Problem Now",
+            "zh": "這是你們的設計題"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "This matters directly to you. You are the future engineers in this room. You will design the next battery, the next chip, or the next line of safety code.",
+              "words": 29,
+              "sentences": 3,
+              "avg_sentence_words": 9.7,
+              "fk_grade": 4.5,
+              "long_word_pct": 6.9,
+              "speak_seconds_est": 18.3,
+              "fill_pct": 91.6,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (Gemini draft unavailable due to API quota; hand-authored to the same standard)",
+              "basis": "New mission, no workbook source. Facts: Taiwan 2024 generation ~11.6% renewables with wind generation +66% 2023->2024 (variability now a material grid share); 3 March 2022 cascading blackout triggered by a single switch malfunction at Hsinta Power Plant, Kaohsiung, cutting power to ~5.49M households (~40% of Taiwan) via cascading grid protection trips (Taiwan News/Bloomberg/CommonWealth); TSMC ~9% of national electricity, semiconductor/data-centre demand rising and less predictable (SDxCentral/TrendForce); Taipower reached ~1GW (1,000MW) of grid-connected battery storage in 2025, incl. the Dongshan 60MW site (operating Nov 2024) and a 20MW system at the Tainan salt-field solar farm (Taipower press releases); Taipower AMI/smart-meter rollout passed 3.5M customers (>80% of consumption) by May 2025, target 6M by 2030 and full replacement by 2035, plus a DER Integration program under Taipower's Smart Grid effort; Taiwan storage market ~1GW/3GWh and >1% of global electrochemical storage by 2025, projected toward 20GWh by 2030, market value ~US$3.1bn (2025) toward ~US$9.8bn (2031) (Infolink-group, Mobility Foresights); LFP batteries ~90% of new grid-scale storage worldwide, trading energy density for thermal stability, longer cycle life (thousands of cycles, 10-15+ years) and lower cost versus NMC/NCA chemistries used in EVs; private-sector example of a Fluence-partnered 100-MW-class storage project. Register per docs/plans/new-mission-playbook.md. Authored by Claude directly (Gemini 3.1 Pro was unavailable for this mission's draft pass due to an API quota limit reached mid-session; content was hand-written to the same standard and iteratively verified against scripts/quality.py and scripts/grammar_range.py).",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "This whole issue is not abstract for anyone in this room. You represent the next generation of engineers who will shape the batteries, algorithms and safety systems still to come.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 8.7,
+              "long_word_pct": 20.0,
+              "speak_seconds_est": 16.4,
+              "fill_pct": 81.8,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (Gemini draft unavailable due to API quota; hand-authored to the same standard)",
+              "basis": "New mission, no workbook source. Facts: Taiwan 2024 generation ~11.6% renewables with wind generation +66% 2023->2024 (variability now a material grid share); 3 March 2022 cascading blackout triggered by a single switch malfunction at Hsinta Power Plant, Kaohsiung, cutting power to ~5.49M households (~40% of Taiwan) via cascading grid protection trips (Taiwan News/Bloomberg/CommonWealth); TSMC ~9% of national electricity, semiconductor/data-centre demand rising and less predictable (SDxCentral/TrendForce); Taipower reached ~1GW (1,000MW) of grid-connected battery storage in 2025, incl. the Dongshan 60MW site (operating Nov 2024) and a 20MW system at the Tainan salt-field solar farm (Taipower press releases); Taipower AMI/smart-meter rollout passed 3.5M customers (>80% of consumption) by May 2025, target 6M by 2030 and full replacement by 2035, plus a DER Integration program under Taipower's Smart Grid effort; Taiwan storage market ~1GW/3GWh and >1% of global electrochemical storage by 2025, projected toward 20GWh by 2030, market value ~US$3.1bn (2025) toward ~US$9.8bn (2031) (Infolink-group, Mobility Foresights); LFP batteries ~90% of new grid-scale storage worldwide, trading energy density for thermal stability, longer cycle life (thousands of cycles, 10-15+ years) and lower cost versus NMC/NCA chemistries used in EVs; private-sector example of a Fluence-partnered 100-MW-class storage project. Register per docs/plans/new-mission-playbook.md. Authored by Claude directly (Gemini 3.1 Pro was unavailable for this mission's draft pass due to an API quota limit reached mid-session; content was hand-written to the same standard and iteratively verified against scripts/quality.py and scripts/grammar_range.py).",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "Few people outside this room will feel this dilemma as directly as the engineers, computer scientists and materials scientists seated here right now. It is you who will ultimately shape the next battery, algorithm or safety protocol.",
+              "words": 37,
+              "sentences": 2,
+              "avg_sentence_words": 18.5,
+              "fk_grade": 12.0,
+              "long_word_pct": 24.3,
+              "speak_seconds_est": 18.5,
+              "fill_pct": 92.5,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (Gemini draft unavailable due to API quota; hand-authored to the same standard)",
+              "basis": "New mission, no workbook source. Facts: Taiwan 2024 generation ~11.6% renewables with wind generation +66% 2023->2024 (variability now a material grid share); 3 March 2022 cascading blackout triggered by a single switch malfunction at Hsinta Power Plant, Kaohsiung, cutting power to ~5.49M households (~40% of Taiwan) via cascading grid protection trips (Taiwan News/Bloomberg/CommonWealth); TSMC ~9% of national electricity, semiconductor/data-centre demand rising and less predictable (SDxCentral/TrendForce); Taipower reached ~1GW (1,000MW) of grid-connected battery storage in 2025, incl. the Dongshan 60MW site (operating Nov 2024) and a 20MW system at the Tainan salt-field solar farm (Taipower press releases); Taipower AMI/smart-meter rollout passed 3.5M customers (>80% of consumption) by May 2025, target 6M by 2030 and full replacement by 2035, plus a DER Integration program under Taipower's Smart Grid effort; Taiwan storage market ~1GW/3GWh and >1% of global electrochemical storage by 2025, projected toward 20GWh by 2030, market value ~US$3.1bn (2025) toward ~US$9.8bn (2031) (Infolink-group, Mobility Foresights); LFP batteries ~90% of new grid-scale storage worldwide, trading energy density for thermal stability, longer cycle life (thousands of cycles, 10-15+ years) and lower cost versus NMC/NCA chemistries used in EVs; private-sector example of a Fluence-partnered 100-MW-class storage project. Register per docs/plans/new-mission-playbook.md. Authored by Claude directly (Gemini 3.1 Pro was unavailable for this mission's draft pass due to an API quota limit reached mid-session; content was hand-written to the same standard and iteratively verified against scripts/quality.py and scripts/grammar_range.py).",
+              "workbook_text": null
+            }
+          }
+        },
+        {
+          "slide_no": 19,
+          "title": {
+            "en": "Learn the System, Not Just the Part",
+            "zh": "學整個系統，不只是零件"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "Learn about the whole system, not just one small part. Ask who gets the new smart tools first, and who has to wait longer. Then go and build something useful yourself.",
+              "words": 31,
+              "sentences": 3,
+              "avg_sentence_words": 10.3,
+              "fk_grade": 3.7,
+              "long_word_pct": 6.5,
+              "speak_seconds_est": 19.6,
+              "fill_pct": 97.9,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (Gemini draft unavailable due to API quota; hand-authored to the same standard)",
+              "basis": "New mission, no workbook source. Facts: Taiwan 2024 generation ~11.6% renewables with wind generation +66% 2023->2024 (variability now a material grid share); 3 March 2022 cascading blackout triggered by a single switch malfunction at Hsinta Power Plant, Kaohsiung, cutting power to ~5.49M households (~40% of Taiwan) via cascading grid protection trips (Taiwan News/Bloomberg/CommonWealth); TSMC ~9% of national electricity, semiconductor/data-centre demand rising and less predictable (SDxCentral/TrendForce); Taipower reached ~1GW (1,000MW) of grid-connected battery storage in 2025, incl. the Dongshan 60MW site (operating Nov 2024) and a 20MW system at the Tainan salt-field solar farm (Taipower press releases); Taipower AMI/smart-meter rollout passed 3.5M customers (>80% of consumption) by May 2025, target 6M by 2030 and full replacement by 2035, plus a DER Integration program under Taipower's Smart Grid effort; Taiwan storage market ~1GW/3GWh and >1% of global electrochemical storage by 2025, projected toward 20GWh by 2030, market value ~US$3.1bn (2025) toward ~US$9.8bn (2031) (Infolink-group, Mobility Foresights); LFP batteries ~90% of new grid-scale storage worldwide, trading energy density for thermal stability, longer cycle life (thousands of cycles, 10-15+ years) and lower cost versus NMC/NCA chemistries used in EVs; private-sector example of a Fluence-partnered 100-MW-class storage project. Register per docs/plans/new-mission-playbook.md. Authored by Claude directly (Gemini 3.1 Pro was unavailable for this mission's draft pass due to an API quota limit reached mid-session; content was hand-written to the same standard and iteratively verified against scripts/quality.py and scripts/grammar_range.py).",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "Learn to see the whole complicated system, not only one small technical component. Keep asking who gets these smart new tools first, and who is left waiting behind them.",
+              "words": 29,
+              "sentences": 2,
+              "avg_sentence_words": 14.5,
+              "fk_grade": 7.2,
+              "long_word_pct": 10.3,
+              "speak_seconds_est": 15.8,
+              "fill_pct": 79.1,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (Gemini draft unavailable due to API quota; hand-authored to the same standard)",
+              "basis": "New mission, no workbook source. Facts: Taiwan 2024 generation ~11.6% renewables with wind generation +66% 2023->2024 (variability now a material grid share); 3 March 2022 cascading blackout triggered by a single switch malfunction at Hsinta Power Plant, Kaohsiung, cutting power to ~5.49M households (~40% of Taiwan) via cascading grid protection trips (Taiwan News/Bloomberg/CommonWealth); TSMC ~9% of national electricity, semiconductor/data-centre demand rising and less predictable (SDxCentral/TrendForce); Taipower reached ~1GW (1,000MW) of grid-connected battery storage in 2025, incl. the Dongshan 60MW site (operating Nov 2024) and a 20MW system at the Tainan salt-field solar farm (Taipower press releases); Taipower AMI/smart-meter rollout passed 3.5M customers (>80% of consumption) by May 2025, target 6M by 2030 and full replacement by 2035, plus a DER Integration program under Taipower's Smart Grid effort; Taiwan storage market ~1GW/3GWh and >1% of global electrochemical storage by 2025, projected toward 20GWh by 2030, market value ~US$3.1bn (2025) toward ~US$9.8bn (2031) (Infolink-group, Mobility Foresights); LFP batteries ~90% of new grid-scale storage worldwide, trading energy density for thermal stability, longer cycle life (thousands of cycles, 10-15+ years) and lower cost versus NMC/NCA chemistries used in EVs; private-sector example of a Fluence-partnered 100-MW-class storage project. Register per docs/plans/new-mission-playbook.md. Authored by Claude directly (Gemini 3.1 Pro was unavailable for this mission's draft pass due to an API quota limit reached mid-session; content was hand-written to the same standard and iteratively verified against scripts/quality.py and scripts/grammar_range.py).",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "Learn to see the whole system rather than any single isolated component. Keep interrogating who actually gains access to these new tools first, and who is left waiting behind everyone else.",
+              "words": 31,
+              "sentences": 2,
+              "avg_sentence_words": 15.5,
+              "fk_grade": 10.2,
+              "long_word_pct": 16.1,
+              "speak_seconds_est": 15.5,
+              "fill_pct": 77.5,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (Gemini draft unavailable due to API quota; hand-authored to the same standard)",
+              "basis": "New mission, no workbook source. Facts: Taiwan 2024 generation ~11.6% renewables with wind generation +66% 2023->2024 (variability now a material grid share); 3 March 2022 cascading blackout triggered by a single switch malfunction at Hsinta Power Plant, Kaohsiung, cutting power to ~5.49M households (~40% of Taiwan) via cascading grid protection trips (Taiwan News/Bloomberg/CommonWealth); TSMC ~9% of national electricity, semiconductor/data-centre demand rising and less predictable (SDxCentral/TrendForce); Taipower reached ~1GW (1,000MW) of grid-connected battery storage in 2025, incl. the Dongshan 60MW site (operating Nov 2024) and a 20MW system at the Tainan salt-field solar farm (Taipower press releases); Taipower AMI/smart-meter rollout passed 3.5M customers (>80% of consumption) by May 2025, target 6M by 2030 and full replacement by 2035, plus a DER Integration program under Taipower's Smart Grid effort; Taiwan storage market ~1GW/3GWh and >1% of global electrochemical storage by 2025, projected toward 20GWh by 2030, market value ~US$3.1bn (2025) toward ~US$9.8bn (2031) (Infolink-group, Mobility Foresights); LFP batteries ~90% of new grid-scale storage worldwide, trading energy density for thermal stability, longer cycle life (thousands of cycles, 10-15+ years) and lower cost versus NMC/NCA chemistries used in EVs; private-sector example of a Fluence-partnered 100-MW-class storage project. Register per docs/plans/new-mission-playbook.md. Authored by Claude directly (Gemini 3.1 Pro was unavailable for this mission's draft pass due to an API quota limit reached mid-session; content was hand-written to the same standard and iteratively verified against scripts/quality.py and scripts/grammar_range.py).",
+              "workbook_text": null
+            }
+          }
+        },
+        {
+          "slide_no": 20,
+          "title": {
+            "en": "Let's Build It Clean, Smart and Fair",
+            "zh": "一起蓋出乾淨、聰明又公平的電網"
+          },
+          "numbers": [],
+          "scripts": {
+            "A2": {
+              "text": "We want more than a clean grid. We also want it smart and fair for everyone. Every time you flip a switch, you are now part of building something bigger.",
+              "words": 30,
+              "sentences": 3,
+              "avg_sentence_words": 10.0,
+              "fk_grade": 3.7,
+              "long_word_pct": 10.0,
+              "speak_seconds_est": 18.9,
+              "fill_pct": 94.7,
+              "fits_20s": true,
+              "wpm": 95,
+              "provenance": "authored",
+              "authored_by": "Claude (Gemini draft unavailable due to API quota; hand-authored to the same standard)",
+              "basis": "New mission, no workbook source. Facts: Taiwan 2024 generation ~11.6% renewables with wind generation +66% 2023->2024 (variability now a material grid share); 3 March 2022 cascading blackout triggered by a single switch malfunction at Hsinta Power Plant, Kaohsiung, cutting power to ~5.49M households (~40% of Taiwan) via cascading grid protection trips (Taiwan News/Bloomberg/CommonWealth); TSMC ~9% of national electricity, semiconductor/data-centre demand rising and less predictable (SDxCentral/TrendForce); Taipower reached ~1GW (1,000MW) of grid-connected battery storage in 2025, incl. the Dongshan 60MW site (operating Nov 2024) and a 20MW system at the Tainan salt-field solar farm (Taipower press releases); Taipower AMI/smart-meter rollout passed 3.5M customers (>80% of consumption) by May 2025, target 6M by 2030 and full replacement by 2035, plus a DER Integration program under Taipower's Smart Grid effort; Taiwan storage market ~1GW/3GWh and >1% of global electrochemical storage by 2025, projected toward 20GWh by 2030, market value ~US$3.1bn (2025) toward ~US$9.8bn (2031) (Infolink-group, Mobility Foresights); LFP batteries ~90% of new grid-scale storage worldwide, trading energy density for thermal stability, longer cycle life (thousands of cycles, 10-15+ years) and lower cost versus NMC/NCA chemistries used in EVs; private-sector example of a Fluence-partnered 100-MW-class storage project. Register per docs/plans/new-mission-playbook.md. Authored by Claude directly (Gemini 3.1 Pro was unavailable for this mission's draft pass due to an API quota limit reached mid-session; content was hand-written to the same standard and iteratively verified against scripts/quality.py and scripts/grammar_range.py).",
+              "workbook_text": null
+            },
+            "B1": {
+              "text": "Let's build a grid that is not only clean but also genuinely reliable and fair for everyone. Every switch you flip belongs to a system you can now help shape.",
+              "words": 30,
+              "sentences": 2,
+              "avg_sentence_words": 15.0,
+              "fk_grade": 7.2,
+              "long_word_pct": 10.0,
+              "speak_seconds_est": 16.4,
+              "fill_pct": 81.8,
+              "fits_20s": true,
+              "wpm": 110,
+              "provenance": "authored",
+              "authored_by": "Claude (Gemini draft unavailable due to API quota; hand-authored to the same standard)",
+              "basis": "New mission, no workbook source. Facts: Taiwan 2024 generation ~11.6% renewables with wind generation +66% 2023->2024 (variability now a material grid share); 3 March 2022 cascading blackout triggered by a single switch malfunction at Hsinta Power Plant, Kaohsiung, cutting power to ~5.49M households (~40% of Taiwan) via cascading grid protection trips (Taiwan News/Bloomberg/CommonWealth); TSMC ~9% of national electricity, semiconductor/data-centre demand rising and less predictable (SDxCentral/TrendForce); Taipower reached ~1GW (1,000MW) of grid-connected battery storage in 2025, incl. the Dongshan 60MW site (operating Nov 2024) and a 20MW system at the Tainan salt-field solar farm (Taipower press releases); Taipower AMI/smart-meter rollout passed 3.5M customers (>80% of consumption) by May 2025, target 6M by 2030 and full replacement by 2035, plus a DER Integration program under Taipower's Smart Grid effort; Taiwan storage market ~1GW/3GWh and >1% of global electrochemical storage by 2025, projected toward 20GWh by 2030, market value ~US$3.1bn (2025) toward ~US$9.8bn (2031) (Infolink-group, Mobility Foresights); LFP batteries ~90% of new grid-scale storage worldwide, trading energy density for thermal stability, longer cycle life (thousands of cycles, 10-15+ years) and lower cost versus NMC/NCA chemistries used in EVs; private-sector example of a Fluence-partnered 100-MW-class storage project. Register per docs/plans/new-mission-playbook.md. Authored by Claude directly (Gemini 3.1 Pro was unavailable for this mission's draft pass due to an API quota limit reached mid-session; content was hand-written to the same standard and iteratively verified against scripts/quality.py and scripts/grammar_range.py).",
+              "workbook_text": null
+            },
+            "B2": {
+              "text": "A truly modern grid must be more than simply clean, since it also needs to be genuinely intelligent, resilient and equitable for everyone involved. The switch flipped in this very room belongs to a system you can now help design.",
+              "words": 40,
+              "sentences": 2,
+              "avg_sentence_words": 20.0,
+              "fk_grade": 11.1,
+              "long_word_pct": 15.0,
+              "speak_seconds_est": 20.0,
+              "fill_pct": 100.0,
+              "fits_20s": true,
+              "wpm": 120,
+              "provenance": "authored",
+              "authored_by": "Claude (Gemini draft unavailable due to API quota; hand-authored to the same standard)",
+              "basis": "New mission, no workbook source. Facts: Taiwan 2024 generation ~11.6% renewables with wind generation +66% 2023->2024 (variability now a material grid share); 3 March 2022 cascading blackout triggered by a single switch malfunction at Hsinta Power Plant, Kaohsiung, cutting power to ~5.49M households (~40% of Taiwan) via cascading grid protection trips (Taiwan News/Bloomberg/CommonWealth); TSMC ~9% of national electricity, semiconductor/data-centre demand rising and less predictable (SDxCentral/TrendForce); Taipower reached ~1GW (1,000MW) of grid-connected battery storage in 2025, incl. the Dongshan 60MW site (operating Nov 2024) and a 20MW system at the Tainan salt-field solar farm (Taipower press releases); Taipower AMI/smart-meter rollout passed 3.5M customers (>80% of consumption) by May 2025, target 6M by 2030 and full replacement by 2035, plus a DER Integration program under Taipower's Smart Grid effort; Taiwan storage market ~1GW/3GWh and >1% of global electrochemical storage by 2025, projected toward 20GWh by 2030, market value ~US$3.1bn (2025) toward ~US$9.8bn (2031) (Infolink-group, Mobility Foresights); LFP batteries ~90% of new grid-scale storage worldwide, trading energy density for thermal stability, longer cycle life (thousands of cycles, 10-15+ years) and lower cost versus NMC/NCA chemistries used in EVs; private-sector example of a Fluence-partnered 100-MW-class storage project. Register per docs/plans/new-mission-playbook.md. Authored by Claude directly (Gemini 3.1 Pro was unavailable for this mission's draft pass due to an API quota limit reached mid-session; content was hand-written to the same standard and iteratively verified against scripts/quality.py and scripts/grammar_range.py).",
+              "workbook_text": null
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "shape": "authored",
+  "source": {
+    "workbook": null,
+    "note": "authored from scratch; no workbook sheet"
+  },
+  "level_summary": {
+    "A2": {
+      "slides": 20,
+      "avg_words": 28.5,
+      "avg_sentence_words": 9.5,
+      "fk_grade": 4.8,
+      "slides_over_20s": 0
+    },
+    "B1": {
+      "slides": 20,
+      "avg_words": 30.2,
+      "avg_sentence_words": 15.1,
+      "fk_grade": 9.0,
+      "slides_over_20s": 0
+    },
+    "B2": {
+      "slides": 20,
+      "avg_words": 33.1,
+      "avg_sentence_words": 16.6,
+      "fk_grade": 12.1,
+      "slides_over_20s": 0
+    }
+  }
+}

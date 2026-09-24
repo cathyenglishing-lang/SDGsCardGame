@@ -1,0 +1,250 @@
+{
+  "mission_id": "sdg2-3",
+  "sdg": 2,
+  "title": {
+    "en": "The Hunger You Don't See: Food Deserts and School Lunches",
+    "zh": null
+  },
+  "stages": [
+    {
+      "part_no": 1,
+      "source_description": "Part 1: Introduction (Slides 1-3: hook on the invisible hungry classmate, SDG 2's idea of hidden hunger, Taiwan's near-200,000 low-income/near-poor children)",
+      "function_en": "Introduction",
+      "function_zh": "引言：破題與定義",
+      "language_pattern": "rhetorical questions / X is about ...",
+      "slides": [
+        {
+          "slide_no": 1,
+          "title": {
+            "en": "Would you recognize a hungry classmate?",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {}
+        },
+        {
+          "slide_no": 2,
+          "title": {
+            "en": "Hidden hunger is not a famine photo",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {}
+        },
+        {
+          "slide_no": 3,
+          "title": {
+            "en": "A food-rich country, on paper",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "part_no": 2,
+      "source_description": "Part 2: Problem (Slides 4-6: 20% of disadvantaged children going hungry, school lunch disappearing on holidays, breakfast skipped for class)",
+      "function_en": "Problem",
+      "function_zh": "問題指認：趨勢與因果",
+      "language_pattern": "present progressive for trends / this causes ...",
+      "slides": [
+        {
+          "slide_no": 4,
+          "title": {
+            "en": "One in five, going hungry at home",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {}
+        },
+        {
+          "slide_no": 5,
+          "title": {
+            "en": "When the school lunch bell stops ringing",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {}
+        },
+        {
+          "slide_no": 6,
+          "title": {
+            "en": "Hungry in class, and it doesn't show",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "part_no": 3,
+      "source_description": "Part 3: Achievements (Slides 7-9: Taipei's free lunch policy, more cities following, the Alliance of Taiwan Foodbanks network)",
+      "function_en": "Achievements",
+      "function_zh": "成果：舉證與比較",
+      "language_pattern": "present perfect / comparatives",
+      "slides": [
+        {
+          "slide_no": 7,
+          "title": {
+            "en": "Free lunch arrives in Taipei",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {}
+        },
+        {
+          "slide_no": 8,
+          "title": {
+            "en": "More cities are catching up",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {}
+        },
+        {
+          "slide_no": 9,
+          "title": {
+            "en": "A nationwide fridge network",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "part_no": 4,
+      "source_description": "Part 4: Solutions (Slides 10-12: city-level subsidy patchwork, food banks rescuing fresh food, the trade-off of moving food to people)",
+      "function_en": "Solutions",
+      "function_zh": "解方：做法與取捨",
+      "language_pattern": "instead of + V-ing / modal verbs",
+      "slides": [
+        {
+          "slide_no": 10,
+          "title": {
+            "en": "Every city sets its own price",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {}
+        },
+        {
+          "slide_no": 11,
+          "title": {
+            "en": "Rescuing food, not just stacking cans",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {}
+        },
+        {
+          "slide_no": 12,
+          "title": {
+            "en": "Someone still has to move it",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "part_no": 5,
+      "source_description": "Part 5: Implications (Slides 13-16: one throughline — help is arriving but unevenly and on shifting local funding, so the neediest still can't count on it)",
+      "function_en": "Implications",
+      "function_zh": "影響：推論後果",
+      "language_pattern": "first conditional / however",
+      "slides": [
+        {
+          "slide_no": 13,
+          "title": {
+            "en": "It depends which school you attend",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {}
+        },
+        {
+          "slide_no": 14,
+          "title": {
+            "en": "Free, or good, but maybe not both",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {}
+        },
+        {
+          "slide_no": 15,
+          "title": {
+            "en": "The food exists — the gap doesn't",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {}
+        },
+        {
+          "slide_no": 16,
+          "title": {
+            "en": "Enough food, not yet enough system",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {}
+        }
+      ]
+    },
+    {
+      "part_no": 6,
+      "source_description": "Part 6: Call to action (Slides 17-20: hunger is a distribution problem not a food shortage, why STEM students can fix the logistics, a concrete ask, closing claim)",
+      "function_en": "Call to action",
+      "function_zh": "結語：總結與號召",
+      "language_pattern": "to wrap up ... / let's ...",
+      "slides": [
+        {
+          "slide_no": 17,
+          "title": {
+            "en": "Not a shortage — a delivery problem",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {}
+        },
+        {
+          "slide_no": 18,
+          "title": {
+            "en": "A logistics problem you can solve",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {}
+        },
+        {
+          "slide_no": 19,
+          "title": {
+            "en": "Notice the fridge on the corner",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {}
+        },
+        {
+          "slide_no": 20,
+          "title": {
+            "en": "A full food bank should never be luck",
+            "zh": null
+          },
+          "numbers": [],
+          "scripts": {}
+        }
+      ]
+    }
+  ],
+  "shape": "authored",
+  "source": {
+    "workbook": null,
+    "note": "authored from scratch; no workbook sheet"
+  },
+  "narrative_brief": ""
+}

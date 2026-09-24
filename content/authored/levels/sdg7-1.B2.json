@@ -1,0 +1,30 @@
+{
+  "mission_id": "sdg7-1",
+  "level": "B2",
+  "provenance": "authored",
+  "author": "Claude + Gemini 3.1 Pro draft, reviewed and rewritten by Claude",
+  "basis": "New mission, no workbook source. Facts: 2017 '20-30-50' legal target for 2025 (Electricity Act revision); 2024 generation mix 42.4% gas / 39.3% coal / 11.6% renewables / 4.2% nuclear (288 TWh, MOEA/EIA-sourced reporting); solar PV target 20GW by 2025 vs ~14.3GW end-2024 / ~15GW end-2025 (EnergyTrend, pv magazine, ICC Tainan); offshore wind target 5.7GW by 2025 vs ~4.6-4.9GW actual (RECCESSARY, Taiwan News, Norton Rose Fulbright); Taiwan ranked 3rd globally for new offshore wind added in 2025 and 5th for total capacity; MOEA reset the 20% deadline to November 2026 (Eco-Business); wind generation +66% 2023->2024, solar ~45%/wind ~31% of renewable mix; 2050 net-zero pathway targets 60-70% renewables by 2050, 40-55GW installed capacity vs 29GW targeted for 2025 (National Development Council); TSMC ~9% of national electricity (SDxCentral/TrendForce). Register per docs/plans/new-mission-playbook.md. Drafted with Gemini 3.1 Pro, then substantially rewritten by Claude for CEFR band conformance, factual precision and tone (softened one overstated 'existential threat' claim in the original draft).",
+  "reviewed_by": null,
+  "slides": {
+    "1": "While wind turbines now line our beaches and solar panels blanket rooftops, one question still lingers unresolved. Is Taiwan really greening as quickly as it claims, or only appearing to?",
+    "2": "SDG 7 demands affordable, reliable and sustainable energy for everyone, though this talk will not dwell on climate change itself. It instead interrogates the gap between the targets Taiwan has set and what has actually been delivered.",
+    "3": "In 2017, Taiwan legislated the 20-30-50 generation mix for 2025, mandating 20 percent renewables alongside coal and gas. It is precisely this 20 percent figure that will be tested today.",
+    "4": "The 2024 figures tell a far less flattering story. Renewables, reaching only 11.6 percent, fell well short of the 20 percent mandate, while fossil fuels still supplied over 80 percent of the country's electricity.",
+    "5": "Although the official 2025 solar target stood at 20 gigawatts, barely 15 have so far been installed. That gap is largely explained by land-use conflicts and very strict permitting rules.",
+    "6": "Offshore wind is missing its target too, capping out at roughly 4.9 of a planned 5.7 gigawatts. This shortfall stems primarily from global supply chains and financing costs that have squeezed recent auctions harder than expected.",
+    "7": "Despite missing its own target, Taiwan's progress reads as significant worldwide. Ranked third for new offshore wind added in 2025, the country now has more capacity than most developed economies.",
+    "8": "Solar installations built on fish ponds, school roofs and factory buildings have visibly reshaped the landscape. Wind generation, meanwhile, has climbed 66 percent in a single year, far faster than planners expected.",
+    "9": "Rather than abandoning the shortfall quietly, the government has postponed the 20 percent deadline to November 2026. Meeting even this revised target, however, will demand a construction pace far above current trends.",
+    "10": "Fixing the solar shortfall needs real permitting reform. Instead of leaving land-use approvals to scattered local offices, one central authority should handle them, so installations can move ahead without delay.",
+    "11": "Investor confidence in offshore wind must also be restored. Instead of running weak auctions, Taiwan should guarantee larger rounds, which could offset some of the inflation squeezing global supply chains.",
+    "12": "The 2050 pathway also includes hydrogen and geothermal power. Instead of relying only on proven renewables, Taiwan should diversify, although this trades the readiness of wind and solar for technology that remains unproven.",
+    "13": "Taiwan's chip industry uses vast amounts of electricity. If clean power is not delivered quickly enough, global clients may look elsewhere, turning an environmental shortfall into a genuine competitive risk.",
+    "14": "The new November 2026 date is therefore quite critical for everyone involved. If this target is missed once again, investor confidence will drop even further, causing the same problem that produced the original shortfall in the first place.",
+    "15": "Restoring credibility, however, extends beyond financial metrics alone. Should deployment be pushed forward too fast, host communities will bear the physical impact, even though they rarely benefit from the power generated.",
+    "16": "These economic and equity concerns are inextricably linked to one another. Only when community voices are genuinely respected will public support remain intact, and hitting a target is never the same as sustaining people's trust.",
+    "17": "To wrap up, although real progress is evident, from growing turbines to a top-five global ranking, a real gap remains. Our generation reality still sits well behind the statutory targets we ourselves set.",
+    "18": "This shortfall carries particular weight for a STEM audience. It is you who will engineer the solutions, designing the grid infrastructure and storage systems required to finally close this gap.",
+    "19": "Let's commit to reading the data more critically from now on. We must look beyond announced ambitions and demand delivered results, then take part in the local debates where these decisions are actually made.",
+    "20": "Let's close with a guiding principle for the years ahead. The government may shift its deadlines once again, although our ultimate destination must remain fixed, because real change only counts once delivered."
+  }
+}

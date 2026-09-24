@@ -1,0 +1,30 @@
+{
+  "mission_id": "sdg6-1",
+  "level": "B2",
+  "provenance": "authored",
+  "author": "Claude + Gemini 3.1 Pro draft, fully rewritten by Claude for band compliance",
+  "basis": "New mission, no workbook source. Facts: Taiwan annual rainfall ~2,500mm, ~2.5x world average, but usable water per capita only ~4,074 m3/yr (~1/5 world average) (Water Resources Agency, MOEA). ~80% of rain falls May-Oct; typhoons + summer plum rains supply >50% of annual water; 2021 was the first year since 1964/56 years with no typhoon landfall, triggering the worst drought in decades (WRA; Earth.org; NPR/KPBS Apr 2023). Deji Reservoir sedimentation ~47% of capacity lost (WRA data, widely reported). 2021 drought: 17 of 19 major reservoirs <50%, Baoshan No.2 ~7%, Techi ~4.4%, rationing 2 days/week for >1 million households ~2 months (Earth.org; NPR). National reservoir dredging has exceeded average annual sediment inflow since 2022 (WRA); Shihmen Amuping Desilting Tunnel operating since Sept 2023 (WRA). Hsinchu desalination plant ~13,000 tonnes/day; national pipe leakage fell from ~20% a decade ago to ~14% now (Earth.org). Water price ~NT$11/tonne, several times cheaper than US/UK (Earth.org). Agriculture uses >70% of Taiwan's water but <2% of GDP (Earth.org; multiple sources). Register per docs/plans/new-mission-playbook.md.",
+  "reviewed_by": null,
+  "slides": {
+    "1": "What makes Taiwan's whole water story so strange is this: in one single year the government is rationing our tap water. In the very next, however, that same abundant rainfall is left flooding the identical streets instead.",
+    "2": "SDG 6 promises clean water and sanitation for everyone, and that pledge goes well beyond simple volume. Water also has to stay genuinely safe, dependable and fairly distributed for all.",
+    "3": "Taiwan's annual rainfall of roughly 2,500mm amounts to about 2.5 times the global norm. Yet the volume of water actually available per capita comes to only a fifth of that same international benchmark.",
+    "4": "Because the terrain is steep and the rivers are short, rainwater reaching the coast is largely lost to the ocean within hours. Concentrated mostly in the May-to-October wet season, that rainfall leaves the remaining months comparatively parched.",
+    "5": "Well over half of Taiwan's yearly water supply has historically depended on typhoons and the summer plum rains. That dependency was exposed in 2021, when the island went its first year without a typhoon landfall in 56, triggering drought immediately.",
+    "6": "A quieter threat is sediment, mud washed down from the mountains and settling into our reservoirs. Deji Reservoir has lost roughly 47% of its storage this way, capacity that exists on paper but not underwater.",
+    "7": "During the 2021 drought, 17 of 19 major reservoirs fell below half capacity, and Baoshan No.2 was recorded at only about 7%. Although rationing continued for months, the system never ran completely dry.",
+    "8": "It is dredging, not luck, that now clears more sediment than flows in each year, based on Water Resources Agency data collected since 2022. A tunnel at Shihmen, running since 2023, cuts sediment while raising flood capacity.",
+    "9": "Supply is being deliberately diversified. A desalination plant in Hsinchu now generates approximately 13,000 tonnes daily, while network leakage has fallen from about 20% a decade ago to roughly 14% today.",
+    "10": "Rather than depending on reservoirs alone, Taiwan is building alternative supply routes today. New plants, treated water and new pipes now move water wherever a shortage strikes, all at once.",
+    "11": "New capacity alone will never solve this whole infrastructure problem. Taiwan must also keep replacing its ageing pipes, instead of quietly losing water it has already spent real money purifying and treating.",
+    "12": "A more contentious solution here involves economics and price. Water sold at only about NT$11 per tonne is several times cheaper than in the US or UK, though raising it would burden struggling households.",
+    "13": "Climate change is steadily destabilising the very typhoon pattern this entire system was originally built around. Scientists now warn that seasonal timing will likely keep growing less predictable in the years ahead.",
+    "14": "However, when typhoons do finally arrive, rainfall increasingly comes as short, intense bursts that reservoirs simply cannot absorb in time. That produces floods rather than the steady storage the whole system actually needs.",
+    "15": "A stark asymmetry drives this trade-off: agriculture uses over 70% of Taiwan's water yet generates under 2% of GDP. That gap is why farmers are usually first asked to fallow fields when a serious drought strikes during planting season.",
+    "16": "That trade-off eventually reaches ordinary households as well. In 2021, rationing disrupted daily life for students and families for two full months, turning an abstract paradox into a very real, dry tap at home.",
+    "17": "To sum up, Taiwan combines heavy rainfall with real scarcity of usable water, and a warming climate is steadily widening that gap rather than closing it. That squeeze is only projected to intensify going forward.",
+    "18": "It is geography, ageing pipes and a changing climate compounding each other that drives this crisis — not individuals carelessly wasting water at home. Blaming habits alone lets the underlying system quietly off the hook.",
+    "19": "What can students actually contribute? Beyond studying data the Water Resources Agency already publishes, you might support pricing reform, or pursue engineering or policy work built around exactly this problem.",
+    "20": "What Taiwan needs now is genuine innovation built for a drier future, not further optimism that rainfall will simply arrive on schedule. Let's take what we're learning here and engineer infrastructure resilient enough for whatever climate actually comes."
+  }
+}
