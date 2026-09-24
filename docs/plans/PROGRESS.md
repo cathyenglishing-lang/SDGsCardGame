@@ -104,3 +104,20 @@ python scripts/build_canonical.py            # rebuild the deliverable Excel/JSO
 Whether to keep the reference to Taiwan being excluded from the international
 climate negotiations (sdg13-1/13-2). Wording was made accurate; the fact was
 not removed. Still the user's call.
+
+## Game design track (separate from the material track above)
+
+Started 2026-09-24 on user request. Full design doc is in the report's tab
+"遊戲敘事設計 DRAFT": a node-graph architecture (one node per narrative beat,
+reusing the existing 6-beat skeleton and Evidence Economy from
+docs/research/story-framework.md), lightweight non-interactive 3D transitions
+between nodes (StageShell/Set system from docs/research/3d-scene-plan.md), a
+Speech Window with a new "play a card on the audience" mechanic that reskins
+the existing decision/challenge system, and a hand-off into a post-speech
+card-battle round extending (not replacing) pecha_kucha_builder.html.
+
+Claude answered all 5 design questions solo because Gemini's quota was
+exhausted; the full prompt is saved at
+`docs/plans/gemini-game-design-prompt-pending.md` for re-run after reset
+(~2026-09-26). This is a [PROPOSAL] only — no code changed yet, per the
+standing "DRAFT before coding" instruction.
