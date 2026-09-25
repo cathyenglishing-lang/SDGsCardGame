@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SDG 13-1 · Node 1 原型 — 3D 過場 + 發卡演講</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#020617; --panel:rgba(9,15,29,.86); --glass:rgba(255,255,255,.06); --glass-2:rgba(255,255,255,.10);
+  --line:rgba(255,255,255,.12); --line-strong:rgba(255,255,255,.22);
+  --text:#f8fafc; --muted:#93a2bd;
+  --blue:#3b82f6; --green:#22c55e; --teal:#2dd4bf; --purple:#a855f7; --yellow:#fbbf24; --pink:#fb7185;
+  --disp:"Archivo Black","Noto Sans TC",sans-serif;
+  --body:"Space Grotesk","Noto Sans TC",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%}
+body{
+  background:
+    radial-gradient(1100px 700px at 12% -10%, rgba(45,212,191,.16), transparent 60%),
+    radial-gradient(900px 620px at 88% 8%, rgba(168,85,247,.16), transparent 58%),
+    var(--bg);
+  color:var(--text); font-family:var(--body); overflow:hidden;
+}
+.app{height:100vh;position:relative}
+.screen{position:absolute;inset:0;display:none}
+.screen.on{display:flex}
+.hint{position:fixed;left:0;right:0;bottom:10px;text-align:center;font:600 11px var(--mono);
+  color:var(--muted);letter-spacing:.08em;z-index:50;pointer-events:none}
+
+/* ---------- SCREEN 1 : map stub ---------- */
+#mapScreen{align-items:center;justify-content:center;flex-direction:column;gap:22px}
+.devnote{position:fixed;top:14px;left:14px;right:14px;font:600 11px var(--mono);color:var(--muted);
+  letter-spacing:.04em;text-align:center;z-index:60;background:rgba(9,15,29,.7);border:1px solid var(--line);
+  border-radius:10px;padding:8px 14px;backdrop-filter:blur(10px)}
+.node-card{width:340px;background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:26px;
+  backdrop-filter:blur(16px);box-shadow:0 30px 60px rgba(0,0,0,.5);text-align:center}
+.node-card .tag{display:inline-block;font:600 10px var(--mono);letter-spacing:.16em;color:var(--teal);
+  border:1px solid rgba(45,212,191,.4);border-radius:999px;padding:4px 12px;margin-bottom:14px}
+.node-card h1{font-family:var(--disp);font-size:22px;font-weight:400;margin:0 0 8px;letter-spacing:-.01em}
+.node-card p{font-size:13px;color:var(--muted);line-height:1.6;margin:0 0 20px}
+.node-dots{display:flex;justify-content:center;gap:6px;margin:0 0 20px}
+.node-dots i{width:26px;height:6px;border-radius:3px;background:rgba(255,255,255,.14)}
+.node-dots i.cur{background:var(--yellow);box-shadow:0 0 12px rgba(251,191,36,.6)}
+.btn{background:linear-gradient(135deg,#6366f1,#a855f7);border:0;color:#fff;border-radius:12px;
+  padding:13px 22px;font:700 14px var(--body);cursor:pointer;box-shadow:0 10px 22px rgba(99,102,241,.3)}
+.btn:hover{filter:brightness(1.08)} .btn:disabled{opacity:.4;cursor:not-allowed;box-shadow:none}
+.btn.teal{background:linear-gradient(135deg,#0ea5a4,#22c55e);box-shadow:0 10px 22px rgba(34,197,94,.25)}
+.ghost{background:var(--glass);border:1px solid var(--line);color:var(--text);border-radius:10px;
+  padding:9px 16px;font:600 12px var(--body);cursor:pointer}
+.ghost:hover{background:var(--glass-2);border-color:var(--line-strong)}
+
+/* ---------- SCREEN 2 : 3D transition ---------- */
+#transScreen{background:#000}
+#transCanvas{width:100%;height:100%;display:block}
+.skip{position:fixed;top:18px;right:18px;z-index:70}
+.trans-caption{position:fixed;left:0;right:0;bottom:64px;text-align:center;font-family:var(--disp);
+  font-size:15px;letter-spacing:.02em;color:rgba(255,255,255,.82);text-shadow:0 2px 12px rgba(0,0,0,.6);z-index:60}
+
+/* ---------- SCREEN 3 : speech window ---------- */
+#speechScreen{flex-direction:column}
+.hud{display:flex;align-items:center;gap:16px;padding:12px 22px;background:var(--panel);
+  border-bottom:1px solid var(--line);backdrop-filter:blur(14px)}
+.hud b{font-family:var(--disp);font-size:14px}
+.hud .sub{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.1em}
+.pace-wrap{flex:1;max-width:340px;display:flex;align-items:center;gap:10px}
+.pace-bar{flex:1;height:8px;border-radius:4px;background:rgba(255,255,255,.1);overflow:hidden}
+.pace-bar i{display:block;height:100%;background:linear-gradient(90deg,var(--teal),var(--green));
+  width:0%;transition:width .1s linear}
+.pace-n{font:600 11px var(--mono);color:var(--muted);min-width:34px}
+.meters-hud{display:flex;gap:14px;margin-left:auto}
+.meters-hud .m{display:flex;flex-direction:column;align-items:flex-end;min-width:64px}
+.meters-hud .m .k{font:600 9px var(--mono);letter-spacing:.12em;color:var(--muted)}
+.meters-hud .m .bar{width:64px;height:5px;border-radius:3px;background:rgba(255,255,255,.12);margin-top:3px;overflow:hidden}
+.meters-hud .m .bar i{display:block;height:100%;border-radius:3px;transition:width .7s cubic-bezier(.4,0,.2,1)}
+
+.main{flex:1;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(300px,.9fr);gap:16px;padding:16px 22px;min-height:0}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:18px;backdrop-filter:blur(14px)}
+.slide-panel{display:flex;flex-direction:column;min-height:0;overflow:hidden}
+.slide-visual{flex:0 0 44%;position:relative;background:
+    linear-gradient(160deg, rgba(45,212,191,.22), rgba(59,130,246,.14) 55%, rgba(2,6,23,0));
+  border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:center}
+.slide-visual .no{position:absolute;top:14px;left:16px;font:700 11px var(--mono);letter-spacing:.14em;color:var(--muted)}
+.slide-visual .glyph{font-size:52px;opacity:.7}
+.slide-body{padding:22px 24px;overflow:auto;flex:1;min-height:0;display:flex;flex-direction:column;justify-content:center}
+.slide-body .title{font-family:var(--disp);font-size:13px;letter-spacing:.06em;color:var(--teal);margin-bottom:10px}
+.slide-body .txt{font-size:18px;line-height:1.6;min-height:96px}
+.cursor{display:inline-block;width:2px;height:1em;background:var(--teal);vertical-align:-.15em;animation:blink 1s step-start infinite}
+@keyframes blink{50%{opacity:0}}
+
+.audience{display:flex;flex-direction:column;min-height:0}
+.audience .head{padding:14px 18px;border-bottom:1px solid var(--line);font:600 10px var(--mono);
+  letter-spacing:.14em;color:var(--muted)}
+.audience .row{flex:1;display:flex;flex-direction:column;gap:12px;padding:16px;overflow:auto}
+.portrait{display:flex;gap:12px;align-items:center;background:var(--glass);border:1px dashed var(--line-strong);
+  border-radius:16px;padding:12px 14px;transition:.18s;position:relative}
+.portrait.dragover{border-color:var(--teal);background:rgba(45,212,191,.14);transform:scale(1.02)}
+.portrait.filled{border-style:solid;border-color:rgba(34,197,94,.65);background:rgba(34,197,94,.10)}
+.portrait.pending{opacity:.5}
+.avatar{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;flex:none;
+  font-family:var(--disp);font-size:18px;color:#fff}
+.p-info{flex:1;min-width:0}
+.p-info b{display:block;font-size:13.5px}
+.p-info .concern{font:600 10px var(--mono);color:var(--yellow);letter-spacing:.06em;margin-top:2px}
+.p-info .said{font-size:11.5px;color:#86efac;margin-top:5px;line-height:1.4}
+.p-info .later{font:600 10px var(--mono);color:var(--muted);letter-spacing:.06em}
+
+.handbar{padding:16px 22px 20px;display:flex;gap:16px;align-items:center;border-top:1px solid var(--line);
+  background:var(--panel);backdrop-filter:blur(14px)}
+.hand-cards{display:flex;gap:14px;flex:1;flex-wrap:wrap}
+.card{width:220px;background:linear-gradient(160deg,#f8fafc,#e2e8f0);color:#0f172a;border-radius:14px;
+  padding:13px 14px;box-shadow:0 14px 28px rgba(0,0,0,.45);cursor:grab;user-select:none;transition:transform .15s,opacity .15s}
+.card:active{cursor:grabbing}
+.card.dragging{opacity:.35}
+.card.used{display:none}
+.card .kick{font:700 9.5px var(--mono);letter-spacing:.14em;color:#0d9488}
+.card .txt{font-size:13px;line-height:1.42;margin-top:6px}
+.card .tag{display:inline-block;margin-top:8px;font:700 9.5px var(--mono);color:#7c3aed;
+  background:#ede9fe;border-radius:6px;padding:2px 7px}
+.deliver-wrap{flex:none}
+
+.toast{position:fixed;top:70px;right:24px;display:flex;flex-direction:column;gap:8px;z-index:80}
+.toast div{background:rgba(9,15,29,.94);border:1px solid var(--line-strong);border-radius:12px;padding:10px 14px;
+  font:600 13px var(--body);animation:pop .32s ease-out}
+@keyframes pop{from{opacity:0;transform:translateY(-8px) scale(.96)}to{opacity:1;transform:none}}
+.flash{position:fixed;inset:0;pointer-events:none;opacity:0;transition:opacity .22s;z-index:5}
+.flash.on{opacity:1}
+
+/* ---------- SCREEN 4: outcome ---------- */
+#outcomeScreen{align-items:center;justify-content:center}
+.report{width:560px;background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:30px;
+  backdrop-filter:blur(16px)}
+.report .k{font:600 10px var(--mono);letter-spacing:.16em;color:var(--teal)}
+.report h2{font-family:var(--disp);font-weight:400;font-size:22px;margin:8px 0 14px}
+.report .metrow{display:flex;gap:22px;margin:16px 0}
+.report .metrow div{flex:1}
+.report .metrow .k2{font:600 9px var(--mono);letter-spacing:.12em;color:var(--muted)}
+.report .metrow .v2{font-family:var(--disp);font-size:22px;margin-top:2px}
+.report p.note{font-size:12.5px;color:var(--muted);line-height:1.7;margin-top:18px;border-top:1px solid var(--line);padding-top:16px}
+</style>
+</head>
+<body>
+<div class="devnote">原型 · 只做 Node 1（S1 Arrival → S2 The Crack），示範「3D 過場 + 發卡給觀眾」的新機制 · 不是最終美術與文字</div>
+
+<div class="app">
+
+  <!-- SCREEN 1 : node map stub -->
+  <div class="screen on" id="mapScreen">
+    <div class="node-card">
+      <span class="tag">SDG 13-1 · CLIMATE ACTION</span>
+      <div class="node-dots"><i class="cur"></i><i></i><i></i><i></i><i></i><i></i></div>
+      <h1>校園綠能辦公室</h1>
+      <p>林主任把一份紅色資料夾交給你：學校必須寫一份誠實的氣候行動報告。<br>你要先走進辦公室，開始第一段演講。</p>
+      <button class="btn" onclick="enterTransition()">走進辦公室 →</button>
+    </div>
+  </div>
+
+  <!-- SCREEN 2 : 3D transition -->
+  <div class="screen" id="transScreen">
+    <canvas id="transCanvas"></canvas>
+    <div class="trans-caption" id="transCaption">走向辦公室 ……</div>
+    <button class="ghost skip" id="skipBtn" onclick="finishTransition()">跳過 ▸▸</button>
+  </div>
+
+  <!-- SCREEN 3 : speech window -->
+  <div class="screen" id="speechScreen">
+    <div class="hud">
+      <div>
+        <b id="hudTitle">SDG 13-1 · Slide 1 / 6</b><br>
+        <span class="sub" id="hudPart">PART 1 · INTRODUCTION</span>
+      </div>
+      <div class="pace-wrap">
+        <div class="pace-bar"><i id="paceFill"></i></div>
+        <span class="pace-n" id="paceN">20s</span>
+      </div>
+      <div class="meters-hud">
+        <div class="m"><span class="k">CLARITY</span><div class="bar"><i id="mClarity" style="background:var(--teal);width:40%"></i></div></div>
+        <div class="m"><span class="k">TRUST</span><div class="bar"><i id="mTrust" style="background:var(--blue);width:40%"></i></div></div>
+        <div class="m"><span class="k">IMPACT</span><div class="bar"><i id="mImpact" style="background:var(--purple);width:40%"></i></div></div>
+      </div>
+    </div>
+
+    <div class="main">
+      <div class="panel slide-panel">
+        <div class="slide-visual">
+          <span class="no" id="slideNo">SLIDE 1</span>
+          <span class="glyph">🌏</span>
+        </div>
+        <div class="slide-body">
+          <div class="title" id="slideTitle">The Hook</div>
+          <div class="txt" id="slideTxt"></div>
+        </div>
+      </div>
+
+      <div class="panel audience">
+        <div class="head">觀眾席 · 把證據卡拖到對的人身上</div>
+        <div class="row">
+          <div class="portrait" id="p-ally" data-target="ally" ondragover="onDragOver(event)" ondrop="onDrop(event,'ally')" ondragleave="onDragLeave(event)">
+            <div class="avatar" style="background:linear-gradient(135deg,#22c55e,#0ea5a4)">林</div>
+            <div class="p-info">
+              <b>Ms. Lin · 校園能源主任</b>
+              <div class="concern">想先聽清楚：我們到底被要求做什麼？</div>
+              <div class="said" id="said-ally"></div>
+            </div>
+          </div>
+          <div class="portrait" id="p-skeptic" data-target="skeptic" ondragover="onDragOver(event)" ondrop="onDrop(event,'skeptic')" ondragleave="onDragLeave(event)">
+            <div class="avatar" style="background:linear-gradient(135deg,#3b82f6,#a855f7)">K</div>
+            <div class="p-info">
+              <b>Kevin · 晶圓廠工程師</b>
+              <div class="concern">還沒被說服：這件事真的有那麼急嗎？</div>
+              <div class="said" id="said-skeptic"></div>
+            </div>
+          </div>
+          <div class="portrait pending" id="p-blocker">
+            <div class="avatar" style="background:linear-gradient(135deg,#64748b,#334155)">許</div>
+            <div class="p-info">
+              <b>Councillor Hsu · 市議員</b>
+              <div class="later">稍後才會發言（S5 挑戰拍）</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="handbar">
+      <div class="hand-cards" id="handCards"></div>
+      <div class="deliver-wrap">
+        <button class="btn teal" id="deliverBtn" disabled onclick="deliverOpening()">開場，交出去 →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCREEN 4 : outcome -->
+  <div class="screen" id="outcomeScreen">
+    <div class="report" id="reportBox"></div>
+  </div>
+
+</div>
+<div class="toast" id="toast"></div>
+<div class="flash" id="flash"></div>
+<div class="hint" id="globalHint"></div>
+
+<script type="module">
+/* ============================================================
+   Node 1 prototype — one node of the Node Graph proposal
+   (see doc tab "遊戲敘事設計 DRAFT" §1,3,4).
+   Real SDG13-1 B1 script text (content/canonical/sdg13-1.json),
+   the six-beat skeleton + Evidence Economy from
+   docs/research/story-framework.md, reskinned as drag-a-card-
+   onto-an-audience-portrait per the new proposal §2.
+   ============================================================ */
+import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.164.1/build/three.module.js";
+
+/* ---------- real content (slides 1-6, B1 level) ---------- */
+const SLIDES = [
+  {no:1, part:"PART 1 · INTRODUCTION", title:"The Hook",
+   txt:"Have you noticed how strange our weather has become? Record heat, sudden flooding and mild winters are no longer unusual, and together they are the first clear signs of a climate emergency."},
+  {no:2, part:"PART 1 · INTRODUCTION", title:"What is SDG 13?",
+   txt:"Climate Action is the thirteenth of the global goals. It asks every government to cut carbon and prepare for disaster. Taiwan follows it, though we are shut out of the main climate talks.",
+   revealsCard:"E1"},
+  {no:3, part:"PART 1 · INTRODUCTION", title:"Taiwan's Context",
+   txt:"Geography makes this personal for us. We live on a crowded island directly on the typhoon track, and our western coastline is low and flat. The industries that pay our bills are hungry for energy."},
+  {no:4, part:"PART 2 · PROBLEM", title:"Rising Temperatures in Taiwan",
+   txt:"Start with the measurements, not the impressions. Over the past century Taiwan warmed by 1.6 degrees while the whole planet warmed by 1.3. Our island is heating faster than the worldwide average.",
+   revealsCard:"E2"},
+  {no:5, part:"PART 2 · PROBLEM", title:"Energy and Emissions",
+   txt:"The difficulty is structural. Coal and imported gas still make most of our electricity, and the chip plants our economy depends on cannot survive a single hour without power."},
+  {no:6, part:"PART 2 · PROBLEM", title:"The Critical Questions",
+   txt:"Two questions follow, and neither of them is comfortable. If industrial demand keeps rising, can clean power ever catch up? And if it cannot, who pays the bill that our generation leaves behind?",
+   isDecisionPrompt:true},
+];
+const CARDS = {
+  E1: {id:"E1", target:"ally",
+       txt:"It asks every government to cut carbon and prepare for disaster.",
+       tag:"POLICY MANDATE"},
+  E2: {id:"E2", target:"skeptic",
+       txt:"Over the past century Taiwan warmed by 1.6 degrees while the whole planet warmed by 1.3.",
+       tag:"URGENCY DATA"},
+};
+const SAID = {
+  ally: "「好，這樣我才知道我們真正被要求做什麼。」",
+  skeptic: "「……好吧，這個數字確實讓我不能再裝作沒看到。」",
+};
+
+/* ---------- state ---------- */
+// Real Pecha Kucha pacing is 20s/slide. ?fast=1 shortens that for manual
+// preview so you don't have to wait 2 real minutes to reach the decision.
+const PACE_SECONDS = new URLSearchParams(location.search).get("fast") ? 4 : 20;
+let slideIdx = 0;
+let placed = {E1:false, E2:false};
+let meters = {clarity:8, trust:8, impact:8};   // 0-20 scale, per story-framework.md
+let paceTimer = null, typeTimer = null;
+
+const $ = (id) => document.getElementById(id);
+function show(id){ document.querySelectorAll(".screen").forEach(s=>s.classList.remove("on")); $(id).classList.add("on"); }
+function toast(msg){ const d=document.createElement("div"); d.textContent=msg; $("toast").appendChild(d); setTimeout(()=>d.remove(),2200); }
+function flashOnce(color){ const f=$("flash"); f.style.background=color||"rgba(45,212,191,.14)"; f.classList.add("on"); setTimeout(()=>f.classList.remove("on"),220); }
+
+/* ============================================================
+   SCREEN 2 — 3D transition. Non-interactive, schematic, ~5s,
+   skippable. Matches docs/research/3d-scene-plan.md's degrade
+   contract loosely: try/catch around WebGL, dispose on exit,
+   pixelRatio capped, no textures, minimal geometry.
+   ============================================================ */
+window.enterTransition = function(){
+  show("transScreen");
+  try { runTransition(); }
+  catch(e){ console.warn("3D unavailable, skipping to speech window", e); finishTransition(); }
+};
+
+let renderer, raf;
+function runTransition(){
+  const canvas = $("transCanvas");
+  renderer = new THREE.WebGLRenderer({canvas, antialias:true, alpha:false, powerPreference:"low-power"});
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio||1, 1.5));
+  renderer.setSize(window.innerWidth, window.innerHeight);
+
+  const scene = new THREE.Scene();
+  scene.fog = new THREE.FogExp2(0x050b18, 0.045);
+  scene.background = new THREE.Color(0x050b18);
+
+  const camera = new THREE.PerspectiveCamera(50, window.innerWidth/window.innerHeight, 0.1, 100);
+  camera.position.set(0, 1.6, 14);
+
+  scene.add(new THREE.AmbientLight(0x8899bb, 0.55));
+  const key = new THREE.DirectionalLight(0x66e0d0, 0.9);
+  key.position.set(2, 6, 4);
+  scene.add(key);
+
+  // schematic corridor: flat-shaded receding panels, no textures.
+  const wallMat = new THREE.MeshStandardMaterial({color:0x0c1a30, roughness:1, flatShading:true});
+  const stripMat = new THREE.MeshBasicMaterial({color:0x2dd4bf});
+  for (let i=0;i<10;i++){
+    const z = -i*3;
+    const l = new THREE.Mesh(new THREE.BoxGeometry(0.15,3,2.6), wallMat); l.position.set(-3,1.3,z); scene.add(l);
+    const r = new THREE.Mesh(new THREE.BoxGeometry(0.15,3,2.6), wallMat); r.position.set(3,1.3,z); scene.add(r);
+    const strip = new THREE.Mesh(new THREE.BoxGeometry(0.06,0.06,2.4), stripMat); strip.position.set(-2.9,2.7,z); scene.add(strip);
+    const strip2 = strip.clone(); strip2.position.x = 2.9; scene.add(strip2);
+  }
+  const floor = new THREE.Mesh(new THREE.PlaneGeometry(6,60), new THREE.MeshStandardMaterial({color:0x081222, roughness:1}));
+  floor.rotation.x = -Math.PI/2; floor.position.set(0,0,-15); scene.add(floor);
+
+  // door: a glowing plane that grows as we approach
+  const door = new THREE.Mesh(new THREE.PlaneGeometry(2.4,3), new THREE.MeshBasicMaterial({color:0xa855f7, transparent:true, opacity:0.85}));
+  door.position.set(0, 1.5, -27); scene.add(door);
+  const glow = new THREE.PointLight(0xa855f7, 2.2, 12); glow.position.set(0,1.6,-26); scene.add(glow);
+
+  // walking silhouette (very simple capsule-ish box) for scale/motion cue
+  const figMat = new THREE.MeshStandardMaterial({color:0x0f172a});
+  const fig = new THREE.Group();
+  const body = new THREE.Mesh(new THREE.CapsuleGeometry(0.28,0.7,4,8), figMat); body.position.y=0.75; fig.add(body);
+  const head = new THREE.Mesh(new THREE.SphereGeometry(0.22,10,10), figMat); head.position.y=1.35; fig.add(head);
+  fig.position.set(0, 0, 12.4);
+  scene.add(fig);
+
+  const clock = new THREE.Clock();
+  const DURATION = 5.4;
+  let idle = false;
+  window.__transIdle = (v)=>{ idle = v; };
+
+  function frame(){
+    if (idle){ raf = requestAnimationFrame(frame); return; }
+    const t = Math.min(clock.getElapsedTime()/DURATION, 1);
+    const ease = 1 - Math.pow(1-t, 3); // ease-out cubic
+    camera.position.z = 14 - ease*17;      // 14 -> -3, arriving just past the door
+    camera.position.y = 1.6 - ease*0.05;
+    fig.position.z = 12.4 - ease*15.4;
+    fig.position.x = Math.sin(t*18)*0.04;  // subtle walk sway
+    door.material.opacity = 0.6 + Math.sin(t*10)*0.15;
+    door.scale.setScalar(1 + ease*0.35);
+    camera.lookAt(0, 1.4, camera.position.z-8);
+    renderer.render(scene, camera);
+    if (t < 1){ raf = requestAnimationFrame(frame); }
+    else { setTimeout(finishTransition, 260); }
+  }
+  raf = requestAnimationFrame(frame);
+
+  window.addEventListener("resize", onResize);
+  function onResize(){
+    if(!renderer) return;
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    camera.aspect = window.innerWidth/window.innerHeight; camera.updateProjectionMatrix();
+  }
+  window.__disposeTransition = ()=>{
+    cancelAnimationFrame(raf);
+    window.removeEventListener("resize", onResize);
+    scene.traverse(o=>{ if(o.geometry) o.geometry.dispose(); if(o.material) o.material.dispose(); });
+    renderer.dispose();
+    renderer = null;
+  };
+}
+
+let transitionDone = false;
+window.finishTransition = function(){
+  if (transitionDone) return; transitionDone = true;
+  if (window.__disposeTransition) window.__disposeTransition();
+  show("speechScreen");
+  startSlides();
+};
+
+/* ============================================================
+   SCREEN 3 — speech window: slide text, 20s pacing bar, cards,
+   drag-to-audience decision.
+   ============================================================ */
+function startSlides(){
+  slideIdx = 0; placed = {E1:false, E2:false};
+  renderHand();
+  showSlide(0);
+}
+function showSlide(i){
+  slideIdx = i;
+  const s = SLIDES[i];
+  $("hudTitle").textContent = `SDG 13-1 · Slide ${s.no} / ${SLIDES.length}`;
+  $("hudPart").textContent = s.part;
+  $("slideNo").textContent = `SLIDE ${s.no}`;
+  $("slideTitle").textContent = s.title;
+  typeLine(s.txt);
+  runPacing(PACE_SECONDS, ()=>{
+    if (s.revealsCard) revealCard(s.revealsCard);
+    if (s.isDecisionPrompt) onDecisionReady();
+    else advanceOrWait();
+  });
+}
+function typeLine(text){
+  clearInterval(typeTimer);
+  const el = $("slideTxt"); el.innerHTML = "";
+  let i = 0;
+  typeTimer = setInterval(()=>{
+    i++;
+    el.innerHTML = text.slice(0,i) + '<span class="cursor"></span>';
+    if (i>=text.length){ clearInterval(typeTimer); el.innerHTML = text; }
+  }, 14);
+}
+function runPacing(seconds, onDone){
+  clearInterval(paceTimer);
+  let elapsed = 0;
+  $("paceFill").style.width = "0%";
+  $("paceN").textContent = seconds+"s";
+  paceTimer = setInterval(()=>{
+    elapsed += 0.1;
+    const pct = Math.min(100, (elapsed/seconds)*100);
+    $("paceFill").style.width = pct+"%";
+    $("paceN").textContent = Math.max(0, (seconds-elapsed)).toFixed(0)+"s";
+    if (elapsed >= seconds){ clearInterval(paceTimer); onDone(); }
+  }, 100);
+}
+let autoAdvanceGate = null;
+function advanceOrWait(){
+  // small pause so the player can read the just-finished slide before the next.
+  autoAdvanceGate = setTimeout(()=>{ if (slideIdx < SLIDES.length-1) showSlide(slideIdx+1); }, 550);
+}
+function revealCard(id){
+  const c = CARDS[id];
+  toast(`📄 收到證據卡 ${id}`);
+  const el = document.createElement("div");
+  el.className = "card"; el.id = "card-"+id; el.draggable = true;
+  el.innerHTML = `<div class="kick">EVIDENCE ${id}</div><div class="txt">${c.txt}</div><div class="tag">${c.tag}</div>`;
+  el.addEventListener("dragstart", (e)=>{ e.dataTransfer.setData("text/plain", id); el.classList.add("dragging"); });
+  el.addEventListener("dragend", ()=> el.classList.remove("dragging"));
+  $("handCards").appendChild(el);
+}
+function renderHand(){ $("handCards").innerHTML = ""; }
+
+/* ---- drag & drop onto audience ---- */
+window.onDragOver = function(e){ e.preventDefault(); e.currentTarget.classList.add("dragover"); };
+window.onDragLeave = function(e){ e.currentTarget.classList.remove("dragover"); };
+window.onDrop = function(e, targetId){
+  e.preventDefault();
+  e.currentTarget.classList.remove("dragover");
+  const cardId = e.dataTransfer.getData("text/plain");
+  const card = CARDS[cardId];
+  if (!card || placed[cardId]) return;
+  const portrait = $("p-"+targetId);
+  if (card.target === targetId){
+    placed[cardId] = true;
+    portrait.classList.add("filled");
+    $("said-"+targetId).textContent = SAID[targetId] || "";
+    const el = $("card-"+cardId); if (el) el.classList.add("used");
+    flashOnce("rgba(34,197,94,.16)");
+    toast(`✓ 打對了 · ${targetId === "ally" ? "Ms. Lin" : "Kevin"} 被說服`);
+    bumpMeters({clarity:targetId==="ally"?2:1, trust:targetId==="skeptic"?2:1, impact:1});
+  } else {
+    portrait.classList.add("dragover");
+    setTimeout(()=>portrait.classList.remove("dragover"),260);
+    flashOnce("rgba(251,113,133,.14)");
+    toast("這張卡打錯人了，再想想他在意什麼");
+  }
+  checkDeliverReady();
+};
+function bumpMeters(delta){
+  meters.clarity = Math.max(0, Math.min(20, meters.clarity+ (delta.clarity||0)));
+  meters.trust   = Math.max(0, Math.min(20, meters.trust  + (delta.trust||0)));
+  meters.impact  = Math.max(0, Math.min(20, meters.impact + (delta.impact||0)));
+  $("mClarity").style.width = (meters.clarity/20*100)+"%";
+  $("mTrust").style.width = (meters.trust/20*100)+"%";
+  $("mImpact").style.width = (meters.impact/20*100)+"%";
+}
+function checkDeliverReady(){
+  $("deliverBtn").disabled = !(placed.E1 && placed.E2);
+}
+function onDecisionReady(){
+  clearInterval(paceTimer);
+  toast("開場定案：把兩張卡都打對，才能拿到最強開場");
+}
+
+window.deliverOpening = function(){
+  clearTimeout(autoAdvanceGate);
+  const both = placed.E1 && placed.E2;
+  if (both) bumpMeters({clarity:1, trust:0, impact:1}); // combo bonus on top of the two single bumps already applied
+  showOutcome(both);
+};
+
+/* ============================================================
+   SCREEN 4 — outcome summary
+   ============================================================ */
+/* debug-only: ?auto=1 drives the whole flow headlessly for screenshot QA.
+   Safe to delete before shipping; inert for a normal visitor. */
+if (new URLSearchParams(location.search).get("auto")){
+  setTimeout(()=>window.enterTransition(), 200);
+  setTimeout(()=>window.finishTransition(), 6200);
+  // Real pacing is 20s/slide; E1 lands at the end of slide 2, E2 at the end
+  // of slide 4. These offsets are from page load, with margin.
+  setTimeout(()=>{
+    const e1 = document.getElementById("card-E1");
+    if (e1) window.onDrop({preventDefault(){},currentTarget:document.getElementById("p-ally"),dataTransfer:{getData:()=>"E1"}}, "ally");
+  }, 48000);
+  setTimeout(()=>{
+    const e2 = document.getElementById("card-E2");
+    if (e2) window.onDrop({preventDefault(){},currentTarget:document.getElementById("p-skeptic"),dataTransfer:{getData:()=>"E2"}}, "skeptic");
+  }, 89000);
+  setTimeout(()=>{
+    const btn = document.getElementById("deliverBtn");
+    if (btn && !btn.disabled) btn.click();
+  }, 130000);
+}
+
+function showOutcome(strong){
+  show("outcomeScreen");
+  const total = meters.clarity+meters.trust+meters.impact;
+  const tag = strong ? "強開場 · Decision C 等級" : "普通開場";
+  const body = strong
+    ? "你把兩張證據卡都打對了人：林主任知道了規則的具體要求，Kevin 也被溫度數據說服了「這不是感覺，是量出來的」。開場穩了，接下來換 S3 成果拍。"
+    : "至少有一張證據卡沒打對觀眾，開場力道打了折扣。真正的版本裡，你還能重試，但每次重試會少一點加成。";
+  $("reportBox").innerHTML = `
+    <span class="k">NODE 1 COMPLETE · S1 ARRIVAL → S2 THE CRACK</span>
+    <h2>${tag}</h2>
+    <p style="font-size:14px;line-height:1.7;color:#e2e8f0">${body}</p>
+    <div class="metrow">
+      <div><div class="k2">CLARITY</div><div class="v2">${meters.clarity}/20</div></div>
+      <div><div class="k2">TRUST</div><div class="v2">${meters.trust}/20</div></div>
+      <div><div class="k2">IMPACT</div><div class="v2">${meters.impact}/20</div></div>
+    </div>
+    <div style="display:flex;gap:10px;margin-top:6px">
+      <button class="btn teal" onclick="location.reload()">重玩這個節點</button>
+    </div>
+    <p class="note">這只是 Node 1（S1+S2）。完整流程還有 S3 成果拍（無分支）→ S4 解方拍（同樣機制）→ S5 挑戰拍（對阻擋者許議員打牌）→ S6 行動呼籲（唸出結尾句）→ 直接接續答辯回合的卡牌對戰。詳見報告分頁「遊戲敘事設計 DRAFT」。</p>`;
+}
+</script>
+</body>
+</html>
