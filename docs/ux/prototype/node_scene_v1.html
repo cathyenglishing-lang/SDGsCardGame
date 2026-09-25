@@ -58,6 +58,34 @@ body{
 .skip{position:fixed;top:18px;right:18px;z-index:70}
 .trans-caption{position:fixed;left:0;right:0;bottom:64px;text-align:center;font-family:var(--disp);
   font-size:15px;letter-spacing:.02em;color:rgba(255,255,255,.82);text-shadow:0 2px 12px rgba(0,0,0,.6);z-index:60}
+.badge2d{position:fixed;top:18px;left:18px;font:600 10px var(--mono);letter-spacing:.1em;color:var(--muted);
+  background:rgba(9,15,29,.7);border:1px solid var(--line);border-radius:8px;padding:6px 10px;z-index:70}
+
+/* ---------- SCREEN 2b : 2D fallback (no WebGL / lost context / too slow) ---------- */
+#trans2D{position:absolute;inset:0;overflow:hidden;display:none;
+  background:radial-gradient(ellipse at 50% 34%, #142138, #050b18 72%)}
+#trans2D.on{display:block}
+.corridor2d{position:absolute;inset:0}
+.seg2d{position:absolute;left:50%;top:50%;width:78vmin;height:46vmin;margin-left:-39vmin;margin-top:-23vmin;
+  border:2px solid rgba(45,212,191,.4);border-radius:8px;opacity:0;
+  box-shadow:inset 0 0 40px rgba(45,212,191,.08)}
+@keyframes corridorfly{
+  0%{transform:scale(.04);opacity:0;border-color:rgba(45,212,191,.12)}
+  10%{opacity:.85}
+  82%{opacity:.55}
+  100%{transform:scale(2.5);opacity:0;border-color:rgba(45,212,191,.7)}
+}
+.door2d{position:absolute;left:50%;top:50%;width:16vmin;height:24vmin;margin-left:-8vmin;margin-top:-12vmin;
+  border-radius:8px;background:radial-gradient(circle, rgba(168,85,247,.92), rgba(168,85,247,.12) 72%);
+  box-shadow:0 0 70px 24px rgba(168,85,247,.45);animation:doorpulse 1s ease-in-out infinite}
+@keyframes doorpulse{0%,100%{opacity:.78;transform:translateY(-1px) scale(1)}50%{opacity:1;transform:translateY(1px) scale(1.015)}}
+.walker2d{position:absolute;left:50%;bottom:9vh;width:34px;height:82px;margin-left:-17px;z-index:2}
+.walker2d .head{position:absolute;left:10px;top:-13px;width:14px;height:14px;background:#0b1220;border-radius:50%}
+.walker2d .torso{position:absolute;left:8px;top:2px;width:18px;height:36px;background:#0b1220;border-radius:7px}
+.walker2d .leg{position:absolute;bottom:0;width:7px;height:32px;background:#0b1220;border-radius:3px;
+  transform-origin:top center;animation:walk2d .46s ease-in-out infinite alternate}
+.walker2d .leg.l{left:6px} .walker2d .leg.r{right:6px;animation-delay:.23s}
+@keyframes walk2d{0%{transform:rotate(-20deg)}100%{transform:rotate(20deg)}}
 
 /* ---------- SCREEN 3 : speech window ---------- */
 #speechScreen{flex-direction:column}
@@ -157,9 +185,15 @@ body{
     </div>
   </div>
 
-  <!-- SCREEN 2 : 3D transition -->
+  <!-- SCREEN 2 : 3D transition (or its 2D fallback, mounted into #trans2D) -->
   <div class="screen" id="transScreen">
     <canvas id="transCanvas"></canvas>
+    <div id="trans2D"><div class="corridor2d" id="corridor2d"></div>
+      <div class="door2d"></div>
+      <div class="walker2d"><div class="head"></div><div class="torso"></div>
+        <div class="leg l"></div><div class="leg r"></div></div>
+    </div>
+    <div class="badge2d" id="renderBadge"></div>
     <div class="trans-caption" id="transCaption">走向辦公室 ……</div>
     <button class="ghost skip" id="skipBtn" onclick="finishTransition()">跳過 ▸▸</button>
   </div>
@@ -299,59 +333,158 @@ function toast(msg){ const d=document.createElement("div"); d.textContent=msg; $
 function flashOnce(color){ const f=$("flash"); f.style.background=color||"rgba(45,212,191,.14)"; f.classList.add("on"); setTimeout(()=>f.classList.remove("on"),220); }
 
 /* ============================================================
-   SCREEN 2 — 3D transition. Non-interactive, schematic, ~5s,
-   skippable. Matches docs/research/3d-scene-plan.md's degrade
-   contract loosely: try/catch around WebGL, dispose on exit,
-   pixelRatio capped, no textures, minimal geometry.
+   SCREEN 2 — the node transition, ~5.4s, skippable, either a
+   real 3D render or a CSS-only 2D fallback that looks and times
+   out the same way. Degrade path follows
+   docs/research/3d-scene-plan.md §5, lightened for a scene this
+   short (that doc's 90-frame median window doesn't fit in 5s,
+   so the frame-time sample here is deliberately smaller — noted
+   inline where it differs):
+     1. no WebGL at all               -> 2D immediately, no attempt
+     2. WebGL init throws             -> 2D immediately
+     3. first ~15 frames run slow     -> abort to 2D mid-scene
+     4. webglcontextlost mid-render   -> preventDefault(), 2D, no retry
+   Every path ends by calling finishTransition().
    ============================================================ */
+function supportsWebGL(){
+  try{
+    const c = document.createElement("canvas");
+    const gl = c.getContext("webgl2") || c.getContext("webgl") || c.getContext("experimental-webgl");
+    return !!(gl && window.WebGLRenderingContext);
+  } catch(e){ return false; }
+}
+
 window.enterTransition = function(){
   show("transScreen");
-  try { runTransition(); }
-  catch(e){ console.warn("3D unavailable, skipping to speech window", e); finishTransition(); }
+  if (!supportsWebGL()){
+    run2DTransition("no WebGL context in this browser");
+    return;
+  }
+  try { run3DTransition(); }
+  catch(e){ console.warn("3D init threw, falling back to 2D:", e); run2DTransition("init error: "+e.message); }
 };
 
+/* ---------- 2D fallback: CSS only, no canvas, cheap on any device ---------- */
+function run2DTransition(reason){
+  if (reason) console.info("[transition] using 2D fallback —", reason);
+  $("renderBadge").textContent = "2D 模式 · " + (reason || "");
+  $("transCanvas").style.display = "none";
+  const mount = $("trans2D"); mount.classList.add("on");
+  const track = $("corridor2d"); track.innerHTML = "";
+  const DURATION = 5.4, FRAMES = 7;
+  for (let i=0;i<FRAMES;i++){
+    const f = document.createElement("div");
+    f.className = "seg2d";
+    f.style.animation = `corridorfly ${(DURATION*0.9).toFixed(2)}s cubic-bezier(.3,0,.7,1) ${(i/FRAMES*DURATION).toFixed(2)}s infinite`;
+    track.appendChild(f);
+  }
+  let done = false;
+  const timer = setTimeout(()=>{ if(!done){ done=true; finishTransition(); } }, DURATION*1000);
+  window.__disposeTransition = ()=>{
+    clearTimeout(timer);
+    mount.classList.remove("on"); track.innerHTML = "";
+    $("transCanvas").style.display = "";
+  };
+}
+
+/* ---------- 3D path ---------- */
 let renderer, raf;
-function runTransition(){
+function run3DTransition(){
   const canvas = $("transCanvas");
+  $("renderBadge").textContent = "3D 模式";
   renderer = new THREE.WebGLRenderer({canvas, antialias:true, alpha:false, powerPreference:"low-power"});
   renderer.setPixelRatio(Math.min(window.devicePixelRatio||1, 1.5));
   renderer.setSize(window.innerWidth, window.innerHeight);
 
   const scene = new THREE.Scene();
-  scene.fog = new THREE.FogExp2(0x050b18, 0.045);
+  scene.fog = new THREE.FogExp2(0x050b18, 0.05);
   scene.background = new THREE.Color(0x050b18);
 
   const camera = new THREE.PerspectiveCamera(50, window.innerWidth/window.innerHeight, 0.1, 100);
   camera.position.set(0, 1.6, 14);
 
-  scene.add(new THREE.AmbientLight(0x8899bb, 0.55));
+  scene.add(new THREE.AmbientLight(0x8899bb, 0.5));
   const key = new THREE.DirectionalLight(0x66e0d0, 0.9);
   key.position.set(2, 6, 4);
   scene.add(key);
+  const rim = new THREE.DirectionalLight(0xa855f7, 0.35);
+  rim.position.set(-3, 4, -10);
+  scene.add(rim);
 
-  // schematic corridor: flat-shaded receding panels, no textures.
+  // schematic corridor: flat-shaded low-poly, no textures — richer set
+  // dressing than a bare box tunnel, still cheap (well under 1k tris total).
   const wallMat = new THREE.MeshStandardMaterial({color:0x0c1a30, roughness:1, flatShading:true});
+  const pillarMat = new THREE.MeshStandardMaterial({color:0x101f3a, roughness:0.85, flatShading:true});
   const stripMat = new THREE.MeshBasicMaterial({color:0x2dd4bf});
+  const ceilMat = new THREE.MeshBasicMaterial({color:0x8fe7dc});
+  const glassMat = new THREE.MeshStandardMaterial({color:0x0ea5a4, roughness:0.2, metalness:0.1, transparent:true, opacity:0.28});
+  const cityMat = new THREE.MeshStandardMaterial({color:0x0a1428, roughness:1, flatShading:true});
+  const cityLitMat = new THREE.MeshBasicMaterial({color:0xfbbf24});
+
   for (let i=0;i<10;i++){
     const z = -i*3;
     const l = new THREE.Mesh(new THREE.BoxGeometry(0.15,3,2.6), wallMat); l.position.set(-3,1.3,z); scene.add(l);
     const r = new THREE.Mesh(new THREE.BoxGeometry(0.15,3,2.6), wallMat); r.position.set(3,1.3,z); scene.add(r);
+    // light strips, both walls
     const strip = new THREE.Mesh(new THREE.BoxGeometry(0.06,0.06,2.4), stripMat); strip.position.set(-2.9,2.7,z); scene.add(strip);
     const strip2 = strip.clone(); strip2.position.x = 2.9; scene.add(strip2);
+    // ceiling light panels, every other segment
+    if (i%2===0){
+      const panel = new THREE.Mesh(new THREE.BoxGeometry(1.1,0.05,1.0), ceilMat); panel.position.set(0,2.95,z); scene.add(panel);
+    }
+    // pillars with a trim band, every other segment, alternating sides
+    if (i%2===1){
+      const side = (i%4===1) ? -1 : 1;
+      const pillar = new THREE.Mesh(new THREE.BoxGeometry(0.28,3,0.28), pillarMat); pillar.position.set(side*2.85,1.3,z); scene.add(pillar);
+      const trim = new THREE.Mesh(new THREE.BoxGeometry(0.30,0.08,0.30), stripMat); trim.position.set(side*2.85,2.55,z); scene.add(trim);
+    }
+    // a glass "window" strip on the right wall showing a skyline silhouette
+    if (i>=2 && i<=6){
+      const glass = new THREE.Mesh(new THREE.PlaneGeometry(1.6,1.3), glassMat);
+      glass.rotation.y = -Math.PI/2; glass.position.set(2.92, 1.5, z); scene.add(glass);
+    }
   }
-  const floor = new THREE.Mesh(new THREE.PlaneGeometry(6,60), new THREE.MeshStandardMaterial({color:0x081222, roughness:1}));
-  floor.rotation.x = -Math.PI/2; floor.position.set(0,0,-15); scene.add(floor);
+  // skyline silhouette, seen through the window strip
+  const cityGroup = new THREE.Group();
+  for (let i=0;i<9;i++){
+    const h = 0.6 + Math.random()*1.8, w = 0.35 + Math.random()*0.25;
+    const b = new THREE.Mesh(new THREE.BoxGeometry(w, h, 0.3), cityMat);
+    b.position.set(4.4, h/2, -6 - i*1.4 + (Math.random()-0.5)*0.4);
+    cityGroup.add(b);
+    if (Math.random() > 0.4){
+      const dot = new THREE.Mesh(new THREE.BoxGeometry(0.05,0.05,0.05), cityLitMat);
+      dot.position.set(4.25, h*0.5 + (Math.random()-0.5)*h*0.5, b.position.z);
+      cityGroup.add(dot);
+    }
+  }
+  scene.add(cityGroup);
 
-  // door: a glowing plane that grows as we approach
+  // floor: base plane + a lighter centre walkway strip for a depth cue,
+  // slightly glossy (no envMap — cheap, still reads as "polished" under
+  // the key + door lights rather than truly reflective).
+  const floor = new THREE.Mesh(new THREE.PlaneGeometry(6,60),
+    new THREE.MeshStandardMaterial({color:0x081222, roughness:0.5, metalness:0.35}));
+  floor.rotation.x = -Math.PI/2; floor.position.set(0,0,-15); scene.add(floor);
+  const walkway = new THREE.Mesh(new THREE.PlaneGeometry(1.4,60),
+    new THREE.MeshStandardMaterial({color:0x0f1d38, roughness:0.4, metalness:0.4}));
+  walkway.rotation.x = -Math.PI/2; walkway.position.set(0,0.005,-15); scene.add(walkway);
+
+  // door: glowing panel plus a frame so it reads as an actual doorway
   const door = new THREE.Mesh(new THREE.PlaneGeometry(2.4,3), new THREE.MeshBasicMaterial({color:0xa855f7, transparent:true, opacity:0.85}));
   door.position.set(0, 1.5, -27); scene.add(door);
+  const frameMat = new THREE.MeshStandardMaterial({color:0x1e1033, roughness:0.6});
+  const frameTop = new THREE.Mesh(new THREE.BoxGeometry(2.7,0.18,0.18), frameMat); frameTop.position.set(0,3.05,-27); scene.add(frameTop);
+  const frameL = new THREE.Mesh(new THREE.BoxGeometry(0.18,3.1,0.18), frameMat); frameL.position.set(-1.34,1.5,-27); scene.add(frameL);
+  const frameR = frameL.clone(); frameR.position.x = 1.34; scene.add(frameR);
   const glow = new THREE.PointLight(0xa855f7, 2.2, 12); glow.position.set(0,1.6,-26); scene.add(glow);
 
-  // walking silhouette (very simple capsule-ish box) for scale/motion cue
+  // walking silhouette — body, head and simple arm cues, bobbing gait
   const figMat = new THREE.MeshStandardMaterial({color:0x0f172a});
   const fig = new THREE.Group();
   const body = new THREE.Mesh(new THREE.CapsuleGeometry(0.28,0.7,4,8), figMat); body.position.y=0.75; fig.add(body);
   const head = new THREE.Mesh(new THREE.SphereGeometry(0.22,10,10), figMat); head.position.y=1.35; fig.add(head);
+  const armL = new THREE.Mesh(new THREE.CapsuleGeometry(0.07,0.5,4,6), figMat); armL.position.set(-0.36,0.85,0); fig.add(armL);
+  const armR = armL.clone(); armR.position.x = 0.36; fig.add(armR);
   fig.position.set(0, 0, 12.4);
   scene.add(fig);
 
@@ -360,14 +493,41 @@ function runTransition(){
   let idle = false;
   window.__transIdle = (v)=>{ idle = v; };
 
+  // frame-time watchdog: a lightened version of the plan doc's 90-frame
+  // median rule, sized for a ~5s scene instead of a scene the player
+  // stays in — sample the first 15 frames only.
+  let ftSamples = 0, ftSum = 0, lastNow = performance.now(), watchdogTripped = false;
+
+  canvas.addEventListener("webglcontextlost", (e)=>{
+    e.preventDefault();
+    console.warn("[transition] webglcontextlost mid-scene — switching to 2D, not retrying");
+    if (window.__disposeTransition) window.__disposeTransition();
+    run2DTransition("context lost");
+  }, {once:true});
+
   function frame(){
+    if (watchdogTripped) return;
     if (idle){ raf = requestAnimationFrame(frame); return; }
+    const now = performance.now();
+    const dt = now - lastNow; lastNow = now;
+    if (ftSamples < 15){
+      ftSamples++; ftSum += dt;
+      if (ftSamples === 15 && (ftSum/15) > 40){
+        watchdogTripped = true;
+        console.warn(`[transition] avg frame time ${(ftSum/15).toFixed(1)}ms over first 15 frames — degrading to 2D`);
+        if (window.__disposeTransition) window.__disposeTransition();
+        run2DTransition("slow device, avg "+(ftSum/15).toFixed(0)+"ms/frame");
+        return;
+      }
+    }
     const t = Math.min(clock.getElapsedTime()/DURATION, 1);
     const ease = 1 - Math.pow(1-t, 3); // ease-out cubic
     camera.position.z = 14 - ease*17;      // 14 -> -3, arriving just past the door
-    camera.position.y = 1.6 - ease*0.05;
+    camera.position.y = 1.6 - ease*0.05 + Math.sin(t*22)*0.012; // walking bob
     fig.position.z = 12.4 - ease*15.4;
     fig.position.x = Math.sin(t*18)*0.04;  // subtle walk sway
+    fig.position.y = Math.abs(Math.sin(t*22))*0.03;
+    armL.rotation.x = Math.sin(t*22)*0.5; armR.rotation.x = -Math.sin(t*22)*0.5;
     door.material.opacity = 0.6 + Math.sin(t*10)*0.15;
     door.scale.setScalar(1 + ease*0.35);
     camera.lookAt(0, 1.4, camera.position.z-8);
