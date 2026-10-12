@@ -16,7 +16,9 @@ frontend/js/api.js       前端 API 呼叫集中管理
 dist/                    前端 build 後輸出，供 Vercel 靜態部署使用
 scripts/                 build、測試與資料庫遷移腳本
 sql/                     本機 SQLite 資料庫
-dev/                     開發補充文件（資料庫欄位規劃、需求紀錄等）
+dev/                     開發補充文件（資料庫欄位規劃、SDG5 內容大綱等）。
+                         內含 security-audit-findings.docx —— 記錄仍未輪替
+                         的正式環境密鑰與已知弱點，尚未處理，見文件內容。
 docs/                    研究筆記、UX 原型、架構圖、各階段設計 DRAFT
 mono_game/               Around the World 桌遊化設計文件與原型
 Online Boardgame/        其餘桌遊化學習活動（Science 365、Science Debate、
