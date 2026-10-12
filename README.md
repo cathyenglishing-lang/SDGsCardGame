@@ -11,12 +11,17 @@ SDGsprogram_5.0 是一套結合 SDGs 永續議題、英語口說與卡牌互動�
 ```text
 backend/                 FastAPI 後端，主要程式為 backend/main.py
 frontend/                靜態前端原始碼
-frontend/pages/          登入、註冊、遊戲入口、遊戲、結果、教師後台頁面
+frontend/pages/          登入、註冊、遊戲入口、各遊戲、結果、教師後台頁面
 frontend/js/api.js       前端 API 呼叫集中管理
 dist/                    前端 build 後輸出，供 Vercel 靜態部署使用
 scripts/                 build、測試與資料庫遷移腳本
 sql/                     本機 SQLite 資料庫
-dev/                     開發補充文件
+dev/                     開發補充文件（資料庫欄位規劃、需求紀錄等）
+docs/                    研究筆記、UX 原型、架構圖、各階段設計 DRAFT
+mono_game/               Around the World 桌遊化設計文件與原型
+Online Boardgame/        其餘桌遊化學習活動（Science 365、Science Debate、
+                         Monopoly、Science Vocab、Three Minute Thesis）的
+                         來源文件與原型
 ```
 
 ## 主要功能
