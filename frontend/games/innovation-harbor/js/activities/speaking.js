@@ -53,14 +53,18 @@ function browserPanel(body, slide, on) {
     ctl.innerHTML = `<div class="row"><button class="btn" type="button" id="go">🎙 Start speaking</button><button class="btn ghost" type="button" id="stop" hidden>Stop</button><span class="count" id="att"></span></div>
       <div class="mic"><span class="dot" id="dot"></span><div class="transcript" id="tr">(what the browser hears appears here)</div></div>`;
     body.querySelector("#ctl").appendChild(ctl);
-    const go = ctl.querySelector("#go"), stop = ctl.querySelector("#stop"); let best = 0, tries = 0;
+    const go = ctl.querySelector("#go"), stop = ctl.querySelector("#stop"); let best = 0, tries = 0, closed = false;
+    const finish = v => { closed = true; listen.stop && listen.stop(); res(v); };
     stop.onclick = () => listen.stop && listen.stop();
     go.onclick = async () => {
       try { speechSynthesis.cancel(); } catch (e) {}
+      const okBtn = ctl.querySelector("#ok"); if (okBtn) okBtn.hidden = true; // no "use this attempt" while still listening
       tries++; go.hidden = true; stop.hidden = false; ctl.querySelector("#dot").classList.add("live"); on?.start?.();
       const r = await listen(30000, t => ctl.querySelector("#tr").textContent = t);
+      if (closed) return;
+      if (okBtn) okBtn.hidden = false;
       ctl.querySelector("#dot").classList.remove("live"); stop.hidden = true; go.hidden = false; on?.stop?.();
-      if (!r.ok && speechFailed(r.code)) { ctl.remove(); return res({ fail: r.code }); }
+      if (!r.ok && speechFailed(r.code)) { ctl.remove(); return finish({ fail: r.code }); }
       const cov = coverage(slide.script, r.text);
       ctl.querySelector("#tr").textContent = r.text || "(nothing heard — try again)";
       body.querySelector("#tg").innerHTML = targetHtml(slide.script, cov);
@@ -68,8 +72,8 @@ function browserPanel(body, slide, on) {
       log("speak.attempt", `slide ${slide.no} try ${tries} coverage ${Math.round(cov.ratio * 100)}% missed: ${cov.miss.slice(0, 6).join(", ") || "none"}`);
       S.metrics.missed.push(...cov.miss);
       ctl.querySelector("#att").textContent = `attempt ${tries}/3 · best ${Math.round(best * 100)}%`;
-      if (tries >= 3 || best >= .8) { go.disabled = true; return res({ best }); }
-      if (!ctl.querySelector("#ok")) { const b = document.createElement("button"); b.className = "btn ghost"; b.id = "ok"; b.type = "button"; b.textContent = "Use this attempt"; b.onclick = () => { go.disabled = true; b.remove(); res({ best }); }; go.parentElement.appendChild(b); }
+      if (tries >= 3 || best >= .8) { go.disabled = true; return finish({ best }); }
+      if (!ctl.querySelector("#ok")) { const b = document.createElement("button"); b.className = "btn ghost"; b.id = "ok"; b.type = "button"; b.textContent = "Use this attempt"; b.onclick = () => { go.disabled = true; b.remove(); finish({ best }); }; go.parentElement.appendChild(b); }
     };
   });
 }

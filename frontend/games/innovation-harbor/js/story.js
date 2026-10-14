@@ -51,13 +51,14 @@ async function walkLeg(player, pts, { cutAfter = 36 } = {}) {
   await fade(true, 500); player.setPos(p2.x, p2.y, p2.z); const nx = rest[1] || rest[0]; player.face(nx.x, nx.z, true); setFollow(player, { dist: 6.2, height: 2.1 }); await wait(80); await fade(false, 500);
   await player.walk(rest.map(p => [p.x, p.y, p.z]));
 }
+const STOP_ACTIVITY = { pier: "Listening", lab: "Reading", archive: "Card Game", council: "Speaking", workshop: "Strategy", theater: "Pecha Kucha talk" };
 // Default: the player walks freely to the glowing ring. "Auto-walk" and "Skip" stay as fallbacks.
 export function travel(player, key, pathKey) {
   return new Promise(res => {
     const p = PATHS[pathKey]; const last = p[p.length - 1];
     const end = last.length === 3 ? [last[0], last[2]] : last;
     const from = player.pos.clone(); const t0 = performance.now();
-    markStations(key); $("#tvName").textContent = STATIONS[key].name; $("#tvDist").textContent = ""; $("#travel").hidden = false;
+    markStations(key); $("#tvName").textContent = `${STATIONS[key].name} · ${STOP_ACTIVITY[key]}`; $("#tvDist").textContent = ""; $("#travel").hidden = false;
     const done = how => { $("#travel").hidden = true; log("move", `${how} to ${STATIONS[key].name} (${Math.round((performance.now() - t0) / 1000)} s)`); res(); };
     startRoam(player, end, {
       onDistance: d => { $("#tvDist").textContent = `${Math.round(d)} m`; },
@@ -181,7 +182,7 @@ export async function runStory(ctx) {
   player.face(27, 20); await wait(300);
   audience.forEach(a => a.faceTo(player));
   await say(MEI, L("Harbor Master Mei", "front row", "mei", "This is it, Envoy. Pecha Kucha rules: twenty seconds per slide, and the slides change by themselves. Speak clearly. The harbor is listening.", "就是現在，特使。Pecha Kucha 規則：每張二十秒，自動換頁。說清楚，整個港口都在聽。"), player);
-  shot([27, 2.8, 17], [27, 3, 5]);
+  shot([27, 5.2, 17.5], [27, 2.4, 4]);
   await actPechaKucha(slidesOf(6), { player, audience, mei });
   tags.theater.state = "done";
   S.stage = 6; renderHud();

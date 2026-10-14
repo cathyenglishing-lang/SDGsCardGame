@@ -1256,6 +1256,28 @@ body.is-dragging-card .subtopic-poker:not(.correct) {
 }
 
 </style>
+<style>
+/* Layout pass: the status line and the read-aloud text sit in a panel above the cards
+   instead of floating over them; nothing is pinned on top of the card table. */
+.pk-read-panel{display:flex;flex-direction:column;gap:8px;margin:0 0 12px}
+.pk-read-panel #status{position:static !important;left:auto;right:auto;bottom:auto;transform:none;width:auto;max-width:none;height:auto;min-height:0;margin:0;font-size:1rem;line-height:1.4;padding:9px 14px}
+.pk-read-panel #sentenceBox,.pk-read-panel #sentenceBox.active{position:static !important;left:auto;right:auto;bottom:auto;transform:none;width:auto;max-width:none;margin:0;max-height:7.2em;overflow-y:auto;padding:10px 16px;opacity:1;visibility:visible;transition:none;text-align:left;box-shadow:none}
+.pk-read-panel #sentenceBox:not(.active){display:none}
+.pk-read-panel #sentenceBox .sentence-text{font-size:1.05rem;line-height:1.5}
+.subtopic-box{height:auto !important}
+body.pk-embed .game-guide,body.pk-embed #topicGrid{display:none}
+.game-title{font-size:clamp(1.15rem,2.2vw,1.7rem) !important;line-height:1.25}
+@media (max-width:780px){
+  .deck-panel{height:226px !important;bottom:10px !important}
+  .dealt-card-container{width:112px !important;height:196px !important}
+  .dealt-card-container .poker-card{width:112px !important;height:157px !important}
+  .deck{width:96px !important;height:134px !important}
+  .card-controls{bottom:-44px !important}
+  #gameScreen.game-wrapper{padding-bottom:250px !important}
+  #gameTimer{top:auto !important;bottom:196px !important;right:24px !important;left:auto !important;width:auto !important;padding:4px 12px !important;font-size:1rem !important;z-index:160}
+  #gameTimer .timer-label{display:inline;margin-right:6px}
+}
+</style>
 <script src="/static/config.js"></script>
 <script>
 /* ── Voice preload ── */
@@ -1374,7 +1396,8 @@ function pkStartGame(topicId, level){
   document.getElementById("subBox").innerHTML = "";
   document.getElementById("sentenceBox").innerHTML = "";
   const st = document.querySelector(".game-title");
-  if(st) st.textContent = "SDG "+topic.sdg+" · "+pkClean(topic.title_en)+"（"+level+"）";
+  const shortTitle = (pkClean(topic.title_en).match(/^[^?.!]*[?.!]?/)||[""])[0] || pkClean(topic.title_en);
+  if(st) st.textContent = "SDG "+topic.sdg+" · "+shortTitle+"（"+level+"）";
   initTopics();
   window.scrollTo(0,0);
 }
@@ -1670,6 +1693,10 @@ async function initTopics() {
 }
 renderSelector();
 pkShowRate();
+(function pkReadPanel(){
+  const sub = document.getElementById("subBox"); const panel = document.createElement("div"); panel.className = "pk-read-panel";
+  sub.parentNode.insertBefore(panel, sub); panel.append(document.getElementById("status"), document.getElementById("sentenceBox"));
+})();
 if (PK_LINK.embed) document.body.classList.add("pk-embed");
 if (PK_LINK.topic) pkStartGame(PK_LINK.topic, PK_LINK.level);
 
@@ -1962,35 +1989,35 @@ function escapeHTML(value) {
   return String(value ?? "").replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
 }
 
+// Sentence by sentence (Chrome's network voices stop after ~15 s without an "end" event),
+// with a timer so the card always becomes draggable even if the browser never reports the end.
+let pkSpeakToken = 0;
 function speak(text, onEndCallback) {
   window.speechSynthesis.cancel();
   const box = document.getElementById("sentenceBox");
   box.classList.add("active");
   box.innerHTML = `<div class="sentence-text">${escapeHTML(text)}</div>`;
-
-  const u = new SpeechSynthesisUtterance(text);
-  if (cachedVoice) u.voice = cachedVoice;
-  u.lang = "en-US";
-  u.rate = 0.82 * pkRate();
-  u.pitch = 1;
-  activeUtterance = u;
-
-  u.onerror = event => {
-    console.warn("Speech synthesis error", event);
-    box.classList.remove("active");
-    activeUtterance = null;
-    if (onEndCallback) onEndCallback();
+  const my = ++pkSpeakToken;
+  let finished = false;
+  const done = () => {
+    if (finished || my !== pkSpeakToken) return;
+    finished = true; clearTimeout(guard);
+    setTimeout(() => { box.classList.remove("active"); activeUtterance = null; if (onEndCallback) onEndCallback(); }, 350);
   };
-
-  u.onend = () => {
-    setTimeout(() => {
-      box.classList.remove("active");
-      activeUtterance = null;
-      if (onEndCallback) onEndCallback();
-    }, 350);
-  };
-
-  speechSynthesis.speak(u);
+  const rate = 0.82 * pkRate();
+  const words = String(text).split(/\s+/).length;
+  const guard = setTimeout(done, (words / (2.4 * rate)) * 1500 + 2500);
+  const parts = String(text).split(/(?<=[.!?])\s+/).map(t => t.trim()).filter(Boolean);
+  parts.forEach((t, i) => {
+    const u = new SpeechSynthesisUtterance(t);
+    if (cachedVoice) u.voice = cachedVoice;
+    u.lang = "en-US"; u.rate = rate; u.pitch = 1;
+    u.onerror = event => { console.warn("Speech synthesis error", event); done(); };
+    if (i === parts.length - 1) u.onend = done;
+    activeUtterance = u;
+    speechSynthesis.speak(u);
+  });
+  if (!parts.length) done();
 }
 
 async function saveFullAttemptRecord() { return null; }

@@ -51,7 +51,7 @@ const councilA = makeActor("female", "Councillor", { tint: 0xb8b0c8 });
 const councilB = makeActor("preview", "Councillor", { tint: 0x5a5a66 });
 player.setPos(...SPOTS.playerStart).face(10, 0, true);
 mei.setPos(...SPOTS.mei).face(10, -14, true);
-kai.setPos(...SPOTS.kai).face(-30, 24, true);
+kai.setPos(...SPOTS.kai).face(-28, 26, true);
 hsu.setPos(...SPOTS.hsu).face(-6, 44, true);
 wang.setPos(...SPOTS.wang).face(26, 48, true); councilA.setPos(...SPOTS.councilA).face(26, 48, true); councilB.setPos(...SPOTS.councilB).face(26, 48, true);
 // crowd on the sidewalks

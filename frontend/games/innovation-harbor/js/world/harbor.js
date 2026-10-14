@@ -27,7 +27,7 @@ export const STATIONS = {
 export const SPOTS = {
   playerStart: [10, G, -21],
   mei: [12.6, G, -8.2],
-  kai: [-32.6, G, 28.2],
+  kai: [-33.6, G, 24.4], // on the plaza in front of the AI Lab (the tower occupies z 27–41)
   hsu: [-4, 1.1, 51],
   wang: [26, 1.8, 55.5], councilA: [21, 1.8, 56.5], councilB: [31, 1.8, 56.5],
   podium: [26, 1.8, 53.2],

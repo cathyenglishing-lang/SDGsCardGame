@@ -82,7 +82,7 @@ export class Actor {
   constructor(kind, name, { tint } = {}) {
     const model = models[kind] || models.male;
     this.model = model; this.name = name; this.gender = model.spec.gender;
-    this.root = new THREE.Group(); this.inner = SkeletonUtils.clone(model.root);
+    this.root = new THREE.Group(); this.root.userData.actor = true; this.inner = SkeletonUtils.clone(model.root);
     this.inner.scale.setScalar(model.scale); this.inner.rotation.y = model.spec.yawFix; this.root.add(this.inner);
     if (tint) {
       // Recolor clothing meshes when the avatar has them; otherwise tint the single mesh lightly.

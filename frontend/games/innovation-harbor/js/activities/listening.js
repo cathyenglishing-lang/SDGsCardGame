@@ -22,9 +22,9 @@ export async function actListening(slides, ctx) {
         plays++; if (plays > 1) S.metrics.replays++; pc.textContent = `played ${plays}×`;
         log("listen.play", `slide ${s.no} play #${plays}`);
         ctx?.traffic && (ctx.traffic.aiTalking = true);
+        if (!q.children.length) ready(); // questions appear on the first Play; the audio keeps going
         await speak(s.script, "speaker");
         ctx?.traffic && (ctx.traffic.aiTalking = false);
-        if (!q.children.length) ready();
       };
     });
     let html = esc(s.script);

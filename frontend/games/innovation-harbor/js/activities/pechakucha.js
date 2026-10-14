@@ -19,9 +19,9 @@ export async function actPechaKucha(slides, { player, audience, mei }) {
   const pk = body.querySelector("#pk"); let result;
   const shots = [
     () => frontShot(player, { dist: 4.2, height: 0.25, side: 1.1 }),
-    () => shot([27, 2.6, 15.5], [27, 3.2, 3]),
+    () => shot([27, 5.2, 17.5], [27, 2.4, 4]),
     () => frontShot(player, { dist: 2.6, height: 0.15, side: -0.7 }),
-    () => shot([19, 2.2, 11], [27, 2.4, 5]),
+    () => shot([18.5, 3.6, 12], [27, 2.0, 5]),
   ];
   for (;;) {
     body.querySelector("#tiers").innerHTML = tiersHtml();
@@ -58,7 +58,7 @@ export async function actPechaKucha(slides, { player, audience, mei }) {
     result = { pending: true }; break;
   }
   drawScreen("THANK YOU", "Innovation Harbor", "Can We Trust AI? · Presented by the Sustainability Envoy");
-  if (!result.skipped) { shot([27, 2.8, 17], [27, 3, 5]); applause(4); audience.forEach((a, i) => setTimeout(() => a.play("react"), i * 120)); mei?.play("react"); }
+  if (!result.skipped) { shot([27, 5.2, 17.5], [27, 2.4, 4]); applause(4); audience.forEach((a, i) => setTimeout(() => a.play("react"), i * 120)); mei?.play("react"); }
   if (result.avg != null) {
     const n = Math.max(1, starsFromRatio(result.avg)); S.metrics.speakBest.push(result.avg);
     pk.innerHTML = `<p class="hint">Average coverage ${Math.round(result.avg * 100)}% (${result.ratios.map(x => Math.round(x * 100) + "%").join(", ")})</p>`;

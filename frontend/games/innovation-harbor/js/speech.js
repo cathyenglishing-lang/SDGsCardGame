@@ -35,21 +35,33 @@ const RATE_KEY = "cardlearn_tts_rate";
 export function getRate() { try { const r = parseFloat(localStorage.getItem(RATE_KEY)); return RATES.includes(r) ? r : 1; } catch (e) { return 1; } }
 export function cycleRate() { const r = RATES[(RATES.indexOf(getRate()) + 1) % RATES.length]; try { localStorage.setItem(RATE_KEY, String(r)); } catch (e) {} return r; }
 
-let current = null;
+// Chrome's network voices stop after ~15 s without firing "end", so long text is spoken
+// sentence by sentence, and a timer resolves the promise if the browser never reports the end.
+let token = 0;
+const chunksOf = text => String(text).split(/(?<=[.!?])\s+/).map(t => t.trim()).filter(Boolean);
 export function speak(text, who = "narrator") {
   return new Promise(res => {
     if (!("speechSynthesis" in window)) return res();
     speechSynthesis.cancel();
-    const u = new SpeechSynthesisUtterance(text);
+    const my = ++token;
     const v = VOICES[who] || VOICES.narrator;
-    u.lang = "en-US"; u.rate = v.rate * getRate();
     const voice = pickVoice(v.g, v.names, v.n || 0);
-    if (voice) u.voice = voice;
     const mismatch = v.g && (!voice || genderOf(voice) !== v.g);
-    u.pitch = mismatch ? (v.g === "f" ? 1.35 : 0.75) : v.pitch;
-    u.onend = u.onerror = () => { if (current === u) current = null; res(); };
-    current = u;
-    speechSynthesis.speak(u);
+    const rate = v.rate * getRate();
+    const parts = chunksOf(text);
+    const words = String(text).split(/\s+/).length;
+    let done = false;
+    const finish = () => { if (done) return; done = true; clearTimeout(guard); res(); };
+    const guard = setTimeout(finish, (words / (2.4 * rate)) * 1000 * 1.5 + 2500);
+    parts.forEach((t, i) => {
+      const u = new SpeechSynthesisUtterance(t);
+      u.lang = "en-US"; u.rate = rate; if (voice) u.voice = voice;
+      u.pitch = mismatch ? (v.g === "f" ? 1.35 : 0.75) : v.pitch;
+      if (i === parts.length - 1) u.onend = () => { if (my === token) finish(); };
+      u.onerror = () => finish();
+      speechSynthesis.speak(u);
+    });
+    if (!parts.length) finish();
   });
 }
 export const stopSpeaking = () => { try { speechSynthesis.cancel(); } catch (e) {} };

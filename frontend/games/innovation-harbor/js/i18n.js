@@ -44,6 +44,8 @@ export function wireHints() {
     const b = e.target.closest(".zh-btn"); if (!b) return;
     e.stopPropagation();
     const t = b.nextElementSibling; t.hidden = !t.hidden; b.classList.toggle("on", !t.hidden);
+    // A choice bubble has one 中 button (on the question) that also reveals every option's Chinese line.
+    b.closest(".bubble.choice")?.querySelectorAll(".opt-zh").forEach(x => x.hidden = t.hidden);
     if (!t.hidden) { S.metrics.zhHints++; log("hint.zh", t.textContent.slice(0, 40)); }
   }, true);
 }
