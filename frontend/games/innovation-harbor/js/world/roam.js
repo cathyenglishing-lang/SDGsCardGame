@@ -43,7 +43,7 @@ function buildJoystick() {
   pad.addEventListener("pointermove", move); pad.addEventListener("pointerup", end); pad.addEventListener("pointercancel", end);
   return pad;
 }
-const touchUI = matchMedia("(pointer: coarse)").matches;
+// Always shown while roaming: tablets and touch laptops often report a fine pointer.
 let joy = null;
 
 // ── target beacon ──
@@ -93,7 +93,7 @@ export function startRoam(player, target, { radius = 2.6, onArrive, onDistance }
   active = { player, target: new THREE.Vector3(target[0], 0, target[1]), radius, onArrive, onDistance };
   beacon.position.set(target[0], groundY(target[0], target[1]), target[1]); beacon.visible = true;
   setFreeFollow(player);
-  if (touchUI) { joy ||= buildJoystick(); joy.hidden = false; }
+  joy ||= buildJoystick(); joy.hidden = false;
 }
 export function stopRoam() {
   if (!active) return;

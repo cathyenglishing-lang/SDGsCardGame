@@ -12,11 +12,13 @@ import { renderHud } from "./ui/sheet.js";
 import { S } from "./state.js";
 import { $, wait, pick, rand } from "./util.js";
 import { startAmbience, setMuted, isMuted } from "./audio.js";
-import { SPEECH_LABEL } from "./speech.js";
+import { SPEECH_LABEL, getRate, cycleRate } from "./speech.js";
 import { accountAvatar } from "./account.js";
 
 const avatarKind = accountAvatar();
 wireHints(); wireLogPanel();
+const showRate = r => { $("#rateBtn").textContent = `Speed ${r}×`; };
+showRate(getRate()); $("#rateBtn").onclick = () => { const r = cycleRate(); showRate(r); log("settings.rate", `speech speed ${r}×`); };
 $("#sound").onclick = () => { setMuted(!isMuted()); $("#sound").textContent = isMuted() ? "🔇" : "🔊"; };
 
 // loading progress

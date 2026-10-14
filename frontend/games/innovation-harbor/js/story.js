@@ -127,7 +127,7 @@ export async function runStory(ctx) {
   await travel(player, "archive", "labToArchive");
   hsu.faceTo(player);
   await h("Why does an AI invent papers with such confidence? I prepared a short talk about it, but the sea wind scattered my cards! Come inside the Archive and help me put the sentences back on the right slides.", "AI 為什麼能這麼有自信地捏造論文？我準備了一段短講，可是海風把卡片吹散了！進檔案館幫我把句子放回正確的投影片。");
-  await actCardGame({ topic: "9-1", parts: [3, 4] });
+  await actCardGame({ topic: "9-1", parts: [2, 3, 4, 5] });
   await h("Exactly. The AI guesses the next word. It does not check facts. Sounding right is not the same as being right.", "沒錯。AI 是在猜下一個字，不是在查證事實。聽起來對，不代表是真的。", { anim: "react" });
   await h("The Council meets now. Go and tell them why this matters.", "議會現在開會。去告訴他們為什麼這件事很重要。");
   tags.archive.state = "done";

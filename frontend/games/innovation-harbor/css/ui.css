@@ -236,3 +236,16 @@ button:focus-visible,[tabindex]:focus-visible,input:focus-visible{outline:2px so
 .cardgame header{display:flex;gap:12px;align-items:baseline;flex-wrap:wrap;padding:10px 16px;background:var(--night);border-bottom:2px solid var(--sdg9);font-family:var(--f-display)}
 .cardgame header span{color:var(--muted);font-size:.8rem}
 .cardgame iframe{flex:1;width:100%;border:0;background:#fff}
+/* tablets / phones: stage track gets its own row, travel panel and joystick never overlap */
+@media (max-width:1100px){
+  .hud .track{order:9;flex-basis:100%}
+  .travel .keys{display:none}
+}
+@media (max-width:760px){
+  .hud .brand b{font-size:.95rem}
+  .hud .meters{gap:8px;font-size:.72rem}
+  .logbtn{padding:4px 7px;font-size:.7rem}
+  .travel{left:12px;right:12px;transform:none;max-width:none;padding:8px 10px;gap:8px}
+  .travel .btn{padding:8px 12px}
+  .joy{left:16px;bottom:calc(150px + env(safe-area-inset-bottom,0px));width:104px;height:104px}
+}

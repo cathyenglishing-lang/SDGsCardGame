@@ -19,6 +19,12 @@ export const VOICES = {
   speaker:  { pick: () => prefer("Google US English", "Aria", "Jenny") || voices[0], pitch: 1, rate: S.level === "A2" ? .88 : .96 },
 };
 
+// Learner-chosen speed multiplier, shared with the card game page (same origin, same key).
+export const RATES = [0.7, 0.85, 1, 1.15, 1.3];
+const RATE_KEY = "cardlearn_tts_rate";
+export function getRate() { try { const r = parseFloat(localStorage.getItem(RATE_KEY)); return RATES.includes(r) ? r : 1; } catch (e) { return 1; } }
+export function cycleRate() { const r = RATES[(RATES.indexOf(getRate()) + 1) % RATES.length]; try { localStorage.setItem(RATE_KEY, String(r)); } catch (e) {} return r; }
+
 let current = null;
 export function speak(text, who = "narrator") {
   return new Promise(res => {
@@ -26,7 +32,7 @@ export function speak(text, who = "narrator") {
     speechSynthesis.cancel();
     const u = new SpeechSynthesisUtterance(text);
     const v = VOICES[who] || VOICES.narrator;
-    u.lang = "en-US"; u.pitch = v.pitch; u.rate = who === "speaker" ? VOICES.speaker.rate : v.rate;
+    u.lang = "en-US"; u.pitch = v.pitch; u.rate = (who === "speaker" ? VOICES.speaker.rate : v.rate) * getRate();
     const voice = v.pick(); if (voice) u.voice = voice;
     u.onend = u.onerror = () => { if (current === u) current = null; res(); };
     current = u;

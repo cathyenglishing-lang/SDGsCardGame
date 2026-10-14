@@ -8,9 +8,9 @@ import { fade } from "../world/camera.js";
 import { setMuted, isMuted } from "../audio.js";
 
 export async function actCardGame({ topic, parts }) {
-  const q = new URLSearchParams({ topic, level: S.level, parts: parts.join(","), embed: "harbor" });
+  const q = new URLSearchParams({ topic, level: S.level, parts: parts.join(","), merge: "1", embed: "harbor" });
   const wrap = document.createElement("div"); wrap.className = "cardgame";
-  wrap.innerHTML = `<header><b>Harbor Archive · Pecha Kucha Card Game</b><span>SDG ${topic} · ${S.level} · Parts ${parts.join(" & ")}</span></header>
+  wrap.innerHTML = `<header><b>Harbor Archive · Pecha Kucha Card Game</b><span>SDG ${topic} · ${S.level} · Parts ${parts[0]}–${parts[parts.length - 1]}</span></header>
     <iframe title="Pecha Kucha Card Game" src="/pages/pecha_kucha_builder.html?${q}" allow="autoplay"></iframe>`;
   const wasMuted = isMuted(); setMuted(true); // harbor ambience would cover the card game's read-aloud
   await fade(true, 450);
