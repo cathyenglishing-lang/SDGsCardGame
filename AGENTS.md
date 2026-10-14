@@ -1,5 +1,9 @@
 # Repository Guidelines
 
+## Handoff (read first)
+
+Current state, decisions, deployment map and rules for this project: `docs/handoff/` (newest file first, starting with `2026-10-14-innovation-harbor-handoff.md`). Pushing to `main` deploys to production (www.cathylanguagehub.com) — work on a branch and confirm with the owner before merging.
+
 ## Project Shape
 - FastAPI backend lives in `backend/`; the main app and routes are in `backend/main.py`.
 - Static frontend source lives in `frontend/`. Update source files there first.

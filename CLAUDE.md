@@ -2,6 +2,10 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Handoff (read first)
+
+Current state, decisions, deployment map and rules for this project: `docs/handoff/` (newest file first, starting with `2026-10-14-innovation-harbor-handoff.md`). Pushing to `main` deploys to production (www.cathylanguagehub.com) — work on a branch and confirm with the owner before merging.
+
 ## Project
 
 CardLearn SDGs (SDGsprogram_5.0) — SDGs Pecha Kucha card-matching English learning platform. Students select an SDG topic and CEFR difficulty, play a card-matching game, then review a script, record audio, and answer cloze questions. Teachers/admins maintain the question bank and view records.
