@@ -1,0 +1,18 @@
+export const $ = (s, root = document) => root.querySelector(s);
+export const $$ = (s, root = document) => [...root.querySelectorAll(s)];
+export const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+export const shuffle = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+export const wait = ms => new Promise(r => setTimeout(r, ms));
+export const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+export const lerp = (a, b, t) => a + (b - a) * t;
+export const rand = (a, b) => a + Math.random() * (b - a);
+export const pick = a => a[Math.floor(Math.random() * a.length)];
+export const REDUCED = matchMedia("(prefers-reduced-motion: reduce)").matches;
+export const IS_PHONE = () => innerWidth < 760;
+export const smoothstep = t => t * t * (3 - 2 * t);
+export const starStr = n => n === "pending" ? "Awaiting teacher" : n === "skip" ? "Incomplete" : n == null ? "" : "★".repeat(n) + "☆".repeat(3 - n);
+export const isNum = v => typeof v === "number";
+export const starsFromRatio = r => r >= .8 ? 3 : r >= .55 ? 2 : r >= .25 ? 1 : 0;
+export const starsFromErrors = e => e === 0 ? 3 : e <= 2 ? 2 : 1;
+export const cleanTitle = t => String(t || "").replace(/\s*\(.*?\)\s*/g, " ").replace(/Contextualied/g, "Contextualized").trim();
+export const sentences = text => String(text).split(/(?<=[.!?])\s+(?=[A-Z“"])/).map(s => s.trim()).filter(Boolean);

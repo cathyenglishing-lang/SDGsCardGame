@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Innovation Harbor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Manrope:wght@400;500;700&family=Noto+Sans+TC:wght@400;500&display=swap">
+<link rel="stylesheet" href="css/ui.css">
+<script type="importmap">
+{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js", "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/" } }
+</script>
+</head>
+<body>
+<canvas id="scene" aria-label="Innovation Harbor 3D scene"></canvas>
+<div id="labels"></div>
+<div class="ui" id="ui">
+  <div class="hud" id="hud" hidden>
+    <div class="brand"><b>Innovation Harbor</b><span>SDG 9</span></div>
+    <span class="chip" id="lvChip">A2</span>
+    <div class="track" id="track"></div>
+    <div class="meters"><span title="Integrity">Integrity <b id="integ">0</b></span><span class="stars" id="starTotal">★ 0</span></div>
+    <button class="logbtn" id="sound" type="button" aria-label="Sound">🔊</button>
+    <button class="logbtn" id="logBtn" type="button">Learning Log <span id="logN">0</span></button>
+  </div>
+  <div class="travel" id="travel" hidden><span>Next stop: <b id="tvName"></b></span><button class="btn" id="tvGo" type="button">Walk there ▸</button><button class="btn ghost" id="tvSkip" type="button">Skip walk</button></div>
+  <button class="btn ghost skip" id="skipCine" type="button" hidden>Skip ▸</button>
+  <section class="sheet" id="sheet" hidden aria-live="polite">
+    <header><div class="kicker" id="shKick"></div><h2 id="shTitle"></h2></header>
+    <div class="body" id="shBody"></div>
+  </section>
+  <aside class="logp" id="logp" hidden>
+    <header><b>Learning Log (teacher preview)</b><button class="btn ghost" id="logClose" type="button">Close</button></header>
+    <div class="tbl"><table><thead><tr><th>s</th><th>Part</th><th>Event</th><th>Detail</th></tr></thead><tbody id="logBody"></tbody></table></div>
+  </aside>
+  <div class="toast" id="toast" hidden></div>
+  <div class="cover" id="loading">
+    <div class="card small">
+      <h1><span>SDG 9 · INNOVATION HARBOR</span>Loading the harbor…</h1>
+      <div class="loadbar"><i id="loadBar"></i></div><p id="loadPct">0%</p>
+    </div>
+  </div>
+  <div class="cover" id="intro" hidden>
+    <div class="card">
+      <h1><span>SDG 9 · INNOVATION HARBOR</span>Can We Trust AI?</h1>
+      <p>You are the new <strong>Sustainability Envoy</strong>. The Port Council votes next week on letting HARBOR-AI run the whole port, but its assessment report seems to hide a problem. Visit six places in the harbor, follow the <strong>six stages of a Pecha Kucha talk</strong>, uncover the truth, and present your conclusion on the waterfront stage.
+        <span class="zh-hint"><button class="zh-btn" type="button" aria-label="Show Chinese hint">中</button><span class="zh-text" hidden>你是新上任的永續特使。港務議會下週要投票決定是否讓 HARBOR-AI 全面管理港口，但它的評估報告似乎藏著問題。走訪港口六個地點，依 Pecha Kucha 六個階段揭開真相，最後在海濱舞台發表結論。</span></span></p>
+      <p>Your choices decide where the story goes. Your listening, reading and speaking decide how well it ends. Four endings.
+        <span class="zh-hint"><button class="zh-btn" type="button" aria-label="Show Chinese hint">中</button><span class="zh-text" hidden>你的選擇決定故事走向；聽、讀、說的表現決定結局好壞。共四種結局。</span></span></p>
+      <div class="lv" id="lvPick">
+        <button type="button" data-lv="A2" aria-pressed="true"><b>A2</b><small>Elementary</small></button>
+        <button type="button" data-lv="B1" aria-pressed="false"><b>B1</b><small>Intermediate</small></button>
+        <button type="button" data-lv="B2" aria-pressed="false"><b>B2</b><small>Upper-intermediate</small></button>
+      </div>
+      <div class="row"><button class="btn" id="startBtn" type="button">Board the ferry ▸</button><span class="count">about 20 minutes · drag to look around · 中 shows a Chinese hint</span></div>
+      <div class="note">Prototype. Content: SDG 9-1 "Can We Trust AI?" from the existing question bank. Speaking uses the browser's speech recognition (Chrome or Edge, allow the microphone); browsers without it record your voice for the teacher. Nothing is saved to a server; the Learning Log shows what the full version will collect.</div>
+    </div>
+  </div>
+  <div class="cover" id="ending" hidden><div class="card" id="endCard"></div></div>
+</div>
+<div id="fade"></div>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>

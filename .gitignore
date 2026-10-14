@@ -10,3 +10,6 @@ sql/*.db-*
 
 .vercel
 .env*
+
+# Playwright MCP screenshots
+.playwright-mcp/

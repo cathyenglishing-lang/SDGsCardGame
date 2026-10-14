@@ -20,3 +20,6 @@ docs/
 mono_game/
 .claude/
 *.zip
+
+# Design prototypes (not part of the Vercel build)
+prototype/
