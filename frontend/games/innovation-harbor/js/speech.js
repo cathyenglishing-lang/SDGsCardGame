@@ -7,16 +7,26 @@ let voices = [];
 function refresh() { voices = speechSynthesis.getVoices().filter(v => /^en[-_]/i.test(v.lang)); }
 if ("speechSynthesis" in window) { refresh(); speechSynthesis.onvoiceschanged = refresh; }
 
-const prefer = (...names) => voices.find(v => names.some(n => v.name.includes(n)));
-// Each character gets a different voice when the browser offers several.
+const FEMALE = /female|zira|aria|jenny|sonia|libby|michelle|samantha|karen|susan|hazel|emma|ava|serena|tessa|fiona|moira|victoria|allison|joanna|salli|clara|elizabeth|natasha|heera|google us english/i;
+const MALE = /(?<!fe)male|david|mark|guy|ryan|davis|christopher|george|daniel|alex|fred|james|thomas|brian|eric|andrew|roger|steffan|aaron|oliver|matthew|william/i;
+const genderOf = v => FEMALE.test(v.name) ? "f" : MALE.test(v.name) ? "m" : "";
+// Pick the n-th voice of the wanted gender, preferring the named ones; null when the browser has none of that gender.
+function pickVoice(gender, names, n = 0) {
+  const pool = voices.filter(v => !gender || genderOf(v) === gender);
+  const named = names.map(nm => pool.find(v => v.name.includes(nm))).filter(Boolean);
+  const list = [...new Set([...named, ...pool])];
+  return list[Math.min(n, list.length - 1)] || null;
+}
+// Each character gets a voice of the right gender; different voices when the browser offers several.
+// When no voice of that gender exists, pitch is shifted instead (fem: higher, male: lower).
 export const VOICES = {
-  narrator: { pick: () => prefer("Google US English", "Aria", "Jenny") || voices[0], pitch: 1, rate: .95 },
-  mei:      { pick: () => prefer("Google UK English Female", "Sonia", "Libby", "Aria") || voices[0], pitch: .95, rate: .92 },
-  kai:      { pick: () => prefer("Google US English", "Guy", "Ryan", "Christopher") || voices[1] || voices[0], pitch: 1.1, rate: 1.0 },
-  hsu:      { pick: () => prefer("Google UK English Female", "Jenny", "Michelle", "Aria") || voices[0], pitch: .9, rate: .9 },
-  wang:     { pick: () => prefer("Google UK English Male", "Ryan", "Guy", "Davis") || voices[2] || voices[0], pitch: .8, rate: .9 },
-  ai:       { pick: () => prefer("Google US English", "Aria", "Jenny") || voices[0], pitch: .7, rate: 1.0 },
-  speaker:  { pick: () => prefer("Google US English", "Aria", "Jenny") || voices[0], pitch: 1, rate: S.level === "A2" ? .88 : .96 },
+  narrator: { g: "", names: ["Google US English", "Aria", "Jenny"], pitch: 1, rate: .95 },
+  mei:      { g: "f", names: ["Google UK English Female", "Sonia", "Libby", "Aria", "Zira"], pitch: 1, rate: .92 },
+  kai:      { g: "m", names: ["Guy", "Christopher", "Mark", "Fred", "Ryan"], pitch: 1.1, rate: 1.0 },
+  hsu:      { g: "f", names: ["Jenny", "Michelle", "Google US English", "Aria", "Zira"], pitch: .95, rate: .9, n: 1 },
+  wang:     { g: "m", names: ["Google UK English Male", "Ryan", "Davis", "David", "Guy"], pitch: .85, rate: .9 },
+  ai:       { g: "", names: ["Google US English", "Aria", "Zira"], pitch: .7, rate: 1.0 },
+  speaker:  { g: "", names: ["Google US English", "Aria", "Jenny"], pitch: 1, get rate() { return S.level === "A2" ? .88 : .96; } },
 };
 
 // Learner-chosen speed multiplier, shared with the card game page (same origin, same key).
@@ -32,8 +42,11 @@ export function speak(text, who = "narrator") {
     speechSynthesis.cancel();
     const u = new SpeechSynthesisUtterance(text);
     const v = VOICES[who] || VOICES.narrator;
-    u.lang = "en-US"; u.pitch = v.pitch; u.rate = (who === "speaker" ? VOICES.speaker.rate : v.rate) * getRate();
-    const voice = v.pick(); if (voice) u.voice = voice;
+    u.lang = "en-US"; u.rate = v.rate * getRate();
+    const voice = pickVoice(v.g, v.names, v.n || 0);
+    if (voice) u.voice = voice;
+    const mismatch = v.g && (!voice || genderOf(voice) !== v.g);
+    u.pitch = mismatch ? (v.g === "f" ? 1.35 : 0.75) : v.pitch;
     u.onend = u.onerror = () => { if (current === u) current = null; res(); };
     current = u;
     speechSynthesis.speak(u);

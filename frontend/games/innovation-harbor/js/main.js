@@ -45,7 +45,7 @@ const player = makeActor(S.avatar, "Envoy");
 // Mei shares the female model; give her a dark uniform when the player is female too.
 const mei = makeActor("female", "Harbor Master Mei", { tint: S.avatar === "female" ? 0x4a6a9a : 0xc8d2e6 });
 const kai = makeActor("preview", "Kai", { tint: 0x8fb3d9 });
-const hsu = makeActor("template", "Dr. Hsu", { tint: 0xf2efe8 });
+const hsu = makeActor("female", "Dr. Hsu", { tint: 0x9a7f6a }); // the story calls Dr. Hsu "she"
 const wang = makeActor("male", "Councillor Wang", { tint: 0x8c8c9c });
 const councilA = makeActor("female", "Councillor", { tint: 0xb8b0c8 });
 const councilB = makeActor("preview", "Councillor", { tint: 0x5a5a66 });

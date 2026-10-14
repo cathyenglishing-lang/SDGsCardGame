@@ -11,12 +11,22 @@ import { log } from "../telemetry.js";
 
 const v = new THREE.Vector3();
 let active = null;
-addUpdate(() => { if (active) { if (active.actor) { active.actor.headWorld(v); v.y += 0.42; } else v.copy(active.anchor); active.obj.position.copy(v); } });
+addUpdate(() => {
+  if (!active) return;
+  if (active.actor) { active.actor.headWorld(v); v.y += 0.42; } else v.copy(active.anchor);
+  active.obj.position.copy(v);
+  // A bubble whose anchor is off screen (behind the camera, above the frame) would hide its Continue button: pin it.
+  if (++active.frames > 2 && !active.el.classList.contains("docked")) {
+    const r = active.el.getBoundingClientRect();
+    const off = active.el.style.display === "none" || r.top < 56 || r.bottom > innerHeight - 4 || r.left < 0 || r.right > innerWidth;
+    if (off) active.el.classList.add("docked");
+  }
+});
 
 function open(el, { actor, anchor }) {
   close();
   const obj = new CSS2DObject(el); obj.center.set(0.5, 1); scene.add(obj);
-  active = { el, obj, actor, anchor };
+  active = { el, obj, actor, anchor, frames: 0 };
   if (IS_PHONE()) el.classList.add("docked");
   return active;
 }

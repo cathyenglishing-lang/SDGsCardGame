@@ -32,15 +32,17 @@ addEventListener("keydown", e => { if (typing(e)) return; const k = e.key.toLowe
 addEventListener("keyup", e => keys.delete(e.key.toLowerCase()));
 addEventListener("blur", () => keys.clear());
 const stick = { x: 0, y: 0 };
+let joyId = null, joyKnob = null;
+function releaseStick() { joyId = null; stick.x = stick.y = 0; if (joyKnob) joyKnob.style.transform = ""; }
 
 function buildJoystick() {
   const pad = document.createElement("div"); pad.className = "joy"; pad.hidden = true;
   pad.innerHTML = `<i></i>`; document.getElementById("ui").appendChild(pad);
-  const knob = pad.firstChild; let id = null, cx = 0, cy = 0; const R = 46;
-  pad.addEventListener("pointerdown", e => { id = e.pointerId; pad.setPointerCapture(id); const r = pad.getBoundingClientRect(); cx = r.left + r.width / 2; cy = r.top + r.height / 2; move(e); });
-  const move = e => { if (e.pointerId !== id) return; let dx = e.clientX - cx, dy = e.clientY - cy; const d = Math.hypot(dx, dy); if (d > R) { dx *= R / d; dy *= R / d; } stick.x = dx / R; stick.y = dy / R; knob.style.transform = `translate(${dx}px,${dy}px)`; };
-  const end = e => { if (e.pointerId !== id) return; id = null; stick.x = stick.y = 0; knob.style.transform = ""; };
-  pad.addEventListener("pointermove", move); pad.addEventListener("pointerup", end); pad.addEventListener("pointercancel", end);
+  joyKnob = pad.firstChild; let cx = 0, cy = 0; const R = 46;
+  pad.addEventListener("pointerdown", e => { e.preventDefault(); joyId = e.pointerId; pad.setPointerCapture(joyId); const r = pad.getBoundingClientRect(); cx = r.left + r.width / 2; cy = r.top + r.height / 2; move(e); });
+  const move = e => { if (e.pointerId !== joyId) return; let dx = e.clientX - cx, dy = e.clientY - cy; const d = Math.hypot(dx, dy); if (d > R) { dx *= R / d; dy *= R / d; } stick.x = dx / R; stick.y = dy / R; joyKnob.style.transform = `translate(${dx}px,${dy}px)`; };
+  const end = e => { if (e.pointerId === joyId) releaseStick(); };
+  pad.addEventListener("pointermove", move); pad.addEventListener("pointerup", end); pad.addEventListener("pointercancel", end); pad.addEventListener("lostpointercapture", end);
   return pad;
 }
 // Always shown while roaming: tablets and touch laptops often report a fine pointer.
@@ -75,7 +77,7 @@ addUpdate((dt, t) => {
     const dir = fwd.multiplyScalar(iz).addScaledVector(right, ix).normalize();
     const speed = (run ? 5.4 : 3.0) * mag, p = player.pos;
     const nx = p.x + dir.x * speed * dt, nz = p.z + dir.z * speed * dt;
-    if (walkable(nx, nz)) { p.x = nx; p.z = nz; }
+    if (walkable(nx, nz) || !walkable(p.x, p.z)) { p.x = nx; p.z = nz; }
     else if (walkable(nx, p.z)) p.x = nx;
     else if (walkable(p.x, nz)) p.z = nz;
     p.y += (groundY(p.x, p.z) - p.y) * Math.min(1, dt * 12);
@@ -89,7 +91,7 @@ addUpdate((dt, t) => {
 });
 
 export function startRoam(player, target, { radius = 2.6, onArrive, onDistance } = {}) {
-  player.stopWalk();
+  player.stopWalk(); releaseStick();
   active = { player, target: new THREE.Vector3(target[0], 0, target[1]), radius, onArrive, onDistance };
   beacon.position.set(target[0], groundY(target[0], target[1]), target[1]); beacon.visible = true;
   setFreeFollow(player);
@@ -97,7 +99,7 @@ export function startRoam(player, target, { radius = 2.6, onArrive, onDistance }
 }
 export function stopRoam() {
   if (!active) return;
-  const { player } = active; active = null; beacon.visible = false; stick.x = stick.y = 0;
+  const { player } = active; active = null; beacon.visible = false; releaseStick();
   if (joy) joy.hidden = true;
   if (player.kind === "walk" || player.kind === "jog") player.play("idle");
   player.speedFactor = 1;

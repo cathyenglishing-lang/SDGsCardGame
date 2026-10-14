@@ -63,7 +63,7 @@ button:focus-visible,[tabindex]:focus-visible,input:focus-visible{outline:2px so
 .bubble .opt{text-align:left;background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:4px;padding:9px 11px;line-height:1.5;display:flex;gap:10px;align-items:flex-start}
 .bubble .opt:hover{border-color:var(--sdg9);background:rgba(253,105,37,.08)}
 .bubble .opt b{font-family:var(--f-display);color:var(--sdg9)}
-.bubble.docked{position:fixed !important;left:16px !important;right:16px !important;top:auto !important;bottom:calc(16px + env(safe-area-inset-bottom,0px)) !important;transform:none !important;width:auto}
+.bubble.docked{display:block !important;position:fixed !important;left:16px !important;right:16px !important;top:auto !important;bottom:calc(16px + env(safe-area-inset-bottom,0px)) !important;transform:none !important;width:auto}
 .bubble.docked .tail{display:none}
 
 /* travel prompt, skip, toast */
@@ -249,3 +249,4 @@ button:focus-visible,[tabindex]:focus-visible,input:focus-visible{outline:2px so
   .travel .btn{padding:8px 12px}
   .joy{left:16px;bottom:calc(150px + env(safe-area-inset-bottom,0px));width:104px;height:104px}
 }
+@media (min-width:761px){.bubble.docked{left:0 !important;right:0 !important;margin:0 auto;width:min(560px,calc(100vw - 32px))}}
