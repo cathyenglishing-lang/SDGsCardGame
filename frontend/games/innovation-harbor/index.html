@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Manrope:wght@400;500;700&family=Noto+Sans+TC:wght@400;500&display=swap">
 <link rel="stylesheet" href="css/ui.css">
+<script src="/static/config.js"></script>
 <script type="importmap">
 { "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js", "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/" } }
 </script>
@@ -24,7 +25,7 @@
     <button class="logbtn" id="sound" type="button" aria-label="Sound">🔊</button>
     <button class="logbtn" id="logBtn" type="button">Learning Log <span id="logN">0</span></button>
   </div>
-  <div class="travel" id="travel" hidden><span>Next stop: <b id="tvName"></b></span><button class="btn" id="tvGo" type="button">Walk there ▸</button><button class="btn ghost" id="tvSkip" type="button">Skip walk</button></div>
+  <div class="travel" id="travel" hidden><span>Next stop: <b id="tvName"></b></span><span class="dist" id="tvDist"></span><span class="keys">Walk with W A S D / arrow keys · Shift to run · drag to turn the camera</span><button class="btn ghost" id="tvGo" type="button">Auto-walk ▸</button><button class="btn ghost" id="tvSkip" type="button">Skip walk</button></div>
   <button class="btn ghost skip" id="skipCine" type="button" hidden>Skip ▸</button>
   <section class="sheet" id="sheet" hidden aria-live="polite">
     <header><div class="kicker" id="shKick"></div><h2 id="shTitle"></h2></header>
@@ -54,7 +55,7 @@
         <button type="button" data-lv="B2" aria-pressed="false"><b>B2</b><small>Upper-intermediate</small></button>
       </div>
       <div class="row"><button class="btn" id="startBtn" type="button">Board the ferry ▸</button><span class="count">about 20 minutes · drag to look around · 中 shows a Chinese hint</span></div>
-      <div class="note">Prototype. Content: SDG 9-1 "Can We Trust AI?" from the existing question bank. Speaking uses the browser's speech recognition (Chrome or Edge, allow the microphone); browsers without it record your voice for the teacher. Nothing is saved to a server; the Learning Log shows what the full version will collect.</div>
+      <div class="note">Prototype. Content: SDG 9-1 "Can We Trust AI?" from the existing question bank. Speaking uses the browser's speech recognition (Chrome or Edge, allow the microphone); browsers without it record your voice for the teacher. The Harbor Archive opens the platform's Pecha Kucha Card Game, which saves its result like the regular card game; everything else stays in this browser, and the Learning Log shows what the full version will collect.</div>
     </div>
   </div>
   <div class="cover" id="ending" hidden><div class="card" id="endCard"></div></div>

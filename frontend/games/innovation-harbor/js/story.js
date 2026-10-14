@@ -14,7 +14,8 @@ import { hint } from "./i18n.js";
 import { horn, foghorn, applause, isMuted } from "./audio.js";
 import { actListening } from "./activities/listening.js";
 import { actReading } from "./activities/reading.js";
-import { actCards } from "./activities/cards.js";
+import { actCardGame } from "./activities/cardgame.js";
+import { startRoam, stopRoam, groundY } from "./world/roam.js";
 import { actSpeak } from "./activities/speaking.js";
 import { actSequence } from "./activities/sequence.js";
 import { actPechaKucha } from "./activities/pechakucha.js";
@@ -50,12 +51,28 @@ async function walkLeg(player, pts, { cutAfter = 36 } = {}) {
   await fade(true, 500); player.setPos(p2.x, p2.y, p2.z); const nx = rest[1] || rest[0]; player.face(nx.x, nx.z, true); setFollow(player, { dist: 6.2, height: 2.1 }); await wait(80); await fade(false, 500);
   await player.walk(rest.map(p => [p.x, p.y, p.z]));
 }
+// Default: the player walks freely to the glowing ring. "Auto-walk" and "Skip" stay as fallbacks.
 export function travel(player, key, pathKey) {
   return new Promise(res => {
-    markStations(key); $("#tvName").textContent = STATIONS[key].name; $("#travel").hidden = false;
-    setFollow(player, { dist: 7, height: 2.4 });
-    $("#tvGo").onclick = async () => { $("#travel").hidden = true; log("move", `walk to ${STATIONS[key].name}`); await walkLeg(player, PATHS[pathKey]); res(); };
-    $("#tvSkip").onclick = async () => { $("#travel").hidden = true; log("move", `skip walk to ${STATIONS[key].name}`); const p = PATHS[pathKey]; const last = p[p.length - 1]; await fade(true, 400); player.setPos(last[0], last.length === 3 ? last[1] : player.pos.y, last.length === 3 ? last[2] : last[1]); setFollow(player); await wait(60); await fade(false, 400); res(); };
+    const p = PATHS[pathKey]; const last = p[p.length - 1];
+    const end = last.length === 3 ? [last[0], last[2]] : last;
+    const from = player.pos.clone(); const t0 = performance.now();
+    markStations(key); $("#tvName").textContent = STATIONS[key].name; $("#tvDist").textContent = ""; $("#travel").hidden = false;
+    const done = how => { $("#travel").hidden = true; log("move", `${how} to ${STATIONS[key].name} (${Math.round((performance.now() - t0) / 1000)} s)`); res(); };
+    startRoam(player, end, {
+      onDistance: d => { $("#tvDist").textContent = `${Math.round(d)} m`; },
+      onArrive: () => { setFollow(player); done("free walk"); },
+    });
+    $("#tvGo").onclick = async () => {
+      stopRoam(); $("#travel").hidden = true;
+      if (player.pos.distanceTo(from) > 3) { await fade(true, 350); player.setPos(from.x, from.y, from.z); await wait(60); await fade(false, 350); }
+      await walkLeg(player, p); done("auto-walk");
+    };
+    $("#tvSkip").onclick = async () => {
+      stopRoam(); $("#travel").hidden = true;
+      await fade(true, 400); player.setPos(end[0], last.length === 3 ? last[1] : groundY(end[0], end[1]), end[1]); setFollow(player); await wait(60); await fade(false, 400);
+      done("skip walk");
+    };
   });
 }
 
@@ -109,8 +126,8 @@ export async function runStory(ctx) {
   await stage(2);
   await travel(player, "archive", "labToArchive");
   hsu.faceTo(player);
-  await h("Why does an AI invent papers with such confidence? I prepared a short talk about it, but the sea wind scattered my cards! Help me put the sentences back on the right slides.", "AI 為什麼能這麼有自信地捏造論文？我準備了一段短講，可是海風把卡片吹散了！幫我把句子放回正確的投影片。");
-  await actCards([...slidesOf(3), ...slidesOf(4)].slice(0, 4));
+  await h("Why does an AI invent papers with such confidence? I prepared a short talk about it, but the sea wind scattered my cards! Come inside the Archive and help me put the sentences back on the right slides.", "AI 為什麼能這麼有自信地捏造論文？我準備了一段短講，可是海風把卡片吹散了！進檔案館幫我把句子放回正確的投影片。");
+  await actCardGame({ topic: "9-1", parts: [3, 4] });
   await h("Exactly. The AI guesses the next word. It does not check facts. Sounding right is not the same as being right.", "沒錯。AI 是在猜下一個字，不是在查證事實。聽起來對，不代表是真的。", { anim: "react" });
   await h("The Council meets now. Go and tell them why this matters.", "議會現在開會。去告訴他們為什麼這件事很重要。");
   tags.archive.state = "done";

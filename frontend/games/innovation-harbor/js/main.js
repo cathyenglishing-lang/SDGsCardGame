@@ -13,7 +13,9 @@ import { S } from "./state.js";
 import { $, wait, pick, rand } from "./util.js";
 import { startAmbience, setMuted, isMuted } from "./audio.js";
 import { SPEECH_LABEL } from "./speech.js";
+import { accountAvatar } from "./account.js";
 
+const avatarKind = accountAvatar();
 wireHints(); wireLogPanel();
 $("#sound").onclick = () => { setMuted(!isMuted()); $("#sound").textContent = isMuted() ? "🔇" : "🔊"; };
 
@@ -36,8 +38,10 @@ await loadCharacterAssets();
 $("#loading").hidden = true; $("#intro").hidden = false;
 
 // ── cast ──
-const player = makeActor("male", "Envoy");
-const mei = makeActor("female", "Harbor Master Mei", { tint: 0xc8d2e6 });
+S.avatar = await avatarKind;
+const player = makeActor(S.avatar, "Envoy");
+// Mei shares the female model; give her a dark uniform when the player is female too.
+const mei = makeActor("female", "Harbor Master Mei", { tint: S.avatar === "female" ? 0x4a6a9a : 0xc8d2e6 });
 const kai = makeActor("preview", "Kai", { tint: 0x8fb3d9 });
 const hsu = makeActor("template", "Dr. Hsu", { tint: 0xf2efe8 });
 const wang = makeActor("male", "Councillor Wang", { tint: 0x8c8c9c });
@@ -79,7 +83,7 @@ $("#lvPick").onclick = e => { const b = e.target.closest("[data-lv]"); if (!b) r
 $("#startBtn").onclick = async () => {
   $("#intro").hidden = true; S.started = true; S.t0 = performance.now(); introDrift();
   startAmbience();
-  log("run.start", `level ${S.level}, speech: ${SPEECH_LABEL[S.speech]}, quality: ${quality.high ? "high" : "low"}`);
+  log("run.start", `level ${S.level}, avatar ${S.avatar}, speech: ${SPEECH_LABEL[S.speech]}, quality: ${quality.high ? "high" : "low"}`);
   $("#hud").hidden = false; $("#lvChip").textContent = S.level; renderHud();
   // arrival: ride the ferry into the harbor
   const fy = traffic.ferry.mesh; traffic.ferry.manual = true;

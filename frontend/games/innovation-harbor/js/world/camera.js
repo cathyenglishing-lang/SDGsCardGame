@@ -7,9 +7,13 @@ import { smoothstep, clamp } from "../util.js";
 const cur = new THREE.Vector3(0, 12, -40), curLook = new THREE.Vector3(0, 2, 0);
 const want = new THREE.Vector3(), wantLook = new THREE.Vector3();
 const tmp = new THREE.Vector3(), tmp2 = new THREE.Vector3();
-export const rig = { mode: "shot", follow: null, orbit: { theta: 0, height: 2.0, dist: 6.5 }, k: 3, flight: null };
+export const rig = { mode: "shot", free: false, follow: null, orbit: { theta: 0, height: 2.0, dist: 6.5 }, k: 3, flight: null };
 
-export function setFollow(actor, { dist = 6.5, height = 2.0, theta = 0 } = {}) { rig.mode = "follow"; rig.follow = actor; rig.orbit.dist = dist; rig.orbit.height = height; rig.orbit.theta = theta; rig.k = 3.2; }
+export function setFollow(actor, { dist = 6.5, height = 2.0, theta = 0 } = {}) { rig.mode = "follow"; rig.free = false; rig.follow = actor; rig.orbit.dist = dist; rig.orbit.height = height; rig.orbit.theta = theta; rig.k = 3.2; }
+// Free roam: the orbit angle is absolute (world space), so turning the player doesn't swing the camera.
+export function setFreeFollow(actor, { dist = 7, height = 2.6 } = {}) {
+  setFollow(actor, { dist, height, theta: actor.yaw + Math.PI }); rig.free = true; rig.k = 4;
+}
 export function shot(pos, look, { instant = false, k = 2.4 } = {}) {
   rig.mode = "shot"; rig.flight = null; want.set(...pos); wantLook.set(...look); rig.k = k;
   if (instant) { cur.copy(want); curLook.copy(wantLook); }
@@ -61,9 +65,10 @@ canvas.addEventListener("wheel", e => { e.preventDefault(); rig.orbit.dist = cla
 
 addUpdate(dt => {
   if (rig.mode === "follow" && rig.follow) {
-    const a = rig.follow; const ang = a.yaw + Math.PI + rig.orbit.theta;
+    const a = rig.follow; const ang = rig.free ? rig.orbit.theta : a.yaw + Math.PI + rig.orbit.theta;
     want.set(a.pos.x + Math.sin(ang) * rig.orbit.dist, a.pos.y + rig.orbit.height, a.pos.z + Math.cos(ang) * rig.orbit.dist);
-    wantLook.set(a.pos.x + Math.sin(a.yaw) * 1.2, a.pos.y + 1.45, a.pos.z + Math.cos(a.yaw) * 1.2);
+    if (rig.free) wantLook.set(a.pos.x, a.pos.y + 1.5, a.pos.z);
+    else wantLook.set(a.pos.x + Math.sin(a.yaw) * 1.2, a.pos.y + 1.45, a.pos.z + Math.cos(a.yaw) * 1.2);
   }
   if (rig.mode === "fly" && rig.flight) {
     const f = rig.flight; const key = f.keys[f.i]; f.t += dt; const k = smoothstep(Math.min(1, f.t / key.t));

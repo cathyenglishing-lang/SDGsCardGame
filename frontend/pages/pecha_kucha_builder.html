@@ -862,6 +862,7 @@ body.is-dragging-card .subtopic-poker:not(.correct) {
   .pk-lvl{border:1px solid #cbd5e1;background:#f8fafc;border-radius:9px;padding:7px 13px;font-weight:800;font-size:13px;color:#0f172a;cursor:pointer;transition:transform .12s,background .12s,border-color .12s;}
   .pk-lvl:hover{transform:translateY(-1px);border-color:var(--ac);background:#fff;}
   .pk-lvl b{color:#94a3b8;font-weight:700;font-size:11px;margin-left:5px;}
+  body.pk-embed .pk-change-btn{display:none;}
   .pk-change-btn{border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.12);color:#fff;border-radius:11px;padding:8px 13px;font-weight:700;cursor:pointer;}
   .pk-change-btn:hover{background:rgba(255,255,255,.22);}
   .pk-overlay{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px;background:rgba(2,6,23,.72);backdrop-filter:blur(6px);}
@@ -1282,6 +1283,16 @@ const SDG_META = {
 };
 const LEVEL_LABEL = {A1:"入門", A2:"基礎", B1:"進階", B2:"高階"};
 const LEVEL_ORDER = ["A1","A2","B1","B2"];
+// ?topic=9-1&level=B1&parts=3,4&embed=harbor — start directly; embed=harbor reports back to the 3D game.
+const PK_LINK = (() => {
+  const q = new URLSearchParams(location.search);
+  return {
+    topic: q.get("topic"),
+    level: q.get("level") || "A2",
+    parts: (q.get("parts") || "").split(",").map(Number).filter(Boolean),
+    embed: q.get("embed") === "harbor" && window.parent !== window
+  };
+})();
 function pkClean(t){ t=String(t||"").replace(/^Topic\s*\d+\s*[:：]\s*/,"").trim(); return t.length>92?t.slice(0,90)+"…":t; }
 function pkEsc(s){ return String(s==null?"":s).replace(/[&<>"]/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[m])); }
 
@@ -1290,6 +1301,7 @@ function buildDB(topic, level){
   const order=[], counters={}, subtopics={}, answers={}, partTitle={};
   slides.forEach(s=>{
     const pno = parseInt((String(s.part||"Part 1").match(/\d+/)||[1])[0], 10);
+    if(PK_LINK.parts.length && !PK_LINK.parts.includes(pno)) return;
     if(!subtopics[pno]){ subtopics[pno]=[]; order.push(pno); }
     counters[pno]=(counters[pno]||0)+1;
     const sid = pno+"-"+counters[pno];
@@ -1407,7 +1419,19 @@ function showFinishOverlay(){
     +   '<div><b>'+totalErr+'</b><span>錯誤</span></div>'
     +   '<div><b>'+DB.topics.length+'</b><span>Parts</span></div>'
     + '</div>';
+  if(PK_LINK.embed){
+    const result = { type:"pk-finished", errors:totalErr, seconds:totalSec,
+      repeats:completedPartRecords.reduce((a,p)=>a+(p.repeat_listen_count||0),0), cards:totalToMatchAll() };
+    ov.querySelector(".pk-actions").innerHTML = '<button class="pk-btn primary" type="button" id="pkBackHarbor">回到 Innovation Harbor ▸</button>';
+    document.getElementById("pkBackHarbor").onclick = () => window.parent.postMessage(result, location.origin);
+  }
   ov.classList.remove("hidden");
+}
+function totalToMatchAll(){ return Object.values(DB.subtopics).reduce((a,s)=>a+s.length,0); }
+function pkOpenNextPart(){
+  const next = DB.topics.find(t=>partStatus[t.id]!=="completed");
+  const el = next && document.getElementById(`topic-btn-${next.id}`);
+  if(el) handleTopicClick(next.id, el);
 }
 
 /* ── Game state ── */
@@ -1628,8 +1652,11 @@ async function initTopics() {
       setTimeout(() => goToFinishPage("super"), 250);
     });
   }
+  if (PK_LINK.embed) pkOpenNextPart();
 }
 renderSelector();
+if (PK_LINK.embed) document.body.classList.add("pk-embed");
+if (PK_LINK.topic) pkStartGame(PK_LINK.topic, PK_LINK.level);
 
 /* ── Topic selection ── */
 function handleTopicClick(id, el) {
@@ -1897,6 +1924,8 @@ async function handleDrop(cardData, targetSubId, targetEl) {
       if (doneCount === DB.topics.length) {
         showToast("All parts complete! 🎉", 2200);
         setTimeout(() => { showFinishOverlay(); }, 900);
+      } else if (PK_LINK.embed) {
+        setTimeout(pkOpenNextPart, 1200);
       }
 
     } else {
