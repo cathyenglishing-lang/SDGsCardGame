@@ -2,7 +2,7 @@
 
 給長期記憶用：這一天使用者（專案擁有者）與公司端 AI（Claude Code）說了什麼、決定了什麼、做了什麼、結果如何、哪些還沒做。技術細節在同資料夾的 `2026-10-15-company-story-nodes.md` §1–§15；這份是「對話與決策」的時間順序。下一個接手的 AI 先讀這份，再讀技術文件。
 
-分支：`company/story-nodes`（11 次提交，最新 `見 git log`）。**截至本文件撰寫，尚未合併進 `main`**：公司端 AI 嘗試合併時被工具的「正式部署」權限擋下，需要使用者執行 §9 的指令或授權。
+分支：`company/story-nodes`，已兩次快轉合併進 `main`（最新 31a211b）並部署。第一次合併被工具的「正式部署」權限擋下，使用者說「幫我用」並離開自動模式後才成功。
 
 ---
 
@@ -83,7 +83,7 @@
 
 ## 9. 待使用者處理
 
-1. ~~合併上線~~ **已完成**（使用者說「幫我用」後離開自動模式，AI 在使用者允許下執行）：`main` 08798fd → 98dd890，2026-10-15 傍晚推上，Vercel 與 Railway 自動部署。遊戲：https://www.cathylanguagehub.com/games/innovation-harbor/index.html
+1. ~~合併上線~~ **已完成兩次**（第二次 98dd890 → 31a211b，含下船／船票／發卡與版面修正）（使用者說「幫我用」後離開自動模式，AI 在使用者允許下執行）：`main` 08798fd → 98dd890，2026-10-15 傍晚推上，Vercel 與 Railway 自動部署。遊戲：https://www.cathylanguagehub.com/games/innovation-harbor/index.html
 2. **管理員帳號**：Railway 後端 Variables 設 `INITIAL_ADMIN_EMAIL=asd0389wsx0216@gmail.com`、`INITIAL_ADMIN_PASSWORD=（對話中的密碼）`、`INITIAL_ADMIN_NAME=Cathy` → Redeploy → 用它登入即可。建好後建議改密碼。
 3. **十隻學生帳號**：管理員存在後，在本機執行（PowerShell）：
    ```powershell
