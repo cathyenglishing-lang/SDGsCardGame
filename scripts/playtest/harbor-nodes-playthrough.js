@@ -53,7 +53,7 @@ async (page) => {
   });
 
   const offscreen = () => page.evaluate(() => [...document.querySelectorAll('#ui button, #ui input, #ui select, #labels .bubble, #labels .bubble button, .obj, .opt, .hchip, .passage.sel-able')]
-    .filter(b => { if (b.closest('[hidden]') || (!b.offsetParent && getComputedStyle(b).position !== 'fixed' && !b.closest('#labels'))) return false; if (b.closest('.body, #shBody, .tbl, .sa-scroll, .logp, .cover')) return false; const r = b.getBoundingClientRect(); if (!r.width || !r.height) return false; return r.top < -1 || r.left < -1 || r.right > innerWidth + 1 || r.bottom > innerHeight + 1; })
+    .filter(b => { if (b.closest('[hidden]') || (!b.offsetParent && getComputedStyle(b).position !== 'fixed' && !b.closest('#labels'))) return false; if (b.closest('.body, #shBody, .tbl, .sa-scroll, .logp, .cover, #tvList')) return false; const r = b.getBoundingClientRect(); if (!r.width || !r.height) return false; return r.top < -1 || r.left < -1 || r.right > innerWidth + 1 || r.bottom > innerHeight + 1; })
     .map(b => (b.id || b.className || b.tagName) + ':' + (b.textContent || '').trim().slice(0, 24)));
   const speakerCheck = () => page.evaluate(() => {
     const b = document.querySelector('#labels .bubble'); if (!b) return null;
