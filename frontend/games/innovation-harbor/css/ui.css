@@ -96,7 +96,7 @@ button:focus-visible,[tabindex]:focus-visible,input:focus-visible{outline:2px so
 .toast{position:absolute;left:50%;top:84px;transform:translateX(-50%);background:var(--panel);border:1px solid var(--signal);border-radius:4px;padding:8px 14px;font-family:var(--f-display);color:var(--signal);transition:opacity .4s;pointer-events:none}
 
 /* tablet (activity sheet) */
-.sheet{position:absolute;top:76px;right:16px;max-height:calc(100% - 92px);width:min(560px,calc(100% - 32px));background:var(--panel);border:1px solid var(--line);border-radius:8px;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.sheet{position:absolute;top:calc(var(--hud-h,68px) + 8px);right:16px;max-height:calc(100% - var(--hud-h,68px) - 24px);width:min(560px,calc(100% - 32px));background:var(--panel);border:1px solid var(--line);border-radius:8px;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.5)}
 .sheet header{padding:14px 18px 12px;border-bottom:1px solid var(--line);display:grid;gap:4px}
 .kicker{font-family:var(--f-display);font-size:.72rem;letter-spacing:.14em;color:var(--sdg9);text-transform:uppercase}
 .sheet h2{font-family:var(--f-display);font-size:1.15rem;margin:0;font-weight:600;text-wrap:balance}
@@ -204,7 +204,7 @@ button:focus-visible,[tabindex]:focus-visible,input:focus-visible{outline:2px so
 
 /* covers: loading / intro / ending */
 /* flex + margin:auto (not grid centering) so a card taller than a phone screen scrolls from its top */
-.cover{position:absolute;inset:0;display:flex;padding:16px;background:radial-gradient(ellipse at 50% 70%,rgba(13,22,32,.3),rgba(13,22,32,.86));overflow-y:auto}
+.cover{position:absolute;inset:0;display:flex;padding:16px;padding-top:calc(var(--hud-h,0px) + 12px);background:radial-gradient(ellipse at 50% 70%,rgba(13,22,32,.3),rgba(13,22,32,.86));overflow-y:auto}
 .card{width:min(640px,100%);margin:auto;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:26px 26px 22px;display:grid;gap:16px}
 .card.small{width:min(420px,100%)}
 .card h1{font-family:var(--f-display);font-weight:700;font-size:clamp(1.6rem,5vw,2.3rem);line-height:1.1;margin:0;letter-spacing:.02em;text-wrap:balance}
@@ -224,7 +224,7 @@ button:focus-visible,[tabindex]:focus-visible,input:focus-visible{outline:2px so
 .sum div{border:1px solid var(--line);border-radius:4px;padding:10px;display:grid;gap:2px}
 .sum small{color:var(--muted);font-size:.74rem}
 .sum b{font-family:var(--f-display);font-variant-numeric:tabular-nums;font-size:1.02rem}
-.logp{position:absolute;top:64px;right:16px;width:min(480px,calc(100% - 32px));max-height:calc(100% - 96px);background:var(--panel);border:1px solid var(--line);border-radius:6px;display:flex;flex-direction:column;z-index:5}
+.logp{position:absolute;top:calc(var(--hud-h,68px) + 8px);right:16px;width:min(480px,calc(100% - 32px));max-height:calc(100% - var(--hud-h,68px) - 24px);background:var(--panel);border:1px solid var(--line);border-radius:6px;display:flex;flex-direction:column;z-index:5}
 .logp header{display:flex;justify-content:space-between;align-items:center;padding:12px 14px;border-bottom:1px solid var(--line)}
 .logp header b{font-family:var(--f-display);letter-spacing:.06em}
 .logp .tbl{overflow:auto;padding:6px 0}
@@ -261,8 +261,14 @@ button:focus-visible,[tabindex]:focus-visible,input:focus-visible{outline:2px so
 @media (max-width:760px){
   .hud .brand b{font-size:.95rem}
   .hud .meters{gap:8px;font-size:.72rem}
+  #ticketBtn .lbl{display:none}
   .logbtn{padding:4px 7px;font-size:.7rem}
-  .travel{left:12px;right:12px;transform:none;max-width:none;padding:8px 10px;gap:8px}
+  .travel{left:12px;right:12px;transform:none;max-width:none;padding:8px 10px;gap:8px;bottom:calc(12px + env(safe-area-inset-bottom,0px))}
+  #tvList{flex-wrap:nowrap;overflow-x:auto;max-width:100%;padding-bottom:2px;scrollbar-width:thin}
+  .obj{min-width:132px;flex:none}
+  .objectives{max-width:100%}
+  .joy{bottom:calc(136px + env(safe-area-inset-bottom,0px))}
+  .jumpbtn{bottom:calc(140px + env(safe-area-inset-bottom,0px))}
   .travel .btn{padding:8px 12px}
   .joy{left:16px;bottom:calc(150px + env(safe-area-inset-bottom,0px));width:104px;height:104px}
 }
@@ -289,12 +295,12 @@ button:focus-visible,[tabindex]:focus-visible,input:focus-visible{outline:2px so
 .portal-label .prog span{position:relative;display:block;font-size:.64rem;line-height:14px;color:#eaf6ff;letter-spacing:.06em;font-family:var(--f-display)}
 .portal-label.open{border-color:#3dff6a}.portal-label.open i{color:#3dff6a}
 /* ── compass to the chosen objective; drive prompt ── */
-.compass{position:absolute;left:50%;top:calc(66px + env(safe-area-inset-top,0px));transform:translateX(-50%);display:flex;align-items:center;gap:10px;background:rgba(12,20,30,.86);border:1px solid var(--sdg9);border-radius:999px;padding:6px 14px 6px 10px;pointer-events:none}
+.compass{position:absolute;left:50%;top:calc(var(--hud-h,66px) + 6px);transform:translateX(-50%);display:flex;align-items:center;gap:10px;background:rgba(12,20,30,.86);border:1px solid var(--sdg9);border-radius:999px;padding:6px 14px 6px 10px;pointer-events:none}
 .compass i{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--sdg9);color:#1a0d05;font-style:normal;font-size:1rem;transform-origin:50% 50%;transition:transform .12s linear}
 .compass b{display:block;font-family:var(--f-display);font-size:.86rem;letter-spacing:.04em}
 .compass span{font-size:.74rem;color:var(--muted)}
 .drivebtn{position:absolute;left:50%;bottom:calc(112px + env(safe-area-inset-bottom,0px));transform:translateX(-50%)}
-@media (max-width:1100px){.compass{top:calc(100px + env(safe-area-inset-top,0px))}}
+
 @media (max-width:760px){.compass{top:auto;bottom:calc(212px + env(safe-area-inset-bottom,0px));left:auto;right:12px;transform:none}.drivebtn{left:auto;right:16px;bottom:calc(200px + env(safe-area-inset-bottom,0px));transform:none}}
 /* ── story effects: emotion badges, title / location cards, flashback ── */
 .emote{font-size:1.6rem;line-height:1;pointer-events:none}
@@ -333,3 +339,43 @@ body.flashback #labels::after{content:"";position:absolute;inset:0;background:ra
 .fbs li span{color:var(--muted);display:block;font-size:.92rem}
 .fb textarea{flex:1;min-width:0;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:4px;color:var(--paper);padding:8px 10px;font:inherit;resize:vertical}
 .fb .row{display:flex;gap:8px;align-items:flex-start;flex-wrap:wrap}
+/* ── ferry ticket (boarding pass) ── */
+.card.ticket{width:min(720px,100%);padding:0 0 18px;overflow:hidden;gap:10px}
+.tk-head{display:flex;justify-content:space-between;align-items:center;gap:12px;background:var(--sdg9);color:#1a0d05;padding:14px 22px}
+.tk-head small{display:block;font-family:var(--f-display);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;opacity:.8}
+.tk-head b{font-family:var(--f-display);font-size:1.15rem;letter-spacing:.06em}
+.tk-stamp{font-family:var(--f-display);font-weight:700;border:2px solid #1a0d05;border-radius:4px;padding:4px 10px;transform:rotate(-6deg);letter-spacing:.1em}
+.tk-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;padding:12px 22px 4px}
+.tk-row small{display:block;color:var(--muted);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase}
+.tk-row b{font-family:var(--f-display);font-size:.95rem}
+.tk-tear{border-top:2px dashed var(--line);margin:4px 14px}
+.card.ticket h3{font-family:var(--f-display);font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--sdg9);margin:6px 22px 0}
+.card.ticket p{margin:0 22px;color:var(--paper);line-height:1.6;max-width:none}
+.tk-stops{list-style:none;margin:0 22px;padding:0;display:grid;gap:6px}
+.tk-stops li{display:flex;gap:10px;align-items:flex-start;line-height:1.45}
+.tk-stops li>b{flex:none;width:24px;height:24px;border-radius:50%;background:var(--sdg9);color:#1a0d05;font-family:var(--f-display);display:grid;place-items:center;font-size:.8rem;margin-top:2px}
+.tk-stops li>div{display:grid;gap:1px;min-width:0}
+.tk-place{font-family:var(--f-display);font-size:.86rem}
+.tk-tips{margin:0 22px;padding-left:18px;color:var(--paper);line-height:1.55;display:grid;gap:4px}
+.card.ticket .row{padding:6px 22px 0;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.tk-note{color:var(--muted);font-size:.8rem}
+@media (max-width:760px){.card.ticket h3,.card.ticket p,.tk-stops,.tk-tips,.card.ticket .row{margin-left:16px;margin-right:16px}.tk-head,.tk-row{padding-left:16px;padding-right:16px}}
+/* phones: joystick and jump button clear the single-row objectives panel */
+@media (max-width:760px){.joy{bottom:calc(150px + env(safe-area-inset-bottom,0px))}.jumpbtn{bottom:calc(156px + env(safe-area-inset-bottom,0px))}}
+/* phones: objectives panel is one row (scrollable list + Skip), compass above the jump button */
+@media (max-width:760px){
+  .travel{flex-wrap:nowrap;align-items:center;gap:8px}
+  .travel .keys{display:none}
+  .travel .objectives{flex:1 1 auto;min-width:0}
+  #tvSkip{flex:none;padding:8px 10px}
+  .compass{bottom:calc(252px + env(safe-area-inset-bottom,0px))}
+}
+/* phones (declared last so these win over the base rules above): one scrollable row of objectives */
+@media (max-width:760px){
+  #tvList{flex-wrap:nowrap;overflow-x:auto;max-width:100%;padding-bottom:2px;scrollbar-width:thin}
+  .obj{min-width:128px;flex:none}
+  .objectives{max-width:100%}
+}
+/* while a ticket or ending card is open, the roaming controls underneath are hidden (no overlap, no stray taps) */
+#ui:has(#ticket:not([hidden])) :is(#travel,#compass,.joy,.jumpbtn,.drivebtn,#toast),
+#ui:has(#ending:not([hidden])) :is(#travel,#compass,.joy,.jumpbtn,.drivebtn,#toast){visibility:hidden}

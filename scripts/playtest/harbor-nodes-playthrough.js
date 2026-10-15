@@ -78,7 +78,7 @@ async (page) => {
     const out = { off: [], overlap: [] };
     const inter = [...document.querySelectorAll('#ui button, #ui input, #ui select, #labels .bubble, #labels .bubble button, .obj, .opt, .hchip, .passage.sel-able')].filter(vis).filter(b => !b.closest('.body, #shBody, .tbl, .sa-scroll, .logp, .cover'));
     for (const b of inter) { const r = b.getBoundingClientRect(); if (r.top < -1 || r.left < -1 || r.right > innerWidth + 1 || r.bottom > innerHeight + 1) out.off.push((b.id || b.className.split(' ')[0] || b.tagName) + ':' + (b.textContent || '').trim().slice(0, 18) + '[' + [r.left, r.top, r.right, r.bottom].map(Math.round).join(',') + (b.classList.contains('docked') ? ' docked' : '') + ']'); }
-    const panels = ['#hud', '#compass', '#travel', '.joy', '.jumpbtn', '.drivebtn', '#sheet', '#labels .bubble', '#toast', '#skipCine', '.cardgame header'].map(s => document.querySelector(s)).filter(el => el && vis(el));
+    const panels = ['#hud', '#compass', '#travel', '.joy', '.jumpbtn', '.drivebtn', '#sheet', '#labels .bubble', '#toast', '#skipCine', '.cardgame header', '#ticketCard', '#endCard'].map(s => document.querySelector(s)).filter(el => el && vis(el));
     for (let i = 0; i < panels.length; i++) for (let j = i + 1; j < panels.length; j++) {
       const a = panels[i].getBoundingClientRect(), b = panels[j].getBoundingClientRect();
       const w = Math.min(a.right, b.right) - Math.max(a.left, b.left), h = Math.min(a.bottom, b.bottom) - Math.max(a.top, b.top);
@@ -103,9 +103,11 @@ async (page) => {
   try { while (Date.now() - t0 < 12 * 60 * 1000) {
     if (++stepGuard > 900) { note('loop', 'too many steps'); break; }
     // story effects: screenshot each kind once (title/location card, emotion badge, flashback)
-    const fx = await page.evaluate(() => ({ title: !!document.querySelector('.titlecard.in'), emote: !!document.querySelector('.emote'), flash: document.body.classList.contains('flashback') }));
+    const fx = await page.evaluate(() => ({ title: !!document.querySelector('.titlecard.in'), emote: !!document.querySelector('.emote'), flash: document.body.classList.contains('flashback'), deal: window.__dbg.S.events.some(e => e.type === 'story.deal') }));
     for (const k of Object.keys(fx)) if (fx[k] && !fxSeen.has(k)) { fxSeen.add(k); log.push('fx: ' + k); if (k === 'flash') await page.waitForTimeout(1500); await shot('fx-' + k); if (k === 'emote') { const r = await page.evaluate(() => { const e = document.querySelector('.emote'); if (!e) return null; const b = e.getBoundingClientRect(); return [Math.round(b.left), Math.round(b.top), Math.round(b.width), Math.round(b.height)]; }); log.push('emote rect ' + (r ? r.join(',') : 'gone')); if (r && r[0] < 40 && r[1] < 40) note('fx emote', 'badge stuck at the top-left corner (not following the head)'); } if (k === 'title') { const r = await layoutCheck(); if (r.off.length) note('fx title', 'off-screen: ' + r.off.join(', ')); } }
     if (await page.locator('#ending:not([hidden])').count()) { log.push('ENDING ' + await page.locator('#endCard .ending-title').textContent()); await shot('ending'); await sweep('ending'); break; }
+    // ferry ticket (officer check at the pier, or reopened from the HUD)
+    if (await page.locator('#ticket:not([hidden])').count()) { lastStep = 'ticket'; if (!fxSeen.has('ticket')) { fxSeen.add('ticket'); log.push('ticket shown'); await page.waitForTimeout(500); await shot('ticket'); await sweep('ticket'); } await page.locator('#ticketOk').evaluate(el => el.click()); await page.waitForTimeout(400); continue; }
     // objectives: walk the first leg with the keyboard (tests roam + compass), skip the rest
     if (await page.locator('#travel:not([hidden])').count()) {
       lastStep = 'objectives';

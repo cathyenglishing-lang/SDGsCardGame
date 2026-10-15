@@ -1,4 +1,5 @@
 // Boot: load assets, build the harbor, place the cast, run the intro cinematic and the story graph.
+import * as THREE from "three";
 import { scene, manager, quality, setMood, start, addUpdate } from "./world/scene.js";
 import { buildHarbor, SPOTS, H, drawScreen, PATHS } from "./world/harbor.js";
 import { buildTraffic } from "./world/traffic.js";
@@ -14,6 +15,10 @@ import { shot, fly, fade, setFollow, cancelFlight } from "./world/camera.js";
 import { buildStationLabels, runStory } from "./story.js";
 import { wireHints } from "./i18n.js";
 import { titleCard } from "./ui/fx.js";
+import { showTicket, wireTicketButton } from "./ui/ticket.js";
+import { say } from "./ui/bubble.js";
+import { box, cyl } from "./world/harbor.js";
+import { M } from "./world/materials.js";
 import { wireLogPanel, log, startRun } from "./telemetry.js";
 import { renderHud } from "./ui/sheet.js";
 import { S } from "./state.js";
@@ -23,7 +28,9 @@ import { SPEECH_LABEL, getRate, cycleRate } from "./speech.js";
 import { accountAvatar } from "./account.js";
 
 const avatarKind = accountAvatar();
-wireHints(); wireLogPanel();
+wireHints(); wireTicketButton();
+// panels below the HUD follow its real height (it wraps to 2–3 rows on tablets and phones)
+const hudRO = new ResizeObserver(() => document.documentElement.style.setProperty("--hud-h", ($("#hud").hidden ? 0 : $("#hud").offsetHeight) + "px")); hudRO.observe($("#hud")); wireLogPanel();
 const showRate = r => { $("#rateBtn").textContent = `Speed ${r}×`; };
 showRate(getRate()); $("#rateBtn").onclick = () => { const r = cycleRate(); showRate(r); log("settings.rate", `speech speed ${r}×`); };
 $("#sound").onclick = () => { setMuted(!isMuted()); $("#sound").textContent = isMuted() ? "🔇" : "🔊"; };
@@ -64,6 +71,7 @@ const councilB = makeActor("preview", "Councillor", { tint: 0x5a5a66 });
 const foreman = makeActor("preview", "Foreman Lee", { tint: 0xf0a030 });   // hi-vis orange
 const reporter = makeActor("female", "Ana Reyes", { tint: 0x3aa0a0 }); reporter.root.visible = false; // appears on the "hide" route
 const keeper = makeActor("male", "Keeper Ho", { tint: 0x2a4a7a }); // lighthouse island, reached by patrol boat
+const officer = makeActor("male", "Ticket Officer", { tint: 0x1e3a5c }); // checks the Envoy's ticket at the gangway
 player.setPos(...SPOTS.playerStart).face(10, 0, true);
 mei.setPos(...SPOTS.mei).face(10, -14, true);
 kai.setPos(...SPOTS.kai).face(-28, 26, true);
@@ -72,10 +80,11 @@ wang.setPos(...SPOTS.wang).face(26, 48, true); councilA.setPos(...SPOTS.councilA
 foreman.setPos(-21.5, 0.6, 14.3).face(-19.5, 16, true);
 reporter.setPos(18.4, 0.6, 46.2).face(20, 48, true);
 keeper.setPos(69.5, 2.65, -66).face(64, -66, true);
+officer.setPos(10.6, 0.6, -12.2).face(16, -11, true);
 // named cast keeps the plain idle (the "variations" clips shift weight and lean, which reads as a glitch on someone standing at a podium)
-for (const a of [mei, kai, hsu, wang, councilA, councilB, foreman, reporter, keeper]) a.idleVariant = 0;
+for (const a of [mei, kai, hsu, wang, councilA, councilB, foreman, reporter, keeper, officer]) a.idleVariant = 0;
 // accessories: what tells the characters apart (all share four bodies)
-hardHat(foreman, "white"); vest(foreman); glasses(hsu); lanyard(hsu); lanyard(kai); glasses(wang); lanyard(mei); glasses(councilB); cap(keeper); glasses(keeper);
+hardHat(foreman, "white"); vest(foreman); glasses(hsu); lanyard(hsu); lanyard(kai); glasses(wang); lanyard(mei); glasses(councilB); cap(keeper); glasses(keeper); cap(officer, undefined); lanyard(officer);
 // crowd on the sidewalks
 const crowd = [];
 const loops = [PATHS.crowdA, PATHS.crowdB, PATHS.crowdC];
@@ -102,7 +111,7 @@ for (let i = 0; i < quality.audience; i++) {
 // dev console hook: window.__dbg.act.cards(window.__dbg.slides(3)) opens an activity directly
 const { actCards } = await import("./activities/cards.js"); const { actListening } = await import("./activities/listening.js"); const { actReading } = await import("./activities/reading.js");
 const { DATA } = await import("./data.js");
-window.__dbg = { shot, player, mei, kai, hsu, wang, councilA, councilB, foreman, reporter, keeper, boat, audience, crowd, chatter, S, traffic, vehicles, portals, drivable, H, drawScreen, act: { cards: actCards, listening: actListening, reading: actReading }, slides: part => DATA[S.level].filter(s => s.part === part).sort((a, b) => a.no - b.no) };
+window.__dbg = { shot, player, mei, kai, hsu, wang, councilA, councilB, foreman, reporter, keeper, officer, boat, audience, crowd, chatter, S, traffic, vehicles, portals, drivable, H, drawScreen, act: { cards: actCards, listening: actListening, reading: actReading }, slides: part => DATA[S.level].filter(s => s.part === part).sort((a, b) => a.no - b.no) };
 
 // ── intro card ──
 $("#lvPick").onclick = e => { const b = e.target.closest("[data-lv]"); if (!b) return; S.level = b.dataset.lv; $("#lvPick").querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", x === b)); };
@@ -123,10 +132,21 @@ $("#startBtn").onclick = async () => {
   $("#skipCine").onclick = () => { cancelFlight(); traffic.ferry.state = "docked"; traffic.ferry.t = 0; fy.position.z = -14; traffic.ferry.onDock && traffic.ferry.onDock(); };
   await Promise.all([arrival, flight]);
   $("#skipCine").hidden = true; traffic.ferry.manual = false;
-  await fade(true, 400);
-  scene.attach(player.root); player.setPos(13.5, 0.6, -14); player.face(10, -11, true); player.yaw = player.targetYaw;
+  // disembark: a gangway from the ferry's side to the pier, the Envoy walks down it, the officer checks the ticket
+  const gang = new THREE.Group(); scene.add(gang);
+  box(2.8, 0.08, 1.1, M.wood, 14.3, 1.15, -11, { parent: gang, rz: 0.33 });
+  for (const [x, y] of [[13.4, 0.8], [15.2, 1.5]]) for (const dz of [-0.5, 0.5]) cyl(0.03, 0.03, 1.0, M.steel, x, y + 0.5, -11 + dz, { parent: gang, seg: 6 });
+  for (const dz of [-0.5, 0.5]) box(2.6, 0.04, 0.04, M.steel, 14.3, 2.15, -11 + dz, { parent: gang, rz: 0.33 });
+  scene.attach(player.root); player.yaw = player.targetYaw = Math.atan2(-1, 0);
+  shot([9.5, 3.2, -6.5], [14, 1.3, -11.2], { instant: true });
+  await wait(300);
+  await player.walk([[15.6, 1.6, -10.4], [15.3, 1.55, -11], [13.3, 0.78, -11], [12.2, 0.6, -11.6]], { speed: 1.3 });
+  player.face(10.6, -12.2); officer.faceTo(player);
+  await say({ actor: officer }, { who: "Ticket Officer", role: "Innovation Harbor Ferry", voice: "wang", en: "Ticket, please. … Ah, the Sustainability Envoy. Read the back of your ticket: it explains the talk you will give at the Theater.", zh: "請出示船票。……啊，永續特使。看一下船票背面，上面寫著你要在劇場發表的演講是怎麼回事。" }, player);
+  await showTicket({ officer: true });
+  await say({ actor: officer }, { who: "Ticket Officer", role: "Innovation Harbor Ferry", voice: "wang", en: "Harbor Master Mei is waiting at the end of the pier. Mind the gap, and good luck on stage.", zh: "港長梅在碼頭盡頭等你。小心間隙，祝你上台順利。", anim: "react" }, player);
+  gang.visible = false;
   setFollow(player, { dist: 6, height: 2.1 });
-  await wait(100); await fade(false, 500);
   await titleCard({ kicker: "Chapter 1 · Innovation Harbor", title: "Can We Trust AI?", zh: "我們能信任 AI 嗎？", sub: "SDG 9 · Industry, Innovation and Infrastructure" }, 3200);
   await runStory({ player, mei, kai, hsu, wang, councilA, councilB, foreman, reporter, keeper, boat, traffic, vehicles, portals, audience, crowd });
 };

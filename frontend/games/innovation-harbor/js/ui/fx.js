@@ -6,6 +6,8 @@ import { CSS2DObject } from "three/addons/renderers/CSS2DRenderer.js";
 import { $, esc, wait, REDUCED } from "../util.js";
 import { hint } from "../i18n.js";
 import { fade } from "../world/camera.js";
+import { scene, addUpdate } from "../world/scene.js";
+const fxScene = { scene };
 import { log } from "../telemetry.js";
 
 // ── emotion badge: "!", "?", "idea", "worry", "ok", "love", "angry", "sweat" ──
@@ -49,4 +51,47 @@ export async function flashback(fn, { caption = "Flashback", zh = "", ms = 0 } =
     veil.style.background = old || "#000";
     await wait(120); await fade(false, 500);
   }
+}
+
+// ── card dealing: the NPC fans a hand of cards out to the player before the card game ──
+const findBone = (actor, re) => { let b = null; actor.inner?.traverse(o => { if (!b && o.isBone && re.test(o.name)) b = o; }); return b; };
+let cardTex = null;
+function cardTexture() {
+  if (cardTex) return cardTex;
+  const c = document.createElement("canvas"); c.width = 128; c.height = 180; const g = c.getContext("2d");
+  g.fillStyle = "#f6f1e4"; g.fillRect(0, 0, 128, 180); g.strokeStyle = "#fd6925"; g.lineWidth = 8; g.strokeRect(8, 8, 112, 164);
+  g.fillStyle = "#fd6925"; g.font = "700 30px 'Chakra Petch', sans-serif"; g.textAlign = "center"; g.fillText("SDG", 64, 80); g.fillText("9", 64, 118);
+  g.fillStyle = "#1c2129"; g.font = "600 13px 'Manrope', sans-serif"; g.fillText("PECHA KUCHA", 64, 150);
+  cardTex = new THREE.CanvasTexture(c); cardTex.colorSpace = THREE.SRGBColorSpace; return cardTex;
+}
+export function dealCards(from, to, n = 8, { ms = 1800 } = {}) {
+  return new Promise(res => {
+    const { scene } = fxScene; if (!scene) return res();
+    const hand = findBone(from, /RightHand$/) || from.head || from.root;
+    const start = new THREE.Vector3(); hand.getWorldPosition(start);
+    const head = new THREE.Vector3(); to.headWorld(head);
+    const fwd = new THREE.Vector3(Math.sin(to.yaw), 0, Math.cos(to.yaw)), right = new THREE.Vector3(fwd.z, 0, -fwd.x);
+    const geo = new THREE.PlaneGeometry(0.3, 0.42);
+    const mat = new THREE.MeshStandardMaterial({ map: cardTexture(), side: THREE.DoubleSide, roughness: .6, transparent: true });
+    const cards = [];
+    for (let i = 0; i < n; i++) {
+      const m = new THREE.Mesh(geo, mat.clone()); m.position.copy(start); m.frustumCulled = false; scene.add(m);
+      const spread = (i - (n - 1) / 2) * 0.09;
+      const end = head.clone().addScaledVector(fwd, 0.55).addScaledVector(right, spread); end.y = head.y - 0.35 + Math.abs(spread) * -0.15;
+      cards.push({ m, end, delay: i * 0.07, t: 0, yaw: Math.atan2(fwd.x, fwd.z) + Math.PI + spread * 1.6 });
+    }
+    from.play?.("react"); log("story.deal", `${from.name} deals ${n} cards`, { who: from.name, n });
+    let t = 0; const total = ms / 1000;
+    const off = addUpdate(dt => {
+      t += dt;
+      for (const c of cards) {
+        const k = Math.min(1, Math.max(0, (t - c.delay) / (total * 0.55)));
+        const e = k * k * (3 - 2 * k);
+        c.m.position.lerpVectors(start, c.end, e); c.m.position.y += Math.sin(e * Math.PI) * 0.6;
+        c.m.rotation.set(Math.sin(e * Math.PI) * 1.2, c.yaw + (1 - e) * Math.PI * 2, 0);
+        if (t > total - 0.35) c.m.material.opacity = Math.max(0, (total - t) / 0.35);
+      }
+      if (t >= total) { cards.forEach(c => { scene.remove(c.m); c.m.material.dispose(); }); geo.dispose(); off(); from.play?.("idle"); res(); }
+    });
+  });
 }

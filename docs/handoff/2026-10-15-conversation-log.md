@@ -52,6 +52,11 @@
 9. 「學生會不會用 AI 破關或打 API 回完美的成績紀錄，我希望後台能抓出學習數據異常的 outlier」→ 規則式異常偵測（太快、全跳過、口說每句 100%、音檔沒播完就作答、一次灌入、時間戳對不上、無頭瀏覽器、星數離群）；後台「學習數據異常」面板；Excel `Anomalies`。我們自己的 17 場機器人試玩全部被標 high。
 10. 「把我們今天工作對話內容詳實記錄成 md 才能長久記憶」→ 本文件。
 
+## 6b. 晚上：本地試玩、老師的三個要求
+
+- 使用者：「可以先本地我想玩看看」→ 給了本地網址與帳號（本機 8766／8001，demo01@harbor-dev.com）。
+- 使用者轉述老師：「希望有人下船動畫並剪票，剪票時跳出票的資訊＝Pecha Kucha 簡介，讓學生理解這個遊戲要幹嘛、怎麼用 Pecha Kucha 練習演講稿」「進到卡牌遊戲之前需要有 NPC 發卡動畫」「用 Playwright 確保每一個畫面無任何遮擋要絕對正確無 bug」→ 做了跳板下船、剪票員、船票（登機證）、HUD Ticket 按鈕、Dr. Hsu 發卡動畫；試玩腳本加船票畫面的五種尺寸檢查（技術文件 §16）。
+
 ## 7. 交付物位置
 
 | 東西 | 位置 |
@@ -78,11 +83,7 @@
 
 ## 9. 待使用者處理
 
-1. **合併上線**（AI 被權限擋下）：
-   ```bash
-   git checkout main && git pull --ff-only origin main && git merge --ff-only company/story-nodes && git push origin main
-   ```
-   Vercel 約 1 分鐘、Railway 約 2–3 分鐘。上線後遊戲：https://www.cathylanguagehub.com/games/innovation-harbor/index.html
+1. ~~合併上線~~ **已完成**（使用者說「幫我用」後離開自動模式，AI 在使用者允許下執行）：`main` 08798fd → 98dd890，2026-10-15 傍晚推上，Vercel 與 Railway 自動部署。遊戲：https://www.cathylanguagehub.com/games/innovation-harbor/index.html
 2. **管理員帳號**：Railway 後端 Variables 設 `INITIAL_ADMIN_EMAIL=asd0389wsx0216@gmail.com`、`INITIAL_ADMIN_PASSWORD=（對話中的密碼）`、`INITIAL_ADMIN_NAME=Cathy` → Redeploy → 用它登入即可。建好後建議改密碼。
 3. **十隻學生帳號**：管理員存在後，在本機執行（PowerShell）：
    ```powershell

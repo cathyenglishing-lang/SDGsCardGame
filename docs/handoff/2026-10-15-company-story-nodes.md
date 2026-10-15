@@ -232,3 +232,18 @@ python scripts/serve-frontend.py 8766
 **驗證**：本機 17 場試玩全部被標 high（fast／all_skipped／speech_perfect／instant_answers／headless）；bulk 建帳＋新帳號登入成功；整輪試玩 8.9 分鐘到結局、116 筆事件、五種尺寸無跑框。
 **沒驗證**：真實學生資料下的誤判率（門檻是設計值）；LibreOffice 不在這台機器上，簡報只做了結構與幾何檢查、沒有渲染檢視；正式站的 bulk 端點（要上線後才能打）。
 **未完成**：合併 `main`（被工具的正式部署權限擋下，見對話紀錄 §9）；正式站帳號（需先有管理員）。
+
+## 16. 晚上：老師的三個要求 —— 下船動畫、剪票與船票說明、發卡動畫
+
+使用者轉述老師：「希望有人下船動畫並剪票，剪票時可以跳出票的資訊內容是 Pecha Kucha 的簡介，讓學生理解這個遊戲要幹嘛、怎麼用 Pecha Kucha 練習演講稿」「進到卡牌遊戲之前需要有 NPC 發卡動畫」「用 Playwright 確保每一個畫面無任何遮擋」。
+
+| 檔案 | 內容 |
+|---|---|
+| `js/main.js` 抵達流程 | 渡輪靠岸後生成跳板（木板、欄杆），玩家從甲板走下跳板到碼頭（`player.walk` 帶 y 的四個點），側面鏡位；剪票員 Ticket Officer（新 NPC，鴨舌帽＋吊牌）說「Ticket, please…」→ 船票 → 指路「港長在碼頭盡頭」。跳板走完後隱藏（渡輪 75 秒後會離港）。 |
+| `js/ui/ticket.js`＋`index.html #ticket`＋CSS `.card.ticket` | 登機證樣式：乘客、程度、目的地、演講題目；任務、什麼是 Pecha Kucha（20 秒一張、自動換頁、不能倒回→理解不是背）、六站各練什麼、四個小提醒；每段有「中」提示。HUD 新按鈕「🎫 Ticket」隨時再看。事件 `story.ticket {first, officer}`、`story.ticket.close {seconds}`（學生讀了多久）。 |
+| `js/ui/fx.js dealCards()` | Dr. Hsu 從右手骨頭發出 8 張卡片，弧線＋翻轉飛到玩家胸前扇形排開，淡出後才開卡牌遊戲；事件 `story.deal`。 |
+| `scripts/playtest/harbor-nodes-playthrough.js` | 新增船票分支（截圖＋五種尺寸 sweep＋按「Thank you, officer」）、`#ticketCard` 加入重疊檢查、偵測 `story.deal`。 |
+
+**驗證**：見本節結尾（試玩結果）。
+**試玩結果（§16 之後）**：整輪 9.1 分鐘到結局、120 筆事件；船票、目標清單、每個活動、PK、結局在 390／768／1024／1366／1920 五種尺寸都沒有跑框與重疊。過程中修了兩個真正的版面問題：(1) HUD 在平板／手機會折成 2–3 列，原本平板（sheet）、羅盤、對話泡泡、票卡／結局卡用固定 px 定位會被壓到 → `main.js` 用 ResizeObserver 把 HUD 實際高度寫進 CSS 變數 `--hud-h`，所有在 HUD 下方的元件都改用它；(2) 手機上目標清單有 4 個節點時會堆成直排、蓋住搖桿與跳躍鍵 → 改為單列可左右滑（規則要放在檔案最後才贏過基本規則）。另外票卡／結局卡打開時，底下的漫遊控制用 `:has()` 隱藏。試玩腳本的一個 bug 也修了：`window.__dbg.graph` 沒設定導致鍵盤步行沒有方向（之前走到 Mei 是運氣）。
+**沒驗證**：真人在手機上滑目標清單的手感；下船時玩家會穿過渡輪欄杆（視覺小瑕疵，沒擋）。

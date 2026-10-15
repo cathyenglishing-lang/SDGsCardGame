@@ -16,7 +16,7 @@ import { DATA } from "../data.js";
 import { hint } from "../i18n.js";
 import { glossaryFor } from "../vocab.js";
 import { horn, foghorn, applause, carHorn } from "../audio.js";
-import { emote, flashback } from "../ui/fx.js";
+import { emote, flashback, dealCards } from "../ui/fx.js";
 import { setMood } from "../world/scene.js";
 import { actListening } from "../activities/listening.js";
 import { actChart } from "../activities/chart.js";
@@ -91,6 +91,7 @@ export function chapter1Nodes(ctx) {
       else if (S.vars.kai === "report") await h("Kai was here. He said you reported him. Hard, but honest. Now let me show you why it happened.", "凱來過，說你通報了他。很硬，但很誠實。現在讓我告訴你為什麼會這樣。");
       else await h("Kai was here. He looked worried and would not say why. Whatever it is, the truth comes out in this harbor.", "凱來過，一臉擔心卻不肯說原因。不管是什麼，在這個港口真相總會浮出來。");
       await h("Why does an AI invent papers with such confidence? I prepared a short talk about it, but the sea wind scattered my cards! Come inside the Archive and help me put the sentences back on the right slides.", "AI 為什麼能這麼有自信地捏造論文？我準備了一段短講，可是海風把卡片吹散了！進檔案館幫我把句子放回正確的投影片。");
+      await dealCards(hsu, player, 8);
       await actCardGame({ topic: "9-1", parts: [2, 3, 4, 5] });
       emote(hsu, "idea");
       await h("Exactly. The AI guesses the next word. It does not check facts. Sounding right is not the same as being right.", "沒錯。AI 是在猜下一個字，不是在查證事實。聽起來對，不代表是真的。", { anim: "react" });

@@ -28,7 +28,7 @@ function place(a) {
   // `left` and the clamp below could then settle on an off-screen position
   const r = el.getBoundingClientRect(); const bw = Math.min(r.width || 420, W - 16), bh = r.height || 140;
   const px = (ndc.x * 0.5 + 0.5) * W, py = (-ndc.y * 0.5 + 0.5) * H;
-  const topMin = 64 + 8, margin = 8;
+  const topMin = (parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--hud-h")) || 64) + 8, margin = 8;
   let left = px - bw / 2, top = py - bh - 14; let below = false;
   if (top < topMin) { top = py + 36; below = true; }               // head too high: speak from below
   if (top + bh > H - margin) top = Math.max(topMin, H - margin - bh);

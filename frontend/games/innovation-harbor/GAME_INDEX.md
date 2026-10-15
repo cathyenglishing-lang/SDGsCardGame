@@ -35,7 +35,8 @@ frontend/games/innovation-harbor/
    ├─ activities/          六種學習活動：listening / reading / cardgame(正式卡牌 iframe) / speaking / sequence / pechakucha；cards.js 為原型內建卡牌（未使用）；common.js 選擇題、填字
    ├─ ui/bubble.js         人物頭上的 3D 對話泡泡、雲朵內心想法泡泡、選擇泡泡（永遠夾在畫面內；手機或說話者不在畫面時停靠底部）
    ├─ ui/sheet.js          平板（活動面板）、HUD、提示訊息、星數
-   ├─ ui/fx.js             故事特效：頭上情緒圖示 emote()、章節／地點字卡 titleCard()、褐色回憶閃回 flashback()
+   ├─ ui/fx.js             故事特效：頭上情緒圖示 emote()、章節／地點字卡 titleCard()、褐色回憶閃回 flashback()、NPC 發卡動畫 dealCards()
+   ├─ ui/ticket.js         船票（登機證樣式）：剪票員檢查時彈出，說明任務、Pecha Kucha 規則、六站練什麼、小提醒；HUD「🎫 Ticket」隨時再看；記錄 story.ticket / story.ticket.close（閱讀秒數）
    ├─ world/dressing.js    場景擺設：繫船繩、輪胎護舷、救生圈、棧板＋油桶＋木箱、堆高機、三角錐、投光燈塔、斑馬線、電纜捲盤、禁止進入牌、工務貨櫃屋（固體物件會登記 addBlock 擋路）
    ├─ world/boat.js        港務巡邏艇：上船／開船／水面碰撞（防波堤、燈塔礁石、貨櫃船、岸壁）、警報、水花、紅閃、尾浪；tripTo() 航行目標＋Skip
    ├─ world/portals.js     鎖住章節的光門：全息掃描線、警示燈、進度條、門後霧氣與動態（無人機／機械手臂／輸送帶）、unlock() 消散特效
@@ -93,6 +94,7 @@ frontend/games/innovation-harbor/
 
 | 角色 | 身分 | 模型（`main.js makeActor`） | 站位（`harbor.js SPOTS` 或 `main.js`） | 聲音（`speech.js VOICES`） | 台詞在 |
 |---|---|---|---|---|---|
+| 剪票員 Ticket Officer | 渡輪公司 | `male` 深藍＋鴨舌帽＋吊牌 | `main.js` (10.6, 0.6, −12.2) 跳板末端 | `wang` | `main.js` 抵達流程（下船→剪票→船票→指路） |
 | 燈塔管理員 Keeper Ho | 燈塔島，親手寫航行日誌 | `male` 深藍＋鴨舌帽＋眼鏡 | `main.js` (69.5, 2.65, −66)，島上 | `keeper`（英式男聲，低沉） | `chapter1.js` lighthouse 節點；無線電台詞用 `boat.radioAnchor` |
 | （配件） | — | `world/outfits.js`：李領班白色安全帽＋反光背心、許博士眼鏡＋識別證、凱識別證、王議員眼鏡、梅識別證、議員 B 眼鏡；路人／觀眾 `dressRandom()`（帽子、眼鏡、背包、彩色安全帽） | 掛在 Head／Spine2 骨頭上，跟著動畫；骨頭 +z 朝前、+x 右、+y 上 | — | — |
 | 你（Envoy） | 永續特使 | 帳號女性→`female`，否則 `male`（`account.js`） | 渡輪→碼頭末端 `playerStart` | — | 選擇泡泡 `bubble.js ask()` |
@@ -117,6 +119,8 @@ frontend/games/innovation-harbor/
 - **台詞格式**：`say({actor}, { who, role, voice, en, zh, anim })` → 英文、中文提示、聲音、動作（`talk`／`react`／`null`）。
 - **幻覺體驗節點 `lighthouse`**（梅之後可選，+1 證據）：上巡邏艇 → HARBOR-AI 用 99% 信心指出「穿過防波堤的北航道」（不存在）→ 選擇 `nav: trust / verify`。verify：海圖活動 `activities/chart.js actChart()`（SVG 海圖＋一題）＋口說無線電呼叫 `actSpeak` ＋管理員回覆正確航道。trust：自己開（或 Skip）；撞上防波堤時 AI 仍說「路線正常、安全 99%」，管理員無線電糾正。上島後聽力克漏字（日誌）→ 證據。資料：`story.choice {key:"nav"}`、`boat.crash {kind, speed, n}`、`boat.trip {nav, seconds, crashes, skipped}`、`chart.answer`。船的物理與碰撞在 `world/boat.js`（`waterAt(x,z)` 回傳 quay/edge/breakwater/rocks/ship 或 null）。
 - **內心想法（雲朵泡泡）**：`think({actor}, { who, voice, en, zh, anim, hold })` → 虛線雲朵、三顆小泡泡尾巴、斜體、上下漂浮；不做說話口型。`hold` 毫秒後自動消失（不給就等按「…」）。chapter1 的捷徑：`me()` 玩家心聲、`kT()/wT()/mT()` 凱／王議員／梅的內心話；資料記錄為 `story.thought`。樣式在 `ui.css .bubble.thought`。
+- **抵達流程**（`main.js`）：渡輪靠岸 → 生成跳板（木板＋欄杆）→ 玩家沿 `[[15.6,1.6,-10.4],[15.3,1.55,-11],[13.3,0.78,-11],[12.2,0.6,-11.6]]` 走下船 → 剪票員對話 → `showTicket({officer:true})` → 指路 → 章節字卡。跳板在走完後隱藏。
+- **發卡動畫**：`dealCards(npc, player, n)`：從 NPC 右手骨頭飛出 n 張 SDG 9 卡片，弧線＋翻轉到玩家胸前扇形排開，1.8 秒後淡出；記錄 `story.deal`。用在 Dr. Hsu 進卡牌遊戲前。
 - **情緒圖示**：`emote(actor, kind, ms)`，kind = `"!" "?" idea worry ok love angry sweat music`（`fx.js EMOTES` 可改表情符號或換成圖片），掛在頭骨上方彈出、上下浮動，記錄 `story.emote`。
 - **字卡**：`titleCard({kicker, title, zh, sub}, ms)` 從左側滑入的下三分之一字卡；開場「Chapter 1 · Can We Trust AI?」在 `main.js`，每個節點第一次抵達自動出地點字卡（`graph.js run()`，final 節點除外），記錄 `story.title`。
 - **回憶閃回**：`flashback(async fn, {caption, zh, ms})`：白閃→畫面變褐色＋暗角＋上方標題→執行 fn（鏡位、聲音、暫停起重機…）→白閃回來，記錄 `story.flashback`。範例：李領班節點重播「上週二」起重機二號停機（`chapter1.js`）。樣式 `ui.css body.flashback / .flashcap / .titlecard / .emote`。

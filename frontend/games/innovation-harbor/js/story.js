@@ -22,7 +22,7 @@ export function tagDone(key) { if (tags[key]) { tags[key].state = "done"; markSt
 
 export async function runStory(ctx) {
   const graph = new StoryGraph(chapter1Nodes(ctx), ctx);
-  ctx.graph = graph;
+  ctx.graph = graph; if (window.__dbg) window.__dbg.graph = graph; // the playtest reads node spots from here
   await graph.run();
   S.stage = 6; renderHud();
   await runEnding(ctx);

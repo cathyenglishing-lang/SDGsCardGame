@@ -24,6 +24,7 @@
     <div class="meters"><span title="Integrity">Integrity <b id="integ">0</b></span><span title="Evidence brought to the Council">Evidence <b id="evid">0</b></span><span class="stars" id="starTotal">★ 0</span><span title="Times hit by traffic" class="safety" id="safety" hidden>⚠ <b>0</b></span></div>
     <button class="logbtn" id="sound" type="button" aria-label="Sound">🔊</button>
     <button class="logbtn" id="rateBtn" type="button" title="Speech speed 語速">Speed 1×</button>
+    <button class="logbtn" id="ticketBtn" type="button" title="Your ticket: what this game is for">🎫<span class="lbl"> Ticket</span></button>
     <button class="logbtn" id="logBtn" type="button">Learning Log <span id="logN">0</span></button>
   </div>
   <div class="travel" id="travel" hidden><div class="objectives"><span class="olabel">Talk to</span><div id="tvList"></div></div><span class="keys">W A S D / arrows · Shift run · Space jump · drag to turn</span><button class="btn ghost" id="tvSkip" type="button">Skip walk</button></div>
@@ -60,6 +61,7 @@
       <div class="note">Prototype. Content: SDG 9-1 "Can We Trust AI?" from the existing question bank. Speaking uses the browser's speech recognition (Chrome or Edge, allow the microphone); browsers without it record your voice for the teacher. The Harbor Archive opens the platform's Pecha Kucha Card Game, which saves its result like the regular card game; everything else stays in this browser, and the Learning Log shows what the full version will collect.</div>
     </div>
   </div>
+  <div class="cover" id="ticket" hidden><div class="card ticket" id="ticketCard"></div></div>
   <div class="cover" id="ending" hidden><div class="card" id="endCard"></div></div>
 </div>
 <div id="fade"></div>
