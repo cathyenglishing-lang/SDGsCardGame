@@ -33,7 +33,7 @@ frontend/games/innovation-harbor/
    ├─ story/graph.js       故事圖引擎（節點、可用條件、光柱、到站）
    ├─ story/chapter1.js    第一章劇本：8 個 NPC 節點的台詞、選擇、結局
    ├─ activities/          六種學習活動：listening / reading / cardgame(正式卡牌 iframe) / speaking / sequence / pechakucha；cards.js 為原型內建卡牌（未使用）；common.js 選擇題、填字
-   ├─ ui/bubble.js         人物頭上的 3D 對話泡泡、選擇泡泡
+   ├─ ui/bubble.js         人物頭上的 3D 對話泡泡、雲朵內心想法泡泡、選擇泡泡（永遠夾在畫面內；手機或說話者不在畫面時停靠底部）
    ├─ ui/sheet.js          平板（活動面板）、HUD、提示訊息、星數
    └─ world/
       ├─ scene.js          渲染器、天空與太陽、水面、霧、品質分級、畫面迴圈、心情（dusk/best/dim/fog）
@@ -107,6 +107,7 @@ frontend/games/innovation-harbor/
 
 - **節點**：`story/chapter1.js` `chapter1Nodes(ctx)` 回傳陣列，每個節點 `{ id, title, place, spot:[x,z], stage, requires(vars, done), repeatable, final, run() }`。`run()` 內用 `say()` 講台詞、`ask()` 給選擇、呼叫活動，回傳結果字串；`"retry"` = 節點保持可用；`"END"` = 提早結束。
 - **台詞格式**：`say({actor}, { who, role, voice, en, zh, anim })` → 英文、中文提示、聲音、動作（`talk`／`react`／`null`）。
+- **內心想法（雲朵泡泡）**：`think({actor}, { who, voice, en, zh, anim, hold })` → 虛線雲朵、三顆小泡泡尾巴、斜體、上下漂浮；不做說話口型。`hold` 毫秒後自動消失（不給就等按「…」）。chapter1 的捷徑：`me()` 玩家心聲、`kT()/wT()/mT()` 凱／王議員／梅的內心話；資料記錄為 `story.thought`。樣式在 `ui.css .bubble.thought`。
 - **選擇**：`ask(player, {en, zh}, [{en, zh, ...自訂欄位}], 對話對象)`，回傳被選的物件；變數用 `S.vars`，`bump("integrity", 2)`。
 - **變數**：`state.js S.vars`：integrity、evidence、trust、kai、approach、reporter、scandal、hsuBeforeKai。
 - **結局**：`chapter1.js ENDINGS` 文案；`decideEnding()` 判定順序；`runEnding()` 場景效果（燈塔、霧、起重機停）與結局卡。

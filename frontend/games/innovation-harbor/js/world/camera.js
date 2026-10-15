@@ -9,14 +9,17 @@ const want = new THREE.Vector3(), wantLook = new THREE.Vector3();
 const tmp = new THREE.Vector3(), tmp2 = new THREE.Vector3();
 export const rig = { mode: "shot", free: false, follow: null, orbit: { theta: 0, height: 2.0, dist: 6.5 }, k: 3, flight: null, moving: false, lastDrag: 0, chaseProxy: null };
 
-export function setFollow(actor, { dist = 6.5, height = 2.0, theta = 0 } = {}) { rig.mode = "follow"; rig.free = false; rig.follow = actor; rig.orbit.dist = dist; rig.orbit.height = height; rig.orbit.theta = theta; rig.k = 3.2; }
+// instant: snap the camera behind the character on the next frame (teleports / fades) instead of
+// flying there from wherever it was — a far camera would otherwise leave the speaker off screen.
+export function setFollow(actor, { dist = 6.5, height = 2.0, theta = 0, instant = false } = {}) { rig.mode = "follow"; rig.free = false; rig.follow = actor; rig.orbit.dist = dist; rig.orbit.height = height; rig.orbit.theta = theta; rig.k = 3.2; if (instant) rig.snap = true; }
 // Free roam: the orbit angle is absolute (world space), so turning the player doesn't swing the camera.
 export function setFreeFollow(actor, { dist = 7, height = 2.6 } = {}) {
   setFollow(actor, { dist, height, theta: actor.yaw + Math.PI }); rig.free = true; rig.k = 4;
 }
-export function shot(pos, look, { instant = false, k = 2.4 } = {}) {
+// cut: hard cut when the camera is far from the new shot (start of a conversation), ease when close.
+export function shot(pos, look, { instant = false, cut = false, k = 2.4 } = {}) {
   rig.mode = "shot"; rig.flight = null; want.set(...pos); wantLook.set(...look); rig.k = k;
-  if (instant) { cur.copy(want); curLook.copy(wantLook); }
+  if (instant || (cut && cur.distanceTo(want) > 4)) { cur.copy(want); curLook.copy(wantLook); }
 }
 export function overShoulder(listener, speaker, { side = 1 } = {}) {
   const lh = listener.headWorld(tmp).clone(), sh = speaker.headWorld(tmp2).clone();
@@ -24,20 +27,20 @@ export function overShoulder(listener, speaker, { side = 1 } = {}) {
   const right = new THREE.Vector3(dir.z, 0, -dir.x).multiplyScalar(side);
   const pos = lh.clone().sub(dir.clone().multiplyScalar(1.6)).add(right.multiplyScalar(0.9)); pos.y = lh.y + 0.35;
   const look = sh.clone().lerp(lh, 0.15); look.y = sh.y - 0.1;
-  shot(pos.toArray(), look.toArray(), { k: 2.6 });
+  shot(pos.toArray(), look.toArray(), { k: 2.6, cut: true });
 }
 export function twoShot(a, b) {
   const ah = a.headWorld(tmp).clone(), bh = b.headWorld(tmp2).clone();
   const mid = ah.clone().add(bh).multiplyScalar(0.5); const dir = bh.clone().sub(ah); dir.y = 0; const len = dir.length() || 1; dir.normalize();
   const side = new THREE.Vector3(-dir.z, 0, dir.x);
   const pos = mid.clone().add(side.multiplyScalar(len * 1.3 + 2.4)); pos.y = mid.y + 0.4;
-  shot(pos.toArray(), [mid.x, mid.y - 0.2, mid.z], { k: 2.4 });
+  shot(pos.toArray(), [mid.x, mid.y - 0.2, mid.z], { k: 2.4, cut: true });
 }
 export function frontShot(actor, { dist = 3.2, height = 0.3, side = 0.6 } = {}) {
   const h = actor.headWorld(tmp).clone(); const f = new THREE.Vector3(Math.sin(actor.yaw), 0, Math.cos(actor.yaw));
   const right = new THREE.Vector3(f.z, 0, -f.x);
   const pos = h.clone().add(f.multiplyScalar(dist)).add(right.multiplyScalar(side)); pos.y = h.y + height;
-  shot(pos.toArray(), [h.x, h.y - 0.25, h.z], { k: 2.6 });
+  shot(pos.toArray(), [h.x, h.y - 0.25, h.z], { k: 2.6, cut: true });
 }
 // keys: [{pos, look, t}] flown in sequence from the current camera pose.
 export function fly(keys) {
@@ -83,6 +86,8 @@ addUpdate(dt => {
     const f = rig.flight; const key = f.keys[f.i]; f.t += dt; const k = smoothstep(Math.min(1, f.t / key.t));
     cur.lerpVectors(f.from, tmp.set(...key.pos), k); curLook.lerpVectors(f.fromLook, tmp2.set(...key.look), k);
     if (f.t >= key.t) { f.i++; f.t = 0; f.from.copy(cur); f.fromLook.copy(curLook); if (f.i >= f.keys.length) { const r = f.res; rig.flight = null; rig.mode = "shot"; want.copy(cur); wantLook.copy(curLook); r(); } }
+  } else if (rig.snap) {
+    rig.snap = false; cur.copy(want); curLook.copy(wantLook);
   } else {
     const s = 1 - Math.exp(-rig.k * dt);
     cur.lerp(want, s); curLook.lerp(wantLook, s);

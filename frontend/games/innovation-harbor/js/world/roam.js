@@ -177,6 +177,7 @@ export function startRoam(player, targets, { onArrive, onDistance } = {}) {
   beacons.forEach((b, i) => { const t = list[i]; if (t) { b.g.position.set(t.x, groundY(t.x, t.z), t.z); b.g.visible = true; } else b.g.visible = false; });
   if (!drivingFlag) setFreeFollow(player);
   joy ||= buildJoystick(); joy.hidden = false; joy._jump.hidden = drivingFlag;
+  const prim = list.find(t => t.primary) || list[0]; updateCompass(player, { ...prim, d: Math.hypot(player.pos.x - prim.x, player.pos.z - prim.z) });
 }
 export function setPrimary(id) { if (!active) return; active.targets.forEach(t => t.primary = t.id === id); }
 export function stopRoam() {

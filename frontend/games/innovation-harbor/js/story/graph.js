@@ -50,7 +50,7 @@ export class StoryGraph {
         stopRoam(); $("#travel").hidden = true;
         const n = avail.find(x => x.id === primary);
         log("move", `skip walk to ${n.id}`, { node: n.id, how: "skip" });
-        await fade(true, 400); player.setPos(n.spot[0], groundY(n.spot[0], n.spot[1]), n.spot[1]); setFollow(player); await wait(60); await fade(false, 400);
+        await fade(true, 400); player.setPos(n.spot[0], groundY(n.spot[0], n.spot[1]), n.spot[1]); setFollow(player, { instant: true }); await wait(60); await fade(false, 400);
         res(n);
       };
     });

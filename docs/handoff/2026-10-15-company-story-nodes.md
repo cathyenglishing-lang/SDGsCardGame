@@ -83,7 +83,7 @@ python scripts/serve-frontend.py 8766
 # http://127.0.0.1:8766/games/innovation-harbor/?q=low&speed=4   （speed 只是開發加速）
 ```
 - 主控台 `window.__dbg` 多了 `foreman, reporter, vehicles, drivable, portals, chatter`。
-- 自動試玩：目前用對話中定義的 `__auto()`（以 Skip walk 傳送、iframe 內玩卡牌、無麥克風則略過口說），10-14 的 `scripts/playtest/harbor-playthrough.js` **還沒改成節點圖版**（它沿人行道路線走六站，現在目標是 NPC 清單）。待辦。
+- 自動試玩：`scripts/playtest/harbor-nodes-playthrough.js`（節點圖版，含五種尺寸版面檢查，見 §10）。
 - 驗證過：mei→foreman→kai(help)→hsu→council→workshop→theater → The Evidence Speaks；開車上下車；站在車道被車撞倒。
 - **沒驗證**：真人操作手感、平板搖桿＋開車、真實語音、隱瞞／記者／Front Page 路線（邏輯寫了、未自動跑）、`npm run build`（待跑）。
 
@@ -143,3 +143,25 @@ python scripts/serve-frontend.py 8766
 **沒驗證**：PostgreSQL 版（只跑過 SQLite）、大量資料效能（analytics 一次載入所有 runs 的事件，超過數千次遊玩要分頁或預先彙整）、真實學生帳號、Excel 在 Excel/Numbers 的開啟外觀。
 
 **案例研究與素材來源**：寫在 `docs/reports/2026-10-15-innovation-harbor-convergence-and-data.md` §5–6（Crystal Island 把 NPC 對話當數據並加反思提示；Shute 的隱性評量／證據中心設計；POMY 對話遊戲的提示與錯誤回饋；台灣 3D EFL 研究；老師儀表板研究指出要簡單、對應學習目標、與老師共同設計）。對後台的影響：下一版把每個活動對應到能力指標，並請老師一起挑指標。
+
+## 10. 同日傍晚：全流程自動試玩、任意尺寸不跑框、雲朵內心想法（第三次提交）
+
+使用者要求：「用 Playwright 跑完一次確定無任何 bug 跑框」「任何尺寸的瀏覽器都要能用、元件不跑框不遮擋」「多一點不一樣，例如雲泡泡動畫表示角色內心想法」。
+
+**試玩腳本** `scripts/playtest/harbor-nodes-playthrough.js`（節點圖版，取代 10-14 的舊版）：登入本機管理員、假造瀏覽器語音辨識（唸出目標句，讓口說與 Pecha Kucha 真的跑完）、第一段用鍵盤走（測漫遊＋羅盤）、其餘 Skip walk、iframe 內把 8 張牌配完、每個活動自動作答；每到新畫面（目標清單、前三段對話、每個活動、第一張 PK 投影片、結局）都把視窗切成 390×844、768×1024、1024×768、1366×800、1920×1080 五種尺寸，檢查所有可點元件與泡泡是否在畫面內、面板是否重疊 >15%，並檢查說話者是否在鏡頭內／被幾何擋住。跑法：Playwright MCP `browser_run_code`（filename）；MCP 斷線時用 node 直接跑（`scratchpad/run-playtest.cjs` 的做法：從 npx 快取 `require('playwright')`、`channel:'chrome'`、`--use-angle=swiftshader`），約 7 分鐘。
+
+**找到並修掉的問題**
+| 問題 | 原因 | 修法 |
+|---|---|---|
+| Skip walk 傳送後 NPC 不在畫面、泡泡飛到畫面外 | 鏡頭從舊位置慢慢飛過來；加上骨架世界矩陣在傳送同一幀還是舊的 | `camera.js setFollow({instant})` 下一幀直接貼到人物後方；`shot({cut:true})`：目標鏡位距離 >4 m 就硬切（overShoulder／twoShot／frontShot 都用）；`characters.js setPos/face` 後 `updateMatrixWorld(true)` |
+| 泡泡在小螢幕被截掉 | 原本交給 CSS2DObject，不會夾在畫面內 | `bubble.js` 改成每幀手動定位 `place()`：夾在視窗內（上方留 72px 給 HUD）、頭太高就改在頭下方（`.below`）、說話者在鏡頭後方或太偏、或手機寬度（<760）就停靠底部（`.docked`）；泡泡寬度固定（取消手機 `width:auto`，否則 auto 寬度會跟著舊的 left 撐大而鎖死在畫面外） |
+| 結局卡在手機上看不到上半部、按鈕按不到 | `.cover` 用 grid 置中，內容比螢幕高時上下都溢出 | 改 flex + `.card{margin:auto}`，可從頂端捲動 |
+| 主控台 404 | `assets/avatars/manifest.json` 不存在 | 放空的 `[]`（之後要加頭像就填這個檔） |
+| 內嵌卡牌遊戲打到 8000 埠 | iframe 沒帶 `?api=` | `cardgame.js` 轉傳 `api` 參數（只影響本機測試） |
+| 試玩把「停靠泡泡」誤判為跑框 | 軟體渲染下 resize 事件 350 ms 內還沒觸發 | 測試改成等兩個 `requestAnimationFrame` 再量 |
+
+**雲朵內心想法** `bubble.js think()`：虛線雲朵、三顆小泡泡尾巴、斜體、上下漂浮、不做口型，按「…」或 `hold` 毫秒自動消失；記錄 `story.thought`。chapter1 加了四處：梅說完開場後玩家心聲、凱坦白後凱的內心話（`anim:"react"`）、議會王議員的內心話（依證據數不同）、上台前玩家心聲（6 秒自動消失）。捷徑 `me()`、`kT()/wT()/mT()`。
+
+**最後一次試玩結果**：7.3 分鐘，mei→foreman→kai(help)→hsu→council→workshop→theater → The Evidence Speaks；4 個雲朵泡泡；PK 兩張投影片各 20 秒、麥克風即時分數；79 筆事件；五種尺寸的目標清單／對話／活動／PK／結局都沒有跑框或重疊；唯一剩下的是 `/favicon.ico` 404（無害）。截圖在 `.playwright-mcp/report/nodes-*.jpg`（不進 repo）。
+**沒驗證**：真人在手機上的觸控手感（搖桿＋跳躍＋開車按鈕同時出現時的擁擠度只看了截圖）、`hide` 路線在這版的鏡頭切換、`think()` 用在沒有 listener 的 NPC 上（目前都有）。
+**觀察到但沒修**：議會兩位議員的待機動作有一位身體歪斜（動畫重定向問題，見截圖 `nodes-line-Councillor_Wang.jpg`）。

@@ -7,7 +7,7 @@
 //   The Council sends you back until you bring two pieces of evidence.
 import { SPOTS, PATHS, drawScreen } from "../world/harbor.js";
 import { setFollow, shot, fade, frontShot, fly } from "../world/camera.js";
-import { say, ask } from "../ui/bubble.js";
+import { say, ask, think } from "../ui/bubble.js";
 import { renderHud, toast } from "../ui/sheet.js";
 import { S, STAGES } from "../state.js";
 import { log, finishRun } from "../telemetry.js";
@@ -37,6 +37,10 @@ export function chapter1Nodes(ctx) {
   const f = (en, zh, o) => say({ actor: foreman }, L("Foreman Lee", "Container quay", "wang", en, zh, o), player);
   const r = (en, zh, o) => say({ actor: reporter }, L("Ana Reyes", "Harbor Times reporter", "hsu", en, zh, o), player);
   const ai = (en, zh, where = { anchor: SPOTS.speakerPole }) => say(where, L("HARBOR-AI", "port management system", "ai", en, zh, { ai: true, anim: null }));
+  // thought clouds: the player's inner voice, or an NPC's private thought the audience gets to overhear
+  const me = (en, zh, o) => think({ actor: player }, L("You", "", "narrator", en, zh, o));
+  const thinks = (actor, who, voice) => (en, zh, o) => think({ actor }, L(who, "", voice, en, zh, o), player);
+  const kT = thinks(kai, "Kai", "kai"), wT = thinks(wang, "Councillor Wang", "wang"), mT = thinks(mei, "Harbor Master Mei", "mei");
 
   return [
     // ── 1. Mei · Ferry Pier · listening ──
@@ -45,6 +49,7 @@ export function chapter1Nodes(ctx) {
       await m("Welcome to Innovation Harbor, Envoy. Next week the Port Council votes on one big question: should HARBOR-AI run the whole port?", "歡迎來到創新港，特使。下週港務議會要投票：要不要讓 HARBOR-AI 管理整個港口？");
       await ai("Assessment complete. New pier project: safety score ninety-nine percent. Twelve references cited. Recommendation: approve immediately.", "評估完成。新碼頭計畫：安全指數 99%，引用文獻 12 篇。建議：立即通過。");
       await m("The report looks perfect. Too perfect. Before we start, listen to the opening talk of today's conference. It is playing on the harbor speakers.", "報告看起來很完美，完美得讓我不安。開始前，先聽聽今天大會的開場，港口廣播正在播。");
+      await me("Ninety-nine percent safe… Who checked that number? And who wrote those twelve references?", "百分之九十九安全……這個數字是誰查的？那十二篇參考文獻又是誰寫的？");
       await actListening(slidesOf(1), ctx);
       await m("Three people can help you find out what is wrong with that report: Kai, my intern, at the AI Lab; Dr. Hsu at the Harbor Archive; and Foreman Lee on the container quay.", "有三個人可以幫你查出報告的問題：AI 實驗室的實習生凱、檔案館的許博士，還有貨櫃碼頭的李領班。");
       await m("Talk to them in any order. The Council will want evidence, not opinions. Bring at least two sources. And mind the trucks on the harbor road.", "順序隨你。議會要的是證據，不是意見，至少帶兩個來源回來。還有，小心港區道路上的卡車。");
@@ -59,6 +64,7 @@ export function chapter1Nodes(ctx) {
       await k("Here are my draft notes. Match each note to the right slide and you will see the problem.", "這是我的草稿筆記。把每段筆記對到正確的投影片，你就會看到問題。");
       await actReading(slidesOf(2), [slidesOf(1)[1], slidesOf(3)[0]]);
       await k("So… some of those papers may not exist at all? What should I do?", "所以……有些論文可能根本不存在？我該怎麼辦？");
+      await kT("If the Envoy reports me, my internship is over. If we hide it, the whole port is at risk. Why did I trust the machine?", "如果特使通報我，實習就完了。如果藏起來，整個港口都有風險。我為什麼會相信機器？", { anim: "react" });
       const o = await ask(player, { en: "How do you answer Kai?", zh: "你要怎麼回應凱？" }, [
         { en: "\"I'll check every reference with you. If it's wrong, we fix it.\"", zh: "「我陪你一篇一篇查，錯了就改。」", kai: "help", d: 2 },
         { en: "\"We must report this to the Council right now.\"", zh: "「這件事必須馬上向議會通報。」", kai: "report", d: 1 },
@@ -136,8 +142,9 @@ export function chapter1Nodes(ctx) {
         await w(`Envoy, you bring us ${S.vars.evidence === 1 ? "one source" : "no evidence"}. The Council needs at least two independent sources before it listens. Come back when you have them.`, `特使，你帶來的${S.vars.evidence === 1 ? "只有一個來源" : "沒有證據"}。議會至少要兩個獨立來源才會聽。有了再回來。`);
         toast("Bring two sources: Dr. Hsu's analysis, Kai's list, or the foreman's statement."); return "retry";
       }
+      await wT(S.vars.evidence >= 3 ? "Three independent sources against a report I was ready to approve this morning. If the Envoy can explain it in plain English, the whole Council will follow." : "Two sources. Enough to listen, not enough to vote. Let us hear how the Envoy explains it.", S.vars.evidence >= 3 ? "三個獨立來源，對上一份我今早還打算批准的報告。如果特使能用簡單的英文解釋清楚，整個議會都會跟。" : "兩個來源。夠我聽，還不夠投票。先聽特使怎麼說。");
       await w(`${S.vars.evidence >= 3 ? "Three sources. Impressive." : "Two sources. Acceptable."} Step up to the podium and tell the Council in English: why does this problem matter?`, `${S.vars.evidence >= 3 ? "三個來源，了不起。" : "兩個來源，可以。"}請上講台，用英文告訴議會：這個問題為什麼重要？`);
-      await fade(true, 400); player.setPos(26, 0.6, 49); setFollow(player, { dist: 5, height: 1.8 }); await fade(false, 400);
+      await fade(true, 400); player.setPos(26, 0.6, 49); setFollow(player, { dist: 5, height: 1.8, instant: true }); await fade(false, 400);
       await player.walk(PATHS.toPodium, { speed: 1.6 });
       player.face(26, 60); [wang, councilA, councilB].forEach(c => c.faceTo(player));
       const p4 = slidesOf(4); const slide = (kv === "help" ? p4[0] : p4[p4.length - 1]) || slidesOf(3)[0];
@@ -174,6 +181,7 @@ export function chapter1Nodes(ctx) {
       player.face(27, 20); await wait(300);
       audience.forEach(a => a.faceTo(player));
       await say({ actor: mei }, L("Harbor Master Mei", "front row", "mei", "This is it, Envoy. Pecha Kucha rules: twenty seconds per slide, and the slides change by themselves. Speak clearly. The harbor is listening.", "就是現在，特使。Pecha Kucha 規則：每張二十秒，自動換頁。說清楚，整個港口都在聽。"), player);
+      await me("Twenty seconds a slide. Breathe. I know this story now: I walked every step of it.", "每張二十秒。深呼吸。這個故事我現在很清楚：每一步都是我自己走過的。", { hold: 6000 });
       shot([27, 5.2, 17.5], [27, 2.4, 4]);
       await actPechaKucha(slidesOf(6), { player, audience, mei });
       tagDone("theater"); return "presented";

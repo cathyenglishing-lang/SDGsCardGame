@@ -133,8 +133,9 @@ export class Actor {
     this.yaw += d * Math.min(1, dt * 7); this.root.rotation.y = this.yaw;
   }
   get pos() { return this.root.position; }
-  setPos(x, y, z) { this.root.position.set(x, y, z); return this; }
-  face(x, z, instant = false) { this.targetYaw = Math.atan2(x - this.pos.x, z - this.pos.z); if (instant) { this.yaw = this.targetYaw; this.root.rotation.y = this.yaw; } return this; }
+  // Teleports update the world matrices at once, so camera shots computed right after use the new head position.
+  setPos(x, y, z) { this.root.position.set(x, y, z); this.root.updateMatrixWorld(true); return this; }
+  face(x, z, instant = false) { this.targetYaw = Math.atan2(x - this.pos.x, z - this.pos.z); if (instant) { this.yaw = this.targetYaw; this.root.rotation.y = this.yaw; this.root.updateMatrixWorld(true); } return this; }
   faceTo(a, instant) { return this.face(a.pos.x, a.pos.z, instant); }
   headWorld(out) { if (this.head) this.head.getWorldPosition(out); else out.copy(this.pos).add(new THREE.Vector3(0, 1.6, 0)); return out; }
   walk(points, { speed = 2.3, loop = false, kind = "walk" } = {}) {

@@ -9,6 +9,7 @@ import { setMuted, isMuted } from "../audio.js";
 
 export async function actCardGame({ topic, parts }) {
   const q = new URLSearchParams({ topic, level: S.level, parts: parts.join(","), merge: "1", embed: "harbor" });
+  const api = new URLSearchParams(location.search).get("api"); if (api) q.set("api", api); // local testing: same backend override as the harbor page
   const wrap = document.createElement("div"); wrap.className = "cardgame";
   wrap.innerHTML = `<header><b>Harbor Archive · Pecha Kucha Card Game</b><span>SDG ${topic} · ${S.level} · Parts ${parts[0]}–${parts[parts.length - 1]}</span></header>
     <iframe title="Pecha Kucha Card Game" src="/pages/pecha_kucha_builder.html?${q}" allow="autoplay"></iframe>`;

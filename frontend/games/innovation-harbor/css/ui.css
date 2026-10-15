@@ -49,6 +49,7 @@ button:focus-visible,[tabindex]:focus-visible,input:focus-visible{outline:2px so
 .tag.done{border-left-color:var(--good)}
 .bubble{width:min(480px,calc(100vw - 32px));background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 14px 10px;color:var(--paper);box-shadow:0 14px 40px rgba(0,0,0,.45);font-family:var(--f-body)}
 .bubble .tail{position:absolute;left:50%;bottom:-9px;width:16px;height:16px;background:var(--panel);border-right:1px solid var(--line);border-bottom:1px solid var(--line);transform:translateX(-50%) rotate(45deg)}
+.bubble.below .tail{bottom:auto;top:-9px;transform:translateX(-50%) rotate(225deg)}
 .bubble .bname{font-family:var(--f-display);font-weight:600;font-size:.8rem;letter-spacing:.1em;color:var(--sdg9);text-transform:uppercase;margin-bottom:6px}
 .bubble .bname small{color:var(--muted);font-weight:500;margin-left:8px;letter-spacing:.04em;text-transform:none}
 .bubble .btext{font-size:1rem;line-height:1.6;min-height:2.6em;cursor:pointer}
@@ -59,11 +60,26 @@ button:focus-visible,[tabindex]:focus-visible,input:focus-visible{outline:2px so
 .bubble.ai .bname{color:var(--cyan)}
 .bubble.ai .btext{font-family:"Chakra Petch",monospace;color:#cdefff}
 .bubble.ai .tail{border-color:var(--cyan);background:rgba(8,26,34,.95)}
+/* thought cloud: rounded blob, dotted edge, trail of small bubbles, gentle float */
+.bubble.thought{background:rgba(22,36,52,.95);border:2px dotted #6f8ea8;border-radius:36px 44px 40px 48px/44px 36px 48px 40px;padding:14px 20px 12px;animation:thoughtFloat 3.2s ease-in-out infinite}
+.bubble.thought .bname{color:#a9c6dd}
+.bubble.thought .btext{font-style:italic;color:#dbe7f1}
+.bubble.thought .bnext{background:none;border:1px solid #6f8ea8;color:#dbe7f1;padding:4px 14px;font-size:1.1rem;line-height:1}
+.bubble.thought .tail,.bubble.thought .tail::before,.bubble.thought .tail::after{border:2px dotted #6f8ea8;background:rgba(22,36,52,.95);border-radius:50%;transform:none}
+.bubble.thought .tail{width:14px;height:14px;bottom:-20px;margin-left:-7px}
+.bubble.thought .tail::before,.bubble.thought .tail::after{content:"";position:absolute}
+.bubble.thought .tail::before{width:9px;height:9px;left:9px;top:16px}
+.bubble.thought .tail::after{width:5px;height:5px;left:17px;top:28px}
+.bubble.thought.below .tail{bottom:auto;top:-20px}
+.bubble.thought.below .tail::before{top:auto;bottom:16px}
+.bubble.thought.below .tail::after{top:auto;bottom:28px}
+.bubble.thought.docked{animation:none}
+@keyframes thoughtFloat{0%,100%{translate:0 0}50%{translate:0 -5px}}
 .bubble.choice .opts{display:grid;gap:6px;margin-top:8px}
 .bubble .opt{text-align:left;background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:4px;padding:9px 11px;line-height:1.5;display:flex;gap:10px;align-items:flex-start}
 .bubble .opt:hover{border-color:var(--sdg9);background:rgba(253,105,37,.08)}
 .bubble .opt b{font-family:var(--f-display);color:var(--sdg9)}
-.bubble.docked{display:block !important;position:fixed !important;left:16px !important;right:16px !important;top:auto !important;bottom:calc(16px + env(safe-area-inset-bottom,0px)) !important;transform:none !important;width:auto}
+.bubble.docked{display:block !important;position:fixed !important;left:12px !important;right:12px !important;top:auto !important;bottom:calc(12px + env(safe-area-inset-bottom,0px)) !important;transform:none !important;width:auto;max-height:calc(100vh - 90px);overflow-y:auto}
 .bubble.docked .tail{display:none}
 
 /* travel prompt, skip, toast */
@@ -186,8 +202,9 @@ button:focus-visible,[tabindex]:focus-visible,input:focus-visible{outline:2px so
 .status{font-family:var(--f-display);font-size:.78rem;color:var(--signal);min-height:1.4em}
 
 /* covers: loading / intro / ending */
-.cover{position:absolute;inset:0;display:grid;place-items:center;padding:16px;background:radial-gradient(ellipse at 50% 70%,rgba(13,22,32,.3),rgba(13,22,32,.86));overflow-y:auto}
-.card{width:min(640px,100%);background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:26px 26px 22px;display:grid;gap:16px}
+/* flex + margin:auto (not grid centering) so a card taller than a phone screen scrolls from its top */
+.cover{position:absolute;inset:0;display:flex;padding:16px;background:radial-gradient(ellipse at 50% 70%,rgba(13,22,32,.3),rgba(13,22,32,.86));overflow-y:auto}
+.card{width:min(640px,100%);margin:auto;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:26px 26px 22px;display:grid;gap:16px}
 .card.small{width:min(420px,100%)}
 .card h1{font-family:var(--f-display);font-weight:700;font-size:clamp(1.6rem,5vw,2.3rem);line-height:1.1;margin:0;letter-spacing:.02em;text-wrap:balance}
 .card h1 span{display:block;font-size:.45em;letter-spacing:.2em;color:var(--sdg9);margin-bottom:8px}
@@ -222,7 +239,6 @@ button:focus-visible,[tabindex]:focus-visible,input:focus-visible{outline:2px so
   .table{grid-template-columns:1fr}
   .deck-panel{grid-template-columns:auto auto;justify-content:center}
   .card{padding:20px 18px}
-  .bubble{width:auto}
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 /* free roam: distance chip, touch joystick */
