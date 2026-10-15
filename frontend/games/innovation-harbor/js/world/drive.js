@@ -31,7 +31,7 @@ export function buildDrivable(getPlayer) {
     driving = { car: near, player, t: 0 }; player.root.visible = false; setDriving(true);
     const proxy = { pos: near.g.position, get yaw() { return near.yaw; } };
     setFollow(proxy, { dist: 9.5, height: 3.4, theta: 0 }); rig.free = true; rig.orbit.theta = near.yaw + Math.PI; rig.chaseProxy = proxy;
-    btn.textContent = "E · Get out"; log("drive.enter", near.name); toast(`You are driving ${near.name}. W/S speed, A/D steer, E to get out.`);
+    btn.textContent = "E · Get out"; log("drive.enter", near.name, { car: near.name }); toast(`You are driving ${near.name}. W/S speed, A/D steer, E to get out.`);
   };
   const exit = (silent) => {
     if (!driving) return;
@@ -62,7 +62,7 @@ export function buildDrivable(getPlayer) {
     const nx = car.g.position.x + Math.sin(car.yaw) * car.v * dt, nz = car.g.position.z + Math.cos(car.yaw) * car.v * dt;
     const fx = nx + Math.sin(car.yaw) * 2.4 * Math.sign(car.v || 1), fz = nz + Math.cos(car.yaw) * 2.4 * Math.sign(car.v || 1);
     if (walkable(fx, fz) && walkable(nx, nz) && Math.abs(nx) < 96 && nz > 2.5) { car.g.position.x = nx; car.g.position.z = nz; }
-    else if (Math.abs(car.v) > 2) { shake(0.3, 300); thud(); log("drive.bump", `at ${nx.toFixed(0)},${nz.toFixed(0)} v ${car.v.toFixed(1)}`); car.v *= -0.25; S.metrics.bumps = (S.metrics.bumps || 0) + 1; }
+    else if (Math.abs(car.v) > 2) { shake(0.3, 300); thud(); log("drive.bump", `at ${nx.toFixed(0)},${nz.toFixed(0)} v ${car.v.toFixed(1)}`, { speed: +car.v.toFixed(1) }); car.v *= -0.25; S.metrics.bumps = (S.metrics.bumps || 0) + 1; }
     else car.v = 0;
     car.g.position.y = groundY(car.g.position.x, car.g.position.z);
     car.g.rotation.y = car.yaw; car.g.rotation.z = -car.steer * car.v / maxV * 0.06;

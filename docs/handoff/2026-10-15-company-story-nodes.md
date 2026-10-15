@@ -119,3 +119,27 @@ python scripts/serve-frontend.py 8766
 
 - 整個節點版：不併入 `main` 即可；`main` 仍是 10-14 的線性版。
 - 只回復卡牌遊戲上鎖：`PK_OPEN_TOPICS` 改回全部或刪除 `pkTopicOpen` 檢查。
+
+---
+
+## 9. 同日下午：學習數據層 ＋ 老師分析後台 ＋ Excel（第二次提交）
+
+使用者決定：先做資料層與分析後台，學習數據**另開一個資料庫**；之後才做老師劇本編輯器與真實素材。
+
+| 檔案 | 內容 |
+|---|---|
+| `backend/learning.py` | **新增** 獨立模組，自己的資料庫：`LEARNING_DATABASE_URL`（PostgreSQL）或 `sql/learning.db`（SQLite 預設）。表：`learning_runs`（每次遊玩：學生、章節、難度、結局、變數、星數、指標、路線）、`learning_events`（每個事件：seq、秒數、階段、節點、型別、說明、結構化 data）。學生端：`POST /learning/runs`、`POST /learning/events`（批次、以 run_id+seq 去重）、`POST /learning/runs/{id}/finish`（token 可有可無；有就帶 user_id）。老師端：`GET /learning/analytics`（篩選 chapter/level/from/to/user，彙整結局、各階段星數、漏掉字彙、重播分布、選擇、節點退回、路線、口說模式、探索行為、學生總表、時間線）、`GET /learning/runs`、`GET /learning/runs/{id}/events`、`GET /learning/export.xlsx`（openpyxl，8 張工作表：Summary、Runs、Students、Vocabulary、Endings、Choices、Routes、Events）。 |
+| `backend/main.py` | 只加三行掛載 + `/learning` 進限流清單；`.env.example` 加 `LEARNING_DATABASE_URL`。 |
+| `frontend/games/innovation-harbor/js/telemetry.js` | `log(type, detail, data)` 第三個參數是結構化資料；事件先排隊，每 4 秒或 25 筆送一批；`startRun()` 在 run.start、`finishRun()` 在結局；離線存 localStorage，關閉分頁用 sendBeacon 補送。遊戲永遠不等伺服器。 |
+| 各活動 / 節點 | 關鍵事件都帶 `data`：`listen.answer {word, wrong, plays}`、`read.find {word, wrong}`、`speak.attempt {coverage, missed}`、`pk.slide`、`card.done {errors, repeats, seconds}`、`story.choice {key, value, d}`、`node.start/done {node, outcome, vars}`、`safety.hit`、`drive.*`、`story.overhear`、`ending {key, avg, integrity, evidence, route}`。 |
+| `frontend/js/api.js` | `api.teacher.learningAnalytics / learningRuns / learningRunEvents / learningExport`。 |
+| `frontend/pages/teacher_dashboard.html` | 新分頁「3D 故事 · 學習分析」（`data-module="story_analytics"`）：篩選列、7 個 KPI、結局甜甜圈、各階段星數、每日趨勢、漏字排行、重播分布、劇情選擇、節點退回、路線、探索／口說模式、學生總表（點一列篩選）、最近遊玩（點一列展開事件）、匯出 Excel。 |
+| `frontend/config.js` | 本機測試可用 `?api=http://127.0.0.1:8001` 指到別的後端埠。 |
+| `frontend/pages/pecha_kucha_builder.html` | 修正上鎖補丁留下的引號錯誤（整頁曾無法執行；原因是工具層吃掉反斜線，已改用不含反斜線的寫法）。 |
+
+**部署前要做**：Railway 新增一個 PostgreSQL 服務，把它的連線字串設成後端的 `LEARNING_DATABASE_URL`（沒設就寫本機 SQLite，Railway 重新部署會清掉）；`psycopg[binary]` 已在 requirements。
+
+**測試（本機）**：`.venv` 以 Python 3.14 安裝了較新的 fastapi/pydantic（requirements 的舊 pin 在 3.14 沒有 wheel；requirements 未改）。後端 `INITIAL_ADMIN_EMAIL=… FRONTEND_ORIGINS=http://127.0.0.1:8766 uvicorn backend.main:app --port 8001`；遊戲 `?api=http://127.0.0.1:8001`。兩次自動試玩（一次 help 路線、一次 hide→記者否認→Front Page 提早結局）共 108 筆事件進資料庫；`/learning/analytics` 彙整正確；Excel 匯出 8 張表；後台分頁用 Playwright 截圖檢查過版面與事件展開。
+**沒驗證**：PostgreSQL 版（只跑過 SQLite）、大量資料效能（analytics 一次載入所有 runs 的事件，超過數千次遊玩要分頁或預先彙整）、真實學生帳號、Excel 在 Excel/Numbers 的開啟外觀。
+
+**案例研究與素材來源**：寫在 `docs/reports/2026-10-15-innovation-harbor-convergence-and-data.md` §5–6（Crystal Island 把 NPC 對話當數據並加反思提示；Shute 的隱性評量／證據中心設計；POMY 對話遊戲的提示與錯誤回饋；台灣 3D EFL 研究；老師儀表板研究指出要簡單、對應學習目標、與老師共同設計）。對後台的影響：下一版把每個活動對應到能力指標，並請老師一起挑指標。

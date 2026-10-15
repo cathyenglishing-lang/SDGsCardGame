@@ -1373,7 +1373,7 @@ function renderSelector(){
          + '<p class="pk-tmeta">'+n+' 張投影片 · '+(locked?'尚未開放':'選難度開始')+'</p>'
          + (locked
             ? '<div class="pk-lock">🔒 Locked · 老師開放後才能遊玩</div>'
-            : '<div class="pk-lvls">'+levels.map(l=>'<button class="pk-lvl" onclick="pkStartGame(''+t.id+'',''+l+'')">'+l+'<b>'+(LEVEL_LABEL[l]||"")+'</b></button>').join('')+'</div>')
+            : '<div class="pk-lvls">'+levels.map(l=>'<button class="pk-lvl" onclick="pkStartGame(\''+t.id+'\',\''+l+'\')">'+l+'<b>'+(LEVEL_LABEL[l]||"")+'</b></button>').join('')+'</div>')
          + '</div>';
     });
     h += '</div>';

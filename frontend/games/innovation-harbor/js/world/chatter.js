@@ -55,7 +55,7 @@ export function buildChatter(getPlayer) {
       const d = player ? Math.hypot(player.pos.x - p.a.pos.x, player.pos.z - p.a.pos.z) : 99;
       const near = d < 9;
       if (near !== p.near) { p.near = near; p.el.hidden = !near; }
-      if (near && !p.heard.has(p.li)) { p.heard.add(p.li); S.metrics.eavesdrops++; log("story.overhear", `${p.id}: ${p.lines[p.li].slice(0, 50)}`); }
+      if (near && !p.heard.has(p.li)) { p.heard.add(p.li); S.metrics.eavesdrops++; log("story.overhear", `${p.id}: ${p.lines[p.li].slice(0, 50)}`, { pair: p.id, line: p.li }); }
     }
   });
   return pairs;

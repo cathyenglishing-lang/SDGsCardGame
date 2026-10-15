@@ -10,7 +10,7 @@ import { setFollow, shot, fade, frontShot, fly } from "../world/camera.js";
 import { say, ask } from "../ui/bubble.js";
 import { renderHud, toast } from "../ui/sheet.js";
 import { S, STAGES } from "../state.js";
-import { log } from "../telemetry.js";
+import { log, finishRun } from "../telemetry.js";
 import { $, esc, wait, isNum } from "../util.js";
 import { DATA } from "../data.js";
 import { hint } from "../i18n.js";
@@ -64,7 +64,7 @@ export function chapter1Nodes(ctx) {
         { en: "\"We must report this to the Council right now.\"", zh: "「這件事必須馬上向議會通報。」", kai: "report", d: 1 },
         { en: "\"Let's keep quiet. The Council will never notice.\"", zh: "「先別聲張，議會不會發現的。」", kai: "hide", d: -2 },
       ], kai);
-      S.vars.kai = o.kai; bump("integrity", o.d); log("story.choice", `answer to Kai: ${o.kai} (integrity ${o.d > 0 ? "+" : ""}${o.d})`);
+      S.vars.kai = o.kai; bump("integrity", o.d); log("story.choice", `answer to Kai: ${o.kai} (integrity ${o.d > 0 ? "+" : ""}${o.d})`, { key: "kai", value: o.kai, d: o.d });
       if (o.kai === "help") { bump("evidence", 1); bump("trust", 1); await k("Thank you. Let's search Google Scholar together… there. Three of the twelve papers do not exist. Take this list to the Council.", "謝謝你。我們一起用 Google Scholar 查……你看，十二篇裡有三篇根本不存在。把這份清單帶去議會。", { anim: "react" }); }
       else if (o.kai === "report") { bump("evidence", 1); await k("…I understand. If I made a mistake, I should face it. Here is my confession in writing. Take it to the Council.", "……我懂。做錯事就要面對。這是我寫的自白書，帶去議會吧。", { anim: "react" }); }
       else { await k("Are you sure? …Okay. But people on the quay are already talking.", "真的可以嗎？……好吧。可是碼頭上的人已經在傳了。", { anim: "react" }); reporter.root.visible = true; toast("A reporter has arrived at the Council square."); }
@@ -111,7 +111,7 @@ export function chapter1Nodes(ctx) {
         { en: "\"That is a rumor. The report is fine.\"", zh: "「那是謠言，報告沒問題。」", rep: "denied", d: -2 },
       ], reporter);
       S.vars.reporter = o.rep; bump("integrity", o.d); if (o.rep === "denied") S.vars.scandal = true;
-      log("story.choice", `reporter: ${o.rep}`);
+      log("story.choice", `reporter: ${o.rep}`, { key: "reporter", value: o.rep, d: o.d });
       await r(o.rep === "told" ? "Thank you for being straight with me. That is the story: a harbor that checks its AI." : o.rep === "silent" ? "No comment. All right. I will keep digging." : "The report is fine. I'll quote you on that, Envoy.", o.rep === "told" ? "謝謝你坦白。這就是新聞：一個會檢查 AI 的港口。" : o.rep === "silent" ? "不予置評。好吧，我會繼續挖。" : "報告沒問題。這句話我會引用你的，特使。", { anim: "react" });
       return o.rep;
     } },
@@ -160,7 +160,7 @@ export function chapter1Nodes(ctx) {
         { en: "Ban AI completely. Go back to manual work.", zh: "全面禁用 AI，回到人工作業。", a: "ban", d: 0 },
         { en: "AI is fastest. Just accept the report as it is.", zh: "AI 效率最高，報告直接採用就好。", a: "trust", d: -2 },
       ], hsu);
-      S.vars.approach = o2.a; bump("integrity", o2.d); log("story.choice", `AI policy: ${o2.a} (integrity ${o2.d > 0 ? "+" : ""}${o2.d})`);
+      S.vars.approach = o2.a; bump("integrity", o2.d); log("story.choice", `AI policy: ${o2.a} (integrity ${o2.d > 0 ? "+" : ""}${o2.d})`, { key: "approach", value: o2.a, d: o2.d });
       await h(o2.a === "verify" ? "Good. Let AI help, but let people decide." : o2.a === "ban" ? "Safe, yes… but innovation in this harbor would stop too." : "Are you sure? Those fake papers are still in the report.", o2.a === "verify" ? "很好。讓 AI 幫忙，但最後由人來判斷。" : o2.a === "ban" ? "安全是安全……但港口的創新也會停下來。" : "你確定？那些假論文還在報告裡。", { anim: "react" });
       await h("The whole harbor is waiting at the Waterfront Theater. Go and present your conclusion.", "全港的人都在海濱劇場等你。去發表你的結論吧。");
       tagDone("workshop"); return o2.a;
@@ -205,7 +205,8 @@ export async function runEnding(ctx) {
   const { player, traffic, audience, vehicles } = ctx;
   const { key, avg } = decideEnding(); const E = ENDINGS[key];
   const pend = Object.values(S.stars).filter(v => v === "pending").length;
-  log("ending", `${E.title} (avg ${avg.toFixed(1)} stars, integrity ${S.vars.integrity}, evidence ${S.vars.evidence}, route ${S.done.join(">")})`);
+  log("ending", `${E.title} (avg ${avg.toFixed(1)} stars, integrity ${S.vars.integrity}, evidence ${S.vars.evidence}, route ${S.done.join(">")})`, { key, title: E.title, avg: +avg.toFixed(2), integrity: S.vars.integrity, evidence: S.vars.evidence, route: S.done.slice() });
+  finishRun({ ending: key, vars: S.vars, stars: S.stars, metrics: S.metrics, route: S.done });
   markStations(null);
   await fade(true, 700);
   setMood(E.mood);

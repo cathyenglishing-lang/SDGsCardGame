@@ -684,6 +684,7 @@ body{ background:var(--page); }
     <button class="nav-item active" type="button" data-module="overview"><span class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><rect x="7" y="11" width="3" height="6"/><rect x="12" y="7" width="3" height="10"/><rect x="17" y="13" width="3" height="4"/></svg></span>總覽 Overview</button>
     <div class="side-sep">數據分析 Analytics</div>
     <button class="nav-item" type="button" data-module="pk_analytics"><span class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2 6 4-15 2 9h6"/></svg></span>遊戲數據 Game</button>
+    <button class="nav-item" type="button" data-module="story_analytics"><span class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5 13.6 13.6 8.5 15.5l1.9-5.1z"/></svg></span><span>3D 故事 · 學習分析</span></button>
     <button class="nav-item" type="button" data-module="user_analytics"><span class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>使用者/登入 Users</button>
     <div class="side-sep">內容 Content</div>
     <button class="nav-item" type="button" data-module="sdgs_card_game"><span class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></span>題庫管理 Card Bank</button>
@@ -786,6 +787,65 @@ body{ background:var(--page); }
       <section class="panel chart-card"><h4>活躍學生（依完成次數）</h4><div id="pkTopPlayers" class="pk-scroll"></div></section>
       <section class="panel chart-card"><h4>最近完成紀錄</h4><div id="pkRecent" class="pk-scroll"></div></section>
     </div>
+  </section>
+
+  <section id="storyAnalyticsModule" hidden>
+    <style>
+      #storyAnalyticsModule .sa-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;}
+      #storyAnalyticsModule .sa-head .row{display:flex;gap:8px;flex-wrap:wrap;}
+      #storyAnalyticsModule .sa-filters{display:flex;gap:10px;flex-wrap:wrap;align-items:end;margin-top:12px;}
+      #storyAnalyticsModule .sa-filters label{display:grid;gap:4px;font-size:12px;color:var(--muted,#93a2bd);}
+      #storyAnalyticsModule .sa-filters input,#storyAnalyticsModule .sa-filters select{background:rgba(255,255,255,0.04);border:1px solid var(--line,#26314a);border-radius:10px;color:inherit;padding:8px 10px;font:inherit;min-width:120px;}
+      #storyAnalyticsModule .sa-grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:14px;margin-top:14px;}
+      #storyAnalyticsModule .sa-grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin-top:14px;}
+      #storyAnalyticsModule table.sa-tbl{width:100%;border-collapse:collapse;font-size:13px;}
+      #storyAnalyticsModule table.sa-tbl th,#storyAnalyticsModule table.sa-tbl td{padding:8px 10px;border-bottom:1px solid var(--line,#26314a);text-align:left;white-space:nowrap;vertical-align:top;}
+      #storyAnalyticsModule table.sa-tbl th{color:var(--muted,#93a2bd);font-weight:700;}
+      #storyAnalyticsModule table.sa-tbl tr.clickable{cursor:pointer;} #storyAnalyticsModule table.sa-tbl tr.clickable:hover{background:rgba(255,255,255,0.04);}
+      #storyAnalyticsModule .sa-scroll{overflow-x:auto;max-height:420px;overflow-y:auto;}
+      #storyAnalyticsModule .sa-h5{margin:10px 0 2px;font-size:13px;color:var(--muted,#93a2bd);font-weight:700;}
+      #storyAnalyticsModule .empty{color:var(--muted,#93a2bd);padding:22px;text-align:center;}
+      #storyAnalyticsModule .sa-route{white-space:normal;max-width:520px;}
+      #storyAnalyticsModule .sa-tag{display:inline-block;padding:2px 8px;border-radius:999px;font-size:11.5px;background:rgba(255,255,255,0.08);margin-right:4px;}
+    </style>
+    <section class="panel">
+      <div class="sa-head">
+        <h2>Innovation Harbor 3D · 學習分析</h2>
+        <div class="row">
+          <button class="btn" type="button" onclick="loadStoryAnalytics()">↻ 重新整理</button>
+          <button class="btn" type="button" onclick="exportStoryXlsx()">⬇ 匯出 Excel</button>
+        </div>
+      </div>
+      <p style="color:var(--muted);margin:6px 0 0;">學生在 3D 故事遊戲裡的每一個學習事件（聽、讀、卡牌、口說、排序、發表、劇情選擇、路線、結局、探索行為）都即時送到學習資料庫。這裡依篩選條件彙整；匯出的 Excel 含原始事件。</p>
+      <div class="sa-filters">
+        <label>章節<select id="saChapter"><option value="">全部</option><option value="9-1">9-1 Can We Trust AI?</option></select></label>
+        <label>難度<select id="saLevel"><option value="">全部</option><option>A2</option><option>B1</option><option>B2</option></select></label>
+        <label>起<input id="saFrom" type="date"></label>
+        <label>迄<input id="saTo" type="date"></label>
+        <label>學生<input id="saUser" type="text" placeholder="姓名或 ID"></label>
+        <button class="btn" type="button" onclick="loadStoryAnalytics()">套用篩選</button>
+      </div>
+      <div id="saKpis" class="kpi-row"></div>
+    </section>
+    <div class="sa-grid3">
+      <section class="panel chart-card"><h4>結局分布</h4><div class="cap">六種結局各有多少次</div><div id="saEndings"></div></section>
+      <section class="panel chart-card"><h4>各階段平均星數</h4><div class="cap">聽力、閱讀、卡牌、口說、排序、發表</div><div id="saStages"></div></section>
+      <section class="panel chart-card"><h4>每日遊玩次數</h4><div id="saTimeline"></div></section>
+    </div>
+    <div class="sa-grid2">
+      <section class="panel chart-card"><h4>最常漏掉的目標字彙</h4><div class="cap">聽力填空、閱讀找字、口說漏念合計；補救教學優先清單</div><div id="saVocab"></div></section>
+      <section class="panel chart-card"><h4>聽力重播次數分布</h4><div class="cap">重播越多＝聽力負擔越大</div><div id="saReplays" class="sa-scroll"></div></section>
+    </div>
+    <div class="sa-grid2">
+      <section class="panel chart-card"><h4>劇情選擇</h4><div class="cap">學生在三個關鍵選擇的分布</div><div id="saChoices"></div></section>
+      <section class="panel chart-card"><h4>節點完成與被退回</h4><div class="cap">被議會退回＝證據不足再來</div><div id="saNodes" class="sa-scroll"></div></section>
+    </div>
+    <div class="sa-grid2">
+      <section class="panel chart-card"><h4>走訪路線（前 8）</h4><div id="saRoutes" class="sa-scroll"></div></section>
+      <section class="panel chart-card"><h4>探索與口說模式</h4><div class="cap">偷聽提示、開車、被車撞、錄音給老師、略過</div><div id="saExplore" class="kpi-row"></div></section>
+    </div>
+    <section class="panel chart-card"><h4>學生總表</h4><div class="cap">點一列以該生篩選</div><div id="saStudents" class="sa-scroll"></div></section>
+    <section class="panel chart-card"><h4>最近遊玩</h4><div class="cap">點一列展開事件紀錄</div><div id="saRecent" class="sa-scroll"></div><div id="saRunDetail"></div></section>
   </section>
 
   <section id="sdgsCardGameModule">
@@ -1032,6 +1092,7 @@ function setModule(moduleName) {
 const MODULE_SECTIONS = {
   overview: "overviewModule",
   pk_analytics: "pkAnalyticsModule",
+  story_analytics: "storyAnalyticsModule",
   user_analytics: "userAnalyticsModule",
   sdgs_card_game: "sdgsCardGameModule",
   users: "usersModule",
@@ -1041,6 +1102,7 @@ const MODULE_SECTIONS = {
 const MODULE_LOADERS = {
   overview: () => loadOverview(),
   pk_analytics: () => loadPkAnalytics(),
+  story_analytics: () => loadStoryAnalytics(),
   user_analytics: () => loadUserAnalytics(),
   users: () => loadUsers(),
   system: () => loadSystem(),
@@ -1272,6 +1334,59 @@ function loadingKpi(id){ $(id).innerHTML='<div class="empty" style="grid-column:
 function failKpi(id,e){ $(id).innerHTML='<div class="empty" style="grid-column:1/-1">載入失敗：'+safeText(e&&e.message||e)+'</div>'; }
 
 /* ===== Overview ===== */
+/* ===== 3D story game · learning analytics (backend/learning.py) ===== */
+const SA_ENDING = { best:"Harbor of Integrity", evidence:"The Evidence Speaks", cautious:"Proceed with Caution", stall:"Standstill Harbor", fog:"Fog of Hallucination", frontpage:"Front Page（提早）" };
+const SA_CHOICE = { kai:"選擇一：回應凱（help 陪查 / report 通報 / hide 隱瞞）", approach:"選擇二：AI 政策（verify 查證 / ban 禁用 / trust 照單全收）", reporter:"記者（told 說實話 / silent 不評論 / denied 否認）" };
+const SA_NODE = { mei:"Mei · 碼頭", kai:"Kai · 實驗室", hsu:"Dr. Hsu · 檔案館", foreman:"李領班（支線）", reporter:"記者 Ana", council:"議會", workshop:"工坊", theater:"劇場" };
+const SA_EXPLORE = { "overheard hints":"偷聽提示", "drives":"開車次數", "hit by traffic":"被車撞", "touched locked bridge":"碰玻璃牆", "recorded for teacher":"錄音給老師", "skipped (no microphone)":"略過口說" };
+let storyData = null;
+function storyFilters(){ return { chapter: $("saChapter").value, level: $("saLevel").value, from: $("saFrom").value, to: $("saTo").value, user: $("saUser").value.trim() }; }
+async function loadStoryAnalytics(){
+  loadingKpi("saKpis");
+  try { storyData = await api.teacher.learningAnalytics(storyFilters()); renderStoryAnalytics(storyData); }
+  catch(e){ failKpi("saKpis", e); }
+}
+function saTable(head, rows){
+  if(!rows.length) return '<div class="empty">尚無資料</div>';
+  return '<table class="sa-tbl"><thead><tr>'+head.map(h=>'<th>'+safeText(h)+'</th>').join("")+'</tr></thead><tbody>'+rows.join("")+'</tbody></table>';
+}
+function renderStoryAnalytics(d){
+  const o=d.overview||{};
+  $("saKpis").innerHTML = kpiHtml([["遊玩次數",o.runs],["完成",o.completed],["學生數",o.students],["平均星數",o.avg_stars],["平均分鐘",o.avg_minutes],["口說覆蓋率",o.avg_coverage!=null?o.avg_coverage+"%":"–"],["中文提示/次",o.hints_per_run]]);
+  $("saEndings").innerHTML = donutSvg((d.endings||[]).map(e=>({label:SA_ENDING[e.ending]||e.ending,value:e.count})));
+  $("saStages").innerHTML = barsHtml((d.stages||[]).map(s=>({label:(s.stage+1)+" "+s.name,value:s.avg_stars,valText:s.avg_stars+"★ n="+s.n+(s.skipped?" 未完成"+s.skipped:"")+(s.pending?" 待評"+s.pending:"")})),{labelW:120,width:520});
+  $("saTimeline").innerHTML = chartLine((d.timeline||[]).map(t=>({label:String(t.day).slice(5),value:t.runs})));
+  $("saVocab").innerHTML = barsHtml((d.vocab||[]).slice(0,12).map(v=>({label:v.word,value:v.misses})),{hex:"#e5553b",labelW:140});
+  $("saReplays").innerHTML = chartHeatmap((d.replays&&d.replays.histogram||[]).map(h=>({label:(h.replays>=6?"6+":h.replays)+" 次",value:h.runs})));
+  const ch=d.choices||{};
+  $("saChoices").innerHTML = Object.keys(ch).length ? Object.entries(ch).map(([k,v])=>'<h5 class="sa-h5">'+safeText(SA_CHOICE[k]||k)+'</h5>'+barsHtml(v.map(x=>({label:x.value,value:x.count})),{labelW:90,width:440})).join("") : '<div class="empty">尚無資料</div>';
+  $("saNodes").innerHTML = saTable(["節點","完成","被退回"], (d.nodes||[]).map(n=>'<tr><td>'+safeText(SA_NODE[n.node]||n.node)+'</td><td>'+n.done+'</td><td>'+n.retries+'</td></tr>'));
+  $("saRoutes").innerHTML = saTable(["路線","次數"], (d.routes||[]).map(r=>'<tr><td class="sa-route">'+safeText(r.route)+'</td><td>'+r.count+'</td></tr>'));
+  const ex=(d.explore||[]).map(x=>[SA_EXPLORE[x.kind]||x.kind,x.count]).concat(((d.speech||{}).modes||[]).map(m=>[SA_EXPLORE[m.mode]||m.mode,m.count]));
+  $("saExplore").innerHTML = ex.length ? kpiHtml(ex,true) : '<div class="empty">尚無資料</div>';
+  $("saStudents").innerHTML = saTable(["學生","遊玩","完成","平均星","最佳結局","難度","最常漏字","中文提示","最近"], (d.students||[]).map(s=>'<tr class="clickable" data-user="'+safeText(s.username||"")+'"><td>'+safeText(s.username)+(s.user_id?' <span class="sa-tag">#'+s.user_id+'</span>':'')+'</td><td>'+s.runs+'</td><td>'+s.completed+'</td><td>'+s.avg_stars+'</td><td>'+safeText(SA_ENDING[s.best_ending]||s.best_ending||"–")+'</td><td>'+safeText((s.levels||[]).join(" "))+'</td><td>'+safeText((s.missed_top||[]).join(", "))+'</td><td>'+s.hints+'</td><td>'+safeText(String(s.last||"").replace("T"," ").slice(0,16))+'</td></tr>'));
+  $("saStudents").querySelectorAll("tr.clickable").forEach(tr=>tr.addEventListener("click",()=>{ $("saUser").value=tr.dataset.user; loadStoryAnalytics(); }));
+  $("saRecent").innerHTML = saTable(["#","學生","章節","難度","開始","結束","結局","平均星","事件"], (d.recent||[]).map(r=>'<tr class="clickable" data-run="'+r.id+'"><td>'+r.id+'</td><td>'+safeText(r.username)+'</td><td>'+safeText(r.chapter)+'</td><td>'+safeText(r.level)+'</td><td>'+safeText(String(r.started_at||"").replace("T"," ").slice(0,16))+'</td><td>'+safeText(String(r.ended_at||"").replace("T"," ").slice(0,16)||"進行中")+'</td><td>'+safeText(SA_ENDING[r.ending]||r.ending||"–")+'</td><td>'+(r.avg_stars!=null?r.avg_stars:"–")+'</td><td>'+r.events+'</td></tr>'));
+  $("saRecent").querySelectorAll("tr.clickable").forEach(tr=>tr.addEventListener("click",()=>openStoryRun(tr.dataset.run)));
+  $("saRunDetail").innerHTML = "";
+}
+async function openStoryRun(id){
+  const host=$("saRunDetail"); host.innerHTML='<div class="empty">載入中…</div>';
+  try{
+    const d=await api.teacher.learningRunEvents(id); const r=d.run||{};
+    host.innerHTML='<h5 class="sa-h5">遊玩 #'+safeText(id)+' · '+safeText(r.username)+' · '+safeText(r.level)+' · 結局 '+safeText(SA_ENDING[r.ending]||r.ending||"–")+' · 路線 '+safeText((r.route||[]).join(" → "))+' · 變數 '+safeText(JSON.stringify(r.vars||{}))+'</h5>'
+      +'<div class="sa-scroll">'+saTable(["秒","階段","節點","事件","內容","資料"], (d.events||[]).map(e=>'<tr><td>'+((e.t_ms||0)/1000).toFixed(1)+'</td><td>'+safeText(e.stage||"")+'</td><td>'+safeText(e.node||"")+'</td><td>'+safeText(e.type)+'</td><td style="white-space:normal;max-width:360px">'+safeText(e.detail||"")+'</td><td style="white-space:normal;max-width:300px;font-size:11.5px;color:var(--muted)">'+safeText(e.data?JSON.stringify(e.data):"")+'</td></tr>'))+'</div>';
+    host.scrollIntoView({behavior:"smooth",block:"nearest"});
+  }catch(e){ host.innerHTML='<div class="empty">載入失敗：'+safeText(e.message||e)+'</div>'; }
+}
+async function exportStoryXlsx(){
+  try{
+    const {blob,name}=await api.teacher.learningExport(storyFilters());
+    const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download=name; document.body.appendChild(a); a.click(); a.remove(); setTimeout(()=>URL.revokeObjectURL(a.href),4000);
+  }catch(e){ alert("匯出失敗："+(e.message||e)); }
+}
+
+
 async function loadOverview(){
   loadingKpi("ovKpis");
   let sys,pk,ua;

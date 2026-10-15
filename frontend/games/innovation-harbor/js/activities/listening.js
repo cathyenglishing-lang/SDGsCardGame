@@ -20,7 +20,7 @@ export async function actListening(slides, ctx) {
     await new Promise(ready => {
       body.querySelector("#play").onclick = async () => {
         plays++; if (plays > 1) S.metrics.replays++; pc.textContent = `played ${plays}×`;
-        log("listen.play", `slide ${s.no} play #${plays}`);
+        log("listen.play", `slide ${s.no} play #${plays}`, { slide: s.no, n: plays });
         ctx?.traffic && (ctx.traffic.aiTalking = true);
         if (!q.children.length) ready(); // questions appear on the first Play; the audio keeps going
         await speak(s.script, "speaker");
@@ -41,7 +41,7 @@ export async function actListening(slides, ctx) {
       mistakes += wrong;
       const bl = p.querySelector(`.blank[data-i="${i}"]`); bl.textContent = t.word; bl.classList.add("filled");
       q.insertAdjacentHTML("beforeend", glossLine(t));
-      log("listen.answer", `slide ${s.no} "${t.key}" wrong ${wrong} (plays ${plays})`);
+      log("listen.answer", `slide ${s.no} "${t.key}" wrong ${wrong} (plays ${plays})`, { slide: s.no, word: t.key, wrong, plays });
       if (wrong > 0) S.metrics.missed.push(t.key);
     }
     if (k < slides.length - 1) { const b = document.createElement("div"); b.className = "row"; b.innerHTML = `<button class="btn" type="button">Next slide ▸</button>`; q.appendChild(b); await new Promise(r => b.querySelector(".btn").onclick = r); }

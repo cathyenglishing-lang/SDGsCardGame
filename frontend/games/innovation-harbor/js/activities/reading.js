@@ -30,7 +30,7 @@ export async function actReading(slides, extra) {
       body.querySelectorAll(".passage.sel-able").forEach(p => { if (assign[p.dataset.no] === p.dataset.no) p.classList.add("ok"); else { wrong++; delete assign[p.dataset.no]; shake(p); } });
       mistakes += wrong; refresh(); chime(!wrong);
       body.querySelector("#rc").textContent = wrong ? `${wrong} wrong, try again` : "All matched";
-      log("read.match", `wrong ${wrong}`);
+      log("read.match", `wrong ${wrong}`, { wrong });
       if (!wrong) { body.querySelector("#chk").disabled = true; res(); }
     };
   });
@@ -50,7 +50,7 @@ export async function actReading(slides, extra) {
     });
     mistakes += wrong; if (wrong) S.metrics.missed.push(t.key);
     vocab.insertAdjacentHTML("beforeend", glossLine(t));
-    log("read.find", `"${t.key}" wrong ${wrong}`);
+    log("read.find", `"${t.key}" wrong ${wrong}`, { word: t.key, wrong });
   }
   const sec = Math.round((performance.now() - t0) / 1000); S.metrics.readSec += sec;
   const n = starsFromErrors(mistakes);

@@ -10,7 +10,7 @@ import { loadCharacterAssets, makeActor, CROWD_KINDS, CROWD_TINTS } from "./worl
 import { shot, fly, fade, setFollow, cancelFlight } from "./world/camera.js";
 import { buildStationLabels, runStory } from "./story.js";
 import { wireHints } from "./i18n.js";
-import { wireLogPanel, log } from "./telemetry.js";
+import { wireLogPanel, log, startRun } from "./telemetry.js";
 import { renderHud } from "./ui/sheet.js";
 import { S } from "./state.js";
 import { $, wait, pick, rand } from "./util.js";
@@ -99,7 +99,8 @@ $("#startBtn").onclick = async () => {
   if (S.started) return; // guard: a double click (or a replayed event) must not start two story loops
   $("#intro").hidden = true; S.started = true; S.t0 = performance.now(); introDrift();
   startAmbience();
-  log("run.start", `level ${S.level}, avatar ${S.avatar}, speech: ${SPEECH_LABEL[S.speech]}, quality: ${quality.high ? "high" : "low"}`);
+  log("run.start", `level ${S.level}, avatar ${S.avatar}, speech: ${SPEECH_LABEL[S.speech]}, quality: ${quality.high ? "high" : "low"}`, { level: S.level, avatar: S.avatar, speech: S.speech, quality: quality.high ? "high" : "low" });
+  startRun({ game: "innovation-harbor", chapter: "9-1", level: S.level, avatar: S.avatar, client: navigator.userAgent.slice(0, 160) });
   $("#hud").hidden = false; $("#lvChip").textContent = S.level; renderHud();
   // arrival: ride the ferry into the harbor
   const fy = traffic.ferry.mesh; traffic.ferry.manual = true;

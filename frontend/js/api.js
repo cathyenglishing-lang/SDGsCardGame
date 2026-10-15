@@ -312,6 +312,27 @@ window.api = {
       });
     },
 
+    // 3D story games · learning analytics (own database, see backend/learning.py)
+    learningAnalytics(params = {}) {
+      const q = new URLSearchParams(Object.entries(params).filter(([, v]) => v != null && v !== "")).toString();
+      return request(`/learning/analytics${q ? "?" + q : ""}`, { method: "GET", auth: true });
+    },
+    learningRuns(params = {}) {
+      const q = new URLSearchParams(Object.entries(params).filter(([, v]) => v != null && v !== "")).toString();
+      return request(`/learning/runs${q ? "?" + q : ""}`, { method: "GET", auth: true });
+    },
+    learningRunEvents(runId) {
+      return request(`/learning/runs/${encodeURIComponent(runId)}/events`, { method: "GET", auth: true });
+    },
+    // Excel export: returns a Blob (the request helper only handles JSON).
+    async learningExport(params = {}) {
+      const q = new URLSearchParams(Object.entries(params).filter(([, v]) => v != null && v !== "")).toString();
+      const res = await fetch(`${API_BASE_URL}/learning/export.xlsx${q ? "?" + q : ""}`, { headers: { Authorization: `Bearer ${auth.getToken()}` } });
+      if (!res.ok) throw new Error("Export failed");
+      const name = (res.headers.get("Content-Disposition") || "").match(/filename="([^"]+)"/)?.[1] || "learning.xlsx";
+      return { blob: await res.blob(), name };
+    },
+
     pkAnalytics() {
       return request("/teacher/pk-analytics", {
         method: "GET",

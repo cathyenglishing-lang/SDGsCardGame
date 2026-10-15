@@ -99,7 +99,7 @@ export function buildVehicles() {
           const side = Math.sign(p.z - v.lane.z) || 1;
           knockdown(player, v.lane.dir * 0.9, side * 0.6, 3.4); shake(0.6, 550); thud();
           S.metrics.hits++; renderHud(); toast("Ouch! Look both ways before crossing.");
-          log("safety.hit", `hit by a ${v.kind} on road ${v.lane.road} at ${hitV.toFixed(1)} m/s`);
+          log("safety.hit", `hit by a ${v.kind} on road ${v.lane.road} at ${hitV.toFixed(1)} m/s`, { kind: v.kind, road: v.lane.road, speed: +hitV.toFixed(1) });
         }
       }
       // keep a gap to the vehicle ahead in the same lane

@@ -43,7 +43,7 @@ export function recordPanel(host, ms, label) {
       d.querySelector("#rInfo").textContent = `${r.sec} s recorded`;
       d.querySelector("#rOut").innerHTML = `<audio controls src="${r.url}" style="width:100%"></audio><div class="row" style="margin-top:8px"><button class="btn" type="button" id="rSend">Send to teacher ▸</button><button class="btn ghost" type="button" id="rRe">Record again</button></div>`;
       d.querySelector("#rRe").onclick = () => { d.querySelector("#rOut").innerHTML = ""; go.hidden = false; go.click(); };
-      d.querySelector("#rSend").onclick = () => { log("speak.record", `${label} ${r.sec} s (${r.kb} KB) awaiting teacher`); d.querySelector("#rOut").innerHTML = `<p class="hint" style="color:var(--good)">Sent. Your score appears after the teacher listens.</p>`; res({ pending: true }); };
+      d.querySelector("#rSend").onclick = () => { log("speak.record", `${label} ${r.sec} s (${r.kb} KB) awaiting teacher`, { label, sec: r.sec, kb: r.kb }); d.querySelector("#rOut").innerHTML = `<p class="hint" style="color:var(--good)">Sent. Your score appears after the teacher listens.</p>`; res({ pending: true }); };
     };
   });
 }
@@ -69,7 +69,7 @@ function browserPanel(body, slide, on) {
       ctl.querySelector("#tr").textContent = r.text || "(nothing heard — try again)";
       body.querySelector("#tg").innerHTML = targetHtml(slide.script, cov);
       best = Math.max(best, cov.ratio);
-      log("speak.attempt", `slide ${slide.no} try ${tries} coverage ${Math.round(cov.ratio * 100)}% missed: ${cov.miss.slice(0, 6).join(", ") || "none"}`);
+      log("speak.attempt", `slide ${slide.no} try ${tries} coverage ${Math.round(cov.ratio * 100)}% missed: ${cov.miss.slice(0, 6).join(", ") || "none"}`, { slide: slide.no, try: tries, coverage: +cov.ratio.toFixed(3), missed: cov.miss.slice(0, 10) });
       S.metrics.missed.push(...cov.miss);
       ctl.querySelector("#att").textContent = `attempt ${tries}/3 · best ${Math.round(best * 100)}%`;
       if (tries >= 3 || best >= .8) { go.disabled = true; return finish({ best }); }
@@ -101,7 +101,7 @@ export async function actSpeak(slide, { kicker, title, zh, on } = {}) {
     await finishRow(body, "pending", "Recording sent. The stars for this step arrive after the teacher grades it; the story continues.", "錄音已送出，星數等老師評分後補上，不影響劇情。");
     closeSheet(); addStars("pending", "Speaking");
   } else {
-    log("speak.skip", `slide ${slide.no} skipped (no microphone)`);
+    log("speak.skip", `slide ${slide.no} skipped (no microphone)`, { slide: slide.no });
     await finishRow(body, "skip", "This step is marked incomplete. The teacher can see it in the Learning Log.", "此關記為未完成，老師後台看得到。");
     closeSheet(); addStars("skip", "Speaking");
   }

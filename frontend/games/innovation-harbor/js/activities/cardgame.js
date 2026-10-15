@@ -28,7 +28,7 @@ export async function actCardGame({ topic, parts }) {
   wrap.remove(); setMuted(wasMuted);
   const errors = Number(result.errors) || 0, repeats = Number(result.repeats) || 0;
   S.metrics.cardErrors += errors;
-  log("card.done", `errors ${errors} repeats ${repeats} time ${result.seconds}s (platform card game)`);
+  log("card.done", `errors ${errors} repeats ${repeats} time ${result.seconds}s (platform card game)`, { errors, repeats, seconds: Number(result.seconds) || 0, cards: Number(result.cards) || 0 });
   await fade(false, 450);
   addStars(starsFromErrors(errors), "Card Game");
 }

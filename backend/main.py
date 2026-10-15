@@ -97,7 +97,7 @@ LOGIN_RATE_LIMIT = rate_limit.LOGIN_RATE_LIMIT
 REGISTER_RATE_LIMIT = rate_limit.REGISTER_RATE_LIMIT
 SEND_OTP_RATE_LIMIT = rate_limit.SEND_OTP_RATE_LIMIT
 GAME_RECORD_RATE_LIMIT = rate_limit.GAME_RECORD_RATE_LIMIT
-API_RATE_LIMIT_PREFIXES = ("/auth", "/content", "/game", "/teacher", "/health")
+API_RATE_LIMIT_PREFIXES = ("/auth", "/content", "/game", "/teacher", "/learning", "/health")
 
 
 def get_client_ip(request: Request):
@@ -2959,6 +2959,13 @@ def delete_sdg_card(card_id: int, authorization: str | None = Header(default=Non
     conn.close()
     return {"message": "card deleted"}
 
+
+# =========================
+# LEARNING ANALYTICS (3D story games) — own database, see backend/learning.py
+# =========================
+from backend import learning
+learning.configure(get_current_user, require_teacher)
+app.include_router(learning.router)
 
 # =========================
 # CREATE INITIAL ADMIN

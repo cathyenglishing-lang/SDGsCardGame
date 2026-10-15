@@ -45,7 +45,7 @@ export async function actPechaKucha(slides, { player, audience, mei }) {
       const [r] = await Promise.all([rec, wait(SEC * 1000)]);
       clearInterval(tick);
       if (r && !r.ok && speechFailed(r.code)) failed = r.code;
-      else if (r) { const cov = coverage(s.script, r.text); ratios.push(cov.ratio); S.metrics.missed.push(...cov.miss); log("pk.slide", `slide ${s.no} coverage ${Math.round(cov.ratio * 100)}%`); }
+      else if (r) { const cov = coverage(s.script, r.text); ratios.push(cov.ratio); S.metrics.missed.push(...cov.miss); log("pk.slide", `slide ${s.no} coverage ${Math.round(cov.ratio * 100)}%`, { slide: s.no, coverage: +cov.ratio.toFixed(3), missed: cov.miss.slice(0, 10) }); }
     }
     player.play("idle");
     if (recP) { recordClip.stop && recordClip.stop(); clip = await recP; if (!clip.ok) failed = clip.code; }
@@ -54,7 +54,7 @@ export async function actPechaKucha(slides, { player, audience, mei }) {
     pk.innerHTML = `<audio controls src="${clip.url}" style="width:100%"></audio><div class="row"><button class="btn" type="button" id="send">Send to teacher ▸</button><button class="btn ghost" type="button" id="redo">Present again</button></div>`;
     const a = await new Promise(r => { pk.querySelector("#send").onclick = () => r("send"); pk.querySelector("#redo").onclick = () => r("redo"); });
     if (a === "redo") { pk.innerHTML = ""; continue; }
-    log("pk.record", `full talk ${clip.sec} s (${clip.kb} KB) awaiting teacher`);
+    log("pk.record", `full talk ${clip.sec} s (${clip.kb} KB) awaiting teacher`, { sec: clip.sec, kb: clip.kb });
     result = { pending: true }; break;
   }
   drawScreen("THANK YOU", "Innovation Harbor", "Can We Trust AI? · Presented by the Sustainability Envoy");
@@ -68,7 +68,7 @@ export async function actPechaKucha(slides, { player, audience, mei }) {
     await finishRow(body, "pending", "Your talk was sent. Stars arrive after the teacher grades it.", "發表錄音已送出，星數等老師評分後補上。");
     closeSheet(); addStars("pending", "Presentation");
   } else {
-    log("pk.skip", "presentation skipped (no microphone)");
+    log("pk.skip", "presentation skipped (no microphone)", {});
     await finishRow(body, "skip", "This step is marked incomplete. The teacher can see it in the Learning Log.", "此關記為未完成。");
     closeSheet(); addStars("skip", "Presentation");
   }

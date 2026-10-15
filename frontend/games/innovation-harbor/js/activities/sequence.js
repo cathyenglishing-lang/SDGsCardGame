@@ -17,7 +17,7 @@ export async function actSequence(slides) {
       else { errors++; shake(b); chime(false); body.querySelector("#sc").textContent = `${errors} wrong`; }
     };
   });
-  log("seq.done", `${pieces.length} sentences, ${errors} wrong`);
+  log("seq.done", `${pieces.length} sentences, ${errors} wrong`, { n: pieces.length, wrong: errors });
   const n = starsFromErrors(errors);
   await finishRow(body, n, `${errors} wrong tap${errors === 1 ? "" : "s"}.`, "");
   closeSheet(); addStars(n, "Strategy");
