@@ -195,3 +195,20 @@ python scripts/serve-frontend.py 8766
 
 **骨頭軸向（實測，之後做配件要用）**：RPM 骨架所有骨頭 local **+z = 角色正前方、+x = 角色右手邊、+y = 上**；bone world scale 0.968（配件群組用 `unscale()` 補回公尺）。脊椎骨在軀幹**背面**，胸前的東西要 +z 0.13–0.17；眼睛在 Head 骨原點上方約 0.07。第一次做錯是因為把背心做成置中大方塊、前面陷進胸口，不是軸向反了。
 **沒驗證**：配件在跑步／跌倒動畫下有沒有穿模（只看了站姿）；手機低畫質（`q=low`）下投光燈塔與貨櫃屋的 draw call 影響（估計 <40 個 mesh，應無感）。
+
+## 13. 同日深夜：幻覺體驗劇情（開船撞防波堤）＋ 光門升級（第六次提交）
+
+使用者的新要求：「讓學生真實體會 hallucination」「船可以開嗎」「震撼場景（跳樓／飛機）」「鎖住的場景更好看」。確認後的決定（AskUserQuestion）：幻覺劇情放第一章新節點；震撼場景三種都要——防波堤撞船（第一章，本次做）、水上飛機近距離擦過（第二章 Signal Hill，等該章開工）、屋頂滑索／跳傘（創新工坊，下一批）；**「跳樓」意象對學生族群不做**（輕生暗示），改成裝備跳的安全版本，使用者接受。
+
+| 檔案 | 內容 |
+|---|---|
+| `js/world/boat.js` | 巡邏艇（手刻：船殼擠出幾何、駕駛艙、雷達桅、航行燈、藍色警示燈、HARBOR PATROL 字樣、尾浪）。`enter/exit/teleport/reset/chase/tripTo`。水面＝非陸地；`waterAt()` 判斷防波堤（旋轉矩形）、燈塔礁石、停泊貨櫃船、岸壁、地圖邊界。>2.5 m/s 撞上：警報（`audio.js alarm()`）、鏡頭劇震、14 顆水花、紅色閃光、`boat.crash` 事件、`onCrash` 回呼給劇情。 |
+| `js/story/chapter1.js` lighthouse 節點 | 梅託付 → 上船 → HARBOR-AI「北航道」（幻覺）→ 選 trust / verify → verify 走海圖（`activities/chart.js`）＋口說無線電＋管理員回覆；trust 直接開（或 Skip）→ 第一次撞防波堤時 AI 仍報「路線正常 99%」，玩家心聲，管理員無線電糾正 → 上島：Keeper Ho 台詞依路線不同 → 日誌聽力克漏字（`S.stars.side2`）→ 證據 +1 → 回碼頭。 |
+| `js/world/roam.js` | `onLand` 匯出並加入燈塔島（半徑 6.2）；`groundY` 島上 2.65。 |
+| `js/world/harbor.js` | 燈塔島礁石改固定排列（原本隨機，會擋住玩家與管理員），加小碼頭。 |
+| `js/world/portals.js` | 光門重做：玻璃＋加色混合的全息層（掃描線＋六角格，每幀捲動）、柱子上交替閃的橘色警示燈、甲板黃黑停止線、RESTRICTED 告示牌、CSS 進度條（`setProgress(done,total)`，`graph.js` 每完成一節點就更新）；門後：漂浮霧幕（永遠面向鏡頭）、Signal Hill 三架繞飛無人機、Automation Valley 三支機械手臂＋輸送帶。`unlock(key)`：1.8 秒內玻璃與全息淡出、燈轉綠、粒子上升；好結局（best / evidence）會開東門當獎勵（第二章尚未建，門後只是預覽）。 |
+| `js/audio.js` `alarm()`、`js/speech.js` `keeper` 聲音、`js/state.js` `vars.nav` | — |
+
+**驗證**：`scratchpad/diag-boat.js`：全速直衝防波堤 → `boat.crash breakwater at 48,-39 at 12.0 m/s`，截圖有水花；島上落地點與管理員站位正常。`diag-gate.js`：兩座門、解鎖消散截圖正常。整輪試玩：第一次跑到凱時逾時（當時同時跑光門截圖、兩個瀏覽器搶 CPU），單獨重跑結果見下一節／commit 訊息。
+**沒驗證**：verify 路線的海圖＋口說＋無線電整段（試玩腳本固定選 A＝trust；需要手動或改腳本）；真人開船手感（轉向率、慣性是估的）；手機搖桿開船。
+**注意**：光門的 `unlock` 不會移除 `addBlock`，橋後面的地也不是 `onLand`，所以「Open」目前只是視覺獎勵。

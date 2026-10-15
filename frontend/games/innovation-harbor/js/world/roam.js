@@ -21,10 +21,13 @@ export const BLOCKS = [
 ];
 export const addBlock = b => { BLOCKS.push(b); };
 const inBox = (x, z, b) => x > b[0] && x < b[1] && z > b[2] && z < b[3];
-const onLand = (x, z) => (x > -92 && x < 92 && z > 1.6 && z < 114) || (x > 6.7 && x < 13.3 && z > -22.6 && z <= 1.6);
+// mainland, the ferry pier, and the lighthouse island's rock base (reached by patrol boat)
+export const onIsland = (x, z) => Math.hypot(x - 70, z + 70) < 6.2;
+export const onLand = (x, z) => (x > -92 && x < 92 && z > 1.6 && z < 114) || (x > 6.7 && x < 13.3 && z > -22.6 && z <= 1.6) || onIsland(x, z);
 export const walkable = (x, z) => onLand(x, z) && !BLOCKS.some(b => inBox(x, z, b));
 
 export function groundY(x, z) {
+  if (onIsland(x, z)) return 2.65;                                           // lighthouse island base
   if (x > 18 && x < 36 && z > 2 && z < 8) return 0.9;                       // theater stage
   if (x > 15 && x < 39 && z >= 8.5 && z < 15.7) return G + 0.5 * (clamp(Math.floor((z - 8.5) / 1.8), 0, 3) + 1); // tiers
   if (x > 14 && x < 38 && z >= 49 && z < 52) return G + 0.4 * (clamp(Math.floor(z - 49), 0, 2) + 1); // council steps

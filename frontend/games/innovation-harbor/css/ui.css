@@ -284,6 +284,10 @@ button:focus-visible,[tabindex]:focus-visible,input:focus-visible{outline:2px so
 .portal-label b{font-family:var(--f-display);color:#cdefff;font-size:.9rem;letter-spacing:.04em}
 .portal-label span{font-size:.76rem;color:var(--muted)}
 .portal-label i{font-style:normal;font-family:var(--f-display);font-size:.72rem;color:var(--cyan);letter-spacing:.08em}
+.portal-label .prog{display:block;position:relative;height:14px;margin-top:4px;background:rgba(255,255,255,.08);border-radius:7px;overflow:hidden;font-style:normal}
+.portal-label .prog s{position:absolute;left:0;top:0;bottom:0;width:0;background:var(--cyan);text-decoration:none;transition:width .6s}
+.portal-label .prog span{position:relative;display:block;font-size:.64rem;line-height:14px;color:#eaf6ff;letter-spacing:.06em;font-family:var(--f-display)}
+.portal-label.open{border-color:#3dff6a}.portal-label.open i{color:#3dff6a}
 /* ── compass to the chosen objective; drive prompt ── */
 .compass{position:absolute;left:50%;top:calc(66px + env(safe-area-inset-top,0px));transform:translateX(-50%);display:flex;align-items:center;gap:10px;background:rgba(12,20,30,.86);border:1px solid var(--sdg9);border-radius:999px;padding:6px 14px 6px 10px;pointer-events:none}
 .compass i{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--sdg9);color:#1a0d05;font-style:normal;font-size:1rem;transform-origin:50% 50%;transition:transform .12s linear}
@@ -313,3 +317,10 @@ body.flashback #labels::after{content:"";position:absolute;inset:0;background:ra
 .flashcap{position:absolute;left:50%;top:calc(84px + env(safe-area-inset-top,0px));transform:translateX(-50%);font-family:var(--f-display);letter-spacing:.22em;text-transform:uppercase;font-size:.78rem;color:#f3dcb4;background:rgba(40,24,8,.7);border:1px solid rgba(243,220,180,.4);padding:6px 14px;border-radius:3px;pointer-events:none;text-align:center;max-width:90vw}
 .flashcap .zh-text{letter-spacing:.05em;text-transform:none}
 @media (max-width:1100px){.flashcap{top:calc(118px + env(safe-area-inset-top,0px))}}
+/* ── harbor chart (lighthouse trip) ── */
+.chart{width:100%;height:auto;border:1px solid var(--line);border-radius:6px;display:block}
+.chart .ct{font:700 11px 'Chakra Petch',sans-serif;fill:#cfe3f0;letter-spacing:.2em}
+.chart .cl{font:500 9px 'Manrope',sans-serif;fill:#dbe7f1}
+.chart .cw{font:700 8px 'Chakra Petch',sans-serif;fill:#f3dcb4;letter-spacing:.06em}
+.chart .cr{font:600 9px 'Manrope',sans-serif;fill:#ff8a7a}
+.chart .cg{font:600 9px 'Manrope',sans-serif;fill:#8fe0bd}

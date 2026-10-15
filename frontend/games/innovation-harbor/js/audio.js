@@ -49,6 +49,13 @@ export function horn(long = false) {
   g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(.22, t + .15); g.gain.setValueAtTime(.22, t + d - .3); g.gain.linearRampToValueAtTime(0, t + d);
   o.connect(lp); o2.connect(lp); lp.connect(g); g.connect(master); o.start(t); o2.start(t); o.stop(t + d); o2.stop(t + d);
 }
+// Collision alarm: three rising two-tone bleeps.
+export function alarm() {
+  ensure(); const t = ctx.currentTime;
+  for (let i = 0; i < 3; i++) for (const [f, k] of [[880, 0], [1175, 0.11]]) { const o = ctx.createOscillator(); const g = ctx.createGain(); o.type = "square"; o.frequency.value = f;
+    const s0 = t + i * 0.26 + k; g.gain.setValueAtTime(0, s0); g.gain.linearRampToValueAtTime(.07, s0 + .01); g.gain.setValueAtTime(.07, s0 + .09); g.gain.linearRampToValueAtTime(0, s0 + .11);
+    o.connect(g); g.connect(master); o.start(s0); o.stop(s0 + .12); }
+}
 export function foghorn() { ensure(); horn(true); setTimeout(() => horn(true), 3200); }
 // Car horn: short two-tone blast.
 export function carHorn(long = false) {

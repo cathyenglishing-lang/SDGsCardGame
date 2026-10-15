@@ -18,6 +18,7 @@ import { horn, foghorn, applause, carHorn } from "../audio.js";
 import { emote, flashback } from "../ui/fx.js";
 import { setMood } from "../world/scene.js";
 import { actListening } from "../activities/listening.js";
+import { actChart } from "../activities/chart.js";
 import { actReading } from "../activities/reading.js";
 import { actCardGame } from "../activities/cardgame.js";
 import { actSpeak } from "../activities/speaking.js";
@@ -117,6 +118,64 @@ export function chapter1Nodes(ctx) {
       if (got >= 1) { bump("evidence", 1); bump("trust", 1); await f("Good. That's my statement. Tell the Council a human has to check the machine.", "很好，這就是我的證詞。告訴議會，機器要有人盯著。", { anim: "react" }); }
       else await f("Hmm, not quite my words. Quote me wrong and the Council will laugh. Come back if you want to try again.", "嗯，不太是我的原話。引用錯了議會會笑的。想再試就回來。");
       return got >= 1 ? "statement" : "retry";
+    } },
+
+    // ── 4b. Lighthouse keeper · by patrol boat · the hallucinated-navigation scene (optional, +evidence) ──
+    // HARBOR-AI offers a confident route straight through the breakwater. The student either trusts
+    // it (and hits the stones while the AI reports "99% safe") or checks the chart and radios the
+    // lighthouse first. Either way the keeper's hand-written logbook becomes a fourth source.
+    { id: "lighthouse", title: "Lighthouse Keeper", place: "Patrol boat · ferry pier", spot: [8.2, -17], radius: 2.8, requires: (v, done) => done.has("mei"), async run() {
+      const { boat, keeper } = ctx; const G0 = 0.6;
+      mei.faceTo(player);
+      await m("One more source, Envoy. The lighthouse keeper logs every ship movement by hand. His logbook is the one record HARBOR-AI cannot edit.", "還有一個來源，特使。燈塔管理員親手記錄每一艘船的動態，那本日誌是 HARBOR-AI 改不了的紀錄。");
+      await m("Take the patrol boat. HARBOR-AI will offer to navigate. Whether you trust it is your call.", "開巡邏艇去。HARBOR-AI 會主動幫你導航，要不要信它，你自己決定。");
+      const prevStage = S.stage; S.stage = "side2";
+      await fade(true, 400); boat.enter(player); await fade(false, 400);
+      await ai("Smart Navigation engaged. Confidence: ninety-nine percent. Fastest route to the lighthouse: the North Channel, straight through the breakwater gap. Hold your course and do not deviate.", "智慧導航啟動。信心指數：99%。前往燈塔最快路線：北航道，直接穿過防波堤缺口。保持航向，不要偏離。", { anchor: boat.radioAnchor });
+      await me("Through the breakwater? It sounds very sure…", "穿過防波堤？它聽起來很篤定……");
+      const o = await ask(player, { en: "How do you navigate?", zh: "你要怎麼導航？" }, [
+        { en: "Follow HARBOR-AI. Ninety-nine percent is good enough.", zh: "跟著 HARBOR-AI 走，99% 夠了。", nav: "trust", d: 0 },
+        { en: "Check the harbor chart and radio the lighthouse first.", zh: "先看海圖，並用無線電呼叫燈塔。", nav: "verify", d: 1 },
+      ]);
+      S.vars.nav = o.nav; bump("integrity", o.d); log("story.choice", `navigation: ${o.nav}`, { key: "nav", value: o.nav, d: o.d });
+      const radio = (en, zh) => say({ anchor: boat.radioAnchor }, L("Keeper Ho", "radio · channel 16", "keeper", en, zh, { anim: null }));
+      if (o.nav === "verify") {
+        boat.frozen = true;
+        await actChart();
+        await actSpeak({ no: 93, part: 1, script: "Lighthouse, this is the harbor patrol boat. Requesting the safe channel to the island, over." }, { kicker: "Radio call · Speaking", title: "Call the lighthouse on channel 16", zh: "用 16 頻道呼叫燈塔" });
+        await radio("Patrol boat, lighthouse. Good call. There is no gap in that breakwater — the AI is reading a chart from before it was built. Go east, around the green light, keep the red buoys on your left, then straight to my jetty.", "巡邏艇，這裡是燈塔。問得好。防波堤沒有缺口，AI 讀的是建堤之前的舊海圖。往東繞過綠燈，紅浮標保持在你左邊，然後直直開到我的小碼頭。");
+        boat.frozen = false;
+      }
+      emote(player, o.nav === "verify" ? "ok" : "?");
+      let crashed = 0;
+      const trip = await boat.tripTo({ id: "lighthouse", x: 61.5, z: -61.5, radius: 6, label: "Lighthouse island", place: o.nav === "trust" ? "via the AI's North Channel" : "east, around the green light" }, {
+        onCrash: async (n, kind) => {
+          if (n > 1 || kind !== "breakwater") return;
+          crashed = n; boat.frozen = true;
+          await ai("Route status: on track. Safety: ninety-nine percent. Continue through the channel.", "路線狀態：正常。安全指數：99%。請繼續穿越航道。", { anchor: boat.radioAnchor });
+          emote(player, "angry");
+          await me("We are sitting on the rocks and it says ninety-nine percent.", "我們卡在石頭上，它還說 99%。");
+          await radio("Patrol boat! You are on the breakwater! There is no gap — the AI is reading an old chart. Back off slowly, go east around the green light, keep the red buoys on your left.", "巡邏艇！你撞上防波堤了！那裡沒有缺口，AI 讀的是舊海圖。慢慢倒退，往東繞過綠燈，紅浮標保持在左邊。");
+          boat.frozen = false;
+        },
+      });
+      if (!crashed && trip.crashes) crashed = trip.crashes;
+      log("boat.trip", `${o.nav}, ${trip.seconds}s, ${trip.crashes} collisions${trip.skipped ? ", skipped" : ""}`, { nav: o.nav, seconds: trip.seconds, crashes: trip.crashes, skipped: trip.skipped });
+      // ashore on the island
+      await fade(true, 450); boat.exit(66.3, 2.65, -67.8); player.face(69.5, -66, true); setFollow(player, { instant: true }); await fade(false, 450);
+      keeper.faceTo(player); emote(keeper, "!");
+      const kp = (en, zh, o2) => say({ actor: keeper }, L("Keeper Ho", "Lighthouse keeper", "keeper", en, zh, o2), player);
+      await kp(crashed ? "I heard the hull on the stones from up here. Ninety-nine percent safe, was it?" : o.nav === "verify" ? "You called before you sailed. That is how a sailor stays alive." : "You made it in one piece. Lucky. That channel the AI talks about does not exist.", crashed ? "我在上面就聽到船殼撞石頭的聲音。99% 安全，是嗎？" : o.nav === "verify" ? "你出發前先呼叫了。水手就是這樣活下來的。" : "你全身而退了，算你運氣好。AI 說的那條航道根本不存在。");
+      await kp("Here is Tuesday's entry. Listen, fill in the words, and quote me to the Council word for word.", "這是星期二的記錄。聽好、填上字，然後一字不差地引用給議會。");
+      await actListening([{ no: 94, part: 1, title_en: "Lighthouse logbook, Tuesday", title_zh: "燈塔日誌，星期二", script: "On Tuesday HARBOR-AI sent a tanker toward the north gap. There is no north gap. I called the pilot by radio and the ship turned in time. A machine cannot see the rocks." }], ctx);
+      const got = isNum(S.stars.side2) ? S.stars.side2 : 0;
+      if (got >= 1) { bump("evidence", 1); bump("trust", 1); emote(keeper, "ok"); await kp("Good. That is my statement. Tell the Council: a confident voice is not a safe channel.", "很好，這就是我的證詞。告訴議會：講得篤定，不等於航道安全。", { anim: "react" }); }
+      else await kp("Not quite my words. Come back and listen again if you want to quote me.", "不太是我的原話。想引用我，再回來聽一次。");
+      await me(crashed ? "Ninety-nine percent, while we sat on the rocks. Confidence is not evidence." : "The AI was sure. The chart was right. Now I know which one to check first.", crashed ? "我們卡在石頭上時它說 99%。有信心不等於有證據。" : "AI 很篤定，海圖才是對的。現在我知道該先查哪一個了。");
+      // back to the pier
+      await fade(true, 500); boat.reset(); player.setPos(8.2, G0, -17); player.face(12.6, -8.2, true); setFollow(player, { instant: true }); await fade(false, 500);
+      S.stage = prevStage; renderHud();
+      return got >= 1 ? "logbook" : "retry";
     } },
 
     // ── 5. Ana the reporter · Council square · only on the "hide" route ──
@@ -224,7 +283,7 @@ export function decideEnding() {
 }
 
 export async function runEnding(ctx) {
-  const { player, traffic, audience, vehicles } = ctx;
+  const { player, traffic, audience, vehicles, portals } = ctx;
   const { key, avg } = decideEnding(); const E = ENDINGS[key];
   const pend = Object.values(S.stars).filter(v => v === "pending").length;
   log("ending", `${E.title} (avg ${avg.toFixed(1)} stars, integrity ${S.vars.integrity}, evidence ${S.vars.evidence}, route ${S.done.join(">")})`, { key, title: E.title, avg: +avg.toFixed(2), integrity: S.vars.integrity, evidence: S.vars.evidence, route: S.done.slice() });
@@ -232,7 +291,7 @@ export async function runEnding(ctx) {
   markStations(null);
   await fade(true, 700);
   setMood(E.mood);
-  if (key === "best" || key === "evidence") { traffic.lighthouse(true); horn(true); setTimeout(() => horn(true), 1500); audience[0]?.play("dance"); drawScreen("CHARTER PASSED", "AI assists, humans verify", "Innovation Harbor · first port with public AI rules"); }
+  if (key === "best" || key === "evidence") { portals?.unlock?.("east"); traffic.lighthouse(true); horn(true); setTimeout(() => horn(true), 1500); audience[0]?.play("dance"); drawScreen("CHARTER PASSED", "AI assists, humans verify", "Innovation Harbor · first port with public AI rules"); }
   if (key === "cautious") { traffic.speed = 0.5; drawScreen("TRIAL PERIOD", "Human review required", "HARBOR-AI operates under supervision for one year"); }
   if (key === "stall") { traffic.anchorShips(); traffic.cranesFrozen = true; if (vehicles) vehicles.speed = 0.3; drawScreen("NOTICE", "AI systems suspended", "Manual operations only"); }
   if (key === "fog" || key === "frontpage") { traffic.freezeCrane(0, true); foghorn(); drawScreen(key === "fog" ? "INVESTIGATION" : "HARBOR TIMES", key === "fog" ? "Safety score under review" : "“The report is fine”", key === "fog" ? "All sources must be verified" : "Three cited papers do not exist, sources say"); }

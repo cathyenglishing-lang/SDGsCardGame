@@ -26,6 +26,7 @@ export const VOICES = {
   hsu:      { g: "f", names: ["Jenny", "Michelle", "Google US English", "Aria", "Zira"], pitch: .95, rate: .9, n: 1 },
   wang:     { g: "m", names: ["Google UK English Male", "Ryan", "Davis", "David", "Guy"], pitch: .85, rate: .9 },
   ai:       { g: "", names: ["Google US English", "Aria", "Zira"], pitch: .7, rate: 1.0 },
+  keeper:   { g: "m", names: ["Ryan", "Google UK English Male", "Davis", "Mark", "Guy"], pitch: .8, rate: .88, n: 1 },
   speaker:  { g: "", names: ["Google US English", "Aria", "Jenny"], pitch: 1, get rate() { return S.level === "A2" ? .88 : .96; } },
 };
 

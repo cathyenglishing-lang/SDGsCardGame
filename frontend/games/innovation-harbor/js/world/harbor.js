@@ -173,7 +173,11 @@ export function buildHarbor() {
 
   // ── lighthouse island & breakwater & buoys ──
   const isl = new THREE.Group(); isl.position.set(70, 0, -70); scene.add(isl);
-  for (let i = 0; i < 9; i++) { const r = mesh(new THREE.DodecahedronGeometry(rand(3, 6), 0), M.paint(0x59606a, .95, 0), rand(-5, 5), rand(-2, .5), rand(-5, 5), { parent: isl }); r.rotation.set(rand(0, 3), rand(0, 3), rand(0, 3)); }
+  // rocks ring the base (fixed layout: the base top, radius 6, stays clear for the player and the keeper)
+  for (const [dx, y, dz, r, rot] of [[-7.5, -1.2, 2.5, 4, 0.4], [6.8, -1.5, -3, 3.5, 1.1], [-3, -1.8, -7.5, 4.2, 2.0], [4, -1.4, 7, 3.2, 0.7], [8, -2, 4, 3, 1.6], [-8, -2.2, -5, 3.4, 2.5], [1, -2.4, -9, 3.6, 0.2], [9, -2.3, -1, 2.8, 1.9]]) { const rk = mesh(new THREE.DodecahedronGeometry(r, 0), M.paint(0x59606a, .95, 0), dx, y, dz, { parent: isl }); rk.rotation.set(rot, rot * 1.7, rot * 0.6); }
+  // jetty toward the harbor (the patrol boat lands at its end)
+  box(1.6, 0.16, 7.5, M.wood, -6.2, 1.15, 6.2, { parent: isl, ry: -Math.PI / 4 }); for (const k of [-2.5, 0, 2.5]) for (const s of [-0.7, 0.7]) cyl(0.09, 0.09, 2.4, M.trunk, -6.2 + k * 0.707 - s * 0.707, 0, 6.2 - k * 0.707 - s * 0.707, { parent: isl, seg: 6 });
+  for (const k of [-3, -1, 1, 3]) box(0.3, 0.3, 0.3, M.steelDark, -6.2 + k * 0.707 + 0.6, 1.4, 6.2 - k * 0.707 + 0.6, { parent: isl });
   cyl(5, 6, 2.5, M.paint(0x6b7079, .95, 0), 0, 1.4, 0, { parent: isl, seg: 10 });
   cyl(1.4, 1.9, 16, new THREE.MeshStandardMaterial({ map: T.stripes("#e8e2d4", "#c8412e"), roughness: .6 }), 0, 10.6, 0, { parent: isl, seg: 16 });
   cyl(2.1, 2.1, 0.5, M.steelDark, 0, 18.9, 0, { parent: isl, seg: 16 });

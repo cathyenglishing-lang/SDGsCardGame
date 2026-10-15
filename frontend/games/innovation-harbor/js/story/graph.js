@@ -25,7 +25,7 @@ export class StoryGraph {
       if (node.stage != null) { S.stage = node.stage; renderHud(); }
       if (this.visits[node.id] === 1 && !node.final) await titleCard({ kicker: node.place, title: node.title }, 1400); // location card on first arrival
       const outcome = await node.run(this.ctx, this);
-      if (outcome !== "retry") { this.done.add(node.id); S.done.push(node.id); }
+      if (outcome !== "retry") { this.done.add(node.id); S.done.push(node.id); this.ctx.portals?.setProgress?.(this.done.size, this.nodes.length); }
       log("node.done", `${node.id} → ${outcome ?? "ok"} | vars ${JSON.stringify(S.vars)}`, { node: node.id, outcome: outcome ?? "ok", vars: { ...S.vars } }); S.node = null;
       if (outcome === "END" || (node.final && outcome !== "retry")) return outcome;
     }
