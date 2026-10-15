@@ -7,7 +7,7 @@ import { smoothstep, clamp } from "../util.js";
 const cur = new THREE.Vector3(0, 12, -40), curLook = new THREE.Vector3(0, 2, 0);
 const want = new THREE.Vector3(), wantLook = new THREE.Vector3();
 const tmp = new THREE.Vector3(), tmp2 = new THREE.Vector3();
-export const rig = { mode: "shot", free: false, follow: null, orbit: { theta: 0, height: 2.0, dist: 6.5 }, k: 3, flight: null };
+export const rig = { mode: "shot", free: false, follow: null, orbit: { theta: 0, height: 2.0, dist: 6.5 }, k: 3, flight: null, moving: false, lastDrag: 0, chaseProxy: null };
 
 export function setFollow(actor, { dist = 6.5, height = 2.0, theta = 0 } = {}) { rig.mode = "follow"; rig.free = false; rig.follow = actor; rig.orbit.dist = dist; rig.orbit.height = height; rig.orbit.theta = theta; rig.k = 3.2; }
 // Free roam: the orbit angle is absolute (world space), so turning the player doesn't swing the camera.
@@ -49,13 +49,16 @@ export function fade(toBlack, ms = 600) {
   return new Promise(r => setTimeout(r, ms));
 }
 export const camPos = () => cur;
+// Brief camera shake (collisions, impacts): decaying random offset added after the smoothing step.
+let shakeAmt = 0, shakeT = 0;
+export function shake(amount = 0.35, ms = 450) { shakeAmt = amount; shakeT = ms / 1000; }
 
 // ── pointer orbit on canvas (follow mode) ──
 const pointers = new Map(); let pinch0 = 0;
 canvas.addEventListener("pointerdown", e => { canvas.setPointerCapture(e.pointerId); pointers.set(e.pointerId, { x: e.clientX, y: e.clientY }); });
 canvas.addEventListener("pointermove", e => {
   const p = pointers.get(e.pointerId); if (!p) return;
-  if (pointers.size === 1 && rig.mode === "follow") { rig.orbit.theta -= (e.clientX - p.x) * 0.006; rig.orbit.height = clamp(rig.orbit.height + (e.clientY - p.y) * 0.02, 0.6, 9); }
+  if (pointers.size === 1 && rig.mode === "follow") { rig.orbit.theta -= (e.clientX - p.x) * 0.006; rig.orbit.height = clamp(rig.orbit.height + (e.clientY - p.y) * 0.02, 0.6, 9); rig.lastDrag = performance.now() / 1000; }
   p.x = e.clientX; p.y = e.clientY;
   if (pointers.size === 2) { const [a, b] = [...pointers.values()]; const d = Math.hypot(a.x - b.x, a.y - b.y); if (pinch0) rig.orbit.dist = clamp(rig.orbit.dist * pinch0 / d, 2.5, 18); pinch0 = d; }
 });
@@ -65,7 +68,13 @@ canvas.addEventListener("wheel", e => { e.preventDefault(); rig.orbit.dist = cla
 
 addUpdate(dt => {
   if (rig.mode === "follow" && rig.follow) {
-    const a = rig.follow; const ang = rig.free ? rig.orbit.theta : a.yaw + Math.PI + rig.orbit.theta;
+    const a = rig.follow;
+    // third-person chase: while moving (and not dragging), the camera eases in behind the character
+    if (rig.free && rig.moving && performance.now() / 1000 - rig.lastDrag > 1.2) {
+      const want = a.yaw + Math.PI; let d = want - rig.orbit.theta; d = Math.atan2(Math.sin(d), Math.cos(d));
+      rig.orbit.theta += d * Math.min(1, dt * (rig.chaseProxy ? 3.2 : 2.2));
+    }
+    const ang = rig.free ? rig.orbit.theta : a.yaw + Math.PI + rig.orbit.theta;
     want.set(a.pos.x + Math.sin(ang) * rig.orbit.dist, a.pos.y + rig.orbit.height, a.pos.z + Math.cos(ang) * rig.orbit.dist);
     if (rig.free) wantLook.set(a.pos.x, a.pos.y + 1.5, a.pos.z);
     else wantLook.set(a.pos.x + Math.sin(a.yaw) * 1.2, a.pos.y + 1.45, a.pos.z + Math.cos(a.yaw) * 1.2);
@@ -79,4 +88,5 @@ addUpdate(dt => {
     cur.lerp(want, s); curLook.lerp(wantLook, s);
   }
   camera.position.copy(cur); camera.lookAt(curLook);
+  if (shakeT > 0) { shakeT -= dt; const a = shakeAmt * Math.max(0, shakeT) * 2; camera.position.x += (Math.random() - .5) * a; camera.position.y += (Math.random() - .5) * a; }
 });

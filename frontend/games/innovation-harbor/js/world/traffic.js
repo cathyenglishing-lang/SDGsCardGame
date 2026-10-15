@@ -64,18 +64,6 @@ function fishingBoat() {
   cyl(0.08, 0.1, 6, M.steelDark, 2, 4, 0, { parent: g, seg: 6 }); box(4, 0.1, 0.1, M.steelDark, 3.5, 6, 0, { parent: g, rz: -.5 });
   return g;
 }
-function truck() {
-  const g = new THREE.Group();
-  box(2.5, 2.6, 2.4, M.paint(pick([0xd84a3a, 0x2f6fbf, 0xe3c33a, 0xeeeeee]), .5, .4), 3.6, 1.9, 0, { parent: g });
-  box(2.4, 1.2, 2.2, M.windows(2, 1, 1, "#dff3ff"), 3.6, 2.9, 0, { parent: g });
-  box(8, 0.5, 2.4, M.steelDark, -1.5, 1.05, 0, { parent: g });
-  box(6.1, 2.6, 2.44, M.container(pick(CONTAINER_COLORS)), -1.6, 2.6, 0, { parent: g });
-  g.userData.wheels = [];
-  for (const x of [3.6, -0.6, -3.4]) for (const z of [-1.1, 1.1]) { const w = mesh(new THREE.CylinderGeometry(0.55, 0.55, 0.4, 12), M.rubber, x, 0.55, z, { parent: g, rx: Math.PI / 2 }); g.userData.wheels.push(w); }
-  const hl = new THREE.MeshStandardMaterial({ color: 0x222, emissive: 0xfff2c0, emissiveIntensity: 1.5 });
-  for (const z of [-0.8, 0.8]) box(0.1, 0.3, 0.4, hl, 4.9, 1.2, z, { parent: g, cast: false });
-  return g;
-}
 function gull() {
   const g = new THREE.Group();
   const body = mesh(new THREE.SphereGeometry(0.22, 8, 6), M.white, 0, 0, 0, { parent: g, cast: false }); body.scale.set(1, 0.7, 1.8);
@@ -172,10 +160,7 @@ export function buildTraffic() {
     fbA += dt * .05 * api.speed; fb.position.set(40 + Math.cos(fbA) * 22, Math.sin(t * 1.1) * .2, -40 + Math.sin(fbA) * 16); fb.rotation.y = -fbA + Math.PI / 2; fb.rotation.z = Math.sin(t * .8) * .04;
   });
 
-  // ── trucks ──
-  const trucks = [];
-  for (let i = 0; i < 4; i++) { const tr = truck(); const east = i % 2 === 0; tr.position.set(-80 + i * 45, G, east ? 17.6 : 20.4); tr.rotation.y = east ? 0 : Math.PI; scene.add(tr); trucks.push({ m: tr, east, v: rand(5, 7) }); }
-  upd.push(dt => { for (const t of trucks) { const v = t.v * dt * api.speed; t.m.position.x += t.east ? v : -v; if (t.m.position.x > 100) t.m.position.x = -100; if (t.m.position.x < -100) t.m.position.x = 100; t.m.userData.wheels.forEach(w => w.rotation.y += v * 1.8); } });
+  // (road vehicles live in vehicles.js)
 
   // ── gulls ──
   const gulls = [];

@@ -250,3 +250,28 @@ button:focus-visible,[tabindex]:focus-visible,input:focus-visible{outline:2px so
   .joy{left:16px;bottom:calc(150px + env(safe-area-inset-bottom,0px));width:104px;height:104px}
 }
 @media (min-width:761px){.bubble.docked{left:0 !important;right:0 !important;margin:0 auto;width:min(560px,calc(100vw - 32px))}}
+/* ── story graph: objectives list, jump button, ambient chat bubbles, locked-chapter portals ── */
+.objectives{display:flex;flex-direction:column;gap:6px;min-width:0}
+.olabel{font-family:var(--f-display);font-size:.7rem;letter-spacing:.14em;color:var(--sdg9);text-transform:uppercase}
+#tvList{display:flex;gap:6px;flex-wrap:wrap}
+.obj{display:grid;gap:1px;text-align:left;background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:4px;padding:6px 10px;min-width:150px}
+.obj b{font-family:var(--f-display);font-size:.85rem}
+.obj span{font-size:.74rem;color:var(--muted)}
+.obj.primary{border-color:var(--sdg9);background:rgba(253,105,37,.1)}
+.obj:hover{border-color:var(--muted)}
+.jumpbtn{position:absolute;right:24px;bottom:calc(110px + env(safe-area-inset-bottom,0px));width:76px;height:76px;border-radius:50%;background:rgba(13,22,32,.6);border:1px solid var(--line);color:var(--paper);font-family:var(--f-display);font-weight:700;touch-action:none}
+@media (pointer:fine) and (min-width:761px){.jumpbtn{display:none}}
+.meters .safety{color:var(--bad)}
+.chat{max-width:220px;background:rgba(12,20,30,.82);border:1px solid var(--line);border-radius:8px;padding:6px 9px;font-size:.78rem;line-height:1.4;color:var(--muted);pointer-events:none}
+.portal-label{display:grid;gap:2px;text-align:center;background:rgba(8,26,34,.9);border:1px solid var(--cyan);border-radius:6px;padding:8px 12px;pointer-events:none}
+.portal-label b{font-family:var(--f-display);color:#cdefff;font-size:.9rem;letter-spacing:.04em}
+.portal-label span{font-size:.76rem;color:var(--muted)}
+.portal-label i{font-style:normal;font-family:var(--f-display);font-size:.72rem;color:var(--cyan);letter-spacing:.08em}
+/* ── compass to the chosen objective; drive prompt ── */
+.compass{position:absolute;left:50%;top:calc(66px + env(safe-area-inset-top,0px));transform:translateX(-50%);display:flex;align-items:center;gap:10px;background:rgba(12,20,30,.86);border:1px solid var(--sdg9);border-radius:999px;padding:6px 14px 6px 10px;pointer-events:none}
+.compass i{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--sdg9);color:#1a0d05;font-style:normal;font-size:1rem;transform-origin:50% 50%;transition:transform .12s linear}
+.compass b{display:block;font-family:var(--f-display);font-size:.86rem;letter-spacing:.04em}
+.compass span{font-size:.74rem;color:var(--muted)}
+.drivebtn{position:absolute;left:50%;bottom:calc(112px + env(safe-area-inset-bottom,0px));transform:translateX(-50%)}
+@media (max-width:1100px){.compass{top:calc(100px + env(safe-area-inset-top,0px))}}
+@media (max-width:760px){.compass{top:auto;bottom:calc(212px + env(safe-area-inset-bottom,0px));left:auto;right:12px;transform:none}.drivebtn{left:auto;right:16px;bottom:calc(200px + env(safe-area-inset-bottom,0px));transform:none}}

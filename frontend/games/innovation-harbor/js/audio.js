@@ -50,6 +50,27 @@ export function horn(long = false) {
   o.connect(lp); o2.connect(lp); lp.connect(g); g.connect(master); o.start(t); o2.start(t); o.stop(t + d); o2.stop(t + d);
 }
 export function foghorn() { ensure(); horn(true); setTimeout(() => horn(true), 3200); }
+// Car horn: short two-tone blast.
+export function carHorn(long = false) {
+  ensure(); const t = ctx.currentTime, d = long ? 0.7 : 0.32;
+  for (const f of [415, 523]) { const o = ctx.createOscillator(); const g = ctx.createGain(); o.type = "square"; o.frequency.value = f;
+    const lp = ctx.createBiquadFilter(); lp.type = "lowpass"; lp.frequency.value = 1800;
+    g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(.09, t + .02); g.gain.setValueAtTime(.09, t + d - .05); g.gain.linearRampToValueAtTime(0, t + d);
+    o.connect(lp); lp.connect(g); g.connect(master); o.start(t); o.stop(t + d); }
+}
+// Engine hum while driving: pitch follows the throttle fraction (0 = silent).
+let eng = null;
+export function engine(frac) {
+  if (!ctx) return;
+  if (!eng) { const o = ctx.createOscillator(); const g = ctx.createGain(); const lp = ctx.createBiquadFilter(); lp.type = "lowpass"; lp.frequency.value = 600; o.type = "sawtooth"; o.frequency.value = 50; g.gain.value = 0; o.connect(lp); lp.connect(g); g.connect(master); o.start(); eng = { o, g }; }
+  eng.o.frequency.setTargetAtTime(45 + frac * 160, ctx.currentTime, 0.1);
+  eng.g.gain.setTargetAtTime(frac > 0.02 ? 0.035 + frac * 0.05 : 0, ctx.currentTime, 0.15);
+}
+export function thud() {
+  ensure(); const t = ctx.currentTime; const o = ctx.createOscillator(); const g = ctx.createGain(); o.type = "sine";
+  o.frequency.setValueAtTime(120, t); o.frequency.exponentialRampToValueAtTime(40, t + .25);
+  g.gain.setValueAtTime(.5, t); g.gain.exponentialRampToValueAtTime(.001, t + .3); o.connect(g); g.connect(master); o.start(t); o.stop(t + .32);
+}
 export function applause(sec = 3) {
   ensure(); const t = ctx.currentTime; const src = ctx.createBufferSource(); src.buffer = noiseBuffer(2); src.loop = true;
   const hp = ctx.createBiquadFilter(); hp.type = "highpass"; hp.frequency.value = 1200;

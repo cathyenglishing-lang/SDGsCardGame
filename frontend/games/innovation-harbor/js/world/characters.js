@@ -19,17 +19,31 @@ const ANIM_FILES = {
   walk_m: ["M_Walk_001"], walk_f: ["F_Walk_002"], jog: ["M_Jog_001"],
   talk_m: ["M_Talking_Variations_001", "M_Talking_Variations_002", "M_Talking_Variations_005", "M_Talking_Variations_007"],
   talk_f: ["F_Talking_Variations_001", "F_Talking_Variations_002", "F_Talking_Variations_005"],
-  react: ["M_Standing_Expressions_001", "M_Standing_Expressions_002", "M_Standing_Expressions_006", "M_Standing_Expressions_007", "M_Standing_Expressions_012", "M_Standing_Expressions_017"],
+  react: ["M_Standing_Expressions_001", "M_Standing_Expressions_002", "M_Standing_Expressions_004", "M_Standing_Expressions_006", "M_Standing_Expressions_007", "M_Standing_Expressions_010", "M_Standing_Expressions_012", "M_Standing_Expressions_017"],
   dance: ["M_Dances_001"],
+  jump_m: ["M_Walk_Jump_002", "M_Jog_Jump_001"], jump_f: ["F_Walk_Jump_001", "F_Jog_Jump_Small_001"],
+  fall_m: ["M_Falling_Idle_002"], fall_f: ["F_Falling_Idle_001"],
 };
 
 const loader = new GLTFLoader(manager);
 const models = {}, clips = {};
 const actors = new Set();
 
+// Extra avatars (more faces/outfits) can be dropped into assets/avatars/ with a manifest:
+//   [{ "file": "nurse.glb", "gender": "f" }, { "file": "worker.glb", "gender": "m" }]
+// Any Ready Player Me full-body GLB (or Mixamo-rig GLB) works; they join the crowd pool automatically.
+async function loadExtraAvatars(jobs) {
+  let list = [];
+  try { const r = await fetch("assets/avatars/manifest.json", { cache: "no-cache" }); if (r.ok) list = await r.json(); } catch (e) { return; }
+  for (const [i, a] of list.entries()) {
+    const key = "extra" + i; MODELS[key] = { url: "assets/avatars/" + a.file, yawFix: a.yawFix || 0, gender: a.gender === "f" ? "f" : "m" };
+    jobs.push(loader.loadAsync(MODELS[key].url).then(g => { models[key] = prepModel(g.scene, MODELS[key]); CROWD_KINDS.push(key); }).catch(e => console.warn("avatar failed", a.file, e)));
+  }
+}
 export async function loadCharacterAssets() {
   const jobs = [];
   for (const [k, m] of Object.entries(MODELS)) jobs.push(loader.loadAsync(m.url).then(g => { models[k] = prepModel(g.scene, m); }));
+  await loadExtraAvatars(jobs);
   for (const [k, files] of Object.entries(ANIM_FILES)) for (const f of files) jobs.push(loader.loadAsync(`assets/anim/${f}.glb`).then(g => { (clips[k] ||= []).push(g.animations[0]); }));
   await Promise.all(jobs);
   addUpdate(dt => { for (const a of actors) a.update(dt); });
@@ -106,6 +120,11 @@ export class Actor {
     this.current = action; this.kind = kind;
     if (once) { const h = e => { if (e.action === action) { this.mixer.removeEventListener("finished", h); onDone ? onDone() : this.play("idle"); } }; this.mixer.addEventListener("finished", h); }
     return action;
+  }
+  // Play a looping clip (e.g. "fall") for a fixed time, then return to idle.
+  playFor(kind, sec, { fade = 0.15 } = {}) {
+    clearTimeout(this._hold); this.play(kind, { fade }); this.held = kind;
+    this._hold = setTimeout(() => { if (this.held === kind) { this.held = null; this.play("idle"); } }, sec * 1000);
   }
   update(dt) {
     this.mixer.update(dt);

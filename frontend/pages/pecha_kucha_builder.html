@@ -1266,6 +1266,9 @@ body.is-dragging-card .subtopic-poker:not(.correct) {
 .pk-read-panel #sentenceBox .sentence-text{font-size:1.05rem;line-height:1.5}
 .subtopic-box{height:auto !important}
 body.pk-embed .game-guide,body.pk-embed #topicGrid{display:none}
+.pk-topic.pk-locked{opacity:.58;filter:grayscale(.55);cursor:not-allowed}
+.pk-topic.pk-locked h4{color:#64748b}
+.pk-lock{margin-top:8px;padding:8px 10px;border-radius:10px;background:rgba(15,23,42,.08);border:1px dashed rgba(100,116,139,.5);color:#475569;font-size:.78rem;font-weight:800;text-align:center}
 .game-title{font-size:clamp(1.15rem,2.2vw,1.7rem) !important;line-height:1.25}
 @media (max-width:780px){
   .deck-panel{height:226px !important;bottom:10px !important}
@@ -1308,6 +1311,9 @@ const SDG_META = {
 };
 const LEVEL_LABEL = {A1:"入門", A2:"基礎", B1:"進階", B2:"高階"};
 const LEVEL_ORDER = ["A1","A2","B1","B2"];
+// Card game: one playable topic per SDG (the most complete one); every other topic stays visible but locked.
+// Embedded runs from the 3D game (embed=harbor) may open any topic.
+const PK_OPEN_TOPICS = ["4-1", "5-1", "9-1", "13-1"];
 // ?topic=9-1&level=B1&parts=3,4&embed=harbor — start directly; embed=harbor reports back to the 3D game.
 const PK_LINK = (() => {
   const q = new URLSearchParams(location.search);
@@ -1359,14 +1365,16 @@ function renderSelector(){
     bySdg[sdg].sort((a,b)=>a.id.localeCompare(b.id,undefined,{numeric:true})).forEach(t=>{
       const levels = LEVEL_ORDER.filter(l=>t.levels[l]);
       const n = (t.levels[levels[0]]||[]).length;
-      h += '<div class="pk-topic" style="--ac:'+meta.c+'">'
+      const locked = !pkTopicOpen(t.id);
+      h += '<div class="pk-topic'+(locked?' pk-locked':'')+'" style="--ac:'+meta.c+'">'
          + '<span class="pk-tbadge" style="background:'+meta.c+'">SDG '+sdg+' · '+pkEsc(t.id)+'</span>'
          + '<h4>'+pkEsc(pkClean(t.title_en))+'</h4>'
          + (t.title_zh?'<p class="pk-tzh">'+pkEsc(t.title_zh)+'</p>':'')
-         + '<p class="pk-tmeta">'+n+' 張投影片 · 選難度開始</p>'
-         + '<div class="pk-lvls">'
-         + levels.map(l=>'<button class="pk-lvl" onclick="pkStartGame(\''+t.id+'\',\''+l+'\')">'+l+'<b>'+(LEVEL_LABEL[l]||"")+'</b></button>').join('')
-         + '</div></div>';
+         + '<p class="pk-tmeta">'+n+' 張投影片 · '+(locked?'尚未開放':'選難度開始')+'</p>'
+         + (locked
+            ? '<div class="pk-lock">🔒 Locked · 老師開放後才能遊玩</div>'
+            : '<div class="pk-lvls">'+levels.map(l=>'<button class="pk-lvl" onclick="pkStartGame(''+t.id+'',''+l+'')">'+l+'<b>'+(LEVEL_LABEL[l]||"")+'</b></button>').join('')+'</div>')
+         + '</div>';
     });
     h += '</div>';
   });
@@ -1382,9 +1390,11 @@ function pkResetState(){
   canDrag=false; gameData=[]; errorCount=0; repeatListenCount=0;
 }
 
+function pkTopicOpen(id){ return PK_OPEN_TOPICS.includes(id) || PK_LINK.embed; }
 function pkStartGame(topicId, level){
   const topic = GAME_DATA.topics.find(t=>t.id===topicId);
   if(!topic || !topic.levels[level]) return;
+  if(!pkTopicOpen(topicId)){ if(typeof showToast==="function") showToast("這個主題尚未開放。"); return; }
   window.speechSynthesis.cancel();
   SELECTED = { topic, level };
   pkResetState();

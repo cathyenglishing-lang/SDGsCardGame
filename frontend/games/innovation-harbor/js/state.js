@@ -5,9 +5,11 @@ export const S = {
   started: false,
   t0: 0,
   stars: {},            // stage index -> 0..3 | "pending" | "skip"
-  vars: { integrity: 0, kai: null, approach: null },
+  // Story variables. Nodes read and write these; the ending is computed from them.
+  vars: { integrity: 0, kai: null, approach: null, evidence: 0, trust: 0, scandal: false, reporter: null, hsuBeforeKai: false },
+  done: [],             // node ids completed, in order
   speech: "browser",    // browser | record | none
-  metrics: { replays: 0, cardErrors: 0, readSec: 0, speakBest: [], missed: [], zhHints: 0 },
+  metrics: { replays: 0, cardErrors: 0, readSec: 0, speakBest: [], missed: [], zhHints: 0, hits: 0, jumps: 0, eavesdrops: 0, walkSec: 0 },
   events: [],
 };
 export const STAGES = [

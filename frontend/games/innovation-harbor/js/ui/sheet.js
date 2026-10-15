@@ -25,7 +25,9 @@ export function toast(msg) { const t = $("#toast"); t.textContent = msg; t.hidde
 export function renderHud() {
   $("#track").innerHTML = STAGES.map((s, i) => `<div class="seg ${S.stars[i] != null ? "done" : i === S.stage ? "now" : ""}" title="Part ${i + 1} ${s.en}"><i></i><small>${i + 1} ${s.en}${S.stars[i] != null ? ` <em>${isNum(S.stars[i]) ? "★".repeat(S.stars[i]) : starStr(S.stars[i])}</em>` : ""}</small></div>`).join("");
   $("#integ").textContent = S.vars.integrity;
+  const ev = $("#evid"); if (ev) ev.textContent = S.vars.evidence || 0;
   $("#starTotal").textContent = "★ " + Object.values(S.stars).filter(isNum).reduce((a, b) => a + b, 0);
+  const sf = $("#safety"); if (sf) { sf.hidden = !S.metrics.hits; sf.querySelector("b").textContent = S.metrics.hits; }
 }
 
 export function hintP(en, zh) { return `<p class="hint">${en}${hint(zh)}</p>`; }
