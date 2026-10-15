@@ -324,3 +324,12 @@ body.flashback #labels::after{content:"";position:absolute;inset:0;background:ra
 .chart .cw{font:700 8px 'Chakra Petch',sans-serif;fill:#f3dcb4;letter-spacing:.06em}
 .chart .cr{font:600 9px 'Manrope',sans-serif;fill:#ff8a7a}
 .chart .cg{font:600 9px 'Manrope',sans-serif;fill:#8fe0bd}
+/* ── ending feedback ── */
+.fb{border-top:1px solid var(--line);padding-top:12px;display:grid;gap:8px}
+.fb h3{font-family:var(--f-display);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--sdg9);margin:6px 0 0}
+.fb ul{margin:0;padding-left:0;list-style:none;display:grid;gap:6px}
+.fb li{line-height:1.5}
+.fb li b{font-family:var(--f-display)}
+.fbs li span{color:var(--muted);display:block;font-size:.92rem}
+.fb textarea{flex:1;min-width:0;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:4px;color:var(--paper);padding:8px 10px;font:inherit;resize:vertical}
+.fb .row{display:flex;gap:8px;align-items:flex-start;flex-wrap:wrap}

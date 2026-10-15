@@ -930,6 +930,15 @@ class SdgCardIn(BaseModel):
 class UserRoleIn(BaseModel):
     role: str
 
+class BulkUserIn(BaseModel):
+    name: str
+    email: EmailStr
+    password: str
+    role: str | None = "student"
+
+class BulkUsersIn(BaseModel):
+    users: list[BulkUserIn]
+
 # =========================
 # PAGES
 # =========================
@@ -2724,6 +2733,39 @@ def update_teacher_user_role(user_id: int, data: UserRoleIn, authorization: str 
     conn.close()
     return {"message": "user role updated"}
 
+
+# Admin creates class accounts without the e-mail OTP flow (demo classes, bulk onboarding).
+# Existing e-mails are skipped and reported; passwords follow the same rule as self-registration.
+@app.post("/teacher/users/bulk")
+def create_users_bulk(data: BulkUsersIn, authorization: str | None = Header(default=None)):
+    current_user = require_teacher(authorization)
+    if current_user.get("role") != "admin":
+        raise HTTPException(status_code=403, detail="admin only")
+    if not data.users or len(data.users) > 200:
+        raise HTTPException(status_code=400, detail="1-200 users per request")
+    created, skipped = [], []
+    conn = get_db()
+    cur = conn.cursor()
+    for u in data.users:
+        email = normalize_email(u.email)
+        role = (u.role or "student").strip().lower()
+        if role not in ("student", "teacher", "admin"):
+            skipped.append({"email": email, "reason": "invalid role"}); continue
+        if not u.name.strip():
+            skipped.append({"email": email, "reason": "name required"}); continue
+        if not validate_password(u.password):
+            skipped.append({"email": email, "reason": "weak password"}); continue
+        cur.execute("SELECT id FROM users WHERE email = ?", (email,))
+        if cur.fetchone():
+            skipped.append({"email": email, "reason": "exists"}); continue
+        cur.execute(
+            "INSERT INTO users (name, gender, birth_date, email, password_hash, email_verified, privacy_agreed, role) VALUES (?, NULL, NULL, ?, ?, 1, 1, ?)",
+            (u.name.strip(), email, hash_password(u.password), role),
+        )
+        created.append({"email": email, "name": u.name.strip(), "role": role})
+    conn.commit()
+    conn.close()
+    return {"created": created, "skipped": skipped}
 
 @app.delete("/teacher/users/{user_id}")
 def delete_teacher_user(user_id: int, authorization: str | None = Header(default=None)):

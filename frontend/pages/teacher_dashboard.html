@@ -805,7 +805,12 @@ body{ background:var(--page); }
       #storyAnalyticsModule .sa-scroll{overflow-x:auto;max-height:420px;overflow-y:auto;}
       #storyAnalyticsModule .sa-h5{margin:10px 0 2px;font-size:13px;color:var(--muted,#93a2bd);font-weight:700;}
       #storyAnalyticsModule .empty{color:var(--muted,#93a2bd);padding:22px;text-align:center;}
-      #storyAnalyticsModule .sa-route{white-space:normal;max-width:520px;}
+      #storyAnalyticsModule .sa-summary{white-space:normal;line-height:1.7;margin:8px 0;max-width:90ch}
+.sa-summary.muted{color:var(--muted);font-size:12px}
+.sa-flags{color:#b23a2d}
+.sa-tag.sa-high{background:#fde2dd;color:#b23a2d}
+.sa-tag.sa-watch{background:#fff3cd;color:#8a6d00}
+.sa-route{white-space:normal;max-width:520px;}
       #storyAnalyticsModule .sa-tag{display:inline-block;padding:2px 8px;border-radius:999px;font-size:11.5px;background:rgba(255,255,255,0.08);margin-right:4px;}
     </style>
     <section class="panel">
@@ -844,6 +849,8 @@ body{ background:var(--page); }
       <section class="panel chart-card"><h4>走訪路線（前 8）</h4><div id="saRoutes" class="sa-scroll"></div></section>
       <section class="panel chart-card"><h4>探索與口說模式</h4><div class="cap">偷聽提示、開車、被車撞、錄音給老師、略過</div><div id="saExplore" class="kpi-row"></div></section>
     </div>
+    <section class="panel chart-card"><h4>學習數據異常（outlier）</h4><div class="cap">規則式偵測：太快、全滿分零重播、口說每句 100%、音檔沒播完就作答、一次灌入、時間戳對不上、無頭瀏覽器。high＝建議查看；watch＝留意。自動化腳本（含 AI 代玩）通常會同時命中多條。</div><div id="saAnomalies" class="sa-scroll"></div></section>
+    <section class="panel chart-card"><h4>學生反思與下一章提案</h4><div class="cap">結局後學生寫給老師的一句話，以及對第二章劇情的提案（共同創作）</div><div id="saTexts" class="sa-scroll"></div></section>
     <section class="panel chart-card"><h4>學生總表</h4><div class="cap">點一列以該生篩選</div><div id="saStudents" class="sa-scroll"></div></section>
     <section class="panel chart-card"><h4>最近遊玩</h4><div class="cap">點一列展開事件紀錄</div><div id="saRecent" class="sa-scroll"></div><div id="saRunDetail"></div></section>
   </section>
@@ -1337,7 +1344,7 @@ function failKpi(id,e){ $(id).innerHTML='<div class="empty" style="grid-column:1
 /* ===== 3D story game · learning analytics (backend/learning.py) ===== */
 const SA_ENDING = { best:"Harbor of Integrity", evidence:"The Evidence Speaks", cautious:"Proceed with Caution", stall:"Standstill Harbor", fog:"Fog of Hallucination", frontpage:"Front Page（提早）" };
 const SA_CHOICE = { kai:"選擇一：回應凱（help 陪查 / report 通報 / hide 隱瞞）", approach:"選擇二：AI 政策（verify 查證 / ban 禁用 / trust 照單全收）", reporter:"記者（told 說實話 / silent 不評論 / denied 否認）" };
-const SA_NODE = { mei:"Mei · 碼頭", kai:"Kai · 實驗室", hsu:"Dr. Hsu · 檔案館", foreman:"李領班（支線）", reporter:"記者 Ana", council:"議會", workshop:"工坊", theater:"劇場" };
+const SA_NODE = { mei:"Mei · 碼頭", kai:"Kai · 實驗室", hsu:"Dr. Hsu · 檔案館", foreman:"李領班（支線）", lighthouse:"燈塔之行（支線）", reporter:"記者 Ana", council:"議會", workshop:"工坊", theater:"劇場" };
 const SA_EXPLORE = { "overheard hints":"偷聽提示", "drives":"開車次數", "hit by traffic":"被車撞", "touched locked bridge":"碰玻璃牆", "recorded for teacher":"錄音給老師", "skipped (no microphone)":"略過口說" };
 let storyData = null;
 function storyFilters(){ return { chapter: $("saChapter").value, level: $("saLevel").value, from: $("saFrom").value, to: $("saTo").value, user: $("saUser").value.trim() }; }
@@ -1364,6 +1371,10 @@ function renderStoryAnalytics(d){
   $("saRoutes").innerHTML = saTable(["路線","次數"], (d.routes||[]).map(r=>'<tr><td class="sa-route">'+safeText(r.route)+'</td><td>'+r.count+'</td></tr>'));
   const ex=(d.explore||[]).map(x=>[SA_EXPLORE[x.kind]||x.kind,x.count]).concat(((d.speech||{}).modes||[]).map(m=>[SA_EXPLORE[m.mode]||m.mode,m.count]));
   $("saExplore").innerHTML = ex.length ? kpiHtml(ex,true) : '<div class="empty">尚無資料</div>';
+  $("saAnomalies").innerHTML = (d.anomalies||[]).length ? saTable(["#","學生","難度","分鐘","結局","分數","等級","原因"], d.anomalies.map(a=>'<tr class="clickable" data-run="'+a.run_id+'"><td>'+a.run_id+'</td><td>'+safeText(a.username||"")+'</td><td>'+safeText(a.level||"")+'</td><td>'+(a.minutes!=null?a.minutes:"–")+'</td><td>'+safeText(SA_ENDING[a.ending]||a.ending||"進行中")+'</td><td>'+a.score+'</td><td><span class="sa-tag '+(a.severity==="high"?"sa-high":"sa-watch")+'">'+(a.severity==="high"?"high":"watch")+'</span></td><td style="white-space:normal;max-width:520px">'+safeText((a.reasons||[]).join("；"))+'</td></tr>')) : '<div class="empty">沒有異常紀錄</div>';
+  $("saAnomalies").querySelectorAll("tr.clickable").forEach(tr=>tr.addEventListener("click",()=>openStoryRun(tr.dataset.run)));
+  $("saTexts").innerHTML = (d.texts||[]).length ? saTable(["時間","學生","類型","結局","內容"], d.texts.map(t=>'<tr class="clickable" data-run="'+t.run_id+'"><td>'+safeText(String(t.at||"").replace("T"," ").slice(0,16))+'</td><td>'+safeText(t.username||"")+'</td><td>'+(t.kind==="proposal"?"下一章提案":"反思")+'</td><td>'+safeText(SA_ENDING[t.ending]||t.ending||"–")+'</td><td style="white-space:normal;max-width:620px">'+safeText(t.text)+'</td></tr>')) : '<div class="empty">尚無學生文字</div>';
+  $("saTexts").querySelectorAll("tr.clickable").forEach(tr=>tr.addEventListener("click",()=>openStoryRun(tr.dataset.run)));
   $("saStudents").innerHTML = saTable(["學生","遊玩","完成","平均星","最佳結局","難度","最常漏字","中文提示","最近"], (d.students||[]).map(s=>'<tr class="clickable" data-user="'+safeText(s.username||"")+'"><td>'+safeText(s.username)+(s.user_id?' <span class="sa-tag">#'+s.user_id+'</span>':'')+'</td><td>'+s.runs+'</td><td>'+s.completed+'</td><td>'+s.avg_stars+'</td><td>'+safeText(SA_ENDING[s.best_ending]||s.best_ending||"–")+'</td><td>'+safeText((s.levels||[]).join(" "))+'</td><td>'+safeText((s.missed_top||[]).join(", "))+'</td><td>'+s.hints+'</td><td>'+safeText(String(s.last||"").replace("T"," ").slice(0,16))+'</td></tr>'));
   $("saStudents").querySelectorAll("tr.clickable").forEach(tr=>tr.addEventListener("click",()=>{ $("saUser").value=tr.dataset.user; loadStoryAnalytics(); }));
   $("saRecent").innerHTML = saTable(["#","學生","章節","難度","開始","結束","結局","平均星","事件"], (d.recent||[]).map(r=>'<tr class="clickable" data-run="'+r.id+'"><td>'+r.id+'</td><td>'+safeText(r.username)+'</td><td>'+safeText(r.chapter)+'</td><td>'+safeText(r.level)+'</td><td>'+safeText(String(r.started_at||"").replace("T"," ").slice(0,16))+'</td><td>'+safeText(String(r.ended_at||"").replace("T"," ").slice(0,16)||"進行中")+'</td><td>'+safeText(SA_ENDING[r.ending]||r.ending||"–")+'</td><td>'+(r.avg_stars!=null?r.avg_stars:"–")+'</td><td>'+r.events+'</td></tr>'));
@@ -1374,7 +1385,10 @@ async function openStoryRun(id){
   const host=$("saRunDetail"); host.innerHTML='<div class="empty">載入中…</div>';
   try{
     const d=await api.teacher.learningRunEvents(id); const r=d.run||{};
-    host.innerHTML='<h5 class="sa-h5">遊玩 #'+safeText(id)+' · '+safeText(r.username)+' · '+safeText(r.level)+' · 結局 '+safeText(SA_ENDING[r.ending]||r.ending||"–")+' · 路線 '+safeText((r.route||[]).join(" → "))+' · 變數 '+safeText(JSON.stringify(r.vars||{}))+'</h5>'
+    host.innerHTML='<h5 class="sa-h5">遊玩 #'+safeText(id)+' · '+safeText(r.username)+' · '+safeText(r.level)+' · 結局 '+safeText(SA_ENDING[r.ending]||r.ending||"–")+'</h5>'
+      +'<p class="sa-summary">'+safeText(d.summary||"")+'</p>'
+      +((d.flags||[]).length?'<p class="sa-summary sa-flags">⚠ '+safeText(d.flags.map(f=>f.reason).join("；"))+'</p>':"")
+      +'<p class="sa-summary muted">路線 '+safeText((r.route||[]).join(" → "))+' · 變數 '+safeText(JSON.stringify(r.vars||{}))+'</p>'
       +'<div class="sa-scroll">'+saTable(["秒","階段","節點","事件","內容","資料"], (d.events||[]).map(e=>'<tr><td>'+((e.t_ms||0)/1000).toFixed(1)+'</td><td>'+safeText(e.stage||"")+'</td><td>'+safeText(e.node||"")+'</td><td>'+safeText(e.type)+'</td><td style="white-space:normal;max-width:360px">'+safeText(e.detail||"")+'</td><td style="white-space:normal;max-width:300px;font-size:11.5px;color:var(--muted)">'+safeText(e.data?JSON.stringify(e.data):"")+'</td></tr>'))+'</div>';
     host.scrollIntoView({behavior:"smooth",block:"nearest"});
   }catch(e){ host.innerHTML='<div class="empty">載入失敗：'+safeText(e.message||e)+'</div>'; }

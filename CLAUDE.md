@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Handoff (read first)
 
-Current state, decisions, deployment map and rules for this project: `docs/handoff/` (newest file first, starting with `2026-10-14-innovation-harbor-handoff.md`). Pushing to `main` deploys to production (www.cathylanguagehub.com) — work on a branch and confirm with the owner before merging.
+Current state, decisions, deployment map and rules for this project: `docs/handoff/` — read `2026-10-15-conversation-log.md` (what was decided and built, day by day) and `2026-10-15-company-story-nodes.md` (§1–§15, technical detail) first, then `2026-10-14-innovation-harbor-handoff.md` (deploy map, accounts, rules). Pushing to `main` deploys to production (www.cathylanguagehub.com) — work on a branch and confirm with the owner before merging.
 
 ## Project
 

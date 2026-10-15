@@ -13,3 +13,6 @@ sql/*.db-*
 
 # Playwright MCP screenshots
 .playwright-mcp/
+
+# demo / class account lists (contain passwords)
+demo-accounts*.txt

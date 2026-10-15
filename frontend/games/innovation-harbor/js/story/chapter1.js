@@ -14,6 +14,7 @@ import { log, finishRun } from "../telemetry.js";
 import { $, esc, wait, isNum } from "../util.js";
 import { DATA } from "../data.js";
 import { hint } from "../i18n.js";
+import { glossaryFor } from "../vocab.js";
 import { horn, foghorn, applause, carHorn } from "../audio.js";
 import { emote, flashback } from "../ui/fx.js";
 import { setMood } from "../world/scene.js";
@@ -282,6 +283,39 @@ export function decideEnding() {
   return { key: "cautious", avg };
 }
 
+// Personal feedback for the student: what each skill looked like, the words to practise (with
+// meanings), what their choices meant, and a one-line reflection that goes to the teacher.
+function feedbackHtml(missed) {
+  const SKILL = ["Listening", "Reading", "Card game", "Speaking", "Sequencing", "Pecha Kucha"];
+  const TIP = {
+    3: ["Strong — you got this part right away.", "很好，這一關一次就對。"],
+    2: ["Good — one or two slips; a second listen or read would make it perfect.", "不錯，有一兩個小錯，再聽／讀一次就完美。"],
+    1: ["Needs practice — replay the audio and read the glossary before trying again.", "需要練習：重播音檔、先看字彙表再試一次。"],
+    0: ["Not scored yet.", "尚未計分。"],
+    pending: ["Recorded — your teacher will grade it.", "已錄音，等老師評分。"],
+    skip: ["Skipped (no microphone) — try it on a device with a mic.", "略過（沒有麥克風），換有麥克風的裝置再試。"],
+  };
+  const rows = STAGES.map((st, i) => { const v = S.stars[i]; const k = isNum(v) ? v : (v || 0); const t = TIP[k] || TIP[0]; return `<li><b>${SKILL[i]}</b> ${isNum(v) ? "★".repeat(v) + "☆".repeat(3 - v) : v === "pending" ? "…" : "–"} <span>${t[0]}${hint(t[1])}</span></li>`; }).join("");
+  const words = glossaryFor([...new Set(missed)]).slice(0, 6).map(g => `<li><b>${esc(g.word)}</b> — ${esc(g.def)}${hint(g.zh)}</li>`).join("");
+  const v = S.vars; const ch = [];
+  if (v.kai) ch.push(v.kai === "help" ? ["You helped Kai check every reference — honest and practical.", "你陪凱查證每一篇文獻：誠實又務實。"] : v.kai === "report" ? ["You reported Kai — honest, but think about how it felt for him.", "你通報了凱：誠實，但想想他的感受。"] : ["You kept Kai's secret — the story shows where that leads.", "你替凱隱瞞：故事會告訴你後果。"]);
+  if (v.nav) ch.push(v.nav === "verify" ? ["You checked the chart before trusting the AI's route. That is exactly the habit this chapter is about.", "你先看海圖再信 AI 的路線，這正是這一章要養成的習慣。"] : ["You followed the AI's confident route. Confidence is not evidence — check the chart next time.", "你照著 AI 篤定的路線走。有信心不等於有證據，下次先看海圖。"]);
+  if (v.approach) ch.push(v.approach === "verify" ? ["Your policy: AI assists, humans verify.", "你的政策：AI 協助，人來查證。"] : v.approach === "ban" ? ["Your policy: ban AI. Safe, but the harbor stops innovating.", "你的政策：禁用 AI。安全，但港口停止創新。"] : ["Your policy: trust AI as it is. The fake references are still in the report.", "你的政策：照單全收。假文獻還在報告裡。"]);
+  const next = S.level === "A2" ? ["Next time: try the other choices, or play at B1 for longer sentences.", "下次：試試其他選擇，或挑戰 B1 的長句。"] : ["Next time: try a different route and see another ending.", "下次：走不同路線，看看另一個結局。"];
+  return `<div class="fb">
+    <h3>Your feedback</h3>
+    <ul class="fbs">${rows}</ul>
+    ${words ? `<h3>Words to practise</h3><ul class="fbw">${words}</ul>` : `<p>No missed words this time. ${hint("這次沒有漏掉的字。")}</p>`}
+    <h3>What your choices meant</h3><ul class="fbc">${ch.map(c => `<li>${c[0]}${hint(c[1])}</li>`).join("")}</ul>
+    <p>${next[0]}${hint(next[1])}</p>
+    <h3>One sentence for your teacher</h3>
+    <p>What is one thing you would tell Kai about using AI? ${hint("你會對凱說一句什麼關於使用 AI 的話？")}</p>
+    <div class="row"><textarea id="reflText" rows="2" maxlength="300" placeholder="In English…"></textarea><button class="btn ghost" type="button" id="reflSend">Send</button></div>
+    <h3>Write Chapter 2 with us</h3>
+    <p>What should happen next at Signal Hill? A new character, a problem, a choice… 2–3 sentences in English. The best ideas go into the real game. ${hint("第二章 Signal Hill 該發生什麼？新角色、新問題、新選擇……用英文寫 2–3 句，好點子會真的做進遊戲。")}</p>
+    <div class="row"><textarea id="propText" rows="3" maxlength="800" placeholder="In Chapter 2, …"></textarea><button class="btn ghost" type="button" id="propSend">Send my idea</button></div>
+  </div>`;
+}
 export async function runEnding(ctx) {
   const { player, traffic, audience, vehicles, portals } = ctx;
   const { key, avg } = decideEnding(); const E = ENDINGS[key];
@@ -317,10 +351,12 @@ export async function runEnding(ctx) {
       <div><small>Chinese hints</small><b>${S.metrics.zhHints}</b></div>
       <div><small>Overheard / jumps / hit by traffic</small><b>${S.metrics.eavesdrops} / ${S.metrics.jumps} / ${S.metrics.hits}</b></div>
     </div>
-    ${missed.length ? `<p>Words to practise: <strong>${missed.map(esc).join(", ")}</strong></p>` : ""}
-    <p>These are the metrics the teacher dashboard will show. The full Learning Log has <strong>${S.events.length}</strong> events.</p>
+    ${feedbackHtml(missed)}
+    <p class="note">These are the metrics the teacher dashboard will show. The full Learning Log has <strong>${S.events.length}</strong> events.</p>
     <div class="row"><button class="btn" type="button" id="again">Play again with different choices ▸</button><button class="btn ghost" type="button" id="seeLog">See the Learning Log</button></div>`;
   $("#ending").hidden = false;
+  const refl = $("#reflSend"); if (refl) refl.onclick = () => { const t = $("#reflText").value.trim(); if (!t) return; log("story.reflection", t.slice(0, 300), { text: t.slice(0, 1000), ending: key }); refl.disabled = true; $("#reflText").disabled = true; refl.textContent = "Sent to your teacher ✓"; };
+  const prop = $("#propSend"); if (prop) prop.onclick = () => { const t = $("#propText").value.trim(); if (!t) return; log("story.proposal", t.slice(0, 300), { text: t.slice(0, 1000), ending: key }); prop.disabled = true; $("#propText").disabled = true; prop.textContent = "Idea sent ✓"; };
   $("#again").onclick = () => location.reload();
   $("#seeLog").onclick = () => { $("#ending").hidden = true; $("#logp").hidden = false; };
 }

@@ -40,7 +40,9 @@ router = APIRouter(prefix="/learning", tags=["learning"])
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 DB_PATH = BASE_DIR / "sql" / "learning.db"
-DATABASE_URL = os.getenv("LEARNING_DATABASE_URL", "").strip()
+# Own database when LEARNING_DATABASE_URL is set; otherwise share the platform's PostgreSQL
+# (separate tables) so production data survives redeploys; SQLite only when neither is set.
+DATABASE_URL = os.getenv("LEARNING_DATABASE_URL", "").strip() or os.getenv("DATABASE_URL", "").strip()
 USE_POSTGRES = bool(DATABASE_URL)
 TAIPEI = timezone(timedelta(hours=8))
 STAGE_NAMES = ["Hook", "Problem", "Explain", "Impact", "Strategy", "Conclusion"]
@@ -415,8 +417,145 @@ def _aggregate(runs, events):
         "explore": [{"kind": k, "count": v} for k, v in safety.most_common()],
         "timeline": [{"day": k, "runs": v} for k, v in sorted(per_day.items())][-30:],
         "students": student_rows,
+        "anomalies": _anomalies(runs, events),
+        "texts": _texts(runs, events)[:100],
     }
 
+
+
+# ── anomaly detection (outliers / possible cheating) and plain-language run summaries ──
+NODE_ZH = {"mei": "Mei 碼頭", "kai": "Kai 實驗室", "hsu": "Dr. Hsu 檔案館", "foreman": "李領班", "lighthouse": "燈塔之行", "reporter": "記者 Ana",
+           "council": "議會", "workshop": "工坊", "theater": "劇場"}
+ENDING_ZH = {"best": "Harbor of Integrity（最佳）", "evidence": "The Evidence Speaks", "cautious": "Proceed with Caution", "stall": "Standstill Harbor",
+             "fog": "Fog of Hallucination", "frontpage": "Front Page（提早結局）"}
+
+def _parse_ts(s):
+    try:
+        return datetime.fromisoformat(str(s).replace("Z", "+00:00"))
+    except Exception:
+        return None
+
+def _run_flags(r, evs, class_mean=None, class_sd=None):
+    """Rule-based flags for one run. Each flag: (code, weight, 中文說明). Automated play (scripts,
+    API replays, AI-driven clicking) tends to be too fast, too perfect and too regular to be a student."""
+    flags = []
+    stars = _loads(r.get("stars_json"), {}); metrics = _loads(r.get("metrics_json"), {}) or {}
+    nums = _numeric_stars(stars)
+    st, en = _parse_ts(r.get("started_at")), _parse_ts(r.get("ended_at"))
+    dur = (en - st).total_seconds() if st and en else None
+    if dur is not None:
+        if dur < 360: flags.append(("too_fast", 2, f"完成整章只花 {dur/60:.1f} 分鐘（真人步行＋活動通常 20 分鐘以上）"))
+        elif dur < 600: flags.append(("fast", 1, f"完成整章只花 {dur/60:.1f} 分鐘，偏快"))
+    starts = [e for e in evs if e["type"] == "node.start"]
+    skips = [e for e in evs if e["type"] == "move" and (e.get("data") or {}).get("how") == "skip"]
+    if len(starts) >= 4 and len(skips) >= len(starts) - 1:
+        flags.append(("all_skipped", 1, f"每一段路都用 Skip 傳送（{len(skips)} 次），沒有探索"))
+    covs = [float((e.get("data") or {}).get("coverage")) for e in evs if e["type"] in ("speak.attempt", "pk.slide") and (e.get("data") or {}).get("coverage") is not None]
+    if len(covs) >= 2 and all(c >= 0.98 for c in covs):
+        flags.append(("speech_perfect", 2, f"{len(covs)} 次口說辨識全部 100%（真人幾乎不可能每句全中）"))
+    if nums and len(nums) >= 5 and all(v == 3 for v in nums) and not metrics.get("replays") and not metrics.get("cardErrors"):
+        flags.append(("perfect_no_effort", 3, "每一關 3 星、零重播、零卡牌錯誤"))
+    # answers faster than the audio could have played
+    last_play = {}
+    quick = 0
+    for e in evs:
+        d = e.get("data") or {}
+        if e["type"] == "listen.play": last_play[d.get("slide")] = e.get("t_ms") or 0
+        elif e["type"] == "listen.answer":
+            p = last_play.get(d.get("slide"))
+            if p is not None and (e.get("t_ms") or 0) - p < 2000: quick += 1
+    if quick: flags.append(("instant_answers", 2, f"{quick} 個聽力空格在按下 Play 不到 2 秒就作答（音檔還沒播完）"))
+    for e in evs:
+        d = e.get("data") or {}
+        if e["type"] == "card.done" and d.get("cards") and d.get("seconds") is not None and d["seconds"] < d["cards"] * 1.5:
+            flags.append(("cards_too_fast", 1, f"卡牌遊戲 {d['cards']} 張只用 {d['seconds']} 秒")); break
+    # API replay / forged timestamps: whole run posted at once, or in-game clock longer than wall clock
+    cts = [_parse_ts(e.get("created_at")) for e in evs]; cts = [c for c in cts if c]
+    tms = [e.get("t_ms") or 0 for e in evs]
+    if len(evs) >= 20 and cts and tms:
+        wall = (max(cts) - min(cts)).total_seconds(); game = (max(tms) - min(tms)) / 1000
+        if wall < 5 and game > 120: flags.append(("bulk_post", 3, f"{len(evs)} 筆事件在 {wall:.0f} 秒內一次送達，但遊戲內時間跨 {game/60:.1f} 分鐘（像是用 API 灌入）"))
+    if dur is not None and tms and max(tms) / 1000 > dur + 90:
+        flags.append(("clock_mismatch", 3, f"遊戲內時間 {max(tms)/60000:.1f} 分鐘超過實際起訖 {dur/60:.1f} 分鐘"))
+    if any(b < a for a, b in zip(tms, tms[1:])): flags.append(("time_not_monotonic", 2, "事件時間倒退"))
+    seqs = [e.get("seq") for e in evs]
+    if seqs and (len(set(seqs)) != len(seqs) or max(seqs) != len(seqs)): flags.append(("seq_gap", 1, "事件流水號有缺漏或重複"))
+    client = str(r.get("client") or "")
+    if evs and "Mozilla" not in client: flags.append(("no_browser", 2, "沒有瀏覽器識別字串（不是從遊戲頁面送出的）"))
+    if "HeadlessChrome" in client: flags.append(("headless", 2, "無頭瀏覽器（自動化腳本）"))
+    if class_mean is not None and class_sd and nums:
+        avg = sum(nums) / len(nums)
+        if avg > class_mean + 2 * class_sd: flags.append(("stars_outlier", 1, f"平均星數 {avg:.1f} 高出班級平均 2 個標準差"))
+    return flags, dur
+
+def _anomalies(runs, events):
+    all_avgs = []
+    for r in runs:
+        n = _numeric_stars(_loads(r.get("stars_json"), {}))
+        if n: all_avgs.append(sum(n) / len(n))
+    mean = sum(all_avgs) / len(all_avgs) if len(all_avgs) >= 5 else None
+    sd = (sum((a - mean) ** 2 for a in all_avgs) / len(all_avgs)) ** 0.5 if mean is not None else None
+    out = []
+    for r in runs:
+        flags, dur = _run_flags(r, events.get(r["id"], []), mean, sd)
+        score = sum(w for _, w, _ in flags)
+        if score >= 1:
+            out.append({"run_id": r["id"], "username": r["username"], "user_id": r.get("user_id"), "level": r.get("level"), "started_at": r["started_at"],
+                        "minutes": round(dur / 60, 1) if dur else None, "ending": r.get("ending"), "score": score,
+                        "severity": "high" if score >= 3 else "watch", "flags": [c for c, _, _ in flags], "reasons": [m for _, _, m in flags]})
+    out.sort(key=lambda x: -x["score"])
+    return out
+
+def _texts(runs, events):
+    """Free-text answers students wrote at the ending (reflection for the teacher, proposal for the next chapter)."""
+    out = []
+    for r in runs:
+        for e in events.get(r["id"], []):
+            if e["type"] in ("story.reflection", "story.proposal"):
+                out.append({"run_id": r["id"], "username": r["username"], "at": e.get("created_at"), "kind": "proposal" if e["type"].endswith("proposal") else "reflection",
+                            "text": (e.get("data") or {}).get("text") or e.get("detail") or "", "ending": r.get("ending")})
+    out.sort(key=lambda x: str(x["at"]), reverse=True)
+    return out
+
+def _summarize_run(r, evs):
+    """One paragraph in plain Chinese a teacher can read in ten seconds."""
+    st, en = _parse_ts(r.get("started_at")), _parse_ts(r.get("ended_at"))
+    dur = (en - st).total_seconds() / 60 if st and en else None
+    route = _loads(r.get("route_json"), []) or [e.get("node") for e in evs if e["type"] == "node.start"]
+    vars_ = _loads(r.get("vars_json"), {}) or {}
+    stars = _loads(r.get("stars_json"), {}) or {}
+    s = []
+    s.append(f"{r.get('username') or '這位學生'}（{r.get('level') or '?'}）" + (f"花了 {dur:.0f} 分鐘" if dur else "尚未結束，") + f"走了 {len(route)} 站：" + " → ".join(NODE_ZH.get(n, n) for n in route) + "。")
+    plays = sum(1 for e in evs if e["type"] == "listen.play"); wrong = sum(int((e.get("data") or {}).get("wrong") or 0) for e in evs if e["type"] == "listen.answer")
+    answers = [e for e in evs if e["type"] == "listen.answer"]
+    if answers: s.append(f"聽力：{len(answers)} 個空格共錯 {wrong} 次、播放 {plays} 次" + ("（錯了但沒有重聽，比較像用猜的）" if wrong >= 3 and plays <= len(answers) / 2 + 1 else "") + "。")
+    rm = [e for e in evs if e["type"] == "read.match"]; rf = [e for e in evs if e["type"] == "read.find"]
+    if rm or rf: s.append(f"閱讀：配對錯 {sum(int((e.get('data') or {}).get('wrong') or 0) for e in rm)} 次、找字錯 {sum(int((e.get('data') or {}).get('wrong') or 0) for e in rf)} 次。")
+    for e in evs:
+        if e["type"] == "card.done":
+            d = e.get("data") or {}; s.append(f"卡牌：{d.get('cards', '?')} 張、錯 {d.get('errors', 0)} 次、重聽 {d.get('repeats', 0)} 次、{d.get('seconds', '?')} 秒。"); break
+    covs = [float((e.get("data") or {}).get("coverage")) for e in evs if e["type"] in ("speak.attempt", "pk.slide") and (e.get("data") or {}).get("coverage") is not None]
+    if covs: s.append(f"口說：{len(covs)} 次辨識，平均覆蓋率 {sum(covs)/len(covs)*100:.0f}%。")
+    elif any(e["type"] in ("speak.record", "pk.record") for e in evs): s.append("口說：改用錄音，等老師評分。")
+    elif any(e["type"] in ("speak.skip", "pk.skip") for e in evs): s.append("口說：沒有麥克風，略過。")
+    ch = {(e.get("data") or {}).get("key"): (e.get("data") or {}).get("value") for e in evs if e["type"] == "story.choice"}
+    cz = []
+    if ch.get("kai"): cz.append({"help": "陪 Kai 查證", "report": "通報 Kai", "hide": "替 Kai 隱瞞"}.get(ch["kai"], ch["kai"]))
+    if ch.get("nav"): cz.append({"trust": "相信 AI 導航", "verify": "先看海圖再開船"}.get(ch["nav"], ch["nav"]))
+    if ch.get("reporter"): cz.append({"told": "對記者說實話", "silent": "對記者不評論", "denied": "對記者否認"}.get(ch["reporter"], ch["reporter"]))
+    if ch.get("approach"): cz.append({"verify": "政策選「AI 協助、人來查證」", "ban": "政策選「禁用 AI」", "trust": "政策選「照單全收」"}.get(ch["approach"], ch["approach"]))
+    if cz: s.append("選擇：" + "、".join(cz) + "。")
+    crashes = [e for e in evs if e["type"] == "boat.crash"]
+    if crashes: s.append(f"開船撞到東西 {len(crashes)} 次（{', '.join(sorted(set((e.get('data') or {}).get('kind', '?') for e in crashes)))}）。")
+    hints = sum(1 for e in evs if e["type"] == "hint.zh")
+    if hints: s.append(f"看了 {hints} 次中文提示。")
+    nums = _numeric_stars(stars)
+    if r.get("ending"): s.append(f"結局：{ENDING_ZH.get(r['ending'], r['ending'])}，證據 {vars_.get('evidence', '?')}、誠信 {vars_.get('integrity', '?')}，平均 {sum(nums)/len(nums):.1f} 星。" if nums else f"結局：{ENDING_ZH.get(r['ending'], r['ending'])}。")
+    texts = [e for e in evs if e["type"] in ("story.reflection", "story.proposal")]
+    if texts: s.append("有寫反思／提案給老師。")
+    flags, _ = _run_flags(r, evs)
+    if flags: s.append("⚠ 異常：" + "；".join(m for _, _, m in flags) + "。")
+    return " ".join(s)
 
 # ── teacher endpoints ──
 @router.get("/analytics")
@@ -466,10 +605,12 @@ def run_events(run_id: int, authorization: str | None = Header(default=None)):
     conn.close()
     for e in evs:
         e["data"] = _loads(e.pop("data_json"), None)
+    summary = _summarize_run(dict(run), evs)
+    flags, _ = _run_flags(dict(run), evs)
     run = dict(run)
     for k in ("vars_json", "stars_json", "metrics_json", "route_json"):
         run[k.replace("_json", "")] = _loads(run.pop(k), None)
-    return {"run": run, "events": evs}
+    return {"run": run, "events": evs, "summary": summary, "flags": [{"code": c, "weight": w, "reason": m} for c, w, m in flags]}
 
 
 @router.get("/export.xlsx")
@@ -525,6 +666,9 @@ def export_xlsx(authorization: str | None = Header(default=None), chapter: str |
     sheet("Endings", ["ending", "count"], [[e["ending"], e["count"]] for e in agg["endings"]])
     sheet("Choices", ["choice", "value", "count"], [[k, c["value"], c["count"]] for k, lst in agg["choices"].items() for c in lst])
     sheet("Routes", ["route", "count"], [[r["route"], r["count"]] for r in agg["routes"]])
+    sheet("Anomalies", ["run_id", "username", "level", "started_at", "minutes", "ending", "score", "severity", "flags", "reasons"],
+          [[a["run_id"], a["username"], a["level"], a["started_at"], a["minutes"], a["ending"], a["score"], a["severity"], ", ".join(a["flags"]), "；".join(a["reasons"])] for a in agg.get("anomalies", [])])
+    sheet("StudentTexts", ["run_id", "username", "at", "kind", "ending", "text"], [[t["run_id"], t["username"], t["at"], t["kind"], t["ending"], t["text"]] for t in agg.get("texts", [])])
     ev_rows = []
     for r in runs:
         for e in events.get(r["id"], []):
