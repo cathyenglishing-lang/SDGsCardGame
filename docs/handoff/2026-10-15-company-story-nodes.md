@@ -217,3 +217,18 @@ python scripts/serve-frontend.py 8766
 
 使用者嫌報告太簡單看不懂，要求長篇分章、圖文並茂、重點在「收到什麼數據、怎麼呈現、怎麼分析、遊戲中怎麼收集、每一站練到什麼、上帝視角」。已更新同一個連結 https://claude.ai/artifact/AuSkpvg5j5tL3Jt9NL7FhM（v3）。產生器在 session scratchpad `build_report.py`（不進 repo）：讀本機 `/learning/analytics` JSON、第 15 次試玩的 116 筆事件、24 張縮圖（base64，約 0.9 MB），手繪 SVG：上帝視角地圖（座標與程式一致）、故事節點圖、資料流、單場時間線；圖表用真實（測試）資料。章節：0 結論／1 地圖與時間線／2 節點圖與結局／3 每站練什麼（表＋截圖）／4 幻覺體驗／5 表現手法／6 資料收集機制／7 事件總目錄 49 種／8 後台 11 面板怎麼算怎麼讀＋Excel 8 表／9 個案解讀／10 老師流程與研究問題／11 限制與下一步／附錄 A 素材、B 案例、C 資料表與檔案索引。
 **下次改報告**：數字要重新抓（analytics.json、run 事件），截圖要重拍；報告裡明寫「16 次自動試玩，是測試資料」。
+
+## 15. 傍晚：結局回饋、學生提案、異常偵測、白話總結、批次開帳號、投資人簡報（第七次提交）
+
+| 檔案 | 內容 |
+|---|---|
+| `js/story/chapter1.js` `feedbackHtml()` | 結局卡的個人回饋：六項技能各一句（依星數／待評／略過）、漏字＋字義（`glossaryFor`）、選擇的意義（kai／nav／approach）、下一步建議、「對凱說一句話」→ `story.reflection`、「和我們一起寫第二章」→ `story.proposal`（都帶 `{text, ending}`）。 |
+| `backend/learning.py` | `_run_flags()`／`_anomalies()`：規則式異常旗標與分數（規則與權重見報告第 10 章）；`_summarize_run()`：每場白話中文總結；`_texts()`：學生文字。`/analytics` 多了 `anomalies`、`texts`；`/runs/{id}/events` 多了 `summary`、`flags`；Excel 多 `Anomalies`、`StudentTexts`。`DATABASE_URL` 作為 `LEARNING_DATABASE_URL` 的後備。 |
+| `frontend/pages/teacher_dashboard.html` | 面板「學習數據異常（outlier）」「學生反思與下一章提案」；點開一場先顯示總結與異常原因。 |
+| `backend/main.py` | `POST /teacher/users/bulk`（admin；免 OTP；跳過已存在與弱密碼並回報原因）。 |
+| `scripts/create_class_accounts.py` | 登入管理員 → 批次建立 demo01–NN → 寫 `demo-accounts.txt`（gitignore）。 |
+| `docs/reports/2026-10-15-Innovation-Harbor-投資人簡報.pptx` | 14 張，pptxgenjs 產生，每張有演講備註；未提交 git。 |
+
+**驗證**：本機 17 場試玩全部被標 high（fast／all_skipped／speech_perfect／instant_answers／headless）；bulk 建帳＋新帳號登入成功；整輪試玩 8.9 分鐘到結局、116 筆事件、五種尺寸無跑框。
+**沒驗證**：真實學生資料下的誤判率（門檻是設計值）；LibreOffice 不在這台機器上，簡報只做了結構與幾何檢查、沒有渲染檢視；正式站的 bulk 端點（要上線後才能打）。
+**未完成**：合併 `main`（被工具的正式部署權限擋下，見對話紀錄 §9）；正式站帳號（需先有管理員）。
