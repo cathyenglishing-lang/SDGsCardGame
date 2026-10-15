@@ -111,7 +111,7 @@ export class Actor {
   }
   play(kind, { fade = 0.35, once = false, onDone, variant } = {}) {
     const list = clipsFor(this.model, kind); if (!list?.length) return;
-    const clip = variant != null ? list[variant % list.length] : pick(list);
+    const clip = variant != null ? list[variant % list.length] : (kind === "idle" && this.idleVariant != null ? list[this.idleVariant % list.length] : pick(list));
     const action = this.mixer.clipAction(clip);
     action.reset(); action.setLoop(once ? THREE.LoopOnce : THREE.LoopRepeat, Infinity); action.clampWhenFinished = once;
     action.timeScale = kind === "walk" ? 1.1 * this.speedFactor : 1;

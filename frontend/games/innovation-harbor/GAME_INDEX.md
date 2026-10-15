@@ -36,6 +36,8 @@ frontend/games/innovation-harbor/
    ├─ ui/bubble.js         人物頭上的 3D 對話泡泡、雲朵內心想法泡泡、選擇泡泡（永遠夾在畫面內；手機或說話者不在畫面時停靠底部）
    ├─ ui/sheet.js          平板（活動面板）、HUD、提示訊息、星數
    ├─ ui/fx.js             故事特效：頭上情緒圖示 emote()、章節／地點字卡 titleCard()、褐色回憶閃回 flashback()
+   ├─ world/dressing.js    場景擺設：繫船繩、輪胎護舷、救生圈、棧板＋油桶＋木箱、堆高機、三角錐、投光燈塔、斑馬線、電纜捲盤、禁止進入牌、工務貨櫃屋（固體物件會登記 addBlock 擋路）
+   ├─ world/outfits.js     角色配件：安全帽 hardHat()、鴨舌帽 cap()、眼鏡 glasses()、反光背心 vest()、識別證 lanyard()、背包 backpack()、dressRandom() 路人隨機穿搭
    └─ world/
       ├─ scene.js          渲染器、天空與太陽、水面、霧、品質分級、畫面迴圈、心情（dusk/best/dim/fog）
       ├─ materials.js      程序貼圖與材質（混凝土、柏油、磚、貨櫃、玻璃窗……）
@@ -58,6 +60,7 @@ frontend/games/innovation-harbor/
 
 | 物件 | 檔案／函式 | 現狀 | 要換成真實模型時 |
 |---|---|---|---|
+| 港口擺設（繩索、護舷、救生圈、棧板油桶木箱、堆高機、三角錐、投光燈塔、電纜捲盤、禁止進入牌、貨櫃屋、斑馬線） | `world/dressing.js buildDressing()`，每種一個小函式，座標寫在最下面的 `buildDressing()` | 基本幾何＋程序材質；固體物件有 `addBlock` | 換掉對應小函式即可（保留 `addBlock` 的範圍）；GLB 用 `GLTFLoader` 載入後放到同座標 |
 | 陸地、碼頭邊、繫船柱、護舷 | `harbor.js` `buildHarbor()` 開頭 | 幾何體 | 保留（地形），貼圖可換 `materials.js` 的 `T.concreteLand` |
 | 渡輪碼頭（x 6–14, z −23–1）＋欄杆＋喇叭柱 | `buildHarbor()` 「ferry pier」段；喇叭柱座標 `SPOTS.speakerPole` | 幾何體 | 換 GLB，位置 (10, 0, −11) |
 | 道路 A（z 16–22）、B（z 40–46）、C（x −22–−16）、D（x 36–42）與人行道 | `buildHarbor()` 「roads」段；車道中心線 `vehicles.js LANES` | 幾何體 | 道路貼圖換 `T.asphalt`；車道位置改 `LANES` |
@@ -88,6 +91,7 @@ frontend/games/innovation-harbor/
 
 | 角色 | 身分 | 模型（`main.js makeActor`） | 站位（`harbor.js SPOTS` 或 `main.js`） | 聲音（`speech.js VOICES`） | 台詞在 |
 |---|---|---|---|---|---|
+| （配件） | — | `world/outfits.js`：李領班白色安全帽＋反光背心、許博士眼鏡＋識別證、凱識別證、王議員眼鏡、梅識別證、議員 B 眼鏡；路人／觀眾 `dressRandom()`（帽子、眼鏡、背包、彩色安全帽） | 掛在 Head／Spine2 骨頭上，跟著動畫；骨頭 +z 朝前、+x 右、+y 上 | — | — |
 | 你（Envoy） | 永續特使 | 帳號女性→`female`，否則 `male`（`account.js`） | 渡輪→碼頭末端 `playerStart` | — | 選擇泡泡 `bubble.js ask()` |
 | Harbor Master Mei 梅港長 | 港務局長 | `female`（染色 c8d2e6） | `SPOTS.mei`、議會前 (22, 48.5)、劇場前排 `meiTheater` | `mei`（女） | `chapter1.js` 節點 mei、council、theater |
 | Kai 凱 | 實習生 | `preview`（衣服染色） | `SPOTS.kai`、工坊 `kai2` | `kai`（男） | 節點 kai |
