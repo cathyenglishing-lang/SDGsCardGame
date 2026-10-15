@@ -18,7 +18,7 @@ import { titleCard } from "./ui/fx.js";
 import { showTicket, wireTicketButton } from "./ui/ticket.js";
 import { say } from "./ui/bubble.js";
 import { box, cyl } from "./world/harbor.js";
-import { M } from "./world/materials.js";
+import { M, T } from "./world/materials.js";
 import { wireLogPanel, log, startRun } from "./telemetry.js";
 import { renderHud } from "./ui/sheet.js";
 import { S } from "./state.js";
@@ -124,7 +124,7 @@ $("#startBtn").onclick = async () => {
   $("#hud").hidden = false; $("#lvChip").textContent = S.level; renderHud();
   // arrival: ride the ferry into the harbor
   const fy = traffic.ferry.mesh; traffic.ferry.manual = true;
-  fy.add(player.root); player.root.position.set(4, 1.6, 2.2); player.root.rotation.y = 0; player.yaw = player.targetYaw = 0;
+  fy.add(player.root); player.root.position.set(4, 1.6, 3.1); // on the side deck, by the boarding gate player.root.rotation.y = 0; player.yaw = player.targetYaw = 0;
   await fade(true, 10); shot([-30, 14, -70], [-38, 6, -8], { instant: true }); await fade(false, 900);
   $("#skipCine").hidden = false;
   const arrival = traffic.ferry.arrive();
@@ -133,14 +133,22 @@ $("#startBtn").onclick = async () => {
   await Promise.all([arrival, flight]);
   $("#skipCine").hidden = true; traffic.ferry.manual = false;
   // disembark: a gangway from the ferry's side to the pier, the Envoy walks down it, the officer checks the ticket
-  const gang = new THREE.Group(); scene.add(gang);
-  box(2.8, 0.08, 1.1, M.wood, 14.3, 1.15, -11, { parent: gang, rz: 0.33 });
-  for (const [x, y] of [[13.4, 0.8], [15.2, 1.5]]) for (const dz of [-0.5, 0.5]) cyl(0.03, 0.03, 1.0, M.steel, x, y + 0.5, -11 + dz, { parent: gang, seg: 6 });
-  for (const dz of [-0.5, 0.5]) box(2.6, 0.04, 0.04, M.steel, 14.3, 2.15, -11 + dz, { parent: gang, rz: 0.33 });
+  // gangway stairs: from the ferry's boarding gate (world 14.6, 1.6, -9.9) diagonally down to the pier,
+  // six treads, handrails both sides, landing at the top; the ferry's own railing has a gap at the gate
+  const gang = new THREE.Group(); gang.position.set(14.6, 1.6, -9.9); gang.rotation.y = Math.PI * 0.75; scene.add(gang);
+  box(1.0, 0.08, 1.2, M.steel, 0.1, -0.04, 0, { parent: gang });
+  for (let i = 0; i < 6; i++) { box(0.56, 0.07, 1.05, M.wood, 0.6 + i * 0.5, -0.12 - i * 0.19, 0, { parent: gang }); box(0.5, 0.17, 1.0, M.steelDark, 0.6 + i * 0.5, -0.24 - i * 0.19, 0, { parent: gang, cast: false }); }
+  for (const dz of [-0.55, 0.55]) { box(3.4, 0.05, 0.05, M.steel, 1.75, 0.42, dz, { parent: gang, rz: -0.33 }); for (const x of [0.2, 1.3, 2.4, 3.2]) cyl(0.025, 0.025, 0.95, M.steel, x, -0.1 - (x - 0.2) * 0.33 + 0.4, dz, { parent: gang, seg: 6 }); }
+  // ticket gate on the pier: booth with a window and sign, and a striped barrier arm beside the officer
+  const booth = new THREE.Group(); booth.position.set(9.3, 0.6, -13.6); booth.rotation.y = Math.PI / 4; scene.add(booth);
+  box(1.4, 2.4, 1.4, M.paint(0x1f5b8e, .6, .2), 0, 1.2, 0, { parent: booth }); box(1.6, 0.12, 1.6, M.white, 0, 2.46, 0, { parent: booth });
+  box(1.0, 0.8, 0.05, M.windows(2, 1, .9, "#fff3d6"), 0, 1.5, 0.71, { parent: booth, cast: false });
+  { const c = document.createElement("canvas"); c.width = 512; c.height = 128; const g2 = c.getContext("2d"); g2.fillStyle = "#fd6925"; g2.fillRect(0, 0, 512, 128); g2.fillStyle = "#1a0d05"; g2.font = "700 64px 'Chakra Petch', sans-serif"; g2.textAlign = "center"; g2.fillText("TICKETS", 256, 86); const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; const sign = new THREE.Mesh(new THREE.PlaneGeometry(1.4, 0.35), new THREE.MeshBasicMaterial({ map: t })); sign.position.set(0, 2.15, 0.72); booth.add(sign); }
+  cyl(0.05, 0.06, 1.0, M.steelDark, 8.6, 1.1, -13.0, { seg: 8 }); box(2.0, 0.08, 0.08, new THREE.MeshStandardMaterial({ map: T.stripes("#c8302a", "#f3f3f3"), roughness: .6 }), 7.6, 1.62, -13.0); // barrier between the booth and the pier edge
   scene.attach(player.root); player.yaw = player.targetYaw = Math.atan2(-1, 0);
-  shot([9.5, 3.2, -6.5], [14, 1.3, -11.2], { instant: true });
+  shot([9.8, 3.4, -6.2], [13.6, 1.3, -11], { instant: true });
   await wait(300);
-  await player.walk([[15.6, 1.6, -10.4], [15.3, 1.55, -11], [13.3, 0.78, -11], [12.2, 0.6, -11.6]], { speed: 1.3 });
+  await player.walk([[15.1, 1.6, -10.0], [14.6, 1.6, -9.9], [14.15, 1.47, -10.35], [13.45, 1.2, -11.05], [12.75, 0.9, -11.75], [12.2, 0.62, -12.3], [11.7, 0.6, -12.3]], { speed: 1.2 });
   player.face(10.6, -12.2); officer.faceTo(player);
   await say({ actor: officer }, { who: "Ticket Officer", role: "Innovation Harbor Ferry", voice: "wang", en: "Ticket, please. … Ah, the Sustainability Envoy. Read the back of your ticket: it explains the talk you will give at the Theater.", zh: "請出示船票。……啊，永續特使。看一下船票背面，上面寫著你要在劇場發表的演講是怎麼回事。" }, player);
   await showTicket({ officer: true });

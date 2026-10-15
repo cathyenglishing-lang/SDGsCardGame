@@ -41,12 +41,15 @@ export function tug(color = 0xb8402f) {
 }
 export function ferry() {
   const g = new THREE.Group(); g.add(hull(24, 7.4, 2.6, M.hullWhite, 1));
-  box(15, 2.8, 6.2, M.windows(10, 1, .9, "#fff3d6"), 0, 3, 0, { parent: g });
-  box(16, 0.3, 6.8, M.white, 0, 4.55, 0, { parent: g });
+  box(15, 2.8, 5.2, M.windows(10, 1, .9, "#fff3d6"), 0, 3, 0, { parent: g });
+  box(16, 0.3, 6.0, M.white, 0, 4.55, 0, { parent: g });
   box(6, 2, 4.4, M.windows(4, 1, .9), 3, 5.7, 0, { parent: g });
   cyl(0.5, 0.6, 2.2, M.paint(0x1f5b8e), -4, 5.8, 0, { parent: g, seg: 10 });
   box(1.2, 0.2, 1.6, M.hullRed, -6, 4.8, 0, { parent: g });
-  for (const z of [-3.6, 3.6]) { box(20, 0.06, 0.06, M.steel, -1, 2.55, z, { parent: g }); for (let x = -10; x <= 8; x += 2) cyl(0.03, 0.03, 0.9, M.steel, x, 2.1, z, { parent: g, seg: 5 }); }
+  // railings; the pier side (+z) has a boarding gate at x 2.9–5.3 where the gangway stairs attach
+  box(20, 0.06, 0.06, M.steel, -1, 2.55, -3.6, { parent: g }); for (let x = -10; x <= 8; x += 2) cyl(0.03, 0.03, 0.9, M.steel, x, 2.1, -3.6, { parent: g, seg: 5 });
+  box(13.9, 0.06, 0.06, M.steel, -4.05, 2.55, 3.6, { parent: g }); box(3.7, 0.06, 0.06, M.steel, 7.15, 2.55, 3.6, { parent: g });
+  for (const x of [-10, -8, -6, -4, -2, 0, 2, 2.9, 5.3, 6, 8]) cyl(0.03, 0.03, 0.9, M.steel, x, 2.1, 3.6, { parent: g, seg: 5 });
   return g;
 }
 function sailboat() {
