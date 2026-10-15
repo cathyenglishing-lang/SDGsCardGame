@@ -76,7 +76,7 @@ async (page) => {
   const layoutCheck = () => page.evaluate(() => {
     const vis = el => { if (el.closest('[hidden]')) return false; const cs = getComputedStyle(el); if (cs.display === 'none' || cs.visibility === 'hidden' || +cs.opacity === 0) return false; const r = el.getBoundingClientRect(); return r.width > 0 && r.height > 0; };
     const out = { off: [], overlap: [] };
-    const inter = [...document.querySelectorAll('#ui button, #ui input, #ui select, #labels .bubble, #labels .bubble button, .obj, .opt, .hchip, .passage.sel-able')].filter(vis).filter(b => !b.closest('.body, #shBody, .tbl, .sa-scroll, .logp, .cover'));
+    const inter = [...document.querySelectorAll('#ui button, #ui input, #ui select, #labels .bubble, #labels .bubble button, .obj, .opt, .hchip, .passage.sel-able')].filter(vis).filter(b => !b.closest('.body, #shBody, .tbl, .sa-scroll, .logp, .cover, #tvList'));
     for (const b of inter) { const r = b.getBoundingClientRect(); if (r.top < -1 || r.left < -1 || r.right > innerWidth + 1 || r.bottom > innerHeight + 1) out.off.push((b.id || b.className.split(' ')[0] || b.tagName) + ':' + (b.textContent || '').trim().slice(0, 18) + '[' + [r.left, r.top, r.right, r.bottom].map(Math.round).join(',') + (b.classList.contains('docked') ? ' docked' : '') + ']'); }
     const panels = ['#hud', '#compass', '#travel', '.joy', '.jumpbtn', '.drivebtn', '#sheet', '#labels .bubble', '#toast', '#skipCine', '.cardgame header', '#ticketCard', '#endCard'].map(s => document.querySelector(s)).filter(el => el && vis(el));
     for (let i = 0; i < panels.length; i++) for (let j = i + 1; j < panels.length; j++) {

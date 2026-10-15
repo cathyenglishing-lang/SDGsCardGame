@@ -153,7 +153,7 @@ $("#startBtn").onclick = async () => {
   await say({ actor: officer }, { who: "Ticket Officer", role: "Innovation Harbor Ferry", voice: "wang", en: "Ticket, please. … Ah, the Sustainability Envoy. Read the back of your ticket: it explains the talk you will give at the Theater.", zh: "請出示船票。……啊，永續特使。看一下船票背面，上面寫著你要在劇場發表的演講是怎麼回事。" }, player);
   await showTicket({ officer: true });
   await say({ actor: officer }, { who: "Ticket Officer", role: "Innovation Harbor Ferry", voice: "wang", en: "Harbor Master Mei is waiting at the end of the pier. Mind the gap, and good luck on stage.", zh: "港長梅在碼頭盡頭等你。小心間隙，祝你上台順利。", anim: "react" }, player);
-  gang.visible = false;
+  scene.remove(gang); // removed, not hidden: hidden meshes still block the speaker-visibility raycast
   setFollow(player, { dist: 6, height: 2.1 });
   await titleCard({ kicker: "Chapter 1 · Innovation Harbor", title: "Can We Trust AI?", zh: "我們能信任 AI 嗎？", sub: "SDG 9 · Industry, Innovation and Infrastructure" }, 3200);
   await runStory({ player, mei, kai, hsu, wang, councilA, councilB, foreman, reporter, keeper, boat, traffic, vehicles, portals, audience, crowd });
