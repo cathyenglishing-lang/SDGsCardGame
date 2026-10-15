@@ -18,7 +18,7 @@ let active = null;
 
 function place(a) {
   const el = a.el; const W = innerWidth, H = innerHeight;
-  if (a.actor) { a.actor.headWorld(v); v.y += 0.35; } else v.copy(a.anchor);
+  if (a.actor) { a.actor.headWorld(v); v.y += 0.6; } else v.copy(a.anchor); // above the head, leaving room for an emote badge
   ndc.copy(v).project(camera);
   const behind = ndc.z > 1, far = Math.abs(ndc.x) > 1.3 || Math.abs(ndc.y) > 1.3;
   const dock = a.forceDock || IS_PHONE() || behind || far;

@@ -35,6 +35,7 @@ frontend/games/innovation-harbor/
    ├─ activities/          六種學習活動：listening / reading / cardgame(正式卡牌 iframe) / speaking / sequence / pechakucha；cards.js 為原型內建卡牌（未使用）；common.js 選擇題、填字
    ├─ ui/bubble.js         人物頭上的 3D 對話泡泡、雲朵內心想法泡泡、選擇泡泡（永遠夾在畫面內；手機或說話者不在畫面時停靠底部）
    ├─ ui/sheet.js          平板（活動面板）、HUD、提示訊息、星數
+   ├─ ui/fx.js             故事特效：頭上情緒圖示 emote()、章節／地點字卡 titleCard()、褐色回憶閃回 flashback()
    └─ world/
       ├─ scene.js          渲染器、天空與太陽、水面、霧、品質分級、畫面迴圈、心情（dusk/best/dim/fog）
       ├─ materials.js      程序貼圖與材質（混凝土、柏油、磚、貨櫃、玻璃窗……）
@@ -108,6 +109,9 @@ frontend/games/innovation-harbor/
 - **節點**：`story/chapter1.js` `chapter1Nodes(ctx)` 回傳陣列，每個節點 `{ id, title, place, spot:[x,z], stage, requires(vars, done), repeatable, final, run() }`。`run()` 內用 `say()` 講台詞、`ask()` 給選擇、呼叫活動，回傳結果字串；`"retry"` = 節點保持可用；`"END"` = 提早結束。
 - **台詞格式**：`say({actor}, { who, role, voice, en, zh, anim })` → 英文、中文提示、聲音、動作（`talk`／`react`／`null`）。
 - **內心想法（雲朵泡泡）**：`think({actor}, { who, voice, en, zh, anim, hold })` → 虛線雲朵、三顆小泡泡尾巴、斜體、上下漂浮；不做說話口型。`hold` 毫秒後自動消失（不給就等按「…」）。chapter1 的捷徑：`me()` 玩家心聲、`kT()/wT()/mT()` 凱／王議員／梅的內心話；資料記錄為 `story.thought`。樣式在 `ui.css .bubble.thought`。
+- **情緒圖示**：`emote(actor, kind, ms)`，kind = `"!" "?" idea worry ok love angry sweat music`（`fx.js EMOTES` 可改表情符號或換成圖片），掛在頭骨上方彈出、上下浮動，記錄 `story.emote`。
+- **字卡**：`titleCard({kicker, title, zh, sub}, ms)` 從左側滑入的下三分之一字卡；開場「Chapter 1 · Can We Trust AI?」在 `main.js`，每個節點第一次抵達自動出地點字卡（`graph.js run()`，final 節點除外），記錄 `story.title`。
+- **回憶閃回**：`flashback(async fn, {caption, zh, ms})`：白閃→畫面變褐色＋暗角＋上方標題→執行 fn（鏡位、聲音、暫停起重機…）→白閃回來，記錄 `story.flashback`。範例：李領班節點重播「上週二」起重機二號停機（`chapter1.js`）。樣式 `ui.css body.flashback / .flashcap / .titlecard / .emote`。
 - **選擇**：`ask(player, {en, zh}, [{en, zh, ...自訂欄位}], 對話對象)`，回傳被選的物件；變數用 `S.vars`，`bump("integrity", 2)`。
 - **變數**：`state.js S.vars`：integrity、evidence、trust、kai、approach、reporter、scandal、hsuBeforeKai。
 - **結局**：`chapter1.js ENDINGS` 文案；`decideEnding()` 判定順序；`runEnding()` 場景效果（燈塔、霧、起重機停）與結局卡。

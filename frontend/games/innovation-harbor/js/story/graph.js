@@ -9,6 +9,7 @@ import { setFollow, fade } from "../world/camera.js";
 import { S } from "../state.js";
 import { log } from "../telemetry.js";
 import { renderHud } from "../ui/sheet.js";
+import { titleCard } from "../ui/fx.js";
 import { $, esc, wait } from "../util.js";
 
 export class StoryGraph {
@@ -22,6 +23,7 @@ export class StoryGraph {
       this.visits[node.id] = (this.visits[node.id] || 0) + 1;
       S.node = node.id; log("node.start", `${node.id} (visit ${this.visits[node.id]}, available: ${avail.map(n => n.id).join("/")})`, { node: node.id, visit: this.visits[node.id], available: avail.map(n => n.id) });
       if (node.stage != null) { S.stage = node.stage; renderHud(); }
+      if (this.visits[node.id] === 1 && !node.final) await titleCard({ kicker: node.place, title: node.title }, 1400); // location card on first arrival
       const outcome = await node.run(this.ctx, this);
       if (outcome !== "retry") { this.done.add(node.id); S.done.push(node.id); }
       log("node.done", `${node.id} → ${outcome ?? "ok"} | vars ${JSON.stringify(S.vars)}`, { node: node.id, outcome: outcome ?? "ok", vars: { ...S.vars } }); S.node = null;

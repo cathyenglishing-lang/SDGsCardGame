@@ -14,6 +14,7 @@ body{background:var(--night);color:var(--paper);font-family:var(--f-body);font-s
 #scene:active{cursor:grabbing}
 #labels{position:fixed;inset:0;pointer-events:none;z-index:2;overflow:hidden}
 #labels .bubble,#labels .bubble *{pointer-events:auto}
+#labels .bubble{z-index:1000} /* above CSS2D labels (portal signs, ambient chat), whose z-index the renderer sets by depth */
 button{font:inherit;color:inherit;cursor:pointer}
 button:focus-visible,[tabindex]:focus-visible,input:focus-visible{outline:2px solid var(--signal);outline-offset:2px}
 .ui{position:fixed;inset:0;pointer-events:none;z-index:3}
@@ -291,3 +292,24 @@ button:focus-visible,[tabindex]:focus-visible,input:focus-visible{outline:2px so
 .drivebtn{position:absolute;left:50%;bottom:calc(112px + env(safe-area-inset-bottom,0px));transform:translateX(-50%)}
 @media (max-width:1100px){.compass{top:calc(100px + env(safe-area-inset-top,0px))}}
 @media (max-width:760px){.compass{top:auto;bottom:calc(212px + env(safe-area-inset-bottom,0px));left:auto;right:12px;transform:none}.drivebtn{left:auto;right:16px;bottom:calc(200px + env(safe-area-inset-bottom,0px));transform:none}}
+/* ── story effects: emotion badges, title / location cards, flashback ── */
+.emote{font-size:1.6rem;line-height:1;pointer-events:none}
+.emote span{display:block;filter:drop-shadow(0 2px 6px rgba(0,0,0,.6));animation:emotePop .5s cubic-bezier(.2,1.6,.4,1) both,emoteBob 1.2s .5s ease-in-out infinite}
+.emote.out span{animation:emoteOut .25s ease-in forwards}
+@keyframes emotePop{from{transform:scale(0) translateY(10px);opacity:0}to{transform:scale(1) translateY(0);opacity:1}}
+@keyframes emoteBob{0%,100%{translate:0 0}50%{translate:0 -4px}}
+@keyframes emoteOut{to{transform:scale(.4);opacity:0}}
+.titlecard{position:absolute;left:0;bottom:clamp(96px,22vh,200px);display:flex;align-items:stretch;gap:14px;max-width:min(560px,92vw);padding:12px 26px 12px 0;background:linear-gradient(90deg,rgba(13,22,32,.96) 70%,rgba(13,22,32,0));transform:translateX(-105%);opacity:0;transition:transform .55s cubic-bezier(.2,.8,.2,1),opacity .4s;pointer-events:none;z-index:4}
+.titlecard.in{transform:none;opacity:1}
+.titlecard.out{transform:translateX(-12px);opacity:0;transition:transform .45s ease-in,opacity .45s}
+.titlecard i{width:6px;background:var(--sdg9);flex:none}
+.titlecard small{display:block;font-family:var(--f-display);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--sdg9);margin-bottom:4px}
+.titlecard b{display:block;font-family:var(--f-display);font-size:clamp(1.15rem,3.4vw,1.7rem);line-height:1.15;color:var(--paper);text-wrap:balance}
+.titlecard b .zh-text{font-family:var(--f-body);font-weight:400}
+.titlecard span{display:block;margin-top:4px;color:var(--muted);font-size:.86rem}
+@media (max-width:760px){.titlecard{bottom:clamp(140px,26vh,220px);padding-right:18px}}
+body.flashback #scene{filter:sepia(.75) saturate(.55) contrast(1.08) brightness(.92);transition:filter .4s}
+body.flashback #labels::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,transparent 45%,rgba(40,24,8,.78));pointer-events:none}
+.flashcap{position:absolute;left:50%;top:calc(84px + env(safe-area-inset-top,0px));transform:translateX(-50%);font-family:var(--f-display);letter-spacing:.22em;text-transform:uppercase;font-size:.78rem;color:#f3dcb4;background:rgba(40,24,8,.7);border:1px solid rgba(243,220,180,.4);padding:6px 14px;border-radius:3px;pointer-events:none;text-align:center;max-width:90vw}
+.flashcap .zh-text{letter-spacing:.05em;text-transform:none}
+@media (max-width:1100px){.flashcap{top:calc(118px + env(safe-area-inset-top,0px))}}

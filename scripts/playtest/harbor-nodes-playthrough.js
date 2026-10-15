@@ -99,9 +99,12 @@ async (page) => {
   };
   const shot = (name) => page.screenshot({ path: `.playwright-mcp/report/nodes-${name}.jpg`, type: 'jpeg', quality: 70 }).catch(() => {});
 
-  const t0 = Date.now(); let lastKick = '', walkedOnce = false, pkSeen = false, pkSlides = new Set(), stepGuard = 0, lastStep = 'start'; const seen = new Set();
+  const t0 = Date.now(); let lastKick = '', walkedOnce = false, pkSeen = false, pkSlides = new Set(), stepGuard = 0, lastStep = 'start'; const seen = new Set(), fxSeen = new Set();
   try { while (Date.now() - t0 < 12 * 60 * 1000) {
     if (++stepGuard > 900) { note('loop', 'too many steps'); break; }
+    // story effects: screenshot each kind once (title/location card, emotion badge, flashback)
+    const fx = await page.evaluate(() => ({ title: !!document.querySelector('.titlecard.in'), emote: !!document.querySelector('.emote'), flash: document.body.classList.contains('flashback') }));
+    for (const k of Object.keys(fx)) if (fx[k] && !fxSeen.has(k)) { fxSeen.add(k); log.push('fx: ' + k); if (k === 'flash') await page.waitForTimeout(1500); await shot('fx-' + k); if (k === 'emote') { const r = await page.evaluate(() => { const e = document.querySelector('.emote'); if (!e) return null; const b = e.getBoundingClientRect(); return [Math.round(b.left), Math.round(b.top), Math.round(b.width), Math.round(b.height)]; }); log.push('emote rect ' + (r ? r.join(',') : 'gone')); if (r && r[0] < 40 && r[1] < 40) note('fx emote', 'badge stuck at the top-left corner (not following the head)'); } if (k === 'title') { const r = await layoutCheck(); if (r.off.length) note('fx title', 'off-screen: ' + r.off.join(', ')); } }
     if (await page.locator('#ending:not([hidden])').count()) { log.push('ENDING ' + await page.locator('#endCard .ending-title').textContent()); await shot('ending'); await sweep('ending'); break; }
     // objectives: walk the first leg with the keyboard (tests roam + compass), skip the rest
     if (await page.locator('#travel:not([hidden])').count()) {
@@ -197,6 +200,6 @@ async (page) => {
     await page.waitForTimeout(500);
   } } catch (e) { note('script error', `${String(e.message).slice(0, 200)} @ ${lastStep}`); }
   if (!pkSeen) note('pk', 'the Pecha Kucha presentation never ran');
-  const S = await page.evaluate(() => ({ thoughts: window.__thoughts || 0, events: window.__dbg.S.events.length, stars: window.__dbg.S.stars, vars: window.__dbg.S.vars, done: window.__dbg.S.done }));
+  const S = await page.evaluate(() => ({ fx: window.__dbg.S.events.filter(e => /^story\.(emote|title|flashback)$/.test(e.type)).length, thoughts: window.__thoughts || 0, events: window.__dbg.S.events.length, stars: window.__dbg.S.stars, vars: window.__dbg.S.vars, done: window.__dbg.S.done }));
   return { minutes: ((Date.now() - t0) / 60000).toFixed(1), viewport: VIEW, issues, log: log.filter((l, i, a) => a.indexOf(l) === i), state: S };
 }

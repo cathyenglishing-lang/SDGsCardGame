@@ -10,6 +10,7 @@ import { loadCharacterAssets, makeActor, CROWD_KINDS, CROWD_TINTS } from "./worl
 import { shot, fly, fade, setFollow, cancelFlight } from "./world/camera.js";
 import { buildStationLabels, runStory } from "./story.js";
 import { wireHints } from "./i18n.js";
+import { titleCard } from "./ui/fx.js";
 import { wireLogPanel, log, startRun } from "./telemetry.js";
 import { renderHud } from "./ui/sheet.js";
 import { S } from "./state.js";
@@ -116,5 +117,6 @@ $("#startBtn").onclick = async () => {
   scene.attach(player.root); player.setPos(13.5, 0.6, -14); player.face(10, -11, true); player.yaw = player.targetYaw;
   setFollow(player, { dist: 6, height: 2.1 });
   await wait(100); await fade(false, 500);
+  await titleCard({ kicker: "Chapter 1 · Innovation Harbor", title: "Can We Trust AI?", zh: "我們能信任 AI 嗎？", sub: "SDG 9 · Industry, Innovation and Infrastructure" }, 3200);
   await runStory({ player, mei, kai, hsu, wang, councilA, councilB, foreman, reporter, traffic, vehicles, portals, audience, crowd });
 };

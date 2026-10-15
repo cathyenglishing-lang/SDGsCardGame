@@ -14,7 +14,8 @@ import { log, finishRun } from "../telemetry.js";
 import { $, esc, wait, isNum } from "../util.js";
 import { DATA } from "../data.js";
 import { hint } from "../i18n.js";
-import { horn, foghorn, applause } from "../audio.js";
+import { horn, foghorn, applause, carHorn } from "../audio.js";
+import { emote, flashback } from "../ui/fx.js";
 import { setMood } from "../world/scene.js";
 import { actListening } from "../activities/listening.js";
 import { actReading } from "../activities/reading.js";
@@ -29,7 +30,7 @@ const L = (who, role, voice, en, zh, extra = {}) => ({ who, role, voice, en, zh,
 const bump = (k, d) => { S.vars[k] = (S.vars[k] || 0) + d; renderHud(); };
 
 export function chapter1Nodes(ctx) {
-  const { player, mei, kai, hsu, wang, councilA, councilB, foreman, reporter, audience } = ctx;
+  const { player, mei, kai, hsu, wang, councilA, councilB, foreman, reporter, audience, traffic } = ctx;
   const m = (en, zh, o) => say({ actor: mei }, L("Harbor Master Mei", "Port Authority", "mei", en, zh, o), player);
   const k = (en, zh, o) => say({ actor: kai }, L("Kai", "Cadet intern · report assistant", "kai", en, zh, o), player);
   const h = (en, zh, o) => say({ actor: hsu }, L("Dr. Hsu", "AI researcher", "hsu", en, zh, o), player);
@@ -48,6 +49,7 @@ export function chapter1Nodes(ctx) {
       mei.faceTo(player);
       await m("Welcome to Innovation Harbor, Envoy. Next week the Port Council votes on one big question: should HARBOR-AI run the whole port?", "歡迎來到創新港，特使。下週港務議會要投票：要不要讓 HARBOR-AI 管理整個港口？");
       await ai("Assessment complete. New pier project: safety score ninety-nine percent. Twelve references cited. Recommendation: approve immediately.", "評估完成。新碼頭計畫：安全指數 99%，引用文獻 12 篇。建議：立即通過。");
+      emote(mei, "?");
       await m("The report looks perfect. Too perfect. Before we start, listen to the opening talk of today's conference. It is playing on the harbor speakers.", "報告看起來很完美，完美得讓我不安。開始前，先聽聽今天大會的開場，港口廣播正在播。");
       await me("Ninety-nine percent safe… Who checked that number? And who wrote those twelve references?", "百分之九十九安全……這個數字是誰查的？那十二篇參考文獻又是誰寫的？");
       await actListening(slidesOf(1), ctx);
@@ -60,6 +62,7 @@ export function chapter1Nodes(ctx) {
     { id: "kai", title: "Kai", place: "AI Lab plaza", spot: [-30, 26], stage: 1, requires: (v, done) => done.has("mei"), async run(ctx, graph) {
       kai.faceTo(player);
       if (graph.done.has("hsu")) await k("Dr. Hsu sent you? Then you already know what the AI does with references…", "許博士叫你來的？那你已經知道 AI 怎麼處理參考文獻了……");
+      emote(kai, "sweat", 2400);
       await k("Envoy… I have to tell you something. The references in the report? I asked the AI to write them. I never checked them one by one.", "特使……我得坦白一件事。報告裡的參考文獻是我請 AI 寫的，我沒有一篇一篇查。");
       await k("Here are my draft notes. Match each note to the right slide and you will see the problem.", "這是我的草稿筆記。把每段筆記對到正確的投影片，你就會看到問題。");
       await actReading(slidesOf(2), [slidesOf(1)[1], slidesOf(3)[0]]);
@@ -71,9 +74,9 @@ export function chapter1Nodes(ctx) {
         { en: "\"Let's keep quiet. The Council will never notice.\"", zh: "「先別聲張，議會不會發現的。」", kai: "hide", d: -2 },
       ], kai);
       S.vars.kai = o.kai; bump("integrity", o.d); log("story.choice", `answer to Kai: ${o.kai} (integrity ${o.d > 0 ? "+" : ""}${o.d})`, { key: "kai", value: o.kai, d: o.d });
-      if (o.kai === "help") { bump("evidence", 1); bump("trust", 1); await k("Thank you. Let's search Google Scholar together… there. Three of the twelve papers do not exist. Take this list to the Council.", "謝謝你。我們一起用 Google Scholar 查……你看，十二篇裡有三篇根本不存在。把這份清單帶去議會。", { anim: "react" }); }
-      else if (o.kai === "report") { bump("evidence", 1); await k("…I understand. If I made a mistake, I should face it. Here is my confession in writing. Take it to the Council.", "……我懂。做錯事就要面對。這是我寫的自白書，帶去議會吧。", { anim: "react" }); }
-      else { await k("Are you sure? …Okay. But people on the quay are already talking.", "真的可以嗎？……好吧。可是碼頭上的人已經在傳了。", { anim: "react" }); reporter.root.visible = true; toast("A reporter has arrived at the Council square."); }
+      if (o.kai === "help") { bump("evidence", 1); bump("trust", 1); emote(kai, "ok"); await k("Thank you. Let's search Google Scholar together… there. Three of the twelve papers do not exist. Take this list to the Council.", "謝謝你。我們一起用 Google Scholar 查……你看，十二篇裡有三篇根本不存在。把這份清單帶去議會。", { anim: "react" }); }
+      else if (o.kai === "report") { bump("evidence", 1); emote(kai, "worry"); await k("…I understand. If I made a mistake, I should face it. Here is my confession in writing. Take it to the Council.", "……我懂。做錯事就要面對。這是我寫的自白書，帶去議會吧。", { anim: "react" }); }
+      else { emote(kai, "worry"); await k("Are you sure? …Okay. But people on the quay are already talking.", "真的可以嗎？……好吧。可是碼頭上的人已經在傳了。", { anim: "react" }); reporter.root.visible = true; toast("A reporter has arrived at the Council square."); }
       if (!graph.done.has("hsu")) await k("Dr. Hsu at the Harbor Archive can explain why the AI does this. She is expecting you.", "資料檔案館的許博士可以解釋 AI 為什麼會這樣。她在等你。");
       tagDone("lab"); return o.kai;
     } },
@@ -87,6 +90,7 @@ export function chapter1Nodes(ctx) {
       else await h("Kai was here. He looked worried and would not say why. Whatever it is, the truth comes out in this harbor.", "凱來過，一臉擔心卻不肯說原因。不管是什麼，在這個港口真相總會浮出來。");
       await h("Why does an AI invent papers with such confidence? I prepared a short talk about it, but the sea wind scattered my cards! Come inside the Archive and help me put the sentences back on the right slides.", "AI 為什麼能這麼有自信地捏造論文？我準備了一段短講，可是海風把卡片吹散了！進檔案館幫我把句子放回正確的投影片。");
       await actCardGame({ topic: "9-1", parts: [2, 3, 4, 5] });
+      emote(hsu, "idea");
       await h("Exactly. The AI guesses the next word. It does not check facts. Sounding right is not the same as being right.", "沒錯。AI 是在猜下一個字，不是在查證事實。聽起來對，不代表是真的。", { anim: "react" });
       bump("evidence", 1);
       await h("Take my analysis to the Council as evidence. And if you have not met Foreman Lee yet, he has seen HARBOR-AI make mistakes with his own eyes.", "把我的分析當證據帶去議會。如果你還沒見過李領班，他親眼看過 HARBOR-AI 出錯。");
@@ -95,8 +99,16 @@ export function chapter1Nodes(ctx) {
 
     // ── 4. Foreman Lee · container quay · optional side node, one quick listening check ──
     { id: "foreman", title: "Foreman Lee", place: "Container quay", spot: [-19.5, 15.2], radius: 2.8, requires: (v, done) => done.has("mei"), async run() {
-      foreman.faceTo(player);
+      foreman.faceTo(player); emote(foreman, "!");
       await f("Envoy. See crane two? Last Tuesday HARBOR-AI rerouted the trucks three times in one hour and the crane stopped twice. The report says ninety-nine percent safe. Not from where I stand.", "特使，看到二號起重機沒？上週二 HARBOR-AI 一小時內把卡車改道三次，起重機停了兩次。報告說 99% 安全，從我站的地方看可不是。");
+      // flashback: sepia replay of last Tuesday — trucks honking, crane two frozen mid-lift
+      await flashback(async () => {
+        const cr = traffic?.cranes?.[1];
+        shot([-13, 6, 18], [-28, 16, 0], { instant: true }); carHorn(true); await wait(900);
+        if (cr) cr.frozen = true; await wait(600); carHorn(true); await wait(1300);
+        shot([-21, 3.5, 23], [-26, 2, 9], { instant: true }); carHorn(); await wait(1900);
+        if (cr) cr.frozen = false;
+      }, { caption: "Last Tuesday · Container quay", zh: "上週二・貨櫃碼頭" });
       await f("I wrote it in the logbook. Listen to my entry and fill in the words, so you can quote me exactly.", "我寫進了日誌。聽我念一遍，把字填上，這樣你才能一字不差地引用。");
       const prevStage = S.stage; S.stage = "side";
       await actListening([{ no: 90, part: 1, title_en: "Foreman's logbook, Tuesday", title_zh: "領班日誌，星期二", script: "On Tuesday the system rerouted every truck three times in one hour. Crane two stopped twice, and the drivers waited forty minutes. Nobody checked the AI's decision." }], ctx);
@@ -139,9 +151,11 @@ export function chapter1Nodes(ctx) {
       }
       wang.faceTo(player);
       if (S.vars.evidence < 2) {
+        emote(wang, "angry");
         await w(`Envoy, you bring us ${S.vars.evidence === 1 ? "one source" : "no evidence"}. The Council needs at least two independent sources before it listens. Come back when you have them.`, `特使，你帶來的${S.vars.evidence === 1 ? "只有一個來源" : "沒有證據"}。議會至少要兩個獨立來源才會聽。有了再回來。`);
         toast("Bring two sources: Dr. Hsu's analysis, Kai's list, or the foreman's statement."); return "retry";
       }
+      emote(wang, S.vars.evidence >= 3 ? "!" : "?");
       await wT(S.vars.evidence >= 3 ? "Three independent sources against a report I was ready to approve this morning. If the Envoy can explain it in plain English, the whole Council will follow." : "Two sources. Enough to listen, not enough to vote. Let us hear how the Envoy explains it.", S.vars.evidence >= 3 ? "三個獨立來源，對上一份我今早還打算批准的報告。如果特使能用簡單的英文解釋清楚，整個議會都會跟。" : "兩個來源。夠我聽，還不夠投票。先聽特使怎麼說。");
       await w(`${S.vars.evidence >= 3 ? "Three sources. Impressive." : "Two sources. Acceptable."} Step up to the podium and tell the Council in English: why does this problem matter?`, `${S.vars.evidence >= 3 ? "三個來源，了不起。" : "兩個來源，可以。"}請上講台，用英文告訴議會：這個問題為什麼重要？`);
       await fade(true, 400); player.setPos(26, 0.6, 49); setFollow(player, { dist: 5, height: 1.8, instant: true }); await fade(false, 400);

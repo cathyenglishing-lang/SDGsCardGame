@@ -165,3 +165,20 @@ python scripts/serve-frontend.py 8766
 **最後一次試玩結果**：7.3 分鐘，mei→foreman→kai(help)→hsu→council→workshop→theater → The Evidence Speaks；4 個雲朵泡泡；PK 兩張投影片各 20 秒、麥克風即時分數；79 筆事件；五種尺寸的目標清單／對話／活動／PK／結局都沒有跑框或重疊；唯一剩下的是 `/favicon.ico` 404（無害）。截圖在 `.playwright-mcp/report/nodes-*.jpg`（不進 repo）。
 **沒驗證**：真人在手機上的觸控手感（搖桿＋跳躍＋開車按鈕同時出現時的擁擠度只看了截圖）、`hide` 路線在這版的鏡頭切換、`think()` 用在沒有 listener 的 NPC 上（目前都有）。
 **觀察到但沒修**：議會兩位議員的待機動作有一位身體歪斜（動畫重定向問題，見截圖 `nodes-line-Councillor_Wang.jpg`）。
+
+## 11. 同日晚上：故事表現手法三件組（第四次提交）
+
+使用者對「多一點不一樣」的回覆是「好試試看」，所以三種都做了小規模版本，集中在新模組 `js/ui/fx.js`（樣式在 `ui.css` 最後一段）：
+
+| 手法 | API | 用在哪 |
+|---|---|---|
+| 情緒圖示 | `emote(actor, kind, ms)`，kind：`! ? idea worry ok love angry sweat music` | 梅「太完美了」❓、李領班「看到二號起重機？」❗、凱坦白前 💦、幫忙 ✅／通報或隱瞞 😟、許博士解釋 💡、王議員聽到證據 ❗／證據不足 💢 |
+| 字卡 | `titleCard({kicker, title, zh, sub}, ms)` 左側滑入的下三分之一字卡 | 開場「Chapter 1 · Can We Trust AI?」（`main.js`）；每個節點第一次抵達出地點字卡 1.4 秒（`graph.js`，final 節點除外） |
+| 回憶閃回 | `flashback(fn, {caption, zh})` 白閃→褐色＋暗角＋上方標題→fn→白閃回來 | 李領班節點：重播「上週二」——鏡頭切到二號起重機、卡車按喇叭、起重機凍結（`traffic.cranes[1].frozen`），6 秒 |
+
+資料記錄：`story.emote {who, kind}`、`story.title {kicker, title}`、`story.flashback {caption}`。
+
+**踩到的坑**：情緒圖示第一版用 CSS 動畫改 `transform`，把 CSS2DRenderer 定位用的 inline transform 蓋掉，圖示卡在畫面左上角；改成動畫套在內層 `<span>`。任何掛在 3D 物件上的 CSS2D 元素都不能在同一個元素動 `transform`。
+
+**試玩**：加入三種特效後整輪 8 分鐘，路線與結局不變，93 筆事件（其中 14 筆特效）。試玩腳本現在會各截一張 `nodes-fx-title/flash/emote.jpg` 並檢查情緒圖示有跟著頭。
+**沒驗證**：閃回在手機直式的鏡位（起重機可能只看到一半）；地點字卡與手機停靠泡泡的先後（字卡等完才出對話，不會同時出現）。
