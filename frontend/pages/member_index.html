@@ -335,11 +335,12 @@ button, select, input { font: inherit; }
   box-shadow: 0 16px 40px color-mix(in srgb, var(--accent), transparent 74%);
 }
 .choice-card strong {
-  display: inline-grid; width: 40px; height: 40px; place-items: center;
-  border-radius: 11px; color: #06121f; background: var(--accent);
-  margin-bottom: 14px; font-size: 18px; font-weight: 900;
+  display: inline-grid; min-width: 40px; height: 40px; padding: 0 12px; place-items: center;
+  border-radius: 11px; color: #fff; background: var(--accent); white-space: nowrap;
+  margin-bottom: 14px; font-size: 16px; font-weight: 900;
 }
 .choice-card h3 { margin: 0 0 6px; font-size: 17px; }
+.difficulty-btn.locked { opacity: .45; cursor: not-allowed; }
 .choice-card p { margin: 0; color: var(--muted); line-height: 1.5; font-size: 12.5px; }
 
 .difficulty-grid {
@@ -473,14 +474,14 @@ button, select, input { font: inherit; }
       <div class="step-head">
         <span class="n">1</span>
         <h5>SDG Topic</h5>
-        <span class="hint" id="sdgHint">Default: SDG 4 · 13 · 5</span>
+        <span class="hint" id="sdgHint">SDG 4、5 全開放 · 其他 SDG 開放 A2</span>
       </div>
       <div id="sdgGrid" class="card-grid"></div>
 
       <div class="step-head" style="margin-top:22px;">
         <span class="n">2</span>
         <h5>CEFR Level</h5>
-        <span class="hint">A1 · A2 · B1</span>
+        <span class="hint">A1 入門 · A2 基礎 · B1 進階</span>
       </div>
       <div id="difficultyGrid" class="difficulty-grid"></div>
 
@@ -500,7 +501,9 @@ button, select, input { font: inherit; }
 
 <script src="/static/config.js"></script>
 <script src="/static/js/api.js"></script>
+<script src="/static/js/unlocks.js"></script>
 <script>
+const U = window.CARDLEARN_UNLOCKS;
 // ?guest=1 (the "Play as guest" link on the landing page) enters guest mode without an account.
 if (!auth.getSession() && new URLSearchParams(location.search).has("guest")) auth.startGuest();
 const session = auth.requireLogin({ allowGuest: true });
@@ -625,7 +628,7 @@ const fallbackDifficulties = [
 ];
 
 let sdgs = fallbackSdgs;
-let difficulties = fallbackDifficulties;
+let difficulties = U.sortLevels(fallbackDifficulties, d => d.code);
 let selectedSdg = Number(localStorage.getItem("selected_sdg")) || 4;
 let selectedDifficulty = localStorage.getItem("selected_difficulty") || "A2";
 
@@ -640,8 +643,9 @@ function showToast(message) {
 }
 
 function colorForSdg(sdg) {
-  const colors = { 4: "#f97316", 13: "#22c55e", 5: "#fb7185" };
-  return colors[sdg] || "#2dd4bf";
+  // official UN SDG colours, same as the Pecha Kucha Card Game; question-bank 1-3 are SDG 9 topics
+  const colors = { 4: "#c5192d", 5: "#ff3a21", 9: "#fd6925", 13: "#3f7e44" };
+  return colors[U.realSdg(sdg)] || "#2dd4bf";
 }
 
 function safeText(value) {
@@ -737,9 +741,9 @@ function renderSdgs() {
             type="button"
             data-sdg="${safeText(sdg.sdg_level)}"
             style="--accent:${colorForSdg(Number(sdg.sdg_level))}">
-      <strong>${safeText(sdg.sdg_level)}</strong>
-      <h3>${safeText(sdg.description || sdg.title)}</h3>
-      <p>${safeText(sdg.title)}</p>
+      <strong>${safeText(U.label(sdg.sdg_level))}</strong>
+      <h3>${safeText(U.title(sdg.sdg_level, sdg.title))}</h3>
+      <p>${safeText([U.zh(sdg.sdg_level), U.DB_TOPIC[Number(sdg.sdg_level)] ? sdg.title : ""].filter(Boolean).join(" · "))}</p>
     </button>
   `).join("");
 
@@ -747,27 +751,34 @@ function renderSdgs() {
     button.addEventListener("click", () => {
       selectedSdg = Number(button.dataset.sdg);
       localStorage.setItem("selected_sdg", String(selectedSdg));
+      if (!U.isOpen(selectedSdg, selectedDifficulty)) {
+        selectedDifficulty = U.firstLevel;
+        localStorage.setItem("selected_difficulty", selectedDifficulty);
+      }
       renderAll();
-      showToast(`Selected SDG ${selectedSdg}`);
+      showToast(`Selected ${U.label(selectedSdg)}`);
     });
   });
 }
 
 function renderDifficulties() {
-  $("difficultyGrid").innerHTML = difficulties.map((difficulty) => `
-    <button class="difficulty-btn ${difficulty.code === selectedDifficulty ? "active" : ""}"
+  $("difficultyGrid").innerHTML = difficulties.map((difficulty) => {
+    const open = U.isOpen(selectedSdg, difficulty.code);
+    return `
+    <button class="difficulty-btn ${difficulty.code === selectedDifficulty ? "active" : ""} ${open ? "" : "locked"}"
             type="button"
-            data-difficulty="${safeText(difficulty.code)}">
-      ${safeText(difficulty.label || difficulty.code)}
-    </button>
-  `).join("");
+            data-difficulty="${safeText(difficulty.code)}" ${open ? "" : "data-locked=\"1\" title=\"即將開放 Coming soon\""}>
+      ${open ? "" : "🔒 "}${safeText(U.levelLabel(difficulty.code))}
+    </button>`;
+  }).join("");
 
   document.querySelectorAll("[data-difficulty]").forEach((button) => {
     button.addEventListener("click", () => {
+      if (button.dataset.locked) { showToast("這個難度即將開放。Coming soon."); return; }
       selectedDifficulty = button.dataset.difficulty;
       localStorage.setItem("selected_difficulty", selectedDifficulty);
       renderAll();
-      showToast(`Selected level ${button.textContent.trim()}`);
+      showToast(`Selected level ${U.levelLabel(selectedDifficulty)}`);
     });
   });
 }
@@ -775,8 +786,8 @@ function renderDifficulties() {
 function renderSummary() {
   const sdg = sdgs.find((item) => Number(item.sdg_level) === selectedSdg);
   const difficulty = difficulties.find((item) => item.code === selectedDifficulty);
-  $("summarySdg").textContent = sdg ? `SDG ${sdg.sdg_level}` : "-";
-  $("summaryDifficulty").textContent = difficulty ? (difficulty.label || difficulty.code) : (selectedDifficulty || "-");
+  $("summarySdg").textContent = sdg ? U.label(sdg.sdg_level) : "-";
+  $("summaryDifficulty").textContent = selectedDifficulty ? U.levelLabel(selectedDifficulty) : "-";
   $("startHint").textContent = selectedSdg && selectedDifficulty ? "Ready to start." : "Choose an SDG and level first.";
 }
 
@@ -789,8 +800,9 @@ function renderAll() {
 async function loadOptions() {
   try {
     const data = await api.content.options();
-    sdgs = data.sdgs?.length ? data.sdgs : fallbackSdgs;
-    difficulties = data.difficulties?.length ? data.difficulties : fallbackDifficulties;
+    sdgs = (data.sdgs?.length ? data.sdgs : fallbackSdgs).slice()
+      .sort((a, b) => U.realSdg(a.sdg_level) - U.realSdg(b.sdg_level) || Number(a.sdg_level) - Number(b.sdg_level));
+    difficulties = U.sortLevels(data.difficulties?.length ? data.difficulties : fallbackDifficulties, d => d.code);
   } catch (error) {
     console.warn(error);
     showToast("Using the default SDG and level options for now.");
@@ -807,6 +819,10 @@ async function loadOptions() {
 }
 
 function startGame() {
+  if (!U.isOpen(selectedSdg, selectedDifficulty)) {
+    showToast("這個難度即將開放。Coming soon.");
+    return;
+  }
   if (!selectedSdg || !selectedDifficulty) {
     showToast("Choose an SDG and level first.");
     return;

@@ -1199,6 +1199,7 @@ body.is-dragging-card .subtopic-poker:not(.correct) {
 </style>
 <script src="/static/config.js"></script>
 <script src="/static/js/api.js"></script>
+<script src="/static/js/unlocks.js"></script>
 <script>
 /* ── Voice preload ── */
 let cachedVoice = null;
@@ -1216,6 +1217,10 @@ loadPreferredVoice();
 
 /* ── Login check ── */
 const user = auth.requireLogin({ allowGuest: true })?.user;
+(() => { // a locked SDG / level (frontend/js/unlocks.js) cannot be opened by a stored or typed selection
+  const s = sessionStorage.getItem("current_sdg"), l = sessionStorage.getItem("current_difficulty");
+  if (s && l && !window.CARDLEARN_UNLOCKS.isOpen(s, l)) location.replace("/pages/member_index.html");
+})();
 if (!user) { alert("Please sign in first."); window.location.href = "/"; }
 const canUseSuperFinish = ["teacher", "admin"].includes(user.role);
 

@@ -861,6 +861,7 @@ body.is-dragging-card .subtopic-poker:not(.correct) {
   .pk-lvls{display:flex;flex-wrap:wrap;gap:7px;}
   .pk-lvl{border:1px solid #cbd5e1;background:#f8fafc;border-radius:9px;padding:7px 13px;font-weight:800;font-size:13px;color:#0f172a;cursor:pointer;transition:transform .12s,background .12s,border-color .12s;}
   .pk-lvl:hover{transform:translateY(-1px);border-color:var(--ac);background:#fff;}
+  .pk-lvl.pk-lvl-locked{opacity:.45;cursor:not-allowed;}
   .pk-lvl b{color:#94a3b8;font-weight:700;font-size:11px;margin-left:5px;}
   body.pk-embed .pk-change-btn{display:none;}
   .card-kw{margin-top:6px;font-size:.72rem;line-height:1.35;color:#475569;font-weight:600;}
@@ -1282,6 +1283,7 @@ body.pk-embed .game-guide,body.pk-embed #topicGrid{display:none}
 }
 </style>
 <script src="/static/config.js"></script>
+<script src="/static/js/unlocks.js"></script>
 <script>
 /* ── Voice preload ── */
 let cachedVoice = null;
@@ -1306,14 +1308,13 @@ let SELECTED = { topic: null, level: null };
 const SDG_META = {
   4:{c:"#c5192d", n:"Quality Education 優質教育"},
   5:{c:"#ff3a21", n:"Gender Equality 性別平權"},
-  9:{c:"#fd6925", n:"Industry & Innovation 工業創新"},
+  9:{c:"#fd6925", n:"Industry, Innovation & Infrastructure 工業創新"},
   13:{c:"#3f7e44", n:"Climate Action 氣候行動"},
 };
 const LEVEL_LABEL = {A1:"入門", A2:"基礎", B1:"進階", B2:"高階"};
 const LEVEL_ORDER = ["A1","A2","B1","B2"];
 // Card game: one playable topic per SDG (the most complete one); every other topic stays visible but locked.
 // Embedded runs from the 3D game (embed=harbor) may open any topic.
-const PK_OPEN_TOPICS = ["4-1", "5-1", "9-1", "13-1"];
 // ?topic=9-1&level=B1&parts=3,4&embed=harbor — start directly; embed=harbor reports back to the 3D game.
 const PK_LINK = (() => {
   const q = new URLSearchParams(location.search);
@@ -1373,7 +1374,9 @@ function renderSelector(){
          + '<p class="pk-tmeta">'+n+' 張投影片 · '+(locked?'尚未開放':'選難度開始')+'</p>'
          + (locked
             ? '<div class="pk-lock">🔒 Locked · 老師開放後才能遊玩</div>'
-            : '<div class="pk-lvls">'+levels.map(l=>'<button class="pk-lvl" onclick="pkStartGame(\''+t.id+'\',\''+l+'\')">'+l+'<b>'+(LEVEL_LABEL[l]||"")+'</b></button>').join('')+'</div>')
+            : '<div class="pk-lvls">'+levels.map(l=> pkLevelOpen(t,l)
+                ? '<button class="pk-lvl" onclick="pkStartGame(\''+t.id+'\',\''+l+'\')">'+l+'<b>'+(LEVEL_LABEL[l]||"")+'</b></button>'
+                : '<button class="pk-lvl pk-lvl-locked" type="button" disabled title="即將開放 Coming soon">🔒 '+l+'<b>'+(LEVEL_LABEL[l]||"")+'</b></button>').join('')+'</div>')
          + '</div>';
     });
     h += '</div>';
@@ -1390,11 +1393,14 @@ function pkResetState(){
   canDrag=false; gameData=[]; errorCount=0; repeatListenCount=0;
 }
 
-function pkTopicOpen(id){ return PK_OPEN_TOPICS.includes(id) || PK_LINK.embed; }
+// Open/locked rules and names live in frontend/js/unlocks.js (shared with SDGs Pecha Kucha).
+// The 3D game's own station (embed) is never locked.
+function pkLevelOpen(t, l){ return PK_LINK.embed || window.CARDLEARN_UNLOCKS.isOpen(t.sdg, l); }
+function pkTopicOpen(id){ const t = GAME_DATA.topics.find(x=>x.id===id); return !!t && LEVEL_ORDER.some(l=>t.levels[l] && pkLevelOpen(t,l)); }
 function pkStartGame(topicId, level){
   const topic = GAME_DATA.topics.find(t=>t.id===topicId);
   if(!topic || !topic.levels[level]) return;
-  if(!pkTopicOpen(topicId)){ if(typeof showToast==="function") showToast("這個主題尚未開放。"); return; }
+  if(!pkLevelOpen(topic, level)){ if(typeof showToast==="function") showToast("這個難度即將開放。Coming soon."); return; }
   window.speechSynthesis.cancel();
   SELECTED = { topic, level };
   pkResetState();
