@@ -480,7 +480,7 @@ body {
 <script src="/static/config.js"></script>
 <script src="/static/js/api.js"></script>
 <script>
-const user = auth.requireLogin()?.user;
+const user = auth.requireLogin({ allowGuest: true })?.user;
 
 function formatTime(sec) {
   const value = Number(sec || 0);
@@ -927,7 +927,24 @@ function downloadRecording() {
   link.remove();
 }
 
+function renderGuestResults() {
+  let parts = [];
+  try { parts = JSON.parse(sessionStorage.getItem("guest_result") || "[]"); } catch (e) {}
+  const sec = parts.reduce((a, p) => a + (p.elapsed_seconds || 0), 0);
+  const pad = n => String(n).padStart(2, "0");
+  document.getElementById("heroSub").textContent = "訪客模式：這次的成績只顯示在這裡，不會記錄。Guest mode — results are not saved.";
+  document.getElementById("totalTime").textContent = `${pad(Math.floor(sec / 60))}:${pad(sec % 60)}`;
+  document.getElementById("totalErrors").textContent = parts.reduce((a, p) => a + (p.errors || 0), 0);
+  document.getElementById("totalRepeats").textContent = parts.reduce((a, p) => a + (p.repeat_listen_count || 0), 0);
+  document.getElementById("totalParts").textContent = `${parts.length} / 6`;
+  document.getElementById("partsContainer").innerHTML = parts.length
+    ? parts.map(p => `<div class="empty">Part ${safeText(p.part_no)} · ${safeText(p.elapsed_text || "")} · ${p.errors || 0} errors · ${p.repeat_listen_count || 0} repeats</div>`).join("")
+    : `<div class="empty">Please start again from the game entry page.</div>`;
+  document.getElementById("leaderboardContainer").innerHTML = `<div class="empty">訪客不列入排行。<a href="/pages/register.html">註冊帳號</a>即可保存成績與排名。</div>`;
+}
+
 async function loadMyResults() {
+  if (auth.isGuest()) return renderGuestResults();
   const sessionId = sessionStorage.getItem("current_session_id");
   const isSuperSkip = sessionStorage.getItem("finish_super_skip") === "1";
   if (!sessionId) {

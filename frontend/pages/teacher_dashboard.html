@@ -1069,7 +1069,7 @@ function downloadMaterialJsonTemplate() {
 }
 
 async function verifyTeacher() {
-  auth.requireLogin();
+  if (!auth.requireLogin().access_token) return false; // logged out or guest: already redirecting to login
   const user = await api.auth.me();
   if (!["teacher", "admin"].includes(user.role)) {
     alert("This account does not have teacher dashboard access.");

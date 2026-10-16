@@ -803,7 +803,7 @@
   <script src="/static/js/api.js"></script>
   <script>
     if (window.auth && typeof auth.requireLogin === "function") {
-      auth.requireLogin();
+      auth.requireLogin({ allowGuest: true });
     }
   </script>
   -->

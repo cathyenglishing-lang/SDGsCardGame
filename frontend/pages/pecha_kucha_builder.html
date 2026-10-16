@@ -1427,6 +1427,7 @@ function submitPkResult(){
   try{
     const base = pkApiBase(); if(!base) return;
     const s = pkAuth();
+    if(s && s.user && s.user.role === "guest") return; // guest mode records nothing
     const parts = completedPartRecords.map(p=>({
       part_no:p.part_no, errors:p.errors||0,
       seconds:p.elapsed_seconds||0, repeats:p.repeat_listen_count||0

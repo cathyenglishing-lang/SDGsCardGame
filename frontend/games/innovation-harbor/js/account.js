@@ -5,6 +5,7 @@ export async function accountAvatar() {
   if (forced === "female" || forced === "male") return forced;
   try {
     const session = JSON.parse(localStorage.getItem("user") || "null");
+    if (session?.user?.role === "guest") return session.user.gender === "female" ? "female" : "male";
     const base = String(window.CARDLEARN_API_BASE_URL || "").replace(/\/+$/, "");
     if (!session?.access_token || !base) return "male";
     const res = await fetch(`${base}/auth/me`, {

@@ -41,7 +41,8 @@ function normalizeSession(payload) {
     id: rawUser.id ?? payload?.id ?? null,
     name: rawUser.name ?? payload?.name ?? "",
     email: rawUser.email ?? payload?.email ?? "",
-    role: rawUser.role ?? payload?.role ?? "student"
+    role: rawUser.role ?? payload?.role ?? "student",
+    gender: rawUser.gender ?? payload?.gender ?? ""
   };
 
   user.username = rawUser.username || payload?.username || user.name || user.email;
@@ -90,11 +91,35 @@ const auth = {
     return this.getSession()?.access_token || "";
   },
 
-  requireLogin() {
+  // Guest mode: a browser-only identity with no account and no token. Pages that need the
+  // backend's own records (SDGs Pecha Kucha sessions, teacher tools) still require a real login.
+  startGuest(gender = "male") {
+    const id = Math.random().toString(36).slice(2, 6).toUpperCase();
+    const name = `Guest-${id}`;
+    localStorage.setItem(SESSION_KEY, JSON.stringify({
+      access_token: "", token_type: "guest",
+      user: { id: null, name, email: "", username: name, role: "guest", gender: gender === "female" ? "female" : "male" }
+    }));
+    return this.getSession();
+  },
+
+  isGuest() {
+    return this.getSession()?.user?.role === "guest";
+  },
+
+  setGuestGender(gender) {
+    const s = this.getSession();
+    if (!s || s.user.role !== "guest") return;
+    s.user.gender = gender === "female" ? "female" : "male";
+    localStorage.setItem(SESSION_KEY, JSON.stringify(s));
+  },
+
+  requireLogin({ allowGuest = false } = {}) {
     const session = this.getSession();
-    if (!session) {
+    const guestBlocked = session && session.user.role === "guest" && !allowGuest;
+    if (!session || guestBlocked) {
       const next = encodeURIComponent(window.location.pathname + window.location.search);
-      window.location.href = `${getLoginPath()}?next=${next}`;
+      window.location.href = `${getLoginPath()}?next=${next}${guestBlocked ? "&reason=guest" : ""}`;
       return { access_token: "", user: { username: "", role: "" } };
     }
     return session;

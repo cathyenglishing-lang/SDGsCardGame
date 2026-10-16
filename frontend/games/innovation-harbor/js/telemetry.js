@@ -3,7 +3,10 @@
 import { S } from "./state.js";
 import { $, esc } from "./util.js";
 
-const API = String(window.CARDLEARN_API_BASE_URL || "").replace(/\/+$/, "");
+// Guest mode (browser-only identity, see frontend/js/api.js) records nothing on the server:
+// with no API the events stay in this page's Learning Log only.
+const GUEST = (() => { try { return JSON.parse(localStorage.getItem("user") || "null")?.user?.role === "guest"; } catch (e) { return false; } })();
+const API = GUEST ? "" : String(window.CARDLEARN_API_BASE_URL || "").replace(/\/+$/, "");
 const QUEUE_KEY = "harbor_pending_events";
 let runId = null, seq = 0, queue = [], timer = null, sending = false, startInfo = null;
 
@@ -35,7 +38,7 @@ export async function finishRun(payload) {
   try { await fetch(`${API}/learning/runs/${runId}/finish`, { method: "POST", headers: headers(), body: JSON.stringify(payload) }); } catch (e) {}
 }
 function schedule(ms) { if (timer) return; timer = setTimeout(() => { timer = null; flush(); }, ms); }
-function persist() { try { localStorage.setItem(QUEUE_KEY, JSON.stringify({ runId, queue: queue.slice(-500) })); } catch (e) {} }
+function persist() { if (GUEST) return; try { localStorage.setItem(QUEUE_KEY, JSON.stringify({ runId, queue: queue.slice(-500) })); } catch (e) {} }
 async function flush(force = false) {
   if (!API || !runId || sending || !queue.length) { if (queue.length) persist(); return; }
   sending = true;

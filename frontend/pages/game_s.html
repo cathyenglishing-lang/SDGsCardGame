@@ -1215,7 +1215,7 @@ window.speechSynthesis.onvoiceschanged = loadPreferredVoice;
 loadPreferredVoice();
 
 /* ── Login check ── */
-const user = auth.requireLogin()?.user;
+const user = auth.requireLogin({ allowGuest: true })?.user;
 if (!user) { alert("Please sign in first."); window.location.href = "/"; }
 const canUseSuperFinish = ["teacher", "admin"].includes(user.role);
 
@@ -1738,7 +1738,7 @@ async function handleDrop(cardData, targetSubId, targetEl) {
       // Save the full attempt after all parts are complete, then show results.
       const doneCount = Object.values(partStatus).filter(v => v === 'completed').length;
       if (doneCount === DB.topics.length) {
-        showToast("All parts complete. Saving this attempt...", 2200);
+        showToast(auth.isGuest() ? "All parts complete! (Guest mode: results are not saved.)" : "All parts complete. Saving this attempt...", 2200);
         try {
           const sessionId = await saveFullAttemptRecord();
           console.log("Attempt record saved", completedPartRecords);
@@ -1800,6 +1800,12 @@ function speak(text, onEndCallback) {
 }
 
 async function saveFullAttemptRecord() {
+  if (auth.isGuest()) {
+    // Guest mode records nothing on the server; the finish page shows this attempt from the browser only.
+    sessionStorage.removeItem("current_session_id");
+    sessionStorage.setItem("guest_result", JSON.stringify(completedPartRecords));
+    return null;
+  }
   const sdg = Number(sessionStorage.getItem("current_sdg") || "4");
   const level = currentDifficultyCode();
   const session = await api.game.startGame(user.username, sdg, level);

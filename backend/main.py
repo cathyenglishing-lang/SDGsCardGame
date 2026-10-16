@@ -1655,7 +1655,7 @@ def content_parts(sdg: int | None = None):
 
 @app.get("/game/content")
 def game_content(sdg: int, level: str, authorization: str | None = Header(default=None)):
-    get_current_user(authorization)
+    # Read-only teaching content: open to guests too (writing results still needs an account).
 
     conn = get_db()
     cur = conn.cursor()

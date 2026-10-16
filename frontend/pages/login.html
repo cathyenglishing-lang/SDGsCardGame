@@ -292,6 +292,12 @@
       overflow: hidden;
     }
 
+    .guest-divider{display:flex;align-items:center;gap:10px;margin:16px 0 4px;color:#94a3b8;font-size:12px}
+    .guest-divider::before,.guest-divider::after{content:"";flex:1;height:1px;background:rgba(148,163,184,.35)}
+    button.guest-btn{background:transparent;color:inherit;border:1.5px solid rgba(99,102,241,.55);box-shadow:none}
+    button.guest-btn:hover{background:rgba(99,102,241,.12)}
+    .guest-note{margin-top:8px;font-size:12px;line-height:1.5;color:#94a3b8;text-align:center}
+
     button:hover:not(:disabled) {
       transform: translateY(-3px);
       box-shadow: 0 24px 45px rgba(168,85,247,0.42);
@@ -500,6 +506,10 @@
       Don’t have an account? <a href="register.html">Create one</a>
     </div>
 
+    <div class="guest-divider"><span>或 or</span></div>
+    <button type="button" class="guest-btn" @click="playAsGuest">🎮 訪客試玩 · Play as guest</button>
+    <div class="guest-note">不用註冊，直接玩。訪客的進度只存在這台瀏覽器；SDGs Pecha Kucha 需要登入帳號。</div>
+
   </div>
 </div>
 
@@ -548,7 +558,18 @@ Vue.createApp({
     }
   },
 
+  mounted() {
+    if (new URLSearchParams(location.search).get("reason") === "guest") {
+      this.msg = { text: "這個頁面需要登入帳號，請登入或註冊。This page needs an account.", type: "err" };
+    }
+  },
+
   methods: {
+    playAsGuest() {
+      auth.startGuest();
+      location.href = "member_index.html";
+    },
+
     clearMsg() {
       this.msg = { text: '', type: '' };
       this.errors.email = '';
@@ -644,7 +665,7 @@ Vue.createApp({
   }
 }).mount("#app");
 
-if (auth.getSession()) {
+if (auth.getSession() && !auth.isGuest()) {
   const params = new URLSearchParams(window.location.search);
   window.location.href = params.get("next") || "member_index.html";
 }
