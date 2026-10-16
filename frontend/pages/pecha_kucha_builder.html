@@ -1267,7 +1267,7 @@ body.is-dragging-card .subtopic-poker:not(.correct) {
 .pk-read-panel #sentenceBox .sentence-text{font-size:1.05rem;line-height:1.5}
 .subtopic-box{height:auto !important}
 body.pk-embed .game-guide,body.pk-embed #topicGrid{display:none}
-.pk-topic.pk-locked{opacity:.58;filter:grayscale(.55);cursor:not-allowed}
+.pk-topic.pk-locked{opacity:.45;filter:grayscale(.6);cursor:not-allowed}
 .pk-topic.pk-locked h4{color:#64748b}
 .pk-lock{margin-top:8px;padding:8px 10px;border-radius:10px;background:rgba(15,23,42,.08);border:1px dashed rgba(100,116,139,.5);color:#475569;font-size:.78rem;font-weight:800;text-align:center}
 .game-title{font-size:clamp(1.15rem,2.2vw,1.7rem) !important;line-height:1.25}
@@ -1369,11 +1369,11 @@ function renderSelector(){
       const locked = !pkTopicOpen(t.id);
       h += '<div class="pk-topic'+(locked?' pk-locked':'')+'" style="--ac:'+meta.c+'">'
          + '<span class="pk-tbadge" style="background:'+meta.c+'">SDG '+sdg+' · '+pkEsc(t.id)+'</span>'
-         + '<h4>'+pkEsc(pkClean(t.title_en))+'</h4>'
-         + (t.title_zh?'<p class="pk-tzh">'+pkEsc(t.title_zh)+'</p>':'')
+         + '<h4>'+pkEsc(pkTitle(t))+'</h4>'
+         + (pkTitleZh(t)?'<p class="pk-tzh">'+pkEsc(pkTitleZh(t))+'</p>':'')
          + '<p class="pk-tmeta">'+n+' 張投影片 · '+(locked?'尚未開放':'選難度開始')+'</p>'
          + (locked
-            ? '<div class="pk-lock">🔒 Locked · 老師開放後才能遊玩</div>'
+            ? '<div class="pk-lock">🔒 即將開放 · Coming soon</div>'
             : '<div class="pk-lvls">'+levels.map(l=> pkLevelOpen(t,l)
                 ? '<button class="pk-lvl" onclick="pkStartGame(\''+t.id+'\',\''+l+'\')">'+l+'<b>'+(LEVEL_LABEL[l]||"")+'</b></button>'
                 : '<button class="pk-lvl pk-lvl-locked" type="button" disabled title="即將開放 Coming soon">🔒 '+l+'<b>'+(LEVEL_LABEL[l]||"")+'</b></button>').join('')+'</div>')
@@ -1395,8 +1395,11 @@ function pkResetState(){
 
 // Open/locked rules and names live in frontend/js/unlocks.js (shared with SDGs Pecha Kucha).
 // The 3D game's own station (embed) is never locked.
-function pkLevelOpen(t, l){ return PK_LINK.embed || window.CARDLEARN_UNLOCKS.isOpen(t.sdg, l); }
-function pkTopicOpen(id){ const t = GAME_DATA.topics.find(x=>x.id===id); return !!t && LEVEL_ORDER.some(l=>t.levels[l] && pkLevelOpen(t,l)); }
+function pkTopicOpen(id){ return PK_LINK.embed || window.CARDLEARN_UNLOCKS.isOpen(id); }
+function pkLevelOpen(t, l){ return pkTopicOpen(t.id); }
+// Display title: the shared topic name (unlocks.js), else the cleaned source title.
+function pkTitle(t){ return (window.CARDLEARN_UNLOCKS.TOPICS[t.id]||{}).en || pkClean(t.title_en); }
+function pkTitleZh(t){ return (window.CARDLEARN_UNLOCKS.TOPICS[t.id]||{}).zh || t.title_zh || ""; }
 function pkStartGame(topicId, level){
   const topic = GAME_DATA.topics.find(t=>t.id===topicId);
   if(!topic || !topic.levels[level]) return;
@@ -1412,7 +1415,7 @@ function pkStartGame(topicId, level){
   document.getElementById("subBox").innerHTML = "";
   document.getElementById("sentenceBox").innerHTML = "";
   const st = document.querySelector(".game-title");
-  const shortTitle = (pkClean(topic.title_en).match(/^[^?.!]*[?.!]?/)||[""])[0] || pkClean(topic.title_en);
+  const shortTitle = pkTitle(topic);
   if(st) st.textContent = "SDG "+topic.sdg+" · "+shortTitle+"（"+level+"）";
   initTopics();
   window.scrollTo(0,0);
@@ -1462,7 +1465,7 @@ function showFinishOverlay(){
   const totalSec = completedPartRecords.reduce((a,p)=>a+(p.elapsed_seconds||0),0);
   document.getElementById("pkFinishBody").innerHTML =
       '<div class="pk-big">🎉</div><h2>全部完成！</h2>'
-    + '<p>'+pkEsc(pkClean(SELECTED.topic.title_en))+'（CEFR '+SELECTED.level+'）</p>'
+    + '<p>'+pkEsc(pkTitle(SELECTED.topic))+'（CEFR '+SELECTED.level+'）</p>'
     + '<div class="pk-fstats">'
     +   '<div><b>'+formatTime(totalSec)+'</b><span>總時間</span></div>'
     +   '<div><b>'+totalErr+'</b><span>錯誤</span></div>'

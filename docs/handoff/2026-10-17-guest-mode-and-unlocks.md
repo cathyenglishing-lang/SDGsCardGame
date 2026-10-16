@@ -19,6 +19,9 @@
 
 ## 2. 開放與上鎖規則
 
+> **2026-10-17 稍後更新（以此為準）**：使用者改成以主題為單位。全開放（所有難度）：4-1、4-2、5-1、5-2、9-1、13-1；整個上鎖：9-2、9-3、13-2，卡片半透明、不能點。設定在 `unlocks.js` 的 `locked`。題庫選單同樣套用：sdg_level 2、3（= 9-2、9-3）上鎖，其餘全開。同時統一所有主題標題為主題本身的名稱（`unlocks.js` 的 `TOPICS`），5-2、13-2 原本沒有標題，由 Claude 依講稿內容命名為 Gender Equality in Sports、Climate Adaptation and Water in Taiwan。下面是更早的版本，留作紀錄。
+
+
 使用者的決定：SDG 4、5 所有難度開放；其他 SDG 只開放第 1 個難度（A2），其餘上鎖；SDGs Pecha Kucha 與 Pecha Kucha Card Game 都套用。
 
 - 規則與名稱集中在 **`frontend/js/unlocks.js`**（`window.CARDLEARN_UNLOCKS`）。要開放或上鎖，只改 `openAll` 與 `firstLevel`。
