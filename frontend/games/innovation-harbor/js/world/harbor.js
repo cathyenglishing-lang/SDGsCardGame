@@ -56,7 +56,7 @@ export const screenCanvas = document.createElement("canvas");
 screenCanvas.width = 1024; screenCanvas.height = 576;
 export const screenTex = new THREE.CanvasTexture(screenCanvas);
 screenTex.colorSpace = THREE.SRGBColorSpace;
-export function drawScreen(kicker, title, body = "") {
+export function drawScreen(kicker, title, body = "", footer = "SDG 9 · INDUSTRY, INNOVATION AND INFRASTRUCTURE") {
   const g = screenCanvas.getContext("2d"); const W = 1024, H = 576;
   const gr = g.createLinearGradient(0, 0, W, H); gr.addColorStop(0, "#101c28"); gr.addColorStop(1, "#1d3246");
   g.fillStyle = gr; g.fillRect(0, 0, W, H);
@@ -66,7 +66,7 @@ export function drawScreen(kicker, title, body = "") {
   let y = 210; const wrap = (text, font, lh, max) => { g.font = font; let line = ""; for (const w of String(text).split(" ")) { if (g.measureText(line + w).width > max) { g.fillText(line, 64, y); y += lh; line = ""; } line += w + " "; } g.fillText(line, 64, y); y += lh; };
   wrap(title, "700 56px 'Chakra Petch', 'Manrope', sans-serif", 66, 896);
   if (body) { y += 10; g.fillStyle = "#cfd8e0"; wrap(body, "500 28px 'Manrope', sans-serif", 38, 896); }
-  g.fillStyle = "#8fa3b3"; g.font = "500 22px 'Chakra Petch', sans-serif"; g.fillText("SDG 9 · INDUSTRY, INNOVATION AND INFRASTRUCTURE", 64, 528);
+  g.fillStyle = "#8fa3b3"; g.font = "500 22px 'Chakra Petch', sans-serif"; g.fillText(footer, 64, 528);
   screenTex.needsUpdate = true;
 }
 

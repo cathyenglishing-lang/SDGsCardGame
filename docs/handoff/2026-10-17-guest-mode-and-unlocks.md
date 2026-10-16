@@ -50,3 +50,14 @@
 
 - 訪客是否要有使用次數或時間限制：使用者沒有提，目前沒有。
 - 題庫資料庫的 SDG 1、2、3 編號是否要正式改成 9 的子主題：需要改資料與教師上傳格式，未動。
+
+## 6. SDG 4 Pecha Kucha Stage（3D 簡單版）
+
+使用者要求：「3D 遊戲再一個簡單版：SDG 4 完整演講稿，讓學生單純閱讀走過一次 Pecha Kucha 精神，10 分鐘內，單一故事線、單一結局。」
+
+- 網址 `/games/innovation-harbor/sdg4-stage.html`，會員首頁有入口卡片。重用 Innovation Harbor 的場景、角色、鏡頭、自由移動與對話泡泡，入口程式是 `js/sdg4/main.js`，不經過故事地圖（story graph）。
+- 講稿 `js/sdg4/talk.js` 由 `feat/mission-engine` 分支的 `content/canonical/sdg4-1.json`（通過品質閘門的版本，每張投影片在該級語速下 20 秒內念得完）產生，A2／B1／B2 三級，依 Pecha Kucha 六段結構分組（3/3/3/3/4/4）。
+- 流程（約 9 分鐘）：選難度 → 碼頭上林老師用 5 句話說明 Pecha Kucha 精神 → 自由走到海濱劇場 → 後台看六段大綱 → 上台，20 張投影片每 20 秒自動換頁，提詞面板顯示完整講稿 → 掌聲與老師回顧 → 單一結局卡（Pecha Kucha 精神整理，可連到卡牌遊戲 4-1 練習）。
+- 沒有測驗、評分、選擇。登入學生的進度記錄為 `game: "sdg4-stage"`，訪客不記錄。
+- `world/harbor.js` 的 `drawScreen` 加了第 4 個參數 `footer`（預設仍是 SDG 9），讓劇場 LED 可以顯示 SDG 4。
+- 測試：`?fast=1` 讓每張投影片 2 秒；1366×800、768×1024、390×844 下跑完整流程，B2 每張講稿在提詞面板內不需要捲動。
