@@ -30,13 +30,20 @@
   <div class="compass" id="compass" hidden><i>➤</i><div><b></b><span></span></div></div>
 
   <section class="tele" id="tele" hidden aria-live="polite">
+    <div class="tele-thesis" id="teleThesis"></div>
     <div class="tele-parts" id="teleParts"></div>
-    <div class="tele-top"><span class="tele-part" id="telePart"></span><span class="tele-count" id="teleCount"></span><span class="tele-sec" id="teleSec">20</span></div>
-    <div class="tele-bar"><i id="teleBar"></i></div>
-    <h3 id="teleTitle"></h3>
-    <p class="tele-text" id="teleText"></p>
-    <p class="tele-heard" id="teleHeard" aria-live="off"></p>
-    <p class="tele-note">Read it out loud. The slide changes by itself, and the big screen shows what the audience heard. 念出聲；投影片自動換頁，大螢幕會顯示觀眾聽到多少。</p>
+    <div class="tele-partcard" id="telePartCard"></div>
+    <div class="tele-slide">
+      <div class="tele-top"><span class="tele-part" id="telePart"></span><span class="tele-count" id="teleCount"></span>
+        <span class="tele-tools"><button class="btn ghost" id="teleModel" type="button">🔊 示範朗讀</button><button class="btn ghost" id="teleRedo" type="button">↻ 這張重來</button></span>
+        <span class="tele-sec" id="teleSec">20</span></div>
+      <div class="tele-bar"><i id="teleBar"></i></div>
+      <h3 id="teleTitle"></h3>
+      <p class="tele-text" id="teleText"></p>
+      <p class="tele-gist" id="teleGist"></p>
+      <p class="tele-kw" id="teleKw"></p>
+      <p class="tele-heard" id="teleHeard" aria-live="off"></p>
+    </div>
   </section>
 
   <div class="cover" id="map" hidden>
@@ -44,9 +51,10 @@
       <h1><span>BACKSTAGE · YOUR TALK MAP</span>Quality Education in Taiwan</h1>
       <p>Six parts, twenty slides. Look at the shape of the story before you go on stage.
         <span class="zh-hint"><button class="zh-btn" type="button" aria-label="Show Chinese hint">中</button><span class="zh-text" hidden>六個部分、二十張投影片。上台前先看一下整個故事的結構。</span></span></p>
+      <div class="map-thesis" id="mapThesis"></div>
       <ul class="maplist" id="mapList"></ul>
       <div class="miccheck" id="micCheck"></div>
-      <div class="row"><button class="btn" id="mapGo" type="button">Go on stage ▸</button><span class="count">6 min 40 s · no pause, no going back</span></div>
+      <div class="row"><button class="btn" id="mapGo" type="button">Go on stage ▸</button><span class="count" id="mapPace"></span></div>
     </div>
   </div>
 
@@ -69,7 +77,11 @@
         <button type="button" data-lv="B1" aria-pressed="false"><b>B1</b><small>進階 Intermediate</small></button>
         <button type="button" data-lv="B2" aria-pressed="false"><b>B2</b><small>高階 Upper-intermediate</small></button>
       </div>
-      <div class="row"><button class="btn" id="startBtn" type="button">Start ▸</button><span class="count">about 10 minutes · Chrome or Edge with a microphone · 中 shows a Chinese hint</span></div>
+      <div class="lv mode" id="modePick">
+        <button type="button" data-mode="practice" aria-pressed="true"><b>練習 Practice</b><small>每張 30 秒 · 可聽示範、可重來</small></button>
+        <button type="button" data-mode="formal" aria-pressed="false"><b>正式 Formal</b><small>每張 20 秒 · 真正的 Pecha Kucha</small></button>
+      </div>
+      <div class="row"><button class="btn" id="startBtn" type="button">Start ▸</button><span class="count">practice about 14 min · formal about 11 min · Chrome or Edge with a microphone</span></div>
     </div>
   </div>
   <div class="cover" id="ending" hidden><div class="card" id="endCard"></div></div>

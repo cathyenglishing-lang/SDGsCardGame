@@ -239,7 +239,9 @@ const TYPES = {
   choice:    { zh: "選擇",     en: "Choice",    icon: "⑂",  desc: "玩家做決定，分出不同路線", sec: 20 },
   ending:    { zh: "結局",     en: "Ending",    icon: "⚑",  desc: "故事終點與回顧", sec: 30 },
 };
-const STAGES = ["Hook 引言", "Problem 問題", "Explain 解釋", "Impact 影響", "Strategy 策略", "Conclusion 結論"];
+// The course's six-part talk template (Pecha Kucha itself only fixes 20 slides × 20 seconds).
+const STAGES = ["Introduction 引言", "Problem 問題", "Achievements 成果", "Solutions 解方", "Implications 影響", "Call to action 結語"];
+const stEn = s => s.slice(0, s.lastIndexOf(" ")), stZh = s => s.slice(s.lastIndexOf(" ") + 1);
 const LEVEL_WPS = { A2: 95 / 60, B1: 110 / 60, B2: 120 / 60 };
 const color = t => `var(--t-${t})`;
 let uid = 1000; const nid = () => "n" + (++uid);
@@ -331,7 +333,7 @@ function nodeCard(n) {
   if (n.lines.length) meta.push(`<span><b>${n.lines.length}</b> 句台詞</span>`);
   if (t.sec) meta.push(t.sec < 60 ? `<span>約 <b>${t.sec}</b> 秒</span>` : `<span>約 <b>${Math.round(t.sec / 60)}</b> 分鐘</span>`);
   if (n.type === "choice") meta.push(`<span><b>${n.choices.length}</b> 個選項</span>`);
-  return `<header><span class="badge" style="background:${color(n.type)}">${t.icon} ${t.zh}</span>${n.stage != null ? `<span class="stage">${STAGES[n.stage].split(" ")[0]}</span>` : n.start ? `<span class="stage">起點</span>` : ""}</header>
+  return `<header><span class="badge" style="background:${color(n.type)}">${t.icon} ${t.zh}</span>${n.stage != null ? `<span class="stage">${stEn(STAGES[n.stage])}</span>` : n.start ? `<span class="stage">起點</span>` : ""}</header>
     <div class="main-txt"><h3>${esc(n.title)}</h3><div class="where">${esc(n.place)}${n.npc ? " · " + esc(n.npc) : ""}</div>
     ${first ? `<div class="quote">“${esc(first.en)}”</div>` : n.activity?.task ? `<div class="quote">${esc(n.activity.task)}</div>` : ""}
     <div class="meta">${meta.join("")}</div></div>
@@ -373,7 +375,7 @@ function renderFoot() {
     <span class="stat"><b>${story.edges.length}</b>條路線</span>
     <span class="stat">預估 <b>${Math.round(estimate() / 60)}</b>分鐘</span>
     <span class="stat">${counts.map(([t, c]) => `${TYPES[t].zh} ${c}`).join("　")}</span>
-    <span class="pk" title="Pecha Kucha 六段是否都有對應節點">${STAGES.map((s, i) => `<span class="${st.has(i) ? "on" : ""}">${s.split(" ")[1]}</span>`).join("")}</span>
+    <span class="pk" title="教材六段結構是否都有對應節點（Pecha Kucha 本身只規定 20 張 × 20 秒）">${STAGES.map((s, i) => `<span class="${st.has(i) ? "on" : ""}">${stZh(s)}</span>`).join("")}</span>
     <span class="checks">${issues.length ? `<span class="bad">${issues.length} 個待處理</span>` : `<span class="ok">✓ 故事檢查通過</span>`}
       <select id="levelSel" aria-label="台詞長度依難度檢查">${["A2", "B1", "B2"].map(l => `<option ${l === story.level ? "selected" : ""}>${l}</option>`).join("")}</select></span>`;
   $("levelSel").onchange = e => { story.level = e.target.value; dirty(); renderInspector(); renderFoot(); };

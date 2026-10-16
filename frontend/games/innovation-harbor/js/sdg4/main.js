@@ -1,7 +1,9 @@
-// SDG 4 Pecha Kucha Stage — the simple version: one storyline, one ending, about 9 minutes.
-// The student meets a teacher on the pier, learns the Pecha Kucha rules, walks to the Waterfront
-// Theater and reads the full SDG 4-1 talk on stage while the 20 slides advance every 20 seconds.
-// No quizzes, scores or choices. Reuses the Innovation Harbor world (scene, cast, camera, roaming).
+// SDG 4 Pecha Kucha Stage — the simple version: one storyline, one ending.
+// The student learns why they are speaking (the talk's message) and how a Pecha Kucha works, walks to
+// the Waterfront Theater and gives the full SDG 4-1 talk. Two paces: practice (30 s a slide, model
+// reading and "redo this slide", repeat as often as wanted) and formal (20 s, no pause, no going back).
+// Each part opens with a card on what it does; each slide shows a Chinese gist and key words; between
+// slides the big screen shows what the audience heard (browser speech recognition, where available).
 import { quality, manager, setMood, start, addUpdate } from "../world/scene.js";
 import { buildHarbor, SPOTS, H, drawScreen, PATHS, screenCanvas, screenTex } from "../world/harbor.js";
 import { buildDressing } from "../world/dressing.js";
@@ -17,16 +19,23 @@ import { log, startRun, finishRun } from "../telemetry.js";
 import { S } from "../state.js";
 import { $, esc, wait, pick, rand } from "../util.js";
 import { startAmbience, setMuted, isMuted, applause } from "../audio.js";
-import { getRate, cycleRate, listen, detectSpeech, speechFailed } from "../speech.js";
+import { getRate, cycleRate, listen, detectSpeech, speechFailed, speak, stopSpeaking } from "../speech.js";
 import { coverage } from "../vocab.js";
 import { accountAvatar } from "../account.js";
 import { TALK } from "./talk.js";
+import { THESIS, PARTS, SLIDES as GUIDE } from "./guide.js";
 
-const FAST = new URLSearchParams(location.search).has("fast"); // ?fast=1: test aid only
-const SLIDE_SEC = FAST ? 2 : 20;
-const RESULT_SEC = FAST ? 1 : 3; // the big screen shows what the audience heard between slides
+const Q = new URLSearchParams(location.search);
+const FAST = Q.has("fast");                    // ?fast=1: test aid only
+const QUICK = Q.has("quick");                  // "practise again" / "go formal": straight to backstage
+const PACE = { practice: 30, formal: 20 };
+let PRACTICE = Q.get("mode") !== "formal";
+let SLIDE_SEC = 20;                            // set when the run starts
+const RESULT_SEC = FAST ? 1 : 3;               // the big screen shows what the audience heard between slides
+const partSec = () => FAST ? 1 : PRACTICE ? 9 : 5;
 const FOOTER = "SDG 4 · QUALITY EDUCATION";
 const SLIDES = TALK.stages.flatMap((st, si) => st.slides.map(s => ({ ...s, stage: st, si })));
+if (["A2", "B1", "B2"].includes(Q.get("lv"))) S.level = Q.get("lv");
 
 const avatarKind = accountAvatar();
 wireHints();
@@ -37,14 +46,14 @@ manager.onProgress = (url, loaded, total) => { const p = Math.round(loaded / tot
 
 setMood("dusk");
 buildHarbor(); buildDressing(); buildTraffic();
-drawScreen("PECHA KUCHA", TALK.title, "20 slides × 20 seconds", FOOTER);
+drawScreen("PECHA KUCHA", TALK.title, "20 slides · six parts", FOOTER);
 start();
 
 let introA = 0;
 const introDrift = addUpdate(dt => { if (S.started) return; introA += dt * 0.025; shot([27 + Math.sin(introA) * 40, 18, 30 + Math.cos(introA) * 30], [27, 3, 5], { k: 1.2 }); });
 
 await loadCharacterAssets();
-$("#loading").hidden = true; $("#intro").hidden = false;
+$("#loading").hidden = true;
 
 S.avatar = await avatarKind;
 const player = makeActor(S.avatar, "Speaker");
@@ -71,37 +80,52 @@ window.__dbg = { S, player, lin, audience, SLIDES };
 const LIN = { actor: lin };
 const t = (en, zh, o = {}) => say(LIN, { who: "Ms. Lin", role: "Your teacher", voice: "mei", en, zh, ...o }, player);
 
-$("#lvPick").onclick = e => { const b = e.target.closest("[data-lv]"); if (!b) return; S.level = b.dataset.lv; $("#lvPick").querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", x === b)); };
-$("#startBtn").onclick = async () => {
+// ── intro: level and pace ──
+const pressed = (box, b) => box.querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", x === b));
+$("#lvPick").querySelectorAll("button").forEach(b => b.setAttribute("aria-pressed", b.dataset.lv === S.level));
+$("#modePick").querySelectorAll("button").forEach(b => b.setAttribute("aria-pressed", (b.dataset.mode === "practice") === PRACTICE));
+$("#lvPick").onclick = e => { const b = e.target.closest("[data-lv]"); if (!b) return; S.level = b.dataset.lv; pressed($("#lvPick"), b); };
+$("#modePick").onclick = e => { const b = e.target.closest("[data-mode]"); if (!b) return; PRACTICE = b.dataset.mode === "practice"; pressed($("#modePick"), b); };
+$("#startBtn").onclick = () => run();
+if (QUICK) run(); else $("#intro").hidden = false;
+
+async function run() {
   if (S.started) return;
   $("#intro").hidden = true; S.started = true; S.t0 = performance.now(); introDrift();
+  SLIDE_SEC = FAST ? 2 : PRACTICE ? PACE.practice : PACE.formal;
+  const mode = PRACTICE ? "practice" : "formal";
   startAmbience();
-  log("run.start", `SDG 4 stage, level ${S.level}, avatar ${S.avatar}`, { level: S.level, avatar: S.avatar });
-  startRun({ game: "sdg4-stage", chapter: "4-1", level: S.level, avatar: S.avatar, client: navigator.userAgent.slice(0, 160) });
-  $("#hud").hidden = false; $("#lvChip").textContent = S.level;
+  log("run.start", `SDG 4 stage, level ${S.level}, ${mode} (${SLIDE_SEC} s)`, { level: S.level, avatar: S.avatar, mode, quick: QUICK });
+  startRun({ game: "sdg4-stage", chapter: "4-1", level: S.level, avatar: S.avatar, client: `${mode} · ` + navigator.userAgent.slice(0, 150) });
+  $("#hud").hidden = false; $("#lvChip").textContent = `${S.level} · ${PRACTICE ? "練習 Practice" : "正式 Formal"}`;
   const clock = setInterval(() => { $("#clock").textContent = mmss((performance.now() - S.t0) / 1000); }, 500);
 
-  // ── 1. The pier: what Pecha Kucha is ──
-  await fade(true, 10); shot([9, 2.6, -15.5], [12, 1.6, -9], { instant: true }); await fade(false, 700);
-  await titleCard({ kicker: "SDG 4 · Quality Education", title: "Your first Pecha Kucha", zh: "你的第一場 Pecha Kucha" }, 2200);
-  await t("Welcome! Today you will give your first Pecha Kucha talk. The topic is SDG 4, Quality Education in Taiwan.", "歡迎！今天你要完成第一場 Pecha Kucha 演講，主題是 SDG 4：台灣的優質教育。");
-  await t("Pecha Kucha means \"chit-chat\" in Japanese. The rule is simple: 20 slides, 20 seconds each. That is only 6 minutes and 40 seconds.", "Pecha Kucha 是日文「閒聊」的意思。規則很簡單：20 張投影片，每張 20 秒，總共只有 6 分 40 秒。");
-  await t("The slides change by themselves. You cannot stop, and you cannot go back. If you miss a word, just keep going.", "投影片會自動換頁，不能暫停、不能倒回。漏掉一個字也沒關係，繼續往下講。");
-  await t("Read each slide out loud. One slide, one idea. After each slide, the big screen shows how much of it the audience heard.", "每張投影片都要念出聲，一張一個重點。每張念完，大螢幕會顯示觀眾聽到了多少。");
-  await t("A good talk has six parts: Introduction, Problem, Achievements, Solutions, Implications, and a Call to action. Your talk is ready. Let's walk to the Waterfront Theater!", "一場好的演講有六個部分：引言、問題、成就、解方、影響、行動呼籲。講稿已經準備好了，我們走去海濱劇場吧！");
+  if (!QUICK) {
+    // ── 1. The pier: why you are speaking, then how a Pecha Kucha works ──
+    await fade(true, 10); shot([9, 2.6, -15.5], [12, 1.6, -9], { instant: true }); await fade(false, 700);
+    await titleCard({ kicker: "SDG 4 · Quality Education", title: "Your first Pecha Kucha", zh: "你的第一場 Pecha Kucha" }, 2200);
+    await t("Welcome! You are a university student, and today you speak at the harbor festival. Your audience is students and teachers.", "歡迎！你是大學生，今天要在港口的活動上演講，台下是同學和老師。");
+    await t("Your message: Taiwan's schools look great on paper, but not every child gets the same chance in science. You want the audience to help make it fair.", "你的主張：台灣的教育數字很亮眼，但不是每個孩子在科學課都有一樣的機會。你要請觀眾一起讓它更公平。");
+    await t("You will give it as a Pecha Kucha: 20 slides, and each slide moves on by itself. You cannot stop and you cannot go back.", "你要用 Pecha Kucha 的形式來講：20 張投影片，每張時間到就自動換頁，不能暫停、不能倒回。");
+    await t("The talk has six parts. Before each part, a card tells you what that part does. Under every slide, a Chinese note tells you what it means.", "這場演講有六個部分。每一段開始前，會有卡片說明這一段在做什麼；每張投影片下面也有一句中文重點。");
+    await t(PRACTICE
+      ? "Today you practise: 30 seconds a slide. You can hear a model reading, redo a slide, and practise as many times as you like. Then try the real 20 seconds!"
+      : "Today is the real thing: 20 seconds a slide. Read out loud and keep going. Let's walk to the Waterfront Theater!",
+      PRACTICE ? "今天先練習：每張 30 秒，可以聽示範朗讀、可以重來一張，想練幾次都可以。練熟了再挑戰正式的 20 秒！" : "今天是正式上場：每張 20 秒。念出聲、不要停。我們走去海濱劇場吧！");
 
-  // ── 2. Walk to the theater ──
-  await walkTo([14, 8], "Waterfront Theater");
+    // ── 2. Walk to the theater ──
+    await walkTo([14, 8], "Waterfront Theater");
+  }
   lin.setPos(...SPOTS.meiTheater); lin.face(27, 5, true);
 
-  // ── 3. Backstage: the talk map ──
+  // ── 3. Backstage: the talk map and a microphone check ──
   await fade(true, 450);
   player.setPos(16.5, 0.9, 5.5); player.face(27, 5.5, true);
   shot([15, 2.4, 9.5], [18, 1.5, 4.5], { instant: true });
   await fade(false, 450);
   await talkMap();
 
-  // ── 4. On stage: 20 slides × 20 seconds ──
+  // ── 4. On stage ──
   shot([27, 5.2, 17.5], [27, 2.4, 4], { k: 1.6 });
   await player.walk(PATHS.stageEntry, { speed: 1.5 });
   player.face(27, 20); audience.forEach(a => a.faceTo(player));
@@ -110,17 +134,19 @@ $("#startBtn").onclick = async () => {
   // ── 5. The one ending ──
   clearInterval(clock);
   const secs = Math.round((performance.now() - S.t0) / 1000);
-  drawScreen("THANK YOU", TALK.title, "Presented by you · 20 slides × 20 seconds", FOOTER);
+  drawScreen("THANK YOU", TALK.title, `Presented by you · 20 slides × ${SLIDE_SEC} seconds`, FOOTER);
   shot([27, 5.2, 17.5], [27, 2.4, 4]); applause(4);
   audience.forEach((a, i) => setTimeout(() => a.play("react"), i * 120)); player.play("idle");
   await wait(2500);
   lin.faceTo(player);
-  await say(LIN, { who: "Ms. Lin", role: "Your teacher", voice: "mei", en: "Wonderful! Twenty slides, twenty seconds each, and you never stopped. That is the Pecha Kucha spirit.", zh: "太棒了！20 張投影片、每張 20 秒，你一次都沒有停下來。這就是 Pecha Kucha 的精神。" });
+  await say(LIN, PRACTICE
+    ? { who: "Ms. Lin", role: "Your teacher", voice: "mei", en: "Good practice! You know the story now: the problem, the good news, the solutions and your ask. Practise again, or try the real 20 seconds.", zh: "練得很好！你已經知道整個故事：問題、好消息、解方，還有你的請求。可以再練一次，或挑戰正式的 20 秒。" }
+    : { who: "Ms. Lin", role: "Your teacher", voice: "mei", en: "Wonderful! Twenty slides, twenty seconds each, and you never stopped. That is the Pecha Kucha spirit.", zh: "太棒了！20 張投影片、每張 20 秒，你一次都沒有停下來。這就是 Pecha Kucha 的精神。" });
   const heard = HEARD.filter(x => x != null); const avg = heard.length ? heard.reduce((a, b) => a + b, 0) / heard.length : null;
-  log("ending", "Your first Pecha Kucha", { key: "first-talk", seconds: secs, heardAvg: avg });
-  finishRun({ ending: "first-talk", metrics: { seconds: secs, level: S.level, slides: SLIDES.length, heardAvg: avg, heard: HEARD, mode: MODE } });
+  log("ending", PRACTICE ? "Practice complete" : "Your first Pecha Kucha", { key: PRACTICE ? "practice" : "formal", seconds: secs, heardAvg: avg, redo: REDO, model: MODEL });
+  finishRun({ ending: PRACTICE ? "practice" : "formal", metrics: { seconds: secs, level: S.level, mode: PRACTICE ? "practice" : "formal", slideSec: SLIDE_SEC, slides: SLIDES.length, heardAvg: avg, heard: HEARD, speech: MODE, redo: REDO, model: MODEL } });
   showEnding(secs);
-};
+}
 
 function mmss(sec) { sec = Math.max(0, Math.round(sec)); return `${Math.floor(sec / 60)}:${String(sec % 60).padStart(2, "0")}`; }
 
@@ -136,7 +162,7 @@ function walkTo([x, z], label) {
 // ── speech: "listen" = live recognition and the big-screen comparison; "read" = read silently ──
 let MODE = detectSpeech() === "browser" ? "listen" : "read";
 const HEARD = [];
-let FAIL_CODE = null;
+let FAIL_CODE = null, REDO = 0, MODEL = 0;
 // Why the browser could not listen, in words a student can act on. iPad Safari hands recognition to
 // Siri / Dictation: with those off it fails at once ("service-not-allowed") and never asks for the microphone.
 const IS_APPLE_TOUCH = /iPad|iPhone|iPod/.test(navigator.userAgent) || (/Macintosh/.test(navigator.userAgent) && navigator.maxTouchPoints > 1);
@@ -177,43 +203,61 @@ function micCheckUI(failCode) {
     log("speech.test", r.text ? "heard" : "silent", { heard: !!r.text });
   };
 }
-// Listen for the whole slide: Chrome ends recognition after a pause, so restart until time is up.
-async function listenSlide(ms, onText) {
+// Listen for the whole slide: Chrome ends recognition after a pause, so restart until time is up
+// (or until `cancel()` says the slide is being redone).
+async function listenSlide(ms, onText, cancelled) {
   const end = performance.now() + ms; let text = "";
-  while (MODE === "listen" && performance.now() < end - 600) {
+  while (MODE === "listen" && !cancelled() && performance.now() < end - 600) {
     const r = await listen(end - performance.now(), t => onText((text + " " + t).trim()));
     if (!r.ok && speechFailed(r.code)) { MODE = "read"; FAIL_CODE = r.code; log("speech.mode", `read only (${r.code})`, { code: r.code }); break; }
     text = (text + " " + (r.text || "")).trim();
   }
   return text;
 }
-// Big screen: the slide's script with the words the audience heard in green and the missed ones in red.
+
+// ── wrapping text on the big screen (handles Chinese, which has no spaces) ──
+function wrapText(g, text, x, y, maxW, lh, maxY) {
+  const units = /[㐀-鿿]/.test(text) ? [...text] : text.split(/(\s+)/);
+  let line = "";
+  for (const u of units) {
+    if (g.measureText(line + u).width > maxW && line.trim()) { g.fillText(line.trim(), x, y); y += lh; line = u.trimStart(); if (y > maxY) return y; }
+    else line += u;
+  }
+  if (line.trim()) g.fillText(line.trim(), x, y);
+  return y + lh;
+}
+// Big screen: the percentage heard, the script with heard words green and missed ones red, and the gist.
 function drawHeard(n, s, cov) {
   const g = screenCanvas.getContext("2d"); const W = 1024, Hh = 576, pct = Math.round(cov.ratio * 100);
   const tone = pct >= 70 ? "#5fc79b" : pct >= 40 ? "#ffc54d" : "#ff7466";
   const gr = g.createLinearGradient(0, 0, W, Hh); gr.addColorStop(0, "#101c28"); gr.addColorStop(1, "#1d3246");
   g.fillStyle = gr; g.fillRect(0, 0, W, Hh);
-  g.fillStyle = "#fd6925"; g.font = "600 28px 'Chakra Petch', sans-serif"; g.fillText(`SLIDE ${n} / ${SLIDES.length} · WHAT THE AUDIENCE HEARD`, 56, 108);
-  g.fillStyle = tone; g.font = "700 96px 'Chakra Petch', sans-serif"; g.fillText(`${pct}%`, 56, 212);
-  g.fillStyle = "#cfd8e0"; g.font = "500 26px 'Manrope', sans-serif"; g.fillText(s.title, 300, 150);
-  g.fillStyle = "#2a3d4d"; g.fillRect(300, 170, 660, 18); g.fillStyle = tone; g.fillRect(300, 170, 660 * cov.ratio, 18);
+  g.fillStyle = "#fd6925"; g.font = "600 26px 'Chakra Petch', sans-serif"; g.fillText(`SLIDE ${n} / ${SLIDES.length} · WHAT THE AUDIENCE HEARD`, 56, 100);
+  g.fillStyle = tone; g.font = "700 84px 'Chakra Petch', sans-serif"; g.fillText(`${pct}%`, 56, 192);
+  g.fillStyle = "#cfd8e0"; g.font = "500 24px 'Manrope', sans-serif"; g.fillText(s.title, 290, 140);
+  g.fillStyle = "#2a3d4d"; g.fillRect(290, 158, 670, 16); g.fillStyle = tone; g.fillRect(290, 158, 670 * cov.ratio, 16);
   const hit = new Set(cov.hit.map(w => w.toLowerCase())), miss = new Set(cov.miss.map(w => w.toLowerCase()));
-  g.font = "500 30px 'Manrope', sans-serif"; let x = 56, y = 282; const maxX = W - 56, lh = 44;
+  g.font = "500 27px 'Manrope', sans-serif"; let x = 56, y = 252; const maxX = W - 56, lh = 38;
   for (const w of s.text[S.level].split(/\s+/)) {
     const k = w.toLowerCase().replace(/[^a-z0-9'’-]/g, "");
     g.fillStyle = hit.has(k) ? "#5fc79b" : miss.has(k) ? "#ff7466" : "#8fa3b3";
-    const ww = g.measureText(w + " ").width; if (x + ww > maxX) { x = 56; y += lh; } if (y > Hh - 70) break;
+    const ww = g.measureText(w + " ").width; if (x + ww > maxX) { x = 56; y += lh; } if (y > 400) break;
     g.fillText(w, x, y); x += ww;
   }
-  g.fillStyle = "#8fa3b3"; g.font = "500 22px 'Chakra Petch', sans-serif"; g.fillText("GREEN = HEARD · RED = MISSED · " + FOOTER, 56, 540);
+  const gist = GUIDE[s.no]?.zh;
+  if (gist) { g.fillStyle = "#ffc54d"; g.font = "500 26px 'Noto Sans TC', 'Microsoft JhengHei', sans-serif"; wrapText(g, "重點：" + gist, 56, Math.max(y + 56, 446), W - 112, 36, 500); }
+  g.fillStyle = "#8fa3b3"; g.font = "500 20px 'Chakra Petch', sans-serif"; g.fillText("GREEN = HEARD · RED = MISSED · " + FOOTER, 56, 552);
   screenTex.needsUpdate = true;
 }
 
 function talkMap() {
   return new Promise(res => {
+    $("#mapThesis").innerHTML = `<b>Your message 你的主張</b>${esc(THESIS.en)}<span>${esc(THESIS.zh)}</span>`;
     $("#mapList").innerHTML = TALK.stages.map(st => `
       <li><div class="mp-head"><b>Part ${st.part} · ${esc(st.en)}</b><span>${esc(st.zh)}</span><em>${st.slides.length} slides · ${st.slides.length * SLIDE_SEC} s</em></div>
+        <p class="mp-what">${esc(PARTS[st.part].zh)}</p>
         <ol start="${st.slides[0].no}">${st.slides.map(s => `<li>${esc(s.title)}</li>`).join("")}</ol></li>`).join("");
+    $("#mapPace").textContent = PRACTICE ? `練習：每張 ${SLIDE_SEC} 秒，可聽示範、可重來一張` : `正式：每張 ${SLIDE_SEC} 秒，不能暫停、不能倒回`;
     $("#map").hidden = false;
     log("map.open", "talk map");
     micCheckUI();
@@ -221,8 +265,37 @@ function talkMap() {
   });
 }
 
+// Key words underlined in the script; each guide entry is "form|form" and matches whole words.
+function markKeywords(text, kws) {
+  let html = esc(text);
+  for (const [forms] of kws) {
+    const re = new RegExp(`\\b(${forms.split("|").map(f => f.replace(/[.*+?^${}()[\]\\]/g, "\\$&").replace(/\s+/g, "\\s+")).join("|")})\\b`, "gi");
+    html = html.replace(re, "<u>$1</u>");
+  }
+  return html;
+}
+
+// Part card: what this part does in the talk and the language it uses (pauses the slide clock).
+function partCard(st) {
+  const tele = $("#tele"); tele.classList.add("partmode");
+  const p = PARTS[st.part];
+  $("#telePartCard").innerHTML = `<small>Part ${st.part} of 6 · ${st.slides.length} slides</small>
+    <h3>${esc(st.en)} <span>${esc(st.zh)}</span></h3><p class="pc-what">${esc(p.zh)}</p><p class="pc-lang"><b>語言重點</b>${esc(p.lang)}</p>
+    <div class="row"><button class="btn" id="partGo" type="button">Start this part ▸</button><span class="count" id="partSec"></span></div>`;
+  log("pk.part", `part ${st.part} ${st.en}`, { part: st.part });
+  return new Promise(res => {
+    let left = partSec();
+    const tick = () => { $("#partSec").textContent = `${left} s`; if (left-- <= 0) go(); };
+    const timer = setInterval(tick, 1000); tick();
+    function go() { clearInterval(timer); tele.classList.remove("partmode"); res(); }
+    $("#partGo").onclick = go;
+  });
+}
+
 async function present() {
   const tele = $("#tele"); tele.hidden = false;
+  tele.classList.toggle("practice", PRACTICE);
+  $("#teleThesis").innerHTML = `<b>Your message</b> ${esc(THESIS.en)}${hint(THESIS.zh)}`;
   $("#teleParts").innerHTML = TALK.stages.map((st, i) => `<span data-i="${i}" title="${esc(st.zh)}">${st.part} ${esc(st.en)}</span>`).join("");
   // Camera angles that never look through the audience tiers (they start at z 8.5): a high wide shot
   // from behind the back row, a stage-wing shot, and a close front shot from the stage edge.
@@ -232,51 +305,71 @@ async function present() {
     () => frontShot(player, { dist: 2.4, height: 0.45, side: 0.5 }),
     () => shot([36.5, 2.6, 7.2], [26, 0.4, 4.5]),
   ];
-  player.play("talk");
   let lastStage = -1;
   for (const [i, s] of SLIDES.entries()) {
     S.stage = s.si;
     if (s.si !== lastStage) {
       lastStage = s.si;
       $("#teleParts").querySelectorAll("span").forEach(x => { const k = +x.dataset.i; x.className = k < s.si ? "done" : k === s.si ? "now" : ""; });
-      tele.classList.remove("newpart"); void tele.offsetWidth; tele.classList.add("newpart");
+      drawScreen(`PART ${s.stage.part} OF 6`, s.stage.en, PARTS[s.stage.part].lang, FOOTER);
+      player.play("idle"); shots[0]();
       if (i) audience.forEach((a, k) => setTimeout(() => a.play("react"), k * 90));
+      await partCard(s.stage);
     }
-    drawScreen(`SLIDE ${i + 1} / ${SLIDES.length}`, s.title, `Part ${s.stage.part} · ${s.stage.en}`, FOOTER);
-    shots[(i * 2) % shots.length]();
-    $("#teleCount").textContent = `${i + 1} / ${SLIDES.length}`;
-    $("#telePart").textContent = `Part ${s.stage.part} · ${s.stage.en}`;
-    $("#teleTitle").innerHTML = esc(s.title) + hint(s.zh);
-    $("#teleText").textContent = s.text[S.level];
-    $("#teleText").scrollTop = 0;
-    $("#teleHeard").textContent = MODE === "listen" ? "🎙 …" : "";
-    const t0 = performance.now(); let cut = false;
-    const heardP = MODE === "listen" ? listenSlide(SLIDE_SEC * 1000, txt => { $("#teleHeard").textContent = "🎙 " + (txt.length > 110 ? "…" + txt.slice(-110) : txt); }) : Promise.resolve(null);
-    await new Promise(done => {
-      const tick = setInterval(() => {
-        const el = (performance.now() - t0) / 1000;
-        $("#teleSec").textContent = Math.max(0, Math.ceil(SLIDE_SEC - el));
-        $("#teleBar").style.width = Math.min(100, el / SLIDE_SEC * 100) + "%";
-        if (!cut && el > SLIDE_SEC / 2) { cut = true; shots[(i * 2 + 1) % shots.length](); }
-        if (el >= SLIDE_SEC) { clearInterval(tick); done(); }
-      }, 100);
-    });
-    listen.stop && listen.stop();
-    const said = await heardP;
-    if (said != null && MODE === "listen") {
-      // the comparison goes up on the big screen, then the camera returns to the speaker for the next slide
-      const cov = coverage(s.text[S.level], said); HEARD[i] = cov.ratio;
-      log("pk.slide", `slide ${s.no} (${s.stage.en}) heard ${Math.round(cov.ratio * 100)}%`, { slide: s.no, part: s.stage.part, heard: cov.ratio, missed: cov.miss.slice(0, 8) });
-      drawHeard(i + 1, s, cov); tele.hidden = true; player.play("idle");
-      shot([27, 5.6, 16], [27, 5.9, 2.2]);
-      if (cov.ratio >= 0.7) audience.forEach((a, k) => k % 3 === 0 && a.play("react"));
-      await wait(RESULT_SEC * 1000);
-      tele.hidden = false; player.play("talk");
-    } else {
-      HEARD[i] = null;
-      log("pk.slide", `slide ${s.no} (${s.stage.en})`, { slide: s.no, part: s.stage.part });
+    const g = GUIDE[s.no] || { zh: "", kw: [] };
+    for (;;) { // one slide; practice can redo it or hear the model first
+      drawScreen(`SLIDE ${i + 1} / ${SLIDES.length}`, s.title, `Part ${s.stage.part} · ${s.stage.en}`, FOOTER);
+      shots[(i * 2) % shots.length](); player.play("talk");
+      $("#teleCount").textContent = `${i + 1} / ${SLIDES.length}`;
+      $("#telePart").textContent = `Part ${s.stage.part} · ${s.stage.en}`;
+      $("#teleTitle").innerHTML = esc(s.title) + hint(s.zh);
+      $("#teleText").innerHTML = markKeywords(s.text[S.level], g.kw);
+      $("#teleText").scrollTop = 0;
+      $("#teleGist").textContent = g.zh ? "重點：" + g.zh : "";
+      $("#teleKw").innerHTML = g.kw.filter(([forms]) => new RegExp(`\\b(${forms.split("|").join("|")})\\b`, "i").test(s.text[S.level]))
+        .map(([forms, zh]) => `<span><b>${esc(forms.split("|").find(f => new RegExp(`\\b${f}\\b`, "i").test(s.text[S.level])) || forms.split("|")[0])}</b> ${esc(zh)}</span>`).join("");
+      $("#teleHeard").textContent = MODE === "listen" ? "🎙 …" : "";
+      let action = null; const t0 = performance.now(); let cut = false;
+      const heardP = MODE === "listen" ? listenSlide(SLIDE_SEC * 1000, txt => { $("#teleHeard").textContent = "🎙 " + (txt.length > 110 ? "…" + txt.slice(-110) : txt); }, () => !!action) : Promise.resolve(null);
+      await new Promise(done => {
+        const stop = a => { action = a; clearInterval(tick); done(); };
+        $("#teleRedo").onclick = () => stop("redo");
+        $("#teleModel").onclick = () => stop("model");
+        const tick = setInterval(() => {
+          const el = (performance.now() - t0) / 1000;
+          $("#teleSec").textContent = Math.max(0, Math.ceil(SLIDE_SEC - el));
+          $("#teleBar").style.width = Math.min(100, el / SLIDE_SEC * 100) + "%";
+          if (!cut && el > SLIDE_SEC / 2) { cut = true; shots[(i * 2 + 1) % shots.length](); }
+          if (el >= SLIDE_SEC) stop("done");
+        }, 100);
+      });
+      listen.stop && listen.stop();
+      const said = await heardP;
+      if (action === "redo") { REDO++; log("pk.redo", `slide ${s.no}`, { slide: s.no }); continue; }
+      if (action === "model") {
+        // the model reads the slide (nobody is listening meanwhile), then the student tries it fresh
+        MODEL++; log("pk.model", `slide ${s.no}`, { slide: s.no });
+        player.play("idle"); $("#teleHeard").textContent = "🔊 示範朗讀中… Listen to the model"; $("#teleSec").textContent = "—";
+        await speak(s.text[S.level], "speaker");
+        continue;
+      }
+      if (said != null && MODE === "listen") {
+        // the comparison goes up on the big screen, then the camera returns to the speaker for the next slide
+        const cov = coverage(s.text[S.level], said); HEARD[i] = cov.ratio;
+        log("pk.slide", `slide ${s.no} (${s.stage.en}) heard ${Math.round(cov.ratio * 100)}%`, { slide: s.no, part: s.stage.part, heard: cov.ratio, missed: cov.miss.slice(0, 8) });
+        drawHeard(i + 1, s, cov); tele.hidden = true; player.play("idle");
+        shot([27, 5.6, 16], [27, 5.9, 2.2]);
+        if (cov.ratio >= 0.7) audience.forEach((a, k) => k % 3 === 0 && a.play("react"));
+        await wait(RESULT_SEC * 1000);
+        tele.hidden = false;
+      } else {
+        HEARD[i] = null;
+        log("pk.slide", `slide ${s.no} (${s.stage.en})`, { slide: s.no, part: s.stage.part });
+      }
+      break;
     }
   }
+  stopSpeaking();
   tele.hidden = true;
 }
 
@@ -291,11 +384,13 @@ function heardBlock() {
 }
 
 function showEnding(secs) {
-  const card = TALK.stages.map(st => `<li><b>${esc(st.en)}</b> ${esc(st.zh)}</li>`).join("");
+  const again = mode => `?quick=1&mode=${mode}&lv=${S.level}`;
+  const card = TALK.stages.map(st => `<li><b>${esc(st.en)}</b> ${esc(PARTS[st.part].zh.split("：")[0].split("，")[0])}</li>`).join("");
   $("#endCard").innerHTML = `
-    <span class="kicker">SDG 4 · Pecha Kucha Stage</span>
-    <h2 class="ending-title">Your First Pecha Kucha</h2>
-    <p>You presented <strong>${esc(TALK.title)}</strong> at level ${S.level}: ${SLIDES.length} slides × ${SLIDE_SEC} seconds, and the slides never waited for you.${hint("你完成了「台灣的優質教育」演講：20 張投影片、每張 20 秒，一次都沒有停。")}</p>
+    <span class="kicker">SDG 4 · Pecha Kucha Stage · ${PRACTICE ? "練習 Practice" : "正式 Formal"}</span>
+    <h2 class="ending-title">${PRACTICE ? "Practice complete" : "Your First Pecha Kucha"}</h2>
+    <p>You presented <strong>${esc(TALK.title)}</strong> at level ${S.level}: ${SLIDES.length} slides × ${SLIDE_SEC} seconds.${PRACTICE ? ` You redid ${REDO} slide${REDO === 1 ? "" : "s"} and heard the model ${MODEL} time${MODEL === 1 ? "" : "s"}.` : " The slides never waited for you."}${hint(PRACTICE ? "練習完成。熟了就挑戰正式的 20 秒。" : "你完成了正式的 Pecha Kucha：20 張投影片、每張 20 秒，一次都沒有停。")}</p>
+    <div class="thesis-end"><b>Your message 你的主張</b>${esc(THESIS.en)}<span>${esc(THESIS.zh)}</span></div>
     <div class="sum">
       <div><small>Slides</small><b>${SLIDES.length}</b></div>
       <div><small>Talk time</small><b>${mmss(SLIDES.length * SLIDE_SEC)}</b></div>
@@ -307,13 +402,14 @@ function showEnding(secs) {
       <li><b>20 × 20.</b> Short and focused: every slide gets the same 20 seconds.${hint("短而聚焦：每張投影片都只有 20 秒。")}</li>
       <li><b>Keep going.</b> The slides move on their own; there is no pause and no going back.${hint("投影片自動換頁，不能暫停也不能倒回。")}</li>
       <li><b>One idea per slide.</b> Tell a story with pictures, not a wall of text.${hint("每張一個重點，用圖說故事，不是念一大段字。")}</li>
-      <li><b>Six parts.</b>${hint("六個部分")}<ol class="parts">${card}</ol></li>
+      <li><b>Six parts.</b>${hint("這套教材的六段結構（Pecha Kucha 本身只規定 20 × 20）")}<ol class="parts">${card}</ol></li>
     </ul>
     <div class="row">
-      <button class="btn" type="button" id="again">Present again ▸</button>
+      ${PRACTICE
+        ? `<a class="btn" href="${again("practice")}">Practise again 再練一次 ▸</a><a class="btn ghost" href="${again("formal")}">Try the real 20 s 挑戰正式</a>`
+        : `<a class="btn" href="${again("formal")}">Present again 再挑戰一次 ▸</a><a class="btn ghost" href="${again("practice")}">Back to practice 回到練習</a>`}
       <a class="btn ghost" href="/pages/pecha_kucha_builder.html?topic=4-1&level=${S.level}">Practise with the card game</a>
       <a class="btn ghost" href="/pages/member_index.html">Back to games</a>
     </div>`;
   $("#ending").hidden = false;
-  $("#again").onclick = () => location.reload();
 }

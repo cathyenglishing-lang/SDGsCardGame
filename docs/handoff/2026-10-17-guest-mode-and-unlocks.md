@@ -88,3 +88,13 @@
 ## 9. 已知風險
 
 - 3D 遊戲從 jsDelivr CDN 載入 three.js。測試時遇過一次 CDN 卡住，畫面停在「0%」且沒有任何提示；重試後正常。建議之後把 three.js 放進專案自己的檔案，或加上載入逾時提示。
+
+## 10. SDG 4 Stage：理解輔助、練習／正式模式（同日追加）
+
+使用者回饋：「念好快，念完不知道自己在幹嘛，連文章在講什麼都不知道」，並問「你真的有對應 Pecha Kucha 的階段嗎？」，之後要求「讓他們一直練習再正式」。
+
+- **關於「階段」**：Pecha Kucha 本身只規定 20 張 × 20 秒。六段（Introduction／Problem／Achievements／Solutions／Implications／Call to action，3/3/3/3/4/4）是本教材的演講範本（`new-mission-playbook.md`）。SDG 4 Stage 依教材資料正確分段；故事編輯器的六段名稱已改成這套。**未處理**：公司端 Innovation Harbor 用另一套名稱（Hook／Problem／Explain／Impact／Strategy／Conclusion），而且舊題庫 9-1 只有 12 張投影片，不是 20 × 20。
+- **理解輔助**（`js/sdg4/guide.js`，Claude 撰寫）：演講主張（中英）、六段開場卡（這段在這場演講做什麼＋語言重點，開場卡期間不計時）、每張投影片一句中文重點與 2–3 個關鍵字（講稿中有出現才加底線）；大螢幕比對畫面也顯示中文重點。林老師開場改為先講情境（你是誰、對誰說、想改變什麼）。
+- **練習／正式**：開場選擇。練習每張 30 秒，可「示範朗讀」（念完後這張重新開始）與「這張重來」；正式每張 20 秒，沒有這兩個按鈕。結局可「再練一次」或「挑戰正式」，以 `?quick=1&mode=practice|formal&lv=` 直接回到後台，不重走開場。
+- 記錄：`run.start` 與 `finishRun` 帶 `mode`、`slideSec`、`redo`、`model` 次數；`pk.part`、`pk.redo`、`pk.model` 事件。
+- 測試：練習（1366×800、390×844）與正式（820×1180、1024×768）完整流程；B2 的 20 張在手機、平板、桌機都不需捲動。

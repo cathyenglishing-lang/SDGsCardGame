@@ -63,3 +63,36 @@
 #endCard .bars i.low { background: var(--bad); }
 .mic-steps { margin: 0; padding-left: 1.4em; color: var(--paper); line-height: 1.7; font-family: var(--f-zh); font-size: .92rem; }
 .mic-note { margin: 0; color: var(--muted); font-size: .78rem; }
+/* comprehension aids */
+.tele-thesis { font-size: .8rem; color: var(--muted); line-height: 1.45; border-left: 3px solid var(--signal); padding-left: 8px; }
+.tele-thesis b { color: var(--signal); font-family: var(--f-display); margin-right: 4px; }
+.tele-slide { display: flex; flex-direction: column; gap: 6px; min-height: 0; }
+.tele-text u { text-decoration-color: var(--signal); text-decoration-thickness: 2px; text-underline-offset: 4px; }
+.tele-gist { margin: 0; font-family: var(--f-zh); font-size: clamp(.95rem, 1.9vw, 1.1rem); line-height: 1.6; color: var(--signal); }
+.tele-kw { margin: 0; display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: .82rem; color: var(--muted); font-family: var(--f-zh); }
+.tele-kw b { color: var(--paper); font-family: var(--f-body); margin-right: 4px; }
+.tele-tools { display: none; gap: 6px; }
+.tele.practice .tele-tools { display: inline-flex; }
+.tele-tools .btn { padding: 4px 10px; font-size: .8rem; }
+.tele-partcard { display: none; }
+.tele.partmode .tele-slide { display: none; }
+.tele.partmode .tele-partcard { display: grid; gap: 8px; }
+.tele-partcard small { font-family: var(--f-display); color: var(--muted); letter-spacing: .06em; }
+.tele-partcard h3 { margin: 0; font-family: var(--f-display); font-size: clamp(1.3rem, 3vw, 1.8rem); color: var(--paper); }
+.tele-partcard h3 span { font-family: var(--f-zh); font-size: .7em; color: var(--muted); margin-left: 8px; }
+.pc-what { margin: 0; font-family: var(--f-zh); font-size: clamp(1rem, 2vw, 1.15rem); line-height: 1.7; color: var(--paper); }
+.pc-lang { margin: 0; font-size: .9rem; color: var(--muted); }
+.pc-lang b { color: var(--signal); margin-right: 8px; font-family: var(--f-zh); }
+.map-thesis, .thesis-end { border-left: 3px solid var(--signal); padding: 4px 0 4px 10px; color: var(--paper); line-height: 1.6; display: grid; }
+.map-thesis b, .thesis-end b { color: var(--signal); font-family: var(--f-display); font-size: .85rem; }
+.map-thesis span, .thesis-end span { color: var(--muted); font-family: var(--f-zh); font-size: .9rem; }
+.mp-what { margin: 4px 0 0; color: var(--paper); font-family: var(--f-zh); font-size: .85rem; line-height: 1.55; }
+.lv.mode button b { font-size: 1rem; }
+@media (max-width: 760px) {
+  .tele { max-height: 74vh; gap: 6px; }
+  .tele-thesis { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .tele-thesis .zh-hint { display: none; } /* the full bilingual message is on the talk map and the ending */
+  .tele-text { font-size: 1rem; line-height: 1.55; }
+  .tele-gist { font-size: .92rem; line-height: 1.5; }
+  .tele-heard { font-size: .78rem; }
+}
