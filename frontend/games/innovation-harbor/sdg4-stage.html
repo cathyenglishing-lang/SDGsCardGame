@@ -35,7 +35,8 @@
     <div class="tele-bar"><i id="teleBar"></i></div>
     <h3 id="teleTitle"></h3>
     <p class="tele-text" id="teleText"></p>
-    <p class="tele-note">Read along, silently or out loud. The slide changes by itself. 跟著讀，默念或念出聲都可以；投影片會自動換頁。</p>
+    <p class="tele-heard" id="teleHeard" aria-live="off"></p>
+    <p class="tele-note">Read it out loud. The slide changes by itself, and the big screen shows what the audience heard. 念出聲；投影片自動換頁，大螢幕會顯示觀眾聽到多少。</p>
   </section>
 
   <div class="cover" id="map" hidden>
@@ -44,6 +45,7 @@
       <p>Six parts, twenty slides. Look at the shape of the story before you go on stage.
         <span class="zh-hint"><button class="zh-btn" type="button" aria-label="Show Chinese hint">中</button><span class="zh-text" hidden>六個部分、二十張投影片。上台前先看一下整個故事的結構。</span></span></p>
       <ul class="maplist" id="mapList"></ul>
+      <div class="miccheck" id="micCheck"></div>
       <div class="row"><button class="btn" id="mapGo" type="button">Go on stage ▸</button><span class="count">6 min 40 s · no pause, no going back</span></div>
     </div>
   </div>
@@ -60,14 +62,14 @@
       <h1><span>SDG 4 · PECHA KUCHA STAGE</span>Quality Education in Taiwan</h1>
       <p>Today you give your first <strong>Pecha Kucha</strong> talk: <strong>20 slides, 20 seconds each</strong>. Your teacher explains the rules on the pier, you walk to the Waterfront Theater, and then you read the whole talk on stage while the slides move on by themselves.
         <span class="zh-hint"><button class="zh-btn" type="button" aria-label="Show Chinese hint">中</button><span class="zh-text" hidden>今天你要完成第一場 Pecha Kucha 演講：20 張投影片，每張 20 秒。老師會在碼頭說明規則，接著你走到海濱劇場，上台把整篇講稿讀完，投影片會自動換頁。</span></span></p>
-      <p>No quizzes and no scores. Just read, keep going, and feel the rhythm.
-        <span class="zh-hint"><button class="zh-btn" type="button" aria-label="Show Chinese hint">中</button><span class="zh-text" hidden>沒有測驗、沒有分數。專心讀、不停下來，感受 Pecha Kucha 的節奏。</span></span></p>
+      <p>No quizzes and no scores. Read each slide out loud, keep going, and watch the big screen show what the audience heard.
+        <span class="zh-hint"><button class="zh-btn" type="button" aria-label="Show Chinese hint">中</button><span class="zh-text" hidden>沒有測驗、沒有分數。每張念出聲、不停下來，大螢幕會顯示觀眾聽到了多少。</span></span></p>
       <div class="lv" id="lvPick">
         <button type="button" data-lv="A2" aria-pressed="true"><b>A2</b><small>基礎 Elementary</small></button>
         <button type="button" data-lv="B1" aria-pressed="false"><b>B1</b><small>進階 Intermediate</small></button>
         <button type="button" data-lv="B2" aria-pressed="false"><b>B2</b><small>高階 Upper-intermediate</small></button>
       </div>
-      <div class="row"><button class="btn" id="startBtn" type="button">Start ▸</button><span class="count">about 9 minutes · one story · 中 shows a Chinese hint</span></div>
+      <div class="row"><button class="btn" id="startBtn" type="button">Start ▸</button><span class="count">about 10 minutes · Chrome or Edge with a microphone · 中 shows a Chinese hint</span></div>
     </div>
   </div>
   <div class="cover" id="ending" hidden><div class="card" id="endCard"></div></div>

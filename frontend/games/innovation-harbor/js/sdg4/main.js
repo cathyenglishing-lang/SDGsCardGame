@@ -3,7 +3,7 @@
 // Theater and reads the full SDG 4-1 talk on stage while the 20 slides advance every 20 seconds.
 // No quizzes, scores or choices. Reuses the Innovation Harbor world (scene, cast, camera, roaming).
 import { quality, manager, setMood, start, addUpdate } from "../world/scene.js";
-import { buildHarbor, SPOTS, H, drawScreen, PATHS } from "../world/harbor.js";
+import { buildHarbor, SPOTS, H, drawScreen, PATHS, screenCanvas, screenTex } from "../world/harbor.js";
 import { buildDressing } from "../world/dressing.js";
 import { buildTraffic } from "../world/traffic.js";
 import { lanyard, dressRandom } from "../world/outfits.js";
@@ -17,11 +17,14 @@ import { log, startRun, finishRun } from "../telemetry.js";
 import { S } from "../state.js";
 import { $, esc, wait, pick, rand } from "../util.js";
 import { startAmbience, setMuted, isMuted, applause } from "../audio.js";
-import { getRate, cycleRate } from "../speech.js";
+import { getRate, cycleRate, listen, detectSpeech, speechFailed } from "../speech.js";
+import { coverage } from "../vocab.js";
 import { accountAvatar } from "../account.js";
 import { TALK } from "./talk.js";
 
-const SLIDE_SEC = new URLSearchParams(location.search).has("fast") ? 2 : 20; // ?fast=1: test aid only
+const FAST = new URLSearchParams(location.search).has("fast"); // ?fast=1: test aid only
+const SLIDE_SEC = FAST ? 2 : 20;
+const RESULT_SEC = FAST ? 1 : 3; // the big screen shows what the audience heard between slides
 const FOOTER = "SDG 4 · QUALITY EDUCATION";
 const SLIDES = TALK.stages.flatMap((st, si) => st.slides.map(s => ({ ...s, stage: st, si })));
 
@@ -84,7 +87,7 @@ $("#startBtn").onclick = async () => {
   await t("Welcome! Today you will give your first Pecha Kucha talk. The topic is SDG 4, Quality Education in Taiwan.", "歡迎！今天你要完成第一場 Pecha Kucha 演講，主題是 SDG 4：台灣的優質教育。");
   await t("Pecha Kucha means \"chit-chat\" in Japanese. The rule is simple: 20 slides, 20 seconds each. That is only 6 minutes and 40 seconds.", "Pecha Kucha 是日文「閒聊」的意思。規則很簡單：20 張投影片，每張 20 秒，總共只有 6 分 40 秒。");
   await t("The slides change by themselves. You cannot stop, and you cannot go back. If you miss a word, just keep going.", "投影片會自動換頁，不能暫停、不能倒回。漏掉一個字也沒關係，繼續往下講。");
-  await t("Each slide is one picture and one idea. You tell a story. You do not read a wall of text.", "每張投影片只有一張圖、一個重點。你是在說故事，不是念一大段文字。");
+  await t("Read each slide out loud. One slide, one idea. After each slide, the big screen shows how much of it the audience heard.", "每張投影片都要念出聲，一張一個重點。每張念完，大螢幕會顯示觀眾聽到了多少。");
   await t("A good talk has six parts: Introduction, Problem, Achievements, Solutions, Implications, and a Call to action. Your talk is ready. Let's walk to the Waterfront Theater!", "一場好的演講有六個部分：引言、問題、成就、解方、影響、行動呼籲。講稿已經準備好了，我們走去海濱劇場吧！");
 
   // ── 2. Walk to the theater ──
@@ -113,8 +116,9 @@ $("#startBtn").onclick = async () => {
   await wait(2500);
   lin.faceTo(player);
   await say(LIN, { who: "Ms. Lin", role: "Your teacher", voice: "mei", en: "Wonderful! Twenty slides, twenty seconds each, and you never stopped. That is the Pecha Kucha spirit.", zh: "太棒了！20 張投影片、每張 20 秒，你一次都沒有停下來。這就是 Pecha Kucha 的精神。" });
-  log("ending", "Your first Pecha Kucha", { key: "first-talk", seconds: secs });
-  finishRun({ ending: "first-talk", metrics: { seconds: secs, level: S.level, slides: SLIDES.length } });
+  const heard = HEARD.filter(x => x != null); const avg = heard.length ? heard.reduce((a, b) => a + b, 0) / heard.length : null;
+  log("ending", "Your first Pecha Kucha", { key: "first-talk", seconds: secs, heardAvg: avg });
+  finishRun({ ending: "first-talk", metrics: { seconds: secs, level: S.level, slides: SLIDES.length, heardAvg: avg, heard: HEARD, mode: MODE } });
   showEnding(secs);
 };
 
@@ -129,6 +133,54 @@ function walkTo([x, z], label) {
   });
 }
 
+// ── speech: "listen" = live recognition and the big-screen comparison; "read" = read silently ──
+let MODE = detectSpeech() === "browser" ? "listen" : "read";
+const HEARD = [];
+function micCheckUI() {
+  const box = $("#micCheck");
+  if (MODE !== "listen") { box.innerHTML = `<p class="mic-off">This browser cannot hear you, so you will read silently and the big screen will not compare. Chrome or Edge on a computer works best. ${hint("這個瀏覽器無法辨識語音，會改成默讀模式，大螢幕不做比對。建議使用電腦版 Chrome 或 Edge。")}</p>`; return; }
+  box.innerHTML = `<div class="row"><button class="btn ghost" id="micTest" type="button">🎙 Test my microphone</button><span class="count" id="micState">Say: “Hello everyone, today I will talk about SDG 4.”</span></div><p class="mic-heard" id="micHeard"></p>`;
+  $("#micTest").onclick = async () => {
+    $("#micTest").disabled = true; $("#micState").textContent = "Listening… 正在聽";
+    const r = await listen(6000, t => { $("#micHeard").textContent = t; if (t.split(/\s+/).length >= 3) listen.stop && listen.stop(); });
+    $("#micTest").disabled = false;
+    if (!r.ok && speechFailed(r.code)) { MODE = "read"; log("speech.mode", `read only (${r.code})`); micCheckUI(); return; }
+    $("#micState").textContent = r.text ? "✓ The audience can hear you. 觀眾聽得到你。" : "Nothing heard. Check the microphone and try again. 沒有聽到聲音，請檢查麥克風再試一次。";
+    log("speech.test", r.text ? "heard" : "silent", { heard: !!r.text });
+  };
+}
+// Listen for the whole slide: Chrome ends recognition after a pause, so restart until time is up.
+async function listenSlide(ms, onText) {
+  const end = performance.now() + ms; let text = "";
+  while (MODE === "listen" && performance.now() < end - 600) {
+    const r = await listen(end - performance.now(), t => onText((text + " " + t).trim()));
+    if (!r.ok && speechFailed(r.code)) { MODE = "read"; log("speech.mode", `read only (${r.code})`); break; }
+    text = (text + " " + (r.text || "")).trim();
+  }
+  return text;
+}
+// Big screen: the slide's script with the words the audience heard in green and the missed ones in red.
+function drawHeard(n, s, cov) {
+  const g = screenCanvas.getContext("2d"); const W = 1024, Hh = 576, pct = Math.round(cov.ratio * 100);
+  const tone = pct >= 70 ? "#5fc79b" : pct >= 40 ? "#ffc54d" : "#ff7466";
+  const gr = g.createLinearGradient(0, 0, W, Hh); gr.addColorStop(0, "#101c28"); gr.addColorStop(1, "#1d3246");
+  g.fillStyle = gr; g.fillRect(0, 0, W, Hh);
+  g.fillStyle = "#fd6925"; g.font = "600 28px 'Chakra Petch', sans-serif"; g.fillText(`SLIDE ${n} / ${SLIDES.length} · WHAT THE AUDIENCE HEARD`, 56, 108);
+  g.fillStyle = tone; g.font = "700 96px 'Chakra Petch', sans-serif"; g.fillText(`${pct}%`, 56, 212);
+  g.fillStyle = "#cfd8e0"; g.font = "500 26px 'Manrope', sans-serif"; g.fillText(s.title, 300, 150);
+  g.fillStyle = "#2a3d4d"; g.fillRect(300, 170, 660, 18); g.fillStyle = tone; g.fillRect(300, 170, 660 * cov.ratio, 18);
+  const hit = new Set(cov.hit.map(w => w.toLowerCase())), miss = new Set(cov.miss.map(w => w.toLowerCase()));
+  g.font = "500 30px 'Manrope', sans-serif"; let x = 56, y = 282; const maxX = W - 56, lh = 44;
+  for (const w of s.text[S.level].split(/\s+/)) {
+    const k = w.toLowerCase().replace(/[^a-z0-9'’-]/g, "");
+    g.fillStyle = hit.has(k) ? "#5fc79b" : miss.has(k) ? "#ff7466" : "#8fa3b3";
+    const ww = g.measureText(w + " ").width; if (x + ww > maxX) { x = 56; y += lh; } if (y > Hh - 70) break;
+    g.fillText(w, x, y); x += ww;
+  }
+  g.fillStyle = "#8fa3b3"; g.font = "500 22px 'Chakra Petch', sans-serif"; g.fillText("GREEN = HEARD · RED = MISSED · " + FOOTER, 56, 540);
+  screenTex.needsUpdate = true;
+}
+
 function talkMap() {
   return new Promise(res => {
     $("#mapList").innerHTML = TALK.stages.map(st => `
@@ -136,7 +188,8 @@ function talkMap() {
         <ol start="${st.slides[0].no}">${st.slides.map(s => `<li>${esc(s.title)}</li>`).join("")}</ol></li>`).join("");
     $("#map").hidden = false;
     log("map.open", "talk map");
-    $("#mapGo").onclick = () => { $("#map").hidden = true; res(); };
+    micCheckUI();
+    $("#mapGo").onclick = () => { $("#map").hidden = true; listen.stop && listen.stop(); res(); };
   });
 }
 
@@ -168,8 +221,9 @@ async function present() {
     $("#teleTitle").innerHTML = esc(s.title) + hint(s.zh);
     $("#teleText").textContent = s.text[S.level];
     $("#teleText").scrollTop = 0;
-    log("pk.slide", `slide ${s.no} (${s.stage.en})`, { slide: s.no, part: s.stage.part });
+    $("#teleHeard").textContent = MODE === "listen" ? "🎙 …" : "";
     const t0 = performance.now(); let cut = false;
+    const heardP = MODE === "listen" ? listenSlide(SLIDE_SEC * 1000, txt => { $("#teleHeard").textContent = "🎙 " + (txt.length > 110 ? "…" + txt.slice(-110) : txt); }) : Promise.resolve(null);
     await new Promise(done => {
       const tick = setInterval(() => {
         const el = (performance.now() - t0) / 1000;
@@ -179,8 +233,33 @@ async function present() {
         if (el >= SLIDE_SEC) { clearInterval(tick); done(); }
       }, 100);
     });
+    listen.stop && listen.stop();
+    const said = await heardP;
+    if (said != null && MODE === "listen") {
+      // the comparison goes up on the big screen, then the camera returns to the speaker for the next slide
+      const cov = coverage(s.text[S.level], said); HEARD[i] = cov.ratio;
+      log("pk.slide", `slide ${s.no} (${s.stage.en}) heard ${Math.round(cov.ratio * 100)}%`, { slide: s.no, part: s.stage.part, heard: cov.ratio, missed: cov.miss.slice(0, 8) });
+      drawHeard(i + 1, s, cov); tele.hidden = true; player.play("idle");
+      shot([27, 5.6, 16], [27, 5.9, 2.2]);
+      if (cov.ratio >= 0.7) audience.forEach((a, k) => k % 3 === 0 && a.play("react"));
+      await wait(RESULT_SEC * 1000);
+      tele.hidden = false; player.play("talk");
+    } else {
+      HEARD[i] = null;
+      log("pk.slide", `slide ${s.no} (${s.stage.en})`, { slide: s.no, part: s.stage.part });
+    }
   }
   tele.hidden = true;
+}
+
+function heardBlock() {
+  const vals = HEARD.filter(x => x != null);
+  if (!vals.length) return `<p class="mic-off">This time you read silently, so there is no comparison. Use Chrome or Edge with a microphone to see what the audience heard.${hint("這次是默讀模式，沒有比對。用電腦版 Chrome 或 Edge 並開啟麥克風，就能看到觀眾聽到多少。")}</p>`;
+  const avg = Math.round(vals.reduce((a, b) => a + b, 0) / vals.length * 100);
+  const bars = SLIDES.map((s, i) => { const v = HEARD[i]; const cls = v == null ? "na" : v >= .7 ? "ok" : v >= .4 ? "mid" : "low";
+    return `<i class="${cls}" title="Slide ${i + 1}: ${v == null ? "—" : Math.round(v * 100) + "%"}" style="height:${v == null ? 4 : Math.max(6, Math.round(v * 100))}%"></i>`; }).join("");
+  return `<div class="heard"><small>What the audience heard, slide by slide${hint("每張投影片觀眾聽到的比例")}</small><div class="bars">${bars}</div>
+    <p>Average: <strong>${avg}%</strong>. The red words on the big screen are the ones to practise next time.${hint("大螢幕上的紅字就是下次要多練習的字。")}</p></div>`;
 }
 
 function showEnding(secs) {
@@ -188,12 +267,13 @@ function showEnding(secs) {
   $("#endCard").innerHTML = `
     <span class="kicker">SDG 4 · Pecha Kucha Stage</span>
     <h2 class="ending-title">Your First Pecha Kucha</h2>
-    <p>You presented <strong>${esc(TALK.title)}</strong> at level ${S.level}: ${SLIDES.length} slides × ${SLIDE_SEC} seconds, without stopping.${hint("你完成了「台灣的優質教育」演講：20 張投影片、每張 20 秒，一次都沒有停。")}</p>
+    <p>You presented <strong>${esc(TALK.title)}</strong> at level ${S.level}: ${SLIDES.length} slides × ${SLIDE_SEC} seconds, and the slides never waited for you.${hint("你完成了「台灣的優質教育」演講：20 張投影片、每張 20 秒，一次都沒有停。")}</p>
     <div class="sum">
       <div><small>Slides</small><b>${SLIDES.length}</b></div>
       <div><small>Talk time</small><b>${mmss(SLIDES.length * SLIDE_SEC)}</b></div>
       <div><small>Whole visit</small><b>${mmss(secs)}</b></div>
     </div>
+    ${heardBlock()}
     <h3>The Pecha Kucha spirit${hint("Pecha Kucha 的精神")}</h3>
     <ul class="spirit">
       <li><b>20 × 20.</b> Short and focused: every slide gets the same 20 seconds.${hint("短而聚焦：每張投影片都只有 20 秒。")}</li>

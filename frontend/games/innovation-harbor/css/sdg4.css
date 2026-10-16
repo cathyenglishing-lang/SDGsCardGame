@@ -48,3 +48,16 @@
   .maplist { grid-template-columns: 1fr; }
   #endCard .parts { columns: 1; }
 }
+
+/* speech comparison */
+.tele-heard { margin: 0; min-height: 1.4em; font-size: .85rem; color: var(--good); white-space: nowrap; overflow: hidden; }
+.miccheck { border-top: 1px solid var(--line); padding-top: 12px; display: grid; gap: 6px; }
+.mic-heard { margin: 0; min-height: 1.3em; color: var(--good); font-size: .9rem; }
+.mic-off { margin: 0; color: var(--signal); }
+#endCard .heard { display: grid; gap: 8px; }
+#endCard .heard small { color: var(--muted); }
+#endCard .bars { display: grid; grid-template-columns: repeat(20, minmax(0, 1fr)); gap: 3px; height: 64px; align-items: end; border-bottom: 1px solid var(--line); }
+#endCard .bars i { display: block; border-radius: 2px 2px 0 0; background: var(--line); }
+#endCard .bars i.ok { background: var(--good); }
+#endCard .bars i.mid { background: var(--signal); }
+#endCard .bars i.low { background: var(--bad); }
