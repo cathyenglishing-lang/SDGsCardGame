@@ -136,15 +136,43 @@ function walkTo([x, z], label) {
 // ── speech: "listen" = live recognition and the big-screen comparison; "read" = read silently ──
 let MODE = detectSpeech() === "browser" ? "listen" : "read";
 const HEARD = [];
-function micCheckUI() {
+let FAIL_CODE = null;
+// Why the browser could not listen, in words a student can act on. iPad Safari hands recognition to
+// Siri / Dictation: with those off it fails at once ("service-not-allowed") and never asks for the microphone.
+const IS_APPLE_TOUCH = /iPad|iPhone|iPod/.test(navigator.userAgent) || (/Macintosh/.test(navigator.userAgent) && navigator.maxTouchPoints > 1);
+const HAS_SR = !!(window.SpeechRecognition || window.webkitSpeechRecognition);
+function micHelp(code) {
+  if (!HAS_SR) return {
+    en: "This browser has no speech recognition, so you will read silently. Use Chrome or Edge on a computer, or Safari on an iPad.",
+    zh: "這個瀏覽器沒有語音辨識功能，會改成默讀模式。請用電腦版 Chrome、Edge，或 iPad 的 Safari。" };
+  if (IS_APPLE_TOUCH && ["service-not-allowed", "not-allowed"].includes(code)) return {
+    en: "The iPad did not allow speech recognition. Turn it on, then press Try again.",
+    zh: "iPad 沒有允許語音辨識。請依下面步驟開啟，再按「再試一次」。",
+    steps: ["設定 → Siri（或「Apple Intelligence 與 Siri」）→ 開啟 Siri；或 設定 → 一般 → 鍵盤 → 開啟「啟用聽寫」",
+            "設定 → 隱私權與安全性 → 語音辨識 → 允許 Safari",
+            "設定 → App（或直接在設定裡）→ Safari → 麥克風 → 選「詢問」或「允許」",
+            "回到這一頁按「再試一次」，看到詢問時按「允許」"] };
+  if (code === "not-allowed") return { en: "The microphone is blocked for this site. Allow it, then press Try again.", zh: "這個網站的麥克風被封鎖了。請在網址列左側的設定允許麥克風，再按「再試一次」。" };
+  if (code === "audio-capture") return { en: "No microphone was found. Connect one, then press Try again.", zh: "找不到麥克風。請接上或開啟麥克風，再按「再試一次」。" };
+  if (code === "network") return { en: "Speech recognition needs an internet connection. Check the network, then press Try again.", zh: "語音辨識需要網路連線。請確認網路後按「再試一次」。" };
+  return { en: `Speech recognition stopped (${code}). Press Try again, or read silently.`, zh: `語音辨識無法使用（${code}）。可以按「再試一次」，或直接默讀。` };
+}
+function micCheckUI(failCode) {
   const box = $("#micCheck");
-  if (MODE !== "listen") { box.innerHTML = `<p class="mic-off">This browser cannot hear you, so you will read silently and the big screen will not compare. Chrome or Edge on a computer works best. ${hint("這個瀏覽器無法辨識語音，會改成默讀模式，大螢幕不做比對。建議使用電腦版 Chrome 或 Edge。")}</p>`; return; }
+  if (MODE !== "listen") {
+    const h = micHelp(failCode);
+    box.innerHTML = `<p class="mic-off">${esc(h.en)}${hint(h.zh)}</p>`
+      + (h.steps ? `<ol class="mic-steps">${h.steps.map(x => `<li>${esc(x)}</li>`).join("")}</ol><p class="mic-note">選項名稱依 iPadOS 版本可能略有不同。</p>` : "")
+      + (HAS_SR ? `<div class="row"><button class="btn ghost" id="micRetry" type="button">↻ Try again 再試一次</button>${failCode ? `<span class="count">code: ${esc(failCode)}</span>` : ""}</div>` : "");
+    if ($("#micRetry")) $("#micRetry").onclick = () => { MODE = "listen"; log("speech.retry", failCode || ""); micCheckUI(); $("#micTest").click(); };
+    return;
+  }
   box.innerHTML = `<div class="row"><button class="btn ghost" id="micTest" type="button">🎙 Test my microphone</button><span class="count" id="micState">Say: “Hello everyone, today I will talk about SDG 4.”</span></div><p class="mic-heard" id="micHeard"></p>`;
   $("#micTest").onclick = async () => {
     $("#micTest").disabled = true; $("#micState").textContent = "Listening… 正在聽";
     const r = await listen(6000, t => { $("#micHeard").textContent = t; if (t.split(/\s+/).length >= 3) listen.stop && listen.stop(); });
     $("#micTest").disabled = false;
-    if (!r.ok && speechFailed(r.code)) { MODE = "read"; log("speech.mode", `read only (${r.code})`); micCheckUI(); return; }
+    if (!r.ok && speechFailed(r.code)) { MODE = "read"; log("speech.mode", `read only (${r.code})`, { code: r.code }); micCheckUI(r.code); return; }
     $("#micState").textContent = r.text ? "✓ The audience can hear you. 觀眾聽得到你。" : "Nothing heard. Check the microphone and try again. 沒有聽到聲音，請檢查麥克風再試一次。";
     log("speech.test", r.text ? "heard" : "silent", { heard: !!r.text });
   };
@@ -154,7 +182,7 @@ async function listenSlide(ms, onText) {
   const end = performance.now() + ms; let text = "";
   while (MODE === "listen" && performance.now() < end - 600) {
     const r = await listen(end - performance.now(), t => onText((text + " " + t).trim()));
-    if (!r.ok && speechFailed(r.code)) { MODE = "read"; log("speech.mode", `read only (${r.code})`); break; }
+    if (!r.ok && speechFailed(r.code)) { MODE = "read"; FAIL_CODE = r.code; log("speech.mode", `read only (${r.code})`, { code: r.code }); break; }
     text = (text + " " + (r.text || "")).trim();
   }
   return text;
@@ -254,7 +282,7 @@ async function present() {
 
 function heardBlock() {
   const vals = HEARD.filter(x => x != null);
-  if (!vals.length) return `<p class="mic-off">This time you read silently, so there is no comparison. Use Chrome or Edge with a microphone to see what the audience heard.${hint("這次是默讀模式，沒有比對。用電腦版 Chrome 或 Edge 並開啟麥克風，就能看到觀眾聽到多少。")}</p>`;
+  if (!vals.length) { const h = micHelp(FAIL_CODE); return `<p class="mic-off">This time you read silently, so there is no comparison. ${esc(h.en)}${hint("這次是默讀模式，沒有比對。" + h.zh)}</p>`; }
   const avg = Math.round(vals.reduce((a, b) => a + b, 0) / vals.length * 100);
   const bars = SLIDES.map((s, i) => { const v = HEARD[i]; const cls = v == null ? "na" : v >= .7 ? "ok" : v >= .4 ? "mid" : "low";
     return `<i class="${cls}" title="Slide ${i + 1}: ${v == null ? "—" : Math.round(v * 100) + "%"}" style="height:${v == null ? 4 : Math.max(6, Math.round(v * 100))}%"></i>`; }).join("");
