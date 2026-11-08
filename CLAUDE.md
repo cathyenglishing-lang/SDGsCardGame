@@ -6,6 +6,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Current state, decisions, deployment map and rules for this project: `docs/handoff/` — read `2026-10-15-conversation-log.md` (what was decided and built, day by day) and `2026-10-15-company-story-nodes.md` (§1–§15, technical detail) first, then `2026-10-14-innovation-harbor-handoff.md` (deploy map, accounts, rules). Pushing to `main` deploys to production (www.cathylanguagehub.com) — work on a branch and confirm with the owner before merging.
 
+Newest plans (2026-11, branch `claude/class-roster-learning-data`): `docs/handoff/2026-11-08-card-game-learning-design.md` (card game design, KPIs, data rules, research plan, global chips) and `docs/handoff/2026-11-04-class-roster-learning-data-plan.md` (courses, roster import, learner IDs, content checks).
+
 ## Project
 
 CardLearn SDGs (SDGsprogram_5.0) — SDGs Pecha Kucha card-matching English learning platform. Students select an SDG topic and CEFR difficulty, play a card-matching game, then review a script, record audio, and answer cloze questions. Teachers/admins maintain the question bank and view records.
