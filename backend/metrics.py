@@ -66,6 +66,25 @@ def init_db():
             UNIQUE (ts, source)
         )""")
     cur.execute("CREATE INDEX IF NOT EXISTS idx_system_metrics_ts ON system_metrics (ts)")
+    # per account per Taiwan day: how hard it hit the server (for 帳號管理 › 異常帳號)
+    cur.execute("""
+        CREATE TABLE IF NOT EXISTS user_daily_activity (
+            day TEXT NOT NULL,
+            user_id INTEGER NOT NULL,
+            requests INTEGER NOT NULL DEFAULT 0,
+            peak_per_min INTEGER NOT NULL DEFAULT 0,
+            limited_429 INTEGER NOT NULL DEFAULT 0,
+            PRIMARY KEY (day, user_id)
+        )""")
+    cur.execute(f"""
+        CREATE TABLE IF NOT EXISTS login_failures (
+            id {D.auto_pk_sql()},
+            at TEXT NOT NULL,
+            email TEXT,
+            ip TEXT,
+            reason TEXT
+        )""")
+    cur.execute("CREATE INDEX IF NOT EXISTS idx_login_failures_at ON login_failures (at)")
     conn.commit()
     conn.close()
 
@@ -97,6 +116,9 @@ def record(path, status, ms, user_id=None, ip=None):
             p.hincrbyfloat(key, "lat_sum", round(ms, 2))
             if user_id:
                 p.pfadd(key + ":u", str(user_id))
+                p.hincrby(key + ":um", str(user_id), 1); p.expire(key + ":um", 3 * 86400)
+                if int(status) == 429:
+                    p.hincrby(key + ":u429", str(user_id), 1); p.expire(key + ":u429", 3 * 86400)
             if ip:
                 p.pfadd(key + ":ip", str(ip))
             p.expire(key, 3 * 86400); p.expire(key + ":u", 3 * 86400); p.expire(key + ":ip", 3 * 86400)
@@ -109,6 +131,9 @@ def record(path, status, ms, user_id=None, ip=None):
                 c["lat_sum"] += ms
                 if user_id:
                     c["u"].add(user_id)
+                    um = c.setdefault("um", {}); um[user_id] = um.get(user_id, 0) + 1
+                    if int(status) == 429:
+                        u4 = c.setdefault("u429", {}); u4[user_id] = u4.get(user_id, 0) + 1
                 if ip:
                     c["ip"].add(ip)
     except Exception:
@@ -122,12 +147,15 @@ def _counters(minute):
         c = {k: float(v) for k, v in h.items()}
         c["users"] = _redis.pfcount(key + ":u")
         c["devices"] = _redis.pfcount(key + ":ip")
+        c["um"] = {int(k): int(v) for k, v in _redis.hgetall(key + ":um").items()}
+        c["u429"] = {int(k): int(v) for k, v in _redis.hgetall(key + ":u429").items()}
         return c
     with _local_lock:
         c = _local.pop(minute, None) or {}
         for old in [m for m in _local if m < minute - 5]:
             _local.pop(old, None)
     out = {k: v for k, v in c.items() if k not in ("u", "ip")}
+    out.setdefault("um", {}); out.setdefault("u429", {})
     out["users"] = len(c.get("u", ())); out["devices"] = len(c.get("ip", ()))
     return out
 
@@ -240,6 +268,7 @@ def flush(minute):
     n = c.get("requests", 0)
     row = {k: c.get(k, 0) for k in ("requests", "s2xx", "s3xx", "s4xx", "s429", "s5xx", "slow")}
     row["users"] = c.get("users", 0); row["devices"] = c.get("devices", 0)
+    per_user, limited = c.get("um") or {}, c.get("u429") or {}
     if n:
         row["lat_avg_ms"] = round(c.get("lat_sum", 0) / n, 1)
         need, seen = 0.95 * n, 0
@@ -255,6 +284,12 @@ def flush(minute):
     cur = conn.cursor()
     row.update(_database(cur))
     cols = [k for k in COLUMNS if row.get(k) is not None]
+    day = datetime.fromtimestamp(minute * 60, TW).strftime("%Y-%m-%d")
+    peak_sql = "GREATEST(user_daily_activity.peak_per_min, excluded.peak_per_min)" if D.use_postgres else "MAX(user_daily_activity.peak_per_min, excluded.peak_per_min)"
+    for uid, cnt in per_user.items():
+        cur.execute("INSERT INTO user_daily_activity (day, user_id, requests, peak_per_min, limited_429) VALUES (?, ?, ?, ?, ?) "
+                    f"ON CONFLICT (day, user_id) DO UPDATE SET requests = user_daily_activity.requests + excluded.requests, peak_per_min = {peak_sql}, "
+                    "limited_429 = user_daily_activity.limited_429 + excluded.limited_429", (day, int(uid), int(cnt), int(cnt), int(limited.get(uid, 0))))
     cur.execute(f"INSERT INTO system_metrics (ts, source, {', '.join(cols)}, groups_json) VALUES (?, ?, {', '.join('?' for _ in cols)}, ?) ON CONFLICT (ts, source) DO NOTHING",
                 (ts, SOURCE, *[row[k] for k in cols], json.dumps(groups)))
     conn.commit()
@@ -384,3 +419,77 @@ def metrics_csv(date_from: str | None = Query(default=None, alias="from"), date_
     name = f"system-metrics-{source or SOURCE}-{d1.isoformat()}" + (f"_{d2.isoformat()}" if d2 != d1 else "") + ".csv"
     return StreamingResponse(iter(["﻿" + out.getvalue()]), media_type="text/csv; charset=utf-8",
                              headers={"Content-Disposition": f'attachment; filename="{name}"'})
+
+
+def login_failed(email, ip, reason):
+    """Called by /auth/login when the account does not exist or the password is wrong. Never raises."""
+    try:
+        conn = D.get_db()
+        cur = conn.cursor()
+        cur.execute("INSERT INTO login_failures (at, email, ip, reason) VALUES (?, ?, ?, ?)",
+                    (datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"), str(email or "")[:200], str(ip or "")[:64], reason))
+        conn.commit()
+        conn.close()
+    except Exception:
+        pass
+
+
+@router.get("/teacher/user-anomalies")
+def user_anomalies(days: int = 7, authorization: str | None = Header(default=None)):
+    """Accounts that used the site in a way people normally do not, with the reasons in words."""
+    D.require_teacher(authorization)
+    days = max(1, min(90, days))
+    since_day = (datetime.now(TW) - timedelta(days=days - 1)).strftime("%Y-%m-%d")
+    since_ts = (datetime.now(timezone.utc) - timedelta(days=days)).strftime("%Y-%m-%dT%H:%M:%SZ")
+    conn = D.get_db()
+    cur = conn.cursor()
+    cur.execute("SELECT a.day, a.user_id, a.requests, a.peak_per_min, a.limited_429, u.name, u.email, u.role, u.student_no, u.class_name "
+                "FROM user_daily_activity a LEFT JOIN users u ON u.id = a.user_id WHERE a.day >= ? ORDER BY a.day", (since_day,))
+    rows = [dict(r) for r in cur.fetchall()]
+    cur.execute("SELECT at, email, ip, reason FROM login_failures WHERE at >= ? ORDER BY at DESC", (since_ts,))
+    fails = [dict(r) for r in cur.fetchall()]
+    cur.execute("SELECT id, email, name, role, student_no, class_name FROM users")
+    by_email = {str(r["email"]).lower(): dict(r) for r in cur.fetchall()}
+    conn.close()
+    peaks = sorted(r["peak_per_min"] for r in rows if (r.get("role") or "student") == "student")
+    typical = peaks[len(peaks) // 2] if peaks else None
+    users = {}
+    for r in rows:
+        u = users.setdefault(r["user_id"], {"user_id": r["user_id"], "name": r["name"], "email": r["email"], "role": r["role"], "student_no": r["student_no"], "section": r["class_name"],
+                                            "requests": 0, "peak_per_min": 0, "limited_429": 0, "days": []})
+        u["requests"] += r["requests"]; u["peak_per_min"] = max(u["peak_per_min"], r["peak_per_min"]); u["limited_429"] += r["limited_429"]
+        u["days"].append({"day": r["day"], "requests": r["requests"], "peak_per_min": r["peak_per_min"], "limited_429": r["limited_429"]})
+    fail_by_email = {}
+    for x in fails:
+        fail_by_email.setdefault(str(x["email"]).lower(), []).append(x)
+    out = []
+    for u in users.values():
+        if u["role"] in ("teacher", "admin"):
+            continue
+        why = []
+        if u["peak_per_min"] >= 120:
+            why.append(f"某一分鐘送了 {u['peak_per_min']} 次請求" + (f"（一般學生尖峰約 {typical} 次）" if typical else "") + "，像是用程式一直打網站")
+        if u["limited_429"]:
+            why.append(f"被流量限制擋下 {u['limited_429']} 次")
+        busiest = max(u["days"], key=lambda d: d["requests"])
+        if busiest["requests"] >= 4000:
+            why.append(f"{busiest['day']} 一天送了 {busiest['requests']} 次請求")
+        fl = fail_by_email.get(str(u["email"] or "").lower(), [])
+        if len(fl) >= 5:
+            why.append(f"最近 {days} 天密碼打錯 {len(fl)} 次")
+        if why:
+            out.append({**u, "reasons": why, "severity": "high" if len(why) >= 2 or u["peak_per_min"] >= 300 or u["limited_429"] >= 20 else "watch"})
+    for e, v in fail_by_email.items():
+        p = by_email.get(e)
+        if p and len(v) >= 5 and (p.get("role") or "student") == "student" and not any(o["user_id"] == p["id"] for o in out):
+            out.append({"user_id": p["id"], "name": p["name"], "email": p["email"], "role": p["role"], "student_no": p["student_no"], "section": p["class_name"],
+                        "requests": 0, "peak_per_min": 0, "limited_429": 0, "days": [], "reasons": [f"最近 {days} 天密碼打錯 {len(v)} 次"], "severity": "watch"})
+    out.sort(key=lambda a: (a["severity"] != "high", -a["peak_per_min"]))
+    by_ip = {}
+    for x in fails:
+        by_ip.setdefault(x["ip"] or "?", []).append(x)
+    ips = sorted(({"ip": ip, "failures": len(v), "accounts": len({y["email"] for y in v}), "last": v[0]["at"]} for ip, v in by_ip.items() if len(v) >= 10), key=lambda x: -x["failures"])
+    unknown = [{"email": e, "failures": len(v), "last": v[0]["at"]} for e, v in fail_by_email.items() if e not in by_email and len(v) >= 3]
+    top = sorted(users.values(), key=lambda u: -u["requests"])[:20]
+    return {"days": days, "typical_peak_per_min": typical, "accounts": out, "ips": ips[:20], "unknown_emails": unknown[:20], "failed_logins": len(fails),
+            "busiest": [{k: u[k] for k in ("user_id", "name", "email", "role", "section", "requests", "peak_per_min", "limited_429")} for u in top]}

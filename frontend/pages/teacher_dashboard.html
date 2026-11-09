@@ -92,8 +92,8 @@ button, input, textarea, select { font: inherit; }
 }
 
 .container {
-  width: min(1240px, calc(100% - 32px));
-  margin: 24px auto 48px;
+  width: calc(100% - 40px);
+  margin: 18px auto 48px;
 }
 
 .module-grid {
@@ -524,56 +524,63 @@ textarea {
   }
 }
 
-/* ===== Admin console: sidebar nav + shared widgets ===== */
-.side-nav{position:fixed;top:74px;left:0;bottom:0;width:236px;overflow-y:auto;overscroll-behavior:contain;padding:18px 12px 30px;
-  border-right:1px solid var(--navy-2);background:linear-gradient(180deg,var(--navy) 0%,#1a3253 100%);display:flex;flex-direction:column;gap:4px;z-index:4;
-  scrollbar-width:thin;scrollbar-color:rgba(255,255,255,.18) transparent;}
-.side-brand{font-weight:900;font-size:15px;padding:4px 12px 12px;display:flex;flex-direction:column;color:#fff;}
-.side-brand span{font-size:11.5px;color:var(--nav-mut);font-weight:700;letter-spacing:.03em;margin-top:3px;}
-/* the sliding highlight behind the chosen item */
-.nav-ind{position:absolute;left:12px;right:12px;top:0;height:42px;border-radius:11px;pointer-events:none;opacity:0;
-  background:linear-gradient(90deg,var(--accent),#3a82d6);box-shadow:0 6px 18px rgba(12,30,60,.35),inset 3px 0 0 var(--gold);
-  transition:transform .42s cubic-bezier(.22,1,.36,1),height .42s cubic-bezier(.22,1,.36,1),opacity .25s;}
-.nav-ind.on{opacity:1;}
-.nav-ind.still{transition:none;}
-.nav-group{display:flex;flex-direction:column;}
-.nav-head{display:flex;align-items:center;justify-content:space-between;width:100%;border:0;background:none;cursor:pointer;font-family:inherit;
-  color:var(--nav-mut);font-size:11.5px;font-weight:800;letter-spacing:.12em;padding:14px 12px 6px;border-radius:8px;transition:color .2s;}
-.nav-head:hover{color:#fff;}
-.nav-head i{display:inline-flex;width:14px;height:14px;transition:transform .35s cubic-bezier(.22,1,.36,1);}
-.nav-head i svg{width:14px;height:14px;}
-.nav-group.closed .nav-head i{transform:rotate(-90deg);}
-.nav-list{display:grid;grid-template-rows:1fr;transition:grid-template-rows .38s cubic-bezier(.22,1,.36,1);}
-.nav-group.closed .nav-list{grid-template-rows:0fr;}
-.nav-inner{overflow:hidden;display:flex;flex-direction:column;gap:2px;min-height:0;}
-.nav-group.closed .nav-inner{visibility:hidden;transition:visibility 0s .38s;}
-.nav-item{position:relative;z-index:1;display:flex;align-items:center;gap:11px;width:100%;min-height:42px;text-align:left;border:0;background:transparent;color:var(--nav-txt);
-  padding:10px 12px;border-radius:11px;cursor:pointer;font-weight:650;font-size:14px;font-family:inherit;text-decoration:none;
-  transition:background .2s,color .2s,transform .25s cubic-bezier(.22,1,.36,1);}
-.nav-item:hover{background:rgba(255,255,255,.07);color:#fff;transform:translateX(3px);}
-.nav-item.active{color:#fff;background:transparent;transform:none;}
-.nav-item:focus-visible,.nav-head:focus-visible{outline:2px solid var(--gold);outline-offset:-2px;}
-.nav-item .ni{width:20px;height:20px;flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;opacity:.85;transition:opacity .2s,transform .3s cubic-bezier(.22,1,.36,1);}
-.nav-item .ni svg{width:18px;height:18px;}
-.nav-item.active .ni{opacity:1;transform:scale(1.08);}
-.side-nav.no-ind .nav-item.active{background:var(--accent);box-shadow:inset 3px 0 0 var(--gold);}
-/* page switch: the new module rises in */
+
+/* ===== Top navigation with icon menus (2026-11) ===== */
+.topnav{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:22px;height:64px;padding:0 20px;
+  background:linear-gradient(90deg,#14284a,#1f3a5f 60%,#24477a);color:#fff;box-shadow:0 6px 20px rgba(10,25,50,.25);}
+.tn-brand{display:flex;flex-direction:column;line-height:1.1;white-space:nowrap}
+.tn-brand b{font-size:16px;font-weight:900;letter-spacing:.01em}
+.tn-brand span{font-size:12px;color:#a9c2e6;font-weight:700}
+.tn-menu{position:relative;display:flex;align-items:stretch;height:100%;gap:4px;flex:1}
+.tn-item{position:static;display:flex}
+.tn-btn{display:flex;align-items:center;gap:7px;height:100%;padding:0 16px;border:0;background:none;color:#d6e4f7;font:inherit;font-weight:800;font-size:15px;cursor:pointer;transition:color .2s}
+.tn-btn i{width:8px;height:8px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg) translateY(-2px);transition:transform .3s cubic-bezier(.22,1,.36,1);opacity:.7}
+.tn-item.open .tn-btn i{transform:rotate(225deg) translate(-2px,-1px)}
+.tn-btn:hover,.tn-item.open .tn-btn,.tn-item.current .tn-btn{color:#fff}
+.tn-ind{position:absolute;bottom:0;left:0;height:3px;width:0;border-radius:3px 3px 0 0;background:#ffd85b;opacity:0;
+  transition:transform .4s cubic-bezier(.22,1,.36,1),width .4s cubic-bezier(.22,1,.36,1),opacity .2s;}
+.tn-ind.on{opacity:1}
+.tn-ind.still{transition:none}
+.tn-right{display:flex;align-items:center;gap:8px;white-space:nowrap}
+.tn-who{font-size:13px;color:#cfe0f5;margin-right:4px}
+.tn-act{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.18);color:#fff}
+.tn-act:hover{background:rgba(255,255,255,.18)}
+.mega{position:absolute;left:0;right:0;top:100%;padding:14px 20px 20px;opacity:0;visibility:hidden;transform:translateY(-8px);
+  transition:opacity .2s,transform .28s cubic-bezier(.22,1,.36,1),visibility 0s .28s;z-index:60;}
+.tn-item.open .mega{opacity:1;visibility:visible;transform:none;transition:opacity .2s,transform .28s cubic-bezier(.22,1,.36,1),visibility 0s}
+.mega-in{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px;max-width:1300px;padding:16px;border-radius:18px;
+  background:#fff;box-shadow:0 24px 60px rgba(15,30,60,.28),0 0 0 1px rgba(15,23,42,.06)}
+.mega-tile{display:flex;align-items:center;gap:14px;width:100%;padding:14px;border:1px solid #e8edf4;border-radius:14px;background:#fff;color:#0f172a;
+  text-align:left;font:inherit;cursor:pointer;text-decoration:none;transition:transform .25s cubic-bezier(.22,1,.36,1),box-shadow .25s,border-color .25s,background .25s}
+.mega-tile:hover,.mega-tile:focus-visible{transform:translateY(-3px);box-shadow:0 12px 26px rgba(15,30,60,.12);border-color:color-mix(in srgb,var(--g) 40%,#fff);outline:none}
+.mega-tile.active{border-color:var(--g);background:color-mix(in srgb,var(--g) 7%,#fff)}
+.mt-ic{flex:0 0 auto;display:grid;place-items:center;width:52px;height:52px;border-radius:14px;color:#fff;
+  background:linear-gradient(135deg,color-mix(in srgb,var(--g) 75%,#fff),var(--g));box-shadow:0 8px 18px color-mix(in srgb,var(--g) 35%,transparent)}
+.mt-ic svg{width:27px;height:27px}
+.mt-tx{display:flex;flex-direction:column;gap:3px;min-width:0}
+.mt-tx b{font-size:15.5px}
+.mt-tx small{color:#64748b;font-size:12.5px;line-height:1.4}
+.mega-veil{position:fixed;inset:64px 0 0;background:rgba(15,23,42,.18);opacity:0;visibility:hidden;transition:opacity .25s,visibility 0s .25s;z-index:40}
+.mega-veil.on{opacity:1;visibility:visible;transition:opacity .25s}
+.tn-burger{display:none;border:0;background:none;padding:8px;cursor:pointer}
+.tn-burger i{display:block;width:22px;height:2px;margin:5px 0;background:#fff;border-radius:2px;transition:transform .3s}
 .console-main > section.mod-in{animation:modIn .32s cubic-bezier(.22,1,.36,1);}
 @keyframes modIn{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:none;}}
-@media (prefers-reduced-motion: reduce){
-  .nav-ind,.nav-list,.nav-head i,.nav-item,.nav-item .ni{transition:none !important;}
-  .console-main > section.mod-in{animation:none;}
+@media (max-width:900px){
+  .topnav{flex-wrap:wrap;height:auto;min-height:58px;padding:8px 14px;gap:10px}
+  .tn-burger{display:block;margin-left:auto}
+  .tn-right{order:2}.tn-who{display:none}
+  .tn-menu{order:3;display:none;flex-direction:column;flex-basis:100%;height:auto;padding-bottom:10px}
+  .topnav.menu-open .tn-menu{display:flex}
+  .tn-item{flex-direction:column}
+  .tn-btn{height:44px;padding:0 4px}
+  .mega{position:static;padding:0 0 8px;opacity:1;visibility:visible;transform:none;display:none}
+  .tn-item.open .mega{display:block}
+  .mega-in{grid-template-columns:1fr;padding:10px}
+  .tn-ind,.mega-veil{display:none}
 }
-.console-main{padding-left:252px;}
-@media(max-width:900px){
-  .side-nav{position:static;width:auto;flex-direction:row;flex-wrap:wrap;bottom:auto;border-right:0;border-bottom:1px solid var(--line);gap:6px;padding:12px;}
-  .side-brand,.nav-head,.nav-ind{display:none;}
-  .nav-group,.nav-list,.nav-inner{display:contents;}
-  .nav-group.closed .nav-inner{visibility:visible;}
-  .nav-item{width:auto;}
-  .nav-item.active{background:var(--accent);}
-  .console-main{padding-left:0;}
-}
+@media (prefers-reduced-motion: reduce){.mega,.mega-tile,.tn-ind,.tn-btn i,.mega-veil{transition:none !important}.console-main > section.mod-in{animation:none}}
+/* ===== Admin console: shared widgets ===== */
 .section-h{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:4px;}
 .section-h .row{display:flex;gap:8px;flex-wrap:wrap;}
 .kpi-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:14px 0 4px;}
@@ -697,59 +704,57 @@ body{ background:var(--page); }
 </style>
 </head>
 <body>
-<nav class="navbar">
-  <div>
-    <div class="logo">CardLearn SDGs 老師後台</div>
-    <div id="teacherName" class="teacher-meta">Checking permission...</div>
-  </div>
-  <div class="top-actions">
-    <button class="btn" onclick="window.location.href='/pages/member_index.html'">回遊戲大廳</button>
-    <button class="btn" onclick="auth.logout()">登出</button>
-  </div>
-</nav>
+<header class="topnav">
+  <div class="tn-brand"><b>CardLearn SDGs</b><span>老師後台</span></div>
+  <button class="tn-burger" type="button" aria-label="選單" aria-expanded="false"><i></i><i></i><i></i></button>
+  <nav class="tn-menu" aria-label="老師後台">
+    <div class="tn-item" data-menu="data" style="--g:#2563eb">
+      <button class="tn-btn" type="button" aria-expanded="false" aria-haspopup="true">遊戲數據<i aria-hidden="true"></i></button>
+      <div class="mega" role="menu"><div class="mega-in">
+          <button class="mega-tile nav-item" type="button" data-module="records" data-game="pecha_kucha"><span class="mt-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="12" height="16" rx="2"/><path d="M8 3h11a2 2 0 0 1 2 2v13"/><path d="M7 11h4M7 15h3"/></svg></span><span class="mt-tx"><b>Card Game</b><small>班級、個人、題目分析與錄音</small></span></button>
+          <button class="mega-tile nav-item" type="button" data-module="records" data-game="innovation-harbor"><span class="mt-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 3 8l9 5 9-5-9-5z"/><path d="M3 8v8l9 5 9-5V8"/><path d="M12 13v8"/></svg></span><span class="mt-tx"><b>3D Harbor</b><small>3D 故事遊戲的學習紀錄</small></span></button>
+          <button class="mega-tile nav-item" type="button" data-module="records" data-game="sdg4-stage"><span class="mt-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16"/><path d="M6 20V9l6-5 6 5v11"/><circle cx="12" cy="12" r="2.2"/></svg></span><span class="mt-tx"><b>SDG 4 Stage</b><small>全文朗讀的紀錄</small></span></button>
+          <button class="mega-tile nav-item" type="button" data-module="story_analytics"><span class="mt-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5 13.6 13.6 8.5 15.5l1.9-5.1z"/></svg></span><span class="mt-tx"><b>3D 故事路線分析</b><small>Harbor 學生在故事裡的選擇與異常</small></span></button>
+      </div></div>
+    </div>
+    <div class="tn-item" data-menu="class" style="--g:#0d9488">
+      <button class="tn-btn" type="button" aria-expanded="false" aria-haspopup="true">班級<i aria-hidden="true"></i></button>
+      <div class="mega" role="menu"><div class="mega-in">
+          <button class="mega-tile nav-item" type="button" data-module="courses"><span class="mt-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><path d="M9 7h7M9 11h5"/></svg></span><span class="mt-tx"><b>課程與名單</b><small>建課程、匯入名單、發帳號</small></span></button>
+          <button class="mega-tile nav-item" type="button" data-module="users"><span class="mt-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span><span class="mt-tx"><b>帳號管理</b><small>老師、助教、學生帳號</small></span></button>
+      </div></div>
+    </div>
+    <div class="tn-item" data-menu="content" style="--g:#7c3aed">
+      <button class="tn-btn" type="button" aria-expanded="false" aria-haspopup="true">教材<i aria-hidden="true"></i></button>
+      <div class="mega" role="menu"><div class="mega-in">
+          <button class="mega-tile nav-item" type="button" data-module="library"><span class="mt-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h7l2 2h9v11a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><path d="M8 13h8M8 16.5h5"/></svg></span><span class="mt-tx"><b>教材管理</b><small>改標題、講稿，預覽後發佈</small></span></button>
+          <a class="mega-tile nav-item" href="/pages/story_editor.html"><span class="mt-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="6" r="2.5"/><circle cx="19" cy="6" r="2.5"/><circle cx="12" cy="18" r="2.5"/><path d="M7.5 6h9M6.3 8.2l4.4 7.6M17.7 8.2l-4.4 7.6"/></svg></span><span class="mt-tx"><b>故事編輯器</b><small>3D 故事的路線（概念版）</small></span></a>
+      </div></div>
+    </div>
+    <div class="tn-item" data-menu="system" style="--g:#ea580c" data-admin-only hidden>
+      <button class="tn-btn" type="button" aria-expanded="false" aria-haspopup="true">系統<i aria-hidden="true"></i></button>
+      <div class="mega" role="menu"><div class="mega-in">
+          <button class="mega-tile nav-item" type="button" data-module="resources"><span class="mt-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M7 12l2.5-3 2.5 2 3-4 2 3"/><path d="M8 20h8M12 16v4"/></svg></span><span class="mt-tx"><b>系統資源</b><small>每分鐘的在線人數、CPU、記憶體</small></span></button>
+          <button class="mega-tile nav-item" type="button" data-module="visitors"><span class="mt-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M17 11l2 2 3.5-4"/></svg></span><span class="mt-tx"><b>訪客與潛在客戶</b><small>誰來過、從哪裡來、有沒有試玩</small></span></button>
+          <button class="mega-tile nav-item" type="button" data-module="database"><span class="mt-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.66 3.58 3 8 3s8-1.34 8-3V5"/><path d="M4 12c0 1.66 3.58 3 8 3s8-1.34 8-3"/></svg></span><span class="mt-tx"><b>資料庫</b><small>ER 圖：資料表與關聯</small></span></button>
+          <button class="mega-tile nav-item" type="button" data-module="user_analytics"><span class="mt-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><span class="mt-tx"><b>登入紀錄</b><small>誰在什麼時候登入</small></span></button>
+          <button class="mega-tile nav-item" type="button" data-module="system"><span class="mt-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></span><span class="mt-tx"><b>系統設定</b><small>伺服器與設定狀態</small></span></button>
+      </div></div>
+    </div>
+    <span class="tn-ind" aria-hidden="true"></span>
+  </nav>
+  <div class="tn-right"><span id="teacherName" class="tn-who">Checking permission...</span><button class="btn tn-act" onclick="window.location.href='/pages/member_index.html'">回遊戲大廳</button><button class="btn tn-act" onclick="auth.logout()">登出</button></div>
+</header>
+<div class="mega-veil" aria-hidden="true"></div>
 
 <main class="container">
-  <aside class="side-nav">
-    <div class="side-brand">CardLearn SDGs<span>老師後台 Teacher Console</span></div>
-    <i class="nav-ind" aria-hidden="true"></i>
-    <div class="nav-group" data-group="data">
-      <button class="nav-head" type="button" aria-expanded="true"><span>遊戲數據</span><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></i></button>
-      <div class="nav-list"><div class="nav-inner">
-        <button class="nav-item" type="button" data-module="records" data-game="pecha_kucha"><span class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="12" height="16" rx="2"/><path d="M8 3h11a2 2 0 0 1 2 2v13"/><path d="M7 11h4M7 15h3"/></svg></span><span class="nl">Card Game</span></button>
-        <button class="nav-item" type="button" data-module="records" data-game="innovation-harbor"><span class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 3 8l9 5 9-5-9-5z"/><path d="M3 8v8l9 5 9-5V8"/><path d="M12 13v8"/></svg></span><span class="nl">3D Harbor</span></button>
-        <button class="nav-item" type="button" data-module="records" data-game="sdg4-stage"><span class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16"/><path d="M6 20V9l6-5 6 5v11"/><circle cx="12" cy="12" r="2.2"/></svg></span><span class="nl">SDG 4 Stage</span></button>
-      </div></div>
-    </div>
-    <div class="nav-group" data-group="class">
-      <button class="nav-head" type="button" aria-expanded="true"><span>班級</span><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></i></button>
-      <div class="nav-list"><div class="nav-inner">
-        <button class="nav-item" type="button" data-module="courses"><span class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><path d="M9 7h7M9 11h5"/></svg></span><span class="nl">課程與名單</span></button>
-        <button class="nav-item" type="button" data-module="users"><span class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span><span class="nl">帳號管理</span></button>
-      </div></div>
-    </div>
-    <div class="nav-group" data-group="content">
-      <button class="nav-head" type="button" aria-expanded="true"><span>教材</span><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></i></button>
-      <div class="nav-list"><div class="nav-inner">
-        <button class="nav-item" type="button" data-module="library"><span class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h7l2 2h9v11a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><path d="M8 13h8M8 16.5h5"/></svg></span><span class="nl">教材管理</span></button>
-        <a class="nav-item" href="/pages/story_editor.html"><span class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="6" r="2.5"/><circle cx="19" cy="6" r="2.5"/><circle cx="12" cy="18" r="2.5"/><path d="M7.5 6h9M6.3 8.2l4.4 7.6M17.7 8.2l-4.4 7.6"/></svg></span><span class="nl">故事編輯器</span></a>
-      </div></div>
-    </div>
-    <div class="nav-group closed" data-group="system" data-admin-only hidden>
-      <button class="nav-head" type="button" aria-expanded="false"><span>系統</span><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></i></button>
-      <div class="nav-list"><div class="nav-inner">
-        <button class="nav-item" type="button" data-module="resources"><span class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M7 12l2.5-3 2.5 2 3-4 2 3"/><path d="M8 20h8M12 16v4"/></svg></span><span class="nl">系統資源</span></button>
-        <button class="nav-item" type="button" data-module="story_analytics"><span class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5 13.6 13.6 8.5 15.5l1.9-5.1z"/></svg></span><span class="nl">3D 故事路線</span></button>
-        <button class="nav-item" type="button" data-module="user_analytics"><span class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><span class="nl">登入紀錄</span></button>
-        <button class="nav-item" type="button" data-module="system"><span class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></span><span class="nl">系統設定</span></button>
-        <button class="nav-item" type="button" data-module="database"><span class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.66 3.58 3 8 3s8-1.34 8-3V5"/><path d="M4 12c0 1.66 3.58 3 8 3s8-1.34 8-3"/></svg></span><span class="nl">資料庫</span></button>
-      </div></div>
-    </div>
+  <div hidden>
     <!-- Retired 2026-11 (kept so old links still work, not in the menu): 總覽 and 遊戲數據 showed the same card-game
          numbers as Card Game › 班級分析 in an older form; 題庫管理 edits the old SDGs Pecha Kucha bank. -->
     <button class="nav-item" type="button" data-module="overview" hidden><span class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><rect x="7" y="11" width="3" height="6"/><rect x="12" y="7" width="3" height="10"/><rect x="17" y="13" width="3" height="4"/></svg></span>總覽</button>
     <button class="nav-item" type="button" data-module="pk_analytics" hidden><span class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2 6 4-15 2 9h6"/></svg></span>遊戲數據（舊）</button>
     <button class="nav-item" type="button" data-module="sdgs_card_game" hidden><span class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></span>題庫管理</button>
-  </aside>
+  </div>
   <div class="console-main">
 
   <section id="overviewModule">
@@ -822,6 +827,32 @@ body{ background:var(--page); }
       @media (max-width:700px){#resourcesModule .rs-grid{grid-template-columns:1fr}}
     </style>
     <div id="rsBody"><section class="panel"><p style="color:var(--muted)">載入中…</p></section></div>
+  </section>
+
+  <section id="visitorsModule" hidden>
+    <style>
+      #visitorsModule .panel{margin-bottom:16px}
+      #visitorsModule h2 small{display:block;font-size:13px;font-weight:600;color:var(--muted);margin-top:4px}
+      #visitorsModule .vs-days{display:inline-flex;gap:4px;padding:3px;border-radius:12px;background:#eef2f7}
+      #visitorsModule .vs-days button{border:0;background:none;border-radius:9px;padding:6px 12px;font:inherit;font-weight:750;font-size:13px;cursor:pointer}
+      #visitorsModule .vs-days button.on{background:#fff;box-shadow:0 1px 5px rgba(15,23,42,.12)}
+      #visitorsModule .vs-tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin-top:10px}
+      #visitorsModule .vs-tiles div{border:1px solid var(--line);border-radius:14px;padding:12px 14px}
+      #visitorsModule .vs-tiles b{display:block;font-size:26px}#visitorsModule .vs-tiles span{color:var(--muted);font-size:12.5px}
+      #visitorsModule .vs-h{margin:0 0 10px;font-size:16px}#visitorsModule .vs-hint{color:var(--muted);font-size:13px}
+      #visitorsModule .vs-daily{display:flex;align-items:flex-end;gap:3px;height:160px}
+      #visitorsModule .vs-daily div{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;gap:4px}
+      #visitorsModule .vs-daily i{position:relative;display:flex;flex-direction:column;justify-content:flex-end;width:100%;max-width:22px;min-height:2px;border-radius:4px 4px 0 0;background:#93c5fd;overflow:hidden}
+      #visitorsModule .vs-daily s{display:block;background:#2563eb}
+      #visitorsModule .vs-daily small{font-size:9.5px;color:#64748b}
+      #visitorsModule .vs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+      #visitorsModule .vs-bar{display:grid;grid-template-columns:minmax(90px,45%) 1fr 40px;gap:8px;align-items:center;margin:6px 0;font-size:13px}
+      #visitorsModule .vs-bar span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+      #visitorsModule .vs-bar i{height:9px;border-radius:9px;background:#e2e8f0;overflow:hidden}#visitorsModule .vs-bar b{display:block;height:100%;background:#2563eb}
+      #visitorsModule .vs-bar em{font-style:normal;font-weight:800;text-align:right}
+      #visitorsModule .vs-fold summary{cursor:pointer}#visitorsModule .vs-fold summary h3{display:inline}
+    </style>
+    <div id="vsBody"></div>
   </section>
 
   <section id="databaseModule" hidden>
@@ -1059,6 +1090,45 @@ body{ background:var(--page); }
   <section id="libraryModule" hidden>
     <style>
       #libraryModule .panel{margin-bottom:16px;min-width:0}
+      #libraryModule .tl-topbar{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+      #libraryModule .tl-topbar h2{margin:0}
+      #libraryModule .tl-top{padding:12px 18px}
+      #libraryModule .tl-games{display:inline-flex;gap:4px;padding:4px;border-radius:14px;background:#eef2f7}
+      #libraryModule .tl-game{display:flex;flex-direction:column;align-items:flex-start;border:0;background:none;border-radius:10px;padding:7px 16px;font:inherit;cursor:pointer;color:#475569;transition:background .25s,color .25s,box-shadow .25s}
+      #libraryModule .tl-game b{font-size:14.5px}
+      #libraryModule .tl-game small{font-size:11.5px;opacity:.8}
+      #libraryModule .tl-game.on{background:#fff;color:#0f172a;box-shadow:0 2px 8px rgba(15,23,42,.12)}
+      #libraryModule .tl-na-box h3{margin:0 0 6px}
+      #libraryModule .tl-na-list{list-style:none;padding:0;margin:10px 0 0;display:grid;gap:8px}
+      #libraryModule .tl-na-list li{display:flex;flex-direction:column;gap:2px;padding:10px 12px;border:1px solid var(--line);border-radius:12px;background:#fafbfd}
+      #libraryModule .tl-na-list span{color:var(--muted);font-size:13px}
+      #libraryModule .tl-list li{position:relative}
+      #libraryModule .tl-list > li > .tl-node:not(.sub){padding-right:78px}
+      #libraryModule .tl-switch{position:absolute;right:8px;top:8px;display:flex;align-items:center;gap:5px;border:0;background:none;padding:2px;cursor:pointer;font:inherit}
+      #libraryModule .tl-switch span{position:relative;width:30px;height:17px;border-radius:999px;background:#cbd5e1;transition:background .25s}
+      #libraryModule .tl-switch span::after{content:"";position:absolute;top:2px;left:2px;width:13px;height:13px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.25);transition:transform .25s cubic-bezier(.22,1,.36,1)}
+      #libraryModule .tl-switch.on span{background:#16a34a}
+      #libraryModule .tl-switch.on span::after{transform:translateX(13px)}
+      #libraryModule .tl-switch em{font-style:normal;font-size:11px;font-weight:800;color:#64748b}
+      #libraryModule .tl-switch.on em{color:#15803d}
+      #libraryModule .tl-three{display:grid;grid-template-columns:minmax(220px,280px) minmax(360px,1fr) minmax(320px,420px);gap:16px;align-items:start}
+      #libraryModule .tl-live{position:sticky;top:76px;border-radius:18px;padding:14px;color:#fff;background:radial-gradient(ellipse at 50% 0%,#2d2580 0%,#1e1b4b 45%,#070b24 100%);box-shadow:0 14px 34px rgba(7,11,36,.35)}
+      #libraryModule .lv-head{display:flex;align-items:baseline;gap:8px;margin-bottom:10px}
+      #libraryModule .lv-head small{color:#a5b4fc}
+      #libraryModule .lv-table{border-radius:16px;padding:14px 12px 16px;background:radial-gradient(ellipse at 50% 35%,#145247 0%,#0d3b34 50%,#08261f 100%);border:6px solid #3a2a12;box-shadow:0 0 0 2px #e8b949,inset 0 0 40px rgba(0,0,0,.45)}
+      #libraryModule .lv-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(80px,1fr));gap:8px}
+      #libraryModule .lv-card{position:relative;min-height:104px;padding:22px 8px 10px;border-radius:10px;background:#fbf7ee;color:#1a1633;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:4px;box-shadow:0 6px 14px rgba(0,0,0,.4);transition:transform .25s,box-shadow .25s}
+      #libraryModule .lv-card b{font-family:Georgia,serif;font-size:12.5px;line-height:1.2}
+      #libraryModule .lv-card small{font-size:10.5px;color:#6b7280}
+      #libraryModule .lv-card.now{transform:translateY(-6px);box-shadow:0 0 0 3px #c4b5fd,0 0 26px rgba(139,92,246,.9)}
+      #libraryModule .lv-ix{position:absolute;top:6px;left:7px;display:flex;flex-direction:column;align-items:center;gap:2px;font-family:Georgia,serif;font-weight:700;font-size:12px;color:#1a1633}
+      #libraryModule .lv-ix i{width:7px;height:7px;background:#c5192d;transform:rotate(45deg);border-radius:1px}
+      #libraryModule .lv-hand{position:relative;margin:14px auto 0;max-width:94%;padding:16px 14px 14px 30px;border-radius:12px;background:#fbf7ee;color:#1a1633;transform:rotate(-1.5deg);box-shadow:0 0 0 2px #fff,0 0 22px rgba(196,181,253,.55),0 12px 24px rgba(0,0,0,.5)}
+      #libraryModule .lv-hand p{margin:0;font-family:Georgia,serif;font-size:14px;line-height:1.5;white-space:pre-wrap}
+      #libraryModule .lv-meta{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px;font-size:12.5px;color:#cbd5e1}
+      #libraryModule .lv-meta .long{color:#fda4af;font-weight:800}
+      #libraryModule .lv-note{margin:6px 0 0;font-size:12px;color:#a5b4fc}
+      @media (max-width:1400px){#libraryModule .tl-three{grid-template-columns:minmax(220px,260px) minmax(0,1fr)}#libraryModule .tl-live{grid-column:1 / -1;position:static}}
       #libraryModule .tl-wrap{display:grid;grid-template-columns:290px minmax(0,1fr);gap:16px;align-items:start}
       #libraryModule .tl-tree{position:sticky;top:12px;max-height:calc(100vh - 110px);overflow-y:auto;padding:14px}
       #libraryModule .tl-group{margin:14px 2px 6px;font-size:12px;font-weight:800;letter-spacing:.04em;color:var(--muted)}
@@ -1219,6 +1289,44 @@ body{ background:var(--page); }
       #recordsModule .tr-chip:hover{border-color:#94a3b8}
       #recordsModule .tr-chip.on{background:#1f3a5f;border-color:#1f3a5f;color:#fff}
       #recordsModule tr[hidden]{display:none}
+      #recordsModule .tr-seglite{display:inline-flex;align-items:center;gap:4px;font-weight:700;font-size:13.5px;color:#475569;margin-right:14px}
+      #recordsModule .tr-seglite button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:5px 12px;font:inherit;font-size:13px;font-weight:750;cursor:pointer;transition:background .2s,color .2s}
+      #recordsModule .tr-seglite button.on{background:#1f3a5f;border-color:#1f3a5f;color:#fff}
+      #recordsModule .tr-vgroup{border:1px solid var(--line);border-radius:14px;padding:8px 12px;margin:10px 0;background:#fbfcfe}
+      #recordsModule .tr-vgroup > summary{display:flex;align-items:center;gap:10px;cursor:pointer;font-size:14.5px;padding:4px 0}
+      #recordsModule .tr-vgroup > summary span{color:var(--muted);font-size:13px}
+      #recordsModule .tr-vprog{display:inline-block;width:120px;height:8px;border-radius:8px;background:#e2e8f0;overflow:hidden}
+      #recordsModule .tr-vprog i{display:block;height:100%;background:linear-gradient(90deg,#34d399,#059669);transition:width .4s}
+      #recordsModule .tr-profile{display:grid;grid-template-columns:auto 1fr;gap:6px 18px;align-items:start;margin:10px 0 14px;padding:16px;border-radius:16px;background:linear-gradient(135deg,#f8fafc,#eef4ff);border:1px solid #dbe5f3}
+      #recordsModule .tr-avatar{grid-row:span 3;display:grid;place-items:center;width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,#6366f1,#2563eb);color:#fff;font-size:28px;font-weight:900}
+      #recordsModule .tr-profile dl{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:8px 18px;margin:0}
+      #recordsModule .tr-profile dt{font-size:12px;color:var(--muted);font-weight:700}
+      #recordsModule .tr-profile dd{margin:2px 0 0;font-weight:700;font-size:14px;word-break:break-word}
+      #recordsModule .tr-logins summary{cursor:pointer;font-size:13px;color:#1d4ed8;font-weight:700}
+      #recordsModule .tr-logins ul{margin:6px 0 0;padding-left:18px;font-size:13px}
+      #recordsModule .tr-charts{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:14px;margin-top:14px}
+      #recordsModule .tr-chart{border:1px solid var(--line);border-radius:14px;padding:12px 14px;background:#fff}
+      #recordsModule .tr-chart h4{margin:0 0 8px;font-size:14.5px}
+      #recordsModule .tr-chart svg{width:100%;height:auto;display:block}
+      #recordsModule .tr-legend{display:flex;flex-wrap:wrap;gap:10px;font-size:12px;color:#475569;margin-top:4px}
+      #recordsModule .tr-legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:4px;vertical-align:-1px}
+      #recordsModule .tr-days{display:flex;align-items:flex-end;gap:4px;height:140px;padding-top:6px}
+      #recordsModule .tr-days div{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;gap:4px}
+      #recordsModule .tr-days i{display:block;width:100%;max-width:26px;border-radius:5px 5px 0 0;background:linear-gradient(180deg,#60a5fa,#2563eb);min-height:3px}
+      #recordsModule .tr-days small{font-size:10px;color:#64748b}
+      #recordsModule .tr-tbar{display:grid;grid-template-columns:150px 1fr 34px;align-items:center;gap:8px;margin:6px 0;font-size:13px}
+      #recordsModule .tr-tbar .tr-bar{width:100%}
+      #recordsModule .tr-anom{display:inline-flex;align-items:center;gap:4px;padding:3px 9px;border-radius:999px;font-size:12px;font-weight:800;white-space:nowrap}
+      #recordsModule .tr-anom.high{background:#fee2e2;color:#b91c1c}
+      #recordsModule .tr-anom.watch{background:#ffedd5;color:#c2410c}
+      #recordsModule .tr-anom-box.ok{background:#f0fdf4}
+      #recordsModule .tr-anom-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:12px;margin-top:10px}
+      #recordsModule .tr-anom-card{border:1px solid #fecaca;border-left:5px solid #ef4444;border-radius:14px;padding:12px 14px;background:#fffafa;display:flex;flex-direction:column;gap:6px}
+      #recordsModule .tr-anom-card.watch{border-color:#fed7aa;border-left-color:#f97316;background:#fffbf5}
+      #recordsModule .tr-anom-card header{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+      #recordsModule .tr-anom-card header small{color:var(--muted)}
+      #recordsModule .tr-anom-card ul{margin:0;padding-left:18px;font-size:13.5px;line-height:1.6}
+      #recordsModule .tr-anom-card .btn{align-self:flex-start;min-height:34px}
       @media (prefers-reduced-motion: reduce){#recordsModule .tr-seg-ind,#recordsModule #trView{transition:none}}
       #recordsModule .tr-tab{border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 16px;font-weight:800;font-size:14px;cursor:pointer;color:var(--text)}
       #recordsModule .tr-tab.on{background:#1f3a5f;border-color:#1f3a5f;color:#fff}
@@ -1372,6 +1480,19 @@ body{ background:var(--page); }
       #coursesModule .tc-newpw{color:#92400e;font-weight:700}
       #coursesModule .tc-actions .btn{min-height:38px}
       #coursesModule input:focus-visible,#coursesModule select:focus-visible,#coursesModule textarea:focus-visible,#coursesModule button:focus-visible,#coursesModule a:focus-visible{outline:3px solid #f59e0b;outline-offset:1px}
+      #coursesModule .tc-steps{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:10px 0 14px}
+      #coursesModule .tc-steps li{display:flex;align-items:center;gap:8px;padding:7px 14px 7px 8px;border-radius:999px;background:#f1f5f9;color:#64748b;font-weight:750;font-size:13.5px}
+      #coursesModule .tc-steps li b{display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:#cbd5e1;color:#fff;font-size:12.5px}
+      #coursesModule .tc-steps li.now{background:#e0ecff;color:#1d4ed8}#coursesModule .tc-steps li.now b{background:#2563eb}
+      #coursesModule .tc-steps li.done{background:#dcfce7;color:#15803d}#coursesModule .tc-steps li.done b{background:#16a34a}
+      #coursesModule .tc-no{display:inline-grid;place-items:center;width:26px;height:26px;margin-right:8px;border-radius:50%;background:#2563eb;color:#fff;font-size:13px;vertical-align:1px}
+      #coursesModule .tc-import.wait{opacity:.75}
+      #coursesModule .tc-wait{padding:10px 12px;border-radius:12px;background:#fff7ed;color:#9a3412;font-weight:700}
+      #coursesModule .tc-file{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border:1px dashed #94a3b8;border-radius:12px;cursor:pointer;font-weight:750}
+      #coursesModule .tc-fold > summary{display:flex;align-items:baseline;gap:12px;cursor:pointer;list-style:none}
+      #coursesModule .tc-fold > summary::before{content:"▸";transition:transform .25s;display:inline-block}
+      #coursesModule .tc-fold[open] > summary::before{transform:rotate(90deg)}
+      #coursesModule .tc-fold > summary h3{margin:0}#coursesModule .tc-fold > summary small{color:var(--muted)}
       @media (max-width:720px){#coursesModule .tc-form{grid-template-columns:1fr}#coursesModule #tcCourse{min-width:0;width:100%}}
       /* one message bar for 教材管理, 學習紀錄 and 課程與名單 (window.teacherToast) */
       .tt-toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%);z-index:9000;display:flex;align-items:center;gap:14px;max-width:min(720px,92vw);padding:12px 16px;border-radius:12px;background:#0f172a;color:#fff;font-size:14.5px;line-height:1.5;box-shadow:0 14px 40px rgba(0,0,0,.35)}
@@ -1382,8 +1503,27 @@ body{ background:var(--page); }
   </section>
 
   <section id="usersModule" class="panel" hidden>
-    <h2>User Management</h2>
-    <p style="color:var(--muted);margin-bottom:14px;">Manage registered users. Role changes immediately affect page access and dashboard permissions.</p>
+    <h2>帳號管理</h2>
+    <section class="ua-box" id="uaWatch"></section>
+    <p style="color:var(--muted);margin:14px 0;">所有帳號。改身分會馬上影響能不能進老師後台。</p>
+    <style>
+      .ua-box{border:1px solid var(--line);border-radius:16px;padding:14px 16px;background:#fff;margin:10px 0 6px}
+      .ua-head{display:flex;align-items:center;gap:12px;flex-wrap:wrap}.ua-head h3{margin:0;font-size:17px}
+      .ua-days{display:inline-flex;gap:4px;padding:3px;border-radius:12px;background:#eef2f7}
+      .ua-day{border:0;background:none;border-radius:9px;padding:6px 12px;font:inherit;font-weight:750;font-size:13px;cursor:pointer;color:#475569;transition:background .2s}
+      .ua-day.on{background:#fff;color:#0f172a;box-shadow:0 1px 5px rgba(15,23,42,.12)}
+      .ua-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:12px;margin-top:12px}
+      .ua-card{border:1px solid #fecaca;border-left:5px solid #ef4444;border-radius:14px;padding:12px 14px;background:#fffafa}
+      .ua-card.watch{border-color:#fed7aa;border-left-color:#f97316;background:#fffbf5}
+      .ua-card header{display:flex;flex-wrap:wrap;gap:8px;align-items:center}.ua-card header small{color:var(--muted)}
+      .ua-card ul{margin:6px 0;padding-left:18px;font-size:13.5px;line-height:1.6}
+      .ua-tag{padding:2px 9px;border-radius:999px;font-size:12px;font-weight:800}.ua-tag.high{background:#fee2e2;color:#b91c1c}.ua-tag.watch{background:#ffedd5;color:#c2410c}
+      .ua-ok{color:#15803d;font-weight:700;margin:10px 0 4px}.ua-hint{color:var(--muted)}.ua-hint.bad{color:#b91c1c}
+      .ua-warn{margin-top:12px;padding:10px 14px;border-radius:12px;background:#fef2f2;color:#7f1d1d;font-size:13.5px}.ua-warn p{margin:4px 0}
+      .ua-more{margin-top:12px}.ua-more summary{cursor:pointer;font-weight:750}
+      .ua-bar{display:inline-block;width:110px;height:8px;border-radius:8px;background:#e2e8f0;overflow:hidden;vertical-align:middle}.ua-bar i{display:block;height:100%;background:#3b82f6}
+      .ua-sub{display:block;color:var(--muted);font-size:12px}
+    </style>
     <div id="userOverview" class="module-grid"></div>
     <div class="user-table-wrap">
       <table class="part-table user-table">
@@ -1424,6 +1564,8 @@ body{ background:var(--page); }
 <script src="/static/js/teacher-records.js"></script>
 <script src="/static/js/teacher-resources.js"></script>
 <script src="/static/js/teacher-er.js"></script>
+<script src="/static/js/teacher-accounts-watch.js"></script>
+<script src="/static/js/teacher-visitors.js"></script>
 <script src="/static/js/teacher-library.js"></script>
 <script>
 const difficultyCodes = ["A2", "A1", "B1"];
@@ -1543,29 +1685,43 @@ function setModule(moduleName, game) {
   if (loader) loader();
 }
 
-// The highlight slides to the chosen item. When that item sits in a closed group, the group opens first.
+// Top menu: hover opens (short delay so passing over does nothing), click / tap toggles, Esc or leaving closes.
+// The yellow line under the menus slides to the one that holds the current page.
 function placeNavIndicator(animate) {
-  const nav = document.querySelector(".side-nav"), ind = nav && nav.querySelector(".nav-ind");
-  if (!ind) return;
-  const active = nav.querySelector(".nav-item.active:not([hidden])");
-  const group = active && active.closest(".nav-group");
-  if (group && group.classList.contains("closed")) { toggleNavGroup(group, true); }
-  if (!active || active.offsetParent === null) { ind.classList.remove("on"); return; }
+  const ind = document.querySelector(".tn-ind"); if (!ind) return;
+  document.querySelectorAll(".tn-item").forEach(it => it.classList.toggle("current", !!it.querySelector(".nav-item.active")));
+  const cur = document.querySelector(".tn-item.current:not([hidden]) .tn-btn");
+  if (!cur || cur.offsetParent === null) { ind.classList.remove("on"); return; }
   if (!animate) ind.classList.add("still");
-  ind.style.transform = `translateY(${active.offsetTop}px)`;
-  ind.style.height = active.offsetHeight + "px";
+  ind.style.width = cur.offsetWidth - 24 + "px";
+  ind.style.transform = `translateX(${cur.offsetLeft + 12}px)`;
   ind.classList.add("on");
   if (!animate) requestAnimationFrame(() => requestAnimationFrame(() => ind.classList.remove("still")));
 }
-function toggleNavGroup(group, open) {
-  const willOpen = open === undefined ? group.classList.contains("closed") : open;
-  group.classList.toggle("closed", !willOpen);
-  group.querySelector(".nav-head").setAttribute("aria-expanded", String(willOpen));
-  try { localStorage.setItem("nav_group_" + group.dataset.group, willOpen ? "open" : "closed"); } catch (e) {}
-  // follow the highlight while the groups above it open or close
-  const start = performance.now();
-  const follow = () => { placeNavIndicator(false); if (performance.now() - start < 420) requestAnimationFrame(follow); };
-  requestAnimationFrame(follow);
+function closeMenus() {
+  document.querySelectorAll(".tn-item.open").forEach(it => { it.classList.remove("open"); it.querySelector(".tn-btn").setAttribute("aria-expanded", "false"); });
+  document.querySelector(".mega-veil")?.classList.remove("on");
+}
+function openMenu(item) {
+  if (item.classList.contains("open")) return;
+  closeMenus();
+  item.classList.add("open"); item.querySelector(".tn-btn").setAttribute("aria-expanded", "true");
+  if (window.matchMedia("(min-width:901px)").matches) document.querySelector(".mega-veil")?.classList.add("on");
+}
+function bindTopNav() {
+  const desktop = () => window.matchMedia("(min-width:901px)").matches;
+  let timer = null;
+  document.querySelectorAll(".tn-item").forEach(item => {
+    item.addEventListener("mouseenter", () => { if (!desktop()) return; clearTimeout(timer); timer = setTimeout(() => openMenu(item), document.querySelector(".tn-item.open") ? 0 : 90); });
+    item.addEventListener("mouseleave", () => { if (!desktop()) return; clearTimeout(timer); timer = setTimeout(closeMenus, 160); });
+    item.querySelector(".tn-btn").addEventListener("click", () => { if (item.classList.contains("open")) closeMenus(); else openMenu(item); });
+  });
+  document.querySelectorAll(".mega-tile").forEach(t => t.addEventListener("click", () => { closeMenus(); document.querySelector(".topnav").classList.remove("menu-open"); }));
+  document.querySelector(".mega-veil").addEventListener("click", closeMenus);
+  document.addEventListener("keydown", e => { if (e.key === "Escape") closeMenus(); });
+  const burger = document.querySelector(".tn-burger");
+  burger.addEventListener("click", () => { const nav = document.querySelector(".topnav"); const on = !nav.classList.contains("menu-open"); nav.classList.toggle("menu-open", on); burger.setAttribute("aria-expanded", String(on)); });
+  window.addEventListener("resize", () => placeNavIndicator(false));
 }
 
 const MODULE_SECTIONS = {
@@ -1581,19 +1737,21 @@ const MODULE_SECTIONS = {
   system: "systemModule",
   database: "databaseModule",
   resources: "resourcesModule",
+  visitors: "visitorsModule",
 };
 const MODULE_LOADERS = {
   overview: () => loadOverview(),
   pk_analytics: () => loadPkAnalytics(),
   story_analytics: () => loadStoryAnalytics(),
   user_analytics: () => loadUserAnalytics(),
-  users: () => loadUsers(),
+  users: () => { loadUsers(); if (window.loadAccountWatch) window.loadAccountWatch(); },
   courses: () => loadCourses(),
   records: () => loadRecords(currentGame),
   library: () => loadLibrary(),
   system: () => loadSystem(),
   database: () => loadDatabase(),
   resources: () => loadResources(),
+  visitors: () => loadVisitors(),
 };
 
 function setGameTab(tabName) {
@@ -2507,12 +2665,7 @@ function bindModules() {
   document.querySelectorAll("[data-module]").forEach((card) => {
     card.addEventListener("click", () => setModule(card.dataset.module, card.dataset.game));
   });
-  document.querySelectorAll(".nav-group").forEach((group) => {
-    let saved = null; try { saved = localStorage.getItem("nav_group_" + group.dataset.group); } catch (e) {}
-    if (saved) { group.classList.toggle("closed", saved === "closed"); group.querySelector(".nav-head").setAttribute("aria-expanded", String(saved !== "closed")); }
-    group.querySelector(".nav-head").addEventListener("click", () => toggleNavGroup(group));
-  });
-  window.addEventListener("resize", () => placeNavIndicator(false));
+  bindTopNav();
 }
 
 function bindGameTabs() {

@@ -976,3 +976,32 @@ def resolve_chips(entry_id: int, data: ChipResolveIn, authorization: str | None 
     balance = _balance(cur, entry["user_id"])
     conn.close()
     return {"status": "posted" if data.action == "post" else "void", "balance": balance}
+
+
+def profile_for_report(user_id):
+    """Who a student is, for the teacher's drill-down: account, class, courses, sign-ins, chips, recordings."""
+    conn = D.get_db()
+    cur = conn.cursor()
+    def one(sql, args=()):
+        try:
+            cur.execute(sql, args); r = cur.fetchone(); return dict(r) if r else {}
+        except Exception:
+            return {}
+    def many(sql, args=()):
+        try:
+            cur.execute(sql, args); return [dict(r) for r in cur.fetchall()]
+        except Exception:
+            return []
+    u = one("SELECT id, name, email, role, student_no, class_name, public_id, created_at, account_source, must_change_password FROM users WHERE id = ?", (user_id,))
+    logins = one("SELECT COUNT(*) AS n, MIN(at) AS first, MAX(at) AS last FROM login_events WHERE user_id = ?", (user_id,))
+    recent = many("SELECT at, ip FROM login_events WHERE user_id = ? ORDER BY at DESC LIMIT 8", (user_id,))
+    courses = many("SELECT c.term, c.code, c.name, s.label AS section, e.status FROM enrollments e JOIN courses c ON c.id = e.course_id "
+                   "LEFT JOIN course_sections s ON s.id = e.section_id WHERE e.user_id = ? ORDER BY c.term DESC", (user_id,))
+    chips = one("SELECT COALESCE(SUM(CASE WHEN status = 'posted' THEN delta ELSE 0 END), 0) AS balance, "
+                "COALESCE(SUM(CASE WHEN status = 'held' THEN delta ELSE 0 END), 0) AS held FROM chip_ledger WHERE user_id = ?", (user_id,))
+    recs = one("SELECT COUNT(*) AS n, MAX(created_at) AS last FROM speech_recordings WHERE user_id = ?", (user_id,))
+    conn.close()
+    u.pop("id", None)
+    return {**u, "logins": logins.get("n") or 0, "first_login": logins.get("first"), "last_login": logins.get("last"),
+            "recent_logins": recent, "courses": courses, "chips": chips.get("balance") or 0, "chips_held": chips.get("held") or 0,
+            "recordings": recs.get("n") or 0, "last_recording": recs.get("last")}

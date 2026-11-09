@@ -26,7 +26,7 @@
   const PART = { 20: ["開場", "問題", "成果", "解方", "影響", "結論"], 12: ["開場", "問題", "解釋", "影響", "策略", "結論"] };
   const partName = (n, total) => (PART[total] || PART[20])[n - 1] || "";
 
-  const S = { tree: null, game: "pecha_kucha", topic: null, level: null, slide: 1, data: null, doc: null, filter: "", saving: false, dirty: false, savedAt: "", timer: null, undo: [], undoTopic: null, mode: "topic", wps: {}, sizes: {} };
+  const S = { view: "pecha_kucha", tree: null, game: "pecha_kucha", topic: null, level: null, slide: 1, data: null, doc: null, filter: "", saving: false, dirty: false, savedAt: "", timer: null, undo: [], undoTopic: null, mode: "topic", wps: {}, sizes: {} };
 
   // The message bar is the one all three teacher modules share (teacher-courses.js); `undo` adds 復原.
   const toast = (text, undo) => window.teacherToast(text, undo);
@@ -36,17 +36,20 @@
       S.tree = await call("GET", "/teacher/library");
       S.wps = S.tree.words_per_second; S.sizes = S.tree.part_sizes;
       shell();
-      const topics = S.tree.games[0].topics.filter(t => !t.archived);
+      const topics = curGame().topics.filter(t => !t.archived);
       const want = keep || S.topic;
-      if (want && S.tree.games[0].topics.some(t => t.topic_id === want)) await openTopic(want, S.level);
+      if (want && curGame().topics.some(t => t.topic_id === want)) await openTopic(want, S.level);
       else if (topics.length) await openTopic(topics[0].topic_id);
     } catch (e) { $("tlBody").innerHTML = `<section class="panel"><p class="tl-msg bad">${esc(e.message)}</p></section>`; }
   }
 
   function shell() {
     $("tlBody").innerHTML = `
-      <section class="panel tl-top"><div class="section-h"><h2>教材管理</h2><div class="row"><button class="btn" type="button" id="tlReload">↻ 重新整理</button></div></div></section>
-      <div class="tl-wrap">
+      <section class="panel tl-top"><div class="tl-topbar"><h2>教材管理</h2>
+        <div class="tl-games" role="tablist" aria-label="遊戲">${gameTabs().map(g => `<button type="button" role="tab" class="tl-game ${S.view === g.key ? "on" : ""} ${g.editable ? "" : "ro"}" data-gv="${esc(g.key)}"><b>${esc(g.name)}</b><small>${g.editable ? g.count + " 個主題" : "還不能在這裡改"}</small></button>`).join("")}</div>
+        <span class="tl-spacer"></span><button class="btn" type="button" id="tlReload">↻ 重新整理</button></div></section>
+      ${!isEditable(S.view) ? notEditable() : ""}
+      <div class="tl-wrap" ${!isEditable(S.view) ? "hidden" : ""}>
         <aside class="panel tl-tree" aria-label="教材樹">
           <input id="tlSearch" type="search" placeholder="找主題：9-1、SDG 13 或名稱" value="${esc(S.filter)}" aria-label="找主題">
           <div id="tlTree"></div>
@@ -54,6 +57,7 @@
         <div class="tl-main" id="tlMain"><section class="panel"><p class="tl-hint">從左邊選一個主題。</p></section></div>
       </div>`;
     $("tlSearch").oninput = e => { S.filter = e.target.value.trim(); paintTree(); };
+    document.querySelectorAll("#tlBody [data-gv]").forEach(b => b.onclick = () => leave(async () => { S.view = b.dataset.gv; shell(); if (isEditable(S.view)) { S.game = S.view; if (S.topic) await openTopic(S.topic, S.level); } }));
     $("tlReload").onclick = () => leave(() => load());
     // ↑ ↓ walk through the tree; Enter opens (it is a button).
     $("tlTree").onkeydown = e => {
@@ -64,18 +68,37 @@
     paintTree();
   }
 
+  // 3D Harbor and SDG 4 Stage keep their material inside the game code for now: show what they are and why.
+  // One tab per game: the ones the library can edit, then the ones whose material is still in the game code.
+  // A new game added to the library (backend GAMES) or to NOT_EDITABLE shows up here by itself.
+  function gameTabs() {
+    const ed = (S.tree.games || []).map(g => ({ key: g.game, name: g.name, editable: true, count: g.topics.filter(t => !t.archived).length }));
+    const ro = (S.tree.not_editable || []).map(x => ({ key: x.game, name: x.name.replace(/（.*?）/g, ""), editable: false }));
+    return [...ed, ...ro.filter(r => !ed.some(e => e.key === r.key))];
+  }
+  const curGame = () => (S.tree.games || []).find(g => g.game === S.game) || S.tree.games[0];
+  const isEditable = key => (S.tree.games || []).some(g => g.game === key);
+  function notEditable() {
+    const rows = (S.tree.not_editable || []).filter(x => x.game === S.view);
+    const name = (gameTabs().find(g => g.key === S.view) || {}).name || "";
+    return `<section class="panel tl-na-box"><h3>${esc(name)} 的教材還不能在這裡改</h3>
+      <p class="tl-hint">這個遊戲的講稿和題目目前寫在遊戲程式裡。要改的話先告訴開發者；下一步會把它搬進教材庫，之後就能像卡牌遊戲一樣在這裡改、預覽、發佈。</p>
+      <ul class="tl-na-list">${rows.map(x => `<li><b>${esc(x.name)}</b><span>${esc(x.why)}</span></li>`).join("")}</ul></section>`;
+  }
+
   function paintTree() {
     // "SDG 13", "sdg13", "13-1", part of the English or the Chinese name all find a topic.
     const norm = v => String(v || "").toLowerCase().replace(/[\s\-_.．]/g, "");
-    const g = S.tree.games[0], f = norm(S.filter);
+    const g = curGame(), f = norm(S.filter);
     const match = t => !f || norm(`sdg${t.topic_id} sdg${t.sdg} ${t.topic_id} ${t.title_en} ${t.title_zh}`).includes(f);
     const live = g.topics.filter(t => !t.archived && match(t)), gone = g.topics.filter(t => t.archived);
     const row = t => `
       <li class="${t.topic_id === S.topic ? "open" : ""}">
         <button type="button" class="tl-node ${t.topic_id === S.topic && S.mode !== "new" ? "on" : ""}" data-topic="${esc(t.topic_id)}" title="${esc(t.title_zh || "")}">
           <b>${esc(t.topic_id)}</b><span>${esc(t.title_en || "（還沒有名稱）")}</span>
-          <i>${t.published ? "v" + t.version : "未發佈"}${t.has_draft ? ' <em class="draft">草稿</em>' : ""}${t.locked ? ' <em class="lock">上鎖</em>' : ""}${t.errors ? ` <em class="err">${t.errors} 個問題</em>` : ""}</i>
+          <i>${t.published ? "v" + t.version : "未發佈"}${t.has_draft ? ' <em class="draft">草稿</em>' : ""}${t.errors ? ` <em class="err">${t.errors} 個問題</em>` : ""}</i>
         </button>
+        <button type="button" class="tl-switch ${t.locked ? "" : "on"}" data-lockt="${esc(t.topic_id)}" role="switch" aria-checked="${!t.locked}" title="${t.locked ? "上鎖中：學生不能玩。按一下開放" : "學生可以玩。按一下上鎖"}"><span></span><em>${t.locked ? "上鎖" : "開放"}</em></button>
         ${t.topic_id === S.topic && S.doc ? `<ul>${Object.keys(S.doc.levels).map(l => `<li><button type="button" class="tl-node sub ${l === S.level ? "on" : ""}" data-level="${l}"><b>${l}</b><span>${S.doc.levels[l].length} 張投影片</span></button></li>`).join("")}</ul>` : ""}
       </li>`;
     $("tlTree").innerHTML = `
@@ -83,9 +106,11 @@
       <ul class="tl-list">${live.map(row).join("") || `<li class="tl-hint">沒有符合的主題。</li>`}</ul>
       <button type="button" class="btn tl-add" id="tlNew">＋ 新增主題</button>
       ${gone.length ? `<p class="tl-group">已刪除（可以復原）</p><ul class="tl-list">${gone.map(t => `<li class="tl-gone"><span><b>${esc(t.topic_id)}</b> ${esc(t.title_en)}</span><button type="button" class="btn" data-restore="${esc(t.topic_id)}">復原</button></li>`).join("")}</ul>` : ""}
-      <p class="tl-group">還不能在這裡編輯</p>
-      <ul class="tl-list tl-na">${S.tree.not_editable.map(x => `<li><b>${esc(x.name)}</b><small>${esc(x.why)}</small></li>`).join("")}</ul>`;
+`;
     document.querySelectorAll("#tlTree [data-topic]").forEach(b => b.onclick = () => leave(() => openTopic(b.dataset.topic)));
+    document.querySelectorAll("#tlTree [data-lockt]").forEach(b => b.onclick = async e => { e.stopPropagation(); const id = b.dataset.lockt, t = g.topics.find(x => x.topic_id === id);
+      try { const out = await call("POST", `/teacher/library/${S.game}/${id}/lock`, { locked: !t.locked }); t.locked = out.summary.locked; if (S.data && S.topic === id) S.data.summary.locked = t.locked; paintTree(); if (S.topic === id && S.data) paintMain();
+        toast(t.locked ? `${id} 已上鎖：學生看得到，但不能玩。` : `${id} 已開放給學生${t.published ? "" : "（還沒發佈，發佈後才看得到）"}。`); } catch (err) { toast(err.message); } });
     document.querySelectorAll("#tlTree [data-level]").forEach(b => b.onclick = () => { S.level = b.dataset.level; S.slide = 1; paintTree(); paintMain(); });
     document.querySelectorAll("#tlTree [data-restore]").forEach(b => b.onclick = async () => { try { await call("POST", `/teacher/library/${S.game}/${b.dataset.restore}/unarchive`); await load(b.dataset.restore); toast(`主題 ${b.dataset.restore} 已復原，回到主題清單了。`); } catch (e) { toast(e.message); } });
     $("tlNew").onclick = () => leave(() => { S.mode = "new"; paintTree(); paintNew(); });
@@ -122,7 +147,7 @@
       if (S.topic !== id) return;
       S.data.errors = out.errors; S.data.warnings = out.warnings; S.data.changes_data = out.changes_data; S.data.summary.has_draft = out.has_draft;
       S.savedAt = String(out.saved_at).slice(11, 16);
-      const t = S.tree.games[0].topics.find(x => x.topic_id === id);
+      const t = curGame().topics.find(x => x.topic_id === id);
       if (t) { t.has_draft = out.has_draft; t.errors = out.errors.length; t.title_en = S.doc.title_en; t.title_zh = S.doc.title_zh; t.levels = Object.fromEntries(Object.entries(S.doc.levels).map(([l, s]) => [l, s.length])); }
       paintTree(); paintState(); paintChecks(); paintList(); paintFieldMsgs();
     } catch (e) { S.dirty = true; toast("草稿沒有存到：" + e.message); }
@@ -193,7 +218,7 @@
           ${S.tree.levels.filter(l => !levels.includes(l)).length ? `<select id="tlAddLevel" aria-label="新增難度"><option value="">＋ 新增難度…</option>${S.tree.levels.filter(l => !levels.includes(l)).map(l => `<option value="${l}">${l}${levels.length ? "（先複製 " + (S.level || levels[0]) + " 的內容）" : ""}</option>`).join("")}</select>` : ""}
           ${S.level ? `<span class="tl-spacer"></span><button class="btn danger" type="button" id="tlDelLevel">刪除 ${esc(S.level)}</button>` : ""}
         </div>
-        ${S.level ? `<div class="tl-two"><div id="tlList" class="tl-slides"></div><div id="tlEdit" class="tl-edit"></div></div>` : `<p class="tl-hint">這個主題還沒有難度。用上面的「＋ 新增難度」開始。</p>`}
+        ${S.level ? `<div class="tl-three"><div id="tlList" class="tl-slides"></div><div id="tlEdit" class="tl-edit"></div><aside id="tlLive" class="tl-live" aria-label="即時預覽"></aside></div>` : `<p class="tl-hint">這個主題還沒有難度。用上面的「＋ 新增難度」開始。</p>`}
       </section>`;
     const bind = (id, key) => { const el = $(id); el.oninput = () => { d[key] = el.value; touch(); }; el.onblur = saveNow; };
     bind("tlTitleEn", "title_en"); bind("tlTitleZh", "title_zh");
@@ -205,12 +230,27 @@
     $("tlExport").onclick = exportXlsx;
     $("tlImportBtn").onclick = () => paintImport();
     $("tlCopyTopic").onclick = () => leave(() => { S.mode = "new"; paintTree(); paintNew(S.topic); });
-    $("tlLock").onclick = async () => { try { const out = await call("POST", `/teacher/library/${S.game}/${S.topic}/lock`, { locked: !sum.locked }); S.data.summary.locked = out.summary.locked; S.tree.games[0].topics.find(t => t.topic_id === S.topic).locked = out.summary.locked; paintTree(); paintMain(); toast(!sum.published ? (out.summary.locked ? "已上鎖。這個主題還沒發佈，學生本來就看不到；發佈後也要先開放才能玩。" : "已解除上鎖。這個主題還沒發佈，發佈後學生才看得到。")
+    $("tlLock").onclick = async () => { try { const out = await call("POST", `/teacher/library/${S.game}/${S.topic}/lock`, { locked: !sum.locked }); S.data.summary.locked = out.summary.locked; curGame().topics.find(t => t.topic_id === S.topic).locked = out.summary.locked; paintTree(); paintMain(); toast(!sum.published ? (out.summary.locked ? "已上鎖。這個主題還沒發佈，學生本來就看不到；發佈後也要先開放才能玩。" : "已解除上鎖。這個主題還沒發佈，發佈後學生才看得到。")
         : out.summary.locked ? "已上鎖：學生看得到這個主題，但不能玩（課程有勾選也一樣）。" : "已開放給學生。"); } catch (e) { toast(e.message); } };
     $("tlDelTopic").onclick = async () => { const id = S.topic; try { await call("POST", `/teacher/library/${S.game}/${id}/archive`); S.topic = null; await load();
       toast(`已刪除主題 ${id}。學生看不到了，學習紀錄都還在。`, async () => { await call("POST", `/teacher/library/${S.game}/${id}/unarchive`); await load(id); }); } catch (e) { toast(e.message); } };
     document.querySelectorAll("[data-ver]").forEach(b => b.onclick = async () => { try { await saveNow(); await call("POST", `/teacher/library/${S.game}/${S.topic}/restore-version`, { version: Number(b.dataset.ver) }); await openTopic(S.topic, S.level); toast(`第 ${b.dataset.ver} 版已放進草稿。確認後按「發佈」才會給學生。`); } catch (e) { toast(e.message); } });
     paintChecks(); paintList(); paintEdit(); paintState();
+  }
+
+  // ── live preview: the slide as the student sees it, redrawn on every keystroke ──
+  function paintLive() {
+    const el = $("tlLive"); if (!el || !S.level) return;
+    const slides = S.doc.levels[S.level], s = slides.find(x => x.no === S.slide); if (!s) { el.innerHTML = ""; return; }
+    const same = slides.filter(x => x.part === s.part), letters = "ABCDEFGH";
+    const sec = seconds(s.script, S.level);
+    el.innerHTML = `<div class="lv-head"><b>即時預覽</b><small>學生在 ${esc(S.level)} 看到的樣子</small></div>
+      <div class="lv-table">
+        <div class="lv-row">${same.map((x, i) => `<div class="lv-card ${x.no === s.no ? "now" : ""}"><span class="lv-ix">${letters[i] || ""}<i></i></span><b>${esc(x.title_en || "（標題）")}</b>${x.keywords && x.no === s.no ? `<small>${esc(x.keywords)}</small>` : ""}</div>`).join("")}</div>
+        <div class="lv-hand"><span class="lv-ix"><i></i></span><p>${esc(s.script || "（講稿會顯示在這張手牌上，學生聽到的就是這段）")}</p></div>
+      </div>
+      <div class="lv-meta"><span>Part ${s.part}${partName(s.part, slides.length) ? " · " + partName(s.part, slides.length) : ""}</span><span class="${sec > 20 ? "long" : ""}">約 ${Math.round(sec)} 秒</span><span>這一段 ${same.length} 張</span></div>
+      <p class="lv-note">中文標題「${esc(s.title_zh || "–")}」只有老師和報表看得到。</p>`;
   }
   const blank = n => (S.sizes[n] || S.sizes[20]).flatMap((count, p) => Array.from({ length: count }, () => ({ part: p + 1, title_en: "", title_zh: "", script: "", purpose: "", keywords: "" }))).map((s, i) => ({ no: i + 1, ...s }));
 
@@ -322,6 +362,7 @@
         <button class="btn" type="button" id="tlInsert">＋ 在這一張後面插入一張</button>
         <button class="btn danger" type="button" id="tlDelSlide">刪除這一張（所有難度）</button></div>
       <p class="tl-rule">順序和張數在所有難度都一樣：移動、插入、刪除會同時改每一個難度。每一段要有幾張，上面的檢查會提醒。</p>`;
+    paintLive();
     const count = () => { const t = el.querySelector('[data-f="script"]').value, w = t.trim() ? t.trim().split(/\s+/).length : 0, sec = seconds(t, S.level); $("tlCount").textContent = `${w} 個字 · 照 ${S.level} 的速度約 ${Math.round(sec)} 秒`; $("tlCount").className = "tl-count " + (sec > 20 ? "long" : ""); };
     count();
     el.querySelectorAll("[data-f]").forEach(f => {
@@ -332,6 +373,7 @@
         if (key === "title_en" || key === "title_zh" || key === "part") for (const l of Object.keys(S.doc.levels)) { const x = S.doc.levels[l].find(y => y.no === s.no); if (x) x[key] = v; }
         else s[key] = v;
         if (key === "script") count();
+        paintLive();
         touch();
       };
       f.onblur = saveNow;      // checks are shown after leaving the field, not while typing
@@ -384,7 +426,7 @@
     } catch (e) { toast(e.message); }
   }
   function paintNew(copyFrom) {
-    const topics = S.tree.games[0].topics.filter(t => !t.archived);
+    const topics = curGame().topics.filter(t => !t.archived);
     $("tlMain").innerHTML = `<section class="panel"><h3 class="tl-h">${copyFrom ? `複製 SDG ${esc(copyFrom)} 成新主題` : "新增主題"}</h3>
       <form id="tlNewForm" class="tl-new">
         <label>主題代碼 <small class="tl-rule">SDG 編號、減號、第幾個主題，例如 9-4。</small><input id="tlNewId" required pattern="\\d{1,2}-\\d{1,2}" placeholder="9-4" maxlength="5"><small class="tl-field-msg bad" id="tlNewIdMsg"></small></label>
@@ -398,7 +440,7 @@
         <div class="tl-tools"><button class="btn btn-primary" type="submit">建立（先是草稿，學生看不到）</button><button class="btn" type="button" id="tlNewCancel">取消</button></div>
       </form></section>`;
     const sync = () => { $("tlNewBlank").hidden = !!$("tlNewFrom").value; }; $("tlNewFrom").onchange = sync; sync();
-    $("tlNewId").onblur = () => { const v = $("tlNewId").value.trim(); $("tlNewIdMsg").textContent = !v ? "" : !/^\d{1,2}-\d{1,2}$/.test(v) ? "代碼要像 9-4。" : S.tree.games[0].topics.some(t => t.topic_id === v) ? `已經有 ${v} 了。` : ""; };
+    $("tlNewId").onblur = () => { const v = $("tlNewId").value.trim(); $("tlNewIdMsg").textContent = !v ? "" : !/^\d{1,2}-\d{1,2}$/.test(v) ? "代碼要像 9-4。" : curGame().topics.some(t => t.topic_id === v) ? `已經有 ${v} 了。` : ""; };
     $("tlNewCancel").onclick = () => { S.mode = "topic"; if (S.topic) { paintTree(); paintMain(); } else load(); };
     $("tlNewForm").onsubmit = async e => {
       e.preventDefault();

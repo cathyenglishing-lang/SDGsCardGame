@@ -106,13 +106,14 @@ window.teacherToast = window.teacherToast || function (text, undo) {
     $("tcBody").innerHTML = `
       <section class="panel">
         <div class="section-h"><h2>課程與名單</h2><div class="row"><button class="btn" type="button" id="tcReload">↻ 重新整理</button></div></div>
+        <ol class="tc-steps"><li class="${c ? "done" : "now"}"><b>1</b>建立課程</li><li class="${c ? "now" : ""}"><b>2</b>貼上或上傳名單</li><li><b>3</b>預覽、確認匯入</li><li><b>4</b>發帳號單給學生</li></ol>
         <div class="tc-row">
           <label>課程 <select id="tcCourse">${opts || "<option value=''>（還沒有課程）</option>"}</select></label>
           <button class="btn" type="button" id="tcNew">＋ 新增課程</button>
           ${c ? `<span class="tc-pill">${esc(pillText(c))}</span>` : ""}
         </div>
         <form id="tcForm" class="tc-form" ${c ? "hidden" : ""}>
-          <h3 class="tc-h wide" id="tcFormTitle">新增課程</h3>
+          <h3 class="tc-h wide" id="tcFormTitle"><span class="tc-no">1</span>新增課程</h3>
           <input type="hidden" id="tcId" value="">
           <label>學期 <input id="tcTerm" placeholder="1151" maxlength="20" required></label>
           <label>課號 <input id="tcCode" placeholder="ENG101" maxlength="40" required></label>
@@ -124,9 +125,25 @@ window.teacherToast = window.teacherToast || function (text, undo) {
         </form>
         ${c ? `<p class="tc-hint"><a href="#" id="tcEdit">編輯這門課（名稱、學期、停用）</a></p>` : `<p class="tc-hint">先建立一門課，再匯入名單。</p>`}
       </section>
+      <section class="panel tc-import ${c ? "" : "wait"}" id="tcImportPanel">
+        <h3 class="tc-h"><span class="tc-no">2</span>匯入名單${c ? `：${esc(c.name)}` : ""}</h3>
+        ${c ? "" : `<p class="tc-wait">先在上面建立課程（學期、課號、課程名稱），按「儲存課程」後就可以在這裡貼名單。</p>`}
+        <p class="tc-hint">從 Google Sheets 複製整塊貼上，或上傳 CSV／XLSX。第一列放欄位名稱：<b>系級、學號、姓名、email</b>。每位學生一定要有系級，而且只會有一個；email 可以空白，會用「學號@${esc(emailDomain)}」。同一份名單可以重複匯入，不會產生重複帳號。</p>
+        <textarea id="tcText" rows="6" placeholder="系級&#9;學號&#9;姓名&#9;email&#10;資工三甲&#9;411012345&#9;王小明&#9;" ${c ? "" : "disabled"}></textarea>
+        <div class="tc-row">
+          <label class="tc-file">📄 上傳檔案 <input type="file" id="tcFile" accept=".csv,.tsv,.txt,.xlsx" ${c ? "" : "disabled"}></label>
+          <input type="hidden" id="tcDefSection" value="">
+          <button class="btn btn-primary" type="button" id="tcPreview" ${c ? "" : "disabled"}>預覽（還不會寫入）</button>
+        </div>
+        <div id="tcPreviewOut"></div>
+      </section>
       ${c ? `
       <section class="panel">
-        <h3 class="tc-h">卡牌遊戲開放的主題</h3>
+        <div class="section-h"><h3 class="tc-h"><span class="tc-no">4</span>學生名單</h3><div class="row"><button class="btn" type="button" id="tcRosterCsv">⬇ 匯出名單 CSV</button></div></div>
+        <div id="tcRoster" class="scrollx"><p class="tc-hint">載入中…</p></div>
+      </section>
+      <details class="panel tc-fold">
+        <summary><h3 class="tc-h">卡牌遊戲開放的主題</h3><small>不勾＝照全站的開放規則</small></summary>
         <p class="tc-hint">勾選後，這門課的學生在卡牌遊戲只會看到這些主題和難度；全部不勾＝照全站的開放規則。<b>勾了就自動儲存。</b>這裡列的是「教材管理」已發佈的主題；上鎖的主題要先到教材管理開放，學生才玩得到。</p>
         <div class="tc-acts">${topics(c).map(t => {
           const a = c.activities.find(x => x.game === "pecha_kucha" && x.topic_id === t.id);
@@ -135,27 +152,12 @@ window.teacherToast = window.teacherToast || function (text, undo) {
             <div class="tc-lv">${t.levels.map(l => `<label><input type="checkbox" value="${esc(l)}" ${a && a.levels.includes(l) ? "checked" : ""}> ${esc(l)}</label>`).join("")}</div></div>`;
         }).join("")}</div>
         <div class="tc-row"><button class="btn" type="button" id="tcSaveActs">立即儲存</button><span id="tcActsMsg" class="tc-msg" role="status"></span></div>
-      </section>
-      <section class="panel">
-        <h3 class="tc-h">匯入名單</h3>
-        <p class="tc-hint">從 Google Sheets 複製整塊貼上，或上傳 CSV／XLSX。第一列放欄位名稱：<b>系級、學號、姓名、email</b>。每位學生一定要有系級，而且只會有一個；email 可以空白，會用「學號@${esc(emailDomain)}」。同一份名單可以重複匯入，不會產生重複帳號。</p>
-        <textarea id="tcText" rows="6" placeholder="系級&#9;學號&#9;姓名&#9;email&#10;資工三甲&#9;411012345&#9;王小明&#9;"></textarea>
-        <div class="tc-row">
-          <label>或上傳檔案 <input type="file" id="tcFile" accept=".csv,.tsv,.txt,.xlsx"></label>
-          <input type="hidden" id="tcDefSection" value="">
-          <button class="btn btn-primary" type="button" id="tcPreview">預覽（還不會寫入）</button>
-        </div>
-        <div id="tcPreviewOut"></div>
-      </section>
-      <section class="panel">
-        <div class="section-h"><h3 class="tc-h">學生名單</h3><div class="row"><button class="btn" type="button" id="tcRosterCsv">⬇ 匯出名單 CSV</button></div></div>
-        <div id="tcRoster" class="scrollx"><p class="tc-hint">載入中…</p></div>
-      </section>
-      <section class="panel" id="tcChipsPanel">
-        <div class="section-h"><h3 class="tc-h">籌碼</h3></div>
+      </details>
+      <details class="panel tc-fold" id="tcChipsPanel">
+        <summary><h3 class="tc-h">籌碼</h3><small>學生的籌碼、等你確認的局、手動加減</small></summary>
         <p class="tc-hint">學生玩遊戲會拿到籌碼（每人每天最多 <span id="tcChipCap">60</span> 個）。系統覺得不太對勁的局，籌碼會先等你確認；你也可以手動加減，並寫下理由。</p>
         <div id="tcChips"><p class="tc-hint">載入中…</p></div>
-      </section>` : ""}`;
+      </details>` : ""}`;
     $("tcReload").onclick = () => load();
     if ($("tcCourse")) $("tcCourse").onchange = async e => { await flushActs(); current = courses.find(x => x.id === Number(e.target.value)) || null; render(); if (current) loadRoster(); };
     $("tcNew").onclick = () => { fillForm(null); $("tcForm").hidden = false; $("tcTerm").focus(); };

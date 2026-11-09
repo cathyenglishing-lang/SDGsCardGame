@@ -123,6 +123,7 @@ def card_detail(events):
             c["attempts"] += 1
             if c["first"] is None:
                 c["first"], c["k"], c["rt_ms"] = bool(d.get("correct")), d.get("k"), d.get("rt_ms")
+                c["since_audio_ms"] = d.get("since_audio_ms")
             if d.get("correct"):
                 c["matched"] = True
             elif isinstance(d.get("target"), str) and d["target"]:
@@ -197,6 +198,73 @@ def _run_row(run, people, score=None):
             "version": run.get("content_version"), "embed": bool(m.get("embed"))}
 
 
+def _device(client):
+    ua = client if isinstance(client, str) else ""
+    os_ = "iPad" if "iPad" in ua else "iPhone" if "iPhone" in ua else "Android" if "Android" in ua else "Windows" if "Windows" in ua else "Mac" if "Mac" in ua else "ChromeOS" if "CrOS" in ua else "Linux" if "Linux" in ua else "?"
+    return os_
+
+
+def _mad_z(x, xs):
+    """How far x is from the class, in robust standard deviations (median / MAD, so one outlier does not move the yardstick)."""
+    xs = sorted(v for v in xs if v is not None)
+    if len(xs) < 5 or x is None:
+        return None, _median(xs)
+    med = _median(xs)
+    mad = _median([abs(v - med) for v in xs]) or 0
+    if mad == 0:
+        mad = (max(xs) - min(xs)) / 4 or 1
+    return (x - med) / (1.4826 * mad), med
+
+
+def _anomalies(rows, card):
+    """Students whose numbers do not look like ordinary play, each with the reasons in plain words.
+    The focus is on results that are better than the play behind them could explain (the class asked for
+    help catching people gaming the system); clumsy trial-and-error is reported too, as a different kind."""
+    played = [r for r in rows if r["runs"] and r.get("_st")]
+    bests = [r["best"] for r in played]
+    rt_meds = [_median(r["_st"]["rts"]) for r in played if r["_st"]["rts"]]
+    out = []
+    for r in played:
+        st, why, good = r["_st"], [], False
+        z, med = _mad_z(r["best"], bests)
+        if r["best"] is not None and r["best"] >= 85 and z is not None and z >= 2:
+            why.append(f"最好的聽懂分數 {r['best']}，全班中位數 {round(med)}，高出很多（{z:.1f} 個標準差）"); good = True
+        rt = _median(st["rts"]) if st["rts"] else None
+        class_rt = _median(rt_meds) if rt_meds else None
+        rate = r["first_ok"] / r["first_n"] if r["first_n"] else 0
+        if rt is not None and rt < 1500 and rate >= 0.8 and r["first_n"] >= 8:
+            why.append(f"放卡的反應中位數只有 {rt / 1000:.1f} 秒" + (f"（全班 {class_rt / 1000:.1f} 秒）" if class_rt else "") + f"，又有 {round(rate * 100)}% 第一次就對"); good = True
+        if st["early"] >= 3:
+            why.append(f"有 {st['early']} 張卡沒有「聽」的紀錄就放對了。遊戲畫面要先念完句子才能拖卡，所以這些紀錄很可能不是從遊戲畫面送出的（例如直接呼叫 API 灌分數）"); good = True
+        sc = [x["score"] for x in r["scores"]]
+        jumps = [(a, b) for a, b in zip(sc, sc[1:]) if b - a >= 50]
+        if jumps:
+            a, b = max(jumps, key=lambda p: p[1] - p[0])
+            why.append(f"分數一次跳了 {b - a} 分（{a} → {b}）"); good = True
+        fast = [x for x in st["short"] if x[0] is not None and x[2] >= 8 and x[1] >= 80 and x[0] < x[2] * 0.12]
+        if fast:
+            m, sco, n, _ = min(fast)
+            why.append(f"有一局只用了 {m} 分鐘就拿到 {sco} 分（{n} 張卡，比把句子聽完還快）"); good = True
+        spans = sorted(st["spans"])
+        overlap = sum(1 for (a1, e1, _), (a2, _e2, _) in zip(spans, spans[1:]) if a2 < e1)
+        if overlap:
+            why.append(f"有 {overlap} 次在上一局還沒結束時又開了新的一局（多個分頁，或有人一起用這個帳號）")
+        devs = {d for d in st["devices"] if d != "?"}
+        if len(devs) >= 3:
+            why.append(f"用了 {len(devs)} 種裝置（{'、'.join(sorted(devs))}），可能有人借用帳號")
+        if st["flag_kinds"].get("trial_and_error"):
+            why.append(f"{st['flag_kinds']['trial_and_error']} 局在 10 秒內同一句連錯 3 次（像是用試的）")
+        if st["flag_kinds"].get("fast_and_high") and not good:
+            why.append(f"{st['flag_kinds']['fast_and_high']} 局反應極快又幾乎全對"); good = True
+        if not why:
+            continue
+        severity = "high" if len(why) >= 2 or (good and any("「聽」" in w or "反應" in w for w in why)) else "watch"
+        out.append({"user_id": r["user_id"], "name": r["name"], "student_no": r["student_no"], "section": r["section"], "best": r["best"], "runs": r["runs"],
+                    "severity": severity, "too_good": good, "reasons": why})
+    out.sort(key=lambda a: (a["severity"] != "high", not a["too_good"], -(a["best"] or 0)))
+    return out
+
+
 def _median(xs):
     xs = sorted(x for x in xs if isinstance(x, (int, float)))
     return xs[len(xs) // 2] if xs else None
@@ -255,10 +323,13 @@ def _game_report(game, course_id, section_id, chapter, level, date_from, date_to
             continue
         key = r.get("user_id") if r.get("user_id") is not None else f"anon:{r['id']}"
         st = students.get(key) or {"runs": 0, "finished": 0, "scores": [], "repeats": 0, "flags": 0, "active": 0.0, "last": None, "first_ok": 0, "first_n": 0,
-                                   "stars": [], "endings": Counter(), "quiz_ok": 0, "quiz_n": 0, "reads": 0, "reflects": 0, "wrap_done": 0, "username": r.get("username"), "levels": set(), "topics": set()}
+                                   "stars": [], "endings": Counter(), "quiz_ok": 0, "quiz_n": 0, "reads": 0, "reflects": 0, "wrap_done": 0, "username": r.get("username"), "levels": set(), "topics": set(),
+                                   "rts": [], "early": 0, "early_n": 0, "spans": [], "devices": set(), "short": [], "flag_kinds": Counter()}
         students[key] = st
         st["runs"] += 1; st["active"] += row["active_minutes"]; st["last"] = max(st["last"] or "", r["started_at"])
         st["levels"].add(r["level"] or ""); st["topics"].add(r["chapter"] or "")
+        st["spans"].append((r["started_at"], r.get("ended_at") or r["started_at"], r["id"]))
+        st["devices"].add(_device(r.get("client")))
         if r.get("ended_at"):
             st["finished"] += 1
         if card:
@@ -275,11 +346,22 @@ def _game_report(game, course_id, section_id, chapter, level, date_from, date_to
             if score["score"] is not None and score["complete"]:
                 st["scores"].append({"at": r["started_at"], "score": score["score"], "chapter": r["chapter"], "level": r["level"], "run_id": r["id"]})
             st["flags"] += 1 if score["flags"] else 0
+            for fl in score["flags"] or []:
+                st["flag_kinds"][fl] += 1
+            if score["complete"] and score["score"] is not None and row["active_minutes"] is not None:
+                st["short"].append((row["active_minutes"], score["score"], len(detail["cards"]), r["id"]))
             st["quiz_ok"] += w["quiz_correct"]; st["quiz_n"] += w["quiz_total"]; st["reads"] += len(detail["reads"]); st["reflects"] += len(detail["reflects"])
             for c in detail["cards"]:
                 st["repeats"] += c["repeats"]
                 if c["first"] is not None:
                     st["first_n"] += 1; st["first_ok"] += 1 if c["first"] else 0
+                    if isinstance(c["rt_ms"], (int, float)) and c["rt_ms"] > 0:
+                        st["rts"].append(c["rt_ms"])
+                    if c["first"]:
+                        st["early_n"] += 1
+                        # The game lets a card be dragged only after its sentence has been read out (card.listen).
+                        if c["listen_s"] is None and c["repeats"] == 0:
+                            st["early"] += 1
                 cs = card_stats.setdefault((c["card"], r.get("content_version")), {"card": c["card"], "version": r.get("content_version"), "part": c["part"], "n": 0, "first_ok": 0, "s": [], "repeats": 0, "rt": [], "wrong": Counter(), "students": set()})
                 if c["first"] is not None:
                     cs["n"] += 1; cs["first_ok"] += 1 if c["first"] else 0
@@ -308,7 +390,13 @@ def _game_report(game, course_id, section_id, chapter, level, date_from, date_to
                      "first_rate": round(st["first_ok"] / st["first_n"], 3) if st["first_n"] else None, "first_ok": st["first_ok"], "first_n": st["first_n"],
                      "avg_stars": round(sum(st["stars"]) / len(st["stars"]), 2) if st["stars"] else None, "best_ending": (st["endings"].most_common(1) or [(None, 0)])[0][0],
                      "quiz": f"{st['quiz_ok']}/{st['quiz_n']}" if st["quiz_n"] else None, "wrap_done": st["wrap_done"], "reads": st["reads"], "reflects": st["reflects"],
-                     "topics": sorted(t for t in st["topics"] if t), "levels": sorted(l for l in st["levels"] if l)})
+                     "topics": sorted(t for t in st["topics"] if t), "levels": sorted(l for l in st["levels"] if l), "_st": st})
+    anomalies = _anomalies(rows, card) if card else []
+    by_user = {a["user_id"]: a for a in anomalies}
+    for r in rows:
+        r.pop("_st", None)
+        a = by_user.get(r["user_id"])
+        r["anomaly"] = {"severity": a["severity"], "too_good": a["too_good"], "n": len(a["reasons"])} if a else None
     rows.sort(key=lambda x: (x["section"] or "", x["student_no"] or "~", x["name"] or ""))
     cards = []
     for cs in card_stats.values():
@@ -327,7 +415,7 @@ def _game_report(game, course_id, section_id, chapter, level, date_from, date_to
                          "avg_minutes": round(sum(mins) / len(mins), 1) if mins else None, "events": sum(r.get("event_count") or 0 for r in runs),
                          "flagged_runs": sum(1 for r in run_rows if r["flags"]), "unreadable_runs": skipped,
                          "runs_listed": min(len(run_rows), run_limit) if run_limit else len(run_rows)},
-            "students": rows, "cards": cards,
+            "students": rows, "cards": cards, "anomalies": anomalies,
             "confusion": [{"card": c, "target": t, "n": n} for (c, t), n in confusion.most_common(20)],
             "funnel": [{"step": k, "runs": funnel.get(k, 0)} for k in ("started", "dealt", "matched_all", "quiz", "read", "reflect", "done")] if card else [],
             "abandon_points": [{"part": k, "runs": v} for k, v in sorted(abandon_points.items())],
@@ -399,7 +487,11 @@ def student_report(user_id: int, date_from: str | None = Query(default=None, ali
         sc = [x["score"] for x in t["scores"]]
         t["best"], t["last_score"], t["first_score"] = (max(sc), sc[-1], sc[0]) if sc else (None, None, None)
     weak_rows = sorted(({**w, "wrong": [{"target": k, "n": v} for k, v in w["wrong"].most_common(3)]} for w in weak.values() if w["misses"]), key=lambda w: (-w["misses"], str(w["card"])))
+    profile = L._auth["profile"](user_id) if L._auth.get("profile") else {}
+    devices = Counter(_device(r.get("client")) for r in runs if r.get("client"))
     return {"student": {"user_id": user_id, "name": person.get("name"), "student_no": person.get("student_no"), "public_id": person.get("public_id")},
+            "profile": {**profile, "devices": [{"device": k, "runs": v} for k, v in devices.most_common() if k != "?"]},
+            "daily": [{"day": d, "runs": n} for d, n in sorted(Counter(str(r["started_at"])[:10] for r in runs).items())],
             "totals": {"runs": len(runs), "finished": sum(1 for r in runs if r.get("ended_at")), "active_minutes": round(total_active, 1),
                        "games": len(by_game), "first_played": runs[0]["started_at"] if runs else None, "last_played": runs[-1]["started_at"] if runs else None,
                        "events": sum(r.get("event_count") or 0 for r in runs)},

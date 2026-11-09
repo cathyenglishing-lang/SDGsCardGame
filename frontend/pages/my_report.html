@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>我的學習報告 | CardLearn SDGs</title>
+<style>
+  :root{--night:#070b24;--indigo:#1e1b4b;--gold:#e8b949;--gold-hi:#fde68a}
+  *{box-sizing:border-box}
+  body{margin:0;min-height:100vh;font-family:"Noto Sans TC",system-ui,sans-serif;color:#fff;background:radial-gradient(ellipse at 50% 0%,#2d2580 0%,var(--indigo) 40%,var(--night) 100%)}
+  .bar{position:sticky;top:0;z-index:2;display:flex;align-items:center;gap:12px;padding:12px 18px;background:rgba(7,11,36,.85);backdrop-filter:blur(6px);border-bottom:1px solid rgba(232,185,73,.25)}
+  .bar a{color:var(--gold-hi);font-weight:800;text-decoration:none}
+  .bar select{margin-left:auto;padding:8px 10px;border-radius:10px;border:1px solid rgba(255,255,255,.25);background:#14183d;color:#fff;font:inherit}
+  iframe{display:block;width:100%;border:0;min-height:calc(100vh - 60px)}
+  .msg{max-width:560px;margin:80px auto;padding:24px;text-align:center;background:rgba(255,255,255,.06);border-radius:18px}
+</style>
+</head>
+<body>
+<div class="bar"><a href="/pages/member_index.html">← 回遊戲大廳</a><b>我的學習報告</b><select id="pick" aria-label="選一份報告" hidden></select></div>
+<div id="out"><p class="msg">讀取中…</p></div>
+<script src="/static/config.js"></script>
+<script src="/static/js/api.js"></script>
+<script src="/static/js/visit.js" defer></script>
+<script>
+  // The report is HTML the server built with every value escaped; it is still shown in a sandboxed
+  // frame (no scripts, no access to this page or the login token).
+  const API = String(window.CARDLEARN_API_BASE_URL || "").replace(/\/+$/, "");
+  const head = () => ({ Authorization: "Bearer " + auth.getToken() });
+  const out = document.getElementById("out"), pick = document.getElementById("pick");
+  async function show(id) {
+    const r = await fetch(API + "/me/reports/" + id, { headers: head() });
+    if (!r.ok) { out.innerHTML = '<p class="msg">打不開這份報告。</p>'; return; }
+    const d = await r.json();
+    const f = document.createElement("iframe");
+    f.setAttribute("sandbox", ""); f.title = d.title; f.srcdoc = d.html;
+    f.onload = () => { try { f.style.height = Math.max(window.innerHeight - 60, f.contentDocument.documentElement.scrollHeight + 20) + "px"; } catch (e) {} };
+    out.replaceChildren(f);
+  }
+  (async () => {
+    if (!auth.requireLogin().access_token) return;
+    const r = await fetch(API + "/me/reports", { headers: head() });
+    const d = r.ok ? await r.json() : { reports: [] };
+    if (!d.reports.length) { out.innerHTML = '<p class="msg">老師還沒有傳學習報告給你。</p>'; return; }
+    pick.innerHTML = d.reports.map(x => `<option value="${x.id}">${x.title}${x.seen_at ? "" : "（新）"}</option>`).join("");
+    pick.hidden = d.reports.length < 2;
+    const want = new URLSearchParams(location.search).get("id");
+    if (want) pick.value = want;
+    pick.onchange = () => show(pick.value);
+    show(pick.value);
+  })();
+</script>
+</body>
+</html>

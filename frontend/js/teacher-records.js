@@ -45,7 +45,7 @@
     "card.match": "配對", "card.error": "配錯", "card.done": "卡片完成", "chart.open": "打開圖表", "chart.answer": "圖表作答", "hint.zh": "看中文提示", "read.match": "閱讀配對", "seq.done": "排序完成",
     "cardgame.open": "打開卡牌關卡", "map.open": "打開地圖", "move": "移動", "settings.rate": "調語速",
   };
-  const S = { courses: [], courseId: "", sectionId: "", from: "", to: "", tab: "class", game: "pecha_kucha", chapter: "", level: "", games: null, report: null, studentId: null, voiceStatus: "", voiceTopic: "", voiceFind: "", showOff: false, secFilter: "", find: "" };
+  const S = { courses: [], courseId: "", sectionId: "", from: "", to: "", tab: "class", game: "pecha_kucha", chapter: "", level: "", games: null, report: null, studentId: null, voiceStatus: "", voiceTopic: "", voiceFind: "", showOff: false, secFilter: "", find: "", voiceSort: "new", voiceGroup: "section" };
 
   // card id ("9-1/A2/s02") → words a teacher can read
   const cardNo = id => T.parse(id).no;
@@ -303,6 +303,7 @@
             <td>${c.attention ? `<span class="tr-badge warn">${c.attention} 位</span>` : "–"}</td></tr>`).join("")}
         </tbody></table></div><p class="tr-hint">點一個系級，看這個系級每一位學生。</p>` : `<p class="tr-hint">這個條件下還沒有學生。先到「課程與名單」匯入名單，或清除篩選。</p>`}
       </section>
+      ${anomalyBox(rep.anomalies || [])}
       <div id="trFirst"></div>`;
     } else if (S.tab === "people") {
       const last = "￿";
@@ -313,13 +314,14 @@
           <label>找學生 <input type="search" id="trFind" value="${esc(S.find)}" placeholder="姓名或學號"></label>
           <div class="tr-chips" role="group" aria-label="系級">${["*", ...secs].map(k => `<button type="button" class="tr-chip ${(k === "*" ? !S.secFilter : S.secFilter === k) ? "on" : ""}" data-chip="${esc(k)}">${k === "*" ? "全部" : esc(secName(k))}</button>`).join("")}</div>
           <small class="tr-saved" id="trPeopleN"></small>
+          <span class="tr-grow"></span><button class="btn btn-primary" type="button" id="trSendAll">📨 傳學習報告給列出的學生</button>
         </div>
         <div class="scrollx"><table class="part-table tr-table"><thead><tr><th>系級</th><th>學生</th><th>局數</th>${card ? "<th>最佳／最近</th><th>分數變化</th><th>第一次就配對</th>" : "<th>平均星數</th><th>結局</th>"}<th>錄音</th><th>要注意</th></tr></thead><tbody>
           ${rep.students.length ? rep.students.map(s => `<tr class="${s.user_id ? "tr-click" : ""} ${s.runs ? "" : "mute"}" data-student="${s.user_id ? Number(s.user_id) : ""}" data-sec="${esc(s.section || "")}" data-q="${esc(((s.name || "") + " " + (s.student_no || "")).toLowerCase())}" ${s.user_id ? 'tabindex="0"' : ""}>
             <td class="nw">${esc(s.section || "")}</td><td>${who(s)}</td><td class="nw">${s.runs ? `${Number(s.runs)} 局 <small>玩完 ${Number(s.finished)}</small><small class="tr-sub">最近 ${esc(dt(s.last))}</small>` : `<span class="tr-badge warn">還沒玩</span>`}</td>
             ${card ? `<td class="nw">${n(s.best)} ／ ${n(s.last_score)}</td><td>${spark(s.scores)}</td><td>${num(s.first_n) ? `${n(s.first_ok)} / ${n(s.first_n)} 句` : "–"}</td>` : `<td>${n(s.avg_stars)}</td><td>${esc(s.best_ending || "–")}</td>`}
             <td>${s.recordings && num(s.recordings.total) ? `${n(s.recordings.total)} 段${num(s.recordings.new) ? ` <span class="tr-badge warn">${n(s.recordings.new)} 未聽</span>` : ""}` : "–"}</td>
-            <td>${Object.entries(kinds[s.user_id] || {}).map(([f, c]) => `<span class="tr-badge bad">${esc(FLAG[f] || f)} ×${c}</span>`).join(" ") || (num(s.flags) ? `<span class="tr-badge bad">${n(s.flags)} 局有標記</span>` : "")}</td></tr>`).join("") : `<tr><td colspan="10">這個條件下沒有學生或紀錄。</td></tr>`}
+            <td>${s.anomaly ? `<span class="tr-anom ${s.anomaly.severity}">${s.anomaly.too_good ? "好得不正常" : "行為異常"}${s.anomaly.n > 1 ? " ×" + s.anomaly.n : ""}</span> ` : ""}${Object.entries(kinds[s.user_id] || {}).map(([f, c]) => `<span class="tr-badge bad">${esc(FLAG[f] || f)} ×${c}</span>`).join(" ") || (num(s.flags) ? `<span class="tr-badge bad">${n(s.flags)} 局有標記</span>` : "")}</td></tr>`).join("") : `<tr><td colspan="10">這個條件下沒有學生或紀錄。</td></tr>`}
         </tbody></table></div></section>
       <section class="panel"><h3 class="tr-h">最近的局（點一列看每一步）</h3>${runsTable(rep.runs.slice(0, 60), card)}</section>`;
     } else {
@@ -353,11 +355,42 @@
       $("trFind").oninput = e => { S.find = e.target.value; applyPeople(); };
       document.querySelectorAll("#trView [data-chip]").forEach(b => b.onclick = () => { S.secFilter = b.dataset.chip === "*" ? "" : b.dataset.chip; document.querySelectorAll("#trView [data-chip]").forEach(x => x.classList.toggle("on", x === b)); applyPeople(); });
       applyPeople();
+      $("trSendAll").onclick = () => { const ids = [...document.querySelectorAll("#trView tr[data-q]")].filter(r => !r.hidden && r.dataset.student && !r.classList.contains("mute")).map(r => Number(r.dataset.student));
+        sendReports(ids, `${ids.length} 位學生`); };
     }
+    document.querySelectorAll("#trView [data-anom]").forEach(b => b.onclick = () => { S.studentId = Number(b.dataset.anom); refresh(); });
     paintFirst();
     wireRuns();
   }
+  // 異常偵測: results that the play behind them cannot explain, each with its reasons.
+  function anomalyBox(list) {
+    if (!list.length) return `<section class="panel tr-anom-box ok"><h3 class="tr-h">異常偵測</h3><p class="tr-hint">目前沒有發現異常：沒有人的成績好到和他的作答過程對不起來，也沒有用試的、共用帳號的跡象。</p></section>`;
+    const good = list.filter(a => a.too_good).length;
+    return `<section class="panel tr-anom-box"><h3 class="tr-h">異常偵測（${list.length} 位）</h3>
+      <p class="tr-say">${good ? `${good} 位的成績好得不正常，` : ""}請點進去看他每一局怎麼玩的再判斷；這些只是提醒，不會自動扣分或通知學生。</p>
+      <div class="tr-anom-list">${list.map(a => `<article class="tr-anom-card ${a.severity}">
+        <header><span class="tr-anom ${a.severity}">${a.too_good ? "好得不正常" : "行為異常"} · ${a.severity === "high" ? "優先查看" : "留意"}</span><b>${esc(a.section || "")} ${esc(a.name)}</b><small>${esc(a.student_no || "")}${a.best != null ? ` · 最好 ${n(a.best)} 分` : ""} · ${n(a.runs)} 局</small></header>
+        <ul>${a.reasons.map(r => `<li>${esc(r)}</li>`).join("")}</ul>
+        <button class="btn" type="button" data-anom="${Number(a.user_id)}">看他每一局 →</button></article>`).join("")}</div></section>`;
+  }
   // 個人分析: filter the class table by 系級 chip and a name / 學號 search, without asking the server again.
+  // 傳學習報告: the teacher can add a few words; each student gets their own page right away (shown when they next open the site).
+  function sendReports(ids, who) {
+    if (!ids.length) { toast("目前列出的學生都還沒玩過，沒有報告可以傳。"); return; }
+    const m = $("trModal");
+    m.hidden = false;
+    m.innerHTML = `<div class="tr-sheet" role="dialog" aria-label="傳學習報告"><h3 class="tr-h">傳學習報告給 ${esc(who)}</h3>
+      <p class="tr-hint">每位學生會收到自己的報告：玩了幾局、分數怎麼進步、每個主題最好的分數、下次先練哪幾句。學生登入後會馬上看到通知。</p>
+      <label>想對他們說的話（可以不寫）<textarea id="trRepNote" rows="4" maxlength="2000" placeholder="例如：這週大家進步很多！第 7 張的句子再多聽兩次。"></textarea></label>
+      <div class="tr-row"><button class="btn btn-primary" type="button" id="trRepGo">傳送</button><button class="btn" type="button" id="trRepCancel">取消</button><small class="tr-saved" id="trRepMsg"></small></div></div>`;
+    $("trRepCancel").onclick = () => { m.hidden = true; m.innerHTML = ""; };
+    $("trRepGo").onclick = async () => {
+      $("trRepGo").disabled = true; $("trRepMsg").textContent = "產生報告中…";
+      try { const out = await send("POST", "/teacher/reports/send", { user_ids: ids, note: $("trRepNote").value });
+        m.hidden = true; m.innerHTML = ""; toast(`已傳出 ${out.sent} 份學習報告。學生登入後就會看到。`); }
+      catch (e) { $("trRepMsg").textContent = e.message; $("trRepGo").disabled = false; }
+    };
+  }
   function applyPeople() {
     const q = S.find.trim().toLowerCase(); let shown = 0, total = 0;
     document.querySelectorAll("#trView tr[data-q]").forEach(r => {
@@ -394,6 +427,46 @@
     finally { if (btn) { btn.disabled = false; btn.textContent = label; } }
   }
 
+  // ── 一位學生：身分卡與圖 ──
+  function profileCard(p, row) {
+    const courses = (p.courses || []).map(c => `${esc(c.term)} ${esc(c.name)}${c.section ? "（" + esc(c.section) + "）" : ""}${c.status && c.status !== "active" ? " · 已退選" : ""}`).join("、") || "沒有修課紀錄";
+    const anomaly = row && row.anomaly ? `<span class="tr-anom ${row.anomaly.severity}">${row.anomaly.too_good ? "好得不正常" : "行為異常"}（見班級分析）</span>` : "";
+    const f = (k, v) => `<div><dt>${k}</dt><dd>${v}</dd></div>`;
+    return `<div class="tr-profile">
+      <div class="tr-avatar">${esc(String(p.name || "?").slice(0, 1))}</div>
+      <dl>
+        ${f("系級", esc(p.class_name || row.section || "–"))}${f("學號", esc(p.student_no || "–"))}${f("登入帳號", esc(p.email || "–"))}${f("身分", esc({ student: "學生", teacher: "老師", admin: "管理員" }[p.role] || p.role || "–"))}
+        ${f("修的課", courses)}${f("帳號建立", esc(dt(p.created_at)) + (p.account_source === "roster" ? "（名單匯入）" : ""))}
+        ${f("登入", `${n(p.logins, "0")} 次 · 最近 ${esc(dt(p.last_login))}`)}${f("用過的裝置", (p.devices || []).map(x => `${esc(x.device)} ×${x.runs}`).join("、") || "–")}
+        ${f("籌碼", `${n(p.chips, "0")} 枚${num(p.chips_held) ? ` · ${n(p.chips_held)} 枚等確認` : ""}`)}${f("錄音", `${n(p.recordings, "0")} 段`)}
+        ${p.must_change_password ? f("狀態", "還沒改過初始密碼") : ""}
+      </dl>${anomaly}
+      ${(p.recent_logins || []).length ? `<details class="tr-logins"><summary>最近 ${p.recent_logins.length} 次登入</summary><ul>${p.recent_logins.map(l => `<li>${esc(dt(l.at))} <small>${esc(l.ip || "")}</small></li>`).join("")}</ul></details>` : ""}
+    </div>`;
+  }
+  // every card-game score in time order, one line per topic/level
+  function scoreChart(topics) {
+    const pts = (topics || []).flatMap(t => (t.scores || []).map(s => ({ t: Date.parse(s.at), v: num(s.score), k: `${t.chapter} ${t.level}` }))).filter(p => p.v !== null && !isNaN(p.t)).sort((a, b) => a.t - b.t);
+    if (!pts.length) return `<section class="tr-chart"><h4>聽懂分數的變化</h4><p class="tr-hint">還沒有卡牌遊戲的分數。</p></section>`;
+    const W = 420, H = 170, L = 30, B = 22, x0 = pts[0].t, x1 = Math.max(pts[pts.length - 1].t, x0 + 1);
+    const px = t => L + (t - x0) / (x1 - x0) * (W - L - 10), py = v => 8 + (1 - v / 100) * (H - B - 8);
+    const keys = [...new Set(pts.map(p => p.k))], colors = ["#2563eb", "#16a34a", "#ea580c", "#7c3aed", "#0891b2", "#db2777"];
+    return `<section class="tr-chart"><h4>聽懂分數的變化</h4><svg viewBox="0 0 ${W} ${H}">
+      ${[0, 50, 100].map(v => `<line x1="${L}" x2="${W - 10}" y1="${py(v)}" y2="${py(v)}" stroke="#e2e8f0"/><text x="${L - 5}" y="${py(v) + 4}" text-anchor="end" font-size="10" fill="#64748b">${v}</text>`).join("")}
+      ${keys.map((k, i) => { const ps = pts.filter(p => p.k === k); return `<polyline fill="none" stroke="${colors[i % colors.length]}" stroke-width="2" points="${ps.map(p => `${px(p.t).toFixed(1)},${py(p.v).toFixed(1)}`).join(" ")}"/>${ps.map(p => `<circle cx="${px(p.t).toFixed(1)}" cy="${py(p.v).toFixed(1)}" r="3.2" fill="${colors[i % colors.length]}"><title>${esc(k)}：${p.v}</title></circle>`).join("")}`; }).join("")}
+      </svg><div class="tr-legend">${keys.map((k, i) => `<span><i style="background:${colors[i % colors.length]}"></i>${esc(topicLabel(k.split(" ")[0]))} ${esc(k.split(" ")[1] || "")}</span>`).join("")}</div></section>`;
+  }
+  function dailyChart(days) {
+    if (!days.length) return "";
+    const max = Math.max(...days.map(d => d.runs));
+    return `<section class="tr-chart"><h4>每天玩幾局</h4><div class="tr-days">${days.slice(-21).map(d => `<div title="${esc(d.day)}：${d.runs} 局"><i style="height:${(d.runs / max) * 100}%"></i><small>${esc(d.day.slice(5))}</small></div>`).join("")}</div></section>`;
+  }
+  function topicBars(topics) {
+    const t = (topics || []).filter(x => num(x.best) !== null);
+    if (!t.length) return "";
+    return `<section class="tr-chart"><h4>各主題最好的分數</h4>${t.map(x => `<div class="tr-tbar"><span>${esc(topicLabel(x.chapter))} <small>${esc(x.level)}</small></span>${bar(num(x.best), num(x.best) < 40 ? "bad" : num(x.best) < 70 ? "mid" : "good")}<b>${n(x.best)}</b></div>`).join("")}</section>`;
+  }
+
   // ── 一位學生 ──
   async function studentView(my) {
     const [d, v] = await Promise.all([get("/learning/records/student/" + Number(S.studentId), dates()), get("/teacher/recordings", { user_id: S.studentId, ...dates() })]);
@@ -403,9 +476,11 @@
     const st = d.student, t = d.totals, row = (S.report ? S.report.students : []).find(x => x.user_id === S.studentId) || {};
     $("trView").innerHTML = `
       <section class="panel">
-        <div class="section-h"><h2>${esc(st.name)} <small>${esc(st.student_no || "")}${row.section ? " · " + esc(row.section) : ""} · 研究代碼 ${esc(st.public_id || "–")}</small></h2><div class="row"><button class="btn" type="button" id="trBack">← 回學生名單</button></div></div>
+        <div class="section-h"><h2>${esc(st.name)} <small>${esc(st.student_no || "")}${row.section ? " · " + esc(row.section) : ""} · 研究代碼 ${esc(st.public_id || "–")}</small></h2><div class="row"><button class="btn btn-primary" type="button" id="trSendOne">📨 傳學習報告給他</button><button class="btn" type="button" id="trBack">← 回學生名單</button></div></div>
         ${S.from || S.to ? `<p class="tr-hint">只看 ${esc(S.from || "最早")} 到 ${esc(S.to || "今天")} 的紀錄。要看全部請按上面的「清除篩選」。</p>` : ""}
+        ${profileCard(d.profile || {}, row)}
         <div class="tr-tiles">${tile(n(t.runs), "開始的局數")}${tile(n(t.finished), "玩完的局數")}${tile(n(t.active_minutes), "有效學習分鐘")}${tile(n(t.games), "玩過的遊戲")}${tile(v.recordings.length, "送出的錄音")}${tile(n(t.events), "操作紀錄筆數")}${tile(dt(t.first_played), "第一次玩")}${tile(dt(t.last_played), "最近一次")}</div>
+        <div class="tr-charts">${scoreChart(d.card_topics)}${dailyChart(d.daily || [])}${topicBars(d.card_topics)}</div>
         <table class="part-table tr-table"><thead><tr><th>遊戲</th><th>局數</th><th>玩完</th><th>有效分鐘</th><th>最近玩</th></tr></thead><tbody>${d.by_game.length ? d.by_game.map(g => `<tr><td>${esc(GAME_ZH[g.game] || g.name)}</td><td>${n(g.runs)}</td><td>${n(g.finished)}</td><td>${n(g.active_minutes)}</td><td>${esc(dt(g.last))}</td></tr>`).join("") : `<tr><td colspan="5">這位學生還沒有任何紀錄。</td></tr>`}</tbody></table>
       </section>
       ${d.card_topics.length ? `<section class="panel"><h3 class="tr-h">卡牌遊戲：每個主題的進步</h3>
@@ -419,6 +494,7 @@
       ${d.reflections.length ? `<section class="panel"><h3 class="tr-h">學生寫的反思</h3><ul class="tr-list">${d.reflections.map(x => `<li><small>${esc(dt(x.at))} · ${esc(GAME_ZH[x.game] || x.game)}${x.question ? " · " + esc(x.question) : ""}${x.answer ? " → " + esc(x.answer) : ""}</small><span>${esc(x.sentence || "")}</span></li>`).join("")}</ul></section>` : ""}
       <section class="panel"><h3 class="tr-h">這位學生的每一局（點一列看每一步）</h3>${runsTable(d.runs, false, false)}</section>`;
     $("trBack").onclick = () => { S.studentId = null; refresh(); };
+    $("trSendOne").onclick = () => sendReports([S.studentId], st.name);
     wireRuns(); wireVoice();
   }
 
@@ -454,6 +530,24 @@
   }
 
   // ── 語音 ──
+  // 排序（時間）與分組（系級／學生）只在瀏覽器裡做，不用再問伺服器。
+  function voiceGrouped(list) {
+    const sorted = [...list].sort((a, b) => String(a.created_at).localeCompare(String(b.created_at)) * (S.voiceSort === "old" ? 1 : -1));
+    if (!S.voiceGroup) return voiceRows(sorted);
+    const key = r => (S.voiceGroup === "section" ? r.section || "沒有系級" : `${r.section || ""} ${r.name || ""}${r.student_no ? "（" + r.student_no + "）" : ""}`.trim());
+    const groups = new Map();
+    for (const r of sorted) { const k = key(r); if (!groups.has(k)) groups.set(k, []); groups.get(k).push(r); }
+    const order = [...groups.keys()].sort((a, b) => a.localeCompare(b, "zh-Hant"));
+    // Inside a group: not heard yet first, then by 學號; only the group with the most unheard clips starts open.
+    const rank = r => (r.status === "new" ? 0 : 1);
+    for (const g of groups.values()) g.sort((a, b) => rank(a) - rank(b) || String(a.student_no || "").localeCompare(String(b.student_no || "")) || String(b.created_at).localeCompare(String(a.created_at)));
+    const freshOf = k => groups.get(k).filter(r => r.status === "new").length;
+    const openKey = order.reduce((best, k) => (freshOf(k) > (best ? freshOf(best) : 0) ? k : best), null);
+    return order.map(k => { const g = groups.get(k), fresh = freshOf(k), done = g.length - fresh, pctDone = Math.round(done / g.length * 100);
+      return `<details class="tr-vgroup" data-vg="${esc(k)}" ${k === openKey ? "open" : ""}><summary><b>${esc(k)}</b>
+        <span class="tr-vprog" title="已處理 ${done} / ${g.length}"><i style="width:${pctDone}%"></i></span><span>未聽 <b data-vfresh>${fresh}</b> / 共 ${g.length} 段</span>
+        ${fresh ? "" : `<span class="tr-badge good">✓ 全部聽過</span>`}</summary>${voiceRows(g, S.voiceGroup !== "student")}</details>`; }).join("");
+  }
   function voiceRows(list, withStudent = true) {
     if (!list.length) return `<p class="tr-hint">這個條件下沒有錄音。學生在卡牌遊戲玩完後朗讀一張投影片，念完就會自動送到這裡。</p>`;
     return `<div class="tr-voice">${list.map(r => { const st = STATUS[r.status] || STATUS.new; return `<div class="tr-clip" data-rec="${Number(r.id)}" data-find="${esc(`${r.name || ""} ${r.student_no || ""} ${r.section || ""}`.toLowerCase())}">
@@ -464,6 +558,14 @@
         <select data-status aria-label="狀態（改了就儲存）">${Object.entries(STATUS).map(([k, [label]]) => `<option value="${k}" ${k === r.status ? "selected" : ""}>${label}</option>`).join("")}</select>
         <input data-note value="${esc(r.teacher_note || "")}" placeholder="給學生的回饋（學生下次念這一張時會看到）" maxlength="1000" aria-label="給學生的回饋">
         <button class="btn" type="button" data-save>儲存回饋</button><small class="tr-saved" data-saved role="status"></small><button class="btn" type="button" data-del title="刪除這段錄音">刪除</button></div></div>`; }).join("")}</div>`;
+  }
+  function advanceGroup(box) {
+    const grp = box.closest(".tr-vgroup"); if (!grp) return;
+    const fresh = [...grp.querySelectorAll("[data-status]")].filter(s => s.value === "new").length;
+    const label = grp.querySelector("[data-vfresh]"); if (label) label.textContent = fresh;
+    if (fresh) return;
+    const next = [...document.querySelectorAll("#trView .tr-vgroup")].find(g => g !== grp && [...g.querySelectorAll("[data-status]")].some(s => s.value === "new"));
+    setTimeout(() => { grp.open = false; if (next) { next.open = true; next.scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start" }); } }, 600);
   }
   function wireVoice() {
     document.querySelectorAll("#trView .tr-clip").forEach(box => {
@@ -478,6 +580,7 @@
           if (fromNote && note.value.trim() && (status === "new" || status === "heard")) status = "feedback";   // writing feedback is feedback
           const out = await send("PATCH", `/teacher/recordings/${id}`, { status, note: note.value });
           lastNote = note.value; paint(out.recording.status);
+          advanceGroup(box);
           saved.textContent = "已儲存 " + new Date().toTimeString().slice(0, 5); saved.className = "tr-saved ok";
           voiceBadge().catch(() => {}); voiceCounts();
         } catch (err) { saved.textContent = "沒有存到：" + err.message; saved.className = "tr-saved bad"; }
@@ -535,8 +638,14 @@
         <label>主題 <select id="trVoiceTopic"><option value="">全部</option>${topicIds.map(t => `<option value="${esc(t)}" ${t === S.voiceTopic ? "selected" : ""}>${esc(topicLabel(t))}</option>`).join("")}</select></label>
         <label>找學生 <input type="search" id="trVoiceFind" value="${esc(S.voiceFind)}" placeholder="姓名、學號或系級"></label><small class="tr-saved" id="trFindN"></small>
       </div>
-      ${voiceRows(v.recordings)}</section>`;
+      <div class="tr-row">
+        <span class="tr-seglite">排序 ${[["new", "最新的在上面"], ["old", "最早的在上面"]].map(([k, l]) => `<button type="button" class="${S.voiceSort === k ? "on" : ""}" data-vsort="${k}">${l}</button>`).join("")}</span>
+        <span class="tr-seglite">分組 ${[["", "不分組"], ["section", "依系級"], ["student", "依學生"]].map(([k, l]) => `<button type="button" class="${S.voiceGroup === k ? "on" : ""}" data-vgroup="${k}">${l}</button>`).join("")}</span>
+      </div>
+      ${voiceGrouped(v.recordings)}</section>`;
     document.querySelectorAll("#trView [data-vs]").forEach(b => b.onclick = () => { S.voiceStatus = b.dataset.vs; refresh(); });
+    document.querySelectorAll("#trView [data-vsort]").forEach(b => b.onclick = () => { S.voiceSort = b.dataset.vsort; voiceView(round); });
+    document.querySelectorAll("#trView [data-vgroup]").forEach(b => b.onclick = () => { S.voiceGroup = b.dataset.vgroup; voiceView(round); });
     $("trVoiceTopic").onchange = e => { S.voiceTopic = e.target.value; refresh(); };
     $("trVoiceFind").oninput = e => { S.voiceFind = e.target.value; applyFind(); };
     wireVoice(); applyFind();

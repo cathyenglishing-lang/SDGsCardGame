@@ -101,7 +101,7 @@ LOGIN_ACCOUNT_RATE_LIMIT = rate_limit.LOGIN_ACCOUNT_RATE_LIMIT
 REGISTER_RATE_LIMIT = rate_limit.REGISTER_RATE_LIMIT
 SEND_OTP_RATE_LIMIT = rate_limit.SEND_OTP_RATE_LIMIT
 GAME_RECORD_RATE_LIMIT = rate_limit.GAME_RECORD_RATE_LIMIT
-API_RATE_LIMIT_PREFIXES = ("/auth", "/content", "/game", "/teacher", "/learning", "/me", "/health")
+API_RATE_LIMIT_PREFIXES = ("/auth", "/content", "/game", "/teacher", "/learning", "/me", "/health", "/visit")
 
 
 def get_client_ip(request: Request):
@@ -1293,7 +1293,7 @@ CONSOLE_TABLES = [
     "sdg_options", "difficulty_options", "tbl_sdg_parts", "tbl_sdg_sub_topics",
     "tbl_sdg_cards", "email_otps",
     "courses", "course_sections", "enrollments", "course_activities", "roster_imports", "chip_ledger",
-    "speech_recordings", "content_topics", "content_versions", "system_metrics",
+    "speech_recordings", "content_topics", "content_versions", "system_metrics", "user_daily_activity", "login_failures", "student_reports", "site_visits",
 ]
 
 TABLE_DOCS = {
@@ -1317,6 +1317,10 @@ TABLE_DOCS = {
     "speech_recordings": "Students' voice recordings sent to the teacher (audio in the row, or a file path when AUDIO_DIR is set).",
     "content_topics": "Teaching material per game and topic: the published copy students get and the teacher's draft.",
     "content_versions": "A snapshot of every published version of a topic (for looking back and restoring).",
+    "user_daily_activity": "Per account per day: requests, the busiest minute, times stopped by the rate limit (for spotting abuse).",
+    "site_visits": "Every page view: anonymous visitor id, page, where they came from, guest or signed in, device; the IP only as a hash.",
+    "student_reports": "Personal learning reports a teacher sent to a student (HTML), and when the student opened them.",
+    "login_failures": "Every failed sign-in (wrong password or unknown account), with the IP.",
     "system_metrics": "One row per minute per server: requests, response time, signed-in users, CPU, memory, disk, network, database size.",
     "learning_runs": "學習資料庫：每一局一列（哪個遊戲、主題、難度、誰、哪門課、教材版本、開始與結束、分數與指標）。",
     "learning_events": "學習資料庫：每個操作一列（發牌、聽、重聽、放牌、收尾的朗讀／小測／反思…），所有報表都由這裡算出來。",
@@ -1344,6 +1348,8 @@ DB_RELATIONSHIPS = [
     {"from": "learning_runs.course_id", "to": "courses.id"},
     {"from": "learning_events.run_id", "to": "learning_runs.id"},
     {"from": "speech_recordings.run_id", "to": "learning_runs.id"},
+    {"from": "student_reports.user_id", "to": "users.id"},
+    {"from": "user_daily_activity.user_id", "to": "users.id"},
 ]
 
 
@@ -1688,10 +1694,12 @@ def login(data: LoginIn, request: Request):
 
     if not user:
         conn.close()
+        metrics.login_failed(email, get_client_ip(request), "no_account")
         raise HTTPException(status_code=400, detail="Account does not exist.")
 
     if not verify_password(data.password, user["password_hash"]):
         conn.close()
+        metrics.login_failed(email, get_client_ip(request), "wrong_password")
         raise HTTPException(status_code=400, detail="Incorrect password.")
 
     # Older accounts hold an unsalted hash: now that the password is known to be right, store the salted form.
@@ -3352,8 +3360,20 @@ content_library.configure(
     frontend_dir=FRONTEND_DIR,
     locked_topics=["9-2", "9-3", "13-2"],   # as in frontend/js/unlocks.js when the library was first filled
 )
-learning._auth["titles"] = content_library.card_titles   # card code -> slide title, for the Excel export
+learning._auth["titles"] = content_library.card_titles
+learning._auth["profile"] = classroom.profile_for_report   # who a student is, for the teacher's drill-down   # card code -> slide title, for the Excel export
 app.include_router(content_library.router)
+
+# Personal HTML reports a teacher sends to students (backend/reports.py)
+from backend import reports
+reports.configure(get_db=get_db, auto_pk_sql=auto_pk_sql, require_teacher=require_teacher, get_current_user=get_current_user,
+                  student_report=learning_reports.student_report)
+app.include_router(reports.router)
+
+# Anonymous visitor log for finding prospective schools / teachers (backend/visits.py)
+from backend import visits
+visits.configure(get_db=get_db, auto_pk_sql=auto_pk_sql, require_teacher=require_teacher, get_current_user=get_current_user, client_ip=get_client_ip)
+app.include_router(visits.router)
 
 # =========================
 # CREATE INITIAL ADMIN
