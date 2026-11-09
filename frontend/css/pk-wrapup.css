@@ -235,3 +235,22 @@
 .pk-loading{display:flex;align-items:center;gap:12px;margin:40px 2px;color:#c9cbf6;font-weight:700;font-size:15px}
 .pk-loading .pk-spin{border-color:rgba(255,255,255,.25);border-top-color:#f4d27a}
 .pk-save-chip[role="button"]{cursor:pointer;text-decoration:underline}
+
+/* ── chip settle on the last step (casino pass 2026-11-09): this run's pile counts to the server's number ── */
+@media (min-width:641px){ .pkw-next-grid{grid-template-columns:repeat(2,1fr)} }
+.pkw-next-grid #pkwChips{grid-column:1 / -1;min-height:92px}
+.pkw-box.dark#pkwChips{background:radial-gradient(ellipse at 50% 0%,#2a2470 0%,#14123a 70%);position:relative}
+.pkw-settle{float:right;display:grid;justify-items:center;margin:-22px -4px 4px 10px}
+.pkw-settle .pkw-pile{width:70px;height:auto;filter:drop-shadow(0 6px 8px rgba(0,0,0,.5))}
+.pkw-settle .pkw-chipnum{margin:-6px 0 0;padding:2px 10px;border-radius:999px;background:#0b0a24;border:1px solid rgba(244,210,122,.65);font-family:"Fredoka","Nunito",system-ui,sans-serif;font-size:19px;font-variant-numeric:tabular-nums}
+.pkw-settle.off,.pkw-settle.wait{opacity:.55}
+.pkw-settle.off .pkw-pile{filter:grayscale(.8)}
+.pkw-settle.held .pkw-pile{filter:grayscale(.6) drop-shadow(0 6px 8px rgba(0,0,0,.5))}
+.pkw-items{display:flex;flex-wrap:wrap;gap:5px;margin:0 0 6px}
+.pkw-item{display:inline-block;padding:3px 9px;border-radius:999px;background:rgba(244,210,122,.14);border:1px solid rgba(244,210,122,.45);color:#f4d27a;font-weight:800;font-size:12.5px;white-space:nowrap}
+.pkw-settling .pkw-item{opacity:0;transform:translateY(8px) scale(.8)}
+.pkw-settling .pkw-item.in{opacity:1;transform:none;transition:opacity .25s ease,transform .35s cubic-bezier(.3,1.6,.5,1)}
+.pkw-chipnote{display:block;clear:none}
+.pkw-settled .pkw-settle .pkw-pile{animation:pkwPilePop .45s cubic-bezier(.3,1.6,.5,1)}
+@keyframes pkwPilePop{40%{transform:scale(1.15) translateY(-4px)}}
+@media (prefers-reduced-motion:reduce){ .pkw-settling .pkw-item{opacity:1;transform:none} .pkw-settled .pkw-settle .pkw-pile{animation:none} }
