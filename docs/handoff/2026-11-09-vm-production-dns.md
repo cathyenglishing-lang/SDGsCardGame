@@ -40,7 +40,9 @@ GoDaddy DNS 頁面：`https://dcc.godaddy.com/control/dnsmanagement?domainName=c
 2. 等 10 分鐘。Vercel 會自動重新簽 https 憑證（幾分鐘）。網域一直掛在 Vercel 專案上，不用到 Vercel 改任何東西。
 3. 確認：`https://www.cathylanguagehub.com/static/config.js` 內容是 `web-production-ee62.up.railway.app` 就是雲端版。
 
-**要知道：雲端和 VM 的資料是分開的兩份資料庫。** 切回雲端時，帳號、名單、學習紀錄、錄音都是雲端那份（停在 11/09 的 4 個帳號）。VM 上匯入的名單、學生玩的紀錄不會跟過去。要讓備援真的能上課，需要把 VM 資料定期同步到 Railway（待辦，需要 Railway 的 `DATABASE_URL`）。
+**資料：VM 每晚 04:10 把整個資料庫複製到 Railway**（`~/cardlearn/sync-railway.sh`，會取代 Railway 上的資料）。所以切到雲端時，帳號、名單、學習紀錄是**前一晚**的版本；錄音檔只在 VM，雲端只有「誰錄了哪一段」的清單，聽不到聲音。切回 VM 前，雲端期間新產生的紀錄要另外處理（不會自動回到 VM）。Railway 資料庫上限 500 MB，不含錄音一學期 300 人約 200 MB，放得下。
+
+同步前的雲端原始資料（10 月的測試紀錄）完整備份在 VM `~/backup/cardlearn/railway-before-sync-2026-11-09.sql.gz`。
 
 切回 VM：把上面兩筆改回 `140.115.82.165` 即可。
 
@@ -55,6 +57,7 @@ GoDaddy DNS 頁面：`https://dcc.godaddy.com/control/dnsmanagement?domainName=c
 | `~/cardlearn/app/` | GitHub `main` 的工作目錄 |
 | `~/cardlearn/deploy.sh` | 每小時 :15 拉 `main`，有更新就重建 app（cron） |
 | `~/cardlearn/backup.sh` | 每天 03:30 備份資料庫到 `~/backup/cardlearn`（留 7 天），週日備份錄音（留 4 份）（cron） |
+| `~/cardlearn/sync-railway.sh` | 把 VM 資料庫複製到 Railway（雲端備援）；紀錄在 `~/backup/cardlearn/sync-railway.log`。Railway 連線字串在 `~/cardlearn/.env-railway`（權限 600，**不在 repo**）。Railway 是 PostgreSQL 18，所以用 postgres:18 的工具 |
 | `~/cardlearn/renew-cert.sh` | 續約 https 憑證並重載 nginx（**cron 尚未安裝**，見 §6） |
 | `~/stack/npm/data/nginx/custom/http.conf` | 網域轉到 cardlearn-app、/games/ 對應、https（root 權限，用 sudo 改；repo `deploy/vm/npm-http.conf`） |
 
@@ -68,8 +71,8 @@ GoDaddy DNS 頁面：`https://dcc.godaddy.com/control/dnsmanagement?domainName=c
 
 ## 6. 待辦
 
-1. 安裝憑證續約排程：`40 4 * * 1 /home/hcsi/cardlearn/renew-cert.sh`（憑證 2027-02-07 到期，到期前 30 天內才會真的續約）。
-2. VM → Railway 資料同步（讓雲端備援能直接上課）。
+1. 安裝兩個排程（等使用者同意）：`40 4 * * 1 /home/hcsi/cardlearn/renew-cert.sh`（憑證 2027-02-07 到期）、`10 4 * * * /home/hcsi/cardlearn/sync-railway.sh`（11/09 已手動同步一次）。
+2. Railway 資料庫密碼曾貼在對話中：到 Railway 重設後，更新 VM 的 `~/cardlearn/.env-railway`。
 3. 修課名單匯入 VM（老師後台 › 班級 › 課程與名單）。
 
 ## 7. 帳號（密碼不寫在這裡）
