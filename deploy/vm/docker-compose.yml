@@ -1,0 +1,54 @@
+# ~/cardlearn/docker-compose.yml — CardLearn SDGs 在實驗室 VM 上的一份（vm.cathylanguagehub.com）
+# app：FastAPI，同時提供前端頁面；db：PostgreSQL；redis：登入等流量限制
+# 資料：./data/pg（資料庫）、./data/audio（錄音檔），每天由 backup.sh 備份到 ~/backup/cardlearn
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    command: ["postgres", "-c", "max_connections=400", "-c", "shared_buffers=512MB", "-c", "effective_cache_size=2GB"]
+    environment:
+      POSTGRES_USER: cardlearn
+      POSTGRES_DB: cardlearn
+      POSTGRES_PASSWORD: ${PG_PASSWORD}
+    volumes:
+      - ./data/pg:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U cardlearn -d cardlearn"]
+      interval: 5s
+      retries: 20
+
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+
+  app:
+    build:
+      context: ./app
+      dockerfile_inline: |
+        FROM python:3.12-slim
+        WORKDIR /srv
+        COPY requirements.txt .
+        RUN pip install --no-cache-dir -r requirements.txt gunicorn==23.0.0
+        COPY . .
+        RUN printf 'window.CARDLEARN_API_BASE_URL = location.origin;\n' > frontend/config.js
+        # 4 worker processes (one per core); --preload runs the DB setup once before forking
+        ENV FORWARDED_ALLOW_IPS=*
+        CMD ["gunicorn", "backend.main:app", "-k", "uvicorn.workers.UvicornWorker", "-w", "4", "--preload", "-b", "0.0.0.0:8000", "--timeout", "120", "--graceful-timeout", "30", "--access-logfile", "-"]
+    image: cardlearn-app:latest
+    container_name: cardlearn-app
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      DATABASE_URL: postgresql://cardlearn:${PG_PASSWORD}@db:5432/cardlearn
+      REDIS_URL: redis://redis:6379/0
+      AUDIO_DIR: /data/audio
+    volumes:
+      - ./data/audio:/data/audio
+    depends_on:
+      db: { condition: service_healthy }
+      redis: { condition: service_started }
+    networks: [default, proxy]
+
+networks:
+  proxy:
+    external: true
