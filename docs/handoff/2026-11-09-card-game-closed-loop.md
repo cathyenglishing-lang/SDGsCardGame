@@ -3,6 +3,8 @@
 依使用者 2026-11-09 的要求做完並推上 GitHub：分支 `company/card-game-learning`（由 `claude/class-roster-learning-data` 分出）。
 **還沒合併到 `main`，所以正式站還沒變。** 合併 `main` = 上線，步驟在 §10。
 
+**分支推到哪裡**：`machencompeq/SDGsCardGame`（本機遠端名 `backup`）。公司電腦登入的 GitHub 帳號（machencompeq）對正式倉庫 `cathyenglishing-lang/SDGsCardGame`（遠端名 `origin`，推它的 `main` 才會部署）沒有寫入權限，推送被拒絕（403）。所以上線那一步要在有權限的電腦／帳號上做。
+
 相關文件：計畫 `2026-11-04-class-roster-learning-data-plan.md`、設計 `2026-11-08-card-game-learning-design.md`、文獻 `docs/文獻回顧.md`、操作影片 `docs/videos/`。
 
 ## 1. 現在的閉環
@@ -173,7 +175,14 @@
 
 1. **先備份正式站的 PostgreSQL**（Railway 的資料庫備份或 `pg_dump`）。密碼格式升級後不能退回舊版程式：退版會讓「升級後登入過的帳號」和「名單匯入的帳號」登不進去。
 2. Railway 環境變數（不設就是括號裡的預設）：`ALLOW_SELF_REGISTER`（`true`；課堂期間建議 `false`）、`ROSTER_EMAIL_DOMAIN`（`nptu.edu.tw`）、`PUBLIC_SITE_URL`、`AUDIO_RETENTION_DAYS`（150）、`AUDIO_MAX_BYTES`（4 MB）、`AUDIO_MAX_PER_DAY`（60）、`AUDIO_REQUIRE_CONSENT`（`false`）。Railway 上**不要**設 `AUDIO_DIR`（沒有持久磁碟，錄音會存在資料庫裡）。
-3. 合併：`git checkout main && git merge --no-ff company/card-game-learning && git push origin main`。
+3. 合併（要用對 `cathyenglishing-lang/SDGsCardGame` 有寫入權限的帳號）：
+   ```bash
+   git remote add backup https://github.com/machencompeq/SDGsCardGame.git   # 家裡的電腦如果還沒有這個遠端
+   git fetch backup company/card-game-learning
+   git checkout main && git pull origin main
+   git merge --no-ff backup/company/card-game-learning
+   git push origin main        # 這一步會部署到正式站
+   ```
 4. 部署完成後檢查：`/health` 回 `database: postgresql`；用老師帳號登入後台，三個新選單都打得開；「教材管理」有 9 個以上主題（表示教材庫建立成功）；用一個學生帳號玩一局、念一段，回後台「學習紀錄」和「語音」看得到。
 5. 用真的平板和手機、真的聲音玩一局（自動測試用的是假的語音合成和假的麥克風）。
 6. 名單匯入的寄信功能（Resend）沒有實測過：第一次用時先匯一位測試學生。
