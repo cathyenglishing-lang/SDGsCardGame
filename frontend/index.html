@@ -1540,7 +1540,7 @@
     <nav class="nav">
       <a href="./pages/member_index.html?guest=1" class="login">訪客試玩</a>
       <a href="./pages/login.html" class="login">Sign In</a>
-      <a href="./pages/register.html" class="register">Get Started</a>
+      <a href="./pages/register.html" class="register" data-register-link>Get Started</a>
     </nav>
   </header>
 
@@ -1561,7 +1561,7 @@
       </p>
 
       <div class="cta-group">
-        <a href="./pages/register.html" class="cta cta-primary">Start Learning Now →</a>
+        <a href="./pages/register.html" class="cta cta-primary" data-register-link>Start Learning Now →</a>
         <a href="./pages/login.html" class="cta cta-secondary">Continue Your Journey</a>
         <a href="./pages/member_index.html?guest=1" class="cta cta-secondary">🎮 訪客試玩 · Play as Guest</a>
       </div>
@@ -1765,6 +1765,17 @@
 
   <footer class="footer">© 2026 CardLearn SDGs Learning System. All Rights Reserved.</footer>
 
+  <script src="/static/config.js"></script>
+  <script>
+    // Self-registration closed (accounts come from the class roster): send "Get Started" to sign-in.
+    (function () {
+      var base = (window.CARDLEARN_API_BASE_URL || "").replace(/\/$/, "");
+      fetch(base + "/auth/config").then(function (r) { return r.ok ? r.json() : null; }).then(function (config) {
+        if (config && config.self_register === true) return;
+        document.querySelectorAll("[data-register-link]").forEach(function (a) { a.setAttribute("href", "./pages/login.html"); });
+      }).catch(function () {});
+    })();
+  </script>
   <script>
     const cursorLight = document.getElementById("cursorLight");
     const desktopWindow = document.getElementById("desktopWindow");

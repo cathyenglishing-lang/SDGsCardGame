@@ -1493,9 +1493,9 @@ def user_analytics(authorization: str | None = Header(default=None)):
 # -------------------------
 # SEND OTP
 # -------------------------
-# Self-registration can be switched off for a class period (ALLOW_SELF_REGISTER=false): accounts
-# then come only from the teacher's roster import. Guest mode is not affected.
-ALLOW_SELF_REGISTER = bool_env("ALLOW_SELF_REGISTER", True)
+# Self-registration is closed by default: accounts come from the teacher's roster import.
+# Set ALLOW_SELF_REGISTER=true to let people make their own accounts again. Guest mode is not affected.
+ALLOW_SELF_REGISTER = bool_env("ALLOW_SELF_REGISTER", False)
 SELF_REGISTER_CLOSED = "Self-registration is closed. Please sign in with the account your teacher gave you. 目前不開放自行註冊，請使用老師提供的帳號登入。"
 
 

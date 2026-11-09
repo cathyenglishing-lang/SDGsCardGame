@@ -944,7 +944,7 @@ function renderGuestResults() {
   document.getElementById("partsContainer").innerHTML = parts.length
     ? parts.map(p => `<div class="empty">Part ${safeText(p.part_no)} · ${safeText(p.elapsed_text || "")} · ${p.errors || 0} errors · ${p.repeat_listen_count || 0} repeats</div>`).join("")
     : `<div class="empty">Please start again from the game entry page.</div>`;
-  document.getElementById("leaderboardContainer").innerHTML = `<div class="empty">訪客不列入排行。<a href="/pages/register.html">註冊帳號</a>即可保存成績與排名。</div>`;
+  document.getElementById("leaderboardContainer").innerHTML = `<div class="empty">訪客不列入排行。用老師給的帳號<a href="/pages/login.html">登入</a>即可保存成績與排名。</div>`;
 }
 
 async function loadMyResults() {

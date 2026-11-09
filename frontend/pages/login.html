@@ -502,8 +502,11 @@
       </span>
     </button>
 
-    <div class="link">
+    <div class="link" id="registerLink" hidden>
       還沒有帳號？ <a href="register.html">註冊 Create one</a>
+    </div>
+    <div class="link" id="rosterNote">
+      帳號由老師提供，請用老師給的帳號登入。<br>Use the account your teacher gave you.
     </div>
 
     <div class="guest-divider"><span>或 or</span></div>
@@ -516,6 +519,18 @@
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 <script src="/static/config.js"></script>
 <script src="/static/js/api.js"></script>
+<script>
+  // Accounts come from the class roster; show the register link only when self-registration is open.
+  window.addEventListener("DOMContentLoaded", () => {
+    api.auth.config().then((config) => {
+      if (!config || config.self_register !== true) return;
+      const link = document.getElementById("registerLink");
+      const note = document.getElementById("rosterNote");
+      if (link) link.hidden = false;
+      if (note) note.hidden = true;
+    }).catch(() => {});
+  });
+</script>
 
 <script>
 Vue.createApp({
