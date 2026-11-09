@@ -266,8 +266,9 @@
     return out.join("");
   }
   async function gameView(my) {
-    const rep = await get("/learning/records/game", { ...filters(), game: S.game, chapter: S.chapter, level: S.level });
+    const [rep, fb] = await Promise.all([get("/learning/records/game", { ...filters(), game: S.game, chapter: S.chapter, level: S.level }), get("/teacher/feedback").catch(() => ({ feedback: {}, email_ready: false }))]);
     if (stale(my)) return;
+    S.fb = fb.feedback || {}; S.emailReady = !!fb.email_ready;
     const card = S.game === "pecha_kucha";
     if (card) await T.need([...rep.topics, ...rep.runs.map(r => r.chapter), ...rep.cards.map(c => T.parse(c.card).topic), ...rep.confusion.map(c => T.parse(c.card).topic)]);
     if (stale(my)) return;
@@ -314,14 +315,16 @@
           <label>找學生 <input type="search" id="trFind" value="${esc(S.find)}" placeholder="姓名或學號"></label>
           <div class="tr-chips" role="group" aria-label="系級">${["*", ...secs].map(k => `<button type="button" class="tr-chip ${(k === "*" ? !S.secFilter : S.secFilter === k) ? "on" : ""}" data-chip="${esc(k)}">${k === "*" ? "全部" : esc(secName(k))}</button>`).join("")}</div>
           <small class="tr-saved" id="trPeopleN"></small>
-          <span class="tr-grow"></span><button class="btn btn-primary" type="button" id="trSendAll">📨 傳學習報告給列出的學生</button>
         </div>
-        <div class="scrollx"><table class="part-table tr-table"><thead><tr><th>系級</th><th>學生</th><th>局數</th>${card ? "<th>最佳／最近</th><th>分數變化</th><th>第一次就配對</th>" : "<th>平均星數</th><th>結局</th>"}<th>錄音</th><th>要注意</th></tr></thead><tbody>
+        <div class="tr-selbar" id="trSelBar" hidden><b id="trSelN">已選 0 位</b><button class="btn" type="button" id="trSelFb">✎ 給選取的學生同一段評語</button><button class="btn btn-primary" type="button" id="trSelSend">📨 寄出學習報告</button><button class="btn" type="button" id="trSelClear">取消選取</button></div>
+        <div class="scrollx"><table class="part-table tr-table"><thead><tr><th class="tr-ck"><input type="checkbox" id="trAll" aria-label="全選列出的學生"></th><th>系級</th><th>學生</th><th>局數</th>${card ? "<th>最佳／最近</th><th>分數變化</th><th>第一次就配對</th>" : "<th>平均星數</th><th>結局</th>"}<th>錄音</th><th>要注意</th><th>評語（寄報告時一起送出）</th></tr></thead><tbody>
           ${rep.students.length ? rep.students.map(s => `<tr class="${s.user_id ? "tr-click" : ""} ${s.runs ? "" : "mute"}" data-student="${s.user_id ? Number(s.user_id) : ""}" data-sec="${esc(s.section || "")}" data-q="${esc(((s.name || "") + " " + (s.student_no || "")).toLowerCase())}" ${s.user_id ? 'tabindex="0"' : ""}>
+            <td class="tr-ck">${s.user_id ? `<input type="checkbox" data-pick="${Number(s.user_id)}" aria-label="選取 ${esc(s.name)}">` : ""}</td>
             <td class="nw">${esc(s.section || "")}</td><td>${who(s)}</td><td class="nw">${s.runs ? `${Number(s.runs)} 局 <small>玩完 ${Number(s.finished)}</small><small class="tr-sub">最近 ${esc(dt(s.last))}</small>` : `<span class="tr-badge warn">還沒玩</span>`}</td>
             ${card ? `<td class="nw">${n(s.best)} ／ ${n(s.last_score)}</td><td>${spark(s.scores)}</td><td>${num(s.first_n) ? `${n(s.first_ok)} / ${n(s.first_n)} 句` : "–"}</td>` : `<td>${n(s.avg_stars)}</td><td>${esc(s.best_ending || "–")}</td>`}
             <td>${s.recordings && num(s.recordings.total) ? `${n(s.recordings.total)} 段${num(s.recordings.new) ? ` <span class="tr-badge warn">${n(s.recordings.new)} 未聽</span>` : ""}` : "–"}</td>
-            <td>${s.anomaly ? `<span class="tr-anom ${s.anomaly.severity}">${s.anomaly.too_good ? "好得不正常" : "行為異常"}${s.anomaly.n > 1 ? " ×" + s.anomaly.n : ""}</span> ` : ""}${Object.entries(kinds[s.user_id] || {}).map(([f, c]) => `<span class="tr-badge bad">${esc(FLAG[f] || f)} ×${c}</span>`).join(" ") || (num(s.flags) ? `<span class="tr-badge bad">${n(s.flags)} 局有標記</span>` : "")}</td></tr>`).join("") : `<tr><td colspan="10">這個條件下沒有學生或紀錄。</td></tr>`}
+            <td>${s.anomaly ? `<span class="tr-anom ${s.anomaly.severity}">${s.anomaly.too_good ? "好得不正常" : "行為異常"}${s.anomaly.n > 1 ? " ×" + s.anomaly.n : ""}</span> ` : ""}${Object.entries(kinds[s.user_id] || {}).map(([f, c]) => `<span class="tr-badge bad">${esc(FLAG[f] || f)} ×${c}</span>`).join(" ") || (num(s.flags) ? `<span class="tr-badge bad">${n(s.flags)} 局有標記</span>` : "")}</td>
+            <td class="tr-fbcell">${s.user_id ? fbCell(s.user_id) : ""}</td></tr>`).join("") : `<tr><td colspan="12">這個條件下沒有學生或紀錄。</td></tr>`}
         </tbody></table></div></section>
       <section class="panel"><h3 class="tr-h">最近的局（點一列看每一步）</h3>${runsTable(rep.runs.slice(0, 60), card)}</section>`;
     } else {
@@ -355,8 +358,7 @@
       $("trFind").oninput = e => { S.find = e.target.value; applyPeople(); };
       document.querySelectorAll("#trView [data-chip]").forEach(b => b.onclick = () => { S.secFilter = b.dataset.chip === "*" ? "" : b.dataset.chip; document.querySelectorAll("#trView [data-chip]").forEach(x => x.classList.toggle("on", x === b)); applyPeople(); });
       applyPeople();
-      $("trSendAll").onclick = () => { const ids = [...document.querySelectorAll("#trView tr[data-q]")].filter(r => !r.hidden && r.dataset.student && !r.classList.contains("mute")).map(r => Number(r.dataset.student));
-        sendReports(ids, `${ids.length} 位學生`); };
+      wirePicks();
     }
     document.querySelectorAll("#trView [data-anom]").forEach(b => b.onclick = () => { S.studentId = Number(b.dataset.anom); refresh(); });
     paintFirst();
@@ -373,24 +375,84 @@
         <ul>${a.reasons.map(r => `<li>${esc(r)}</li>`).join("")}</ul>
         <button class="btn" type="button" data-anom="${Number(a.user_id)}">看他每一局 →</button></article>`).join("")}</div></section>`;
   }
-  // 個人分析: filter the class table by 系級 chip and a name / 學號 search, without asking the server again.
-  // 傳學習報告: the teacher can add a few words; each student gets their own page right away (shown when they next open the site).
-  function sendReports(ids, who) {
-    if (!ids.length) { toast("目前列出的學生都還沒玩過，沒有報告可以傳。"); return; }
-    const m = $("trModal");
-    m.hidden = false;
-    m.innerHTML = `<div class="tr-sheet" role="dialog" aria-label="傳學習報告"><h3 class="tr-h">傳學習報告給 ${esc(who)}</h3>
-      <p class="tr-hint">每位學生會收到自己的報告：玩了幾局、分數怎麼進步、每個主題最好的分數、下次先練哪幾句。學生登入後會馬上看到通知。</p>
-      <label>想對他們說的話（可以不寫）<textarea id="trRepNote" rows="4" maxlength="2000" placeholder="例如：這週大家進步很多！第 7 張的句子再多聽兩次。"></textarea></label>
-      <div class="tr-row"><button class="btn btn-primary" type="button" id="trRepGo">傳送</button><button class="btn" type="button" id="trRepCancel">取消</button><small class="tr-saved" id="trRepMsg"></small></div></div>`;
-    $("trRepCancel").onclick = () => { m.hidden = true; m.innerHTML = ""; };
-    $("trRepGo").onclick = async () => {
-      $("trRepGo").disabled = true; $("trRepMsg").textContent = "產生報告中…";
-      try { const out = await send("POST", "/teacher/reports/send", { user_ids: ids, note: $("trRepNote").value });
-        m.hidden = true; m.innerHTML = ""; toast(`已傳出 ${out.sent} 份學習報告。學生登入後就會看到。`); }
-      catch (e) { $("trRepMsg").textContent = e.message; $("trRepGo").disabled = false; }
+  // ── 評語與寄送學習報告 ──
+  // Each student's comment is a draft (saved when the box loses focus) until it goes out with a report.
+  // Select students with the checkboxes, then 寄出學習報告: preview one, choose email or only 「我的報告」, watch progress.
+  const fbCell = uid => { const f = (S.fb || {})[uid] || {}; return `<textarea class="tr-fb" data-fb="${Number(uid)}" rows="1" maxlength="2000" placeholder="寫評語…">${esc(f.text || "")}</textarea><span class="tr-fbstate ${f.sent_at ? "sent" : ""}" data-fbstate="${Number(uid)}">${f.text ? (f.sent_at ? "已寄出 " + esc(dt(f.sent_at)) : "草稿") : ""}</span>`; };
+  async function saveFb(uid, text, msgEl) {
+    const old = ((S.fb || {})[uid] || {}).text || "";
+    if (text.trim() === old.trim()) return;
+    try {
+      await send("PUT", `/teacher/feedback/${Number(uid)}`, { text });
+      S.fb = S.fb || {}; if (text.trim()) S.fb[uid] = { text: text.trim(), sent_at: null }; else delete S.fb[uid];
+      if (msgEl) { msgEl.textContent = text.trim() ? "草稿已儲存" : "已清除"; msgEl.className = "tr-fbstate"; }
+    } catch (e) { if (msgEl) msgEl.textContent = e.message; }
+  }
+  const picked = () => [...document.querySelectorAll("#trView [data-pick]:checked")].map(x => Number(x.dataset.pick));
+  function paintSel() {
+    const n = picked().length, bar = $("trSelBar"); if (!bar) return;
+    bar.hidden = !n; $("trSelN").textContent = `已選 ${n} 位`;
+  }
+  function wirePicks() {
+    document.querySelectorAll("#trView [data-pick], #trView .tr-fb").forEach(el => { el.onclick = e => e.stopPropagation(); el.onkeydown = e => e.stopPropagation(); });
+    document.querySelectorAll("#trView [data-pick]").forEach(c => c.onchange = paintSel);
+    $("trAll").onchange = e => { document.querySelectorAll("#trView tr[data-q]").forEach(r => { const c = r.querySelector("[data-pick]"); if (c && !r.hidden) c.checked = e.target.checked; }); paintSel(); };
+    document.querySelectorAll("#trView .tr-fb").forEach(t => t.onblur = () => saveFb(Number(t.dataset.fb), t.value, document.querySelector(`[data-fbstate="${t.dataset.fb}"]`)));
+    $("trSelClear").onclick = () => { document.querySelectorAll("#trView [data-pick]").forEach(c => (c.checked = false)); $("trAll").checked = false; paintSel(); };
+    $("trSelFb").onclick = () => bulkFb(picked());
+    $("trSelSend").onclick = () => { const ids = picked(); sendReports(ids, `${ids.length} 位學生`); };
+  }
+  function bulkFb(ids) {
+    const m = $("trModal"); m.hidden = false;
+    m.innerHTML = `<div class="tr-sheet" role="dialog" aria-label="給同一段評語"><h3 class="tr-h">給 ${ids.length} 位學生同一段評語</h3>
+      <textarea id="trBulkText" rows="4" maxlength="2000" style="width:100%" placeholder="例如：這週大家進步很多！"></textarea>
+      <div class="tr-row"><label class="opt"><input type="radio" name="trBulkMode" value="append" checked> 加在原本的評語後面</label><label class="opt"><input type="radio" name="trBulkMode" value="replace"> 取代原本的評語</label></div>
+      <div class="tr-row"><button class="btn btn-primary" type="button" id="trBulkGo">套用</button><button class="btn" type="button" id="trBulkNo">取消</button><small class="tr-saved" id="trBulkMsg"></small></div></div>`;
+    $("trBulkNo").onclick = () => { m.hidden = true; m.innerHTML = ""; };
+    $("trBulkGo").onclick = async () => {
+      try { await send("POST", "/teacher/feedback/bulk", { user_ids: ids, text: $("trBulkText").value, mode: document.querySelector('[name="trBulkMode"]:checked').value });
+        m.hidden = true; m.innerHTML = ""; toast(`已給 ${ids.length} 位學生評語（草稿）。`); refresh(); }
+      catch (e) { $("trBulkMsg").textContent = e.message; }
     };
   }
+  function sendReports(ids, who) {
+    if (!ids.length) { toast("先勾選要寄給哪些學生。"); return; }
+    const withFb = ids.filter(id => ((S.fb || {})[id] || {}).text).length;
+    const m = $("trModal"); m.hidden = false;
+    m.innerHTML = `<div class="tr-sheet tr-send" role="dialog" aria-label="寄出學習報告">
+      <div><h3 class="tr-h">寄出學習報告給 ${esc(who)}</h3>
+        <p class="tr-hint">每位學生收到自己的報告：玩了幾局、分數的進步、各主題最好的分數、下次先練哪幾句，加上你的評語。</p>
+        <label class="opt"><input type="checkbox" id="trUseFb" checked> 用每位學生自己的評語（${withFb} / ${ids.length} 位有寫）</label>
+        <label style="display:block">沒有評語的學生，或不用個別評語時，改用這段話（可以不寫）<textarea id="trRepNote" rows="3" maxlength="2000" style="width:100%" placeholder="例如：這週大家進步很多！"></textarea></label>
+        <label class="opt"><input type="checkbox" id="trEmail" ${S.emailReady ? "" : "disabled"}> 同時寄到學生的信箱${S.emailReady ? "" : "（這台伺服器還沒設定寄信，先只放進「我的報告」）"}</label>
+        <p class="tr-hint">一定會放進學生的「我的報告」，學生登入後右下角會跳出通知。</p>
+        <div class="tr-row"><button class="btn btn-primary" type="button" id="trRepGo">寄出 ${ids.length} 份</button><button class="btn" type="button" id="trRepCancel">取消</button></div>
+        <div id="trRepProg"></div></div>
+      <div><h3 class="tr-h">預覽（第一位學生）</h3><iframe id="trRepPrev" sandbox title="報告預覽"></iframe></div></div>`;
+    const close = () => { m.hidden = true; m.innerHTML = ""; };
+    $("trRepCancel").onclick = close;
+    const body = () => ({ user_ids: ids, note: $("trRepNote").value, use_feedback: $("trUseFb").checked, email: $("trEmail").checked });
+    let timer = null;
+    const prev = async () => { clearTimeout(timer); timer = setTimeout(async () => { try { const out = await send("POST", "/teacher/reports/preview", body()); $("trRepPrev").srcdoc = out.html; } catch (e) { } }, 300); };
+    $("trUseFb").onchange = prev; $("trRepNote").oninput = prev; prev();
+    $("trRepGo").onclick = async () => {
+      $("trRepGo").disabled = true; $("trRepCancel").textContent = "關閉";
+      try {
+        const out = await send("POST", "/teacher/reports/send-v2", body());
+        if (!out.emailing) { $("trRepProg").innerHTML = `<p class="tr-msg">✓ 已放進 ${out.sent} 位學生的「我的報告」。</p>`; toast(`已傳出 ${out.sent} 份學習報告。`); refresh(); return; }
+        const poll = async () => {
+          const st = await get(`/teacher/reports/batch/${out.batch}`);
+          const total = st.rows.filter(r => r.email_status).length, done = st.sent + st.failed;
+          $("trRepProg").innerHTML = `<div class="tr-prog"><i style="width:${total ? (done / total) * 100 : 100}%"></i></div><p class="tr-hint">寄信中 ${done} / ${total}（成功 ${st.sent}${st.failed ? `，失敗 ${st.failed}` : ""}）</p>
+            ${st.failed && !st.queued ? `<ul>${st.rows.filter(r => r.email_status === "failed").map(r => `<li>${esc(r.name)}（${esc(r.email_to)}）：${esc(r.email_error || "")}</li>`).join("")}</ul><button class="btn" type="button" id="trRetry">重寄失敗的 ${st.failed} 封</button>` : ""}`;
+          if ($("trRetry")) $("trRetry").onclick = async () => { await send("POST", `/teacher/reports/batch/${out.batch}/retry`); setTimeout(poll, 1500); };
+          if (st.queued) setTimeout(poll, 1500); else { toast(`學習報告已寄出：成功 ${st.sent} 封${st.failed ? `，失敗 ${st.failed} 封` : ""}。`); }
+        };
+        poll();
+      } catch (e) { $("trRepProg").innerHTML = `<p class="tr-msg bad">${esc(e.message)}</p>`; $("trRepGo").disabled = false; }
+    };
+  }
+  // 個人分析: filter the class table by 系級 chip and a name / 學號 search, without asking the server again.
   function applyPeople() {
     const q = S.find.trim().toLowerCase(); let shown = 0, total = 0;
     document.querySelectorAll("#trView tr[data-q]").forEach(r => {
@@ -469,7 +531,8 @@
 
   // ── 一位學生 ──
   async function studentView(my) {
-    const [d, v] = await Promise.all([get("/learning/records/student/" + Number(S.studentId), dates()), get("/teacher/recordings", { user_id: S.studentId, ...dates() })]);
+    const [d, v, fbAll] = await Promise.all([get("/learning/records/student/" + Number(S.studentId), dates()), get("/teacher/recordings", { user_id: S.studentId, ...dates() }), get("/teacher/feedback").catch(() => ({ feedback: {} }))]);
+    S.fb = fbAll.feedback || {}; S.emailReady = !!fbAll.email_ready;
     if (stale(my)) return;
     await T.need([...d.card_topics.map(x => x.chapter), ...d.weak_cards.map(w => T.parse(w.card).topic), ...d.runs.map(r => r.chapter)]);
     if (stale(my)) return;
@@ -479,6 +542,7 @@
         <div class="section-h"><h2>${esc(st.name)} <small>${esc(st.student_no || "")}${row.section ? " · " + esc(row.section) : ""} · 研究代碼 ${esc(st.public_id || "–")}</small></h2><div class="row"><button class="btn btn-primary" type="button" id="trSendOne">📨 傳學習報告給他</button><button class="btn" type="button" id="trBack">← 回學生名單</button></div></div>
         ${S.from || S.to ? `<p class="tr-hint">只看 ${esc(S.from || "最早")} 到 ${esc(S.to || "今天")} 的紀錄。要看全部請按上面的「清除篩選」。</p>` : ""}
         ${profileCard(d.profile || {}, row)}
+        <div class="tr-fbbox"><label>給 ${esc(st.name)} 的評語 <small>先存成草稿，按「傳學習報告給他」才會送出</small><textarea id="trFbOne" rows="3" maxlength="2000" placeholder="例如：第 7 張的句子多聽兩次，下次會更好！">${esc((S.fb && S.fb[S.studentId] || {}).text || "")}</textarea></label><small class="tr-saved" id="trFbOneMsg"></small></div>
         <div class="tr-tiles">${tile(n(t.runs), "開始的局數")}${tile(n(t.finished), "玩完的局數")}${tile(n(t.active_minutes), "有效學習分鐘")}${tile(n(t.games), "玩過的遊戲")}${tile(v.recordings.length, "送出的錄音")}${tile(n(t.events), "操作紀錄筆數")}${tile(dt(t.first_played), "第一次玩")}${tile(dt(t.last_played), "最近一次")}</div>
         <div class="tr-charts">${scoreChart(d.card_topics)}${dailyChart(d.daily || [])}${topicBars(d.card_topics)}</div>
         <table class="part-table tr-table"><thead><tr><th>遊戲</th><th>局數</th><th>玩完</th><th>有效分鐘</th><th>最近玩</th></tr></thead><tbody>${d.by_game.length ? d.by_game.map(g => `<tr><td>${esc(GAME_ZH[g.game] || g.name)}</td><td>${n(g.runs)}</td><td>${n(g.finished)}</td><td>${n(g.active_minutes)}</td><td>${esc(dt(g.last))}</td></tr>`).join("") : `<tr><td colspan="5">這位學生還沒有任何紀錄。</td></tr>`}</tbody></table>
@@ -494,7 +558,8 @@
       ${d.reflections.length ? `<section class="panel"><h3 class="tr-h">學生寫的反思</h3><ul class="tr-list">${d.reflections.map(x => `<li><small>${esc(dt(x.at))} · ${esc(GAME_ZH[x.game] || x.game)}${x.question ? " · " + esc(x.question) : ""}${x.answer ? " → " + esc(x.answer) : ""}</small><span>${esc(x.sentence || "")}</span></li>`).join("")}</ul></section>` : ""}
       <section class="panel"><h3 class="tr-h">這位學生的每一局（點一列看每一步）</h3>${runsTable(d.runs, false, false)}</section>`;
     $("trBack").onclick = () => { S.studentId = null; refresh(); };
-    $("trSendOne").onclick = () => sendReports([S.studentId], st.name);
+    $("trSendOne").onclick = async () => { await saveFb(S.studentId, $("trFbOne").value, $("trFbOneMsg")); sendReports([S.studentId], st.name); };
+    $("trFbOne").onblur = () => saveFb(S.studentId, $("trFbOne").value, $("trFbOneMsg"));
     wireRuns(); wireVoice();
   }
 

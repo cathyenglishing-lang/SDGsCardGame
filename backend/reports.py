@@ -39,6 +39,7 @@ def configure(**deps):
     cur.execute("CREATE INDEX IF NOT EXISTS idx_student_reports_user ON student_reports (user_id)")
     conn.commit()
     conn.close()
+    _init_feedback()
 
 
 class SendIn(BaseModel):
@@ -194,3 +195,216 @@ def my_report(report_id: int, authorization: str | None = Header(default=None)):
         conn.commit()
     conn.close()
     return {"id": r["id"], "title": r["title"], "html": r["html"]}
+
+
+# ── teacher feedback (評語) and sending reports by email ──
+# A comment is a draft per student until it is sent with a report; sending puts the report in the student's
+# 「我的報告」 and, if asked, emails it. Emails go out in a background thread (Resend allows a few per
+# second), and each report row keeps its own delivery status, so the page can show progress and retry failures.
+import threading, time, uuid, os, urllib.request as _rq, urllib.error as _re
+
+RESEND_API_KEY = os.getenv("RESEND_API_KEY", "").strip()
+RESEND_FROM = os.getenv("RESEND_FROM", "").strip() or os.getenv("SMTP_FROM", "").strip()
+SITE = (os.getenv("PUBLIC_SITE_URL", "").strip() or "https://www.cathylanguagehub.com").rstrip("/")
+
+
+def _init_feedback():
+    conn = D.get_db()
+    cur = conn.cursor()
+    cur.execute("""
+        CREATE TABLE IF NOT EXISTS student_feedback (
+            user_id INTEGER PRIMARY KEY,
+            text TEXT NOT NULL,
+            updated_by INTEGER,
+            updated_at TEXT NOT NULL,
+            sent_at TEXT
+        )""")
+    conn.commit()
+    for col, typ in (("batch_id", "TEXT"), ("email_to", "TEXT"), ("email_status", "TEXT"), ("email_error", "TEXT"), ("emailed_at", "TEXT")):
+        if D.use_postgres:
+            cur.execute(f"ALTER TABLE student_reports ADD COLUMN IF NOT EXISTS {col} {typ}")
+            conn.commit()
+        else:
+            try:
+                cur.execute(f"ALTER TABLE student_reports ADD COLUMN {col} {typ}")
+                conn.commit()
+            except Exception:
+                pass
+    conn.close()
+
+
+def _now():
+    return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+
+
+class FeedbackIn(BaseModel):
+    text: str
+
+
+class BulkFeedbackIn(BaseModel):
+    user_ids: list[int]
+    text: str
+    mode: str = "replace"          # replace | append
+
+
+class SendV2In(BaseModel):
+    user_ids: list[int]
+    note: str | None = None        # one message for everyone (used when use_feedback is off, or a student has no comment)
+    use_feedback: bool = True      # each student's own 評語
+    email: bool = False
+
+
+def _feedback(cur, ids=None):
+    if ids is not None and not ids:
+        return {}
+    if ids is None:
+        cur.execute("SELECT user_id, text, updated_at, sent_at FROM student_feedback")
+    else:
+        cur.execute(f"SELECT user_id, text, updated_at, sent_at FROM student_feedback WHERE user_id IN ({', '.join('?' for _ in ids)})", tuple(ids))
+    return {r["user_id"]: dict(r) for r in cur.fetchall()}
+
+
+@router.get("/teacher/feedback")
+def get_feedback(authorization: str | None = Header(default=None)):
+    D.require_teacher(authorization)
+    conn = D.get_db(); cur = conn.cursor()
+    out = _feedback(cur)
+    conn.close()
+    return {"feedback": {str(k): v for k, v in out.items()}, "email_ready": bool(RESEND_API_KEY and RESEND_FROM)}
+
+
+@router.put("/teacher/feedback/{user_id}")
+def put_feedback(user_id: int, data: FeedbackIn, authorization: str | None = Header(default=None)):
+    t = D.require_teacher(authorization)
+    text = data.text.strip()[:2000]
+    conn = D.get_db(); cur = conn.cursor()
+    if text:
+        cur.execute("INSERT INTO student_feedback (user_id, text, updated_by, updated_at, sent_at) VALUES (?, ?, ?, ?, NULL) "
+                    "ON CONFLICT (user_id) DO UPDATE SET text = excluded.text, updated_by = excluded.updated_by, updated_at = excluded.updated_at, sent_at = NULL",
+                    (user_id, text, t.get("id"), _now()))
+    else:
+        cur.execute("DELETE FROM student_feedback WHERE user_id = ?", (user_id,))
+    conn.commit(); conn.close()
+    return {"ok": True}
+
+
+@router.post("/teacher/feedback/bulk")
+def bulk_feedback(data: BulkFeedbackIn, authorization: str | None = Header(default=None)):
+    t = D.require_teacher(authorization)
+    text = data.text.strip()[:2000]
+    if not text:
+        raise HTTPException(status_code=400, detail="評語是空的")
+    ids = list(dict.fromkeys(int(i) for i in data.user_ids))[:400]
+    conn = D.get_db(); cur = conn.cursor()
+    old = _feedback(cur, ids)
+    for uid in ids:
+        new = (old[uid]["text"] + "\n" + text) if data.mode == "append" and uid in old else text
+        cur.execute("INSERT INTO student_feedback (user_id, text, updated_by, updated_at, sent_at) VALUES (?, ?, ?, ?, NULL) "
+                    "ON CONFLICT (user_id) DO UPDATE SET text = excluded.text, updated_by = excluded.updated_by, updated_at = excluded.updated_at, sent_at = NULL",
+                    (uid, new[:2000], t.get("id"), _now()))
+    conn.commit(); conn.close()
+    return {"updated": len(ids)}
+
+
+@router.post("/teacher/reports/preview")
+def preview(data: SendV2In, authorization: str | None = Header(default=None)):
+    teacher = D.require_teacher(authorization)
+    uid = data.user_ids[0] if data.user_ids else None
+    if not uid:
+        raise HTTPException(status_code=400, detail="沒有選學生")
+    conn = D.get_db(); cur = conn.cursor()
+    fb = _feedback(cur, [uid]); conn.close()
+    note = (fb.get(uid, {}).get("text") if data.use_feedback else None) or (data.note or "")
+    d = D.student_report(uid, None, None, authorization)
+    titles, cards = _material()
+    for w in d.get("weak_cards") or []:
+        w.update(cards.get(w.get("card"), {}))
+    return {"html": build_html(d, note.strip(), teacher.get("name") or "老師", titles), "name": d["student"].get("name")}
+
+
+def _email(to, subject, html_doc, text):
+    if not (RESEND_API_KEY and RESEND_FROM):
+        return False, "這台伺服器還沒設定寄信（RESEND_API_KEY）"
+    body = json.dumps({"from": RESEND_FROM, "to": [to], "subject": subject, "html": html_doc, "text": text}).encode()
+    req = _rq.Request("https://api.resend.com/emails", data=body, method="POST",
+                      headers={"Authorization": f"Bearer {RESEND_API_KEY}", "Content-Type": "application/json", "User-Agent": "CardLearn-SDGs/1.0"})
+    try:
+        with _rq.urlopen(req, timeout=20) as r:
+            return True, json.loads(r.read() or b"{}").get("id", "")
+    except _re.HTTPError as e:
+        return False, f"{e.code} {e.read().decode(errors='replace')[:180]}"
+    except Exception as e:
+        return False, str(e)[:180]
+
+
+def _send_batch(batch_id):
+    """Email every queued report of one batch, a little apart (provider rate limit), recording each result."""
+    conn = D.get_db(); cur = conn.cursor()
+    cur.execute("SELECT r.id, r.title, r.html, r.email_to, u.name FROM student_reports r LEFT JOIN users u ON u.id = r.user_id WHERE r.batch_id = ? AND r.email_status = 'queued'", (batch_id,))
+    rows = [dict(r) for r in cur.fetchall()]
+    conn.close()
+    for r in rows:
+        ok, info = _email(r["email_to"], f"{r['name'] or ''} 的 CardLearn SDGs {r['title']}",
+                          r["html"].replace("</footer>", f'<br><a href="{SITE}/pages/my_report.html?id={r["id"]}" style="color:#fde68a">在網站上打開這份報告</a></footer>', 1),
+                          f"{r['name'] or ''} 同學好，老師傳了一份學習報告給你。請到 {SITE}/pages/my_report.html?id={r['id']} 登入後查看。")
+        conn = D.get_db(); cur = conn.cursor()
+        cur.execute("UPDATE student_reports SET email_status = ?, email_error = ?, emailed_at = ? WHERE id = ?", ("sent" if ok else "failed", None if ok else info, _now(), r["id"]))
+        conn.commit(); conn.close()
+        time.sleep(0.6)
+
+
+@router.post("/teacher/reports/send-v2")
+def send_v2(data: SendV2In, authorization: str | None = Header(default=None)):
+    teacher = D.require_teacher(authorization)
+    ids = list(dict.fromkeys(int(i) for i in data.user_ids))[:400]
+    if not ids:
+        raise HTTPException(status_code=400, detail="沒有選學生")
+    if data.email and not (RESEND_API_KEY and RESEND_FROM):
+        raise HTTPException(status_code=400, detail="這台伺服器還沒設定寄信，先取消「寄到學生信箱」，報告一樣會放進學生的「我的報告」。")
+    titles, cards = _material()
+    batch = uuid.uuid4().hex[:12]
+    conn = D.get_db(); cur = conn.cursor()
+    fb = _feedback(cur, ids)
+    cur.execute(f"SELECT id, email FROM users WHERE id IN ({', '.join('?' for _ in ids)})", tuple(ids))
+    emails = {r["id"]: r["email"] for r in cur.fetchall()}
+    made, skipped, now = 0, [], _now()
+    for uid in ids:
+        try:
+            d = D.student_report(uid, None, None, authorization)
+        except HTTPException:
+            skipped.append(uid); continue
+        for w in d.get("weak_cards") or []:
+            w.update(cards.get(w.get("card"), {}))
+        note = ((fb.get(uid, {}).get("text") if data.use_feedback else None) or (data.note or "")).strip()[:2000]
+        doc = build_html(d, note, teacher.get("name") or "老師", titles)
+        to = emails.get(uid) if data.email else None
+        cur.execute("INSERT INTO student_reports (user_id, title, html, note, created_by, created_at, batch_id, email_to, email_status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                    (uid, f"{datetime.now(TW).strftime('%m/%d')} 學習報告", doc, note or None, teacher.get("id"), now, batch, to, "queued" if to else None))
+        if uid in fb and data.use_feedback:
+            cur.execute("UPDATE student_feedback SET sent_at = ? WHERE user_id = ?", (now, uid))
+        made += 1
+    conn.commit(); conn.close()
+    if data.email and made:
+        threading.Thread(target=_send_batch, args=(batch,), daemon=True).start()
+    return {"batch": batch, "sent": made, "skipped": skipped, "emailing": bool(data.email)}
+
+
+@router.get("/teacher/reports/batch/{batch_id}")
+def batch_status(batch_id: str, authorization: str | None = Header(default=None)):
+    D.require_teacher(authorization)
+    conn = D.get_db(); cur = conn.cursor()
+    cur.execute("SELECT r.id, r.user_id, u.name, r.email_to, r.email_status, r.email_error FROM student_reports r LEFT JOIN users u ON u.id = r.user_id WHERE r.batch_id = ?", (batch_id,))
+    rows = [dict(r) for r in cur.fetchall()]
+    conn.close()
+    return {"rows": rows, "queued": sum(1 for r in rows if r["email_status"] == "queued"), "sent": sum(1 for r in rows if r["email_status"] == "sent"),
+            "failed": sum(1 for r in rows if r["email_status"] == "failed")}
+
+
+@router.post("/teacher/reports/batch/{batch_id}/retry")
+def batch_retry(batch_id: str, authorization: str | None = Header(default=None)):
+    D.require_teacher(authorization)
+    conn = D.get_db(); cur = conn.cursor()
+    cur.execute("UPDATE student_reports SET email_status = 'queued', email_error = NULL WHERE batch_id = ? AND email_status = 'failed'", (batch_id,))
+    conn.commit(); conn.close()
+    threading.Thread(target=_send_batch, args=(batch_id,), daemon=True).start()
+    return {"ok": True}

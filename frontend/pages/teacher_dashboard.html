@@ -1289,6 +1289,21 @@ body{ background:var(--page); }
       #recordsModule .tr-chip:hover{border-color:#94a3b8}
       #recordsModule .tr-chip.on{background:#1f3a5f;border-color:#1f3a5f;color:#fff}
       #recordsModule tr[hidden]{display:none}
+      #recordsModule .tr-ck{width:34px;text-align:center}#recordsModule .tr-ck input{width:18px;height:18px;cursor:pointer}
+      #recordsModule .tr-selbar{position:sticky;top:70px;z-index:5;display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:8px 0;padding:10px 14px;border-radius:14px;background:#1f3a5f;color:#fff;box-shadow:0 10px 24px rgba(15,30,60,.25);animation:modIn .25s}
+      #recordsModule .tr-selbar[hidden]{display:none}#recordsModule .tr-selbar .btn{min-height:36px}
+      #recordsModule .tr-fbcell{min-width:220px}
+      #recordsModule .tr-fb{width:100%;min-height:34px;resize:vertical;border:1px dashed #cbd5e1;border-radius:10px;padding:6px 9px;font:inherit;font-size:13px;background:#fbfcfe;transition:border-color .2s,background .2s}
+      #recordsModule .tr-fb:focus{border-style:solid;border-color:#2563eb;background:#fff;min-height:70px}
+      #recordsModule .tr-fbstate{display:block;font-size:11.5px;color:var(--muted);margin-top:2px}#recordsModule .tr-fbstate.sent{color:#15803d}
+      #recordsModule .tr-fbbox{margin:0 0 12px}#recordsModule .tr-fbbox label{display:flex;flex-direction:column;gap:6px;font-weight:800}#recordsModule .tr-fbbox small{font-weight:600;color:var(--muted)}
+      #recordsModule .tr-fbbox textarea{border:1px solid var(--line);border-radius:12px;padding:10px;font:inherit}
+      #recordsModule .tr-send{width:min(980px,100%);display:grid;grid-template-columns:minmax(260px,1fr) minmax(300px,1.2fr);gap:16px}
+      #recordsModule .tr-send label.opt,#recordsModule .tr-sheet label.opt{display:flex;flex-direction:row;gap:10px;align-items:center;justify-content:flex-start;text-align:left;margin:8px 0;font-size:14px;font-weight:700}
+      #recordsModule label.opt input{width:18px;height:18px;flex:0 0 auto;margin:0}
+      #recordsModule .tr-send iframe{width:100%;height:460px;border:1px solid var(--line);border-radius:12px;background:#070b24}
+      #recordsModule .tr-prog{height:10px;border-radius:10px;background:#e2e8f0;overflow:hidden;margin:8px 0}#recordsModule .tr-prog i{display:block;height:100%;background:linear-gradient(90deg,#34d399,#059669);transition:width .4s}
+      @media (max-width:900px){#recordsModule .tr-send{grid-template-columns:1fr}}
       #recordsModule .tr-seglite{display:inline-flex;align-items:center;gap:4px;font-weight:700;font-size:13.5px;color:#475569;margin-right:14px}
       #recordsModule .tr-seglite button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:5px 12px;font:inherit;font-size:13px;font-weight:750;cursor:pointer;transition:background .2s,color .2s}
       #recordsModule .tr-seglite button.on{background:#1f3a5f;border-color:#1f3a5f;color:#fff}

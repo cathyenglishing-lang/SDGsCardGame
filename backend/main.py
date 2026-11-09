@@ -1293,7 +1293,7 @@ CONSOLE_TABLES = [
     "sdg_options", "difficulty_options", "tbl_sdg_parts", "tbl_sdg_sub_topics",
     "tbl_sdg_cards", "email_otps",
     "courses", "course_sections", "enrollments", "course_activities", "roster_imports", "chip_ledger",
-    "speech_recordings", "content_topics", "content_versions", "system_metrics", "user_daily_activity", "login_failures", "student_reports", "site_visits",
+    "speech_recordings", "content_topics", "content_versions", "system_metrics", "user_daily_activity", "login_failures", "student_reports", "student_feedback", "site_visits",
 ]
 
 TABLE_DOCS = {
@@ -1318,6 +1318,7 @@ TABLE_DOCS = {
     "content_topics": "Teaching material per game and topic: the published copy students get and the teacher's draft.",
     "content_versions": "A snapshot of every published version of a topic (for looking back and restoring).",
     "user_daily_activity": "Per account per day: requests, the busiest minute, times stopped by the rate limit (for spotting abuse).",
+    "student_feedback": "The teacher's comment for each student (a draft until it is sent with a report).",
     "site_visits": "Every page view: anonymous visitor id, page, where they came from, guest or signed in, device; the IP only as a hash.",
     "student_reports": "Personal learning reports a teacher sent to a student (HTML), and when the student opened them.",
     "login_failures": "Every failed sign-in (wrong password or unknown account), with the IP.",
@@ -1349,6 +1350,7 @@ DB_RELATIONSHIPS = [
     {"from": "learning_events.run_id", "to": "learning_runs.id"},
     {"from": "speech_recordings.run_id", "to": "learning_runs.id"},
     {"from": "student_reports.user_id", "to": "users.id"},
+    {"from": "student_feedback.user_id", "to": "users.id"},
     {"from": "user_daily_activity.user_id", "to": "users.id"},
 ]
 
@@ -3366,7 +3368,7 @@ app.include_router(content_library.router)
 
 # Personal HTML reports a teacher sends to students (backend/reports.py)
 from backend import reports
-reports.configure(get_db=get_db, auto_pk_sql=auto_pk_sql, require_teacher=require_teacher, get_current_user=get_current_user,
+reports.configure(get_db=get_db, use_postgres=USE_POSTGRES, auto_pk_sql=auto_pk_sql, require_teacher=require_teacher, get_current_user=get_current_user,
                   student_report=learning_reports.student_report)
 app.include_router(reports.router)
 
