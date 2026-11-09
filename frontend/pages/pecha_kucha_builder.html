@@ -5,6 +5,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>CardLearn SDG - Pro Poker Edition</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&display=swap">
+<link rel="preload" as="image" href="/static/assets/chips/chip.png">
 <style>
 :root {
   --poker-ratio: 1.4;
@@ -914,7 +918,7 @@ body.is-dragging-card .subtopic-poker:not(.correct) {
   <div class="subtopic-box" id="subBox"></div>
   <div id="sentenceBox"></div>
   <div id="gameTimer"><span class="timer-label">TIME</span>00:00</div>
-  <div class="pk-wallet" id="pkWallet" hidden><img id="pkWalletImg" alt="" width="92" height="112"><span class="pk-wallet-n"><b id="pkWalletN">0</b><i>籌碼</i></span></div>
+  <div class="pk-wallet" id="pkWallet" hidden><span class="pk-wallet-pile"><span class="pk-wallet-ring" aria-hidden="true"></span><img id="pkWalletImg" alt="" width="92" height="112"></span><span class="pk-wallet-n"><b id="pkWalletN">+0</b><i>本局</i></span><small class="pk-wallet-bal" id="pkWalletBal"></small></div>
   <div class="deck-panel">
     <div class="dealt-card-container" id="dealtCardHolder"></div>
     <div class="poker-card deck" id="mainDeck" onclick="dealNextCard()" role="button" tabindex="0" aria-label="發一張句子卡 Deal a sentence card">
@@ -1291,6 +1295,194 @@ body.pk-embed .game-guide,body.pk-embed #topicGrid{display:none}
 <script src="/static/js/voice.js"></script>
 <script src="/static/js/pk-wrapup.js"></script>
 <script>
+/* ── Casino effects of the card table (2026-11-09 「像真實賭場一樣」) ──
+   Deal from the shoe with a 3D flip, a gold burst and a star on a match, chips flying into this
+   run's pile, a bounce-back on a miss, cards swept off between parts, gold light and confetti when a
+   part or the run is done. Transform and opacity only (smooth on an iPad); nothing moves when the
+   device asks for reduced motion. Every effect is fire-and-forget: the game's state, its timers and
+   its learning events never wait for an animation. */
+window.PKFX = (() => {
+  const mq = window.matchMedia ? matchMedia("(prefers-reduced-motion: reduce)") : { matches:false };
+  const motion = () => !mq.matches && typeof Element.prototype.animate === "function";
+  const layers = {};
+  function layer(kind){
+    let l = layers[kind];
+    if(!l || !l.isConnected){ l = layers[kind] = document.createElement("div"); l.className = "pkfx-layer " + kind; l.setAttribute("aria-hidden", "true"); document.body.appendChild(l); }
+    return l;
+  }
+  const mid = el => { const r = el && el.getBoundingClientRect(); return r && (r.width || r.height) ? { x:r.left + r.width / 2, y:r.top + r.height / 2, w:r.width, h:r.height, r } : null; };
+  function sprite(cls, x, y, kind){ const e = document.createElement("div"); e.className = "pkfx " + cls; e.style.left = x + "px"; e.style.top = y + "px"; layer(kind || "play").appendChild(e); return e; }
+  // Remove the sprite when its animation ends (also if the tab was hidden and the browser never ran it).
+  function after(anim, el, cb){
+    let ran = false; const end = () => { if(ran) return; ran = true; el.remove(); if(cb) cb(); };
+    anim.onfinish = end; anim.oncancel = end;
+    let t = 3000; try{ t = anim.effect.getComputedTiming().endTime; }catch(e){}
+    setTimeout(end, t + 500);
+  }
+  const rnd = (a, b) => a + Math.random() * (b - a);
+
+  // A title card flies from the shoe face down, then turns over where it lands.
+  function dealIn(card, deck){
+    const c = card.getBoundingClientRect(), d = deck && deck.getBoundingClientRect();
+    if(!d || !d.width || !c.width){ card.classList.remove("pk-facedown"); return; }
+    const dx = d.left + d.width / 2 - (c.left + c.width / 2), dy = d.top + d.height / 2 - (c.top + c.height / 2), sc = Math.max(.35, Math.min(1, d.width / c.width));
+    card.animate([
+      { transform:`translate(${dx}px,${dy}px) scale(${sc}) rotate(-16deg)`, opacity:0 },
+      { transform:`translate(${dx}px,${dy}px) scale(${sc}) rotate(-16deg)`, opacity:1, offset:.1 },
+      { transform:`translate(${dx * .38}px,${dy * .38 - 70}px) scale(${(1 + sc) / 2 * 1.1}) rotate(-5deg)`, offset:.62 },
+      { transform:"none", opacity:1 }
+    ], { duration:600, easing:"cubic-bezier(.2,.65,.25,1)" });
+    setTimeout(() => card.classList.remove("pk-facedown"), 430);
+  }
+  // The sentence card slides off the shoe into the hand, turning face up on the way.
+  function dealHand(card, deck){
+    const c = card.getBoundingClientRect(), d = deck && deck.getBoundingClientRect();
+    if(!d || !d.width || !c.width) return;
+    card.style.animation = "none"; card.classList.add("pk-facedown");
+    const dx = d.left + d.width / 2 - (c.left + c.width / 2), dy = d.top + d.height / 2 - (c.top + c.height / 2), sc = Math.max(.2, Math.min(1, d.width / c.width));
+    card.animate([
+      { transform:`translate(${dx}px,${dy}px) scale(${sc}) rotate(10deg)` },
+      { transform:`translate(${dx * .42}px,${dy * .42 - 46}px) scale(${(1 + sc) / 2}) rotate(3deg)`, offset:.55 },
+      { transform:"none" }
+    ], { duration:480, easing:"cubic-bezier(.22,.7,.25,1)" });
+    setTimeout(() => card.classList.remove("pk-facedown"), 260);
+  }
+  function burst(at, big){
+    const ring = sprite("pkfx-ring", at.x, at.y);
+    after(ring.animate([{ transform:"translate(-50%,-50%) scale(.25)", opacity:1 }, { transform:`translate(-50%,-50%) scale(${big ? 2.3 : 1.6})`, opacity:0 }], { duration:560, easing:"cubic-bezier(.2,.7,.3,1)" }), ring);
+    const n = big ? 12 : 7;
+    for(let i = 0; i < n; i++){
+      const a = i / n * Math.PI * 2 + rnd(-.2, .2), r = rnd(60, big ? 120 : 80), s = sprite("pkfx-spark", at.x, at.y);
+      after(s.animate([{ transform:`translate(-50%,-50%) rotate(${a}rad) translateX(10px) scaleX(.4)`, opacity:1 },
+                       { transform:`translate(-50%,-50%) rotate(${a}rad) translateX(${r}px) scaleX(1)`, opacity:0 }], { duration:rnd(420, 620), easing:"cubic-bezier(.15,.7,.3,1)" }), s);
+    }
+  }
+  function star(from, toEl){
+    const to = mid(toEl); if(!to) return;
+    const s = sprite("pkfx-star", from.x, from.y); s.textContent = "★";
+    const dx = to.x - from.x, dy = to.y - from.y;
+    after(s.animate([
+      { transform:"translate(-50%,-50%) scale(.3) rotate(0deg)", opacity:0 },
+      { transform:"translate(-50%,-50%) translate(0,-26px) scale(1.5) rotate(40deg)", opacity:1, offset:.22 },
+      { transform:`translate(-50%,-50%) translate(${dx * .5}px,${dy * .5 - 60}px) scale(1.1) rotate(200deg)`, offset:.62 },
+      { transform:`translate(-50%,-50%) translate(${dx}px,${dy}px) scale(.45) rotate(360deg)`, opacity:.9 }
+    ], { duration:820, easing:"cubic-bezier(.35,.1,.3,1)" }), s, () => { try{ toEl.animate([{ scale:"1" }, { scale:"1.3" }, { scale:"1" }], { duration:320, easing:"ease-out" }); }catch(e){} });
+  }
+  function matchWin(card, first){
+    if(!motion()) return;
+    const at = mid(card); if(!at) return;
+    burst(at, first);
+    card.animate([{ scale:"1" }, { scale:"1.09", offset:.35 }, { scale:"1" }], { duration:420, easing:"cubic-bezier(.3,1.6,.5,1)" });
+    star(at, document.querySelector("#topicGrid .topic.active"));
+  }
+  // Chips from a card (or the middle of the table) to the pile, one after another; each one is
+  // reported when it lands, so the number counts up with the clink.
+  function chipsTo(fromEl, toEl, n, land, kind){
+    const f = mid(fromEl), t = mid(toEl);
+    if(!f || !t){ for(let i = 0; i < n; i++) land(); return; }
+    for(let i = 0; i < n; i++){
+      const e = sprite("pkfx-chip", f.x, f.y, kind), jx = rnd(-26, 26), jy = rnd(-18, 18);
+      const dx = t.x - f.x, dy = t.y - f.y - Math.min(14, t.h * .2), lift = -Math.max(80, Math.abs(dx) * .22);
+      after(e.animate([
+        { transform:`translate(-50%,-50%) translate(${jx}px,${jy}px) scale(.35) rotateX(70deg)`, opacity:0 },
+        { transform:`translate(-50%,-50%) translate(${jx}px,${jy - 34}px) scale(1.2) rotateX(18deg) rotate(80deg)`, opacity:1, offset:.18 },
+        { transform:`translate(-50%,-50%) translate(${dx * .55}px,${dy * .55 + lift}px) scale(1) rotateX(38deg) rotate(250deg)`, offset:.62 },
+        { transform:`translate(-50%,-50%) translate(${dx}px,${dy}px) scale(.6) rotateX(64deg) rotate(360deg)`, opacity:1 }
+      ], { duration:820, delay:i * 140, easing:"cubic-bezier(.35,.1,.3,1)", fill:"backwards" }), e, land);
+    }
+  }
+  // Part of a chip: a gold spark from the card into the ring beside the pile.
+  function spark(fromEl, toEl){
+    if(!motion()) return;
+    const f = mid(fromEl), t = mid(toEl); if(!f || !t) return;
+    const s = sprite("pkfx-star small", f.x, f.y); s.textContent = "✦";
+    const dx = t.x - f.x + t.w * .45, dy = t.y - f.y - t.h * .1;
+    after(s.animate([{ transform:"translate(-50%,-50%) scale(.4)", opacity:0 }, { transform:"translate(-50%,-50%) translate(0,-20px) scale(1.2)", opacity:1, offset:.2 },
+                     { transform:`translate(-50%,-50%) translate(${dx}px,${dy}px) scale(.5) rotate(180deg)`, opacity:.9 }], { duration:760, easing:"cubic-bezier(.35,.1,.3,1)" }), s);
+  }
+  function clink(el, kind){
+    if(!motion()) return;
+    const at = mid(el); if(!at) return;
+    const r = sprite("pkfx-clink", at.x, at.y - at.h * .15, kind);
+    after(r.animate([{ transform:"translate(-50%,-50%) scale(.3)", opacity:1 }, { transform:"translate(-50%,-50%) scale(1.5)", opacity:0 }], { duration:380, easing:"ease-out" }), r);
+  }
+  function miss(card){
+    card.classList.remove("pk-miss"); void card.offsetWidth; card.classList.add("pk-miss");
+    setTimeout(() => card.classList.remove("pk-miss"), 520);
+    if(!motion()) return;
+    card.animate([
+      { transform:"none" }, { transform:"translate(-11px,-4px) rotate(-4deg)", offset:.2 }, { transform:"translate(9px,0) rotate(3deg)", offset:.45 },
+      { transform:"translate(-5px,0) rotate(-1.5deg)", offset:.7 }, { transform:"none" }
+    ], { duration:460, easing:"ease-out" });
+    const hand = document.querySelector("#dealtCardHolder .poker-card");
+    if(hand) hand.animate([{ transform:"none" }, { transform:"translateY(-22px) rotate(2deg)", offset:.35 }, { transform:"none" }], { duration:420, easing:"cubic-bezier(.3,1.5,.5,1)" });
+  }
+  // The cards of the last part slide off the table to the side before the next deal. The game
+  // clears the table at once; what moves is a copy.
+  function sweep(box){
+    if(!motion() || !box) return;
+    const cards = [...box.querySelectorAll(".subtopic-poker")]; if(!cards.length) return;
+    const host = document.createElement("div"); host.className = "pkfx-sweep"; host.inert = true; host.setAttribute("aria-hidden", "true");
+    document.getElementById("gameScreen").appendChild(host);
+    let left = cards.length;
+    const gone = () => { if(--left <= 0) host.remove(); };
+    cards.forEach((c, i) => {
+      const r = c.getBoundingClientRect(); if(!r.width){ gone(); return; }
+      const k = c.cloneNode(true); k.removeAttribute("id"); k.classList.remove("dealing", "pk-facedown", "drop-ready", "drop-over");
+      k.style.cssText = `position:fixed;left:${r.left}px;top:${r.top}px;margin:0;rotate:0deg;animation:none`;
+      k.style.setProperty("width", r.width + "px", "important"); k.style.setProperty("height", r.height + "px", "important");
+      host.appendChild(k);
+      const a = k.animate([{ transform:"none", opacity:1 }, { transform:`translate(${innerWidth - r.left + 80}px,${rnd(-60, 30)}px) rotate(${rnd(20, 40)}deg) scale(.7)`, opacity:.2 }],
+                          { duration:520, delay:i * 55, easing:"cubic-bezier(.5,0,.75,.3)", fill:"both" });
+      let done = false; a.onfinish = a.oncancel = () => { if(done) return; done = true; k.remove(); gone(); };
+    });
+    setTimeout(() => host.remove(), 2000);
+  }
+  function shine(box){
+    const at = mid(box); if(!at) return;
+    const s = sprite("pkfx-shine", at.r.left, at.r.top);
+    s.style.width = at.w + "px"; s.style.height = at.h + "px";
+    const band = document.createElement("i"); s.appendChild(band);
+    after(band.animate([{ transform:"translateX(-120%) skewX(-18deg)" }, { transform:"translateX(320%) skewX(-18deg)" }], { duration:900, easing:"ease-in-out" }), s);
+  }
+  function confetti(n, from){
+    const colors = ["#f4d27a", "#e0a92b", "#a78bfa", "#6d4df2", "#34d399", "#ef4444", "#fbf7ee"];
+    for(let i = 0; i < n; i++){
+      const x = from ? from.x : rnd(0, innerWidth), y = from ? from.y : -20;
+      const p = sprite("pkfx-confetti", x, y, "top"); p.style.background = colors[i % colors.length];
+      const dx = from ? rnd(-160, 160) : rnd(-80, 80), dy = from ? rnd(-150, 60) : innerHeight + 60, spin = rnd(360, 1080);
+      const frames = from
+        ? [{ transform:"translate(-50%,-50%) scale(.4)", opacity:1 }, { transform:`translate(-50%,-50%) translate(${dx}px,${dy}px) rotate(${spin}deg) rotateX(${spin}deg)`, opacity:1, offset:.6 }, { transform:`translate(-50%,-50%) translate(${dx * 1.2}px,${dy + 160}px) rotate(${spin * 1.3}deg)`, opacity:0 }]
+        : [{ transform:"translate(-50%,-50%)", opacity:1 }, { transform:`translate(-50%,-50%) translate(${dx}px,${dy}px) rotate(${spin}deg) rotateY(${spin}deg)`, opacity:.9 }];
+      after(p.animate(frames, { duration:from ? rnd(900, 1300) : rnd(1800, 2900), delay:from ? 0 : rnd(0, 450), easing:from ? "cubic-bezier(.2,.6,.4,1)" : "cubic-bezier(.25,.4,.45,1)", fill:"backwards" }), p);
+    }
+  }
+  function partWin(box, chip){
+    if(!motion()) return;
+    shine(box);
+    [...box.querySelectorAll(".subtopic-poker.correct")].forEach((c, i) =>
+      c.animate([{ translate:"0 0" }, { translate:"0 -14px", offset:.4 }, { translate:"0 0" }], { duration:420, delay:120 + i * 70, easing:"cubic-bezier(.3,1.4,.5,1)" }));
+    if(chip){
+      try{ chip.animate([{ rotate:"y 0deg", scale:"1" }, { rotate:"y 180deg", scale:"1.35" }, { rotate:"y 360deg", scale:"1" }], { duration:760, easing:"cubic-bezier(.3,.7,.3,1)" }); }catch(e){}
+      const at = mid(chip); if(at) confetti(innerWidth <= 640 ? 12 : 18, at);
+    }
+  }
+  // The whole talk is done: gold light over the table and confetti over everything (the wrap-up
+  // opens underneath it on its usual timer).
+  function runWin(box){
+    if(!motion()) return;
+    const at = mid(box);
+    if(at){
+      shine(box);
+      const g = sprite("pkfx-glow", at.x, at.y);
+      after(g.animate([{ transform:"translate(-50%,-50%) scale(.4)", opacity:0 }, { transform:"translate(-50%,-50%) scale(1)", opacity:.9, offset:.3 }, { transform:"translate(-50%,-50%) scale(1.3)", opacity:0 }], { duration:1300, easing:"ease-out" }), g);
+    }
+    confetti(innerWidth <= 640 ? 45 : 80);
+  }
+  return { motion, dealIn, dealHand, matchWin, chipsTo, spark, clink, miss, sweep, partWin, runWin, confetti, burst, mid };
+})();
+</script>
+<script>
 // An account made by a roster import chooses its own password before anything else.
 (function(){ try{ const s=JSON.parse(localStorage.getItem("user")||"null"); if(s&&s.user&&s.user.must_change_password&&window.parent===window) location.replace("/pages/change_password.html?next="+encodeURIComponent(location.pathname+location.search)); }catch(e){} })();
 /* ── Voice preload ── */
@@ -1384,45 +1576,53 @@ function buildDB(topic, level){
   return { topics, subtopics, answers };
 }
 
+// The menu is a card table (2026-11-09 redesign): a bar with the player and their chips, one line of
+// instruction, and every topic as a poker card. Open topics are dealt face down and flip face up;
+// the levels are casino chips on the card. A locked topic stays face down with a padlock.
+let PK_SEL_DEALT = false;
+const LEVEL_TONE = { A1:"#15803d", A2:"#1d4ed8", B1:"#6d28d9", B2:"#111827" };
 function renderSelector(){
   const host = document.getElementById("selectorScreen"); if(!host) return;
   // A course that has opened topics shows only those; otherwise the shared open/locked rules apply.
   const acts = pkCourseActs();
   const bySdg = {};
   GAME_DATA.topics.filter(t=>!acts.length || acts.some(a=>a.topic_id===t.id)).forEach(t=>{ (bySdg[t.sdg]=bySdg[t.sdg]||[]).push(t); });
-  let h = '<div class="pk-sel-head"><div class="pk-sel-logo">🃏</div>'
-        + '<div><h1>SDG Pecha Kucha Card Game</h1>'
-        + '<p>選一個主題和 CEFR 難度：聽英文句子，把它拖到正確的投影片標題卡上，組出你的演講。</p></div></div>';
-  h += pkWhoBar();
+  let h = '<header class="pk-sel-bar"><div class="pk-sel-brand"><span class="pk-sel-logo" aria-hidden="true"><i></i></span>'
+        + '<h1>SDG Pecha Kucha <span>Card Game</span></h1></div>' + pkWhoBar() + '</header>';
   if(!PK_READY){   // the course decides what is on the menu: nothing playable is shown before it is known
-    host.innerHTML = h + '<div class="pk-loading" role="status"><span class="pk-spin"></span>正在載入你的課程和主題…</div>';
+    host.innerHTML = h + '<div class="pk-felt pk-felt-wait"><div class="pk-ghosts" aria-hidden="true"><span></span><span></span><span></span></div>'
+      + '<p class="pk-loading" role="status"><span class="pk-spin"></span>正在載入你的課程和主題…</p></div>';
     pkWireWho();
     return;
   }
-  h += pkCourseBar();
+  h += '<p class="pk-sel-hint">選一張主題牌，按下面的籌碼選難度。</p>';
+  h += '<div class="pk-felt'+(PK_SEL_DEALT ? ' pk-dealt' : '')+'">';
+  let n = 0;
   Object.keys(bySdg).map(Number).sort((a,b)=>a-b).forEach(sdg=>{
     const meta = SDG_META[sdg]||{c:"#2563eb",n:""};
-    h += '<div class="pk-sel-label"><span class="pk-dot" style="background:'+meta.c+'"></span>SDG '+sdg+' · '+pkEsc(meta.n)+'</div>';
-    h += '<div class="pk-topic-grid">';
+    h += '<section class="pk-sdg" style="--ac:'+meta.c+'" aria-label="SDG '+sdg+'">'
+       + '<h2 class="pk-sdg-label"><span class="pk-sdg-n">'+sdg+'</span>'+pkEsc(meta.n)+'</h2><div class="pk-sdg-cards">';
     bySdg[sdg].sort((a,b)=>a.id.localeCompare(b.id,undefined,{numeric:true})).forEach(t=>{
       const levels = LEVEL_ORDER.filter(l=>t.levels[l]);
-      const n = (t.levels[levels[0]]||[]).length;
-      const locked = !pkTopicOpen(t.id);
-      h += '<div class="pk-topic'+(locked?' pk-locked':'')+'" style="--ac:'+meta.c+'">'
-         + '<span class="pk-tbadge" style="background:'+meta.c+'">SDG '+sdg+' · '+pkEsc(t.id)+'</span>'
-         + '<h4>'+pkEsc(pkTitle(t))+'</h4>'
-         + (pkTitleZh(t)?'<p class="pk-tzh">'+pkEsc(pkTitleZh(t))+'</p>':'')
-         + '<p class="pk-tmeta">'+n+' 張投影片 · '+(locked?'尚未開放':'選難度開始')+'</p>'
-         + (locked
-            ? '<div class="pk-lock">🔒 即將開放 · Coming soon</div>'
-            : '<div class="pk-lvls">'+levels.map(l=> pkLevelOpen(t,l)
-                ? '<button class="pk-lvl" onclick="pkStartGame(\''+t.id+'\',\''+l+'\')">'+l+'<b>'+(LEVEL_LABEL[l]||"")+'</b></button>'
-                : '<button class="pk-lvl pk-lvl-locked" type="button" disabled title="即將開放 Coming soon">🔒 '+l+'<b>'+(LEVEL_LABEL[l]||"")+'</b></button>').join('')+'</div>')
-         + '</div>';
+      const locked = !pkTopicOpen(t.id), title = pkTitle(t), zh = pkTitleZh(t);
+      const many = levels.length > 3 ? ' many' : '';
+      const corner = '<i></i>'+pkEsc(t.id);
+      h += '<article class="pk-tcard'+(locked?' is-locked':'')+'" style="--d:'+(n++*110)+'ms" aria-label="'+pkEsc(t.id+' '+title+(locked?'（尚未開放）':''))+'">'
+         + '<div class="pk-tc-inner">'
+         +   '<div class="pk-tc-face"'+(locked?' aria-hidden="true"':'')+'>'
+         +     '<span class="pk-tc-corner tl">'+corner+'</span><span class="pk-tc-corner br" aria-hidden="true">'+corner+'</span>'
+         +     '<h3>'+pkEsc(title)+'</h3>'+(zh?'<p>'+pkEsc(zh)+'</p>':'')
+         +     (locked ? '' : '<div class="pk-tc-chips'+many+'">'+levels.map(l=> pkLevelOpen(t,l)
+                 ? '<button type="button" class="pk-lvchip" style="--lc:'+(LEVEL_TONE[l]||"#334155")+'" onclick="pkStartGame(\''+t.id+'\',\''+l+'\')" aria-label="'+pkEsc(title)+' '+l+' '+(LEVEL_LABEL[l]||"")+'" title="'+l+' '+(LEVEL_LABEL[l]||"")+'">'+l+'</button>'
+                 : '<button type="button" class="pk-lvchip is-locked" disabled aria-label="'+l+' 尚未開放" title="'+l+' 尚未開放">'+l+'</button>').join('')+'</div>')
+         +   '</div>'
+         +   '<div class="pk-tc-back" aria-hidden="true">'+(locked ? '<span class="pk-tc-lock">🔒</span><b>'+pkEsc(t.id)+'</b><small>即將開放</small>' : '<span class="pk-tc-seal">SDG<b>'+sdg+'</b></span>')+'</div>'
+         + '</div></article>';
     });
-    h += '</div>';
+    h += '</div></section>';
   });
-  host.innerHTML = h;
+  host.innerHTML = h + '</div>';
+  PK_SEL_DEALT = true;   // the deal plays once; a later redraw (course loaded, course changed) shows the cards as they are
   pkWireWho();
   const sel = document.getElementById("pkCourseSel");
   if(sel) sel.onchange = () => pkPickCourse(Number(sel.value));
@@ -1436,12 +1636,24 @@ function pkWhoClass(){ const u = pkWho(); return (u && u.class_name) || (PK_COUR
 function pkWhoBar(){
   if(PK_LINK.embed || PK_PREVIEW) return "";
   const m = PKT.mode(), here = encodeURIComponent("/pages/pecha_kucha_builder.html");
-  if(m === "user" && pkWho())
-    return '<div class="pk-who"><span>👤 <b>'+pkEsc(pkWhoName())+'</b>'+(pkWhoClass() ? ' · '+pkEsc(pkWhoClass()) : '')+'</span>'
-         + '<a href="/pages/member_index.html">← 回大廳</a><button type="button" id="pkLogout">換帳號／登出</button></div>';
-  if(m === "guest")
-    return '<div class="pk-who warn"><span>訪客模式：不記錄學習數據與成績。</span><a href="/pages/login.html?next='+here+'">登入</a><a href="/pages/member_index.html">← 回大廳</a></div>';
-  return '<div class="pk-who warn"><span>未登入：這次不會記到你的名下。</span><a href="/pages/login.html?next='+here+'">登入</a></div>';
+  const login = '<a class="pk-bar-btn primary" href="/pages/login.html?next='+here+'">登入</a>';
+  const lobby = '<a class="pk-bar-btn" href="/pages/member_index.html">大廳</a>';
+  if(m === "user" && pkWho()){
+    const name = pkWhoName(), cls = pkWhoClass();
+    let course = "";
+    if(PK_COURSES.length > 1) course = '<label class="pk-course-pick"><span class="pk-sr">這次是哪一門課</span><select id="pkCourseSel">'
+      + PK_COURSES.map(c=>'<option value="'+c.course_id+'"'+(PK_COURSE && c.course_id===PK_COURSE.course_id?' selected':'')+'>'+pkEsc(c.name)+'（'+pkEsc(c.section)+'）</option>').join('')+'</select></label>';
+    const sub = PK_COURSES.length === 1 && PK_COURSE ? PK_COURSE.name : cls;
+    const bal = PK_CHIPS ? (PK_CHIPS.balance || 0) : null;
+    return '<div class="pk-who-bar">' + course
+         + '<div class="pk-player"><span class="pk-avatar" aria-hidden="true">'+pkEsc(String(name).trim().slice(0,1).toUpperCase() || "♠")+'</span>'
+         + '<span class="pk-pname"><b>'+pkEsc(name)+'</b>'+(sub ? '<small>'+pkEsc(sub)+'</small>' : '')+'</span></div>'
+         + (bal === null ? '' : '<div class="pk-bank" title="你累積的籌碼：'+bal+' 枚"><img src="'+pkChipImg(bal)+'" alt="" width="40" height="49"><b>'+bal+'</b><span class="pk-sr">枚籌碼</span></div>')
+         + lobby + '<button type="button" class="pk-bar-btn" id="pkLogout">換帳號</button></div>';
+  }
+  const tag = m === "guest" ? ['訪', '訪客', '不記錄成績'] : ['?', '未登入', '不記名'];
+  return '<div class="pk-who-bar"><div class="pk-player guest"><span class="pk-avatar" aria-hidden="true">'+tag[0]+'</span>'
+       + '<span class="pk-pname"><b>'+tag[1]+'</b><small>'+tag[2]+'</small></span></div>' + login + (m === "guest" ? lobby : '') + '</div>';
 }
 function pkWireWho(){
   const out = document.getElementById("pkLogout");
@@ -1486,31 +1698,79 @@ async function pkLoadCourses(){
   PK_COURSE = PK_COURSES.find(x=>x.course_id===want) || PK_COURSES[0] || null;
 }
 function pkPickCourse(id){ PK_COURSE = PK_COURSES.find(x=>x.course_id===id) || null; try{ localStorage.setItem("pk_course_id", String(id)); }catch(e){} renderSelector(); }
-function pkCourseBar(){
-  if(!PK_COURSES.length && !PK_CHIPS) return "";
-  let h = '<div class="pk-course-bar">';
-  if(PK_COURSES.length === 1) h += '<span>課程</span><b>'+pkEsc(PK_COURSE.name)+'</b><span>'+pkEsc(PK_COURSE.section)+'</span>';
-  else if(PK_COURSES.length > 1) h += '<label for="pkCourseSel">這次是哪一門課</label><select id="pkCourseSel">'
-    + PK_COURSES.map(c=>'<option value="'+c.course_id+'"'+(PK_COURSE && c.course_id===PK_COURSE.course_id?' selected':'')+'>'+pkEsc(c.name)+'（'+pkEsc(c.section)+'）</option>').join('')+'</select>';
-  if(PK_CHIPS) h += '<span class="pk-chipcount"><img src="/static/assets/chips/chip.png" alt="" width="26" height="26">籌碼 '+PK_CHIPS.balance+' 枚</span>';
-  return h + '</div>';
-}
-
-// The student's chip account as a pile of chips on the table (an empty spot beside the timer).
-// The pile grows with the balance. Pictures are rendered with Blender: scripts/blender/render_chips.py.
+// The chip pile at the bottom left of the table is THIS run's chips (2026-11-09: "chips grow while
+// playing"). Only the listening score pays during the matching (pk.score = score ÷ 10, at most 10,
+// design 11-08 §全域個人籌碼; no combo bonus), so the pile shows that part of the server's rule as it
+// builds up: every first-try match adds its share (a ring fills toward the next chip), a whole chip
+// flies in when the share reaches one. When the run ends the pile is set to exactly what the score
+// pays, capped by what is left of today's 60. The real chips are counted by the server in the
+// wrap-up, which settles to the server's number (pk-wrapup.js paintChips). Guests see the pile too,
+// marked 不入帳; inside the 3D game and in a teacher's preview there is no pile (no chips are paid).
+// Pictures are rendered with Blender: scripts/blender/render_chips.py.
 function pkChipTier(n){ return n >= 120 ? 12 : n >= 60 ? 8 : n >= 30 ? 5 : n >= 10 ? 3 : 1; }
 function pkChipImg(n){ return "/static/assets/chips/stack-"+pkChipTier(n)+".png"; }
+function pkPileImg(n){ const t = n <= 0 ? 0 : n >= 10 ? 12 : n >= 7 ? 8 : n >= 4 ? 5 : n >= 2 ? 3 : 1; return t ? "/static/assets/chips/stack-"+t+".png" : "/static/assets/chips/chip.png"; }
+const PK_PILE = { shown:0, target:0, frac:0, tok:0 };
+function pkChipRoom(){   // what is left of today's chips for a signed-in student (null = not known)
+  if(PKT.mode() !== "user" || !PK_CHIPS || typeof PK_CHIPS.today !== "number") return null;
+  return Math.max(0, (PK_CHIPS.daily_cap || 60) - PK_CHIPS.today);
+}
+// { whole, frac }: chips this run is worth so far by the listening-score rule.
+function pkRunChips(){
+  if(!RUN || PK_LINK.embed || PK_PREVIEW) return { whole:0, frac:0 };
+  const room = pkChipRoom();
+  const cap = v => Math.min(v, 10, room === null ? 10 : room);
+  if(RUN.finished && RUN.summary){
+    const sc = RUN.summary.score;
+    return { whole: sc == null ? 0 : cap(Math.floor(sc / 10 + 0.5)), frac:0 };   // the server's rounding: half up
+  }
+  const n = Math.max(1, totalToMatchAll());
+  const s = Object.values(RUN.cards).filter(c=>c.first!==null && c.k>=2).reduce((a,c)=>a+((c.first?1:0)-1/c.k)/(1-1/c.k), 0);
+  const v = Math.max(0, s) * 10 / n, whole = cap(Math.floor(v + 1e-9));
+  return { whole, frac: whole >= cap(10) ? 0 : v - Math.floor(v + 1e-9) };
+}
 function pkPaintWallet(bump){
   const el = document.getElementById("pkWallet"); if(!el) return;
-  if(!PK_CHIPS || PKT.mode() !== "user"){ el.hidden = true; return; }   // guests and signed-out players have no account
-  const n = PK_CHIPS.balance || 0;
+  if(PK_LINK.embed || PK_PREVIEW){ el.hidden = true; return; }
+  const m = PKT.mode(), n = PK_PILE.shown;
   el.hidden = false;
   el.classList.toggle("empty", n <= 0);
-  document.getElementById("pkWalletImg").src = innerWidth <= 640 ? "/static/assets/chips/chip.png" : pkChipImg(n);
-  document.getElementById("pkWalletN").textContent = n;
-  el.title = "你累積的籌碼：" + n + " 枚";
+  el.classList.toggle("guest", m !== "user");
+  const img = document.getElementById("pkWalletImg"), src = innerWidth <= 640 ? "/static/assets/chips/chip.png" : pkPileImg(n);
+  if(img.getAttribute("src") !== src) img.src = src;
+  document.getElementById("pkWalletN").textContent = "+" + n;
+  el.style.setProperty("--fill", Math.round(PK_PILE.frac * 100) + "%");
+  el.classList.toggle("has-part", PK_PILE.frac > 0);
+  const bal = document.getElementById("pkWalletBal");
+  bal.textContent = m === "user" ? (PK_CHIPS ? "共 " + (PK_CHIPS.balance || 0) : "") : "不入帳";
+  el.title = m === "user" ? "這一局到目前的籌碼（結束時由伺服器結算）" : "訪客或未登入：籌碼不入帳";
   if(bump === true){ el.classList.remove("bump"); void el.offsetWidth; el.classList.add("bump"); }
 }
+// After every drop: bring the pile up to date. Chips fly from the card that was matched (from the
+// middle of the table at the end of the run). Logging is done before this is called and never waits on it.
+function pkPileUpdate(fromEl){
+  if(PK_LINK.embed || PK_PREVIEW) return;
+  const want = pkRunChips(), tok = PK_PILE.tok, add = want.whole - PK_PILE.target;
+  PK_PILE.frac = want.frac; PK_PILE.target = want.whole;
+  const img = document.getElementById("pkWalletImg");
+  if(add > 0 && window.PKFX && PKFX.motion()){
+    // A small shower of chips; the number goes up by one at a time as they land (never past the rule's number).
+    const n = Math.min(12, Math.max(3, add * 2));
+    let landed = 0;
+    PKFX.chipsTo(fromEl, img, n, () => {
+      landed++;
+      if(PK_PILE.tok !== tok) return;               // a new run started meanwhile
+      const due = PK_PILE.target - add + Math.floor(landed * add / n);
+      if(due > PK_PILE.shown){ PK_PILE.shown = Math.min(due, PK_PILE.target); pkPaintWallet(true); PKFX.clink(img); }
+    });
+    pkPaintWallet(false);
+    return;
+  }
+  if(add === 0 && want.frac > 0 && fromEl && window.PKFX) PKFX.spark(fromEl, img);   // part of a chip: a spark fills the ring
+  PK_PILE.shown = want.whole;
+  pkPaintWallet(add > 0);
+}
+function pkPileReset(){ PK_PILE.tok++; PK_PILE.shown = PK_PILE.target = 0; PK_PILE.frac = 0; pkPaintWallet(); }
 
 /* ── One run: what the learning data and the wrap-up need to know about every card ── */
 let RUN = null;
@@ -1583,6 +1843,7 @@ function pkShowStreak(){
   const el = document.getElementById("pkStreak"); if(!el) return;
   const n = RUN ? RUN.streak : 0;
   el.hidden = n < 2; el.querySelector("b").textContent = n;
+  el.style.setProperty("--heat", Math.min(Math.max(n - 1, 0), 8));   // the flame grows with the streak (a picture only: no chips)
   if(n >= 2){ el.classList.remove("bump"); void el.offsetWidth; el.classList.add("bump"); }
 }
 // The one listen button of the dock: first tap reads the sentence in hand, later taps read it again.
@@ -1645,6 +1906,7 @@ function pkPartNote(text){
   pkPartNote.t = setTimeout(()=>pkPartNote(""), 6000);
 }
 function pkPartDone(part){
+  if(window.PKFX) PKFX.partWin(document.getElementById("subBox"), document.getElementById("topic-btn-"+part));
   document.querySelectorAll('#subBox [data-decoy="1"]').forEach(c=>c.classList.add("pk-decoy-out"));
   const next = DB.topics.find(t=>partStatus[t.id]!=="completed");
   document.querySelectorAll("#topicGrid .topic").forEach(t=>t.classList.remove("pk-next"));
@@ -1677,7 +1939,7 @@ function pkStartGame(topicId, level){
   document.getElementById("gameScreen").style.setProperty("--sdg", (SDG_META[topic.sdg]||{}).c || "#c5192d");
   document.getElementById("pkSdgBadge").textContent = topic.id;
   document.getElementById("pkLevelChip").textContent = level;
-  pkPaintWallet();
+  pkPileReset();
   updateStatus("點上面的 1–6，選一段開始。");
   pkSwitchBar(false);
   pkPrepare();
@@ -1742,10 +2004,12 @@ function pkOpenWrap(){
     runsBefore: run.history ? run.history.runs_all_levels : 0,
     bestBefore: run.history ? run.history.best_score : undefined,   // undefined = not known (guest, signed out, or the answer never came)
     cardId: pkCardId, speak: (t,cb)=>speak(t,cb), stopSpeak: ()=>pkQuiet(), voice: window.CardLearnVoice,
-    log: (type,data)=>PKT.log(type,data), chipImg: pkChipImg,
+    log: (type,data)=>PKT.log(type,data), chipImg: pkChipImg, pileImg: pkPileImg,
+    provisional: (PK_LINK.embed || PK_PREVIEW) ? null : PK_PILE.target,   // this run's pile on the table (an estimate; the server's number wins)
+    fx: window.PKFX || null,
     // The server's answer carries the new chip balance: the pile on the table follows it.
     finish: (m,wait)=>PKT.finish({ ...metrics, ...m }, wait).then(d=>{
-      if(d && d.chips && typeof d.chips.balance === "number"){ PK_CHIPS = Object.assign({}, PK_CHIPS, { balance:d.chips.balance }); pkPaintWallet(true); }
+      if(d && d.chips && typeof d.chips.balance === "number"){ PK_CHIPS = Object.assign({}, PK_CHIPS, { balance:d.chips.balance }, typeof d.chips.today === "number" ? { today:d.chips.today, daily_cap:d.chips.daily_cap || 60 } : {}); pkPaintWallet(true); }
       return d;
     }),
     state: ()=>PKT.state(), onChange: fn=>PKT.onChange(fn), done: ()=>PKT.close(),
@@ -2139,6 +2403,7 @@ async function loadTopic(id, el) {
   totalToMatch = subs.length;
   updateProgress();
   const box = document.getElementById("subBox");
+  if (window.PKFX) PKFX.sweep(box);
   box.innerHTML = "";
   pkPartNote("");
   updateStatus("發牌中…");
@@ -2156,7 +2421,8 @@ async function loadTopic(id, el) {
     setTimeout(() => {
       if (dealing !== pkDealRound) return;
       const card = document.createElement("div");
-      card.className = "poker-card subtopic-poker dealing";
+      const fx = window.PKFX && PKFX.motion();
+      card.className = "poker-card subtopic-poker" + (fx ? " pk-facedown" : " dealing");
       // The fly-in runs once. With the class left on, clearing the "wrong card" shake started the
       // fly-in again: the card vanished and was dealt a second time.
       card.addEventListener("animationend", e => { if (e.animationName === "flyIn") card.classList.remove("dealing"); });
@@ -2207,6 +2473,7 @@ async function loadTopic(id, el) {
         handleDrop(currentCardData, s.id, card);
       };
       box.appendChild(card);
+      if (fx) PKFX.dealIn(card, document.getElementById("mainDeck"));
       if (index === table.length-1)
         setTimeout(() => { if (dealing === pkDealRound) { updateStatus("牌發好了。點牌堆抽一張句子卡。"); pkTableCue(); } }, 600);
     }, index * 200);
@@ -2331,6 +2598,7 @@ function dealNextCard() {
   };
 
   holder.appendChild(cardDiv);
+  if (window.PKFX && PKFX.motion()) PKFX.dealHand(cardDiv, document.getElementById("mainDeck"));
   pkFitHand();
   pkVoiceSync();
   updateStatus("按喇叭聽這一句。聽完才開始計時。");
@@ -2362,6 +2630,8 @@ async function handleDrop(cardData, targetSubId, targetEl) {
     PKT.log("card.drop", { card:cid, target:pkCardId(targetNo), correct:right, attempt:rec.attempts, k,
                            rt_ms:Math.round(now - RUN.cur.listenEnd), since_audio_ms:Math.round(now - RUN.cur.audioEnd),
                            repeats:RUN.cur.repeats, decoy:targetEl.dataset.decoy === "1", review:RUN.review.has(cid) }, { stage:cardData.part });
+    if (window.PKFX) { if (right) PKFX.matchWin(targetEl, rec.attempts === 1); else PKFX.miss(targetEl); }
+    pkPileUpdate(targetEl);
   }
   if (cardData.subId === targetSubId) {
     // Correct match.
@@ -2419,6 +2689,8 @@ async function handleDrop(cardData, targetSubId, targetEl) {
       if (doneCount === DB.topics.length) {
         updateStatus("六段都完成了！");
         const finished = RUN; pkCommitRun();
+        if (window.PKFX) PKFX.runWin(document.getElementById("subBox"));
+        pkPileUpdate(document.getElementById("subBox"));
         setTimeout(() => { if (RUN === finished) pkOpenWrap(); }, 900);
       } else if (PK_LINK.embed) {
         setTimeout(pkOpenNextPart, 1200);
@@ -2432,8 +2704,7 @@ async function handleDrop(cardData, targetSubId, targetEl) {
     // Incorrect match.
     errorCount++;
     updateStatus("不是這張，再試一次。");
-    targetEl.style.animation = "shake 0.4s";
-    setTimeout(() => { targetEl.style.animation = ""; }, 400);
+    if (!window.PKFX || !RUN) { targetEl.style.animation = "shake 0.4s"; setTimeout(() => { targetEl.style.animation = ""; }, 400); }
   }
 }
 

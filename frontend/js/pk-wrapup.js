@@ -373,19 +373,54 @@
   // An optional extra: do it, then come back to the last step, where the chips are counted again.
   function extra(name) { steps = ["done", "read", name, "next"]; at = 2; S.closing = false; render(); host.scrollTop = 0; }
   const CHIP_LABEL = { "pk.score": "聽懂分數", "pk.finish": "走完一局", "pk.remedy": "錯句重練", "pk.quiz": "小測答對", "pk.read": "完成朗讀", "pk.reflect": "寫了反思", "spaced.return": "隔幾天再回來" };
+  // The chip box settles this run's pile (ctx.provisional, what the table showed: the listening
+  // score's chips) to what the server really gave. The server's number is the only one shown as
+  // earned; the count runs from the table's pile to it (down too, when today's 60 is full), the
+  // server's items pop in one by one with chips flying from each into the pile, then the balance.
   function paintChips() {
-    const box = host && host.querySelector("#pkwChips p"); if (!box || !ctx) return;
-    const s = ctx.state();
-    if (s.mode === "guest") { box.textContent = "訪客模式不累積籌碼。登入後玩才會記錄。"; return; }
-    if (s.mode === "anon") { box.textContent = "登入後玩才會累積籌碼。"; return; }
+    const p = host && host.querySelector("#pkwChips p"); if (!p || !ctx) return;
+    const s = ctx.state(), prov = typeof ctx.provisional === "number" ? ctx.provisional : null;
+    const pile = (n, extra = "") => ctx.pileImg ? `<img class="pkw-pile" src="${esc(ctx.pileImg(n))}" alt=""${extra}>` : "";
+    const table = cls => prov === null ? "" : `<span class="pkw-settle ${cls}">${pile(prov)}<b class="pkw-chipnum">+${prov}</b></span>`;
+    if (s.mode === "guest") { p.innerHTML = table("off") + "訪客模式不累積籌碼。登入後玩才會記錄。"; return; }
+    if (s.mode === "anon") { p.innerHTML = table("off") + "登入後玩才會累積籌碼。"; return; }
     const chips = S.server && S.server.chips;
-    if (!chips) { box.textContent = s.needLogin ? "登入已過期：重新登入後會補算。" : s.failing ? "連上網路後會補算。" : "計算中…"; return; }
-    const lines = chips.items.filter(i => i.chips > 0).map(i => `${CHIP_LABEL[i.reason] || i.reason} +${i.chips}`).join("　");
-    box.innerHTML = (ctx.chipImg ? `<img class="pkw-chipimg" src="${esc(ctx.chipImg(chips.balance))}" alt="">` : "")
-      + `<b class="pkw-chipnum">+${chips.earned}</b> ${esc(lines)}<br>`
-      + (chips.held ? "這局的籌碼等老師確認後入帳。" : `目前共有 ${chips.balance} 枚。`)
+    if (!chips) { p.innerHTML = table("wait") + esc(s.needLogin ? "登入已過期：重新登入後會補算。" : s.failing ? "連上網路後會補算。" : "計算中…"); return; }
+    const items = chips.items.filter(i => i.chips > 0), earned = chips.earned || 0;
+    // The same answer again (a save-state change, a late copy): keep what is on screen, which may be mid-count.
+    const key = JSON.stringify(chips);
+    if (S.chipKey === key && p.querySelector(".pkw-items")) return;
+    S.chipKey = key;
+    p.classList.remove("pkw-settling", "pkw-settled");
+    const note = (chips.held ? "這局的籌碼等老師確認後入帳。" : `目前共有 <b class="pkw-bal">${chips.balance}</b> 枚。`)
       + (chips.capped ? " 今天的籌碼已滿，明天再來。" : "")
       + (S.server.history && S.server.history.finished_today_same >= 2 ? " 同一個主題和難度，今天第 3 局起只計聽懂分數；隔兩天再回來會多 5 枚。" : "");
+    const start = typeof S.shownEarned === "number" ? S.shownEarned : prov === null ? 0 : prov, fx = ctx.fx;
+    const play = S.shownEarned !== earned && fx && fx.motion() && (earned !== start || items.length);
+    S.shownEarned = earned;   // a later redraw (after the quiz, a late answer) counts on from here
+    p.innerHTML = `<span class="pkw-settle${chips.held ? " held" : ""}">${pile(play ? start : earned)}<b class="pkw-chipnum">+${play ? start : earned}</b></span>`
+      + `<span class="pkw-items">${items.map(i => `<span class="pkw-item">${esc(CHIP_LABEL[i.reason] || i.reason)} +${i.chips}</span>`).join("")}</span>`
+      + `<span class="pkw-chipnote">${note}</span>`;
+    if (!play) return;
+    // The animation: items in turn, a few chips from each, the number counting toward the server's.
+    const img = p.querySelector(".pkw-pile"), num = p.querySelector(".pkw-chipnum"), bal = p.querySelector(".pkw-bal"), mine = S;
+    p.classList.add("pkw-settling");
+    const els = [...p.querySelectorAll(".pkw-item")], step = 420, total = Math.max(1, els.length) * step + 500;
+    els.forEach((el, i) => setTimeout(() => {
+      if (S !== mine) return;
+      el.classList.add("in");
+      fx.chipsTo(el, img, Math.min(3, items[i].chips), () => { if (S === mine) fx.clink(img, "top"); }, "top");
+    }, 250 + i * step));
+    const t0 = performance.now(), balEnd = chips.balance, balStart = chips.held ? balEnd : Math.max(0, balEnd - earned);
+    const tick = now => {
+      if (S !== mine || !num.isConnected) return;
+      const k = Math.min(1, (now - t0) / total), v = Math.round(start + (earned - start) * k);
+      if (num.textContent !== "+" + v) { num.textContent = "+" + v; if (ctx.pileImg) { const src = ctx.pileImg(v); if (img.getAttribute("src") !== src) img.src = src; } }
+      if (bal) bal.textContent = Math.round(balStart + (balEnd - balStart) * k);
+      if (k < 1) requestAnimationFrame(tick);
+      else { p.classList.remove("pkw-settling"); p.classList.add("pkw-settled"); }
+    };
+    requestAnimationFrame(tick);
   }
 
   // ── optional: 小測 5 題 ──
