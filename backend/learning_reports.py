@@ -227,7 +227,7 @@ def _game_report(game, course_id, section_id, chapter, level, date_from, date_to
     events = _events(cur, [r["id"] for r in runs])
     conn.close()
     people = _people(course_id, section_id)
-    recs = L._auth["recordings"](course_id) if L._auth.get("recordings") else {}
+    recs = L._auth["recordings"](course_id, game) if L._auth.get("recordings") else {}
     card = game == CARD
     students, card_stats, confusion = {}, {}, Counter()
     funnel = Counter(); abandon_points = Counter(); run_rows = []
