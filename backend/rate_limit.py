@@ -43,8 +43,12 @@ class RateLimitExceeded(Exception):
         self.result = result
 
 
-GLOBAL_API_RATE_LIMIT = RateLimitRule("api:ip", 60, 60)
-LOGIN_RATE_LIMIT = RateLimitRule("auth:login:ip", 10, 5 * 60)
+# A whole class usually reaches us from one school IP (NAT), so per-IP limits must allow a class of
+# ~300 at once; per-account limits do the real protection.
+GLOBAL_API_RATE_LIMIT = RateLimitRule("api:ip", 3000, 60)       # requests without a valid login, per IP
+USER_API_RATE_LIMIT = RateLimitRule("api:user", 120, 60)       # requests from one logged-in account
+LOGIN_RATE_LIMIT = RateLimitRule("auth:login:ip", 1000, 5 * 60) # a class signing in together
+LOGIN_ACCOUNT_RATE_LIMIT = RateLimitRule("auth:login:account", 10, 5 * 60)  # password guessing on one account
 REGISTER_RATE_LIMIT = RateLimitRule("auth:register:ip", 5, 10 * 60)
 SEND_OTP_RATE_LIMIT = RateLimitRule("auth:send-otp:email", 3, 5 * 60)
 GAME_RECORD_RATE_LIMIT = RateLimitRule("game:part:user", 20, 60)

@@ -94,7 +94,9 @@ rate_limit.configure_rate_limit(
 )
 
 GLOBAL_API_RATE_LIMIT = rate_limit.GLOBAL_API_RATE_LIMIT
+USER_API_RATE_LIMIT = rate_limit.USER_API_RATE_LIMIT
 LOGIN_RATE_LIMIT = rate_limit.LOGIN_RATE_LIMIT
+LOGIN_ACCOUNT_RATE_LIMIT = rate_limit.LOGIN_ACCOUNT_RATE_LIMIT
 REGISTER_RATE_LIMIT = rate_limit.REGISTER_RATE_LIMIT
 SEND_OTP_RATE_LIMIT = rate_limit.SEND_OTP_RATE_LIMIT
 GAME_RECORD_RATE_LIMIT = rate_limit.GAME_RECORD_RATE_LIMIT
@@ -136,14 +138,25 @@ def enforce_rate_limit(rule: rate_limit.RateLimitRule, identifier: str):
         )
 
 
+def rate_limit_identity(request: Request):
+    """Logged-in requests are counted per account, everything else per IP (a class shares one IP)."""
+    auth = request.headers.get("authorization", "")
+    if auth[:7].lower() == "bearer ":
+        try:
+            user_id = jwt.decode(auth[7:].strip(), SECRET_KEY, algorithms=[ALGORITHM]).get("user_id")
+        except jwt.InvalidTokenError:
+            user_id = None
+        if user_id is not None:
+            return USER_API_RATE_LIMIT, f"user:{user_id}"
+    return GLOBAL_API_RATE_LIMIT, f"ip:{get_client_ip(request)}"
+
+
 @app.middleware("http")
 async def global_api_rate_limit(request: Request, call_next):
     if request.method != "OPTIONS" and is_api_rate_limited_path(request.url.path):
+        rule, identifier = rate_limit_identity(request)
         try:
-            result = rate_limit.record_rate_limit_hit(
-                GLOBAL_API_RATE_LIMIT,
-                f"ip:{get_client_ip(request)}",
-            )
+            result = rate_limit.record_rate_limit_hit(rule, identifier)
         except rate_limit.RateLimitBackendUnavailable:
             return JSONResponse(
                 status_code=503,
@@ -1663,6 +1676,7 @@ def register(data: RegisterIn, request: Request):
 def login(data: LoginIn, request: Request):
     email = normalize_email(data.email)
     enforce_rate_limit(LOGIN_RATE_LIMIT, f"ip:{get_client_ip(request)}")
+    enforce_rate_limit(LOGIN_ACCOUNT_RATE_LIMIT, f"email:{email}")
 
     conn = get_db()
     cur = conn.cursor()
@@ -1724,7 +1738,7 @@ def login(data: LoginIn, request: Request):
 @app.post("/auth/change-password")
 def change_password(data: ChangePasswordIn, request: Request, authorization: str | None = Header(default=None)):
     current = get_current_user(authorization)
-    enforce_rate_limit(LOGIN_RATE_LIMIT, f"ip:{get_client_ip(request)}")
+    enforce_rate_limit(LOGIN_ACCOUNT_RATE_LIMIT, f"user:{current['id']}")
     if not validate_password(data.new_password):
         raise HTTPException(status_code=400, detail="Password must be at least 8 characters and include letters and numbers. 密碼至少 8 個字，且要有英文字母和數字。")
     if data.new_password == data.current_password:
