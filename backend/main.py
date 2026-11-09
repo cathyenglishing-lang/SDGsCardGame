@@ -17,6 +17,7 @@ from urllib import error as urllib_error
 from urllib import request as urllib_request
 from dotenv import load_dotenv
 from backend import rate_limit
+import time as _time
 
 try:
     import psycopg
@@ -1292,7 +1293,7 @@ CONSOLE_TABLES = [
     "sdg_options", "difficulty_options", "tbl_sdg_parts", "tbl_sdg_sub_topics",
     "tbl_sdg_cards", "email_otps",
     "courses", "course_sections", "enrollments", "course_activities", "roster_imports", "chip_ledger",
-    "speech_recordings", "content_topics", "content_versions",
+    "speech_recordings", "content_topics", "content_versions", "system_metrics",
 ]
 
 TABLE_DOCS = {
@@ -1316,6 +1317,7 @@ TABLE_DOCS = {
     "speech_recordings": "Students' voice recordings sent to the teacher (audio in the row, or a file path when AUDIO_DIR is set).",
     "content_topics": "Teaching material per game and topic: the published copy students get and the teacher's draft.",
     "content_versions": "A snapshot of every published version of a topic (for looking back and restoring).",
+    "system_metrics": "One row per minute per server: requests, response time, signed-in users, CPU, memory, disk, network, database size.",
     "learning_runs": "學習資料庫：每一局一列（哪個遊戲、主題、難度、誰、哪門課、教材版本、開始與結束、分數與指標）。",
     "learning_events": "學習資料庫：每個操作一列（發牌、聽、重聽、放牌、收尾的朗讀／小測／反思…），所有報表都由這裡算出來。",
 }
@@ -3289,6 +3291,41 @@ recordings.configure(
     resolve_course=classroom.resolve_course,
 )
 app.include_router(recordings.router)
+
+# System resources and traffic, one row per minute (admin › 系統資源). See backend/metrics.py.
+from backend import metrics
+metrics.configure(
+    get_db=get_db,
+    use_postgres=USE_POSTGRES,
+    auto_pk_sql=auto_pk_sql,
+    require_teacher=require_teacher,
+    sqlite_path=None if USE_POSTGRES else str(DB_PATH),
+)
+app.include_router(metrics.router)
+
+
+@app.on_event("startup")
+def start_metrics_writer():
+    metrics.start()     # one writer thread per worker process; a Redis lock lets one of them write each minute
+
+
+@app.middleware("http")
+async def record_request_metrics(request: Request, call_next):
+    started = _time.perf_counter()
+    status = 500
+    try:
+        response = await call_next(request)
+        status = response.status_code
+        return response
+    finally:
+        user_id = None
+        auth = request.headers.get("authorization", "")
+        if auth[:7].lower() == "bearer ":
+            try:
+                user_id = jwt.decode(auth[7:].strip(), SECRET_KEY, algorithms=[ALGORITHM]).get("user_id")
+            except Exception:
+                user_id = None
+        metrics.record(request.url.path, status, (_time.perf_counter() - started) * 1000, user_id, get_client_ip(request))
 
 from backend import learning
 learning.configure(
