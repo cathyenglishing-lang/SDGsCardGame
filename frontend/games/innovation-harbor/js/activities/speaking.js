@@ -3,7 +3,7 @@
 import { esc, starsFromRatio } from "../util.js";
 import { S } from "../state.js";
 import { log } from "../telemetry.js";
-import { speak, listen, recordClip, detectSpeech, speechFailed, SPEECH_LABEL } from "../speech.js";
+import { speak, listen, recordClip, sendClip, detectSpeech, speechFailed, SPEECH_LABEL } from "../speech.js";
 import { coverage, stem, targetWords } from "../vocab.js";
 import { openSheet, closeSheet, finishRow, addStars, hintP } from "../ui/sheet.js";
 
@@ -43,7 +43,16 @@ export function recordPanel(host, ms, label) {
       d.querySelector("#rInfo").textContent = `${r.sec} s recorded`;
       d.querySelector("#rOut").innerHTML = `<audio controls src="${r.url}" style="width:100%"></audio><div class="row" style="margin-top:8px"><button class="btn" type="button" id="rSend">Send to teacher ▸</button><button class="btn ghost" type="button" id="rRe">Record again</button></div>`;
       d.querySelector("#rRe").onclick = () => { d.querySelector("#rOut").innerHTML = ""; go.hidden = false; go.click(); };
-      d.querySelector("#rSend").onclick = () => { log("speak.record", `${label} ${r.sec} s (${r.kb} KB) awaiting teacher`, { label, sec: r.sec, kb: r.kb }); d.querySelector("#rOut").innerHTML = `<p class="hint" style="color:var(--good)">Sent. Your score appears after the teacher listens.</p>`; res({ pending: true }); };
+      d.querySelector("#rSend").onclick = async () => {
+        const send = d.querySelector("#rSend"); send.disabled = true; send.textContent = "Sending…";
+        const out = await sendClip(r, { game: "innovation-harbor", topic_id: S.chapter || "9-1", level: S.level, label: String(label).slice(0, 80) });
+        log("speak.record", `${label} ${r.sec} s (${r.kb} KB) ${out.ok ? "sent to teacher" : "not sent"}`, { label, sec: r.sec, kb: r.kb, uploaded: !!out.ok, recording_id: out.id || null });
+        if (!out.ok && out.reason !== "guest" && out.reason !== "declined") { send.disabled = false; send.textContent = "Send to teacher ▸"; d.querySelector("#rInfo").textContent = out.message || "Not sent. Try again."; return; }
+        d.querySelector("#rOut").innerHTML = out.ok
+          ? `<p class="hint" style="color:var(--good)">Sent. Your score appears after the teacher listens. 已送給老師。</p>`
+          : `<p class="hint">Not sent: ${out.reason === "guest" ? "sign in to send recordings to your teacher. 登入後才能送給老師。" : "kept on this device only. 錄音只留在這台裝置。"}</p>`;
+        res({ pending: true, sent: !!out.ok });
+      };
     };
   });
 }
@@ -98,7 +107,8 @@ export async function actSpeak(slide, { kicker, title, zh, on } = {}) {
     await finishRow(body, n, `Best coverage ${Math.round(out.best * 100)}%. Red words were missed or not recognized; they build your "words to practise" list.`, "紅字是漏念或辨識不到的字，會累積成「待練習單字」清單。");
     closeSheet(); addStars(n, "Speaking");
   } else if (out.pending) {
-    await finishRow(body, "pending", "Recording sent. The stars for this step arrive after the teacher grades it; the story continues.", "錄音已送出，星數等老師評分後補上，不影響劇情。");
+    if (out.sent) await finishRow(body, "pending", "Recording sent. The stars for this step arrive after the teacher grades it; the story continues.", "錄音已送出，星數等老師評分後補上，不影響劇情。");
+    else await finishRow(body, "pending", "The recording was NOT sent to your teacher (not signed in, or sending was declined), so this step has no stars yet. The story continues.", "錄音沒有送給老師（沒有登入，或沒有同意送出），這一關暫時沒有星數，不影響劇情。");
     closeSheet(); addStars("pending", "Speaking");
   } else {
     log("speak.skip", `slide ${slide.no} skipped (no microphone)`, { slide: slide.no });

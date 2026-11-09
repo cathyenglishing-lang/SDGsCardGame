@@ -576,6 +576,22 @@
   <script src="/static/config.js"></script>
   <script src="/static/js/api.js"></script>
   <script>
+    // When the teacher has closed self-registration (accounts come from the class roster),
+    // say so here and point to sign-in and guest play instead of letting the form fail.
+    api.auth.config().then((config) => {
+      if (!config || config.self_register !== false) return;
+      const note = document.createElement("div");
+      note.setAttribute("role", "alert");
+      note.style.cssText = "position:fixed;inset:0;z-index:9999;display:grid;place-items:center;padding:20px;background:rgba(2,6,23,.82)";
+      note.innerHTML = '<div style="width:min(440px,100%);background:#fff;color:#0f172a;border-radius:22px;padding:26px;font-family:Arial,sans-serif;line-height:1.6">'
+        + '<h2 style="margin:0 0 8px;font-size:21px">目前不開放自行註冊</h2>'
+        + '<p style="margin:0 0 16px;color:#475569">請使用老師提供的帳號登入。還沒拿到帳號的話，可以先用訪客模式試玩（訪客不會留下成績）。<br>Self-registration is closed. Please sign in with the account your teacher gave you.</p>'
+        + '<a href="/pages/login.html" style="display:block;text-align:center;padding:12px;border-radius:12px;background:#2563eb;color:#fff;font-weight:800;text-decoration:none">前往登入 Sign in</a>'
+        + '<a href="/pages/member_index.html?guest=1" style="display:block;text-align:center;padding:12px;margin-top:8px;border-radius:12px;background:#eef2f7;color:#0f172a;font-weight:800;text-decoration:none">訪客試玩 Play as guest</a></div>';
+      document.body.appendChild(note);
+    }).catch(() => {});
+  </script>
+  <script>
     let emailVerified = false;
 
     function getValue(id) {

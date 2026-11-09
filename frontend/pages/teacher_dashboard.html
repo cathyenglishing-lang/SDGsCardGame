@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CardLearn SDGs Teacher Dashboard</title>
+<title>CardLearn SDGs 老師後台</title>
 <style>
 :root {
   --bg: #f6f8fb;
@@ -669,12 +669,12 @@ body{ background:var(--page); }
 <body>
 <nav class="navbar">
   <div>
-    <div class="logo">CardLearn SDGs Teacher Dashboard</div>
+    <div class="logo">CardLearn SDGs 老師後台</div>
     <div id="teacherName" class="teacher-meta">Checking permission...</div>
   </div>
   <div class="top-actions">
-    <button class="btn" onclick="window.location.href='/pages/member_index.html'">Back to Game Entry</button>
-    <button class="btn" onclick="auth.logout()">Log Out</button>
+    <button class="btn" onclick="window.location.href='/pages/member_index.html'">回遊戲大廳</button>
+    <button class="btn" onclick="auth.logout()">登出</button>
   </div>
 </nav>
 
@@ -688,8 +688,13 @@ body{ background:var(--page); }
     <a class="nav-item" href="/pages/story_editor.html" style="text-decoration:none"><span class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="6" r="2.5"/><circle cx="19" cy="6" r="2.5"/><circle cx="12" cy="18" r="2.5"/><path d="M7.5 6h9M6.3 8.2l4.4 7.6M17.7 8.2l-4.4 7.6"/></svg></span><span>故事編輯器（概念版）</span></a>
     <button class="nav-item" type="button" data-module="user_analytics"><span class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>使用者/登入 Users</button>
     <div class="side-sep">內容 Content</div>
-    <button class="nav-item" type="button" data-module="sdgs_card_game"><span class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></span>題庫管理 Card Bank</button>
+    <button class="nav-item" type="button" data-module="library"><span class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h7l2 2h9v11a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><path d="M8 13h8M8 16.5h5"/></svg></span>教材管理 Materials</button>
+    <!-- Retired 2026-11: this screen edits the question bank of the old "SDGs Pecha Kucha" game, which now forwards
+         to the card game. Students no longer see anything edited here, so it is taken out of the menu. -->
+    <button class="nav-item" type="button" data-module="sdgs_card_game" hidden><span class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></span>題庫管理 Card Bank</button>
     <button class="nav-item" type="button" data-module="users"><span class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>帳號管理 Accounts</button>
+    <button class="nav-item" type="button" data-module="records"><span class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>學習紀錄 Records</button>
+    <button class="nav-item" type="button" data-module="courses"><span class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><path d="M9 7h7M9 11h5"/></svg></span>課程與名單 Courses</button>
     <div class="side-sep">系統 System</div>
     <button class="nav-item" type="button" data-module="system"><span class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></span>系統設定 Settings</button>
     <button class="nav-item" type="button" data-module="database"><span class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.66 3.58 3 8 3s8-1.34 8-3V5"/><path d="M4 12c0 1.66 3.58 3 8 3s8-1.34 8-3"/></svg></span>資料庫 Database</button>
@@ -764,6 +769,9 @@ body{ background:var(--page); }
       #pkAnalyticsModule .pk-empty{color:var(--muted,#93a2bd);padding:26px;text-align:center;}
     </style>
     <section class="panel">
+      <p class="pk-old-note" style="margin:0 0 14px;padding:10px 14px;border:1px solid #f4d58d;background:#fffaeb;border-radius:12px;font-size:14px;line-height:1.6;color:#5b4a14">
+        這一頁是舊的總表：只算<b>玩完</b>的局，而且同名的學生會算成同一人。要看每位學生、每一局、每一句和錄音，請到
+        <a href="#" onclick="setModule('records');return false" style="font-weight:800">學習紀錄</a>（依課程和系級，還沒玩的學生也會列出）。</p>
       <div class="pk-head">
         <h2>Pecha Kucha Card Game · 數據分析</h2>
         <div class="row">
@@ -947,6 +955,311 @@ body{ background:var(--page); }
   </section>
   </section>
 
+  <!-- Teaching material: the tree and the editor (frontend/js/teacher-library.js) -->
+  <section id="libraryModule" hidden>
+    <style>
+      #libraryModule .panel{margin-bottom:16px;min-width:0}
+      #libraryModule .tl-wrap{display:grid;grid-template-columns:290px minmax(0,1fr);gap:16px;align-items:start}
+      #libraryModule .tl-tree{position:sticky;top:12px;max-height:calc(100vh - 110px);overflow-y:auto;padding:14px}
+      #libraryModule .tl-group{margin:14px 2px 6px;font-size:12px;font-weight:800;letter-spacing:.04em;color:var(--muted)}
+      #libraryModule .tl-group:first-of-type{margin-top:10px}
+      #libraryModule .tl-list{list-style:none;margin:0;padding:0;display:grid;gap:3px}
+      #libraryModule .tl-list ul{list-style:none;margin:3px 0 4px 16px;padding:0 0 0 8px;border-left:2px solid var(--line);display:grid;gap:3px}
+      #libraryModule .tl-node{width:100%;display:grid;grid-template-columns:auto 1fr;gap:2px 8px;align-items:baseline;text-align:left;border:1px solid transparent;border-radius:9px;background:none;padding:7px 9px;cursor:pointer;color:var(--text);min-height:40px}
+      #libraryModule .tl-node:hover{background:#f1f5f9}
+      #libraryModule .tl-node.on{background:#eff6ff;border-color:#93c5fd}
+      #libraryModule .tl-node b{font-size:13.5px}
+      #libraryModule .tl-node span{font-size:13.5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+      #libraryModule .tl-node i{grid-column:1/-1;font-style:normal;font-size:11.5px;color:var(--muted)}
+      #libraryModule .tl-node.sub{grid-template-columns:auto 1fr;min-height:34px;padding:5px 9px}
+      #libraryModule .tl-node em{font-style:normal;font-weight:800;padding:1px 6px;border-radius:999px;font-size:11px}
+      #libraryModule .tl-node em.draft{background:#fef3c7;color:#92400e}
+      #libraryModule .tl-node em.lock{background:#e2e8f0;color:#334155}
+      #libraryModule .tl-node em.err{background:#fee2e2;color:#991b1b}
+      #libraryModule .tl-add{width:100%;margin-top:8px;justify-content:center}
+      #libraryModule .tl-gone{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:13px;color:var(--muted);padding:4px 2px}
+      #libraryModule .tl-gone .btn,#libraryModule .tl-table .btn{min-height:30px;padding:0 10px;font-size:12.5px}
+      #libraryModule .tl-na li{font-size:12.5px;padding:5px 2px;color:var(--muted)}
+      #libraryModule .tl-na b{display:block;color:var(--text);font-size:13px}
+      #libraryModule .tl-hint{color:var(--muted);font-size:13.5px;line-height:1.6;margin:6px 0}
+      #libraryModule .tl-h{margin:0 0 10px;font-size:17px}
+      #libraryModule .tl-head{display:flex;gap:12px;align-items:flex-end;flex-wrap:wrap}
+      #libraryModule .tl-head label,#libraryModule .tl-edit label,#libraryModule .tl-new label{display:grid;gap:5px;font-weight:700;font-size:13.5px;color:var(--text)}
+      #libraryModule .tl-head .grow{flex:1 1 240px}
+      #libraryModule .tl-code{font-weight:900;font-size:18px;padding:9px 12px;border-radius:10px;background:#1f3a5f;color:#fff;white-space:nowrap}
+      #libraryModule .tl-state{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin:12px 0 0;padding:11px 14px;border-radius:12px;border:1px solid var(--line)}
+      #libraryModule .tl-state.live{background:#f0fdf4;border-color:#bbf7d0}
+      #libraryModule .tl-state.draft{background:#fffbeb;border-color:#fde68a}
+      #libraryModule .tl-state b{display:block;font-size:14.5px}
+      #libraryModule .tl-state small{display:block;font-size:12.5px;color:var(--muted)}
+      #libraryModule .tl-state small.note{color:#92400e;font-weight:700}
+      #libraryModule .tl-state-btns{display:flex;gap:8px;flex-wrap:wrap}
+      #libraryModule .btn.danger{color:#b91c1c}
+      #libraryModule .btn:disabled{opacity:.5;cursor:not-allowed}
+      #libraryModule .tl-ok{margin:10px 0 0;color:#15803d;font-weight:700;font-size:13.5px}
+      #libraryModule .tl-checks{margin:10px 0 0;border:1px solid var(--line);border-radius:12px;padding:8px 12px}
+      #libraryModule .tl-checks summary{cursor:pointer;font-size:13.5px;display:flex;gap:12px;flex-wrap:wrap}
+      #libraryModule .tl-checks .bad{color:#b91c1c}
+      #libraryModule .tl-checks .warn{color:#92400e}
+      #libraryModule .tl-checks ul{list-style:none;margin:8px 0 2px;padding:0;display:grid;gap:4px;max-height:220px;overflow-y:auto}
+      #libraryModule .tl-checks li button{width:100%;text-align:left;border:0;background:none;padding:5px 8px;border-radius:8px;cursor:pointer;font-size:13.5px;color:inherit}
+      #libraryModule .tl-checks li.bad button{background:#fef2f2;color:#991b1b}
+      #libraryModule .tl-checks li.warn button{background:#fffbeb;color:#92400e}
+      #libraryModule .tl-checks li button:hover{text-decoration:underline}
+      #libraryModule .tl-tools{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:12px 0 0}
+      #libraryModule .tl-tools label{display:flex;align-items:center;gap:8px;font-weight:700;font-size:13.5px}
+      #libraryModule .tl-tools select,#libraryModule .tl-tools input[type=file]{width:auto}
+      #libraryModule .tl-tools-label{font-size:12.5px;font-weight:800;color:var(--muted)}
+      #libraryModule .tl-history{margin-top:12px}
+      #libraryModule summary{cursor:pointer;font-weight:800;font-size:13.5px}
+      #libraryModule .tl-table{width:100%;font-size:13px;margin-top:8px}
+      #libraryModule .tl-table td,#libraryModule .tl-table th{padding:6px 8px;text-align:left}
+      #libraryModule .tl-import{margin-top:10px;padding:12px;border:1px dashed var(--line);border-radius:12px}
+      #libraryModule .tl-import textarea{font-family:ui-monospace,Consolas,monospace;font-size:13px}
+      #libraryModule .tl-levels{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+      #libraryModule .tl-tab{border:1px solid var(--line);background:#fff;border-radius:10px;padding:7px 16px;font-weight:900;font-size:15px;cursor:pointer;color:var(--text);display:grid;justify-items:center;min-height:44px}
+      #libraryModule .tl-tab small{font-size:11px;font-weight:600;color:var(--muted)}
+      #libraryModule .tl-tab.on{background:#1f3a5f;border-color:#1f3a5f;color:#fff}
+      #libraryModule .tl-tab.on small{color:#cbd5e1}
+      #libraryModule .tl-levels select{width:auto}
+      #libraryModule .tl-spacer{flex:1}
+      #libraryModule .tl-two{display:grid;grid-template-columns:minmax(230px,300px) minmax(0,1fr);gap:16px;align-items:start}
+      #libraryModule .tl-slides{display:grid;gap:3px;max-height:640px;overflow-y:auto;padding-right:4px}
+      #libraryModule .tl-part{margin:8px 2px 2px;font-size:12px;font-weight:800;color:var(--muted)}
+      #libraryModule .tl-part:first-child{margin-top:0}
+      #libraryModule .tl-slide{display:grid;grid-template-columns:26px 1fr auto;gap:8px;align-items:center;text-align:left;border:1px solid var(--line);border-radius:9px;background:#fff;padding:7px 9px;cursor:pointer;color:var(--text);min-height:40px}
+      #libraryModule .tl-slide:hover{border-color:#93c5fd}
+      #libraryModule .tl-slide.on{background:#eff6ff;border-color:#2563eb}
+      #libraryModule .tl-slide.bad{border-left:4px solid #dc2626}
+      #libraryModule .tl-slide b{font-size:13px;color:var(--muted)}
+      #libraryModule .tl-slide span{font-size:13.5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+      #libraryModule .tl-slide i{font-style:normal;font-size:11.5px;color:var(--muted)}
+      #libraryModule .tl-slide i.long,#libraryModule .tl-count.long{color:#b45309;font-weight:800}
+      #libraryModule .tl-edit{display:grid;gap:12px}
+      #libraryModule .tl-edit-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+      #libraryModule .tl-edit-head b{font-size:17px}
+      #libraryModule .tl-edit-head span{font-size:13px;color:var(--muted)}
+      #libraryModule .tl-rule{font-weight:500;color:var(--muted);font-size:12.5px}
+      #libraryModule .tl-edit textarea{font-size:15px;line-height:1.6;min-height:150px}
+      #libraryModule .tl-count{font-size:12.5px;color:var(--muted);font-weight:600}
+      #libraryModule .tl-field-msg{font-size:12.5px;font-weight:700}
+      #libraryModule .tl-field-msg.bad{color:#b91c1c}
+      #libraryModule .tl-field-msg.warn{color:#92400e}
+      #libraryModule .tl-adv{border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+      #libraryModule .tl-adv label{margin-top:10px}
+      #libraryModule .tl-adv select{width:auto}
+      #libraryModule .tl-new{display:grid;gap:12px;max-width:560px}
+      #libraryModule .tl-new fieldset{border:1px solid var(--line);border-radius:10px;padding:8px 12px;display:flex;gap:16px;flex-wrap:wrap}
+      #libraryModule .tl-new legend{font-size:13px;font-weight:700;padding:0 6px}
+      #libraryModule .tl-new .check{display:flex;align-items:center;gap:6px;font-weight:700}
+      #libraryModule .tl-new .check input{width:18px;height:18px}
+      #libraryModule .tl-msg.bad{color:#dc2626;font-weight:700}
+      #libraryModule .tl-toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%);z-index:400;display:flex;align-items:center;gap:14px;max-width:min(680px,92vw);padding:12px 16px;border-radius:12px;background:#0f172a;color:#fff;font-size:14.5px;box-shadow:0 14px 40px rgba(0,0,0,.35)}
+      #libraryModule .tl-toast[hidden]{display:none}
+      #libraryModule .tl-toast .btn{min-height:34px;background:#fff;color:#0f172a;border:0}
+      #libraryModule input:focus-visible,#libraryModule textarea:focus-visible,#libraryModule select:focus-visible,#libraryModule button:focus-visible{outline:3px solid #f59e0b;outline-offset:1px}
+      /* the state of the topic, 預覽 and 發佈 stay in view while the page scrolls under them */
+      #libraryModule .tl-table{margin-left:0;margin-right:0}
+      #libraryModule .tl-gone .btn{white-space:nowrap;flex:0 0 auto}
+      #libraryModule .tl-top{padding-top:12px;padding-bottom:10px}
+      #libraryModule .tl-top h2{margin:0}
+      #libraryModule .tl-tree{top:86px;max-height:calc(100vh - 110px)}
+      #libraryModule .tl-main > .tl-state{position:sticky;top:78px;z-index:15;margin:0 0 12px;background:#fffbeb;box-shadow:0 6px 18px rgba(15,23,42,.10)}
+      #libraryModule .tl-main > .tl-state.live{background:#f0fdf4}
+      #libraryModule .tl-state .btn{min-height:40px}
+      #libraryModule .tl-under{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+      #libraryModule .tl-savedat{font-size:12.5px;font-weight:800;color:#15803d}
+      #libraryModule .tl-note{margin:8px 0 0;padding:8px 12px;border-radius:10px;background:#fffbeb;border:1px solid #fde68a;color:#92400e;font-weight:700;font-size:13.5px}
+      #libraryModule .tl-edit .tl-rule{display:block}
+      #libraryModule .tl-edit > p.tl-rule{margin:0}
+      /* laptops: the list of slides lies above the editor as a compact grid, so the script box gets the whole width */
+      @media (max-width:1500px){
+        #libraryModule .tl-two{grid-template-columns:1fr}
+        #libraryModule .tl-slides{grid-template-columns:repeat(auto-fill,minmax(190px,1fr));max-height:236px;gap:5px;padding:2px 4px 2px 2px}
+        #libraryModule .tl-slides .tl-part,#libraryModule .tl-slides .tl-add{grid-column:1/-1}
+        #libraryModule .tl-slides .tl-part{margin:4px 2px 0}
+      }
+      @media (max-width:1180px){#libraryModule .tl-wrap{grid-template-columns:1fr}#libraryModule .tl-tree{position:static;max-height:300px}}
+      @media (max-width:900px){#libraryModule .tl-main > .tl-state{top:4px}}
+    </style>
+    <div id="tlBody"><section class="panel"><p style="color:var(--muted)">載入中…</p></section></div>
+  </section>
+
+  <!-- Learning records: by game, by student, by run, and the voice recordings (frontend/js/teacher-records.js) -->
+  <section id="recordsModule" hidden>
+    <style>
+      #recordsModule .panel{margin-bottom:16px;min-width:0;overflow-x:auto}
+      #recordsModule .tr-two > *{min-width:0}
+      #recordsModule .tr-sheet{overflow-x:auto}
+      #recordsModule .tr-clip-tools input{min-width:0}
+      #recordsModule h2 small{font-size:13px;font-weight:600;color:var(--muted);margin-left:8px}
+      #recordsModule .tr-h{margin:0 0 8px;font-size:16px}
+      #recordsModule .tr-hint{color:var(--muted);font-size:13.5px;line-height:1.6;margin:6px 0 10px}
+      #recordsModule .tr-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0}
+      #recordsModule .tr-row label{display:flex;align-items:center;gap:8px;font-weight:700;font-size:14px;white-space:nowrap}
+      #recordsModule .tr-row select,#recordsModule .tr-row input{width:auto;min-width:110px}
+      #recordsModule .tr-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+      #recordsModule .tr-tab{border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 16px;font-weight:800;font-size:14px;cursor:pointer;color:var(--text)}
+      #recordsModule .tr-tab.on{background:#1f3a5f;border-color:#1f3a5f;color:#fff}
+      #recordsModule .tr-games{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px}
+      #recordsModule .tr-game{text-align:left;border:1px solid var(--line);background:#fff;border-radius:12px;padding:12px 14px;cursor:pointer;color:var(--text)}
+      #recordsModule .tr-game b{display:block;font-size:15px}
+      #recordsModule .tr-game span{font-size:12.5px;color:var(--muted)}
+      #recordsModule .tr-game.on{border-color:#2563eb;box-shadow:0 0 0 2px rgba(37,99,235,.18)}
+      #recordsModule .tr-tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin:12px 0}
+      #recordsModule .tr-tile{border:1px solid var(--line);border-radius:12px;padding:12px 10px;text-align:center;background:#fff}
+      #recordsModule .tr-tile b{display:block;font-size:22px;line-height:1.2;font-variant-numeric:tabular-nums}
+      #recordsModule .tr-tile span{font-size:12px;color:var(--muted)}
+      #recordsModule .tr-tile.warn{background:#fffbeb;border-color:#fde68a}
+      #recordsModule .tr-table{width:100%;font-size:13.5px}
+      #recordsModule .tr-table th,#recordsModule .tr-table td{padding:8px 10px;text-align:left;vertical-align:middle;white-space:nowrap}
+      #recordsModule .tr-table td:nth-child(2){white-space:normal;min-width:120px}
+      #recordsModule .tr-table small{color:var(--muted);font-weight:500}
+      #recordsModule .tr-table tr.tr-click{cursor:pointer}
+      #recordsModule .tr-table tr.tr-click:hover td{background:#eff6ff}
+      #recordsModule .tr-table tr.mute td{color:#94a3b8}
+      #recordsModule .tr-events td{white-space:normal;font-size:12.5px}
+      #recordsModule .tr-events small{word-break:break-all}
+      #recordsModule .tr-badge{display:inline-block;padding:2px 9px;border-radius:999px;font-size:12px;font-weight:800;white-space:nowrap;background:#e2e8f0;color:#334155}
+      #recordsModule .tr-badge.good{background:#dcfce7;color:#166534}
+      #recordsModule .tr-badge.info{background:#e0f2fe;color:#075985}
+      #recordsModule .tr-badge.warn{background:#fef3c7;color:#92400e}
+      #recordsModule .tr-badge.bad{background:#fee2e2;color:#991b1b}
+      #recordsModule .tr-spark{width:80px;height:24px;vertical-align:middle}
+      #recordsModule .tr-spark polyline{fill:none;stroke:#2563eb;stroke-width:2;stroke-linejoin:round;stroke-linecap:round}
+      #recordsModule .tr-spark circle{fill:#2563eb}
+      #recordsModule .tr-bar{display:inline-block;width:110px;height:10px;border-radius:999px;background:#e2e8f0;vertical-align:middle;overflow:hidden}
+      #recordsModule .tr-bar i{display:block;height:100%;border-radius:999px;background:#2563eb}
+      #recordsModule .tr-bar i.good{background:#16a34a}
+      #recordsModule .tr-bar i.mid{background:#d97706}
+      #recordsModule .tr-bar i.bad{background:#dc2626}
+      #recordsModule .tr-bar i.info{background:#2563eb}
+      #recordsModule .tr-two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+      #recordsModule .tr-funnel{display:grid;grid-template-columns:90px 1fr 40px;align-items:center;gap:10px;margin:7px 0;font-size:13.5px}
+      #recordsModule .tr-funnel .tr-bar{width:100%}
+      #recordsModule .tr-funnel b{text-align:right}
+      #recordsModule .tr-list{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+      #recordsModule .tr-list li{border:1px solid var(--line);border-radius:10px;padding:9px 12px;background:#fff}
+      #recordsModule .tr-list li b{font-size:14px}
+      #recordsModule .tr-list li span{display:block;margin:3px 0;font-size:13.5px;line-height:1.5}
+      #recordsModule .tr-list li small{display:block;color:var(--muted);font-size:12.5px}
+      #recordsModule .tr-words b{display:inline-block;border:1px solid var(--line);border-radius:8px;padding:3px 9px;margin:0 4px 4px 0;font-size:13.5px;background:#fff}
+      #recordsModule .tr-words b.ok{background:#dcfce7;border-color:#bbf7d0}
+      #recordsModule .tr-words b.no{background:#fee2e2;border-color:#fecaca}
+      #recordsModule .tr-summary{font-size:15px;line-height:1.7;background:#f8fafc;border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin:0 0 6px}
+      #recordsModule .tr-msg.bad{color:#dc2626;font-weight:700}
+      #recordsModule .tr-first{border:1px solid #fde68a;background:#fffbeb;border-radius:12px;padding:12px 14px;margin:12px 0 0}
+      #recordsModule .tr-first h3{margin:0 0 2px;font-size:15px}
+      #recordsModule .tr-first ul{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:6px}
+      #recordsModule .tr-first li{display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:#fff;border:1px solid #fde68a;border-radius:10px;padding:7px 10px;font-size:13.5px}
+      #recordsModule .tr-first li b{min-width:110px}
+      #recordsModule .tr-first li span{flex:1 1 220px;color:#78350f}
+      #recordsModule .tr-first .btn{min-height:32px;padding:0 10px;font-size:12.5px}
+      #recordsModule .tr-say{margin:0 0 10px;font-size:14.5px;font-weight:700;color:#1e293b}
+      #recordsModule .tr-voice{display:grid;gap:10px}
+      #recordsModule .tr-clip{border:1px solid var(--line);border-radius:12px;padding:12px 14px;background:#fff}
+      #recordsModule .tr-clip-head{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+      #recordsModule .tr-clip-head small{color:var(--muted);font-size:12.5px}
+      #recordsModule .tr-script{margin:8px 0;font-size:14.5px;line-height:1.6;color:#1e293b}
+      #recordsModule .tr-clip-tools{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+      #recordsModule .tr-clip-tools select{width:auto}
+      #recordsModule .tr-clip-tools input{flex:1 1 240px;width:auto}
+      #recordsModule .tr-clip-tools audio{height:38px;max-width:320px}
+      #recordsModule .tr-modal{position:fixed;inset:0;z-index:300;background:rgba(15,23,42,.55);display:flex;justify-content:center;align-items:flex-start;padding:24px 16px;overflow-y:auto}
+      #recordsModule .tr-modal[hidden]{display:none}
+      #recordsModule .tr-sheet{width:min(1040px,100%);background:#fff;border-radius:16px;padding:20px 22px;box-shadow:0 30px 80px rgba(0,0,0,.35)}
+      #recordsModule details{margin-top:14px}
+      #recordsModule summary{cursor:pointer;font-weight:800;font-size:14px}
+      /* answers must be readable without scrolling sideways: cells wrap, only short ones stay on one line */
+      #recordsModule .tr-table{margin:0 0 4px}
+      #recordsModule .tr-table td{white-space:normal;vertical-align:top}
+      #recordsModule .tr-table th,#recordsModule .tr-table td.nw{white-space:nowrap}
+      #recordsModule .tr-table td:nth-child(2){min-width:0}
+      #recordsModule .tr-sub{display:block;font-size:12px;color:var(--muted);font-weight:500}
+      #recordsModule .tr-no{display:inline-grid;place-items:center;min-width:24px;height:22px;padding:0 5px;border-radius:7px;background:#1f3a5f;color:#fff;font-size:12px;font-weight:800;margin-right:4px}
+      #recordsModule .tr-anon{color:var(--muted);font-style:italic}
+      #recordsModule .tr-tab i{font-style:normal}
+      #recordsModule .tr-saved{font-size:12.5px;font-weight:700;color:var(--muted)}
+      #recordsModule .tr-saved.ok{color:#15803d}
+      #recordsModule .tr-saved.bad{color:#b91c1c}
+      #recordsModule .tr-link{border:0;background:none;padding:6px 0;color:#1d4ed8;font-weight:700;font-size:13px;cursor:pointer;text-decoration:underline}
+      #recordsModule .tr-more{margin-top:6px}
+      #recordsModule .tr-first .btn{min-height:40px;padding:0 12px;font-size:13px}
+      #recordsModule .tr-first li span{color:#78350f}
+      #recordsModule .tr-msg.bad .btn{margin-left:8px;min-height:34px}
+      #recordsModule .tr-clip[hidden]{display:none}
+      #recordsModule .tr-events td.nw small{display:block}
+      #recordsModule .tr-table tr.tr-click:focus-visible{outline:3px solid #f59e0b;outline-offset:-3px}
+      #recordsModule input:focus-visible,#recordsModule select:focus-visible,#recordsModule button:focus-visible,#recordsModule summary:focus-visible{outline:3px solid #f59e0b;outline-offset:1px}
+      @media (max-width:1100px){#recordsModule .tr-two{grid-template-columns:1fr}#recordsModule .tr-bar{width:70px}}
+    </style>
+    <div id="trBody"><section class="panel"><p style="color:var(--muted)">載入中…</p></section></div>
+  </section>
+
+  <!-- Courses, roster import, what a course has opened (frontend/js/teacher-courses.js) -->
+  <section id="coursesModule" hidden>
+    <style>
+      #coursesModule .panel{margin-bottom:16px}
+      #coursesModule .tc-h{margin:0 0 6px;font-size:17px}
+      #coursesModule .tc-hint{color:var(--muted);font-size:13.5px;line-height:1.6;margin:6px 0 10px}
+      #coursesModule .tc-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0}
+      #coursesModule .tc-row label{display:flex;align-items:center;gap:8px;font-weight:700;font-size:14px;white-space:nowrap}
+      #coursesModule .tc-row select,#coursesModule .tc-row input:not([type=checkbox]):not([type=file]){width:auto;min-width:120px}
+      #coursesModule #tcCourse{min-width:280px}
+      #coursesModule .tc-pill{padding:6px 12px;border-radius:999px;border:1px solid var(--line);font-size:13px;color:var(--muted)}
+      #coursesModule .tc-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 14px;margin:12px 0;padding:14px;border:1px solid var(--line);border-radius:12px}
+      #coursesModule .tc-form label{display:grid;gap:5px;font-weight:700;font-size:13.5px}
+      #coursesModule .tc-form .wide{grid-column:1/-1}
+      #coursesModule .check{display:flex !important;align-items:center;gap:8px;font-weight:600 !important;font-size:14px;white-space:normal !important}
+      #coursesModule .check input{width:18px;height:18px;flex:0 0 auto}
+      #coursesModule .tc-form button{justify-self:start}
+      #coursesModule .tc-acts{display:grid;gap:8px;margin:8px 0}
+      #coursesModule .tc-act{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:10px 12px;border:1px solid var(--line);border-radius:10px}
+      #coursesModule .tc-act small{display:block;color:var(--muted);font-size:12.5px}
+      #coursesModule .tc-lv{display:flex;gap:12px;flex-wrap:wrap}
+      #coursesModule .tc-lv label{display:flex;align-items:center;gap:6px;font-weight:700;font-size:14px;min-height:32px}
+      #coursesModule .tc-lv input{width:18px;height:18px}
+      #coursesModule textarea{font-family:ui-monospace,Consolas,monospace;font-size:13px;min-height:120px}
+      #coursesModule .tc-table{width:100%;font-size:13.5px}
+      #coursesModule .tc-table td,#coursesModule .tc-table th{padding:8px 10px;text-align:left;vertical-align:top}
+      #coursesModule .tc-table tr.mute td{opacity:.55}
+      #coursesModule .tc-table code{font-size:13.5px;user-select:all}
+    /* chips panel (課程與名單) */
+    .tc-held{border:1px solid #f4d58d;background:#fffaeb;border-radius:12px;padding:12px 14px;margin:0 0 14px}
+    .tc-chipform{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+    .tc-chipform input[type=number]{width:104px}
+    .tc-chipform input[type=text]{flex:1 1 180px;min-width:0}
+    .tc-chipform input{min-height:38px;padding:6px 10px;border:1px solid #cbd5e1;border-radius:8px;font:inherit}
+      #coursesModule .tc-actions{white-space:nowrap}
+      #coursesModule .tc-actions .btn{min-height:32px;padding:0 10px;font-size:12.5px}
+      #coursesModule .tc-badge{display:inline-block;padding:3px 9px;border-radius:999px;font-size:12px;font-weight:800;white-space:nowrap;background:#e2e8f0;color:#334155}
+      #coursesModule .tc-badge.good{background:#dcfce7;color:#166534}
+      #coursesModule .tc-badge.info{background:#e0f2fe;color:#075985}
+      #coursesModule .tc-badge.warn{background:#fef3c7;color:#92400e}
+      #coursesModule .tc-badge.bad{background:#fee2e2;color:#991b1b}
+      #coursesModule .tc-msg{font-size:14px;font-weight:700;margin:8px 0}
+      #coursesModule .tc-msg.good{color:#16a34a}
+      #coursesModule .tc-msg.bad{color:#dc2626}
+      #coursesModule .tc-warnbox{margin:12px 0;padding:12px 14px;border-radius:12px;background:#fffbeb;border:1px solid #fde68a;color:#78350f;font-size:14px;line-height:1.7}
+      #coursesModule .tc-warnbox .btn{margin-top:8px}
+      #coursesModule .tc-table{margin:0 0 4px}
+      #coursesModule .tc-form .tc-h{margin:0}
+      #coursesModule .tc-form .tc-msg:empty{display:none}
+      #coursesModule .tc-form .tc-row{margin:0}
+      #coursesModule .tc-act.off{background:#f8fafc}
+      #coursesModule .tc-lock{color:#92400e !important;font-weight:700}
+      #coursesModule .tc-newpw{color:#92400e;font-weight:700}
+      #coursesModule .tc-actions .btn{min-height:38px}
+      #coursesModule input:focus-visible,#coursesModule select:focus-visible,#coursesModule textarea:focus-visible,#coursesModule button:focus-visible,#coursesModule a:focus-visible{outline:3px solid #f59e0b;outline-offset:1px}
+      @media (max-width:720px){#coursesModule .tc-form{grid-template-columns:1fr}#coursesModule #tcCourse{min-width:0;width:100%}}
+      /* one message bar for 教材管理, 學習紀錄 and 課程與名單 (window.teacherToast) */
+      .tt-toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%);z-index:9000;display:flex;align-items:center;gap:14px;max-width:min(720px,92vw);padding:12px 16px;border-radius:12px;background:#0f172a;color:#fff;font-size:14.5px;line-height:1.5;box-shadow:0 14px 40px rgba(0,0,0,.35)}
+      .tt-toast[hidden]{display:none}
+      .tt-toast .btn{min-height:36px;flex:0 0 auto;background:#fff;color:#0f172a;border:0}
+    </style>
+    <div id="tcBody"><section class="panel"><p style="color:var(--muted)">載入中…</p></section></div>
+  </section>
+
   <section id="usersModule" class="panel" hidden>
     <h2>User Management</h2>
     <p style="color:var(--muted);margin-bottom:14px;">Manage registered users. Role changes immediately affect page access and dashboard permissions.</p>
@@ -984,6 +1297,11 @@ body{ background:var(--page); }
 
 <script src="/static/config.js"></script>
 <script src="/static/js/api.js"></script>
+<script src="/static/js/unlocks.js"></script>
+<script src="/static/js/pk-content.js"></script>
+<script src="/static/js/teacher-courses.js"></script>
+<script src="/static/js/teacher-records.js"></script>
+<script src="/static/js/teacher-library.js"></script>
 <script>
 const difficultyCodes = ["A2", "A1", "B1"];
 const difficultyLabels = { A2: "A2", A1: "A1", B1: "B1" };
@@ -1104,6 +1422,9 @@ const MODULE_SECTIONS = {
   user_analytics: "userAnalyticsModule",
   sdgs_card_game: "sdgsCardGameModule",
   users: "usersModule",
+  courses: "coursesModule",
+  records: "recordsModule",
+  library: "libraryModule",
   system: "systemModule",
   database: "databaseModule",
 };
@@ -1113,6 +1434,9 @@ const MODULE_LOADERS = {
   story_analytics: () => loadStoryAnalytics(),
   user_analytics: () => loadUserAnalytics(),
   users: () => loadUsers(),
+  courses: () => loadCourses(),
+  records: () => loadRecords(),
+  library: () => loadLibrary(),
   system: () => loadSystem(),
   database: () => loadDatabase(),
 };

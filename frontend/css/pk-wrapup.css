@@ -1,0 +1,237 @@
+/* Wrap-up, mission card and save chip of the Pecha Kucha Card Game (frontend/js/pk-wrapup.js).
+   Same look as the game's existing finish dialog: white card on the dark table. */
+.pkw{position:fixed;inset:0;z-index:9999;overflow-y:auto;padding:20px 16px 40px;background:rgba(2,6,23,.82);backdrop-filter:blur(6px);display:flex;justify-content:center;align-items:flex-start}
+.pkw.hidden{display:none !important}
+.pkw-card{width:min(680px,100%);margin:auto 0;background:#fff;color:#0f172a;border-radius:22px;padding:22px 24px 20px;box-shadow:0 40px 100px rgba(0,0,0,.5);text-align:left}
+.pkw-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px;flex-wrap:wrap}
+.pkw-dots{display:flex;gap:6px}
+.pkw-dot{width:26px;height:6px;border-radius:999px;background:#e2e8f0}
+.pkw-dot.done{background:#93c5fd}
+.pkw-dot.now{background:#2563eb}
+.pkw-save{font-size:12px;font-weight:800;padding:5px 10px;border-radius:999px;background:#f1f5f9;color:#475569;white-space:nowrap}
+.pkw-save.ok{background:#dcfce7;color:#166534}
+.pkw-save.busy{background:#e0f2fe;color:#075985}
+.pkw-save.warn{background:#fef3c7;color:#92400e}
+.pkw-save.guest{background:#f1f5f9;color:#475569}
+.pkw-title{margin:4px 0 4px;font-size:24px;line-height:1.25;letter-spacing:-.3px}
+.pkw-sub{margin:0 0 14px;color:#5b6b86;font-size:14px;line-height:1.5}
+.pkw-body{margin-top:8px}
+.pkw-foot{display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap;margin-top:18px}
+.pkw-foot .pkw-btn.ghost:first-child{margin-right:auto}
+.pkw-btn{border:0;border-radius:12px;padding:12px 20px;font-weight:800;font-size:15px;cursor:pointer;min-height:44px}
+.pkw-btn.primary{color:#fff;background:linear-gradient(135deg,#2563eb,#0ea5e9)}
+.pkw-btn.ghost{background:#eef2f7;color:#0f172a}
+.pkw-btn:disabled{opacity:.45;cursor:not-allowed}
+.pkw-btn:focus-visible,.pkw-opt:focus-visible,.pkw-chip:focus-visible,.pkw-conf-btns button:focus-visible{outline:3px solid #f59e0b;outline-offset:2px}
+
+.pkw-stats{display:flex;gap:12px;margin:10px 0 12px}
+.pkw-stats>div{flex:1;background:#f1f5f9;border:1px solid #e2e8f0;border-radius:14px;padding:14px 6px;text-align:center;min-width:0}
+.pkw-stats.one>div{flex:0 1 220px;margin:0 auto}
+.pkw-stats b{display:block;font-size:26px;line-height:1.15;color:#0f172a;font-variant-numeric:tabular-nums}
+.pkw-stats span{font-size:12px;color:#64748b}
+.pkw-stats .ok{background:#dcfce7;border-color:#bbf7d0}
+.pkw-stats .warn{background:#fef3c7;border-color:#fde68a}
+.pkw-stats .ok b,.pkw-stats .warn b{font-size:18px;padding:5px 0}
+.pkw-note{margin:8px 0;color:#64748b;font-size:13px;line-height:1.55}
+.pkw-parts{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin-top:14px}
+.pkw-part{border-radius:10px;padding:8px 4px;text-align:center;background:#e2e8f0;color:#0f172a;min-width:0}
+.pkw-part b{display:block;font-size:16px}
+.pkw-part span{display:block;font-size:10.5px;line-height:1.2;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pkw-part.hi{background:#86efac}.pkw-part.mid{background:#fde68a}.pkw-part.lo{background:#fca5a5}
+.pkw-legend{margin:8px 0 0;font-size:12px;color:#64748b}
+.pkw-legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin:0 4px 0 10px;vertical-align:-1px}
+.pkw-legend i:first-child{margin-left:0}
+.pkw-legend .hi{background:#86efac}.pkw-legend .mid{background:#fde68a}.pkw-legend .lo{background:#fca5a5}
+
+.pkw-conf{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid #eef2f7}
+.pkw-conf:last-child{border-bottom:0}
+.pkw-conf-name{min-width:0}
+.pkw-conf-name b{display:block;font-size:14px}
+.pkw-conf-name span{font-size:13px;color:#5b6b86}
+.pkw-conf-btns{display:flex;gap:6px;flex:0 0 auto}
+.pkw-conf-btns button,.pkw-chip{width:44px;height:44px;border-radius:12px;border:1px solid #cbd5e1;background:#f8fafc;font-weight:800;font-size:15px;color:#0f172a;cursor:pointer}
+.pkw-conf-btns button.on,.pkw-chip.on{background:#2563eb;border-color:#2563eb;color:#fff}
+
+.pkw-sentence,.pkw-clip{background:#f8fafc;border:1px solid #e2e8f0;border-radius:14px;padding:14px 16px;margin-bottom:12px}
+.pkw-sentence p,.pkw-clip p{margin:0 0 10px;font-size:16.5px;line-height:1.6}
+.pkw-clip p{margin:0;font-size:18px;line-height:1.7}
+.pkw-options{display:grid;gap:8px}
+.pkw-options.words{grid-template-columns:repeat(2,1fr)}
+.pkw-opt{text-align:left;border:1px solid #cbd5e1;background:#fff;border-radius:12px;padding:12px 14px;font-size:15px;font-weight:700;color:#0f172a;cursor:pointer;min-height:46px}
+.pkw-options.words .pkw-opt{text-align:center}
+.pkw-opt:hover:not(:disabled){border-color:#2563eb}
+.pkw-opt.on{border-color:#2563eb;background:#eff6ff}
+.pkw-opt.right{border-color:#16a34a;background:#dcfce7;color:#14532d}
+.pkw-opt.wrong{border-color:#dc2626;background:#fee2e2;color:#7f1d1d;animation:pkwShake .35s}
+.pkw-opt:disabled{cursor:default}
+.pkw-opt:disabled:not(.right):not(.wrong):not(.on){opacity:.55}
+@keyframes pkwShake{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+.pkw-feedback{min-height:1.5em;margin:10px 0 0;font-size:14px;line-height:1.55;color:#0f172a}
+.pkw-full{display:block;margin-top:4px;color:#64748b;font-size:13px}
+.pkw-confline{display:flex;align-items:center;gap:8px;margin:0 0 12px;font-size:13px;color:#5b6b86;flex-wrap:wrap}
+.pkw-big-ok{font-size:54px;text-align:center;color:#16a34a;margin:10px 0}
+
+.pkw-readbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+.pkw-clock{font-variant-numeric:tabular-nums;font-weight:800;color:#334155;margin-left:auto}
+.pkw-audio{width:100%;margin-top:6px}
+
+.pkw-q{display:block;margin:14px 0 8px;font-weight:800;font-size:15.5px;line-height:1.5}
+.pkw-q:first-child{margin-top:0}
+.pkw-text{width:100%;box-sizing:border-box;border:1px solid #cbd5e1;border-radius:12px;padding:11px 13px;font:inherit;font-size:16px;line-height:1.5;resize:vertical}
+
+.pkw-next-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:10px}
+.pkw-box{background:#f8fafc;border:1px solid #e2e8f0;border-radius:14px;padding:12px 14px}
+.pkw-box h3{margin:0 0 6px;font-size:13px;color:#475569;letter-spacing:.02em}
+.pkw-box p{margin:0;font-size:14px;line-height:1.55}
+.pkw-chipnum{font-size:20px;color:#b45309;margin-right:6px}
+.pkw-listhead{font-weight:800;margin:10px 0 6px !important;font-size:13px !important;color:#334155}
+.pkw-list{margin:0;padding:0;list-style:none;display:grid;gap:8px}
+.pkw-list li{background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:9px 11px}
+.pkw-list b{display:block;font-size:13px;margin-bottom:2px}
+.pkw-list span{font-size:13.5px;line-height:1.5;color:#334155}
+.pkw-words b{display:inline-block;background:#fff;border:1px solid #e2e8f0;border-radius:8px;padding:3px 9px;margin:0 4px 4px 0}
+
+/* Mission card before the first deal */
+.pk-mission{width:min(560px,100%);text-align:left !important}
+.pk-mission h2{margin:0 0 2px;font-size:22px}
+.pk-mission .pk-mzh{margin:0 0 12px;color:#5b6b86}
+.pk-mission ol{margin:8px 0 12px;padding-left:0;list-style:none;display:grid;grid-template-columns:repeat(2,1fr);gap:6px}
+.pk-mission li{background:#f1f5f9;border-radius:10px;padding:7px 10px;font-size:13px;color:#0f172a}
+.pk-mission li b{margin-right:6px;color:#2563eb}
+.pk-mission .pk-goal{background:#eff6ff;border:1px solid #bfdbfe;border-radius:12px;padding:10px 12px;margin:0 0 10px;color:#1e3a8a;font-weight:700;font-size:14.5px;line-height:1.5}
+.pk-mission .pk-last{background:#fffbeb;border:1px solid #fde68a;border-radius:12px;padding:10px 12px;margin:0 0 12px;color:#78350f;font-size:14px;line-height:1.5}
+.pk-mission .pk-actions{justify-content:flex-end !important}
+
+/* Save state in the game header, and the course line on the topic menu */
+.pk-save-chip{border-radius:999px;padding:7px 12px;font-size:12px;font-weight:800;white-space:nowrap;background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.25)}
+.pk-save-chip.ok{background:rgba(34,197,94,.22);border-color:rgba(134,239,172,.6)}
+.pk-save-chip.warn{background:rgba(245,158,11,.25);border-color:rgba(253,230,138,.7)}
+.pk-course-bar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:0 2px 6px;padding:10px 14px;border-radius:14px;background:#fff;border:1px solid #e2e8f0;color:#0f172a;font-size:14px}
+.pk-course-bar b{font-weight:800}
+.pk-course-bar select{border:1px solid #cbd5e1;border-radius:9px;padding:6px 9px;font:inherit;font-weight:700}
+.pk-course-bar .pk-chipcount{margin-left:auto;font-weight:800;color:#b45309}
+
+/* Decoy card once the part is finished, and the 5-second note on what the part does */
+.subtopic-poker.pk-decoy-out{opacity:.45;filter:grayscale(.7)}
+.subtopic-poker.pk-decoy-out .drop-hint{visibility:hidden}
+.subtopic-poker.pk-decoy-out::after{content:"不屬於這一段";position:absolute;left:50%;top:auto;bottom:14%;transform:translateX(-50%);background:#0f172a;color:#fff;font-size:12px;font-weight:800;padding:4px 10px;border-radius:8px;white-space:nowrap;z-index:5}
+.pk-part-note{margin:0 0 10px;padding:10px 14px;border-radius:12px;background:rgba(34,197,94,.18);border:1px solid rgba(134,239,172,.55);color:#fff;font-weight:700;font-size:15px;line-height:1.45}
+
+@media (max-width:640px){
+  .pkw{padding:10px 8px 24px}
+  .pkw-card{padding:18px 16px 16px;border-radius:18px}
+  .pkw-title{font-size:21px}
+  .pkw-stats{gap:8px}
+  .pkw-stats b{font-size:22px}
+  .pkw-next-grid{grid-template-columns:1fr}
+  .pkw-conf{flex-direction:column;align-items:stretch;gap:6px}
+  .pkw-conf-btns{justify-content:space-between}
+  .pkw-conf-btns button{flex:1}
+  .pkw-options.words{grid-template-columns:1fr 1fr}
+  .pkw-foot{justify-content:stretch}
+  .pkw-foot .pkw-btn{flex:1}
+  .pk-mission ol{grid-template-columns:1fr}
+  .pkw-part span{display:none}
+}
+@media (prefers-reduced-motion:reduce){.pkw-opt.wrong{animation:none}}
+
+/* The deal area (fixed at the bottom) always stays on top of the page, so its buttons can never
+   be covered by the status line. The table itself is styled in pk-table.css. */
+.deck-panel{z-index:150 !important}
+#gameTimer{z-index:160 !important}
+@media (max-width:780px){
+  .pk-save-chip{padding:6px 10px}
+  .pk-course-bar .pk-chipcount{margin-left:0;width:100%}
+}
+
+/* Chip pictures (Blender renders in frontend/assets/chips) */
+.pkw-chipimg{float:right;width:64px;height:auto;margin:-18px -4px 0 8px}
+.pk-course-bar .pk-chipcount{display:inline-flex;align-items:center;gap:6px}
+.pk-course-bar .pk-chipcount img{width:26px;height:26px}
+
+/* ── after the 2026-11-09 review: the wrap-up and mission card share the table's colours (ivory card,
+   serif title, purple button, gold progress), keep one position from step to step, and the last
+   step's buttons stay in reach on a phone ── */
+.pkw{background:rgba(7,6,24,.66);backdrop-filter:blur(3px)}
+.pkw-card,.pk-overlay .pk-modal.pk-mission{background:#fbf7ee}
+.pkw-card{margin:5vh 0 auto;display:flex;flex-direction:column;min-height:min(480px,calc(100vh - 12vh))}
+.pkw-body{flex:1 1 auto}
+.pkw-title,.pk-mission h2{font-family:Georgia,"Times New Roman",serif;color:#1b1838}
+.pkw-btn.primary,.pk-mission .pk-btn.primary{background:linear-gradient(180deg,#8f7bff,#6d4df2);box-shadow:0 6px 16px rgba(109,77,242,.35)}
+.pkw-btn.ghost{background:#ece6d8}
+.pkw-dot{background:#e6dfcf}.pkw-dot.done{background:#ecd591}.pkw-dot.now{background:#e0a92b}
+.pkw-stats>div,.pkw-box,.pkw-sentence,.pkw-clip{background:#fff;border-color:#e8e1d0}
+.pkw-h{margin:16px 0 8px;font-size:15px;color:#1b1838}
+.pkw-list li{position:relative}
+.pkw-rv-head{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
+.pkw-rv-head b{font-size:14px;margin:0}
+.pkw-list small{display:block;margin-top:4px;color:#9a3412;font-size:12.5px}
+.pkw-ear{flex:0 0 auto;width:40px;height:40px;border-radius:50%;border:0;background:#ede9fe;font-size:18px;cursor:pointer}
+.pkw-ear:focus-visible,.pkw-link:focus-visible{outline:3px solid #f59e0b;outline-offset:2px}
+.pkw-allgood{margin:16px 0 4px;padding:14px;border-radius:14px;background:#dcfce7;color:#14532d;font-weight:800;text-align:center}
+.pkw-clip b{display:block;margin-bottom:6px;font-size:13px;color:#6d4df2}
+.pkw-btn.rec{color:#fff;background:#6d4df2}
+.pkw-btn.rec.live{background:#dc2626;animation:pkwPulse 1.1s ease-in-out infinite}
+@keyframes pkwPulse{50%{box-shadow:0 0 0 8px rgba(220,38,38,.22)}}
+.pkw-clock.live{color:#dc2626}
+.pkw-sent{margin:8px 0 0;font-size:14px;font-weight:800;color:#475569}
+.pkw-sent.ok{color:#15803d}.pkw-sent.warn{color:#b45309}.pkw-sent.busy{color:#1d4ed8}
+.pkw-link{border:0;background:none;color:#6d4df2;font:inherit;font-weight:800;text-decoration:underline;cursor:pointer;padding:0 4px}
+.pkw-teacher{margin:0 0 12px;padding:10px 14px;border-radius:12px;background:#fff7ed;border:1px solid #fed7aa;color:#7c2d12;font-size:14px;line-height:1.55}
+.pkw-teacher p{margin:4px 0 0}
+.pkw-box.dark{background:#14123a;border-color:rgba(224,169,43,.5);color:#eef;overflow:hidden}
+.pkw-box.dark h3{color:#f4d27a}
+.pkw-box.dark .pkw-chipnum{color:#f4d27a}
+.pkw-extras{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:4px 0 10px;font-size:13.5px;color:#64748b}
+.pkw-extras .pkw-btn{padding:8px 14px;min-height:40px;font-size:14px}
+.pkw-review summary{cursor:pointer;font-weight:800;font-size:14px;color:#334155}
+.pkw-review[open] summary{margin-bottom:8px}
+.pk-course-bar{width:fit-content;max-width:100%}
+@media (max-width:640px){
+  .pk-mission .pk-actions .pk-btn{flex:1;min-height:46px}
+}
+@media (prefers-reduced-motion:reduce){.pkw-btn.rec.live{animation:none}}
+
+/* the "last time" line of the mission card keeps its place whether or not there is anything to say yet */
+.pk-mission .pk-last{min-height:3.1em}
+.pk-mission .pk-last:empty{background:none;border-color:transparent}
+.pkw-card:focus{outline:none}
+
+/* ── after the student-side review (2026-11-09) ──
+   The wrap-up card never grows past the window: its middle scrolls, the title stays on top and the
+   buttons stay at the bottom at every size (on an iPad in landscape "下一步" used to be below the
+   edge with nothing saying so). A soft shadow shows when there is more to scroll to. */
+.pkw{overflow:hidden;align-items:center;padding:20px 16px}
+.pkw-card{margin:0;max-height:calc(100vh - 40px);max-height:calc(100dvh - 40px);min-height:min(480px,calc(100vh - 40px));min-height:min(480px,calc(100dvh - 40px));box-sizing:border-box}
+.pkw-body{min-height:0;overflow-y:auto;overscroll-behavior:contain;margin:8px -8px 0;padding:0 8px 6px;
+  background:linear-gradient(#fbf7ee 30%,rgba(251,247,238,0)) top/100% 28px no-repeat local,linear-gradient(rgba(251,247,238,0),#fbf7ee 70%) bottom/100% 28px no-repeat local,
+             radial-gradient(farthest-side at 50% 0,rgba(27,24,56,.22),transparent) top/100% 10px no-repeat scroll,radial-gradient(farthest-side at 50% 100%,rgba(27,24,56,.22),transparent) bottom/100% 10px no-repeat scroll}
+.pkw-foot{flex:0 0 auto;margin-top:12px}
+@media (max-width:640px){
+  .pkw{padding:8px}
+  .pkw-card{max-height:calc(100vh - 16px);max-height:calc(100dvh - 16px);min-height:0}
+}
+.pkw-wait{display:flex;align-items:center;gap:10px;margin:30px 0;color:#475569;font-weight:700}
+.pkw-spin,.pk-spin{flex:0 0 auto;width:20px;height:20px;border-radius:50%;border:3px solid #d9d2c0;border-top-color:#6d4df2;animation:pkwSpin .8s linear infinite}
+@keyframes pkwSpin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.pkw-spin,.pk-spin{animation-duration:2.4s}}
+.pkw-sent .pkw-link{min-height:32px}
+.pkw-feedback b{color:#b45309}
+
+/* mission card: who is playing, and a way back that starts nothing */
+.pk-mission .pk-who-line{margin:0 0 10px;font-size:13px;color:#5b6b86}
+.pk-mission .pk-who-line b{color:#1b1838}
+.pk-mission .pk-actions{justify-content:space-between !important}
+.pk-mission .pk-btn{min-height:44px}
+.pk-mission .pk-btn.ghost{background:#ece6d8}
+.pk-overlay{overflow-y:auto}
+
+/* the menu: who is signed in, the way out, and the waiting state */
+.pk-who{display:flex;align-items:center;gap:8px 14px;flex-wrap:wrap;width:fit-content;max-width:100%;box-sizing:border-box;margin:0 2px 8px;padding:9px 14px;border-radius:14px;background:#fff;border:1px solid #e2e8f0;color:#0f172a;font-size:14px}
+.pk-who.warn{background:#fffbeb;border-color:#fde68a;color:#78350f;font-weight:700}
+.pk-who b{font-weight:800}
+.pk-who a,.pk-who button{border:0;background:none;padding:6px 2px;min-height:36px;font:inherit;font-weight:800;color:#4f46e5;text-decoration:underline;cursor:pointer}
+.pk-who a:focus-visible,.pk-who button:focus-visible{outline:3px solid #f59e0b;outline-offset:2px}
+.pk-loading{display:flex;align-items:center;gap:12px;margin:40px 2px;color:#c9cbf6;font-weight:700;font-size:15px}
+.pk-loading .pk-spin{border-color:rgba(255,255,255,.25);border-top-color:#f4d27a}
+.pk-save-chip[role="button"]{cursor:pointer;text-decoration:underline}

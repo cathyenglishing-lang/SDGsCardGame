@@ -42,7 +42,9 @@ function normalizeSession(payload) {
     name: rawUser.name ?? payload?.name ?? "",
     email: rawUser.email ?? payload?.email ?? "",
     role: rawUser.role ?? payload?.role ?? "student",
-    gender: rawUser.gender ?? payload?.gender ?? ""
+    gender: rawUser.gender ?? payload?.gender ?? "",
+    // true for an account made by a roster import until the student has chosen a password
+    must_change_password: !!(rawUser.must_change_password ?? payload?.must_change_password)
   };
 
   user.username = rawUser.username || payload?.username || user.name || user.email;
@@ -122,6 +124,10 @@ const auth = {
       window.location.href = `${getLoginPath()}?next=${next}${guestBlocked ? "&reason=guest" : ""}`;
       return { access_token: "", user: { username: "", role: "" } };
     }
+    if (session.user.must_change_password && !/change_password\.html$/.test(window.location.pathname)) {
+      const next = encodeURIComponent(window.location.pathname + window.location.search);
+      window.location.href = `/pages/change_password.html?next=${next}`;
+    }
     return session;
   },
 
@@ -152,6 +158,25 @@ window.api = {
 
     logout() {
       auth.logout();
+    },
+
+    // { self_register: bool } — whether students may make their own accounts right now
+    config() {
+      return request("/auth/config");
+    },
+
+    async changePassword(currentPassword, newPassword) {
+      const result = await request("/auth/change-password", {
+        method: "POST",
+        auth: true,
+        body: JSON.stringify({ current_password: currentPassword, new_password: newPassword })
+      });
+      const session = auth.getSession();
+      if (session) {
+        session.user.must_change_password = false;
+        localStorage.setItem(SESSION_KEY, JSON.stringify(session));
+      }
+      return result;
     }
   },
 
@@ -357,6 +382,27 @@ window.api = {
       const name = (res.headers.get("Content-Disposition") || "").match(/filename="([^"]+)"/)?.[1] || "learning.xlsx";
       return { blob: await res.blob(), name };
     },
+
+    // Courses, rosters, accounts, chips (backend/classroom.py)
+    courses() { return request("/teacher/courses", { method: "GET", auth: true }); },
+    saveCourse(payload) { return request("/teacher/courses", { method: "POST", auth: true, body: JSON.stringify(payload) }); },
+    saveActivities(courseId, activities) { return request(`/teacher/courses/${encodeURIComponent(courseId)}/activities`, { method: "PUT", auth: true, body: JSON.stringify({ activities }) }); },
+    courseRoster(courseId) { return request(`/teacher/courses/${encodeURIComponent(courseId)}/roster`, { method: "GET", auth: true }); },
+    rosterPreview({ courseId, defaultSection, emailDomain, text, file }) {
+      const form = new FormData();
+      form.append("course_id", courseId);
+      form.append("default_section", defaultSection || "");   // no made-up 系級: a row without one is an error
+      form.append("email_domain", emailDomain || "");
+      form.append("text", text || "");
+      if (file) form.append("file", file);
+      return request("/teacher/roster/preview", { method: "POST", auth: true, body: form });
+    },
+    rosterCommit(payload) { return request("/teacher/roster/commit", { method: "POST", auth: true, body: JSON.stringify(payload) }); },
+    patchEnrollment(id, payload) { return request(`/teacher/enrollments/${encodeURIComponent(id)}`, { method: "PATCH", auth: true, body: JSON.stringify(payload) }); },
+    resetPassword(userId) { return request(`/teacher/users/${encodeURIComponent(userId)}/reset-password`, { method: "POST", auth: true }); },
+    chips(courseId) { return request(`/teacher/chips${courseId ? "?course_id=" + encodeURIComponent(courseId) : ""}`, { method: "GET", auth: true }); },
+    adjustChips(userId, delta, note) { return request("/teacher/chips/adjust", { method: "POST", auth: true, body: JSON.stringify({ user_id: userId, delta, note }) }); },
+    resolveChips(entryId, action, note) { return request(`/teacher/chips/${encodeURIComponent(entryId)}/resolve`, { method: "POST", auth: true, body: JSON.stringify({ action, note }) }); },
 
     pkAnalytics() {
       return request("/teacher/pk-analytics", {

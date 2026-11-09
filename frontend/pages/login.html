@@ -424,13 +424,13 @@
 
     <h1>CardLearn SDGs</h1>
     <div class="subtitle">
-      Welcome back! Log in to start your Sustainable Development Goals learning journey.
+      登入後開始學習。<span style="opacity:.7">Log in to start learning.</span>
     </div>
 
     <div class="tip">
       <span>✨</span>
       <div>
-        After logging in, you can enter your member dashboard, view your learning records, and start card challenges.
+        用老師發給你的帳號和密碼登入。第一次登入會請你換成自己的密碼。
       </div>
     </div>
 
@@ -444,8 +444,8 @@
 
     <div class="form-group">
       <label>
-        Email
-        <span class="hint" v-if="form.email">Entered</span>
+        帳號 Email
+        <span class="hint" v-if="form.email">已輸入</span>
       </label>
 
       <div class="input-box">
@@ -453,7 +453,7 @@
           v-model.trim="form.email"
           :class="emailClass"
           type="email"
-          placeholder="Enter your email"
+          placeholder="例如 學號@學校信箱"
           autocomplete="email"
           @input="clearMsg"
         />
@@ -467,9 +467,9 @@
 
     <div class="form-group">
       <label>
-        Password
+        密碼 Password
         <span class="hint" v-if="form.password">
-          {{ form.password.length }} characters
+          {{ form.password.length }} 個字
         </span>
       </label>
 
@@ -478,7 +478,7 @@
           v-model="form.password"
           :class="passwordClass"
           :type="showPassword ? 'text' : 'password'"
-          placeholder="Enter your password"
+          placeholder="輸入密碼"
           autocomplete="current-password"
           @keyup.enter="login"
           @input="clearMsg"
@@ -495,20 +495,20 @@
 
     <button @click="login" :disabled="loading || !canSubmit">
       <span v-if="loading">
-        <span class="loader"></span>Logging in...
+        <span class="loader"></span>登入中…
       </span>
       <span v-else>
-        🚀 Log In and Start Learning
+        🚀 登入 Log In
       </span>
     </button>
 
     <div class="link">
-      Don’t have an account? <a href="register.html">Create one</a>
+      還沒有帳號？ <a href="register.html">註冊 Create one</a>
     </div>
 
     <div class="guest-divider"><span>或 or</span></div>
     <button type="button" class="guest-btn" @click="playAsGuest">🎮 訪客試玩 · Play as guest</button>
-    <div class="guest-note">不用註冊，直接玩。訪客的進度只存在這台瀏覽器；SDGs Pecha Kucha 需要登入帳號。</div>
+    <div class="guest-note">不用註冊，直接玩。訪客模式不記錄學習數據與成績，老師也看不到。</div>
 
   </div>
 </div>
@@ -583,18 +583,18 @@ Vue.createApp({
       this.errors.password = '';
 
       if (!this.form.email) {
-        this.errors.email = 'Please enter your email.';
+        this.errors.email = '請輸入帳號（Email）。';
         valid = false;
       } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.form.email)) {
-        this.errors.email = 'Please enter a valid email address.';
+        this.errors.email = 'Email 的格式不對，例如 411012345@school.edu.tw。';
         valid = false;
       }
 
       if (!this.form.password) {
-        this.errors.password = 'Please enter your password.';
+        this.errors.password = '請輸入密碼。';
         valid = false;
       } else if (this.form.password.length < 6) {
-        this.errors.password = 'Password must be at least 6 characters.';
+        this.errors.password = '密碼至少 6 個字。';
         valid = false;
       }
 
@@ -604,7 +604,7 @@ Vue.createApp({
     async login() {
       if (!this.validate()) {
         this.msg = {
-          text: "Please check your email and password.",
+          text: "請檢查帳號和密碼。",
           type: "err"
         };
         return;
@@ -618,19 +618,30 @@ Vue.createApp({
           this.form.password
         );
 
+        const relogin = new URLSearchParams(window.location.search).get("relogin") === "1";
         this.msg = {
-          text: "Login successful! Redirecting to your dashboard...",
+          text: relogin ? "登入成功！請回到剛才的遊戲分頁，資料會自動補送。這個分頁可以關掉。" : "登入成功！正在進入…",
           type: "ok"
         };
+        if (relogin && !res.user.must_change_password) {   // opened from a game whose sign-in ran out: that tab carries on by itself
+          setTimeout(() => { try { window.close(); } catch (e) {} }, 1500);
+          return;
+        }
 
         setTimeout(() => {
           const params = new URLSearchParams(window.location.search);
-          window.location.href = params.get("next") || "member_index.html";
+          const next = params.get("next") || "member_index.html";
+          // An account from a class roster chooses its own password first.
+          window.location.href = res.user.must_change_password
+            ? "change_password.html?next=" + encodeURIComponent(next)
+            : next;
         }, 800);
 
       } catch (e) {
+        // The server's two messages are English; students get them in Chinese.
+        const zh = { "Incorrect password.": "密碼不對，請再試一次。忘記密碼請找老師重設。", "Account does not exist.": "沒有這個帳號。請確認輸入的是老師發給你的帳號。" };
         this.msg = {
-          text: e.message || "Login failed. Please try again later.",
+          text: zh[e.message] || e.message || "登入失敗，請稍後再試。",
           type: "err"
         };
       } finally {
@@ -665,9 +676,14 @@ Vue.createApp({
   }
 }).mount("#app");
 
-if (auth.getSession() && !auth.isGuest()) {
+// ?relogin=1 comes from a game whose sign-in ran out in the middle of a run: the old session is
+// still stored, so the form must show instead of forwarding at once.
+if (auth.getSession() && !auth.isGuest() && new URLSearchParams(window.location.search).get("relogin") !== "1") {
   const params = new URLSearchParams(window.location.search);
-  window.location.href = params.get("next") || "member_index.html";
+  const next = params.get("next") || "member_index.html";
+  window.location.href = auth.getUser().must_change_password
+    ? "change_password.html?next=" + encodeURIComponent(next)
+    : next;
 }
 </script>
 

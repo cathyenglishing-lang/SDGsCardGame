@@ -136,6 +136,7 @@ button, select, input { font: inherit; }
 .guest-avatar { display: flex; align-items: center; gap: 8px; }
 .guest-avatar .btn[aria-pressed="true"] { border-color: #facc15; background: rgba(250, 204, 21, .18); }
 .btn[hidden] { display: none; }
+.guest-bar[hidden] { display: none; }   /* display:flex above would otherwise show it to signed-in users */
 
 /* ===== Hero ===== */
 .hero { padding: 46px 4px 12px; max-width: 760px; }
@@ -443,7 +444,7 @@ button, select, input { font: inherit; }
   <section class="hero">
     <div class="eyebrow">🌍 Interactive SDGs English Learning</div>
     <h2>Pick a game.<br><span class="grad">Start playing.</span></h2>
-    <p id="heroCopy">Your game library — six English-learning games: SDGs card-matching, intercultural board travel, daily science communicators, inquiry debate, morpheme building, and a 3-minute thesis lab.</p>
+    <p id="heroCopy">Your game library — English-learning games: SDGs card-matching, intercultural board travel, daily science communicators, inquiry debate, morpheme building, and a 3-minute thesis lab.</p>
   </section>
 
   <div class="section-head">
@@ -520,6 +521,19 @@ const user = session.user;
    status:'live', action:'link', url:'/pages/your_game.html'.
 */
 const GAMES = [
+  // First on the hub: the game every class plays (on a phone it used to sit two screens down).
+  {
+    id: "pecha-kucha-builder",
+    title: "Pecha Kucha Card Game",
+    sub: "聽力配對 · 撲克牌卡",
+    desc: "Draw a sentence card, listen to it read aloud, then drag it onto the matching slide title to build your SDG speech — timed, poker-style, across 9 AI & SDG topics.",
+    icon: "🃏",
+    accent: "#2563eb",
+    status: "live",
+    action: "link",
+    url: "/pages/pecha_kucha_builder.html",
+    tags: ["CEFR A2–B2", "SDG 4·5·9·13", "Listening"]
+  },
   {
     id: "innovation-harbor",
     title: "Innovation Harbor 3D",
@@ -544,29 +558,9 @@ const GAMES = [
     url: "/games/innovation-harbor/sdg4-stage.html",
     tags: ["CEFR A2–B2", "3D Story", "SDG 4"]
   },
-  {
-    id: "pecha-kucha-builder",
-    title: "Pecha Kucha Card Game",
-    sub: "聽力配對 · 撲克牌卡",
-    desc: "Draw a sentence card, listen to it read aloud, then drag it onto the matching slide title to build your SDG speech — timed, poker-style, across 9 AI & SDG topics.",
-    icon: "🃏",
-    accent: "#2563eb",
-    status: "live",
-    action: "link",
-    url: "/pages/pecha_kucha_builder.html",
-    tags: ["CEFR A2–B2", "SDG 4·5·9·13", "Listening"]
-  },
-  {
-    id: "sdg-pecha-kucha",
-    title: "SDGs Pecha Kucha",
-    sub: "卡牌配對 · 口說挑戰",
-    desc: "Match SDG cards, review a Pecha Kucha script, record your speech, then answer cloze questions.",
-    icon: "🃏",
-    accent: "#22c55e",
-    status: "live",
-    action: "sdg-config",
-    tags: ["CEFR A1–B1", "Speaking", "SDGs"]
-  },
+  // "SDGs Pecha Kucha" (loading → game_s → finish) was merged into the Pecha Kucha Card Game above
+  // in 2026-11: its question bank was nearly empty in production and its results were not stored.
+  // The old pages now forward to the card game.
   {
     id: "around-the-world",
     title: "Around the World in 80 Conversations",

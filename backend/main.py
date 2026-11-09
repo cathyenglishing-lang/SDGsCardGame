@@ -31,9 +31,10 @@ except ImportError:
 BASE_DIR = Path(__file__).resolve().parent.parent
 BACKEND_DIR = BASE_DIR / "backend"
 FRONTEND_DIR = BASE_DIR / "frontend"
-SQL_DIR = BASE_DIR / "sql"
-DB_PATH = SQL_DIR / "app.db"
 load_dotenv(BASE_DIR / ".env")
+# CARDLEARN_SQLITE_DIR lets tests and rehearsals use their own SQLite files instead of sql/app.db.
+SQL_DIR = Path(os.getenv("CARDLEARN_SQLITE_DIR", "").strip() or (BASE_DIR / "sql"))
+DB_PATH = SQL_DIR / "app.db"
 
 
 def csv_env(name: str):
@@ -97,7 +98,7 @@ LOGIN_RATE_LIMIT = rate_limit.LOGIN_RATE_LIMIT
 REGISTER_RATE_LIMIT = rate_limit.REGISTER_RATE_LIMIT
 SEND_OTP_RATE_LIMIT = rate_limit.SEND_OTP_RATE_LIMIT
 GAME_RECORD_RATE_LIMIT = rate_limit.GAME_RECORD_RATE_LIMIT
-API_RATE_LIMIT_PREFIXES = ("/auth", "/content", "/game", "/teacher", "/learning", "/health")
+API_RATE_LIMIT_PREFIXES = ("/auth", "/content", "/game", "/teacher", "/learning", "/me", "/health")
 
 
 def get_client_ip(request: Request):
@@ -166,6 +167,7 @@ app.add_middleware(
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
+    expose_headers=["Content-Disposition"],   # so the page can read the file name of an Excel download
 )
 
 # =========================
@@ -281,6 +283,12 @@ def table_columns(cur, table_name: str):
     return [column["name"] for column in cur.fetchall()]
 
 
+def is_integrity_error(error: Exception):
+    return isinstance(error, sqlite3.IntegrityError) or (
+        psycopg is not None and isinstance(error, psycopg.IntegrityError)
+    )
+
+
 def execute_insert_returning(cur, sql: str, params, id_column: str):
     if USE_POSTGRES:
         cur.execute(f"{sql.strip()} RETURNING {id_column}", params)
@@ -289,6 +297,19 @@ def execute_insert_returning(cur, sql: str, params, id_column: str):
 
     cur.execute(sql, params)
     return cur.lastrowid
+
+
+# Research code shown in reports and exports instead of a name or student number: random, and
+# impossible to turn back into either. No 0/O/1/I so it can be read aloud and typed.
+PUBLIC_ID_ALPHABET = "23456789ABCDEFGHJKLMNPQRSTUVWXYZ"
+
+
+def new_public_id(cur):
+    while True:
+        candidate = "L-" + "".join(secrets.choice(PUBLIC_ID_ALPHABET) for _ in range(6))
+        cur.execute("SELECT 1 AS x FROM users WHERE public_id = ?", (candidate,))
+        if not cur.fetchone():
+            return candidate
 
 
 def init_db():
@@ -493,6 +514,45 @@ def init_db():
     )
 
     cur.execute("CREATE INDEX IF NOT EXISTS idx_game_sessions_user_id ON game_sessions(user_id)")
+
+    # Class rosters and research data (2026-11): new columns only, nothing existing is changed.
+    #   student_no + institution  roster matching (re-imports find the same person)
+    #   public_id                 research code without personal data, e.g. L-7K3QX9
+    #   must_change_password      imported accounts change their password at first sign-in
+    #   account_source            self / import / bulk
+    #   consent_research/_audio   NULL = not asked yet, 1 = agreed, 0 = declined (kept separately)
+    columns = table_columns(cur, "users")
+    for name, ddl in (
+        ("student_no", "TEXT"),
+        ("institution", "TEXT DEFAULT 'nptu'"),
+        ("public_id", "TEXT"),
+        ("must_change_password", "INTEGER DEFAULT 0"),
+        ("account_source", "TEXT DEFAULT 'self'"),
+        ("consent_research", "INTEGER"),
+        ("consent_audio", "INTEGER"),
+    ):
+        if name not in columns:
+            execute_with_retry(cur, f"ALTER TABLE users ADD COLUMN {name} {ddl}")
+    cur.execute("CREATE UNIQUE INDEX IF NOT EXISTS idx_users_student_no ON users(institution, student_no)")
+    cur.execute("CREATE UNIQUE INDEX IF NOT EXISTS idx_users_public_id ON users(public_id)")
+    cur.execute("SELECT id FROM users WHERE public_id IS NULL")
+    for row in cur.fetchall():
+        execute_with_retry(cur, "UPDATE users SET public_id = ? WHERE id = ?", (new_public_id(cur), row["id"]))
+
+    # Card game results: which course the play belongs to, and a client id so a result that is
+    # sent again after a network failure is stored once.
+    pk_columns = table_columns(cur, "pk_results")
+    for name, ddl in (
+        ("course_id", "INTEGER"),
+        ("section_id", "INTEGER"),
+        ("client_id", "TEXT"),
+        ("run_id", "INTEGER"),
+        ("content_version", "INTEGER"),
+        ("score", "INTEGER"),
+    ):
+        if name not in pk_columns:
+            execute_with_retry(cur, f"ALTER TABLE pk_results ADD COLUMN {name} {ddl}")
+    cur.execute("CREATE UNIQUE INDEX IF NOT EXISTS idx_pk_results_client_id ON pk_results(client_id)")
 
     seed_sdg_options = [
         (4, "Quality Education", "Quality Education", 1, 1),
@@ -737,8 +797,10 @@ def create_admin_user(
             password_hash,
             email_verified,
             privacy_agreed,
-            role
-        ) VALUES (?, ?, ?, ?, ?, 1, 1, 'admin')
+            role,
+            public_id,
+            account_source
+        ) VALUES (?, ?, ?, ?, ?, 1, 1, 'admin', ?, 'bulk')
         """,
         (
             name.strip(),
@@ -746,6 +808,7 @@ def create_admin_user(
             birth_date,
             email,
             hash_password(password),
+            new_public_id(cur),
         ),
     )
 
@@ -758,12 +821,37 @@ def create_admin_user(
 # =========================
 # SECURITY
 # =========================
+# Passwords are stored as  pbkdf2_sha256$<iterations>$<salt hex>$<hash hex>  with a salt per account.
+# Accounts created before 2026-11 hold an unsalted SHA-256 hex digest; those still sign in, and
+# the stored value is replaced by the salted form at their next successful login.
+PASSWORD_ITERATIONS = 200_000
+
+
 def hash_password(password: str):
-    return hashlib.sha256(password.encode()).hexdigest()
+    salt = secrets.token_bytes(16)
+    digest = hashlib.pbkdf2_hmac("sha256", password.encode(), salt, PASSWORD_ITERATIONS)
+    return f"pbkdf2_sha256${PASSWORD_ITERATIONS}${salt.hex()}${digest.hex()}"
 
 
 def verify_password(password: str, hashed: str):
-    return hash_password(password) == hashed
+    hashed = hashed or ""
+    if hashed.startswith("pbkdf2_sha256$"):
+        try:
+            _, iterations, salt_hex, digest_hex = hashed.split("$")
+            digest = hashlib.pbkdf2_hmac("sha256", password.encode(), bytes.fromhex(salt_hex), int(iterations))
+        except ValueError:
+            return False
+        return secrets.compare_digest(digest.hex(), digest_hex)
+    return secrets.compare_digest(hashlib.sha256(password.encode()).hexdigest(), hashed)
+
+
+def password_needs_upgrade(hashed: str):
+    if not (hashed or "").startswith("pbkdf2_sha256$"):
+        return True
+    try:
+        return int(hashed.split("$")[1]) < PASSWORD_ITERATIONS
+    except (IndexError, ValueError):
+        return True
 
 
 def validate_password(password: str):
@@ -808,7 +896,10 @@ def get_current_user(authorization: str | None):
 
     conn = get_db()
     cur = conn.cursor()
-    cur.execute("SELECT id, name, email, role FROM users WHERE id = ?", (payload["user_id"],))
+    cur.execute(
+        "SELECT id, name, email, role, public_id, must_change_password FROM users WHERE id = ?",
+        (payload["user_id"],),
+    )
     user = cur.fetchone()
     conn.close()
 
@@ -857,6 +948,11 @@ class LoginIn(BaseModel):
     password: str
 
 
+class ChangePasswordIn(BaseModel):
+    current_password: str
+    new_password: str
+
+
 class GameStartIn(BaseModel):
     username: str
     sdg: int
@@ -878,7 +974,12 @@ class PkResultIn(BaseModel):
     total_errors: int = 0
     total_repeats: int = 0
     parts: list[PkPartIn] = []
-    username: str | None = None
+    username: str | None = None      # ignored: a result carries a name only when the player is signed in
+    client_id: str | None = None     # made by the browser; the same result sent twice is stored once
+    run_id: int | None = None        # the learning run (learning_runs.id) with the card-by-card events
+    course_id: int | None = None     # a request; the server decides from the student's enrolments
+    content_version: int | None = None
+    score: int | None = None         # "understood" score 0-100 (first-try matches corrected for guessing)
 
 
 class GamePartIn(BaseModel):
@@ -982,8 +1083,10 @@ def health_check():
 # -------------------------
 @app.post("/game/pk-result")
 def submit_pk_result(data: PkResultIn, authorization: str | None = Header(default=None)):
+    # A result carries a name only when the player is signed in; the name a browser sends is
+    # never used, so nobody can file results under someone else's name.
     user_id = None
-    username = (data.username or "").strip() or "anonymous"
+    username = "anonymous"
     if authorization:
         try:
             u = get_current_user(authorization)
@@ -996,27 +1099,50 @@ def submit_pk_result(data: PkResultIn, authorization: str | None = Header(defaul
         {"part_no": p.part_no, "errors": p.errors, "seconds": p.seconds, "repeats": p.repeats}
         for p in data.parts
     ]
+    client_id = (data.client_id or "").strip()[:64] or None
 
     conn = get_db()
     cur = conn.cursor()
-    execute_with_retry(
-        cur,
-        """
-        INSERT INTO pk_results
-            (user_id, username, game, topic_id, sdg_level, difficulty_code,
-             total_seconds, total_errors, total_repeats, parts_json, finished_at)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-        """,
-        (
-            user_id, username, "pecha_kucha", data.topic_id, data.sdg_level,
-            data.difficulty, data.total_seconds, data.total_errors,
-            data.total_repeats, json.dumps(parts, ensure_ascii=False),
-            now_taipei().isoformat(),
-        ),
-    )
-    conn.commit()
+    if client_id:
+        cur.execute("SELECT id FROM pk_results WHERE client_id = ?", (client_id,))
+        if cur.fetchone():  # the browser is sending a result again that already arrived
+            conn.close()
+            return {"ok": True, "saved": True, "duplicate": True}
+
+    course_id, section_id = classroom.resolve_course(cur, user_id, data.course_id)
+    # The score is worked out here from the recorded matches when the run is the player's own.
+    score = None
+    if user_id is not None and data.run_id:
+        score = learning.run_score(data.run_id, user_id)
+
+    try:
+        execute_with_retry(
+            cur,
+            """
+            INSERT INTO pk_results
+                (user_id, username, game, topic_id, sdg_level, difficulty_code,
+                 total_seconds, total_errors, total_repeats, parts_json, finished_at,
+                 course_id, section_id, client_id, run_id, content_version, score)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """,
+            (
+                user_id, username, "pecha_kucha", data.topic_id[:20], data.sdg_level,
+                data.difficulty[:8], data.total_seconds, data.total_errors,
+                data.total_repeats, json.dumps(parts, ensure_ascii=False),
+                now_taipei().isoformat(),
+                course_id, section_id, client_id, data.run_id if user_id is not None else None,
+                data.content_version, score,
+            ),
+        )
+        conn.commit()
+    except Exception as error:
+        if not is_integrity_error(error):
+            conn.close()
+            raise
+        conn.close()  # two copies of the same result raced; the other one is stored
+        return {"ok": True, "saved": True, "duplicate": True}
     conn.close()
-    return {"ok": True}
+    return {"ok": True, "saved": True, "score": score}
 
 
 @app.get("/teacher/pk-analytics")
@@ -1152,6 +1278,8 @@ CONSOLE_TABLES = [
     "users", "login_events", "game_sessions", "game_part_records", "pk_results",
     "sdg_options", "difficulty_options", "tbl_sdg_parts", "tbl_sdg_sub_topics",
     "tbl_sdg_cards", "email_otps",
+    "courses", "course_sections", "enrollments", "course_activities", "roster_imports", "chip_ledger",
+    "speech_recordings", "content_topics", "content_versions",
 ]
 
 TABLE_DOCS = {
@@ -1166,7 +1294,19 @@ TABLE_DOCS = {
     "tbl_sdg_sub_topics": "Slides/sub-topics within a part.",
     "tbl_sdg_cards": "The sentence card text, keyed by sub-topic + difficulty.",
     "email_otps": "One-time codes for email verification.",
+    "courses": "One course per term (term + code).",
+    "course_sections": "Sections (classes) of a course.",
+    "enrollments": "Which student is in which section (active / dropped).",
+    "course_activities": "Topics and levels a course has opened, per game.",
+    "roster_imports": "One row per roster import (counts and report; never passwords).",
+    "chip_ledger": "Chip account entries (earned, held, void, teacher adjustments).",
+    "speech_recordings": "Students' voice recordings sent to the teacher (audio in the row, or a file path when AUDIO_DIR is set).",
+    "content_topics": "Teaching material per game and topic: the published copy students get and the teacher's draft.",
+    "content_versions": "A snapshot of every published version of a topic (for looking back and restoring).",
+    "learning_runs": "學習資料庫：每一局一列（哪個遊戲、主題、難度、誰、哪門課、教材版本、開始與結束、分數與指標）。",
+    "learning_events": "學習資料庫：每個操作一列（發牌、聽、重聽、放牌、收尾的朗讀／小測／反思…），所有報表都由這裡算出來。",
 }
+LEARNING_TABLES = ["learning_runs", "learning_events"]      # kept in the learning database (LEARNING_DATABASE_URL, or the same one)
 
 DB_RELATIONSHIPS = [
     {"from": "game_sessions.user_id", "to": "users.id"},
@@ -1177,6 +1317,18 @@ DB_RELATIONSHIPS = [
     {"from": "tbl_sdg_cards.difficulty_code", "to": "difficulty_options.code"},
     {"from": "pk_results.user_id", "to": "users.id"},
     {"from": "login_events.user_id", "to": "users.id"},
+    {"from": "course_sections.course_id", "to": "courses.id"},
+    {"from": "enrollments.course_id", "to": "courses.id"},
+    {"from": "enrollments.section_id", "to": "course_sections.id"},
+    {"from": "enrollments.user_id", "to": "users.id"},
+    {"from": "course_activities.course_id", "to": "courses.id"},
+    {"from": "chip_ledger.user_id", "to": "users.id"},
+    {"from": "speech_recordings.user_id", "to": "users.id"},
+    {"from": "content_versions.topic_id", "to": "content_topics.topic_id"},
+    {"from": "learning_runs.user_id", "to": "users.id"},
+    {"from": "learning_runs.course_id", "to": "courses.id"},
+    {"from": "learning_events.run_id", "to": "learning_runs.id"},
+    {"from": "speech_recordings.run_id", "to": "learning_runs.id"},
 ]
 
 
@@ -1225,7 +1377,7 @@ def system_info(authorization: str | None = Header(default=None)):
         "config": {
             "rate_limit_enabled": bool(RATE_LIMIT_ENABLED),
             "redis_configured": bool(os.getenv("REDIS_URL")),
-            "email_configured": bool(os.getenv("SMTP_HOST") or os.getenv("EMAIL_HOST") or os.getenv("MAIL_SERVER")),
+            "email_configured": bool(RESEND_API_KEY and RESEND_FROM),     # what sending really needs
             "cors_origins": FRONTEND_ORIGINS,
         },
     }
@@ -1267,6 +1419,21 @@ def db_schema(authorization: str | None = Header(default=None)):
             tables.append({"table": t, "rows": rows,
                            "doc": TABLE_DOCS.get(t, ""), "columns": cols})
     conn.close()
+    # The learning database (every run and every event) is listed with the rest, wherever it lives.
+    try:
+        lconn, lcur = learning.get_db()
+        for t in LEARNING_TABLES:
+            if learning.USE_POSTGRES:
+                lcur.execute("SELECT column_name, data_type, is_nullable FROM information_schema.columns WHERE table_schema = 'public' AND table_name = ? ORDER BY ordinal_position", (t,))
+                cols = [{"name": r["column_name"], "type": r["data_type"], "nullable": r["is_nullable"] == "YES"} for r in lcur.fetchall()]
+            else:
+                lcur.execute(f"PRAGMA table_info({t})")
+                cols = [{"name": r["name"], "type": r["type"], "nullable": not r["notnull"]} for r in lcur.fetchall()]
+            lcur.execute(f"SELECT COUNT(*) AS c FROM {t}")
+            tables.append({"table": t, "rows": lcur.fetchone()["c"], "doc": TABLE_DOCS.get(t, ""), "columns": cols})
+        lconn.close()
+    except Exception as error:
+        print(f"[DB] learning tables not listed: {error}")
 
     return {
         "engine": "PostgreSQL" if USE_POSTGRES else "SQLite",
@@ -1326,8 +1493,25 @@ def user_analytics(authorization: str | None = Header(default=None)):
 # -------------------------
 # SEND OTP
 # -------------------------
+# Self-registration can be switched off for a class period (ALLOW_SELF_REGISTER=false): accounts
+# then come only from the teacher's roster import. Guest mode is not affected.
+ALLOW_SELF_REGISTER = bool_env("ALLOW_SELF_REGISTER", True)
+SELF_REGISTER_CLOSED = "Self-registration is closed. Please sign in with the account your teacher gave you. 目前不開放自行註冊，請使用老師提供的帳號登入。"
+
+
+def require_self_register():
+    if not ALLOW_SELF_REGISTER:
+        raise HTTPException(status_code=403, detail=SELF_REGISTER_CLOSED)
+
+
+@app.get("/auth/config")
+def auth_config():
+    return {"self_register": ALLOW_SELF_REGISTER}
+
+
 @app.post("/auth/send-otp")
 def send_otp(data: SendOTPIn):
+    require_self_register()
     email = normalize_email(data.email)
     enforce_rate_limit(SEND_OTP_RATE_LIMIT, f"email:{email}")
 
@@ -1401,6 +1585,7 @@ def verify_otp(data: VerifyOTPIn):
 # -------------------------
 @app.post("/auth/register")
 def register(data: RegisterIn, request: Request):
+    require_self_register()
     email = normalize_email(data.email)
     enforce_rate_limit(REGISTER_RATE_LIMIT, f"ip:{get_client_ip(request)}")
 
@@ -1442,8 +1627,10 @@ def register(data: RegisterIn, request: Request):
                 password_hash,
                 email_verified,
                 privacy_agreed,
-                role
-            ) VALUES (?, ?, ?, ?, ?, 1, ?, 'student')
+                role,
+                public_id,
+                account_source
+            ) VALUES (?, ?, ?, ?, ?, 1, ?, 'student', ?, 'self')
             """,
             (
                 data.name.strip(),
@@ -1452,16 +1639,14 @@ def register(data: RegisterIn, request: Request):
                 email,
                 hash_password(data.password),
                 1,
+                new_public_id(cur),
             ),
         )
 
         conn.commit()
 
     except Exception as error:
-        is_integrity_error = isinstance(error, sqlite3.IntegrityError) or (
-            psycopg is not None and isinstance(error, psycopg.IntegrityError)
-        )
-        if not is_integrity_error:
+        if not is_integrity_error(error):
             conn.close()
             raise
         conn.close()
@@ -1485,13 +1670,22 @@ def login(data: LoginIn, request: Request):
     cur.execute("SELECT * FROM users WHERE email = ?", (email,))
     user = cur.fetchone()
 
-    conn.close()
-
     if not user:
+        conn.close()
         raise HTTPException(status_code=400, detail="Account does not exist.")
 
     if not verify_password(data.password, user["password_hash"]):
+        conn.close()
         raise HTTPException(status_code=400, detail="Incorrect password.")
+
+    # Older accounts hold an unsalted hash: now that the password is known to be right, store the salted form.
+    if password_needs_upgrade(user["password_hash"]):
+        try:
+            execute_with_retry(cur, "UPDATE users SET password_hash = ? WHERE id = ?", (hash_password(data.password), user["id"]))
+            conn.commit()
+        except Exception as error:  # never block a sign-in on the upgrade
+            print(f"[AUTH] password hash upgrade failed for user {user['id']}: {error}")
+    conn.close()
 
     token = create_jwt(user["id"])
 
@@ -1518,8 +1712,39 @@ def login(data: LoginIn, request: Request):
             "email": user["email"],
             "username": user["name"],
             "role": user["role"],
+            "gender": user["gender"],
+            "must_change_password": bool(user["must_change_password"]),
         },
     }
+
+
+# -------------------------
+# CHANGE PASSWORD (signed-in user; required once for accounts made by a roster import)
+# -------------------------
+@app.post("/auth/change-password")
+def change_password(data: ChangePasswordIn, request: Request, authorization: str | None = Header(default=None)):
+    current = get_current_user(authorization)
+    enforce_rate_limit(LOGIN_RATE_LIMIT, f"ip:{get_client_ip(request)}")
+    if not validate_password(data.new_password):
+        raise HTTPException(status_code=400, detail="Password must be at least 8 characters and include letters and numbers. 密碼至少 8 個字，且要有英文字母和數字。")
+    if data.new_password == data.current_password:
+        raise HTTPException(status_code=400, detail="The new password must be different from the current one. 新密碼不能和目前的密碼相同。")
+
+    conn = get_db()
+    cur = conn.cursor()
+    cur.execute("SELECT password_hash FROM users WHERE id = ?", (current["id"],))
+    row = cur.fetchone()
+    if not row or not verify_password(data.current_password, row["password_hash"]):
+        conn.close()
+        raise HTTPException(status_code=400, detail="The current password is incorrect. 目前的密碼不正確。")
+    execute_with_retry(
+        cur,
+        "UPDATE users SET password_hash = ?, must_change_password = 0 WHERE id = ?",
+        (hash_password(data.new_password), current["id"]),
+    )
+    conn.commit()
+    conn.close()
+    return {"message": "Password changed.", "must_change_password": False}
 
 # -------------------------
 # ME
@@ -1533,7 +1758,7 @@ def me(authorization: str | None = Header(default=None)):
     cur = conn.cursor()
 
     cur.execute(
-        "SELECT id, name, email, gender, birth_date, email_verified, role, created_at FROM users WHERE id = ?",
+        "SELECT id, name, email, gender, birth_date, email_verified, role, created_at, public_id, must_change_password FROM users WHERE id = ?",
         (payload["user_id"],),
     )
     user = cur.fetchone()
@@ -2759,8 +2984,8 @@ def create_users_bulk(data: BulkUsersIn, authorization: str | None = Header(defa
         if cur.fetchone():
             skipped.append({"email": email, "reason": "exists"}); continue
         cur.execute(
-            "INSERT INTO users (name, gender, birth_date, email, password_hash, email_verified, privacy_agreed, role) VALUES (?, NULL, NULL, ?, ?, 1, 1, ?)",
-            (u.name.strip(), email, hash_password(u.password), role),
+            "INSERT INTO users (name, gender, birth_date, email, password_hash, email_verified, privacy_agreed, role, public_id, account_source) VALUES (?, NULL, NULL, ?, ?, 1, 1, ?, ?, 'bulk')",
+            (u.name.strip(), email, hash_password(u.password), role, new_public_id(cur)),
         )
         created.append({"email": email, "name": u.name.strip(), "role": role})
     conn.commit()
@@ -2797,9 +3022,18 @@ def delete_teacher_user(user_id: int, authorization: str | None = Header(default
     )
     cur.execute("DELETE FROM game_sessions WHERE user_id = ?", (user_id,))
     cur.execute("DELETE FROM email_otps WHERE email = ?", (target_user["email"],))
-    cur.execute("DELETE FROM users WHERE id = ?", (user_id,))
-    conn.commit()
-    conn.close()
+    try:
+        classroom.forget_user(cur, user_id)
+        recordings.forget_user(cur, user_id)
+        cur.execute("DELETE FROM users WHERE id = ?", (user_id,))
+        conn.commit()
+    except Exception as error:
+        conn.rollback()
+        if is_integrity_error(error):
+            raise HTTPException(status_code=409, detail="這個帳號還有其他資料連著，刪不掉。請先聯絡管理員。")
+        raise
+    finally:
+        conn.close()     # never leave the write lock behind
     return {"message": "user deleted"}
 
 
@@ -3005,9 +3239,70 @@ def delete_sdg_card(card_id: int, authorization: str | None = Header(default=Non
 # =========================
 # LEARNING ANALYTICS (3D story games) — own database, see backend/learning.py
 # =========================
+from backend import classroom
+classroom.configure(
+    get_db=get_db,
+    use_postgres=USE_POSTGRES,
+    auto_pk_sql=auto_pk_sql,
+    table_columns=table_columns,
+    execute_with_retry=execute_with_retry,
+    execute_insert_returning=execute_insert_returning,
+    is_integrity_error=is_integrity_error,
+    get_current_user=get_current_user,
+    require_teacher=require_teacher,
+    hash_password=hash_password,
+    validate_password=validate_password,
+    new_public_id=new_public_id,
+    normalize_email=normalize_email,
+    send_email=send_email,
+    now_taipei=now_taipei,
+    load_xlsx_rows=load_question_bank_rows,
+)
+app.include_router(classroom.router)
+
+from backend import recordings
+recordings.configure(
+    get_db=get_db,
+    use_postgres=USE_POSTGRES,
+    auto_pk_sql=auto_pk_sql,
+    table_columns=table_columns,
+    execute_with_retry=execute_with_retry,
+    execute_insert_returning=execute_insert_returning,
+    is_integrity_error=is_integrity_error,
+    get_current_user=get_current_user,
+    require_teacher=require_teacher,
+    now_taipei=now_taipei,
+    resolve_course=classroom.resolve_course,
+)
+app.include_router(recordings.router)
+
 from backend import learning
-learning.configure(get_current_user, require_teacher)
+learning.configure(
+    get_current_user,
+    require_teacher,
+    resolve_course=classroom.resolve_course_for_user,
+    on_finish=classroom.award_for_run,
+    people=classroom.people_for_report,
+    recordings=recordings.counts_by_user,
+)
 app.include_router(learning.router)
+
+from backend import learning_reports
+app.include_router(learning_reports.router)
+
+from backend import content_library
+content_library.configure(
+    get_db=get_db,
+    auto_pk_sql=auto_pk_sql,
+    execute_insert_returning=execute_insert_returning,
+    require_teacher=require_teacher,
+    now_taipei=now_taipei,
+    load_xlsx_rows=load_question_bank_rows,
+    frontend_dir=FRONTEND_DIR,
+    locked_topics=["9-2", "9-3", "13-2"],   # as in frontend/js/unlocks.js when the library was first filled
+)
+learning._auth["titles"] = content_library.card_titles   # card code -> slide title, for the Excel export
+app.include_router(content_library.router)
 
 # =========================
 # CREATE INITIAL ADMIN

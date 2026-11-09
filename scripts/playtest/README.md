@@ -1,0 +1,44 @@
+# Browser checks (playtest)
+
+These scripts drive a headless Chrome with real mouse clicks (`cdp.mjs`: Node 22+, no packages to
+install; it uses the Chromium that Playwright installed, or Chrome/Edge, or `CHROME_PATH`).
+A button that is covered, off screen or disabled cannot be clicked, so layout mistakes show up as failures.
+
+## 1. Start the backend on a throw-away database
+
+Never run these against `sql/app.db` or a real database: they create courses, students, runs and topics.
+
+Git Bash:
+
+```bash
+TMPDB=$(mktemp -d)
+CARDLEARN_SQLITE_DIR="$TMPDB" AUDIO_DIR="$TMPDB/audio" DATABASE_URL= LEARNING_DATABASE_URL= REDIS_URL= RESEND_API_KEY= \
+ALLOW_SELF_REGISTER=false INITIAL_ADMIN_EMAIL=admin@example.com INITIAL_ADMIN_PASSWORD=AdminPass123 PYTHONIOENCODING=utf-8 \
+.venv/Scripts/python.exe -m uvicorn backend.main:app --host 127.0.0.1 --port 8000 --log-level warning
+```
+
+## 2. Run
+
+```bash
+node scripts/playtest/card-game-tour.mjs .playwright-mcp/tour 1024x768,768x1024,390x844,360x640,1180x820
+node scripts/playtest/teacher-walkthrough.mjs .playwright-mcp/teacher-walk
+node scripts/playtest/library-walkthrough.mjs .playwright-mcp/library-walk
+```
+
+Each prints a JSON report that ends with `"problems": []` when everything is fine, and saves a
+screenshot of every step in the folder given (`.playwright-mcp/` is git-ignored).
+
+| Script | What it walks through |
+|---|---|
+| `card-game-tour.mjs` | Student: menu → mission card → every state of the table → wrong and right drops → switching parts → the three wrap-up steps, the optional quiz and reflection → a second run. Also fails if a sentence in hand is cut off or a title card is hidden under the dock. `TOPIC=9-1 LEVEL=B1` picks another topic. |
+| `teacher-walkthrough.mjs` | Makes a small class play (roster import, first sign-in, password change, runs with different mistakes, read-aloud upload), then the teacher's 學習紀錄: class → student → run → 語音 → Excel. |
+| `library-walkthrough.mjs` | 教材管理: tree, edit, checks, draft, publish, versions, delete and undo, new topic, import, preview in the game. |
+
+The speech in these runs is faked (it ends at once) and the microphone is Chrome's fake device.
+A real tablet with real sound still has to be tried by hand.
+
+## 3. How-to videos
+
+`node scripts/videos/make-videos.mjs` records the videos in `docs/videos/` (same backend as above,
+ideally a fresh database) and writes `操作說明.md` beside them. It needs the ffmpeg that Playwright
+installed (or `FFMPEG_PATH`).

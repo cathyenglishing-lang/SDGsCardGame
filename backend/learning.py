@@ -19,6 +19,7 @@ from __future__ import annotations
 
 import io
 import json
+import math
 import os
 import re
 import sqlite3
@@ -39,7 +40,8 @@ except ImportError:  # pragma: no cover
 router = APIRouter(prefix="/learning", tags=["learning"])
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-DB_PATH = BASE_DIR / "sql" / "learning.db"
+# CARDLEARN_SQLITE_DIR: see backend/main.py (tests and rehearsals use their own SQLite files).
+DB_PATH = Path(os.getenv("CARDLEARN_SQLITE_DIR", "").strip() or (BASE_DIR / "sql")) / "learning.db"
 # Own database when LEARNING_DATABASE_URL is set; otherwise share the platform's PostgreSQL
 # (separate tables) so production data survives redeploys; SQLite only when neither is set.
 DATABASE_URL = os.getenv("LEARNING_DATABASE_URL", "").strip() or os.getenv("DATABASE_URL", "").strip()
@@ -48,13 +50,22 @@ TAIPEI = timezone(timedelta(hours=8))
 STAGE_NAMES = ["Hook", "Problem", "Explain", "Impact", "Strategy", "Conclusion"]
 MAX_BATCH = 200
 
-_auth = {"current": None, "teacher": None}
+CARD_GAME = "pecha_kucha"
+
+_auth = {"current": None, "teacher": None, "course": None, "finish": None, "people": None, "recordings": None, "titles": None}
 
 
-def configure(get_current_user, require_teacher):
-    """Wire the platform's JWT helpers in (keeps this module free of main.py imports)."""
+def configure(get_current_user, require_teacher, resolve_course=None, on_finish=None, people=None, recordings=None):
+    """Wire the platform's helpers in (keeps this module free of main.py imports).
+    resolve_course(user_id, requested_course_id) -> (course_id, section_id)
+    on_finish(run, score, context) -> chip summary or None      (backend/classroom.py)
+    people(course_id, section_id) -> {user_id: {name, student_no, public_id, section, ...}}"""
     _auth["current"] = get_current_user
     _auth["teacher"] = require_teacher
+    _auth["course"] = resolve_course
+    _auth["finish"] = on_finish
+    _auth["people"] = people
+    _auth["recordings"] = recordings      # (course_id) -> {user_id: {total, new}} voice recordings sent to the teacher
 
 
 # ── database ──
@@ -75,6 +86,10 @@ class _Cur:
 
     def fetchall(self):
         return self.cur.fetchall()
+
+    @property
+    def rowcount(self):
+        return self.cur.rowcount
 
 
 def get_db():
@@ -138,8 +153,24 @@ def init_db():
     cur.execute("CREATE INDEX IF NOT EXISTS idx_learning_events_type ON learning_events(type)")
     cur.execute("CREATE INDEX IF NOT EXISTS idx_learning_runs_user ON learning_runs(user_id)")
     cur.execute("CREATE INDEX IF NOT EXISTS idx_learning_runs_started ON learning_runs(started_at)")
+    # 2026-11: which course a run belongs to, the question-bank version it used, and a client id
+    # so a "start run" that is sent again after a network failure opens one run, not two.
+    have = _columns(cur, "learning_runs")
+    for name, ddl in (("course_id", "INTEGER"), ("section_id", "INTEGER"), ("content_version", "INTEGER"), ("client_id", "TEXT")):
+        if name not in have:
+            cur.execute(f"ALTER TABLE learning_runs ADD COLUMN {name} {ddl}")
+    cur.execute("CREATE UNIQUE INDEX IF NOT EXISTS idx_learning_runs_client ON learning_runs(client_id)")
+    cur.execute("CREATE INDEX IF NOT EXISTS idx_learning_runs_course ON learning_runs(course_id)")
     conn.commit()
     conn.close()
+
+
+def _columns(cur, table):
+    if USE_POSTGRES:
+        cur.execute("SELECT column_name FROM information_schema.columns WHERE table_schema = 'public' AND table_name = ?", (table,))
+        return [r["column_name"] for r in cur.fetchall()]
+    cur.execute(f"PRAGMA table_info({table})")
+    return [r["name"] for r in cur.fetchall()]
 
 
 def _insert(cur, sql, params, id_col="id"):
@@ -154,12 +185,90 @@ def _now():
     return datetime.now(TAIPEI).isoformat(timespec="seconds")
 
 
-def _optional_user(authorization):
+INT_MAX = 2_000_000_000     # PostgreSQL INTEGER; a larger number from a browser is cut to this
+
+
+def _int(v, default=0):
+    try:
+        v = float(v)
+        return int(min(max(v, -INT_MAX), INT_MAX)) if math.isfinite(v) else default
+    except (TypeError, ValueError):
+        return default
+
+
+def _text(v, limit):
+    """Text as PostgreSQL will take it (no NUL character), cut to the column's size."""
+    return str(v).replace("\x00", "")[:limit] if v is not None else None
+
+
+def json_safe(v, depth=0):
+    """Whatever a browser sent, made safe to store and to send back as JSON:
+    no NaN or Infinity, no NUL character, nothing absurdly large or deep."""
+    if v is None or isinstance(v, bool):
+        return v
+    if isinstance(v, int):
+        return v if abs(v) <= 10 ** 15 else None
+    if isinstance(v, float):
+        return v if math.isfinite(v) else None
+    if isinstance(v, str):
+        return v.replace("\x00", "")
+    if depth >= 6:
+        return None
+    if isinstance(v, dict):
+        return {str(k).replace("\x00", "")[:80]: json_safe(x, depth + 1) for k, x in list(v.items())[:200]}
+    if isinstance(v, (list, tuple)):
+        return [json_safe(x, depth + 1) for x in list(v)[:500]]
+    return None
+
+
+def excel_cell(v):
+    """A value for an Excel cell. Text a student typed must stay text: a cell that starts with
+    = + - or @ would otherwise be run as a formula when the teacher opens the file."""
+    if v is None:
+        return ""
+    if isinstance(v, (dict, list)):
+        v = json.dumps(v, ensure_ascii=False)
+    if isinstance(v, str):
+        v = "".join(ch for ch in v if ch >= " " or ch in "\t\n")[:32000]
+        if v[:1] in ("=", "+", "-", "@"):
+            v = "'" + v
+    return v
+
+
+_ID_KEYS = ("card", "clip")                                              # ids: text or nothing
+_NUM_KEYS = ("k", "rt_ms", "seconds", "sec", "wpm", "ratio", "coverage")   # numbers or nothing
+
+
+def clean_data(d):
+    """Event data is whatever the browser sent; runs can be anonymous, so anyone can send anything.
+    The reports rely on a few fields having the right type. A field of the wrong type is dropped here
+    (when stored and again when read), so one forged event cannot break a class report."""
+    d = json_safe(d)
+    if not isinstance(d, dict):
+        return {}
+    for k in _ID_KEYS:
+        if k in d and not isinstance(d[k], str):
+            d.pop(k)
+    for k in _NUM_KEYS:
+        if k in d and (isinstance(d[k], bool) or not isinstance(d[k], (int, float))):
+            d.pop(k)
+    if isinstance(d.get("target"), (dict, list, bool)):    # a card id in card.drop, seconds in wrap.read.done
+        d.pop("target")
+    if isinstance(d.get("part"), (dict, list)):
+        d.pop("part")
+    return d
+
+
+def _optional_user(authorization, strict=False):
+    """No token means an anonymous player. strict: a token that is no longer valid is an error
+    (the browser thinks it is signed in; storing the run as anonymous would lose it for the student)."""
     if not authorization or not _auth["current"]:
         return None
     try:
         return _auth["current"](authorization)
     except HTTPException:
+        if strict:
+            raise HTTPException(status_code=401, detail="請重新登入")
         return None
 
 
@@ -175,8 +284,11 @@ class RunStartIn(BaseModel):
     chapter: str = "9-1"
     level: str = "A2"
     avatar: str | None = None
-    username: str | None = None
+    username: str | None = None      # ignored: a run carries a name only when the player is signed in
     client: str | None = None
+    client_id: str | None = None     # made by the browser; the same start sent twice opens one run
+    course_id: int | None = None     # a request; the server decides from the student's enrolments
+    content_version: int | None = None
 
 
 class EventIn(BaseModel):
@@ -206,27 +318,68 @@ class RunFinishIn(BaseModel):
 # ── student endpoints ──
 @router.post("/runs")
 def start_run(data: RunStartIn, authorization: str | None = Header(default=None)):
-    user = _optional_user(authorization)
+    # The card game's page knows what to do with 401 (it keeps the data and asks the student to sign in).
+    user = _optional_user(authorization, strict=data.game == CARD_GAME)
+    client_id = _text((data.client_id or "").strip(), 64) or None
     conn, cur = get_db()
-    run_id = _insert(cur, """
-        INSERT INTO learning_runs (user_id, username, game, chapter, level, avatar, client, started_at)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?)""",
-        (user["id"] if user else None,
-         (user.get("name") if user else None) or (data.username or "anonymous")[:80],
-         data.game[:40], data.chapter[:20], data.level[:8], (data.avatar or "")[:20], (data.client or "")[:200], _now()))
-    conn.commit()
+
+    def existing():
+        cur.execute("SELECT id, user_id, course_id FROM learning_runs WHERE client_id = ?", (client_id,))
+        old = cur.fetchone()
+        if not old:
+            return None
+        if old["user_id"] is not None and (not user or user["id"] != old["user_id"]):
+            conn.close()
+            raise HTTPException(status_code=403, detail="not your run")
+        return {"run_id": old["id"], "course_id": old["course_id"], "duplicate": True}
+
+    if client_id:
+        old = existing()
+        if old:  # the browser did not hear our first answer and is asking again
+            conn.close()
+            return old
+    course_id = section_id = None
+    if user and _auth["course"]:
+        course_id, section_id = _auth["course"](user["id"], data.course_id)
+    try:
+        run_id = _insert(cur, """
+            INSERT INTO learning_runs (user_id, username, game, chapter, level, avatar, client, started_at,
+                                       course_id, section_id, content_version, client_id)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+            (user["id"] if user else None,
+             # Only a signed-in player gets a name on the run; a name typed into a request is not used.
+             (user.get("name") or user.get("email")) if user else "anonymous",
+             _text(data.game, 40), _text(data.chapter, 20), _text(data.level, 8), _text(data.avatar or "", 20), _text(data.client or "", 200), _now(),
+             course_id, section_id, _int(data.content_version, None) if data.content_version is not None else None, client_id))
+        conn.commit()
+    except Exception:
+        # Two identical starts arrived together and the other one won the unique client_id.
+        conn.rollback()
+        old = existing() if client_id else None
+        conn.close()
+        if old:
+            return old
+        raise
     conn.close()
-    return {"run_id": run_id}
+    return {"run_id": run_id, "course_id": course_id}
 
 
-def _own_run(cur, run_id, user):
-    cur.execute("SELECT id, user_id, ended_at FROM learning_runs WHERE id = ?", (run_id,))
-    run = cur.fetchone()
+def _own_run(cur, run_id, user, conn=None):
+    """A run that belongs to an account can be written only with that account's token.
+    A run nobody owns (played without signing in) stays writable by whoever holds its id."""
+    run = None
+    if 0 < run_id <= INT_MAX:
+        cur.execute("SELECT * FROM learning_runs WHERE id = ?", (run_id,))
+        run = cur.fetchone()
     if not run:
+        if conn is not None:
+            conn.close()
         raise HTTPException(status_code=404, detail="run not found")
-    if run["user_id"] is not None and user and run["user_id"] != user["id"]:
+    if run["user_id"] is not None and (not user or run["user_id"] != user["id"]):
+        if conn is not None:
+            conn.close()
         raise HTTPException(status_code=403, detail="not your run")
-    return run
+    return dict(run)
 
 
 @router.post("/events")
@@ -235,23 +388,22 @@ def post_events(data: EventsIn, authorization: str | None = Header(default=None)
         raise HTTPException(status_code=400, detail=f"at most {MAX_BATCH} events per batch")
     user = _optional_user(authorization)
     conn, cur = get_db()
-    _own_run(cur, data.run_id, user)
+    _own_run(cur, data.run_id, user, conn)
     stored = 0
     for e in data.events:
-        payload = json.dumps(e.data, ensure_ascii=False)[:4000] if e.data else None
-        try:
-            cur.execute("""
-                INSERT INTO learning_events (run_id, seq, t_ms, stage, node, activity, type, detail, data_json, created_at)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
-                (data.run_id, e.seq, int((e.t or 0) * 1000), str(e.stage) if e.stage is not None else None,
-                 (e.node or None), (e.activity or None), e.type[:40], (e.detail or "")[:500], payload, _now()))
+        clean = clean_data(e.data) if e.data else None
+        payload = json.dumps(clean, ensure_ascii=False) if clean else None
+        if payload and len(payload) > 4000:      # cut text would not be JSON any more: keep the small fields
+            payload = json.dumps({k: v for k, v in clean.items() if not isinstance(v, (dict, list)) and len(str(v)) <= 300}, ensure_ascii=False)[:4000]
+        # An event that is already there (the browser retried) is skipped on its own. Catching the
+        # error instead would, on PostgreSQL, throw away the whole batch written so far.
+        cur.execute("""
+            INSERT INTO learning_events (run_id, seq, t_ms, stage, node, activity, type, detail, data_json, created_at)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ON CONFLICT(run_id, seq) DO NOTHING""",
+            (data.run_id, _int(e.seq), _int((e.t or 0) * 1000), _text(e.stage, 40),
+             _text(e.node or None, 80), _text(e.activity or None, 80), _text(e.type, 40), _text(e.detail or "", 500), payload, _now()))
+        if cur.rowcount and cur.rowcount > 0:
             stored += 1
-        except Exception as err:  # duplicate seq → already stored (client retried)
-            if "UNIQUE" in str(err).upper() or "duplicate" in str(err).lower():
-                if USE_POSTGRES:
-                    conn.rollback()
-                continue
-            raise
     cur.execute("UPDATE learning_runs SET event_count = event_count + ? WHERE id = ?", (stored, data.run_id))
     conn.commit()
     conn.close()
@@ -262,16 +414,161 @@ def post_events(data: EventsIn, authorization: str | None = Header(default=None)
 def finish_run(run_id: int, data: RunFinishIn, authorization: str | None = Header(default=None)):
     user = _optional_user(authorization)
     conn, cur = get_db()
-    _own_run(cur, run_id, user)
+    run = _own_run(cur, run_id, user, conn)
+    ended_at = run.get("ended_at") or _now()  # sent twice: the first ending time stays
+    metrics = json_safe(dict(data.metrics or {})) or {}
+    data.vars, data.stars, data.route = json_safe(data.vars or {}), json_safe(data.stars or {}), json_safe(data.route or [])
+    score = context = None
+    if run["game"] == CARD_GAME:
+        score = score_events(_events_of(cur, run_id))
+        metrics.update({k: score[k] for k in ("score", "scored_cards", "first_try_correct", "matched", "dealt", "complete", "repeats", "median_rt_ms", "flags", "wrap")})
     cur.execute("""
         UPDATE learning_runs SET ended_at = ?, ending = ?, vars_json = ?, stars_json = ?, metrics_json = ?, route_json = ?
         WHERE id = ?""",
-        (_now(), (data.ending or "")[:40], json.dumps(data.vars or {}, ensure_ascii=False)[:4000],
-         json.dumps(data.stars or {})[:1000], json.dumps(data.metrics or {}, ensure_ascii=False)[:4000],
+        (ended_at, _text(data.ending or "", 40), json.dumps(data.vars or {}, ensure_ascii=False)[:4000],
+         json.dumps(data.stars or {})[:1000], json.dumps(metrics, ensure_ascii=False)[:4000],
          json.dumps(data.route or [])[:2000], run_id))
+    if run["user_id"] is not None:
+        context = _run_context(cur, run, ended_at)
     conn.commit()
     conn.close()
-    return {"message": "run finished"}
+    chips = None
+    if run["user_id"] is not None and _auth["finish"]:
+        try:
+            chips = _auth["finish"]({**run, "metrics": metrics, "stars": data.stars or {}}, score, context or {})
+        except Exception as err:  # the run is saved; a chip problem must not look like a lost result
+            print(f"[LEARNING] chips for run {run_id} failed: {err}")
+    return {"message": "run finished", "saved": True, "score": score, "chips": chips, "history": context}
+
+
+def _events_of(cur, run_id):
+    cur.execute("SELECT seq, t_ms, stage, node, type, detail, data_json, created_at FROM learning_events WHERE run_id = ? ORDER BY seq", (run_id,))
+    out = []
+    for e in cur.fetchall():
+        d = dict(e)
+        d["data"] = clean_data(_loads(d.pop("data_json"), None))
+        out.append(d)
+    return out
+
+
+def _run_context(cur, run, ended_at):
+    """What the chip rules and the wrap-up need to know about this player's earlier runs of the topic."""
+    cur.execute("""
+        SELECT id, level, ended_at, metrics_json FROM learning_runs
+        WHERE user_id = ? AND game = ? AND chapter = ? AND ended_at IS NOT NULL AND id <> ? ORDER BY ended_at DESC""",
+        (run["user_id"], run["game"], run["chapter"], run["id"]))
+    # The short station inside the 3D game is not a card-game run of its own: it does not count as
+    # "played today", as the previous run or as a personal best.
+    earlier = [r for r in (dict(x) for x in cur.fetchall()) if not _loads(r["metrics_json"], {}).get("embed")]
+    today = str(ended_at)[:10]
+    days = None
+    start = _parse_ts(run["started_at"])
+    prev = _parse_ts(earlier[0]["ended_at"]) if earlier else None
+    if start and prev:
+        days = round((start - prev).total_seconds() / 86400, 2)
+    scores = [m.get("score") for m in (_loads(r["metrics_json"], {}) for r in earlier if r["level"] == run["level"]) if isinstance(m.get("score"), (int, float))]
+    return {"runs_before": len(earlier), "days_since_previous": days,
+            "finished_today_same": sum(1 for r in earlier if r["level"] == run["level"] and str(r["ended_at"])[:10] == today),
+            "best_before": max(scores) if scores else None, "previous_score": scores[0] if scores else None}
+
+
+# ── card game scoring (2026-11-08 design, KPI 1) ──
+def score_events(events):
+    """The "understood" score of one card-game run, from its card.drop events.
+    Each card counts once, by its first drop: x = 1 if that drop was right. k is how many title
+    cards were still open on the table (distractor included). Guessing gets 1/k right, so
+        s = (x - 1/k) / (1 - 1/k)      for k >= 2;  cards with k = 1 are left out
+    and the score is the mean of s as 0-100 (never below 0). Random play averages 0."""
+    first, wrong_times, confusion = {}, defaultdict(list), Counter()
+    dealt, matched, repeats, finished = set(), set(), 0, False
+    # The wrap-up after the matching (steps of the 2026-11-08 design); each part pays its own chips.
+    wrap = {"done": False, "remedy_ok": False, "quiz_correct": 0, "quiz_total": 0, "read_done": False, "reflect_done": False}
+    quiz_seen = set()
+    for e in events:
+        t, d = e["type"], clean_data(e.get("data"))
+        if t == "wrap.done":
+            wrap["done"] = True
+        elif t == "wrap.remedy.done":
+            wrap["remedy_ok"] = wrap["remedy_ok"] or bool(d.get("all_correct"))
+        elif t == "wrap.quiz.answer" and d.get("card") and d["card"] not in quiz_seen and len(quiz_seen) < 5:
+            quiz_seen.add(d["card"])
+            wrap["quiz_total"] += 1
+            wrap["quiz_correct"] += 1 if d.get("correct") else 0
+        elif t == "wrap.read.done":
+            wrap["read_done"] = True
+        elif t == "wrap.reflect":
+            wrap["reflect_done"] = wrap["reflect_done"] or (bool(d.get("answer")) and len(str(d.get("sentence") or "").split()) >= 3)
+        elif t == "card.deal" and d.get("card"):
+            dealt.add(d["card"])
+        elif t == "card.repeat":
+            repeats += 1
+        elif t == "run.finish":
+            finished = True
+        elif t == "card.drop" and d.get("card"):
+            card = d["card"]
+            if card not in first:
+                first[card] = {"correct": bool(d.get("correct")), "k": _int(d.get("k")), "rt_ms": d.get("rt_ms"), "target": d.get("target")}
+            if d.get("correct"):
+                matched.add(card)
+            else:
+                wrong_times[card].append(e.get("t_ms") or 0)
+                if isinstance(d.get("target"), str) and d["target"]:
+                    confusion[(card, d["target"])] += 1
+    s_values = [((1 if f["correct"] else 0) - 1 / f["k"]) / (1 - 1 / f["k"]) for f in first.values() if f["k"] >= 2]
+    score = int(max(0.0, sum(s_values) / len(s_values)) * 100 + 0.5) if s_values else None  # half rounds up, as in the browser
+    rts = sorted(f["rt_ms"] for f in first.values() if isinstance(f["rt_ms"], (int, float)))
+    median_rt = rts[len(rts) // 2] if rts else None
+    flags = []
+    # KPI 21: the same sentence put on three wrong cards within 10 seconds reads as trial and error.
+    for times in wrong_times.values():
+        if any(times[i + 2] - times[i] <= 10000 for i in range(len(times) - 2)):
+            flags.append("trial_and_error")
+            break
+    # Provisional rule until a class has 20 runs to compare with (KPI 20): very fast and very right.
+    if score is not None and score >= 80 and median_rt is not None and median_rt < 1500 and len(rts) >= 6:
+        flags.append("fast_and_high")
+    return {"score": score, "scored_cards": len(s_values), "first_try_correct": sum(1 for f in first.values() if f["correct"]),
+            "matched": len(matched), "dealt": len(dealt), "complete": bool(finished and dealt and matched >= dealt),
+            "repeats": repeats, "median_rt_ms": median_rt, "flags": flags, "held": bool(flags), "wrap": wrap,
+            "wrong_first": sorted(c for c, f in first.items() if not f["correct"]),
+            "confusion": [{"card": c, "target": t, "n": n} for (c, t), n in confusion.most_common(10)]}
+
+
+def run_score(run_id, user_id):
+    """Score of a run, only if it is this user's (used when the card game files its result)."""
+    conn, cur = get_db()
+    try:
+        cur.execute("SELECT user_id, game FROM learning_runs WHERE id = ?", (run_id,))
+        run = cur.fetchone()
+        if not run or run["user_id"] != user_id or run["game"] != CARD_GAME:
+            return None
+        return score_events(_events_of(cur, run_id))["score"]
+    finally:
+        conn.close()
+
+
+@router.get("/pk/me")
+def my_card_history(chapter: str, level: str | None = None, authorization: str | None = Header(default=None)):
+    """A signed-in student's own history of one card-game topic: how many runs, the best score, and
+    the cards missed on the first try last time (the next run brings those back)."""
+    if not _auth["current"]:
+        raise HTTPException(status_code=500, detail="learning module not configured")
+    user = _auth["current"](authorization)
+    conn, cur = get_db()
+    cur.execute("""
+        SELECT id, level, started_at, ended_at, metrics_json, content_version FROM learning_runs
+        WHERE user_id = ? AND game = ? AND chapter = ? AND ended_at IS NOT NULL ORDER BY ended_at DESC LIMIT 50""",
+        (user["id"], CARD_GAME, chapter))
+    runs = [r for r in (dict(x) for x in cur.fetchall()) if not _loads(r["metrics_json"], {}).get("embed")]
+    same = [r for r in runs if not level or r["level"] == level]
+    last = same[0] if same else None
+    review = score_events(_events_of(cur, last["id"]))["wrong_first"] if last else []
+    conn.close()
+    scores = [m.get("score") for m in (_loads(r["metrics_json"], {}) for r in same) if isinstance(m.get("score"), (int, float))]
+    return {"chapter": chapter, "level": level, "runs": len(same), "runs_all_levels": len(runs),
+            "best_score": max(scores) if scores else None, "last_score": scores[0] if scores else None,
+            "last_finished_at": last["ended_at"] if last else None, "last_version": last["content_version"] if last else None,
+            "review_cards": review}
 
 
 # ── aggregation ──
@@ -286,8 +583,9 @@ def _numeric_stars(stars: dict):
     return [v for v in stars.values() if isinstance(v, (int, float))]
 
 
-def _filters(chapter, level, date_from, date_to, user):
-    where, params = [], []
+def _filters(chapter, level, date_from, date_to, user, game=None):
+    # game=None: the 3D story games (every run that is not the card game, which has its own report)
+    where, params = (["r.game = ?"], [game]) if game else (["r.game <> ?"], [CARD_GAME])
     if chapter:
         where.append("r.chapter = ?"); params.append(chapter)
     if level:
@@ -605,8 +903,13 @@ def run_events(run_id: int, authorization: str | None = Header(default=None)):
     conn.close()
     for e in evs:
         e["data"] = _loads(e.pop("data_json"), None)
-    summary = _summarize_run(dict(run), evs)
-    flags, _ = _run_flags(dict(run), evs)
+    if run["game"] == CARD_GAME:
+        from backend import learning_reports
+        summary = learning_reports.card_summary(dict(run), evs)
+        flags = [(f, 1, f) for f in score_events(evs)["flags"]]
+    else:
+        summary = _summarize_run(dict(run), evs)
+        flags, _ = _run_flags(dict(run), evs)
     run = dict(run)
     for k in ("vars_json", "stars_json", "metrics_json", "route_json"):
         run[k.replace("_json", "")] = _loads(run.pop(k), None)
@@ -640,7 +943,7 @@ def export_xlsx(authorization: str | None = Header(default=None), chapter: str |
         for c in ws[1]:
             c.font, c.fill = head_font, head_fill
         for r in rows:
-            ws.append([("" if v is None else (json.dumps(v, ensure_ascii=False) if isinstance(v, (dict, list)) else v)) for v in r])
+            ws.append([excel_cell(v) for v in r])
         for i, h in enumerate(headers, 1):
             ws.column_dimensions[get_column_letter(i)].width = min(60, max(12, len(str(h)) + 4))
         ws.freeze_panes = "A2"

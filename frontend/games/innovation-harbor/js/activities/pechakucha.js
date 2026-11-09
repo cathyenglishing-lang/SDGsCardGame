@@ -3,7 +3,7 @@
 import { esc, wait, cleanTitle, starsFromRatio, pick } from "../util.js";
 import { S } from "../state.js";
 import { log } from "../telemetry.js";
-import { listen, recordClip, detectSpeech, speechFailed } from "../speech.js";
+import { listen, recordClip, sendClip, detectSpeech, speechFailed } from "../speech.js";
 import { coverage } from "../vocab.js";
 import { openSheet, closeSheet, finishRow, addStars, hintP } from "../ui/sheet.js";
 import { tiersHtml, micHelp } from "./speaking.js";
@@ -54,8 +54,20 @@ export async function actPechaKucha(slides, { player, audience, mei }) {
     pk.innerHTML = `<audio controls src="${clip.url}" style="width:100%"></audio><div class="row"><button class="btn" type="button" id="send">Send to teacher ▸</button><button class="btn ghost" type="button" id="redo">Present again</button></div>`;
     const a = await new Promise(r => { pk.querySelector("#send").onclick = () => r("send"); pk.querySelector("#redo").onclick = () => r("redo"); });
     if (a === "redo") { pk.innerHTML = ""; continue; }
-    log("pk.record", `full talk ${clip.sec} s (${clip.kb} KB) awaiting teacher`, { sec: clip.sec, kb: clip.kb });
-    result = { pending: true }; break;
+    // A failed send can be tried again (the talk is 4–7 minutes long: it must not be lost to one bad moment).
+    let sent = null;
+    for (;;) {
+      pk.innerHTML = `<p class="hint">Sending to your teacher…</p>`;
+      sent = await sendClip(clip, { game: "innovation-harbor", topic_id: S.chapter || "9-1", level: S.level, label: "pecha-kucha full talk" });
+      if (sent.ok || sent.reason === "guest" || sent.reason === "declined") break;
+      pk.innerHTML = `<audio controls src="${clip.url}" style="width:100%"></audio><p class="hint" style="color:var(--bad)">Not sent yet: ${esc(sent.message || "the recording could not be sent.")} 錄音還沒送出。</p>
+        <div class="row"><button class="btn" type="button" id="again">Send again ▸ 再送一次</button><button class="btn ghost" type="button" id="giveup">Continue without sending 不送了</button></div>`;
+      const b = await new Promise(r => { pk.querySelector("#again").onclick = () => r("again"); pk.querySelector("#giveup").onclick = () => r("giveup"); });
+      if (b === "giveup") break;
+    }
+    log("pk.record", `full talk ${clip.sec} s (${clip.kb} KB) ${sent.ok ? "sent to teacher" : "not sent"}`, { sec: clip.sec, kb: clip.kb, uploaded: !!sent.ok, recording_id: sent.id || null });
+    if (!sent.ok) pk.innerHTML = `<p class="hint">${sent.reason === "guest" ? "Not sent: sign in to send recordings to your teacher. 登入後才能送給老師。" : "Not sent: the recording stays on this device only. 錄音沒有送出，只留在這台裝置。"}</p>`;
+    result = { pending: true, sent: !!sent.ok }; break;
   }
   drawScreen("THANK YOU", "Innovation Harbor", "Can We Trust AI? · Presented by the Sustainability Envoy");
   if (!result.skipped) { shot([27, 5.2, 17.5], [27, 2.4, 4]); applause(4); audience.forEach((a, i) => setTimeout(() => a.play("react"), i * 120)); mei?.play("react"); }
@@ -65,7 +77,8 @@ export async function actPechaKucha(slides, { player, audience, mei }) {
     await finishRow(body, n, "In the full version this step also sends the recording for cloud pronunciation scoring and to the teacher.", "正式版會同時送雲端發音評分，並把錄音交給老師。");
     closeSheet(); addStars(n, "Presentation");
   } else if (result.pending) {
-    await finishRow(body, "pending", "Your talk was sent. Stars arrive after the teacher grades it.", "發表錄音已送出，星數等老師評分後補上。");
+    if (result.sent) await finishRow(body, "pending", "Your talk was sent. Stars arrive after the teacher grades it.", "發表錄音已送出，星數等老師評分後補上。");
+    else await finishRow(body, "pending", "Your talk was NOT sent to your teacher, so this step has no stars yet.", "發表錄音沒有送給老師，這一關暫時沒有星數。");
     closeSheet(); addStars("pending", "Presentation");
   } else {
     log("pk.skip", "presentation skipped (no microphone)", {});

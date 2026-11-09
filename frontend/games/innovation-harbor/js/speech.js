@@ -92,7 +92,7 @@ export async function recordClip(ms, onStart) {
   let stream;
   try { stream = await navigator.mediaDevices.getUserMedia({ audio: true }); }
   catch (e) { return { ok: false, code: "not-allowed" }; }
-  const rec = new MediaRecorder(stream); const chunks = []; const t0 = performance.now();
+  const rec = new MediaRecorder(stream, (window.CardLearnVoice && window.CardLearnVoice.recorderOptions) || {}); const chunks = []; const t0 = performance.now();
   rec.ondataavailable = e => e.data.size && chunks.push(e.data);
   return new Promise(res => {
     let tm;
@@ -100,7 +100,7 @@ export async function recordClip(ms, onStart) {
     rec.onstop = () => {
       clearTimeout(tm); stream.getTracks().forEach(t => t.stop());
       const blob = new Blob(chunks, { type: rec.mimeType || "audio/webm" });
-      res({ ok: true, url: URL.createObjectURL(blob), sec: Math.round((performance.now() - t0) / 1000), kb: Math.round(blob.size / 1024) });
+      res({ ok: true, blob, url: URL.createObjectURL(blob), sec: Math.round((performance.now() - t0) / 1000), kb: Math.round(blob.size / 1024) });
     };
     recordClip.stop = finish; rec.start(); onStart && onStart(); tm = setTimeout(finish, ms);
   });
@@ -113,4 +113,13 @@ export function speechFailed(code) {
     S.speech = CAN_RECORD ? "record" : "none"; log("speech.tier", `recognition unavailable (${code}) → ${SPEECH_LABEL[S.speech]}`); return true;
   }
   return false;
+}
+
+// Send a recorded clip to the teacher (frontend/js/voice.js → backend/recordings.py). Until 2026-11
+// "Send to teacher" only wrote a log line and the audio never left the browser.
+// Resolves { ok, id? , message? }; guests and signed-out players get ok:false with the reason.
+export async function sendClip(clip, meta) {
+  const V = window.CardLearnVoice;
+  if (!V || !clip || !clip.blob) return { ok: false, message: "Recording could not be sent." };
+  return V.send(clip.blob, { seconds: clip.sec, ...meta });
 }

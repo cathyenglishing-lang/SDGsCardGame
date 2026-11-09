@@ -4,6 +4,8 @@
 
 Current state, decisions, deployment map and rules for this project: `docs/handoff/` (newest file first, starting with `2026-10-14-innovation-harbor-handoff.md`). Pushing to `main` deploys to production (www.cathylanguagehub.com) — work on a branch and confirm with the owner before merging.
 
+Newest work (2026-11-09, branch `company/card-game-learning`, not merged): `docs/handoff/2026-11-09-card-game-closed-loop.md` — card game closed loop (events, saved results, wrap-up, chips), courses and roster import, what is still open.
+
 Newest plans (2026-11, branch `claude/class-roster-learning-data`): `docs/handoff/2026-11-08-card-game-learning-design.md` (card game design, KPIs, data rules, research plan, global chips) and `docs/handoff/2026-11-04-class-roster-learning-data-plan.md` (courses, roster import, learner IDs, content checks).
 
 ## Project Shape
