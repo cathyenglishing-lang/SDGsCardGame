@@ -65,7 +65,7 @@ def configure(get_current_user, require_teacher, resolve_course=None, on_finish=
     _auth["course"] = resolve_course
     _auth["finish"] = on_finish
     _auth["people"] = people
-    _auth["recordings"] = recordings      # (course_id) -> {user_id: {total, new}} voice recordings sent to the teacher
+    _auth["recordings"] = recordings      # (course_id, game) -> {user_id: {total, new}} voice recordings sent to the teacher
 
 
 # ── database ──

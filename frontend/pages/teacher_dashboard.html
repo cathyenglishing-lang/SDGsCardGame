@@ -525,23 +525,53 @@ textarea {
 }
 
 /* ===== Admin console: sidebar nav + shared widgets ===== */
-.side-nav{position:fixed;top:74px;left:0;bottom:0;width:236px;overflow-y:auto;padding:18px 12px 30px;
-  border-right:1px solid var(--navy-2);background:var(--navy);display:flex;flex-direction:column;gap:2px;z-index:4;}
-.side-brand{font-weight:900;font-size:15px;padding:4px 12px 14px;display:flex;flex-direction:column;color:#fff;}
-.side-brand span{font-size:11px;color:var(--nav-mut);font-weight:700;letter-spacing:.05em;margin-top:2px;}
-.side-sep{font-size:10.5px;text-transform:uppercase;color:var(--nav-mut);padding:16px 12px 6px;letter-spacing:.1em;font-weight:800;}
-.nav-item{display:flex;align-items:center;gap:11px;width:100%;text-align:left;border:0;background:transparent;color:var(--nav-txt);
-  padding:10px 12px;border-radius:9px;cursor:pointer;font-weight:650;font-size:13.5px;font-family:inherit;transition:background .15s,color .15s;}
-.nav-item:hover{background:rgba(255,255,255,.08);color:#fff;}
-.nav-item.active{background:var(--accent);color:#fff;box-shadow:inset 3px 0 0 var(--gold);}
-.nav-item .ni{width:20px;height:20px;flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;opacity:.9;}
+.side-nav{position:fixed;top:74px;left:0;bottom:0;width:236px;overflow-y:auto;overscroll-behavior:contain;padding:18px 12px 30px;
+  border-right:1px solid var(--navy-2);background:linear-gradient(180deg,var(--navy) 0%,#1a3253 100%);display:flex;flex-direction:column;gap:4px;z-index:4;
+  scrollbar-width:thin;scrollbar-color:rgba(255,255,255,.18) transparent;}
+.side-brand{font-weight:900;font-size:15px;padding:4px 12px 12px;display:flex;flex-direction:column;color:#fff;}
+.side-brand span{font-size:11.5px;color:var(--nav-mut);font-weight:700;letter-spacing:.03em;margin-top:3px;}
+/* the sliding highlight behind the chosen item */
+.nav-ind{position:absolute;left:12px;right:12px;top:0;height:42px;border-radius:11px;pointer-events:none;opacity:0;
+  background:linear-gradient(90deg,var(--accent),#3a82d6);box-shadow:0 6px 18px rgba(12,30,60,.35),inset 3px 0 0 var(--gold);
+  transition:transform .42s cubic-bezier(.22,1,.36,1),height .42s cubic-bezier(.22,1,.36,1),opacity .25s;}
+.nav-ind.on{opacity:1;}
+.nav-ind.still{transition:none;}
+.nav-group{display:flex;flex-direction:column;}
+.nav-head{display:flex;align-items:center;justify-content:space-between;width:100%;border:0;background:none;cursor:pointer;font-family:inherit;
+  color:var(--nav-mut);font-size:11.5px;font-weight:800;letter-spacing:.12em;padding:14px 12px 6px;border-radius:8px;transition:color .2s;}
+.nav-head:hover{color:#fff;}
+.nav-head i{display:inline-flex;width:14px;height:14px;transition:transform .35s cubic-bezier(.22,1,.36,1);}
+.nav-head i svg{width:14px;height:14px;}
+.nav-group.closed .nav-head i{transform:rotate(-90deg);}
+.nav-list{display:grid;grid-template-rows:1fr;transition:grid-template-rows .38s cubic-bezier(.22,1,.36,1);}
+.nav-group.closed .nav-list{grid-template-rows:0fr;}
+.nav-inner{overflow:hidden;display:flex;flex-direction:column;gap:2px;min-height:0;}
+.nav-group.closed .nav-inner{visibility:hidden;transition:visibility 0s .38s;}
+.nav-item{position:relative;z-index:1;display:flex;align-items:center;gap:11px;width:100%;min-height:42px;text-align:left;border:0;background:transparent;color:var(--nav-txt);
+  padding:10px 12px;border-radius:11px;cursor:pointer;font-weight:650;font-size:14px;font-family:inherit;text-decoration:none;
+  transition:background .2s,color .2s,transform .25s cubic-bezier(.22,1,.36,1);}
+.nav-item:hover{background:rgba(255,255,255,.07);color:#fff;transform:translateX(3px);}
+.nav-item.active{color:#fff;background:transparent;transform:none;}
+.nav-item:focus-visible,.nav-head:focus-visible{outline:2px solid var(--gold);outline-offset:-2px;}
+.nav-item .ni{width:20px;height:20px;flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;opacity:.85;transition:opacity .2s,transform .3s cubic-bezier(.22,1,.36,1);}
 .nav-item .ni svg{width:18px;height:18px;}
-.nav-item.active .ni{opacity:1;}
+.nav-item.active .ni{opacity:1;transform:scale(1.08);}
+.side-nav.no-ind .nav-item.active{background:var(--accent);box-shadow:inset 3px 0 0 var(--gold);}
+/* page switch: the new module rises in */
+.console-main > section.mod-in{animation:modIn .32s cubic-bezier(.22,1,.36,1);}
+@keyframes modIn{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:none;}}
+@media (prefers-reduced-motion: reduce){
+  .nav-ind,.nav-list,.nav-head i,.nav-item,.nav-item .ni{transition:none !important;}
+  .console-main > section.mod-in{animation:none;}
+}
 .console-main{padding-left:252px;}
 @media(max-width:900px){
   .side-nav{position:static;width:auto;flex-direction:row;flex-wrap:wrap;bottom:auto;border-right:0;border-bottom:1px solid var(--line);gap:6px;padding:12px;}
-  .side-brand,.side-sep{display:none;}
+  .side-brand,.nav-head,.nav-ind{display:none;}
+  .nav-group,.nav-list,.nav-inner{display:contents;}
+  .nav-group.closed .nav-inner{visibility:visible;}
   .nav-item{width:auto;}
+  .nav-item.active{background:var(--accent);}
   .console-main{padding-left:0;}
 }
 .section-h{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:4px;}
@@ -680,24 +710,44 @@ body{ background:var(--page); }
 
 <main class="container">
   <aside class="side-nav">
-    <div class="side-brand">CardLearn SDGs<span>Admin Console 主控台</span></div>
-    <button class="nav-item active" type="button" data-module="overview"><span class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><rect x="7" y="11" width="3" height="6"/><rect x="12" y="7" width="3" height="10"/><rect x="17" y="13" width="3" height="4"/></svg></span>總覽 Overview</button>
-    <div class="side-sep">數據分析 Analytics</div>
-    <button class="nav-item" type="button" data-module="pk_analytics"><span class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2 6 4-15 2 9h6"/></svg></span>遊戲數據 Game</button>
-    <button class="nav-item" type="button" data-module="story_analytics"><span class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5 13.6 13.6 8.5 15.5l1.9-5.1z"/></svg></span><span>3D 故事 · 學習分析</span></button>
-    <a class="nav-item" href="/pages/story_editor.html" style="text-decoration:none"><span class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="6" r="2.5"/><circle cx="19" cy="6" r="2.5"/><circle cx="12" cy="18" r="2.5"/><path d="M7.5 6h9M6.3 8.2l4.4 7.6M17.7 8.2l-4.4 7.6"/></svg></span><span>故事編輯器（概念版）</span></a>
-    <button class="nav-item" type="button" data-module="user_analytics"><span class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>使用者/登入 Users</button>
-    <div class="side-sep">內容 Content</div>
-    <button class="nav-item" type="button" data-module="library"><span class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h7l2 2h9v11a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><path d="M8 13h8M8 16.5h5"/></svg></span>教材管理 Materials</button>
-    <!-- Retired 2026-11: this screen edits the question bank of the old "SDGs Pecha Kucha" game, which now forwards
-         to the card game. Students no longer see anything edited here, so it is taken out of the menu. -->
-    <button class="nav-item" type="button" data-module="sdgs_card_game" hidden><span class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></span>題庫管理 Card Bank</button>
-    <button class="nav-item" type="button" data-module="users"><span class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>帳號管理 Accounts</button>
-    <button class="nav-item" type="button" data-module="records"><span class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>學習紀錄 Records</button>
-    <button class="nav-item" type="button" data-module="courses"><span class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><path d="M9 7h7M9 11h5"/></svg></span>課程與名單 Courses</button>
-    <div class="side-sep">系統 System</div>
-    <button class="nav-item" type="button" data-module="system"><span class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></span>系統設定 Settings</button>
-    <button class="nav-item" type="button" data-module="database"><span class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.66 3.58 3 8 3s8-1.34 8-3V5"/><path d="M4 12c0 1.66 3.58 3 8 3s8-1.34 8-3"/></svg></span>資料庫 Database</button>
+    <div class="side-brand">CardLearn SDGs<span>老師後台 Teacher Console</span></div>
+    <i class="nav-ind" aria-hidden="true"></i>
+    <div class="nav-group" data-group="data">
+      <button class="nav-head" type="button" aria-expanded="true"><span>遊戲數據</span><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></i></button>
+      <div class="nav-list"><div class="nav-inner">
+        <button class="nav-item" type="button" data-module="records" data-game="pecha_kucha"><span class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="12" height="16" rx="2"/><path d="M8 3h11a2 2 0 0 1 2 2v13"/><path d="M7 11h4M7 15h3"/></svg></span><span class="nl">Card Game</span></button>
+        <button class="nav-item" type="button" data-module="records" data-game="innovation-harbor"><span class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 3 8l9 5 9-5-9-5z"/><path d="M3 8v8l9 5 9-5V8"/><path d="M12 13v8"/></svg></span><span class="nl">3D Harbor</span></button>
+        <button class="nav-item" type="button" data-module="records" data-game="sdg4-stage"><span class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16"/><path d="M6 20V9l6-5 6 5v11"/><circle cx="12" cy="12" r="2.2"/></svg></span><span class="nl">SDG 4 Stage</span></button>
+      </div></div>
+    </div>
+    <div class="nav-group" data-group="class">
+      <button class="nav-head" type="button" aria-expanded="true"><span>班級</span><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></i></button>
+      <div class="nav-list"><div class="nav-inner">
+        <button class="nav-item" type="button" data-module="courses"><span class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><path d="M9 7h7M9 11h5"/></svg></span><span class="nl">課程與名單</span></button>
+        <button class="nav-item" type="button" data-module="users"><span class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span><span class="nl">帳號管理</span></button>
+      </div></div>
+    </div>
+    <div class="nav-group" data-group="content">
+      <button class="nav-head" type="button" aria-expanded="true"><span>教材</span><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></i></button>
+      <div class="nav-list"><div class="nav-inner">
+        <button class="nav-item" type="button" data-module="library"><span class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h7l2 2h9v11a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><path d="M8 13h8M8 16.5h5"/></svg></span><span class="nl">教材管理</span></button>
+        <a class="nav-item" href="/pages/story_editor.html"><span class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="6" r="2.5"/><circle cx="19" cy="6" r="2.5"/><circle cx="12" cy="18" r="2.5"/><path d="M7.5 6h9M6.3 8.2l4.4 7.6M17.7 8.2l-4.4 7.6"/></svg></span><span class="nl">故事編輯器</span></a>
+      </div></div>
+    </div>
+    <div class="nav-group closed" data-group="system" data-admin-only hidden>
+      <button class="nav-head" type="button" aria-expanded="false"><span>系統</span><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></i></button>
+      <div class="nav-list"><div class="nav-inner">
+        <button class="nav-item" type="button" data-module="story_analytics"><span class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5 13.6 13.6 8.5 15.5l1.9-5.1z"/></svg></span><span class="nl">3D 故事路線</span></button>
+        <button class="nav-item" type="button" data-module="user_analytics"><span class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><span class="nl">登入紀錄</span></button>
+        <button class="nav-item" type="button" data-module="system"><span class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></span><span class="nl">系統設定</span></button>
+        <button class="nav-item" type="button" data-module="database"><span class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.66 3.58 3 8 3s8-1.34 8-3V5"/><path d="M4 12c0 1.66 3.58 3 8 3s8-1.34 8-3"/></svg></span><span class="nl">資料庫</span></button>
+      </div></div>
+    </div>
+    <!-- Retired 2026-11 (kept so old links still work, not in the menu): 總覽 and 遊戲數據 showed the same card-game
+         numbers as Card Game › 班級分析 in an older form; 題庫管理 edits the old SDGs Pecha Kucha bank. -->
+    <button class="nav-item" type="button" data-module="overview" hidden><span class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><rect x="7" y="11" width="3" height="6"/><rect x="12" y="7" width="3" height="10"/><rect x="17" y="13" width="3" height="4"/></svg></span>總覽</button>
+    <button class="nav-item" type="button" data-module="pk_analytics" hidden><span class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2 6 4-15 2 9h6"/></svg></span>遊戲數據（舊）</button>
+    <button class="nav-item" type="button" data-module="sdgs_card_game" hidden><span class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></span>題庫管理</button>
   </aside>
   <div class="console-main">
 
@@ -771,7 +821,7 @@ body{ background:var(--page); }
     <section class="panel">
       <p class="pk-old-note" style="margin:0 0 14px;padding:10px 14px;border:1px solid #f4d58d;background:#fffaeb;border-radius:12px;font-size:14px;line-height:1.6;color:#5b4a14">
         這一頁是舊的總表：只算<b>玩完</b>的局，而且同名的學生會算成同一人。要看每位學生、每一局、每一句和錄音，請到
-        <a href="#" onclick="setModule('records');return false" style="font-weight:800">學習紀錄</a>（依課程和系級，還沒玩的學生也會列出）。</p>
+        <a href="#" onclick="setModule('records','pecha_kucha');return false" style="font-weight:800">學習紀錄</a>（依課程和系級，還沒玩的學生也會列出）。</p>
       <div class="pk-head">
         <h2>Pecha Kucha Card Game · 數據分析</h2>
         <div class="row">
@@ -1099,6 +1149,27 @@ body{ background:var(--page); }
       #recordsModule .tr-row label{display:flex;align-items:center;gap:8px;font-weight:700;font-size:14px;white-space:nowrap}
       #recordsModule .tr-row select,#recordsModule .tr-row input{width:auto;min-width:110px}
       #recordsModule .tr-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+      #recordsModule .tr-seg{position:relative;display:inline-flex;gap:2px;margin-top:10px;padding:5px;border-radius:14px;background:#eef2f7;max-width:100%;overflow-x:auto}
+      #recordsModule .tr-segb{position:relative;z-index:1;border:0;background:none;border-radius:10px;padding:9px 18px;font:inherit;font-weight:800;font-size:14.5px;color:#475569;cursor:pointer;white-space:nowrap;transition:color .25s}
+      #recordsModule .tr-segb:hover{color:#0f172a}
+      #recordsModule .tr-segb.on{color:#0f172a}
+      #recordsModule .tr-seg-ind{position:absolute;z-index:0;top:5px;bottom:5px;left:0;width:0;border-radius:10px;background:#fff;box-shadow:0 2px 8px rgba(15,23,42,.12),0 0 0 1px rgba(15,23,42,.04);transition:transform .4s cubic-bezier(.22,1,.36,1),width .4s cubic-bezier(.22,1,.36,1)}
+      #recordsModule .tr-seg-ind.still{transition:none}
+      #recordsModule h2 small{display:block;margin:4px 0 0}
+      #recordsModule .tr-tool{padding-top:10px;padding-bottom:10px}
+      #recordsModule .tr-tool .tr-row{margin:0}
+      #recordsModule .tr-grow{flex:1}
+      #recordsModule #trView{transition:opacity .2s}
+      #recordsModule #trView.tr-loading{opacity:.55;pointer-events:none}
+      #recordsModule .tr-mini{display:block;height:4px;margin-top:5px;border-radius:4px;background:#e2e8f0;width:70px;overflow:hidden}
+      #recordsModule .tr-mini i{display:block;height:100%;background:#94a3b8;border-radius:4px}
+      #recordsModule .tr-cls td{vertical-align:middle}
+      #recordsModule .tr-chips{display:flex;gap:6px;flex-wrap:wrap}
+      #recordsModule .tr-chip{border:1px solid var(--line);background:#fff;border-radius:999px;padding:6px 13px;font:inherit;font-weight:750;font-size:13px;cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+      #recordsModule .tr-chip:hover{border-color:#94a3b8}
+      #recordsModule .tr-chip.on{background:#1f3a5f;border-color:#1f3a5f;color:#fff}
+      #recordsModule tr[hidden]{display:none}
+      @media (prefers-reduced-motion: reduce){#recordsModule .tr-seg-ind,#recordsModule #trView{transition:none}}
       #recordsModule .tr-tab{border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 16px;font-weight:800;font-size:14px;cursor:pointer;color:var(--text)}
       #recordsModule .tr-tab.on{background:#1f3a5f;border-color:#1f3a5f;color:#fff}
       #recordsModule .tr-games{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px}
@@ -1400,10 +1471,13 @@ async function verifyTeacher() {
   return true;
 }
 
-function setModule(moduleName) {
+let currentGame = "pecha_kucha";
+function setModule(moduleName, game) {
+  if (game) currentGame = game;
   document.querySelectorAll("[data-module]").forEach((card) => {
-    card.classList.toggle("active", card.dataset.module === moduleName);
+    card.classList.toggle("active", card.dataset.module === moduleName && (!card.dataset.game || card.dataset.game === currentGame));
   });
+  placeNavIndicator(true);
 
   Object.entries(MODULE_SECTIONS).forEach(([name, id]) => {
     const el = $(id);
@@ -1411,8 +1485,35 @@ function setModule(moduleName) {
   });
   const ph = $("placeholderModule");
   if (ph) ph.hidden = true;
+  const shown = $(MODULE_SECTIONS[moduleName]);
+  if (shown) { shown.classList.remove("mod-in"); void shown.offsetWidth; shown.classList.add("mod-in"); }
   const loader = MODULE_LOADERS[moduleName];
   if (loader) loader();
+}
+
+// The highlight slides to the chosen item. When that item sits in a closed group, the group opens first.
+function placeNavIndicator(animate) {
+  const nav = document.querySelector(".side-nav"), ind = nav && nav.querySelector(".nav-ind");
+  if (!ind) return;
+  const active = nav.querySelector(".nav-item.active:not([hidden])");
+  const group = active && active.closest(".nav-group");
+  if (group && group.classList.contains("closed")) { toggleNavGroup(group, true); }
+  if (!active || active.offsetParent === null) { ind.classList.remove("on"); return; }
+  if (!animate) ind.classList.add("still");
+  ind.style.transform = `translateY(${active.offsetTop}px)`;
+  ind.style.height = active.offsetHeight + "px";
+  ind.classList.add("on");
+  if (!animate) requestAnimationFrame(() => requestAnimationFrame(() => ind.classList.remove("still")));
+}
+function toggleNavGroup(group, open) {
+  const willOpen = open === undefined ? group.classList.contains("closed") : open;
+  group.classList.toggle("closed", !willOpen);
+  group.querySelector(".nav-head").setAttribute("aria-expanded", String(willOpen));
+  try { localStorage.setItem("nav_group_" + group.dataset.group, willOpen ? "open" : "closed"); } catch (e) {}
+  // follow the highlight while the groups above it open or close
+  const start = performance.now();
+  const follow = () => { placeNavIndicator(false); if (performance.now() - start < 420) requestAnimationFrame(follow); };
+  requestAnimationFrame(follow);
 }
 
 const MODULE_SECTIONS = {
@@ -1435,7 +1536,7 @@ const MODULE_LOADERS = {
   user_analytics: () => loadUserAnalytics(),
   users: () => loadUsers(),
   courses: () => loadCourses(),
-  records: () => loadRecords(),
+  records: () => loadRecords(currentGame),
   library: () => loadLibrary(),
   system: () => loadSystem(),
   database: () => loadDatabase(),
@@ -2349,8 +2450,14 @@ function bindRecordDeleteButtons() {
 
 function bindModules() {
   document.querySelectorAll("[data-module]").forEach((card) => {
-    card.addEventListener("click", () => setModule(card.dataset.module));
+    card.addEventListener("click", () => setModule(card.dataset.module, card.dataset.game));
   });
+  document.querySelectorAll(".nav-group").forEach((group) => {
+    let saved = null; try { saved = localStorage.getItem("nav_group_" + group.dataset.group); } catch (e) {}
+    if (saved) { group.classList.toggle("closed", saved === "closed"); group.querySelector(".nav-head").setAttribute("aria-expanded", String(saved !== "closed")); }
+    group.querySelector(".nav-head").addEventListener("click", () => toggleNavGroup(group));
+  });
+  window.addEventListener("resize", () => placeNavIndicator(false));
 }
 
 function bindGameTabs() {
@@ -2479,7 +2586,9 @@ async function init() {
     bindForms();
     await loadContent();
     setGameTab("browse");
-    setModule("overview");
+    if (currentTeacher && currentTeacher.role === "admin") document.querySelectorAll("[data-admin-only]").forEach((el) => { el.hidden = false; });
+    setModule("records", "pecha_kucha");
+    placeNavIndicator(false);
   } catch (error) {
     alert(error.message || "Failed to load the teacher dashboard.");
     window.location.href = "/pages/member_index.html";

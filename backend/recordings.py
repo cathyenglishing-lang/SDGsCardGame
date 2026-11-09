@@ -362,12 +362,17 @@ def delete_recording(rec_id: int, authorization: str | None = Header(default=Non
     return {"message": "recording deleted"}
 
 
-def counts_by_user(course_id=None):
-    """user_id → {total, new} for the learning reports."""
+def counts_by_user(course_id=None, game=None):
+    """user_id → {total, new} for the learning reports (one game's recordings when game is given)."""
     conn = D.get_db()
     cur = conn.cursor()
+    where, args = [], []
+    if course_id:
+        where.append("course_id = ?"); args.append(course_id)
+    if game:
+        where.append("game = ?"); args.append(game)
     cur.execute("SELECT user_id, COUNT(*) AS total, SUM(CASE WHEN status = 'new' THEN 1 ELSE 0 END) AS fresh FROM speech_recordings"
-                + (" WHERE course_id = ?" if course_id else "") + " GROUP BY user_id", (course_id,) if course_id else ())
+                + (" WHERE " + " AND ".join(where) if where else "") + " GROUP BY user_id", tuple(args))
     out = {r["user_id"]: {"total": r["total"], "new": int(r["fresh"] or 0)} for r in cur.fetchall()}
     conn.close()
     return out
