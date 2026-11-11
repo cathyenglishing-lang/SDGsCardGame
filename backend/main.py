@@ -1296,7 +1296,7 @@ CONSOLE_TABLES = [
     "sdg_options", "difficulty_options", "tbl_sdg_parts", "tbl_sdg_sub_topics",
     "tbl_sdg_cards", "email_otps",
     "courses", "course_sections", "enrollments", "course_activities", "roster_imports", "chip_ledger",
-    "speech_recordings", "content_topics", "content_versions", "system_metrics", "user_daily_activity", "login_failures", "student_reports", "site_visits",
+    "speech_recordings", "content_topics", "content_versions", "system_metrics", "user_daily_activity", "login_failures", "student_reports", "site_visits", "speech_rules",
 ]
 
 TABLE_DOCS = {
@@ -1321,6 +1321,7 @@ TABLE_DOCS = {
     "content_topics": "Teaching material per game and topic: the published copy students get and the teacher's draft.",
     "content_versions": "A snapshot of every published version of a topic (for looking back and restoring).",
     "user_daily_activity": "Per account per day: requests, the busiest minute, times stopped by the rate limit (for spotting abuse).",
+    "speech_rules": "念法表: how an abbreviation or symbol is read aloud in every game (written → spoken), edited by the teacher.",
     "site_visits": "Every page view: anonymous visitor id, page, where they came from, guest or signed in, device; the IP only as a hash.",
     "student_reports": "Personal learning reports a teacher sent to a student (HTML), and when the student opened them.",
     "login_failures": "Every failed sign-in (wrong password or unknown account), with the IP.",
@@ -3378,6 +3379,10 @@ app.include_router(reports.router)
 from backend import visits
 visits.configure(get_db=get_db, auto_pk_sql=auto_pk_sql, require_teacher=require_teacher, get_current_user=get_current_user, client_ip=get_client_ip)
 app.include_router(visits.router)
+
+from backend import speech_rules
+speech_rules.configure(get_db=get_db, auto_pk_sql=auto_pk_sql, require_teacher=require_teacher)
+app.include_router(speech_rules.router)
 
 # =========================
 # CREATE INITIAL ADMIN

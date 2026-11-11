@@ -611,6 +611,22 @@ cur_.execute("SELECT published_json FROM content_topics WHERE id = ?", (row_["id
 got_ = json.loads(cur_.fetchone()["published_json"])["levels"][lvl_][0]["title_zh"]; conn_.close()
 check("T4: an older database gets a missing Chinese title back from the question bank at start-up (nothing else touched)", filled_ == 1 and got_ == want_ and bool(want_), f"filled={filled_} got={got_!r} want={want_!r}")
 
+section("語音念法 (T2): one table for the whole platform, edited by the teacher")
+sp0 = client.get("/content/speech")
+check("the games get the table without signing in, with SDG and AI in it", sp0.status_code == 200 and {"written": "SDG", "spoken": "S D G"} in sp0.json()["rules"] and any(r_["written"] == "AI" for r_ in sp0.json()["rules"]), sp0.text[:200])
+check("a student cannot change it", client.put("/teacher/speech", json={"rules": []}, headers=stu).status_code in (401, 403) and client.get("/teacher/speech", headers=stu).status_code in (401, 403))
+mine = sp0.json()["rules"] + [{"written": "NPTU", "spoken": "N P T U"}, {"written": "", "spoken": ""}]
+r = client.put("/teacher/speech", json={"rules": mine}, headers=admin)
+check("the teacher adds a row; an empty row is dropped", r.status_code == 200 and r.json()["saved"] == len(sp0.json()["rules"]) + 1 and {"written": "NPTU", "spoken": "N P T U"} in client.get("/content/speech").json()["rules"], r.text[:200])
+for bad_rules, why in (([{"written": "SDG", "spoken": "x"}, {"written": "SDG", "spoken": "y"}], "出現兩次"), ([{"written": "SDG", "spoken": ""}], "念成"), ([{"written": "two words", "spoken": "x"}], "空格"), ([{"written": "x" * 41, "spoken": "x"}], "太長")):
+    r = client.put("/teacher/speech", json={"rules": bad_rules}, headers=admin)
+    check(f"…a bad table is refused with the reason ({why})", r.status_code == 400 and why in r.text, r.text[:160])
+check("…and a refused table changes nothing", {"written": "NPTU", "spoken": "N P T U"} in client.get("/content/speech").json()["rules"])
+r = client.put("/teacher/speech", json={"rules": [{"written": "%s", "spoken": "100%"}, {"written": "<b>", "spoken": "it's \"quoted\""}]}, headers=admin)
+check("odd characters (%, quotes, <>) are stored as plain text", r.status_code == 200 and client.get("/content/speech").json()["rules"] == [{"written": "%s", "spoken": "100%"}, {"written": "<b>", "spoken": "it's \"quoted\""}], r.text[:200])
+r = client.post("/teacher/speech/reset", headers=admin)
+check("the built-in table can be put back", r.status_code == 200 and client.get("/content/speech").json()["rules"] == sp0.json()["rules"])
+
 section("Other pages still work")
 check("3D story analytics leave card-game runs out (only the one 3D run made above is counted)", client.get("/learning/analytics", headers=admin).json()["overview"]["runs"] == 1)
 check("old card-game analytics", client.get("/teacher/pk-analytics", headers=admin).status_code == 200)

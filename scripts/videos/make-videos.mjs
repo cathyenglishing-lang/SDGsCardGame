@@ -81,8 +81,10 @@ await video("學生 登入到玩完一局", async () => {
   await rec.click('[data-game="pecha-kucha-builder"]');
   await rec.waitFor(`location.pathname.endsWith("/pecha_kucha_builder.html") && !!document.querySelector(".pk-tcard")`, 15000, "game menu");
   await rec.evaluate(SPEECH);
-  await rec.say("這裡只會出現老師這門課開放的主題。選一個難度開始。");
-  await rec.click(`.pk-lvchip[onclick*="'9-1','A2'"]`); await rec.waitForSelector("#pkMissionGo");
+  await rec.say("這裡只會出現老師這門課開放的主題。點一張主題牌。");
+  await rec.click(`.pk-tc-open[data-topic="9-1"]`); await rec.waitForSelector(`#pkPick.open .pk-lv[data-level="A2"]`);
+  await rec.say("牌會翻過來：選難度，按一下就開始。", 1800);
+  await rec.click(`#pkPick .pk-lv[data-level="A2"]`); await rec.waitForSelector("#pkMissionGo");
   await rec.say("任務卡：今天的目標和這場演講的六段。按「開始」。", 2200);
   await rec.click("#pkMissionGo");
   await rec.say("上面的 1–6 是六段。點 1，牌會發到桌上；其中 1 張是陷阱，沒有句子屬於它。");

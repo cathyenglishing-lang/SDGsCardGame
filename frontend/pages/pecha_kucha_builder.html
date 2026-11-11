@@ -1293,6 +1293,7 @@ body.pk-embed .game-guide,body.pk-embed #topicGrid{display:none}
 <script src="/static/js/pk-content.js"></script>
 <script src="/static/js/pk-telemetry.js"></script>
 <script src="/static/js/voice.js"></script>
+<script src="/static/js/speech-say.js"></script>
 <script src="/static/js/pk-wrapup.js"></script>
 <script>
 /* ── Casino effects of the card table (2026-11-09 「像真實賭場一樣」) ──
@@ -1615,7 +1616,7 @@ function renderSelector(){
     pkWireWho();
     return;
   }
-  h += '<p class="pk-sel-hint">選一張主題牌，按下面的籌碼選難度。</p>';
+  h += '<ol class="pk-steps" aria-label="怎麼開始"><li class="on"><b>1</b>點一張主題牌</li><li><b>2</b>選難度</li><li><b>3</b>開始配對</li></ol>';
   h += '<div class="pk-felt'+(PK_SEL_DEALT ? ' pk-dealt' : '')+'">';
   let n = 0;
   Object.keys(bySdg).map(Number).sort((a,b)=>a-b).forEach(sdg=>{
@@ -1629,13 +1630,14 @@ function renderSelector(){
       const corner = '<i></i>'+pkEsc(t.id);
       h += '<article class="pk-tcard'+(locked?' is-locked':'')+'" style="--d:'+(n++*110)+'ms" aria-label="'+pkEsc(t.id+' '+title+(locked?'（尚未開放）':''))+'">'
          + '<div class="pk-tc-inner">'
-         +   '<div class="pk-tc-face"'+(locked?' aria-hidden="true"':'')+'>'
-         +     '<span class="pk-tc-corner tl">'+corner+'</span><span class="pk-tc-corner br" aria-hidden="true">'+corner+'</span>'
-         +     '<h3>'+pkEsc(title)+'</h3>'+(zh?'<p>'+pkEsc(zh)+'</p>':'')
-         +     (locked ? '' : '<div class="pk-tc-chips'+many+'">'+levels.map(l=> pkLevelOpen(t,l)
-                 ? '<button type="button" class="pk-lvchip" style="--lc:'+(LEVEL_TONE[l]||"#334155")+'" onclick="pkStartGame(\''+t.id+'\',\''+l+'\')" aria-label="'+pkEsc(title)+' '+l+' '+(LEVEL_LABEL[l]||"")+'" title="'+l+' '+(LEVEL_LABEL[l]||"")+'">'+l+'</button>'
-                 : '<button type="button" class="pk-lvchip is-locked" disabled aria-label="'+l+' 尚未開放" title="'+l+' 尚未開放">'+l+'</button>').join('')+'</div>')
-         +   '</div>'
+         +   (locked
+               ? '<div class="pk-tc-face" aria-hidden="true"><span class="pk-tc-corner tl">'+corner+'</span><h3>'+pkEsc(title)+'</h3></div>'
+               : '<button type="button" class="pk-tc-face pk-tc-open" data-topic="'+pkEsc(t.id)+'" onclick="pkOpenTopic(\''+t.id+'\', this)" aria-label="'+pkEsc(title+(zh?'　'+zh:'')+'。有 '+levels.join('、')+' 難度，點這張牌選難度')+'">'
+               +   '<span class="pk-tc-corner tl">'+corner+'</span><span class="pk-tc-corner br" aria-hidden="true">'+corner+'</span>'
+               +   '<h3>'+pkEsc(title)+'</h3>'+(zh?'<p>'+pkEsc(zh)+'</p>':'')
+               +   '<span class="pk-tc-lv" aria-hidden="true">'+levels.map(l=>'<i style="--lc:'+(LEVEL_TONE[l]||"#334155")+'"'+(pkLevelOpen(t,l)?'':' class="off"')+'>'+l+'</i>').join('')+'</span>'
+               +   '<span class="pk-tc-cta" aria-hidden="true">選這張 ▸</span>'
+               + '</button>')
          +   '<div class="pk-tc-back" aria-hidden="true">'+(locked ? '<span class="pk-tc-lock">🔒</span><b>'+pkEsc(t.id)+'</b><small>即將開放</small>' : '<span class="pk-tc-seal">SDG<b>'+sdg+'</b></span>')+'</div>'
          + '</div></article>';
     });
@@ -1647,6 +1649,74 @@ function renderSelector(){
   const sel = document.getElementById("pkCourseSel");
   if(sel) sel.onchange = () => pkPickCourse(Number(sel.value));
 }
+// Step 2 of the menu (2026-11-11 redesign: the small chips on each card were not seen as buttons).
+// The chosen card flies from its place to the middle of the screen and turns over; its back is the
+// level menu: one big row per level with what the level means, and "開始" on the row itself.
+const LEVEL_DESC = { A1:"句子很短，最常用的字", A2:"短句、常用字", B1:"句子比較長，字比較難", B2:"長句、學術用字" };
+let PK_PICK_FROM = null;
+function pkOpenTopic(topicId, from){
+  const t = GAME_DATA.topics.find(x=>x.id===topicId); if(!t || !pkTopicOpen(t.id)) return;
+  pkClosePick(false);
+  const levels = LEVEL_ORDER.filter(l=>t.levels[l]), title = pkTitle(t), zh = pkTitleZh(t);
+  const firstOpen = levels.find(l=>pkLevelOpen(t,l));
+  const meta = SDG_META[t.sdg]||{c:"#2563eb",n:""};
+  const rows = levels.map(l=>{
+    const open = pkLevelOpen(t,l), n = t.levels[l].length, bars = [0,1,2,3].map(i=>'<i'+(i<=LEVEL_ORDER.indexOf(l)?' class="on"':'')+'></i>').join('');
+    return '<button type="button" class="pk-lv'+(open?'':' is-locked')+'" data-level="'+l+'" style="--lc:'+(LEVEL_TONE[l]||"#334155")+'"'
+         + (open ? ' onclick="pkStartGame(\''+t.id+'\',\''+l+'\')"' : ' disabled')+'>'
+         + '<span class="pk-lv-code">'+l+'</span>'
+         + '<span class="pk-lv-text"><b>'+(LEVEL_LABEL[l]||l)+(open && l===firstOpen && levels.length>1 ? '<em>第一次玩選這個</em>' : '')+'</b>'
+         +   '<small>'+(open ? pkEsc(LEVEL_DESC[l]||"")+' · '+n+' 張卡' : '老師還沒開放這個難度')+'</small></span>'
+         + '<span class="pk-lv-bars" aria-hidden="true">'+bars+'</span>'
+         + '<span class="pk-lv-go" aria-hidden="true">'+(open?'開始 ▸':'🔒')+'</span></button>';
+  }).join('');
+  const box = document.createElement("div");
+  box.id = "pkPick"; box.className = "pk-pick"; box.setAttribute("role","dialog"); box.setAttribute("aria-modal","true"); box.setAttribute("aria-label", title+"：選難度");
+  box.innerHTML = '<div class="pk-pick-card" style="--ac:'+meta.c+'">'
+    + '<div class="pk-pick-front" aria-hidden="true"><span class="pk-tc-corner tl"><i></i>'+pkEsc(t.id)+'</span><h3>'+pkEsc(title)+'</h3>'+(zh?'<p>'+pkEsc(zh)+'</p>':'')+'</div>'
+    + '<div class="pk-pick-back">'
+    +   '<button type="button" class="pk-pick-x" id="pkPickClose" aria-label="換一張主題牌">← 換主題</button>'
+    +   '<p class="pk-pick-step"><b>2</b>選難度</p>'
+    +   '<h2>'+pkEsc(title)+'</h2>'+(zh?'<p class="pk-pick-zh">'+pkEsc(zh)+' · SDG '+t.sdg+'</p>':'')
+    +   '<div class="pk-pick-levels">'+rows+'</div>'
+    +   '<p class="pk-pick-foot">按一下難度就開始。玩完可以回來換更難的。</p>'
+    + '</div></div>';
+  document.body.appendChild(box);
+  PK_PICK_FROM = from || null;
+  const card = box.querySelector(".pk-pick-card");
+  // Start where the small card is (same place, same size), then let the CSS transition carry it to the middle.
+  const still = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if(from && !still){
+    const a = from.getBoundingClientRect(), b = card.getBoundingClientRect();
+    card.style.transition = "none";
+    card.style.transform = "translate("+(a.left+a.width/2-(b.left+b.width/2))+"px,"+(a.top+a.height/2-(b.top+b.height/2))+"px) scale("+(a.width/b.width).toFixed(3)+","+(a.height/b.height).toFixed(3)+") rotateY(0deg)";
+    void card.offsetWidth;
+    card.style.transition = ""; card.style.transform = "";
+  }
+  requestAnimationFrame(()=>{ box.classList.add("open"); });
+  box.addEventListener("click", e=>{ if(e.target === box) pkClosePick(true); });
+  document.getElementById("pkPickClose").onclick = () => pkClosePick(true);
+  const first = box.querySelector(".pk-lv:not(.is-locked)") || document.getElementById("pkPickClose");
+  setTimeout(()=>{ try{ first.focus({preventScroll:true}); }catch(e){} }, still ? 0 : 420);
+  const steps = document.querySelectorAll(".pk-steps li"); steps.forEach((li,i)=>li.classList.toggle("on", i===1));
+}
+function pkClosePick(backToCard){
+  const box = document.getElementById("pkPick"); if(!box) return;
+  box.remove();
+  document.querySelectorAll(".pk-steps li").forEach((li,i)=>li.classList.toggle("on", i===0));
+  if(backToCard && PK_PICK_FROM && document.contains(PK_PICK_FROM)){ try{ PK_PICK_FROM.focus({preventScroll:true}); }catch(e){} }
+  PK_PICK_FROM = null;
+}
+document.addEventListener("keydown", e=>{
+  const box = document.getElementById("pkPick"); if(!box) return;
+  if(e.key === "Escape"){ e.preventDefault(); pkClosePick(true); return; }
+  if(e.key === "Tab"){   // keep the keyboard inside the level menu
+    const f = [...box.querySelectorAll("button:not([disabled])")]; if(!f.length) return;
+    const i = f.indexOf(document.activeElement);
+    if(e.shiftKey && i <= 0){ e.preventDefault(); f[f.length-1].focus(); }
+    else if(!e.shiftKey && i === f.length-1){ e.preventDefault(); f[0].focus(); }
+  }
+});
 // Who is playing, and the way out. On a shared iPad the next student must be able to see whose
 // account is open and change it; a player who is not signed in is told that nothing goes on record.
 let PK_READY = false;   // true once the library and (for a signed-in student) the course are known
@@ -1945,6 +2015,7 @@ function pkStartGame(topicId, level){
   if(!topic || !topic.levels[level]) return;
   if(!PK_READY && !PK_LINK.embed) return;             // the course is not known yet
   if(!pkLevelOpen(topic, level)){ if(typeof showToast==="function") showToast("這個主題或難度還沒開放。"); return; }
+  pkClosePick(false);
   pkQuiet(); pkDealRound++;
   SELECTED = { topic, level };
   pkResetState();
@@ -2756,7 +2827,7 @@ function speak(text, onEndCallback) {
   const guard = setTimeout(done, (words / (2.4 * rate)) * 1500 + 2500);
   const parts = String(text).split(/(?<=[.!?])\s+/).map(t => t.trim()).filter(Boolean);
   parts.forEach((t, i) => {
-    const u = new SpeechSynthesisUtterance(t);
+    const u = new SpeechSynthesisUtterance(window.CardLearnSay ? window.CardLearnSay(t) : t);   // what is spoken, not what is shown (js/speech-say.js)
     if (cachedVoice) u.voice = cachedVoice;
     u.lang = "en-US"; u.rate = rate; u.pitch = 1;
     u.onerror = event => { console.warn("Speech synthesis error", event); done(); };

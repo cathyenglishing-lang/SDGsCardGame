@@ -66,11 +66,11 @@ for (const [w, h] of SIZES) {
   await page.waitForSelector(".pk-tcard"); await page.sleep(500);
   await audit("menu"); await shot("menu");
   await guard("mission → back to the menu", async () => {
-    await page.click(`.pk-lvchip[onclick*="'${TOPIC}','${LEVEL}'"]`); await page.waitForSelector("#pkMissionBack"); await page.sleep(450);
+    await page.click(`.pk-tc-open[data-topic="${TOPIC}"]`); await page.waitForSelector(`#pkPick.open .pk-lv[data-level="${LEVEL}"]`); await page.sleep(750); await page.click(`#pkPick .pk-lv[data-level="${LEVEL}"]`); await page.waitForSelector("#pkMissionBack"); await page.sleep(450);
     await page.click("#pkMissionBack"); await page.waitForSelector(".pk-tcard");
     if (await page.evaluate(`RUN !== null || !document.getElementById("pkMission").classList.contains("hidden")`)) problem(size, "mission → back", "leaving the mission card left a run or the card open");
   });
-  await guard("menu → mission", async () => { await page.click(`.pk-lvchip[onclick*="'${TOPIC}','${LEVEL}'"]`); await page.waitForSelector("#pkMissionGo"); });
+  await guard("menu → mission", async () => { await page.click(`.pk-tc-open[data-topic="${TOPIC}"]`); await page.waitForSelector(`#pkPick.open .pk-lv[data-level="${LEVEL}"]`); await page.sleep(750); await page.click(`#pkPick .pk-lv[data-level="${LEVEL}"]`); await page.waitForSelector("#pkMissionGo"); });
   await page.sleep(500); await audit("mission"); await shot("mission");
   await expect("mission", `document.getElementById("selectorScreen").classList.contains("hidden")`, "the menu is still showing behind the mission card");
   await guard("mission → table", async () => { await page.click("#pkMissionGo"); });
@@ -143,7 +143,7 @@ for (const [w, h] of SIZES) {
   await guard("table → menu", async () => { await page.click(".pk-change-btn"); await page.waitForSelector(".pk-tcard"); });
   await page.sleep(300); await audit("menu again"); await shot("menu-again");
   await expect("menu again", `document.getElementById("gameScreen").classList.contains("hidden") && document.getElementById("pkMission").classList.contains("hidden") && document.getElementById("pkWrap").classList.contains("hidden")`, "game, mission or wrap-up still showing over the menu");
-  await guard("menu → mission again", async () => { await page.click(`.pk-lvchip[onclick*="'${TOPIC}','${LEVEL}'"]`); await page.waitForSelector("#pkMissionGo"); await page.click("#pkMissionGo"); });
+  await guard("menu → mission again", async () => { await page.click(`.pk-tc-open[data-topic="${TOPIC}"]`); await page.waitForSelector(`#pkPick.open .pk-lv[data-level="${LEVEL}"]`); await page.sleep(750); await page.click(`#pkPick .pk-lv[data-level="${LEVEL}"]`); await page.waitForSelector("#pkMissionGo"); await page.click("#pkMissionGo"); });
   await page.sleep(400);
   await expect("new run", `document.querySelectorAll("#topicGrid .topic.completed").length === 0 && document.querySelectorAll("#subBox .subtopic-poker").length === 0 && document.getElementById("pkStreak").hidden && /00:00/.test(document.getElementById("gameTimer").textContent)`, "a new run did not start clean (chips, table, streak or timer left over)");
   await audit("new run"); await shot("new-run");

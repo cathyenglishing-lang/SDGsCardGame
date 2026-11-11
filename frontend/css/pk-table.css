@@ -532,3 +532,68 @@ body.pk-v2 #selectorScreen.hidden{display:none !important}
   .pk-ghosts span{animation:none}
   body.pk-v2 #gameScreen .pk-streak{transition:none}
 }
+
+/* ── Menu, step by step (2026-11-11): 1 pick a topic card → 2 its back asks for the level → 3 play ── */
+.pk-steps{display:flex;justify-content:center;gap:10px;list-style:none;margin:20px 0 4px;padding:0 12px;font:600 clamp(.9rem,1.5vw,1.05rem)/1.2 var(--pk-round);color:rgba(236,213,145,.55)}
+.pk-steps li{display:flex;align-items:center;gap:8px;padding:8px 14px 8px 8px;border-radius:999px;border:1px solid rgba(236,213,145,.22);white-space:nowrap}
+.pk-steps li b{display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:rgba(236,213,145,.2);color:#ecd591;font-size:.9rem}
+.pk-steps li.on{color:#1b1838;background:#f4d27a;border-color:#f4d27a;box-shadow:0 6px 18px rgba(244,210,122,.28)}
+.pk-steps li.on b{background:#1b1838;color:#f4d27a}
+button.pk-tc-face{font:inherit;border:0;cursor:pointer;width:100%;height:100%;padding-bottom:10px}
+button.pk-tc-face:focus-visible{outline:4px solid #f59e0b;outline-offset:3px}
+.pk-tc-lv{display:flex;justify-content:center;gap:5px;margin-top:10px}
+.pk-tc-lv i{font:700 .68rem/1 var(--pk-round);font-style:normal;padding:4px 7px;border-radius:999px;background:color-mix(in srgb,var(--lc) 14%,#fff);color:var(--lc);border:1px solid color-mix(in srgb,var(--lc) 35%,#fff)}
+.pk-tc-lv i.off{opacity:.4;text-decoration:line-through}
+.pk-tc-cta{display:block;width:calc(100% - 8px);margin:9px auto 0;padding:9px 6px;border-radius:10px;background:#1b1838;color:#f4d27a;font:700 .9rem/1 var(--pk-round);letter-spacing:.04em;transition:background .15s,color .15s}
+@media (hover:hover){ .pk-tcard:not(.is-locked):hover .pk-tc-cta{background:#f4d27a;color:#1b1838} .pk-tcard:not(.is-locked):hover{translate:0 -10px} }
+.pk-tcard:not(.is-locked):active{translate:0 -2px}
+
+.pk-pick{position:fixed;inset:0;z-index:60;display:grid;place-items:center;padding:16px;background:rgba(6,5,22,0);perspective:1600px;transition:background .35s ease;overflow:auto}
+.pk-pick.open{background:rgba(6,5,22,.78)}
+.pk-pick-card{position:relative;width:min(100%,460px);height:min(calc(100dvh - 32px),600px);transform-style:preserve-3d;transition:transform .62s cubic-bezier(.2,.75,.2,1)}
+.pk-pick.open .pk-pick-card{transform:rotateY(180deg)}
+.pk-pick-front,.pk-pick-back{position:absolute;inset:0;border-radius:22px;box-sizing:border-box;-webkit-backface-visibility:hidden;backface-visibility:hidden;background:#fbf7ee;color:#1b1838;box-shadow:0 0 0 1px rgba(27,24,56,.12),0 30px 80px rgba(0,0,0,.6)}
+.pk-pick-front{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px}
+.pk-pick-front h3{margin:0 0 8px;font:700 1.6rem/1.2 Georgia,"Times New Roman",serif}
+.pk-pick-front p{margin:0;color:#5b5873}
+.pk-pick-back{transform:rotateY(180deg);display:flex;flex-direction:column;padding:18px 18px 16px;overflow:auto;border-top:8px solid var(--ac)}
+.pk-pick-x{align-self:flex-start;min-height:40px;padding:0 14px;border-radius:999px;border:1px solid rgba(27,24,56,.22);background:#fff;color:#1b1838;font:700 .88rem/1 var(--pk-round);cursor:pointer}
+.pk-pick-x:hover{background:#f1ead8}
+.pk-pick-step{display:flex;align-items:center;gap:8px;margin:14px 0 6px;font:700 .86rem/1 var(--pk-round);letter-spacing:.08em;color:#8a6a12}
+.pk-pick-step b{display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:#f4d27a;color:#1b1838}
+.pk-pick-back h2{margin:0;font:700 clamp(1.25rem,4.6vw,1.6rem)/1.2 Georgia,"Times New Roman",serif;overflow-wrap:break-word}
+.pk-pick-zh{margin:4px 0 0;color:#5b5873;font-size:.95rem}
+.pk-pick-levels{display:grid;gap:10px;margin:16px 0 10px}
+.pk-lv{display:grid;grid-template-columns:auto 1fr auto auto;align-items:center;gap:12px;width:100%;min-height:68px;padding:10px 14px 10px 10px;border-radius:16px;border:2px solid color-mix(in srgb,var(--lc) 30%,#fff);background:#fff;color:#1b1838;text-align:left;font:inherit;cursor:pointer;transition:translate .12s,box-shadow .12s,border-color .12s,background .12s}
+.pk-lv-code{display:grid;place-items:center;width:48px;height:48px;border-radius:50%;background:var(--lc);color:#fff;font:700 1rem/1 var(--pk-round);box-shadow:inset 0 0 0 3px rgba(255,255,255,.28)}
+.pk-lv-text b{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font:700 1.08rem/1.2 var(--pk-round)}
+.pk-lv-text em{font:700 .7rem/1 var(--pk-round);font-style:normal;padding:4px 8px;border-radius:999px;background:#dcfce7;color:#166534}
+.pk-lv-text small{display:block;margin-top:3px;font-size:.84rem;line-height:1.35;color:#5b5873}
+.pk-lv-bars{display:flex;align-items:flex-end;gap:3px;height:22px}
+.pk-lv-bars i{width:5px;border-radius:2px;background:#e2dccb}
+.pk-lv-bars i:nth-child(1){height:8px}.pk-lv-bars i:nth-child(2){height:12px}.pk-lv-bars i:nth-child(3){height:17px}.pk-lv-bars i:nth-child(4){height:22px}
+.pk-lv-bars i.on{background:var(--lc)}
+.pk-lv-go{padding:10px 12px;border-radius:12px;background:var(--lc);color:#fff;font:700 .92rem/1 var(--pk-round);white-space:nowrap}
+.pk-lv:not(.is-locked):hover,.pk-lv:not(.is-locked):focus-visible{translate:0 -2px;border-color:var(--lc);box-shadow:0 10px 22px color-mix(in srgb,var(--lc) 26%,transparent);outline:none}
+.pk-lv:focus-visible{outline:3px solid #f59e0b;outline-offset:2px}
+.pk-lv:not(.is-locked):active{translate:0 1px}
+.pk-lv.is-locked{cursor:not-allowed;opacity:.55;background:#f3efe4}
+.pk-lv.is-locked .pk-lv-code,.pk-lv.is-locked .pk-lv-go{background:#9a96a8}
+.pk-pick-foot{margin:auto 0 0;padding-top:8px;text-align:center;font-size:.84rem;color:#6b6883}
+@media (max-width:560px){
+  .pk-steps{gap:6px;margin-top:14px}
+  .pk-steps li{padding:6px 10px 6px 6px;font-size:.8rem}
+  .pk-steps li b{width:22px;height:22px;font-size:.8rem}
+  .pk-tc-cta{font-size:.82rem;padding:8px 4px}
+  .pk-tc-lv i{font-size:.62rem;padding:3px 5px}
+  .pk-lv{grid-template-columns:auto 1fr auto;gap:10px;padding:9px 10px 9px 8px}
+  .pk-lv-bars{display:none}
+  .pk-lv-code{width:42px;height:42px;font-size:.92rem}
+  .pk-lv-go{padding:9px 10px;font-size:.86rem}
+}
+@media (prefers-reduced-motion:reduce){
+  .pk-pick,.pk-pick-card,.pk-lv,.pk-tc-cta{transition:none}
+}
+button.pk-tc-face{padding-top:36px}
+button.pk-tc-face h3{font-size:clamp(.94rem,1.12vw,1.08rem);line-height:1.2}
+@media (max-width:560px){ button.pk-tc-face{padding-top:30px} button.pk-tc-face h3{font-size:.88rem} }

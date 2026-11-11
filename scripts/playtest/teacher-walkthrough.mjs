@@ -75,7 +75,7 @@ async function studentPlays(name, { topic, level, mistakes, width = 1024, height
     const whoBar = await page.evaluate(`document.querySelector(".pk-who-bar").textContent`);
     if (!whoBar.includes(acct.name)) problem(name, "the name bar does not show who is signed in");
     if (!whoBar.includes(acct.section) && !whoBar.includes(course.name)) problem(name, "the name bar shows neither the student's 系級 " + acct.section + " nor the course");
-    await page.click(`.pk-lvchip[onclick*="'${topic}','${level}'"]`);
+    await page.click(`.pk-tc-open[data-topic="${topic}"]`); await page.waitForSelector(`#pkPick.open .pk-lv[data-level="${level}"]`); await page.sleep(750); await page.click(`#pkPick .pk-lv[data-level="${level}"]`);
     await page.waitForSelector("#pkMissionGo"); await page.sleep(700);
     const mission = await page.evaluate(`document.getElementById("pkMissionBody").textContent`);
     await page.click("#pkMissionGo");

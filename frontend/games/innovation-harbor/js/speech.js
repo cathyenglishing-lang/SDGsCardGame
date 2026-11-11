@@ -55,7 +55,7 @@ export function speak(text, who = "narrator") {
     const finish = () => { if (done) return; done = true; clearTimeout(guard); res(); };
     const guard = setTimeout(finish, (words / (2.4 * rate)) * 1000 * 1.5 + 2500);
     parts.forEach((t, i) => {
-      const u = new SpeechSynthesisUtterance(t);
+      const u = new SpeechSynthesisUtterance(window.CardLearnSay ? window.CardLearnSay(t) : t);   // abbreviations read letter by letter (js/speech-say.js)
       u.lang = "en-US"; u.rate = rate; if (voice) u.voice = voice;
       u.pitch = mismatch ? (v.g === "f" ? 1.35 : 0.75) : v.pitch;
       if (i === parts.length - 1) u.onend = () => { if (my === token) finish(); };

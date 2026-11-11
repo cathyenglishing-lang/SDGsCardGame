@@ -29,7 +29,7 @@ try {
   await page.evaluate(`localStorage.clear(); localStorage.setItem("user", ${JSON.stringify(JSON.stringify(admin))});`);
   await page.goto(BASE + "/pages/pecha_kucha_builder.html");
   await page.waitFor(`typeof PK_READY !== "undefined" && PK_READY && !!document.querySelector(".pk-tcard")`, 15000, "menu ready");
-  await page.click(`.pk-lvchip[onclick*="'9-1','A2'"]`);
+  await page.click(`.pk-tc-open[data-topic="9-1"]`); await page.waitForSelector(`#pkPick.open .pk-lv[data-level="A2"]`); await page.sleep(750); await page.click(`#pkPick .pk-lv[data-level="A2"]`);
   await page.waitForSelector("#pkMissionGo"); await page.sleep(500);
   if (!(await page.evaluate(`!!document.getElementById("pkQuick")`))) problem("mission", "the teacher's account is not offered 快速測試");
   const partsFull = await page.evaluate(`document.querySelectorAll("#topicGrid .topic").length`);
