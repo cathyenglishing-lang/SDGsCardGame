@@ -754,6 +754,19 @@ check("…the teacher loads it as a draft: students still get the teacher's publ
 check("…and it is not offered twice", client.post("/teacher/library/pecha_kucha/9-2/take-bank", headers=admin).status_code == 400)
 client.post("/teacher/library/pecha_kucha/9-2/discard", json={}, headers=admin)
 
+section("T1: titles that differ by a word cannot be published (they are the choices on the table)")
+for a_, b_, want_ in (("Conclusion & Call to Action", "Conclusion", True), ("Scientific Explanation", "Scientific Explanation: How?", True), ("Impact & Significance", "Impact & Significance on Society", True),
+                      ("AI Literacy Strategy 1", "AI Literacy Strategy 2", True), ("Strategy 1: Stop and Question", "Strategy 2: Check the Sources", False),
+                      ("Why? AI Only Predicts the Next Word", "How Fake Answers Sound Real", False), ("The Wage Gap Challenge", "Missing Voices in Leadership", False)):
+    check(f"too alike? {a_!r} / {b_!r} → {want_}", CL.titles_too_alike(a_, b_) is want_)
+alike12 = [{**c_, "title_zh": "測試", "keywords": "x"} for c_ in twelve]
+alike12[10]["title_en"], alike12[11]["title_en"] = "Conclusion & Call to Action", "Conclusion"
+errs_, _ = CL.check_doc({"id": "t1", "sdg": 9, "title_en": "T", "title_zh": "測試", "levels": {"A2": alike12}})
+check("…the editor names both slides and refuses to publish", any(e["field"] == "title_en" and e["no"] == 12 and "太像" in e["message"] for e in errs_), str([e["message"] for e in errs_][:2]))
+lib_ = client.get("/content/library").json()["topics"]
+pairs_ = [(t_["id"], a_["no"], b_["no"]) for t_ in lib_ for ss_ in [next(iter(t_["levels"].values()))] for i_, a_ in enumerate(ss_) for b_ in ss_[i_ + 1:] if CL.titles_too_alike(a_["title_en"], b_["title_en"])]
+check("no topic served to students has two titles that are too alike", pairs_ == [], str(pairs_[:5]))
+
 section("Other pages still work")
 check("3D story analytics leave card-game runs out (only the one 3D run made above is counted)", client.get("/learning/analytics", headers=admin).json()["overview"]["runs"] == 1)
 check("old card-game analytics", client.get("/teacher/pk-analytics", headers=admin).status_code == 200)

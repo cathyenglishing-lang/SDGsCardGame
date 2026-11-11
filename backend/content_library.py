@@ -303,6 +303,24 @@ def clean_doc(doc, topic_id):
     return out
 
 
+_TITLE_STOP = {"the", "a", "an", "of", "and", "to", "in", "on", "for", "is"}
+
+
+def _title_words(title):
+    return {w for w in re.sub(r"[^a-z0-9 ]", " ", str(title or "").lower()).split() if w not in _TITLE_STOP}
+
+
+def titles_too_alike(a, b):
+    """The title cards on the table are the choices A, B, C, D (2026-11-09 meeting, T1): two titles that
+    differ by a word cannot be told apart by meaning. Too alike = every word of one is in the other, or
+    60% or more of all their words are shared. Same rule as scripts/validate-content.mjs."""
+    A, B = _title_words(a), _title_words(b)
+    if not A or not B:
+        return False
+    shared = len(A & B)
+    return shared == min(len(A), len(B)) or shared / (len(A) + len(B) - shared) >= 0.6
+
+
 def check_doc(doc):
     """The same rules as scripts/validate-content.mjs. Returns (errors, warnings); each is
     {level, no, field, message} so the editor can jump to the place."""
@@ -359,6 +377,11 @@ def check_doc(doc):
                     add(errors, f"Part {part} 有兩張的英文標題都是「{s['title_en']}」（第 {seen[key]} 張和這一張）。卡面只顯示英文標題，學生分不出來，放對也會被判錯。", level, s["no"], "title_en")
                 seen.setdefault(key, s["no"])
         if reference is None:
+            # Any other slide can also be dealt as the trap card, so every pair of the topic is compared (once: titles are the same at every level).
+            for i, a in enumerate(slides):
+                for b in slides[i + 1:]:
+                    if a["title_en"] and b["title_en"] and a["title_en"].lower() != b["title_en"].lower() and titles_too_alike(a["title_en"], b["title_en"]):
+                        add(errors, f"英文標題和第 {a['no']} 張的「{a['title_en']}」太像了，學生沒辦法靠意思分辨。標題要說出這一張講什麼，不要只差一兩個字。", level, b["no"], "title_en")
             reference = (level, slides)
         else:
             for s, r in zip(slides, reference[1]):
