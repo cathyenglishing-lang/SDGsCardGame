@@ -86,13 +86,12 @@ export function validate(content, topicNames = {}) {
         for (const [k, label] of [["title_en", "English title"], ["script", "script"]]) {
           if (!String(s[k] || "").trim()) errors.push(`${id}: ${label} is empty`);
         }
-        // 2026-11-09 meeting (T4): the Chinese title must be there; the hint line stays a reminder
-        // until the teacher has filled them in (468 of 488 seed cards have none).
+        // 2026-11-09 meeting (T4): every card needs a Chinese hint. The table prints the hint line
+        // (keywords) or, when that is empty, the Chinese title — so the Chinese title must be there.
         if (!String(s.title_zh || "").trim()) errors.push(`${id}: Chinese title is empty`);
         // 5-1 and 5-2 once had the A2 script in this field (shown on the teacher's pages and in exports; the table prints `keywords`).
         else if (!/[\u3400-\u9fff]/.test(s.title_zh)) errors.push(`${id}: the Chinese title has no Chinese in it ("${String(s.title_zh).slice(0, 40)}")`);
         else if (String(s.title_zh).trim() === String(s.script || "").trim()) errors.push(`${id}: the Chinese title is the script itself`);
-        if (!String(s.keywords || "").trim()) warnings.push(`${id}: no hint line (keywords)`);
         const text = `${s.title_en}${s.title_zh}${s.script}${s.keywords}`;
         if (/�|Ã[\u0080-¿]|â€|ï¿½/.test(text)) errors.push(`${id}: text looks garbled (encoding)`);
         // Keywords written in English must really be in the script; a Chinese outline hint is not checked.

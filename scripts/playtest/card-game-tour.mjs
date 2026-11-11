@@ -81,6 +81,9 @@ for (const [w, h] of SIZES) {
     await page.click(`#topicGrid .topic:nth-child(${index})`);
     await page.waitFor(`/牌發好了/.test(document.getElementById("status").textContent)`);
     await page.sleep(650);
+    // Every title card carries a Chinese line under the title: the teacher's hint, or the slide's Chinese title.
+    const noHint = await page.evaluate(`[...document.querySelectorAll("#subBox .subtopic-poker")].filter(c => !/[㐀-鿿]/.test((c.querySelector(".card-kw") || {}).textContent || "")).length`);
+    if (noHint) problem(size, "part dealt", noHint + " title card(s) on the table have no Chinese hint line");
     if (shots) { await audit("part dealt"); await shot("part-dealt"); }
     let first = true, wrong = mistakes;
     for (;;) {

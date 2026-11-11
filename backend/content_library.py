@@ -355,8 +355,8 @@ def check_doc(doc):
                 add(errors, "中文標題是空的（學生靠它看懂這張卡）。", level, s["no"], "title_zh")
             elif not re.search("[\u3400-\u9fff]", s["title_zh"]):   # 5-1 and 5-2 once had the A2 script here; it is what the teacher's pages and exports show as the card's Chinese title
                 add(errors, "中文標題裡沒有中文。這裡要填這張投影片的中文標題，不要放英文句子或講稿。", level, s["no"], "title_zh")
-            if not s["keywords"]:    # T4 asks for this too; today 468 of 488 seed cards have none, so it stays a reminder until the teacher has filled them in
-                add(warnings, "還沒有提示字（卡面標題下的一行小字）。", level, s["no"], "keywords")
+            # The line under a title card is the hint (keywords) or, when that is empty, the Chinese title:
+            # with the Chinese title required, no card is without a Chinese hint (T4), so an empty hint is fine.
             if re.search("�|Ã[\u0080-¿]|â€", s["title_en"] + s["title_zh"] + s["script"]):
                 add(errors, "文字看起來是亂碼（編碼問題）。", level, s["no"], "script")
             for kw in [k.strip() for k in re.split(r"[,;、，；]", s["keywords"]) if re.fullmatch(r"[A-Za-z][A-Za-z '\-]*", k.strip() or "")]:

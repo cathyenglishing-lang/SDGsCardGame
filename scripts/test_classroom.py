@@ -590,9 +590,10 @@ except ImportError:
 # T4 — the material checks
 twelve = [{"no": i + 1, "part": p_, "title_en": f"Card {i + 1}", "title_zh": "", "script": "Hello world.", "purpose": "", "keywords": ""} for i, p_ in enumerate([1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6])]
 errs4, warns4 = CL.check_doc({"id": "t4", "sdg": 9, "title_en": "T4", "title_zh": "", "levels": {"A2": twelve}})
-check("T4: an empty Chinese title is an error (topic and card); an empty hint line is only a reminder",
+check("T4: an empty Chinese title is an error (topic and card); an empty hint line is allowed (the Chinese title is printed instead)",
       any(e["field"] == "title_zh" and e["no"] is None for e in errs4) and sum(1 for e in errs4 if e["field"] == "title_zh" and e["no"]) == 12
-      and not any(e["field"] == "keywords" for e in errs4) and sum(1 for w in warns4 if w["field"] == "keywords") == 12, f"errors={[e['message'] for e in errs4][:3]}")
+      and not any(e["field"] == "keywords" for e in errs4 + warns4),      # an empty hint is fine: the table then prints the Chinese title
+      f"errors={[e['message'] for e in errs4][:3]}")
 r = client.put("/teacher/library/pecha_kucha/13-1/draft", json={"doc": {**client.get("/teacher/library/pecha_kucha/13-1", headers=admin).json()["doc"], "title_zh": ""}}, headers=admin) if client.get("/teacher/library/pecha_kucha/13-1", headers=admin).status_code == 200 else None
 if r is not None and r.status_code == 200:
     pub = client.post("/teacher/library/pecha_kucha/13-1/publish", json={}, headers=admin)

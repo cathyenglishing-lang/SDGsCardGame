@@ -2101,7 +2101,8 @@ function pkPickDecoy(subs){
   const pool = pkSlides().filter(x=>!onTable.has(x.no) && !titles.has(String(x.title_en).trim().toLowerCase()));
   if(!pool.length) return null;
   const d = pool[Math.floor(Math.random()*pool.length)];
-  // It looks exactly like a real card (Chinese hint line included); a card without the line gave itself away.
+  // It looks exactly like a real card: the line under the title is the teacher's hint (keywords) or, when
+  // that is empty, the slide's Chinese title (2026-11-11: the teacher wants a Chinese hint on every card).
   return { id:"decoy-"+d.no, no:d.no, title:d.title_en, zh:d.title_zh||"", keywords:d.keywords||"", decoy:true };
 }
 function pkPartNote(text){
@@ -2644,7 +2645,7 @@ async function loadTopic(id, el) {
             <div class="match-card-face">
               <span class="pk-corner tl">${String.fromCharCode(65 + index)}<i></i></span><span class="pk-corner br">${String.fromCharCode(65 + index)}<i></i></span>
               <div class="card-title">${escapeHTML(s.title)}</div>
-              ${s.keywords ? `<div class="card-kw">${escapeHTML(s.keywords)}</div>` : ""}
+              ${s.keywords || s.zh ? `<div class="card-kw">${escapeHTML(s.keywords || s.zh)}</div>` : ""}
               <div class="drop-hint">Drop or click here</div>
             </div>
           </div>

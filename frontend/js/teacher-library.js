@@ -359,7 +359,7 @@
         <textarea data-f="script" rows="6" maxlength="2000">${esc(s.script)}</textarea>
         <span class="tl-under"><span class="tl-count" id="tlCount"></span><span class="tl-savedat" id="tlSavedAt" role="status"></span></span>${msg("script")}</label>
       <details class="tl-adv" ${s.keywords || s.purpose ? "open" : ""}><summary>進階（可以不填）</summary>
-        <label>卡面上的小提示 <small class="tl-rule">顯示在標題下面的一行小字，例如中文大綱。</small><input data-f="keywords" value="${esc(s.keywords)}" maxlength="300">${msg("keywords")}</label>
+        <label>卡面上的小提示 <small class="tl-rule">顯示在標題卡下面的一行小字。留空的話，學生看到的是上面的中文標題；想放別的提示（例如中文大綱）才填。</small><input data-f="keywords" value="${esc(s.keywords)}" maxlength="300">${msg("keywords")}</label>
         <label>這一張的用途（給老師自己看）<input data-f="purpose" value="${esc(s.purpose)}" maxlength="300"></label>
         <label>屬於第幾段 <select data-f="part">${[1, 2, 3, 4, 5, 6].map(n => `<option value="${n}" ${n === s.part ? "selected" : ""}>Part ${n}${partName(n, slides.length) ? " · " + partName(n, slides.length) : ""}</option>`).join("")}</select>${msg("part")}</label>
       </details>
