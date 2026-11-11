@@ -1294,6 +1294,7 @@ body.pk-embed .game-guide,body.pk-embed #topicGrid{display:none}
 <script src="/static/js/pk-telemetry.js"></script>
 <script src="/static/js/voice.js"></script>
 <script src="/static/js/speech-say.js"></script>
+<script src="/static/js/topic-code.js"></script>
 <script src="/static/js/pk-wrapup.js"></script>
 <script>
 /* ── Casino effects of the card table (2026-11-09 「像真實賭場一樣」) ──
@@ -1572,6 +1573,7 @@ function pkGoalText(){
   return "今天的目標：聽懂 "+total+" 張投影片，最後自己念一張。";
 }
 function pkClean(t){ t=String(t||"").replace(/^Topic\s*\d+\s*[:：]\s*/,"").trim(); return t.length>92?t.slice(0,90)+"…":t; }
+function pkCode(id){ return window.topicCode ? window.topicCode(id) : String(id); }   // what a topic is shown as: 9-1 → 9-A
 function pkEsc(s){ return String(s==null?"":s).replace(/[&<>"]/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[m])); }
 
 function buildDB(topic, level){
@@ -1627,8 +1629,8 @@ function renderSelector(){
       const levels = LEVEL_ORDER.filter(l=>t.levels[l]);
       const locked = !pkTopicOpen(t.id), title = pkTitle(t), zh = pkTitleZh(t);
       const many = levels.length > 3 ? ' many' : '';
-      const corner = '<i></i>'+pkEsc(t.id);
-      h += '<article class="pk-tcard'+(locked?' is-locked':'')+'" style="--d:'+(n++*110)+'ms" aria-label="'+pkEsc(t.id+' '+title+(locked?'（尚未開放）':''))+'">'
+      const corner = '<i></i>'+pkEsc(pkCode(t.id));
+      h += '<article class="pk-tcard'+(locked?' is-locked':'')+'" style="--d:'+(n++*110)+'ms" aria-label="'+pkEsc(pkCode(t.id)+' '+title+(locked?'（尚未開放）':''))+'">'
          + '<div class="pk-tc-inner">'
          +   (locked
                ? '<div class="pk-tc-face" aria-hidden="true"><span class="pk-tc-corner tl">'+corner+'</span><h3>'+pkEsc(title)+'</h3></div>'
@@ -1638,7 +1640,7 @@ function renderSelector(){
                +   '<span class="pk-tc-lv" aria-hidden="true">'+levels.map(l=>'<i style="--lc:'+(LEVEL_TONE[l]||"#334155")+'"'+(pkLevelOpen(t,l)?'':' class="off"')+'>'+l+'</i>').join('')+'</span>'
                +   '<span class="pk-tc-cta" aria-hidden="true">選這張 ▸</span>'
                + '</button>')
-         +   '<div class="pk-tc-back" aria-hidden="true">'+(locked ? '<span class="pk-tc-lock">🔒</span><b>'+pkEsc(t.id)+'</b><small>即將開放</small>' : '<span class="pk-tc-seal">SDG<b>'+sdg+'</b></span>')+'</div>'
+         +   '<div class="pk-tc-back" aria-hidden="true">'+(locked ? '<span class="pk-tc-lock">🔒</span><b>'+pkEsc(pkCode(t.id))+'</b><small>即將開放</small>' : '<span class="pk-tc-seal">SDG<b>'+sdg+'</b></span>')+'</div>'
          + '</div></article>';
     });
     h += '</div></section>';
@@ -1673,7 +1675,7 @@ function pkOpenTopic(topicId, from){
   const box = document.createElement("div");
   box.id = "pkPick"; box.className = "pk-pick"; box.setAttribute("role","dialog"); box.setAttribute("aria-modal","true"); box.setAttribute("aria-label", title+"：選難度");
   box.innerHTML = '<div class="pk-pick-card" style="--ac:'+meta.c+'">'
-    + '<div class="pk-pick-front" aria-hidden="true"><span class="pk-tc-corner tl"><i></i>'+pkEsc(t.id)+'</span><h3>'+pkEsc(title)+'</h3>'+(zh?'<p>'+pkEsc(zh)+'</p>':'')+'</div>'
+    + '<div class="pk-pick-front" aria-hidden="true"><span class="pk-tc-corner tl"><i></i>'+pkEsc(pkCode(t.id))+'</span><h3>'+pkEsc(title)+'</h3>'+(zh?'<p>'+pkEsc(zh)+'</p>':'')+'</div>'
     + '<div class="pk-pick-back">'
     +   '<button type="button" class="pk-pick-x" id="pkPickClose" aria-label="換一張主題牌">← 換主題</button>'
     +   '<p class="pk-pick-step"><b>2</b>選難度</p>'
@@ -2096,7 +2098,7 @@ function pkStartGame(topicId, level){
   const shortTitle = pkTitle(topic);
   if(st) st.textContent = shortTitle + (pkTitleZh(topic) ? " · " + pkTitleZh(topic) : "");
   document.getElementById("gameScreen").style.setProperty("--sdg", (SDG_META[topic.sdg]||{}).c || "#c5192d");
-  document.getElementById("pkSdgBadge").textContent = topic.id;
+  document.getElementById("pkSdgBadge").textContent = pkCode(topic.id);
   document.getElementById("pkLevelChip").textContent = level;
   pkPileReset();
   updateStatus("點上面的 1–6，選一段開始。");

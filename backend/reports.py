@@ -8,12 +8,21 @@ Student: GET  /me/reports                                  → my reports (newes
 The HTML is built here with every value escaped; the student page shows it in a sandboxed iframe.
 """
 import html, json
+import re
 from collections import Counter
 from datetime import datetime, timedelta, timezone
 from types import SimpleNamespace
 
 from fastapi import APIRouter, Header, HTTPException
 from pydantic import BaseModel
+
+
+def topic_code(topic_id):
+    """What a topic is shown as: 9-1 → 9-A (the same rule as frontend/js/topic-code.js). The stored id does not change."""
+    m = re.fullmatch(r"(\d{1,2})-(\d{1,2})", str(topic_id or ""))
+    if not m or not 1 <= int(m.group(2)) <= 26:
+        return str(topic_id or "")
+    return f"{m.group(1)}-{chr(64 + int(m.group(2)))}"
 
 router = APIRouter(tags=["reports"])
 D = SimpleNamespace()
@@ -70,7 +79,7 @@ def build_html(d, note, teacher_name, titles):
         svg = (f'<svg viewBox="0 0 {W} {H}" class="line"><polyline points="{" ".join(f"{x:.1f},{y:.1f}" for x, y in pts)}" />'
                + "".join(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="4"><title>{e(s[2])}：{e(s[1])}</title></circle>' for (x, y), s in zip(pts, scores))
                + f'<text x="16" y="{H - 4}">第一次</text><text x="{W - 16}" y="{H - 4}" text-anchor="end">最近一次</text></svg>')
-    bars = "".join(f'<div class="bar"><span>{e(x["chapter"])} {e(titles.get(x["chapter"], ""))} <small>{e(x["level"])}</small></span><i><b style="width:{max(2, _num(x.get("best")) or 0)}%"></b></i><em>{e(x.get("best"))}</em></div>'
+    bars = "".join(f'<div class="bar"><span>{e(topic_code(x["chapter"]))} {e(titles.get(x["chapter"], ""))} <small>{e(x["level"])}</small></span><i><b style="width:{max(2, _num(x.get("best")) or 0)}%"></b></i><em>{e(x.get("best"))}</em></div>'
                    for x in topics if _num(x.get("best")) is not None)
     weak = d.get("weak_cards") or []
     practise = "".join(f'<li><b>{e(w.get("title") or w.get("card"))}</b><span>{e(w.get("script") or "")}</span><small>{e(w.get("plays"))} 次裡有 {e(w.get("misses"))} 次第一次沒配對到</small></li>' for w in weak[:6])

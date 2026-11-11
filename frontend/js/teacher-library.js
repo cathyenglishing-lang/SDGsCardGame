@@ -13,6 +13,7 @@
 //   - the same five actions in the same order on every node: 新增 · 複製 · 匯入 · 匯出 · 刪除
 // Backend: backend/content_library.py.
 (function () {
+  const code = id => (window.topicCode ? window.topicCode(id) : String(id ?? ""));   // 9-1 is shown as 9-A (js/topic-code.js)
   const $ = id => document.getElementById(id);
   const esc = v => String(v ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
   const API = () => String(window.CARDLEARN_API_BASE_URL || "").replace(/\/+$/, "");
@@ -95,7 +96,7 @@
     const row = t => `
       <li class="${t.topic_id === S.topic ? "open" : ""}">
         <button type="button" class="tl-node ${t.topic_id === S.topic && S.mode !== "new" ? "on" : ""}" data-topic="${esc(t.topic_id)}" title="${esc(t.title_zh || "")}">
-          <b>${esc(t.topic_id)}</b><span>${esc(t.title_en || "（還沒有名稱）")}</span>
+          <b>${esc(code(t.topic_id))}</b><span>${esc(t.title_en || "（還沒有名稱）")}</span>
           <i>${t.published ? "v" + t.version : "未發佈"}${t.has_draft ? ' <em class="draft">草稿</em>' : ""}${t.errors ? ` <em class="err">${t.errors} 個問題</em>` : ""}</i>
         </button>
         <button type="button" class="tl-switch ${t.locked ? "" : "on"}" data-lockt="${esc(t.topic_id)}" role="switch" aria-checked="${!t.locked}" title="${t.locked ? "上鎖中：學生不能玩。按一下開放" : "學生可以玩。按一下上鎖"}"><span></span><em>${t.locked ? "上鎖" : "開放"}</em></button>
@@ -105,7 +106,7 @@
       <p class="tl-group">${esc(g.name)}</p>
       <ul class="tl-list">${live.map(row).join("") || `<li class="tl-hint">沒有符合的主題。</li>`}</ul>
       <button type="button" class="btn tl-add" id="tlNew">＋ 新增主題</button>
-      ${gone.length ? `<p class="tl-group">已刪除（可以復原）</p><ul class="tl-list">${gone.map(t => `<li class="tl-gone"><span><b>${esc(t.topic_id)}</b> ${esc(t.title_en)}</span><button type="button" class="btn" data-restore="${esc(t.topic_id)}">復原</button></li>`).join("")}</ul>` : ""}
+      ${gone.length ? `<p class="tl-group">已刪除（可以復原）</p><ul class="tl-list">${gone.map(t => `<li class="tl-gone"><span><b>${esc(code(t.topic_id))}</b> ${esc(t.title_en)}</span><button type="button" class="btn" data-restore="${esc(t.topic_id)}">復原</button></li>`).join("")}</ul>` : ""}
 `;
     document.querySelectorAll("#tlTree [data-topic]").forEach(b => b.onclick = () => leave(() => openTopic(b.dataset.topic)));
     document.querySelectorAll("#tlTree [data-lockt]").forEach(b => b.onclick = async e => { e.stopPropagation(); const id = b.dataset.lockt, t = g.topics.find(x => x.topic_id === id);
@@ -194,7 +195,7 @@
       <div class="tl-state" id="tlState"></div>
       <section class="panel">
         <div class="tl-head">
-          <span class="tl-code">SDG ${esc(S.topic)}</span>
+          <span class="tl-code">SDG ${esc(code(S.topic))}</span>
           <label class="grow">英文名稱<input id="tlTitleEn" value="${esc(d.title_en)}" maxlength="200" placeholder="How to Talk to AI Like a Scientist"></label>
           <label class="grow">中文名稱<input id="tlTitleZh" value="${esc(d.title_zh)}" maxlength="200" placeholder="像科學家一樣與 AI 對話"></label>
         </div>
@@ -262,7 +263,7 @@
       : sum.has_draft || S.dirty ? ["draft", `有還沒發佈的修改。學生現在看到的是第 ${sum.version} 版。`]
       : ["live", `已發佈第 ${sum.version} 版，學生看到的就是這裡的內容。`];
     el.className = "tl-state " + state[0];
-    el.innerHTML = `<div><b>SDG ${esc(S.topic)} · ${state[1]}</b><small>${esc(savedText())}</small>
+    el.innerHTML = `<div><b>SDG ${esc(code(S.topic))} · ${state[1]}</b><small>${esc(savedText())}</small>
         ${S.data.changes_data && (sum.has_draft || S.dirty) ? `<small class="note">這次改到了講稿或標題：發佈後會變成第 ${sum.version + 1} 版，新舊版的學習數據會分開統計。</small>` : ""}</div>
       <div class="tl-state-btns">
         ${last ? `<button class="btn" type="button" id="tlUndoLast" title="${esc(last.text)}">↶ 復原上一步</button>` : ""}
@@ -427,12 +428,12 @@
   }
   function paintNew(copyFrom) {
     const topics = curGame().topics.filter(t => !t.archived);
-    $("tlMain").innerHTML = `<section class="panel"><h3 class="tl-h">${copyFrom ? `複製 SDG ${esc(copyFrom)} 成新主題` : "新增主題"}</h3>
+    $("tlMain").innerHTML = `<section class="panel"><h3 class="tl-h">${copyFrom ? `複製 SDG ${esc(code(copyFrom))} 成新主題` : "新增主題"}</h3>
       <form id="tlNewForm" class="tl-new">
         <label>主題代碼 <small class="tl-rule">SDG 編號、減號、第幾個主題，例如 9-4。</small><input id="tlNewId" required pattern="\\d{1,2}-\\d{1,2}" placeholder="9-4" maxlength="5"><small class="tl-field-msg bad" id="tlNewIdMsg"></small></label>
         <label>英文名稱<input id="tlNewEn" maxlength="200"></label>
         <label>中文名稱<input id="tlNewZh" maxlength="200"></label>
-        <label>內容從哪裡來 <select id="tlNewFrom"><option value="">空白的投影片（自己填或匯入）</option>${topics.map(t => `<option value="${esc(t.topic_id)}" ${t.topic_id === copyFrom ? "selected" : ""}>複製 SDG ${esc(t.topic_id)} ${esc(t.title_en)}</option>`).join("")}</select></label>
+        <label>內容從哪裡來 <select id="tlNewFrom"><option value="">空白的投影片（自己填或匯入）</option>${topics.map(t => `<option value="${esc(t.topic_id)}" ${t.topic_id === copyFrom ? "selected" : ""}>複製 SDG ${esc(code(t.topic_id))} ${esc(t.title_en)}</option>`).join("")}</select></label>
         <div id="tlNewBlank">
           <label>幾張投影片 <select id="tlNewSlides"><option value="20">20 張（每段 3、3、3、3、4、4）</option><option value="12">12 張（每段 2 張）</option></select></label>
           <fieldset><legend>要有哪些難度</legend>${S.tree.levels.map(l => `<label class="check"><input type="checkbox" value="${l}" ${["A2", "B1", "B2"].includes(l) ? "checked" : ""}> ${l}</label>`).join("")}</fieldset>

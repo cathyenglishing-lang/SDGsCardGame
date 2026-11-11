@@ -36,7 +36,7 @@ Verification (there is no automated test suite — these are the only checks):
 ```bash
 python -m py_compile backend/main.py backend/learning.py backend/classroom.py backend/recordings.py backend/learning_reports.py backend/content_library.py backend/speech_rules.py backend/tts.py backend/rate_limit.py scripts/test_rate_limits.py
 python scripts/test_rate_limits.py   # Redis rate-limit self-test, needs REDIS_URL
-python scripts/test_classroom.py     # 211 checks: courses, roster, accounts, card-game data, chips, recordings, reports, material library (throw-away SQLite, never sql/app.db)
+python scripts/test_classroom.py     # 214 checks: courses, roster, accounts, card-game data, chips, recordings, reports, material library (throw-away SQLite, never sql/app.db)
 npm run build                         # frontend build check; runs the question-bank check first
 npm run content:check                 # question bank only (frontend/js/pk-content.js)
 ```

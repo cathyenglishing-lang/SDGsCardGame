@@ -141,6 +141,11 @@ def spoken_texts(game="pecha_kucha"):
     return out
 
 
+def _not_chinese(text):
+    """Empty, or (as 5-1 and 5-2 once were) an English sentence where the Chinese title belongs."""
+    return not re.search("[\u3400-\u9fff]", str(text or ""))
+
+
 def _backfill_title_zh(cur):
     """Older databases were seeded before the question bank had every Chinese title (9-1 lacked six).
     Where the published card still has none and the seed file has one for the same card (same English
@@ -171,7 +176,7 @@ def _backfill_title_zh(cur):
                 ref = {s.get("no"): s for s in (t.get("levels") or {}).get(level, [])}
                 for s in slides:
                     r = ref.get(s.get("no"))
-                    if r and not s.get("title_zh") and r.get("title_zh") and (s.get("title_en") or "") == (r.get("title_en") or ""):
+                    if r and _not_chinese(s.get("title_zh")) and not _not_chinese(r.get("title_zh")) and (s.get("title_en") or "") == (r.get("title_en") or ""):
                         s["title_zh"] = r["title_zh"]; n += 1
             if n:
                 changed[col] = json.dumps(doc, ensure_ascii=False); filled += n
@@ -240,6 +245,8 @@ def check_doc(doc):
                 add(errors, "講稿是空的。", level, s["no"], "script")
             if not s["title_zh"]:    # 2026-11-09 meeting (T4): the Chinese hint must be there before publishing
                 add(errors, "中文標題是空的（學生靠它看懂這張卡）。", level, s["no"], "title_zh")
+            elif not re.search("[\u3400-\u9fff]", s["title_zh"]):   # it is printed under the title card: an English sentence here gave the answer away
+                add(errors, "中文標題裡沒有中文。這一行會印在標題卡上，不要放英文句子或講稿。", level, s["no"], "title_zh")
             if not s["keywords"]:    # T4 asks for this too; today 468 of 488 seed cards have none, so it stays a reminder until the teacher has filled them in
                 add(warnings, "還沒有提示字（卡面標題下的一行小字）。", level, s["no"], "keywords")
             if re.search("�|Ã[\u0080-¿]|â€", s["title_en"] + s["title_zh"] + s["script"]):

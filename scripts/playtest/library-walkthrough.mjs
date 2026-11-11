@@ -48,7 +48,7 @@ await step("open the editor", async () => {
 const before = await live("9-2");
 await step("open 9-2", async () => {
   await page.click('#tlTree [data-topic="9-2"]');
-  await page.waitFor(`document.querySelector(".tl-code") && document.querySelector(".tl-code").textContent.includes("9-2") && !!document.querySelector("#tlEdit [data-f='script']")`, 8000, "9-2 is open");
+  await page.waitFor(`document.querySelector(".tl-code") && document.querySelector(".tl-code").textContent.includes("9-B") && !!document.querySelector("#tlEdit [data-f='script']")`, 8000, "9-2 is open");
   if (!/已發佈第 \d+ 版/.test(await text("#tlState"))) problem("open 9-2", "the state line does not say which version is published: " + (await text("#tlState")));
   if (!/檢查通過/.test(await text("#tlChecks"))) problem("open 9-2", "a published topic should pass its checks: " + (await text("#tlChecks")).slice(0, 120));
   await shot("topic");
@@ -105,7 +105,7 @@ await step("new topic from a pasted sheet", async () => {
   await fill("#tlNewId", newId); await fill("#tlNewEn", "Reading for Everyone"); await fill("#tlNewZh", "人人都能閱讀");
   await shot("new-topic");
   await page.click('#tlNewForm button[type="submit"]');
-  await page.waitFor(`document.querySelector("#tlTree .tl-node.on") && document.querySelector("#tlTree .tl-node.on").textContent.includes("${newId}")`, 8000, "new topic opened");
+  await page.waitFor(`document.querySelector("#tlTree .tl-node.on") && document.querySelector("#tlTree .tl-node.on").dataset.topic === "${newId}"`, 8000, "new topic opened");
   if (!/還沒發佈過/.test(await text("#tlState"))) problem("new topic", "a new topic should say it has never been published: " + (await text("#tlState")));
   if (await live(newId)) problem("new topic", "students can already see an unpublished topic");
   await page.click("#tlImportBtn"); await page.waitForSelector("#tlImportText");
@@ -142,13 +142,13 @@ await step("delete the topic and undo", async () => {
   if (await live(newId)) problem("delete the topic", "students still get a deleted topic");
   await shot("topic-deleted");
   await page.click("#tlUndo");
-  await page.waitFor(`document.querySelector("#tlTree .tl-node.on") && document.querySelector("#tlTree .tl-node.on").textContent.includes("${newId}")`, 8000, "topic restored and opened");
+  await page.waitFor(`document.querySelector("#tlTree .tl-node.on") && document.querySelector("#tlTree .tl-node.on").dataset.topic === "${newId}"`, 8000, "topic restored and opened");
   if (!(await live(newId))) problem("delete the topic", "undo did not give the topic back to students");
 });
 
 await step("take back an old version", async () => {
   await page.click('#tlTree [data-topic="9-2"]');
-  await page.waitFor(`document.querySelector(".tl-code") && document.querySelector(".tl-code").textContent.includes("9-2") && !!document.querySelector("#tlEdit [data-f='script']")`, 8000, "9-2 is open");
+  await page.waitFor(`document.querySelector(".tl-code") && document.querySelector(".tl-code").textContent.includes("9-B") && !!document.querySelector("#tlEdit [data-f='script']")`, 8000, "9-2 is open");
   await page.sleep(300);
   await page.evaluate(`document.querySelector(".tl-history").open = true`); await page.sleep(200);
   await page.click(`.tl-history [data-ver="${before.version}"]`);

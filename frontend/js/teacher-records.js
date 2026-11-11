@@ -53,7 +53,8 @@
   const cardScript = id => { const s = T.slide(id); return s ? (s.script || "") : ""; };
   const cardLabel = id => { const no = cardNo(id), t = cardTitle(id); return no ? `第 ${no} 張${t ? "「" + t + "」" : ""}` : String(id ?? ""); };
   const cardCell = id => { const no = cardNo(id), t = cardTitle(id); return no ? `<b class="tr-no">${no}</b> ${esc(t || "（教材裡找不到這一張）")}` : esc(id); };
-  const topicLabel = ch => { const nm = T.name(ch); return nm ? `${ch} ${nm}` : String(ch ?? ""); };
+  const code = id => (window.topicCode ? window.topicCode(id) : String(id ?? ""));   // 9-1 is shown as 9-A (js/topic-code.js)
+  const topicLabel = ch => { const nm = T.name(ch); return nm ? `${code(ch)} ${nm}` : code(ch); };
   // Codes inside a sentence the server wrote ("第一次配錯：s02、s01") become slide numbers and titles.
   const codes = (text, run) => String(text ?? "")
     .replace(/\d{1,2}-\d{1,2}\/[A-C][12]\/s\d{2}/g, m => cardLabel(m))
@@ -332,7 +333,7 @@
         ${hard ? `<p class="tr-say">最難的是 ${esc(cardLabel(hard.card))}：${n(hard.n)} 人次裡只有 ${n(hard.first_ok)} 人次第一次就配對${hard.top_wrong ? "，最常被放到 " + esc(cardLabel(hard.top_wrong.target)) : ""}。</p>` : ""}
         <p class="tr-hint">「聽懂程度」只看每位學生第一次放卡，並扣掉用猜的機率：0 = 跟亂猜一樣，100 = 每個人第一次就配對。滑鼠停在一列上可以看到那一句的講稿。</p>
         <div class="scrollx"><table class="part-table tr-table"><thead><tr><th>這一句（投影片）</th><th>最常被放到</th><th>聽懂程度</th><th>第一次就配對</th><th>每次重聽</th><th>反應秒數</th></tr></thead><tbody>
-          ${rep.cards.length ? rep.cards.map(c => { const p = T.parse(c.card), s = num(c.s); return `<tr title="${esc(cardScript(c.card))}"><td>${cardCell(c.card)}<small class="tr-sub">${esc(p.topic)} ${esc(p.level)}${num(c.version) ? " · 第 " + num(c.version) + " 版教材" : ""}</small></td>
+          ${rep.cards.length ? rep.cards.map(c => { const p = T.parse(c.card), s = num(c.s); return `<tr title="${esc(cardScript(c.card))}"><td>${cardCell(c.card)}<small class="tr-sub">${esc(code(p.topic))} ${esc(p.level)}${num(c.version) ? " · 第 " + num(c.version) + " 版教材" : ""}</small></td>
             <td>${c.top_wrong ? `${cardCell(c.top_wrong.target)} <small>×${n(c.top_wrong.n)}</small>` : "–"}</td>
             <td class="nw">${s === null ? "–" : bar(Math.max(0, s) * 100, s < 0.4 ? "bad" : s < 0.8 ? "mid" : "good") + " " + Math.round(Math.max(0, s) * 100)}</td><td class="nw">${n(c.first_ok)} / ${n(c.n)} 人次</td><td>${n(c.repeats_avg)}</td><td>${num(c.rt_median_ms) === null ? "–" : (num(c.rt_median_ms) / 1000).toFixed(1)}</td></tr>`; }).join("") : `<tr><td colspan="6">還沒有作答紀錄。</td></tr>`}
         </tbody></table></div></section>

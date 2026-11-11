@@ -71,7 +71,7 @@ async function studentPlays(name, { topic, level, mistakes, width = 1024, height
     await page.waitFor(`typeof PK_READY !== "undefined" && PK_READY && !!document.querySelector(".pk-tcard") && !!document.querySelector(".pk-who-bar .pk-pname")`, 15000, name + " menu ready");
     const menu = await page.evaluate(`[...document.querySelectorAll(".pk-tcard")].map(e => (e.getAttribute("aria-label") || "").split(" ")[0] + (e.classList.contains("is-locked") ? "(locked)" : "")).join(",")`);
     // The course opened 9-1 and 9-2; 9-2 is locked for everyone, and a lock wins: it is shown face down.
-    if (menu !== "9-1,9-2(locked)") problem(name, "the menu should show the course's topics 9-1 and 9-2 (locked) but shows " + menu);
+    if (menu !== "9-A,9-B(locked)") problem(name, "the menu should show the course's topics 9-A and 9-B (locked; stored as 9-1, 9-2) but shows " + menu);
     const whoBar = await page.evaluate(`document.querySelector(".pk-who-bar").textContent`);
     if (!whoBar.includes(acct.name)) problem(name, "the name bar does not show who is signed in");
     if (!whoBar.includes(acct.section) && !whoBar.includes(course.name)) problem(name, "the name bar shows neither the student's 系級 " + acct.section + " nor the course");

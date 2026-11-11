@@ -701,6 +701,23 @@ for k_, v_ in real.items():
 client.put("/teacher/tts", json=TTS.DEFAULT_SETTINGS, headers=admin)
 check("with the keys gone again the game is told to use the device's voice, and stored clips still play", client.get("/content/tts/options").json()["available"] is False and client.get("/content/tts", params={"text": s1, "accent": "en-GB"}).status_code == 200)
 
+section("Chinese titles must be Chinese (5-1 and 5-2 had the English script there)")
+bad12 = [{**c_, "title_zh": "Think about a beautiful bird.", "keywords": "x"} for c_ in twelve]
+errs_, _ = CL.check_doc({"id": "t5", "sdg": 5, "title_en": "T", "title_zh": "測試", "levels": {"A2": bad12}})
+check("a 'Chinese title' with no Chinese in it is an error", sum(1 for e in errs_ if e["field"] == "title_zh" and "沒有中文" in e["message"]) == 12, str([e["message"] for e in errs_][:2]))
+lib_ = client.get("/content/library").json()["topics"]
+leaks = [(t_["id"], l_, s_["no"]) for t_ in lib_ for l_, ss_ in t_["levels"].items() for s_ in ss_ if not CL.re.search("[㐀-鿿]", s_.get("title_zh") or "")]
+check("no card served to students has an English sentence as its Chinese title", leaks == [], str(leaks[:5]))
+conn_ = CL.D.get_db(); cur_ = conn_.cursor()
+cur_.execute("SELECT id, published_json FROM content_topics WHERE game = ? AND topic_id = ?", ("pecha_kucha", "5-1"))
+row_ = cur_.fetchone(); doc_ = json.loads(row_["published_json"]); lvl_ = sorted(doc_["levels"])[0]
+good_ = doc_["levels"][lvl_][2]["title_zh"]; doc_["levels"][lvl_][2]["title_zh"] = doc_["levels"][lvl_][2]["script"]
+cur_.execute("UPDATE content_topics SET published_json = ? WHERE id = ?", (json.dumps(doc_, ensure_ascii=False), row_["id"])); conn_.commit()
+n_ = CL._backfill_title_zh(cur_); conn_.commit()
+cur_.execute("SELECT published_json FROM content_topics WHERE id = ?", (row_["id"],))
+now_ = json.loads(cur_.fetchone()["published_json"])["levels"][lvl_][2]["title_zh"]; conn_.close()
+check("an older database with the script in that field gets the real Chinese title at start-up", n_ == 1 and now_ == good_ and bool(CL.re.search("[㐀-鿿]", now_)), f"{n_} {now_!r}")
+
 section("Other pages still work")
 check("3D story analytics leave card-game runs out (only the one 3D run made above is counted)", client.get("/learning/analytics", headers=admin).json()["overview"]["runs"] == 1)
 check("old card-game analytics", client.get("/teacher/pk-analytics", headers=admin).status_code == 200)

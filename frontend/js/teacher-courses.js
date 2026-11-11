@@ -147,7 +147,7 @@ window.teacherToast = window.teacherToast || function (text, undo) {
         <p class="tc-hint">勾選後，這門課的學生在卡牌遊戲只會看到這些主題和難度；全部不勾＝照全站的開放規則。<b>勾了就自動儲存。</b>這裡列的是「教材管理」已發佈的主題；上鎖的主題要先到教材管理開放，學生才玩得到。</p>
         <div class="tc-acts">${topics(c).map(t => {
           const a = c.activities.find(x => x.game === "pecha_kucha" && x.topic_id === t.id);
-          return `<div class="tc-act ${t.locked || t.gone ? "off" : ""}" data-topic="${esc(t.id)}"><div><b>SDG ${esc(t.id)}</b> ${esc(t.en)}<small>${esc(t.zh)}</small>
+          return `<div class="tc-act ${t.locked || t.gone ? "off" : ""}" data-topic="${esc(t.id)}"><div><b>SDG ${esc(window.topicCode ? window.topicCode(t.id) : t.id)}</b> ${esc(t.en)}<small>${esc(t.zh)}</small>
               ${t.locked ? `<small class="tc-lock">🔒 已上鎖：先到教材管理開放，學生才玩得到</small>` : ""}${t.gone ? `<small class="tc-lock">${esc(t.gone)}：學生看不到。不需要的話把勾拿掉。</small>` : ""}</div>
             <div class="tc-lv">${t.levels.map(l => `<label><input type="checkbox" value="${esc(l)}" ${a && a.levels.includes(l) ? "checked" : ""}> ${esc(l)}</label>`).join("")}</div></div>`;
         }).join("")}</div>
