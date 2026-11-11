@@ -392,7 +392,7 @@
     if (S.chipKey === key && p.querySelector(".pkw-items")) return;
     S.chipKey = key;
     p.classList.remove("pkw-settling", "pkw-settled");
-    const note = (chips.held ? "這局的籌碼等老師確認後入帳。" : `目前共有 <b class="pkw-bal">${chips.balance}</b> 枚。`)
+    const note = (chips.test ? "測試局：不給籌碼，也不進班級統計。" : chips.held ? "這局的籌碼等老師確認後入帳。" : `目前共有 <b class="pkw-bal">${chips.balance}</b> 枚。`)
       + (chips.capped ? " 今天的籌碼已滿，明天再來。" : "")
       + (S.server.history && S.server.history.finished_today_same >= 2 ? " 同一個主題和難度，今天第 3 局起只計聽懂分數；隔兩天再回來會多 5 枚。" : "");
     const start = typeof S.shownEarned === "number" ? S.shownEarned : prov === null ? 0 : prov, fx = ctx.fx;

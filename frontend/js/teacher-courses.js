@@ -304,14 +304,22 @@ window.teacherToast = window.teacherToast || function (text, undo) {
     if (!current || !$("tcRoster")) return;
     try {
       roster = (await api.teacher.courseRoster(current.id)).students;
-      $("tcRoster").innerHTML = roster.length ? `<table class="part-table tc-table"><thead><tr><th>系級</th><th>學號</th><th>姓名</th><th>帳號</th><th>研究代碼</th><th>狀態</th><th></th></tr></thead><tbody>
-        ${roster.map(s => `<tr class="${s.status === "active" ? "" : "mute"}"><td>${esc(s.section)}</td><td>${esc(s.student_no || "")}</td><td>${esc(s.name)}</td><td>${esc(s.email)}</td><td><code>${esc(s.public_id || "")}</code></td>
+      $("tcRoster").innerHTML = roster.length ? `<table class="part-table tc-table"><thead><tr><th>系級</th><th>學號</th><th>姓名</th><th>帳號</th><th>研究代碼</th><th>狀態</th><th title="勾起來的人玩的局會保留，但不進班級統計、題目難度和研究匯出">測試帳號</th><th></th></tr></thead><tbody>
+        ${roster.map(s => `<tr class="${s.status === "active" ? "" : "mute"} ${s.test ? "tc-testrow" : ""}"><td>${esc(s.section)}</td><td>${esc(s.student_no || "")}</td><td>${esc(s.name)}${s.test ? ` <span class="tc-badge mute">測試</span>` : ""}</td><td>${esc(s.email)}</td><td><code>${esc(s.public_id || "")}</code></td>
           <td>${s.status === "active" ? (s.must_change_password ? `<span class="tc-badge info">還沒登入改密碼</span>` : `<span class="tc-badge good">已啟用</span>`) : `<span class="tc-badge mute">退選</span>`}
             ${resetShown[s.user_id] ? `<br><small class="tc-newpw">新的初始密碼 <code>${esc(resetShown[s.user_id])}</code>（只在這一頁顯示）</small>` : ""}</td>
+          <td class="nw"><label class="check tc-test" title="${s.test_fixed ? "老師和管理員的帳號一定是測試帳號" : "勾起來：這個人玩的局不進班級統計"}"><input type="checkbox" data-test="${Number(s.user_id)}" data-name="${esc(s.name)}" ${s.test ? "checked" : ""} ${s.test_fixed ? "disabled" : ""}> ${s.test_fixed ? "老師" : "不計"}</label></td>
           <td class="tc-actions"><button class="btn" type="button" data-reset="${Number(s.user_id)}">重設密碼</button>
             <button class="btn" type="button" data-enr="${Number(s.enrollment_id)}" data-to="${s.status === "active" ? "dropped" : "active"}" data-name="${esc(s.name)}">${s.status === "active" ? "標為退選" : "恢復"}</button></td></tr>`).join("")}
       </tbody></table>` : `<p class="tc-hint">這門課還沒有學生。用上面的「匯入名單」加入。</p>`;
       document.querySelectorAll("#tcRoster [data-reset]").forEach(b => b.onclick = () => resetPw(Number(b.dataset.reset), b));
+      document.querySelectorAll("#tcRoster [data-test]").forEach(c => c.onchange = async () => {
+        c.disabled = true;
+        try { await api.teacher.setTestAccount(Number(c.dataset.test), c.checked);
+          toast(c.checked ? `${c.dataset.name} 標成測試帳號：之後和之前玩的局都不進班級統計（紀錄保留）。` : `${c.dataset.name} 不再是測試帳號：他玩的局會計入班級統計。`);
+          loadRoster(); }
+        catch (e) { c.checked = !c.checked; c.disabled = false; toast(e.message || "沒有存成功，請再試一次。"); }
+      });
       document.querySelectorAll("#tcRoster [data-enr]").forEach(b => b.onclick = () => setEnrollment(b.dataset.enr, b.dataset.to, b.dataset.name, true));
     } catch (e) { $("tcRoster").innerHTML = `<p class="tc-msg bad">${esc(e.message)}</p>`; }
     loadChips();

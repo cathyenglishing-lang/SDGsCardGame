@@ -52,10 +52,10 @@ MAX_BATCH = 200
 
 CARD_GAME = "pecha_kucha"
 
-_auth = {"current": None, "teacher": None, "course": None, "finish": None, "people": None, "recordings": None, "titles": None}
+_auth = {"current": None, "teacher": None, "course": None, "finish": None, "people": None, "recordings": None, "titles": None, "test_users": None}
 
 
-def configure(get_current_user, require_teacher, resolve_course=None, on_finish=None, people=None, recordings=None):
+def configure(get_current_user, require_teacher, resolve_course=None, on_finish=None, people=None, recordings=None, test_users=None):
     """Wire the platform's helpers in (keeps this module free of main.py imports).
     resolve_course(user_id, requested_course_id) -> (course_id, section_id)
     on_finish(run, score, context) -> chip summary or None      (backend/classroom.py)
@@ -66,6 +66,18 @@ def configure(get_current_user, require_teacher, resolve_course=None, on_finish=
     _auth["finish"] = on_finish
     _auth["people"] = people
     _auth["recordings"] = recordings      # (course_id, game) -> {user_id: {total, new}} voice recordings sent to the teacher
+    _auth["test_users"] = test_users      # () -> {user_id}: teachers, admins and marked test accounts (their plays are not analysed)
+
+
+def test_user_ids():
+    return set(_auth["test_users"]()) if _auth.get("test_users") else set()
+
+
+def without_test_runs(runs):
+    """The 3D-game analytics and its export: plays by teachers, admins and test accounts are kept in
+    the database but left out of every number here (2026-11-09 meeting, T5)."""
+    skip = test_user_ids()
+    return [r for r in runs if r.get("user_id") not in skip] if skip else runs
 
 
 # ── database ──
@@ -864,8 +876,10 @@ def analytics(authorization: str | None = Header(default=None), chapter: str | N
     conn, cur = get_db()
     runs, events = _load_runs_and_events(cur, chapter, level, date_from, date_to, user)
     conn.close()
+    all_runs, runs = runs, without_test_runs(runs)
     out = _aggregate(runs, events)
     out["filters"] = {"chapter": chapter, "level": level, "from": date_from, "to": date_to, "user": user}
+    out["test_runs_left_out"] = len(all_runs) - len(runs)
     out["recent"] = [{"id": r["id"], "username": r["username"], "chapter": r["chapter"], "level": r["level"], "started_at": r["started_at"],
                       "ended_at": r["ended_at"], "ending": r["ending"], "events": r["event_count"],
                       "avg_stars": round(sum(_numeric_stars(_loads(r.get("stars_json"), {}))) / max(1, len(_numeric_stars(_loads(r.get("stars_json"), {})))), 1) if _numeric_stars(_loads(r.get("stars_json"), {})) else None}
@@ -930,6 +944,7 @@ def export_xlsx(authorization: str | None = Header(default=None), chapter: str |
     conn, cur = get_db()
     runs, events = _load_runs_and_events(cur, chapter, level, date_from, date_to, user)
     conn.close()
+    runs = without_test_runs(runs)
     agg = _aggregate(runs, events)
 
     wb = Workbook()

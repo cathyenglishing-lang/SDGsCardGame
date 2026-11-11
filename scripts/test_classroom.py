@@ -532,6 +532,85 @@ check("…and so can a student's page", client.get(f"/learning/records/student/{
 ch = client.get("/teacher/chips", params={"course_id": course_id}, headers=admin)
 check("the chip list of a course opens and lists its students", ch.status_code == 200 and len(ch.json()["students"]) >= 1, ch.text[:200])
 
+section("Meeting follow-ups (2026-11-09): T4 Chinese titles, T5 test data kept but not analysed")
+from backend import content_library as CL  # noqa: E402
+# T5 — the admin's (a teacher's) own play
+a_run, _, a_fin = play(admin, "admin-run", drops)
+check("T5: a teacher's / admin's run pays no chips and the answer says it is test data", a_fin.json()["chips"]["test"] is True and a_fin.json()["chips"]["earned"] == 0, str(a_fin.json()["chips"]))
+rep5 = client.get("/learning/records/game", params={"game": "pecha_kucha"}, headers=admin).json()
+row5 = next((r_ for r_ in rep5["runs"] if r_["id"] == a_run), None)
+check("…the class report lists it with the reason 'test_account'", bool(row5) and row5["excluded"] == "test_account" and row5["test"] is True, str(row5)[:200])
+check("…and does not count it", rep5["overview"]["excluded"].get("test_account", 0) >= 1 and a_run not in [x["run_id"] for s_ in rep5["students"] for x in s_["scores"]] and rep5["overview"]["runs"] == rep5["overview"]["runs_total"] - rep5["overview"]["excluded_runs"], str(rep5["overview"]))
+# T5 — a student's quick test (Part 1 only, metrics.test)
+q_run, _, _ = play(stu, "quick-1", [(1, 1, 3, 4000)], finish=False)
+q_fin = client.post(f"/learning/runs/{q_run}/finish", json={"metrics": {"test": True, "parts": [1]}}, headers=stu)
+check("T5: a quick test pays no chips", q_fin.status_code == 200 and q_fin.json()["chips"]["test"] is True and q_fin.json()["chips"]["earned"] == 0, q_fin.text[:200])
+rep5 = client.get("/learning/records/game", params={"game": "pecha_kucha"}, headers=admin).json()
+rowq = next((r_ for r_ in rep5["runs"] if r_["id"] == q_run), None)
+check("…and is listed as 'test_run', not counted", bool(rowq) and rowq["excluded"] == "test_run" and rep5["overview"]["excluded"].get("test_run", 0) >= 1, str(rowq)[:200])
+# T5 — the teacher marks a student as a test account, and back
+rep_c = client.get("/learning/records/game", params={"game": "pecha_kucha", "course_id": course_id}, headers=admin).json()
+listed_before = rep_c["overview"]["students_listed"]
+runs_before = next(s_ for s_ in rep_c["students"] if s_["user_id"] == student_id)["runs"]
+r = client.patch(f"/teacher/users/{student_id}/test-account", json={"test": True}, headers=admin)
+rep_t = client.get("/learning/records/game", params={"game": "pecha_kucha", "course_id": course_id}, headers=admin).json()
+srow = next(s_ for s_ in rep_t["students"] if s_["user_id"] == student_id)
+check("T5: a student marked as a test account keeps a row (marked) and his runs are no longer counted",
+      r.status_code == 200 and srow["test"] is True and srow["runs"] == 0 and srow["excluded_runs"] >= runs_before and rep_t["overview"]["students_listed"] == listed_before - 1 and rep_t["overview"]["test_accounts"] >= 1, str(srow)[:200] + " " + str(rep_t["overview"]))
+check("…the roster shows the mark", any(s_["user_id"] == student_id and s_["test"] is True and s_["test_fixed"] is False for s_ in client.get(f"/teacher/courses/{course_id}/roster", headers=admin).json()["students"]))
+sp = client.get(f"/learning/records/student/{student_id}", headers=admin).json()
+check("…his own page still shows every run, marked", sp["student"]["test"] is True and sp["totals"]["runs"] >= runs_before and all(r_["excluded"] == "test_account" for r_ in sp["runs"]), str(sp["totals"]))
+check("…the anomaly list leaves test accounts out", student_id not in [a_["user_id"] for a_ in rep_t.get("anomalies", [])])
+admin_id = client.get("/auth/me", headers=admin).json()["id"]
+check("T5: an admin's or teacher's account cannot be unmarked", client.patch(f"/teacher/users/{admin_id}/test-account", json={"test": False}, headers=admin).status_code == 400)
+r = client.patch(f"/teacher/users/{student_id}/test-account", json={"test": False}, headers=admin)
+rep_u = client.get("/learning/records/game", params={"game": "pecha_kucha", "course_id": course_id}, headers=admin).json()
+check("…unmarking counts the student again", r.status_code == 200 and next(s_ for s_ in rep_u["students"] if s_["user_id"] == student_id)["runs"] == runs_before and rep_u["overview"]["students_listed"] == listed_before)
+# T5 — the 3D analytics and the exports
+r = client.post("/learning/runs", json={"game": "innovation-harbor", "chapter": "9-1", "level": "A2", "client_id": "admin-3d"}, headers=admin)
+client.post(f"/learning/runs/{r.json()['run_id']}/finish", json={"metrics": {"score": 50}, "stars": {"a": 2}}, headers=admin)
+an = client.get("/learning/analytics", headers=admin).json()
+check("T5: the 3D story analytics leave the admin's run out and say so", an["overview"]["runs"] == 1 and an["test_runs_left_out"] == 1, str(an["overview"]) + " left_out=" + str(an.get("test_runs_left_out")))
+x = client.get("/learning/records/export.xlsx", params={"game": "pecha_kucha"}, headers=admin)
+try:
+    import io as _io
+    from openpyxl import load_workbook
+    wb = load_workbook(_io.BytesIO(x.content), read_only=True)
+    runs_head = [c for c in next(wb["Runs"].iter_rows(values_only=True))]
+    runs_rows = list(wb["Runs"].iter_rows(values_only=True))[1:]
+    admin_code = client.get("/auth/me", headers=admin).json().get("public_id")
+    stu_codes = [row_[0] for row_ in list(wb["Students"].iter_rows(values_only=True))[1:]]
+    excl_col = runs_head.index("excluded_reason")
+    check("T5: the Excel 'Runs' sheet names why a run is not counted; 'Students' has no test account", x.status_code == 200 and any(row_[excl_col] == "test_account" for row_ in runs_rows) and admin_code not in stu_codes, f"{x.status_code} codes={stu_codes[:5]}")
+    att_runs = {row_[0] for row_ in list(wb["CardAttempts"].iter_rows(values_only=True))[1:]}
+    check("…and the analysis sheets have no test runs", a_run not in att_runs and q_run not in att_runs)
+except ImportError:
+    check("T5: Excel export opens (openpyxl missing: columns not checked)", x.status_code == 200)
+# T4 — the material checks
+twelve = [{"no": i + 1, "part": p_, "title_en": f"Card {i + 1}", "title_zh": "", "script": "Hello world.", "purpose": "", "keywords": ""} for i, p_ in enumerate([1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6])]
+errs4, warns4 = CL.check_doc({"id": "t4", "sdg": 9, "title_en": "T4", "title_zh": "", "levels": {"A2": twelve}})
+check("T4: an empty Chinese title is an error (topic and card); an empty hint line is only a reminder",
+      any(e["field"] == "title_zh" and e["no"] is None for e in errs4) and sum(1 for e in errs4 if e["field"] == "title_zh" and e["no"]) == 12
+      and not any(e["field"] == "keywords" for e in errs4) and sum(1 for w in warns4 if w["field"] == "keywords") == 12, f"errors={[e['message'] for e in errs4][:3]}")
+r = client.put("/teacher/library/pecha_kucha/13-1/draft", json={"doc": {**client.get("/teacher/library/pecha_kucha/13-1", headers=admin).json()["doc"], "title_zh": ""}}, headers=admin) if client.get("/teacher/library/pecha_kucha/13-1", headers=admin).status_code == 200 else None
+if r is not None and r.status_code == 200:
+    pub = client.post("/teacher/library/pecha_kucha/13-1/publish", json={}, headers=admin)
+    check("T4: a topic without a Chinese name cannot be published", pub.status_code in (400, 409, 422), f"{pub.status_code} {pub.text[:120]}")
+    client.post("/teacher/library/pecha_kucha/13-1/discard", json={}, headers=admin)
+# T4 — an older database gets its missing Chinese titles from the question bank at start-up
+seed_doc = json.loads((Path(main.FRONTEND_DIR) / "js" / "pk-content.js").read_text(encoding="utf-8").split("window.PK_CONTENT = ", 1)[1].rstrip().rstrip(";"))
+seed_131 = next(t_ for t_ in seed_doc["topics"] if t_["id"] == "13-1")
+conn_ = CL.D.get_db(); cur_ = conn_.cursor()
+cur_.execute("SELECT id, published_json FROM content_topics WHERE game = ? AND topic_id = ?", ("pecha_kucha", "13-1"))
+row_ = cur_.fetchone()
+doc_ = json.loads(row_["published_json"]); lvl_ = sorted(doc_["levels"])[0]; want_ = next(s_["title_zh"] for s_ in seed_131["levels"][lvl_] if s_["no"] == 1)
+doc_["levels"][lvl_][0]["title_zh"] = ""
+cur_.execute("UPDATE content_topics SET published_json = ? WHERE id = ?", (json.dumps(doc_, ensure_ascii=False), row_["id"])); conn_.commit()
+filled_ = CL._backfill_title_zh(cur_); conn_.commit()
+cur_.execute("SELECT published_json FROM content_topics WHERE id = ?", (row_["id"],))
+got_ = json.loads(cur_.fetchone()["published_json"])["levels"][lvl_][0]["title_zh"]; conn_.close()
+check("T4: an older database gets a missing Chinese title back from the question bank at start-up (nothing else touched)", filled_ == 1 and got_ == want_ and bool(want_), f"filled={filled_} got={got_!r} want={want_!r}")
+
 section("Other pages still work")
 check("3D story analytics leave card-game runs out (only the one 3D run made above is counted)", client.get("/learning/analytics", headers=admin).json()["overview"]["runs"] == 1)
 check("old card-game analytics", client.get("/teacher/pk-analytics", headers=admin).status_code == 200)

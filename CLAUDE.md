@@ -8,6 +8,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Current state, decisions, deployment map and rules for this project: `docs/handoff/` — read `2026-10-15-conversation-log.md` (what was decided and built, day by day) and `2026-10-15-company-story-nodes.md` (§1–§15, technical detail) first, then `2026-10-14-innovation-harbor-handoff.md` (deploy map, accounts, rules). Pushing to `main` deploys to production (www.cathylanguagehub.com) — work on a branch and confirm with the owner before merging.
 
+T4 and T5 of the meeting follow-ups are done on branch `claude/meeting-t4-t5` (2026-11-11; T1–T3 still open) — progress, the rule for test data (teacher/admin accounts, accounts ticked 不計, quick tests: kept, never counted) and the 快速測試 switch (`?quick=1`, or the tick on the mission card for teacher/admin/test accounts) are at the end of the follow-ups file.
+
 Follow-ups from the 2026-11-09 evening meeting with Cathy (TODO T1–T5: ABC distractors too hard, TTS reads "SDG" badly, active email not sent / class-based recipient picker default unchecked, title_zh+keywords+title_en must not be empty, teacher/TA test data kept but excluded from analysis): `docs/handoff/2026-11-09-teacher-meeting-followups.md`.
 
 Newest work (2026-11-09, branch `company/card-game-learning`, pushed to the `backup` remote `machencompeq/SDGsCardGame` — the company machine's account cannot push to `origin` — and not merged into `main`): `docs/handoff/2026-11-09-card-game-closed-loop.md` — card game closed loop, teacher back office (courses and roster with 系級, learning records, voice recordings, material editor, chips), what was verified (SQLite and PostgreSQL), how to go live, disk estimate for the lab VM, what is still open. Research behind the back-office design: `docs/文獻回顧.md`. How-to videos: `docs/videos/`.
@@ -36,7 +38,7 @@ Verification (there is no automated test suite — these are the only checks):
 ```bash
 python -m py_compile backend/main.py backend/learning.py backend/classroom.py backend/recordings.py backend/learning_reports.py backend/content_library.py backend/rate_limit.py scripts/test_rate_limits.py
 python scripts/test_rate_limits.py   # Redis rate-limit self-test, needs REDIS_URL
-python scripts/test_classroom.py     # 157 checks: courses, roster, accounts, card-game data, chips, recordings, reports, material library (throw-away SQLite, never sql/app.db)
+python scripts/test_classroom.py     # 174 checks: courses, roster, accounts, card-game data, chips, recordings, reports, material library (throw-away SQLite, never sql/app.db)
 npm run build                         # frontend build check; runs the question-bank check first
 npm run content:check                 # question bank only (frontend/js/pk-content.js)
 ```
@@ -48,6 +50,7 @@ Browser checks (headless Chrome through `scripts/playtest/cdp.mjs`, Node 22+, no
 node scripts/playtest/card-game-tour.mjs .playwright-mcp/tour 1024x768,768x1024,390x844   # student: a whole game at three sizes
 node scripts/playtest/teacher-walkthrough.mjs .playwright-mcp/teacher-walk                # teacher: courses, roster, records, voice
 node scripts/playtest/library-walkthrough.mjs .playwright-mcp/library-walk                # teacher: material editor
+node scripts/playtest/quick-test-check.mjs .playwright-mcp/quick-test                      # the 快速測試 switch: Part 1 only, run not counted
 node scripts/videos/make-videos.mjs                                                       # re-records the how-to videos in docs/videos/
 ```
 

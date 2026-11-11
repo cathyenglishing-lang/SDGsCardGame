@@ -51,7 +51,7 @@ export function validate(content, topicNames = {}) {
     if (!Number.isInteger(t.version) || t.version < 1) errors.push(`${T}: "version" must be a whole number from 1`);
     if (!String(t.title_en || "").trim()) errors.push(`${T}: English topic title is empty`);
     if (/^(SDG\s*\d+(-\d+)?\s*[:：]?|Topic\s*\d+\s*[:：])/i.test(String(t.title_en || ""))) errors.push(`${T}: topic title "${t.title_en}" is a placeholder or still has a "Topic n:" / "SDG n:" prefix`);
-    if (!String(t.title_zh || "").trim()) warnings.push(`${T}: Chinese topic title is empty`);
+    if (!String(t.title_zh || "").trim()) errors.push(`${T}: Chinese topic title is empty`);
     if (Object.keys(topicNames).length) {
       if (!topicNames[t.id]) errors.push(`${T}: not listed in frontend/js/unlocks.js TOPICS`);
       else if (topicNames[t.id].en !== t.title_en) errors.push(`${T}: title "${t.title_en}" differs from unlocks.js "${topicNames[t.id].en}"`);
@@ -75,7 +75,10 @@ export function validate(content, topicNames = {}) {
         for (const [k, label] of [["title_en", "English title"], ["script", "script"]]) {
           if (!String(s[k] || "").trim()) errors.push(`${id}: ${label} is empty`);
         }
-        if (!String(s.title_zh || "").trim()) warnings.push(`${id}: Chinese title is empty`);
+        // 2026-11-09 meeting (T4): the Chinese title must be there; the hint line stays a reminder
+        // until the teacher has filled them in (468 of 488 seed cards have none).
+        if (!String(s.title_zh || "").trim()) errors.push(`${id}: Chinese title is empty`);
+        if (!String(s.keywords || "").trim()) warnings.push(`${id}: no hint line (keywords)`);
         const text = `${s.title_en}${s.title_zh}${s.script}${s.keywords}`;
         if (/�|Ã[\u0080-¿]|â€|ï¿½/.test(text)) errors.push(`${id}: text looks garbled (encoding)`);
         // Keywords written in English must really be in the script; a Chinese outline hint is not checked.

@@ -31,7 +31,7 @@ for (const [w, h] of SIZES) {
       const shown = sel => [...document.querySelectorAll(sel)].filter(vis);
       const game = !document.getElementById("gameScreen").classList.contains("hidden") && document.getElementById("pkWrap").classList.contains("hidden") && document.getElementById("pkMission").classList.contains("hidden");
       const scope = !document.getElementById("pkWrap").classList.contains("hidden") ? "#pkWrap " : !document.getElementById("pkMission").classList.contains("hidden") ? "#pkMission " : game ? "#gameScreen " : "#selectorScreen ";
-      shown(scope + "button, " + scope + ".subtopic-poker, " + scope + ".topic, " + scope + ".pk-topic, " + scope + ".pkw-card, " + scope + "#dealtCardHolder, " + scope + "#mainDeck, " + scope + "#gameTimer, " + scope + ".pk-wallet, " + scope + ".pk-hud-left > *, " + scope + ".header-actions > *").forEach(e => {
+      shown(scope + "button, " + scope + ".subtopic-poker, " + scope + ".topic, " + scope + ".pk-tcard, " + scope + ".pkw-card, " + scope + "#dealtCardHolder, " + scope + "#mainDeck, " + scope + "#gameTimer, " + scope + ".pk-wallet, " + scope + ".pk-hud-left > *, " + scope + ".header-actions > *").forEach(e => {
         const r = e.getBoundingClientRect();
         if (r.left < -1 || r.right > innerWidth + 1) out.push(name(e) + " runs off the side (" + Math.round(r.left) + ".." + Math.round(r.right) + " of " + innerWidth + ")");
       });
@@ -63,14 +63,14 @@ for (const [w, h] of SIZES) {
 
   // ── menu → mission → empty table ──
   await page.goto(BASE + "/pages/pecha_kucha_builder.html");
-  await page.waitForSelector(".pk-topic"); await page.sleep(500);
+  await page.waitForSelector(".pk-tcard"); await page.sleep(500);
   await audit("menu"); await shot("menu");
   await guard("mission → back to the menu", async () => {
-    await page.click(`.pk-lvl[onclick*="'${TOPIC}','${LEVEL}'"]`); await page.waitForSelector("#pkMissionBack"); await page.sleep(450);
-    await page.click("#pkMissionBack"); await page.waitForSelector(".pk-topic");
+    await page.click(`.pk-lvchip[onclick*="'${TOPIC}','${LEVEL}'"]`); await page.waitForSelector("#pkMissionBack"); await page.sleep(450);
+    await page.click("#pkMissionBack"); await page.waitForSelector(".pk-tcard");
     if (await page.evaluate(`RUN !== null || !document.getElementById("pkMission").classList.contains("hidden")`)) problem(size, "mission → back", "leaving the mission card left a run or the card open");
   });
-  await guard("menu → mission", async () => { await page.click(`.pk-lvl[onclick*="'${TOPIC}','${LEVEL}'"]`); await page.waitForSelector("#pkMissionGo"); });
+  await guard("menu → mission", async () => { await page.click(`.pk-lvchip[onclick*="'${TOPIC}','${LEVEL}'"]`); await page.waitForSelector("#pkMissionGo"); });
   await page.sleep(500); await audit("mission"); await shot("mission");
   await expect("mission", `document.getElementById("selectorScreen").classList.contains("hidden")`, "the menu is still showing behind the mission card");
   await guard("mission → table", async () => { await page.click("#pkMissionGo"); });
@@ -140,10 +140,10 @@ for (const [w, h] of SIZES) {
   await shot("fast-switch");
 
   // ── leave to the menu and come back ──
-  await guard("table → menu", async () => { await page.click(".pk-change-btn"); await page.waitForSelector(".pk-topic"); });
+  await guard("table → menu", async () => { await page.click(".pk-change-btn"); await page.waitForSelector(".pk-tcard"); });
   await page.sleep(300); await audit("menu again"); await shot("menu-again");
   await expect("menu again", `document.getElementById("gameScreen").classList.contains("hidden") && document.getElementById("pkMission").classList.contains("hidden") && document.getElementById("pkWrap").classList.contains("hidden")`, "game, mission or wrap-up still showing over the menu");
-  await guard("menu → mission again", async () => { await page.click(`.pk-lvl[onclick*="'${TOPIC}','${LEVEL}'"]`); await page.waitForSelector("#pkMissionGo"); await page.click("#pkMissionGo"); });
+  await guard("menu → mission again", async () => { await page.click(`.pk-lvchip[onclick*="'${TOPIC}','${LEVEL}'"]`); await page.waitForSelector("#pkMissionGo"); await page.click("#pkMissionGo"); });
   await page.sleep(400);
   await expect("new run", `document.querySelectorAll("#topicGrid .topic.completed").length === 0 && document.querySelectorAll("#subBox .subtopic-poker").length === 0 && document.getElementById("pkStreak").hidden && /00:00/.test(document.getElementById("gameTimer").textContent)`, "a new run did not start clean (chips, table, streak or timer left over)");
   await audit("new run"); await shot("new-run");

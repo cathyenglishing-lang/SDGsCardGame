@@ -98,6 +98,8 @@
 .pk-mission ol{margin:8px 0 12px;padding-left:0;list-style:none;display:grid;grid-template-columns:repeat(2,1fr);gap:6px}
 .pk-mission li{background:#f1f5f9;border-radius:10px;padding:7px 10px;font-size:13px;color:#0f172a}
 .pk-mission li b{margin-right:6px;color:#2563eb}
+.pk-mission .pk-quick{display:flex;gap:10px;align-items:flex-start;margin:0 0 10px;padding:9px 11px;border:1px dashed #fdba74;border-radius:12px;background:#fff7ed;color:#7c2d12;font-size:13.5px;line-height:1.45;cursor:pointer}
+.pk-mission .pk-quick input{margin:3px 0 0;width:18px;height:18px;flex:0 0 auto;accent-color:#ea580c}
 .pk-mission .pk-goal{background:#eff6ff;border:1px solid #bfdbfe;border-radius:12px;padding:10px 12px;margin:0 0 10px;color:#1e3a8a;font-weight:700;font-size:14.5px;line-height:1.5}
 .pk-mission .pk-last{background:#fffbeb;border:1px solid #fde68a;border-radius:12px;padding:10px 12px;margin:0 0 12px;color:#78350f;font-size:14px;line-height:1.5}
 .pk-mission .pk-actions{justify-content:flex-end !important}

@@ -535,6 +535,8 @@ def init_db():
     #   must_change_password      imported accounts change their password at first sign-in
     #   account_source            self / import / bulk
     #   consent_research/_audio   NULL = not asked yet, 1 = agreed, 0 = declined (kept separately)
+    #   test_account              1 = a teacher's / assistant's test account: its plays are kept but
+    #                             left out of every class statistic (teacher and admin roles always are)
     columns = table_columns(cur, "users")
     for name, ddl in (
         ("student_no", "TEXT"),
@@ -544,6 +546,7 @@ def init_db():
         ("account_source", "TEXT DEFAULT 'self'"),
         ("consent_research", "INTEGER"),
         ("consent_audio", "INTEGER"),
+        ("test_account", "INTEGER DEFAULT 0"),
     ):
         if name not in columns:
             execute_with_retry(cur, f"ALTER TABLE users ADD COLUMN {name} {ddl}")
@@ -3343,6 +3346,7 @@ learning.configure(
     on_finish=classroom.award_for_run,
     people=classroom.people_for_report,
     recordings=recordings.counts_by_user,
+    test_users=classroom.test_user_ids,
 )
 app.include_router(learning.router)
 

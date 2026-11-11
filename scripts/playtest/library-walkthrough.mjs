@@ -34,10 +34,14 @@ await page.goto(BASE + "/pages/teacher_dashboard.html");
 await page.waitFor(`typeof MODULE_LOADERS === "object" && /\\d/.test(document.body.textContent)`, 8000, "dashboard ready"); await page.sleep(800);   // the menu answers once the sign-in check is done
 
 await step("open the editor", async () => {
-  await page.click('[data-module="library"]'); await page.waitForSelector("#tlTree [data-topic]");
+  await page.click('.tn-item[data-menu="content"] .tn-btn');     // the top menu: open the group, then the tile
+  await page.waitFor(`document.querySelector('.tn-item[data-menu="content"]').classList.contains("open")`, 5000, "the 教材 menu opens"); await page.sleep(350);
+  await page.click('.tn-item[data-menu="content"] [data-module="library"]'); await page.waitForSelector("#tlTree [data-topic]");
   const topics = await page.evaluate(`document.querySelectorAll("#tlTree [data-topic]").length`);
   if (topics < 9) problem("open the editor", "the tree lists " + topics + " topics, expected at least 9");
-  if (!(await text("#tlTree")).includes("還不能在這裡編輯")) problem("open the editor", "the tree does not say which games cannot be edited here");
+  // Every game has a tab; the ones whose material is not editable here are marked (class "ro").
+  const tabs = await page.evaluate(`[document.querySelectorAll(".tl-games .tl-game").length, document.querySelectorAll(".tl-games .tl-game.ro").length].join("/")`);
+  if (!/^[2-9]\/[1-9]/.test(tabs)) problem("open the editor", "the game tabs do not show which games cannot be edited here (tabs/read-only: " + tabs + ")");
   await shot("tree");
 });
 
@@ -119,7 +123,7 @@ await step("new topic from a pasted sheet", async () => {
 await step("the game shows the teacher's title", async () => {
   const game = await browser.page({ width: 1024, height: 768 });
   await game.goto(BASE + "/health"); await game.evaluate(`localStorage.clear(); localStorage.setItem("user", ${JSON.stringify(JSON.stringify(admin))});`);
-  await game.goto(BASE + "/pages/pecha_kucha_builder.html"); await game.waitForSelector(".pk-topic"); await game.sleep(700);
+  await game.goto(BASE + "/pages/pecha_kucha_builder.html"); await game.waitForSelector(".pk-tcard"); await game.sleep(700);
   const menu = await game.evaluate(`document.getElementById("selectorScreen").textContent`);
   if (!menu.includes("Reading for Everyone")) problem("the game", "the topic menu does not show the newly published topic");
   await game.shot(`${OUT}/${String(++n).padStart(2, "0")}-game-menu.png`);

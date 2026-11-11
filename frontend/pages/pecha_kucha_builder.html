@@ -1550,6 +1550,26 @@ const PK_LINK = (() => {
     embed: q.get("embed") === "harbor" && window.parent !== window
   };
 })();
+// Quick test (2026-11-11): the teacher, the admin, a test account, or ?quick=1 can play only Part 1
+// and go straight to the wrap-up. Such a run is stored with metrics.test = true: it pays no chips and
+// the teacher's reports list it as "快速測試" without counting it.
+const PK_LINK_PARTS = PK_LINK.parts.slice();
+let PK_QUICK = new URLSearchParams(location.search).get("quick") === "1" && !PK_LINK.embed;
+if(PK_QUICK && !PK_LINK.parts.length) PK_LINK.parts = [1];
+function pkCanQuick(){ const u = pkWho(); return !PK_LINK.embed && !PK_PREVIEW && (PK_QUICK || !!(u && (u.role === "teacher" || u.role === "admin" || u.test_account))); }
+function pkSetQuick(on){
+  PK_QUICK = !!on;
+  PK_LINK.parts = PK_QUICK ? [1] : PK_LINK_PARTS.slice();
+  if(SELECTED) initTopics();                                   // the table keeps only Part 1 (or all parts again)
+  const goal = document.querySelector("#pkMissionBody .pk-goal");
+  if(goal) goal.textContent = pkGoalText();
+  PKT.log("mission.quick", { on: PK_QUICK });
+}
+function pkGoalText(){
+  const total = pkSlides().length;
+  if(PK_QUICK){ const n = SELECTED ? Object.keys(buildDB(SELECTED.topic, SELECTED.level).answers).length : 0; return "快速測試：只玩第 1 段（"+n+" 張），配完直接收尾。這一局標成測試，不給籌碼、不進班級統計。"; }
+  return "今天的目標：聽懂 "+total+" 張投影片，最後自己念一張。";
+}
 function pkClean(t){ t=String(t||"").replace(/^Topic\s*\d+\s*[:：]\s*/,"").trim(); return t.length>92?t.slice(0,90)+"…":t; }
 function pkEsc(s){ return String(s==null?"":s).replace(/[&<>"]/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[m])); }
 
@@ -1801,7 +1821,7 @@ function pkBeginRun(){
   PKT.begin({ game:"pecha_kucha", chapter:SELECTED.topic.id, level:SELECTED.level, content_version:SELECTED.topic.version,
               course_id: PK_COURSE ? PK_COURSE.course_id : null, client:(navigator.userAgent||"").slice(0,150)+" | "+innerWidth+"x"+innerHeight });
   PKT.log("run.start", { topic:SELECTED.topic.id, level:SELECTED.level, version:SELECTED.topic.version, rate:pkRate(), w:innerWidth, h:innerHeight,
-                         embed:!!PK_LINK.embed, parts:PK_LINK.parts, merge:PK_LINK.merge, cards:Object.keys(buildDB(SELECTED.topic, SELECTED.level).answers).length });
+                         embed:!!PK_LINK.embed, parts:PK_LINK.parts, merge:PK_LINK.merge, test:PK_QUICK, cards:Object.keys(buildDB(SELECTED.topic, SELECTED.level).answers).length });
   if(PK_PRE){ PK_PRE.run = RUN; if(PK_PRE.history) pkApplyHistory(RUN, PK_PRE.history); }
   pkPaintSave();
 }
@@ -1822,7 +1842,8 @@ function pkShowMission(h){
   document.getElementById("pkMissionBody").innerHTML =
       '<p class="pk-who-line">'+who+'</p>'
     + '<h2>'+pkEsc(pkTitle(t))+'</h2><p class="pk-mzh">'+pkEsc(pkTitleZh(t))+' · CEFR '+pkEsc(SELECTED.level)+'</p>'
-    + '<p class="pk-goal">今天的目標：聽懂 '+total+' 張投影片，最後自己念一張。</p>'
+    + '<p class="pk-goal">'+pkEsc(pkGoalText())+'</p>'
+    + (pkCanQuick() ? '<label class="pk-quick"><input type="checkbox" id="pkQuick"'+(PK_QUICK?' checked':'')+'><span><b>快速測試</b>：只玩第 1 段（老師、管理員和測試帳號才看得到這個選項）</span></label>' : '')
     + '<ol>'+parts+'</ol>'
     + '<p class="pk-last" id="pkMissionLast">'+pkEsc(last)+'</p>'
     + '<div class="pk-actions"><button class="pk-btn ghost" type="button" id="pkMissionBack">← 換主題</button><button class="pk-btn primary" type="button" id="pkMissionGo">開始 ▸</button></div>';
@@ -1835,6 +1856,8 @@ function pkShowMission(h){
     PKT.log("mission.close", { review:RUN.review.size });
   };
   document.getElementById("pkMissionBack").onclick = () => pkChangeTopic();   // no run was started: nothing to record
+  const quick = document.getElementById("pkQuick");
+  if(quick) quick.onchange = () => pkSetQuick(quick.checked);
   go.focus();
 }
 // The streak flame: first-try matches in a row (it pays no
@@ -1985,7 +2008,7 @@ function pkCommitRun(){
   RUN.finished = true;
   const sum = RUN.summary = pkSummary();
   PKT.log("run.finish", { errors:sum.errors, seconds:sum.seconds, repeats:sum.repeats, score:sum.score, cards:sum.cards.length });
-  RUN.metrics = { embed:!!PK_LINK.embed, parts:PK_LINK.parts, merge:PK_LINK.merge, errors:sum.errors, seconds:sum.seconds, rate:pkRate() };
+  RUN.metrics = { embed:!!PK_LINK.embed, parts:PK_LINK.parts, merge:PK_LINK.merge, test:PK_QUICK, errors:sum.errors, seconds:sum.seconds, rate:pkRate() };
   PKT.finish(RUN.metrics);
   PKT.result({ topic_id:SELECTED.topic.id, sdg_level:SELECTED.topic.sdg, difficulty:SELECTED.level,
                total_seconds:sum.seconds, total_errors:sum.errors, total_repeats:sum.repeats,
@@ -2005,7 +2028,7 @@ function pkOpenWrap(){
     bestBefore: run.history ? run.history.best_score : undefined,   // undefined = not known (guest, signed out, or the answer never came)
     cardId: pkCardId, speak: (t,cb)=>speak(t,cb), stopSpeak: ()=>pkQuiet(), voice: window.CardLearnVoice,
     log: (type,data)=>PKT.log(type,data), chipImg: pkChipImg, pileImg: pkPileImg,
-    provisional: (PK_LINK.embed || PK_PREVIEW) ? null : PK_PILE.target,   // this run's pile on the table (an estimate; the server's number wins)
+    provisional: (PK_LINK.embed || PK_PREVIEW || PK_QUICK) ? null : PK_PILE.target,   // this run's pile on the table (an estimate; the server's number wins)
     fx: window.PKFX || null,
     // The server's answer carries the new chip balance: the pile on the table follows it.
     finish: (m,wait)=>PKT.finish({ ...metrics, ...m }, wait).then(d=>{

@@ -68,11 +68,14 @@ async function studentPlays(name, { topic, level, mistakes, width = 1024, height
       await page.waitFor(`location.pathname.endsWith("/pecha_kucha_builder.html")`, 12000, name + " returns to the game after changing the password");
     }
     await page.goto(BASE + "/pages/pecha_kucha_builder.html");
-    await page.waitForSelector(".pk-course-bar");
-    const menu = await page.evaluate(`[...document.querySelectorAll(".pk-topic .pk-tbadge")].map(e => e.textContent.replace(/.*·\\s*/, "").trim()).join(",")`);
-    if (menu !== "9-1,9-2") problem(name, "the menu should show only the course's topics 9-1,9-2 but shows " + menu);
-    if (!(await page.evaluate(`document.querySelector(".pk-course-bar").textContent`)).includes(acct.section)) problem(name, "the course line does not show the student's 系級 " + acct.section);
-    await page.click(`.pk-lvl[onclick*="'${topic}','${level}'"]`);
+    await page.waitFor(`typeof PK_READY !== "undefined" && PK_READY && !!document.querySelector(".pk-tcard") && !!document.querySelector(".pk-who-bar .pk-pname")`, 15000, name + " menu ready");
+    const menu = await page.evaluate(`[...document.querySelectorAll(".pk-tcard")].map(e => (e.getAttribute("aria-label") || "").split(" ")[0] + (e.classList.contains("is-locked") ? "(locked)" : "")).join(",")`);
+    // The course opened 9-1 and 9-2; 9-2 is locked for everyone, and a lock wins: it is shown face down.
+    if (menu !== "9-1,9-2(locked)") problem(name, "the menu should show the course's topics 9-1 and 9-2 (locked) but shows " + menu);
+    const whoBar = await page.evaluate(`document.querySelector(".pk-who-bar").textContent`);
+    if (!whoBar.includes(acct.name)) problem(name, "the name bar does not show who is signed in");
+    if (!whoBar.includes(acct.section) && !whoBar.includes(course.name)) problem(name, "the name bar shows neither the student's 系級 " + acct.section + " nor the course");
+    await page.click(`.pk-lvchip[onclick*="'${topic}','${level}'"]`);
     await page.waitForSelector("#pkMissionGo"); await page.sleep(700);
     const mission = await page.evaluate(`document.getElementById("pkMissionBody").textContent`);
     await page.click("#pkMissionGo");
@@ -123,8 +126,15 @@ await page.goto(BASE + "/health"); await page.evaluate(`localStorage.clear(); lo
 await page.goto(BASE + "/pages/teacher_dashboard.html");
 await page.waitFor(`typeof MODULE_LOADERS === "object" && /\\d/.test(document.body.textContent)`, 8000, "dashboard ready"); await page.sleep(800);   // the menu answers once the sign-in check is done
 
+const openModule = async (menu, tile) => {
+  await page.click(`.tn-item[data-menu="${menu}"] .tn-btn`);
+  await page.waitFor(`document.querySelector('.tn-item[data-menu="${menu}"]').classList.contains("open")`, 5000, "menu " + menu + " opens");
+  await page.sleep(350);
+  await page.click(`.tn-item[data-menu="${menu}"] ${tile}`);
+};
+const tab = async key => { await page.click(`#trBody .tr-segb[data-tab="${key}"]`); await page.sleep(500); };
 await step("courses", async () => {
-  await page.click('[data-module="courses"]'); await page.waitForSelector("#tcCourse");
+  await openModule("class", '[data-module="courses"]'); await page.waitForSelector("#tcCourse");
   await page.evaluate(`(() => { const s = document.getElementById("tcCourse"); s.value = "${course.id}"; s.dispatchEvent(new Event("change")); })()`);
   await page.waitFor(`document.querySelectorAll("#tcRoster tbody tr").length === 4`, 8000, "roster of 4");
   const classes = await page.evaluate(`[...document.querySelectorAll("#tcRoster tbody tr")].map(r => r.children[0].textContent).join(",")`);
@@ -133,15 +143,21 @@ await step("courses", async () => {
 });
 
 await step("records: by game", async () => {
-  await page.click('[data-module="records"]'); await page.waitForSelector("#trCourse");
+  await openModule("data", '[data-module="records"][data-game="pecha_kucha"]'); await page.waitForSelector("#trCourse");
   await page.evaluate(`(() => { const s = document.getElementById("trCourse"); s.value = "${course.id}"; s.dispatchEvent(new Event("change")); })()`);
+  await page.waitForSelector("#trView .tr-tiles"); await page.sleep(500);
+  if (!(await page.evaluate(`document.querySelector("#trView").textContent`)).includes("各系級比較")) problem("records: by game", "the class tab has no 各系級比較");
+  await shot("records-class");
+  await tab("items");
+  await page.waitFor(`document.querySelector("#trView").textContent.includes("最難的句子")`, 8000, "hardest-sentences table");
+  const hardest = await page.evaluate(`(() => { const r = document.querySelector("#trView tbody tr"); return r ? [...r.children].map(c => c.textContent.trim()).join(" | ") : ""; })()`);
+  notes.push("hardest sentence row: " + hardest);
+  await shot("records-items");
+  await tab("people");
   await page.waitFor(`document.querySelectorAll("#trView [data-student]").length === 4`, 10000, "class table with 4 students");
   const rows = await page.evaluate(`[...document.querySelectorAll("#trView [data-student]")].map(r => [...r.children].slice(0, 6).map(c => c.textContent.trim()).join(" | "))`);
   notes.push("class table: " + rows.join("  //  "));
   if (!rows.some(r => /還沒玩/.test(r))) problem("records: by game", "the student who has not played is not marked 還沒玩");
-  if (!(await page.evaluate(`document.querySelector("#trView").textContent`)).includes("最難的句子")) problem("records: by game", "no hardest-sentences table");
-  const hardest = await page.evaluate(`(() => { const r = document.querySelector("#trView section:nth-of-type(3) tbody tr"); return r ? [...r.children].map(c => c.textContent.trim()).join(" | ") : ""; })()`);
-  notes.push("hardest sentence row: " + hardest);
   await shot("records-game");
 });
 
@@ -177,7 +193,7 @@ await step("records: one run", async () => {
 
 await step("records: voice queue", async () => {
   await page.click("#trBack"); await page.waitFor(`document.querySelectorAll("#trView [data-student]").length === 4`);
-  await page.click('.tr-tab[data-tab="voice"]'); await page.waitForSelector(".tr-clip");
+  await tab("voice"); await page.waitForSelector(".tr-clip");
   const clips = await page.evaluate(`document.querySelectorAll(".tr-clip").length`);
   if (clips !== 2) problem("records: voice queue", "expected 2 recordings (two students recorded), found " + clips);
   await shot("records-voice");

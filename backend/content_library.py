@@ -86,6 +86,8 @@ def init_db():
     cur.execute("SELECT COUNT(*) AS c FROM content_topics WHERE game = ?", ("pecha_kucha",))
     if cur.fetchone()["c"] == 0:
         _seed_card_game(cur)
+    else:
+        _backfill_title_zh(cur)
     conn.commit()
     conn.close()
 
@@ -113,6 +115,54 @@ def _seed_card_game(cur):
             ("pecha_kucha", t["id"], t.get("sdg"), version, json.dumps(doc, ensure_ascii=False), 1 if t["id"] in locked else 0, _now(), _now(), _now()), "id")
         cur.execute("INSERT INTO content_versions (topic_pk, version, doc_json, note, at) VALUES (?, ?, ?, ?, ?)",
                     (pk, version, json.dumps(doc, ensure_ascii=False), "內建題庫（frontend/js/pk-content.js）", _now()))
+
+
+def _loads(text):
+    try:
+        return json.loads(text) if text else None
+    except Exception:
+        return None
+
+
+def _backfill_title_zh(cur):
+    """Older databases were seeded before the question bank had every Chinese title (9-1 lacked six).
+    Where the published card still has none and the seed file has one for the same card (same English
+    title), copy it in. Only empty values are filled, nothing is overwritten, and the version does not
+    change (the Chinese title is not part of the content hash)."""
+    path = Path(D.frontend_dir) / "js" / "pk-content.js"
+    try:
+        text = path.read_text(encoding="utf-8")
+        data = json.loads(text[text.index("window.PK_CONTENT = ") + len("window.PK_CONTENT = "):].rstrip().rstrip(";"))
+    except Exception:
+        return 0
+    seed = {t["id"]: t for t in data.get("topics", [])}
+    cur.execute("SELECT id, topic_id, published_json, draft_json FROM content_topics WHERE game = 'pecha_kucha'")
+    filled = 0
+    for row in cur.fetchall():
+        t = seed.get(row["topic_id"])
+        if not t:
+            continue
+        changed = {}
+        for col in ("published_json", "draft_json"):
+            doc = _loads(row[col])
+            if not doc:
+                continue
+            n = 0
+            if not doc.get("title_zh") and t.get("title_zh"):
+                doc["title_zh"] = t["title_zh"]; n += 1
+            for level, slides in (doc.get("levels") or {}).items():
+                ref = {s.get("no"): s for s in (t.get("levels") or {}).get(level, [])}
+                for s in slides:
+                    r = ref.get(s.get("no"))
+                    if r and not s.get("title_zh") and r.get("title_zh") and (s.get("title_en") or "") == (r.get("title_en") or ""):
+                        s["title_zh"] = r["title_zh"]; n += 1
+            if n:
+                changed[col] = json.dumps(doc, ensure_ascii=False); filled += n
+        for col, value in changed.items():
+            cur.execute(f"UPDATE content_topics SET {col} = ? WHERE id = ?", (value, row["id"]))
+    if filled:
+        print(f"[CONTENT] filled {filled} empty Chinese titles from frontend/js/pk-content.js")
+    return filled
 
 
 # ── the document: cleaning, checking, comparing ──
@@ -150,7 +200,7 @@ def check_doc(doc):
     if not doc.get("title_en"):
         add(errors, "主題還沒有英文名稱。", field="title_en")
     if not doc.get("title_zh"):
-        add(warnings, "主題還沒有中文名稱。", field="title_zh")
+        add(errors, "主題還沒有中文名稱。", field="title_zh")
     levels = doc.get("levels") or {}
     if not levels:
         add(errors, "這個主題還沒有任何難度。")
@@ -171,8 +221,10 @@ def check_doc(doc):
                 add(errors, "英文標題是空的。", level, s["no"], "title_en")
             if not s["script"]:
                 add(errors, "講稿是空的。", level, s["no"], "script")
-            if not s["title_zh"]:
-                add(warnings, "中文標題是空的。", level, s["no"], "title_zh")
+            if not s["title_zh"]:    # 2026-11-09 meeting (T4): the Chinese hint must be there before publishing
+                add(errors, "中文標題是空的（學生靠它看懂這張卡）。", level, s["no"], "title_zh")
+            if not s["keywords"]:    # T4 asks for this too; today 468 of 488 seed cards have none, so it stays a reminder until the teacher has filled them in
+                add(warnings, "還沒有提示字（卡面標題下的一行小字）。", level, s["no"], "keywords")
             if re.search("�|Ã[\u0080-¿]|â€", s["title_en"] + s["title_zh"] + s["script"]):
                 add(errors, "文字看起來是亂碼（編碼問題）。", level, s["no"], "script")
             for kw in [k.strip() for k in re.split(r"[,;、，；]", s["keywords"]) if re.fullmatch(r"[A-Za-z][A-Za-z '\-]*", k.strip() or "")]:

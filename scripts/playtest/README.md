@@ -23,6 +23,7 @@ ALLOW_SELF_REGISTER=false INITIAL_ADMIN_EMAIL=admin@example.com INITIAL_ADMIN_PA
 node scripts/playtest/card-game-tour.mjs .playwright-mcp/tour 1024x768,768x1024,390x844,360x640,1180x820
 node scripts/playtest/teacher-walkthrough.mjs .playwright-mcp/teacher-walk
 node scripts/playtest/library-walkthrough.mjs .playwright-mcp/library-walk
+node scripts/playtest/quick-test-check.mjs .playwright-mcp/quick-test
 ```
 
 Each prints a JSON report that ends with `"problems": []` when everything is fine, and saves a
@@ -33,6 +34,9 @@ screenshot of every step in the folder given (`.playwright-mcp/` is git-ignored)
 | `card-game-tour.mjs` | Student: menu → mission card → every state of the table → wrong and right drops → switching parts → the three wrap-up steps, the optional quiz and reflection → a second run. Also fails if a sentence in hand is cut off or a title card is hidden under the dock. `TOPIC=9-1 LEVEL=B1` picks another topic. |
 | `teacher-walkthrough.mjs` | Makes a small class play (roster import, first sign-in, password change, runs with different mistakes, read-aloud upload), then the teacher's 學習紀錄: class → student → run → 語音 → Excel. |
 | `library-walkthrough.mjs` | 教材管理: tree, edit, checks, draft, publish, versions, delete and undo, new topic, import, preview in the game. |
+| `quick-test-check.mjs` | 快速測試: the teacher's account ticks it on the mission card, only Part 1 is on the table, the wrap-up pays no chips, and the report lists the run without counting it. |
+
+Trying the game by hand without matching every card: sign in as a teacher or admin and tick 快速測試 on the mission card, or add `?quick=1` to the game's address. Such a run is stored as a test and never counted.
 
 The speech in these runs is faked (it ends at once) and the microphone is Chrome's fake device.
 A real tablet with real sound still has to be tried by hand.
