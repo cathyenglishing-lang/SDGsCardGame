@@ -1966,17 +1966,18 @@ function pkVoiceSync(speaking){
 }
 // Stop any reading now and make sure its "finished" callback never runs: without this, a reading
 // cut short by a part change or a new game came back later and left the listen button dead.
-function pkQuiet(){ pkSpeakToken++; isSpeaking = false; try{ window.speechSynthesis.cancel(); }catch(e){} pkStopClip(); }
+function pkQuiet(){ pkSpeakToken++; isSpeaking = false; try{ window.speechSynthesis.cancel(); }catch(e){} pkStopClip(); pkHiEnd(); }
 
 // Cloud voices (backend/tts.py): when the server has one, a sentence is an mp3 in the accent the
 // student chose, the same on every device. Anything that goes wrong (no key, the month's allowance
 // used up, no network, a slow answer) ends in the browser's own voice, so the game never waits.
-const PK_TTS = { on:false, accents:[], def:null, clips:new Map(), audio:null, offUntil:0 };
+const PK_TTS = { on:false, accents:[], def:null, clips:new Map(), audio:null, offUntil:0, highlight:["A1","A2","B1","B2"] };
 const PK_ACCENT_KEY = "cardlearn_tts_accent";
 function pkApiBase(){ return String(window.CARDLEARN_API_BASE_URL || "").replace(/\/+$/, ""); }
 async function pkLoadTts(){
   try{
     const r = await fetch(pkApiBase()+"/content/tts/options"); const d = r.ok ? await r.json() : null;
+    if(d && Array.isArray(d.highlight)) PK_TTS.highlight = d.highlight;
     if(d && d.available && Array.isArray(d.accents) && d.accents.length){ PK_TTS.on = true; PK_TTS.accents = d.accents; PK_TTS.def = d.default || d.accents[0].code; }
   }catch(e){ /* no cloud voice: the browser speaks */ }
   pkPaintAccent();
@@ -2006,6 +2007,49 @@ function pkCycleAccent(){
   pkSetAccent(next);
   if(typeof showToast === "function") showToast(next ? "口音："+PK_TTS.accents.find(a=>a.code===next).label : "改用這台裝置的聲音");
 }
+// ── Word-by-word highlighting (逐字高亮): the word being read is marked in the sentence on screen ──
+// Where the time of each word comes from, best first: (1) the voice service's own word times, sent with
+// the clip; (2) the browser's speech engine reporting each word as it starts (device voice); (3) an
+// estimate from how long the words are, stretched over the clip's length. The teacher chooses the levels
+// (老師後台 › 語音念法 › 逐字高亮); with "reduce motion" on, nothing moves and the text is simply shown.
+function pkHiOn(){
+  if(window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) return false;
+  const lv = (typeof SELECTED !== "undefined" && SELECTED) ? SELECTED.level : null;
+  return !!lv && PK_TTS.highlight.includes(lv);
+}
+function pkWordHtml(text){
+  const t = String(text == null ? "" : text);
+  if(!pkHiOn()) return escapeHTML(t);
+  return t.trim().split(/\s+/).map((w,i)=>'<span class="pk-w" data-w="'+i+'">'+escapeHTML(w)+'</span>').join(" ");
+}
+let pkHiAt = -2, pkHiFrame = 0;
+function pkHi(i){                                         // words before i are "said", word i is "now"
+  if(i === pkHiAt) return; pkHiAt = i;
+  document.querySelectorAll(".pk-w").forEach(el=>{ const k = +el.dataset.w; el.classList.toggle("said", k < i); el.classList.toggle("now", k === i); });
+}
+function pkHiEnd(){ cancelAnimationFrame(pkHiFrame); pkHiFrame = 0; pkHiAt = -2; document.querySelectorAll(".pk-w").forEach(el=>el.classList.remove("said","now")); }
+// How long each word takes to say, roughly: its syllables, plus the pause after a comma or a full stop.
+function pkWordWeights(words){
+  return words.map(w=>{ const core = w.replace(/[^A-Za-z0-9]/g,""); const syl = Math.max(1, (core.toLowerCase().match(/[aeiouy]+/g)||[]).length, Math.ceil(core.replace(/[^0-9]/g,"").length * 1.5));
+    return syl + (/[.!?]["')]*$/.test(w) ? 1.3 : /[,:]$/.test(w) ? 0.6 : 0) + 0.35; });
+}
+function pkEstimateTimes(words, seconds){
+  const w = pkWordWeights(words), sum = w.reduce((a,b)=>a+b, 0) || 1; let at = 0;
+  return w.map(x=>{ const t = at / sum * seconds; at += x; return t; });
+}
+// Follow a clock (the clip's position, or seconds since the voice started) through the word times.
+function pkHiFollow(clock, times, my){
+  cancelAnimationFrame(pkHiFrame);
+  if(!pkHiOn() || !times || !times.length) return;
+  const tick = () => {
+    if(my !== pkSpeakToken) return;
+    const t = clock(); let i = -1;
+    for(let k = 0; k < times.length; k++){ if(times[k] <= t + 0.03) i = k; else break; }
+    pkHi(i);
+    pkHiFrame = requestAnimationFrame(tick);
+  };
+  pkHiFrame = requestAnimationFrame(tick);
+}
 function pkStopClip(){ const a = PK_TTS.audio; PK_TTS.audio = null; if(a){ try{ a.onended = a.onerror = null; a.pause(); }catch(e){} } }
 // The mp3 of one sentence, or null when the browser should speak (the reason is remembered so a
 // missing key or a used-up allowance is not asked about again for five minutes).
@@ -2022,9 +2066,12 @@ async function pkClip(text, accent){
       if(why === "not_in_material") PK_TTS.clips.set(key, null);
       return null;
     }
-    const url = URL.createObjectURL(await r.blob());
-    PK_TTS.clips.set(key, url);
-    return url;
+    // When the voice service said when each word starts, the times come with the clip (milliseconds, one per shown word).
+    const head = r.headers.get("X-Word-Times");
+    const times = head ? head.split(",").map(Number).filter(n => isFinite(n)).map(n => n / 1000) : null;
+    const clip = { url: URL.createObjectURL(await r.blob()), times: times && times.length === String(text).trim().split(/\s+/).length ? times : null };
+    PK_TTS.clips.set(key, clip);
+    return clip;
   }catch(e){ return null; }
   finally{ clearTimeout(timer); }
 }
@@ -2668,7 +2715,7 @@ function dealNextCard() {
       <div class="card-front">
         <div class="playable-card-face">
           <div class="card-kicker">Sentence</div>
-          <div class="card-scroll-text">${escapeHTML(currentCardData.english)}</div>
+          <div class="card-scroll-text">${pkWordHtml(currentCardData.english)}</div>
           <div class="drag-hint">先按喇叭聽</div>
         </div>
       </div>
@@ -2881,12 +2928,14 @@ function speak(text, onEndCallback) {
   window.speechSynthesis.cancel();
   const box = document.getElementById("sentenceBox");
   box.classList.add("active");
-  box.innerHTML = `<div class="sentence-text">${escapeHTML(text)}</div>`;
+  box.innerHTML = `<div class="sentence-text">${pkWordHtml(text)}</div>`;
   const my = ++pkSpeakToken;
+  pkHiEnd();
+  const shown = String(text).trim().split(/\s+/);
   let finished = false;
   const done = () => {
     if (finished || my !== pkSpeakToken) return;
-    finished = true; clearTimeout(guard);
+    finished = true; clearTimeout(guard); pkHiEnd();
     setTimeout(() => { if (my !== pkSpeakToken) return; box.classList.remove("active"); activeUtterance = null; if (onEndCallback) onEndCallback(); }, 350);
   };
   const rate = 0.82 * pkRate();
@@ -2895,13 +2944,15 @@ function speak(text, onEndCallback) {
   const accent = pkAccent();
   if (accent) {
     // The cloud voice first; the browser's voice the moment anything is missing or slow.
-    pkClip(String(text), accent).then(url => {
+    pkClip(String(text), accent).then(clip => {
       if (finished || my !== pkSpeakToken) return;
-      if (!url) return byBrowser();
-      const a = new Audio(url);
+      if (!clip) return byBrowser();
+      const a = new Audio(clip.url);
       PK_TTS.audio = a;
       a.playbackRate = Math.max(0.6, Math.min(1.4, 0.95 * pkRate()));
-      a.onloadedmetadata = () => { if (isFinite(a.duration) && a.duration > 0) { clearTimeout(guard); guard = setTimeout(done, (a.duration / a.playbackRate) * 1000 + 2500); } };
+      a.onloadedmetadata = () => { if (isFinite(a.duration) && a.duration > 0) { clearTimeout(guard); guard = setTimeout(done, (a.duration / a.playbackRate) * 1000 + 2500);
+        // the service's word times when it sent them; otherwise an estimate over the clip's real length
+        pkHiFollow(() => a.currentTime, clip.times || pkEstimateTimes(shown, a.duration), my); } };
       a.onended = () => { if (PK_TTS.audio === a) PK_TTS.audio = null; done(); };
       a.onerror = () => { if (PK_TTS.audio === a) PK_TTS.audio = null; if (!finished && my === pkSpeakToken) byBrowser(); };
       const p = a.play(); if (p && p.catch) p.catch(() => { if (PK_TTS.audio === a) PK_TTS.audio = null; if (!finished && my === pkSpeakToken) byBrowser(); });
@@ -2911,8 +2962,35 @@ function speak(text, onEndCallback) {
   byBrowser();
   function byBrowser() {
   const parts = String(text).split(/(?<=[.!?])\s+/).map(t => t.trim()).filter(Boolean);
+  let offset = 0;                                           // index of the part's first word in the whole sentence
   parts.forEach((t, i) => {
-    const u = new SpeechSynthesisUtterance(window.CardLearnSay ? window.CardLearnSay(t) : t);   // what is spoken, not what is shown (js/speech-say.js)
+    const said = window.CardLearnSay ? window.CardLearnSay(t) : t;
+    const u = new SpeechSynthesisUtterance(said);   // what is spoken, not what is shown (js/speech-say.js)
+    // Highlighting with the device's voice: the engine reports each spoken word (onboundary). A shown word
+    // may be several spoken ones (SDGs → S D Gs), so spoken word n is mapped back to the shown word.
+    const words = t.split(/\s+/), first = offset; offset += words.length;
+    const owner = []; words.forEach((w, k) => { const n = (window.CardLearnSay ? window.CardLearnSay(w) : w).split(/\s+/).filter(Boolean).length; for (let x = 0; x < n; x++) owner.push(first + k); });
+    let heardBoundary = false;
+    u.onboundary = e => {
+      if (my !== pkSpeakToken || (e.name && e.name !== "word")) return;
+      heardBoundary = true; cancelAnimationFrame(pkHiFrame);
+      const n = said.slice(0, e.charIndex).split(/\s+/).filter(Boolean).length;
+      if (pkHiOn() && owner.length) pkHi(owner[Math.min(n, owner.length - 1)]);
+    };
+    u.onstart = () => {
+      if (my !== pkSpeakToken || !pkHiOn()) return;
+      // Until (and unless) the engine reports words, follow an estimate; many phones never report them.
+      const began = performance.now(), est = pkEstimateTimes(words, said.split(/\s+/).length / (2.6 * rate));
+      cancelAnimationFrame(pkHiFrame);
+      const tick = () => {
+        if (my !== pkSpeakToken || heardBoundary) return;
+        const t = (performance.now() - began) / 1000; let k = -1;
+        for (let q = 0; q < est.length; q++) { if (est[q] <= t) k = q; else break; }
+        pkHi(k < 0 ? first - 1 : first + k);
+        pkHiFrame = requestAnimationFrame(tick);
+      };
+      pkHiFrame = requestAnimationFrame(tick);
+    };
     if (cachedVoice) u.voice = cachedVoice;
     u.lang = "en-US"; u.rate = rate; u.pitch = 1;
     u.onerror = event => { console.warn("Speech synthesis error", event); done(); };

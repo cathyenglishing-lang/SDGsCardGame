@@ -20,6 +20,11 @@ How it stays cheap and safe
   GET  /content/tts/options            anyone: is a cloud voice available, which accents, the default
   GET  /content/tts?text=&accent=      anyone: the mp3 of a sentence of the published material
                                        (409 + {"fallback": true, "reason"} when the browser must speak)
+Word-by-word highlighting (逐字高亮): when a provider can say WHEN each word starts (Azure through its
+Speech SDK, if the `azure-cognitiveservices-speech` package is installed), the start times are kept
+beside the mp3 (<hash>.words.json, one time per word of the text as it is SHOWN) and sent with the
+clip in the X-Word-Times header. Without them the browser estimates from the clip's length. The times
+belong to the clip, so a changed sentence gets new times together with its new clip.
   GET  /teacher/tts                    teacher: keys present, this month's use, budgets, accents, cache
   PUT  /teacher/tts                    teacher: accents offered, default accent, provider order, budgets
   POST /teacher/tts/try                teacher: hear any short sentence in an accent
@@ -76,8 +81,10 @@ except Exception as error:  # a typo in the variable must not stop the server
     print(f"[TTS] TTS_VOICES_JSON ignored: {error}")
 BY_CODE = {a["code"]: a for a in ACCENTS}
 PROVIDER_NAMES = {"azure": "Azure Speech", "google": "Google Cloud Text-to-Speech"}
+LEVELS = ["A1", "A2", "B1", "B2"]
 DEFAULT_SETTINGS = {"accents": ["en-US", "en-GB"], "default": "en-US", "order": ["azure", "google"],
-                    "budget": {"azure": 450_000, "google": 900_000}}     # free allowance: 500,000 and 1,000,000 a month
+                    "budget": {"azure": 450_000, "google": 900_000},     # free allowance: 500,000 and 1,000,000 a month
+                    "highlight": list(LEVELS)}                           # levels at which the sentence is highlighted word by word while it is read
 _paused = {}                         # provider -> time until which it is skipped after a failure
 
 
@@ -115,12 +122,43 @@ def azure_key():
 
 
 def synth_azure(text, voice, locale):
+    """mp3 bytes, or (mp3 bytes, [(seconds, word), …]) when the Speech SDK is installed and reports word starts."""
+    try:
+        import azure.cognitiveservices.speech as sdk      # optional: pip install azure-cognitiveservices-speech
+    except Exception:
+        sdk = None
+    if sdk is not None:
+        try:
+            return _synth_azure_sdk(sdk, text, voice, locale)
+        except Exception as error:                          # the plain REST call below still gives the audio
+            print(f"[TTS] azure SDK failed, using REST without word times: {str(error)[:160]}")
     key, region = azure_key()
     ssml = (f'<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="{locale}">'
             f'<voice name="{xml_escape(voice)}">{xml_escape(text)}</voice></speak>')
     return _http(f"https://{region}.tts.speech.microsoft.com/cognitiveservices/v1", ssml.encode("utf-8"),
                  {"Ocp-Apim-Subscription-Key": key, "Content-Type": "application/ssml+xml",
                   "X-Microsoft-OutputFormat": "audio-24khz-48kbitrate-mono-mp3", "User-Agent": "cardlearn-sdgs"})
+
+
+def _synth_azure_sdk(sdk, text, voice, locale):
+    """NOT yet tried against the real service (no key on the machine it was written on): the event and
+    property names are the documented ones (synthesis_word_boundary: audio_offset in 100-ns ticks)."""
+    key, region = azure_key()
+    cfg = sdk.SpeechConfig(subscription=key, region=region)
+    cfg.speech_synthesis_voice_name = voice
+    cfg.set_speech_synthesis_output_format(sdk.SpeechSynthesisOutputFormat.Audio24Khz48KBitRateMonoMp3)
+    synth = sdk.SpeechSynthesizer(speech_config=cfg, audio_config=None)
+    marks = []
+
+    def on_word(evt):
+        kind = getattr(evt, "boundary_type", None)
+        if kind is None or "Word" in str(kind):
+            marks.append((evt.audio_offset / 10_000_000, evt.text))
+    synth.synthesis_word_boundary.connect(on_word)
+    result = synth.speak_text_async(text).get()
+    if result.reason != sdk.ResultReason.SynthesizingAudioCompleted:
+        raise RuntimeError(f"azure sdk: {result.reason}")
+    return result.audio_data, marks
 
 
 def google_key():
@@ -170,6 +208,7 @@ def settings(cur):
 
 
 def clean_settings(s):
+    highlight = [l for l in LEVELS if l in (s.get("highlight") if isinstance(s.get("highlight"), list) else LEVELS)]
     accents = [a for a in dict.fromkeys(s.get("accents") or []) if a in BY_CODE]
     default = s.get("default") if s.get("default") in accents else (accents[0] if accents else None)
     order = [p for p in dict.fromkeys(s.get("order") or []) if p in PROVIDERS] + [p for p in PROVIDERS if p not in (s.get("order") or [])]
@@ -179,7 +218,7 @@ def clean_settings(s):
             budget[p] = max(0, min(int((s.get("budget") or {}).get(p, DEFAULT_SETTINGS["budget"][p])), 50_000_000))
         except (TypeError, ValueError):
             budget[p] = DEFAULT_SETTINGS["budget"][p]
-    return {"accents": accents, "default": default, "order": order, "budget": budget}
+    return {"accents": accents, "default": default, "order": order, "budget": budget, "highlight": highlight}
 
 
 def usage(cur, month=None):
@@ -209,6 +248,22 @@ def clip_path(accent, h):
     folder = _dir() / accent
     folder.mkdir(parents=True, exist_ok=True)
     return folder / f"{h}.mp3"
+
+
+def word_times(text, marks):
+    """One start time (seconds) per word of the text AS SHOWN, from the provider's marks for the text as
+    SPOKEN ("SDGs" is shown as one word and spoken as three: it starts when its first spoken word starts).
+    None when the two cannot be lined up — the browser then estimates."""
+    shown = str(text).split()
+    spoken_counts = [len(spoken(w).split()) for w in shown]
+    starts = [float(m[0]) for m in marks or [] if str(m[1]).strip() and any(ch.isalnum() for ch in str(m[1]))]
+    if not shown or sum(spoken_counts) != len(starts):
+        return None
+    out, at = [], 0
+    for n in spoken_counts:
+        out.append(round(starts[min(at, len(starts) - 1)], 3) if n else (out[-1] if out else 0.0))
+        at += n
+    return out if all(b >= a for a, b in zip(out, out[1:])) else None
 
 
 def available(st=None):
@@ -247,6 +302,9 @@ def make_clip(text, accent, st=None):
                 continue
             try:
                 audio = PROVIDERS[p]["synth"](say, voice, accent)
+                marks = None
+                if isinstance(audio, tuple):
+                    audio, marks = audio
                 if not audio or len(audio) < 200:
                     raise ValueError("empty audio")
             except Exception as error:
@@ -259,6 +317,12 @@ def make_clip(text, accent, st=None):
             tmp = path.with_suffix(f".{os.getpid()}.tmp")
             tmp.write_bytes(audio)
             os.replace(tmp, path)
+            times = word_times(text, marks) if marks else None
+            words_file = path.with_suffix(".words.json")
+            if times:
+                words_file.write_text(json.dumps(times), encoding="utf-8")
+            elif words_file.exists():
+                words_file.unlink()
             _count(cur, p, len(say))
             try:
                 cur.execute("INSERT INTO tts_clips (clip_hash, accent, provider, voice, chars, bytes, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)",
@@ -291,7 +355,14 @@ def _fallback(reason):
 
 
 def _mp3(path):
-    return Response(path.read_bytes(), media_type="audio/mpeg", headers={"Cache-Control": "public, max-age=2592000, immutable"})
+    headers = {"Cache-Control": "public, max-age=2592000, immutable"}
+    words_file = path.with_suffix(".words.json")
+    if words_file.exists():
+        try:      # start of each shown word, in milliseconds
+            headers["X-Word-Times"] = ",".join(str(int(round(float(t) * 1000))) for t in json.loads(words_file.read_text(encoding="utf-8")))
+        except Exception:
+            pass
+    return Response(path.read_bytes(), media_type="audio/mpeg", headers=headers)
 
 
 @router.get("/content/tts/options")
@@ -301,7 +372,8 @@ def options():
     st = settings(cur)
     conn.close()
     on = bool(available(st)) and bool(st["accents"])
-    return {"available": on, "accents": [{"code": a, "label": BY_CODE[a]["label"]} for a in st["accents"]] if on else [], "default": st["default"] if on else None}
+    return {"available": on, "accents": [{"code": a, "label": BY_CODE[a]["label"]} for a in st["accents"]] if on else [], "default": st["default"] if on else None,
+            "highlight": st["highlight"]}      # also used with the device's own voice
 
 
 @router.get("/content/tts")
@@ -360,6 +432,7 @@ class SettingsIn(BaseModel):
     default: str | None = None
     order: list[str] | None = None
     budget: dict | None = None
+    highlight: list[str] | None = None
 
 
 @router.put("/teacher/tts")

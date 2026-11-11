@@ -36,7 +36,7 @@ Verification (there is no automated test suite — these are the only checks):
 ```bash
 python -m py_compile backend/main.py backend/learning.py backend/classroom.py backend/recordings.py backend/learning_reports.py backend/content_library.py backend/speech_rules.py backend/tts.py backend/rate_limit.py scripts/test_rate_limits.py
 python scripts/test_rate_limits.py   # Redis rate-limit self-test, needs REDIS_URL
-python scripts/test_classroom.py     # 231 checks: courses, roster, accounts, card-game data, chips, recordings, reports, material library (throw-away SQLite, never sql/app.db)
+python scripts/test_classroom.py     # 238 checks: courses, roster, accounts, card-game data, chips, recordings, reports, material library (throw-away SQLite, never sql/app.db)
 npm run build                         # frontend build check; runs the question-bank check first
 npm run content:check                 # question bank only (frontend/js/pk-content.js)
 ```
@@ -51,6 +51,7 @@ node scripts/playtest/library-walkthrough.mjs .playwright-mcp/library-walk      
 node scripts/playtest/quick-test-check.mjs .playwright-mcp/quick-test                      # the 快速測試 switch: Part 1 only, run not counted
 node scripts/playtest/speech-rules-check.mjs .playwright-mcp/speech-rules                  # teacher: 語音念法 table, and the game uses it
 node scripts/playtest/cloud-voice-check.mjs .playwright-mcp/cloud-voice                    # cloud voices and accents; needs `python scripts/playtest/server_fake_voice.py` as the backend
+node scripts/playtest/highlight-check.mjs .playwright-mcp/highlight                        # word-by-word highlighting (same fake-voice backend)
 node scripts/videos/make-videos.mjs                                                       # re-records the how-to videos in docs/videos/
 ```
 

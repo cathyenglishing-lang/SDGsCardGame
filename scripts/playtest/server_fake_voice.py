@@ -40,8 +40,11 @@ CALLS = []
 
 
 def fake(text, voice, locale):
+    """A tone as long as the sentence would take (0.25 s a word), with a start time for every spoken word,
+    the way a provider that reports word boundaries answers."""
     CALLS.append((locale, voice, text))
-    return tone(hz={"en-US": 440, "en-GB": 520, "en-AU": 600}.get(locale, 660))
+    words = text.split()
+    return tone(seconds=max(0.6, 0.25 * len(words)), hz={"en-US": 440, "en-GB": 520, "en-AU": 600}.get(locale, 660)), [(0.25 * i, w) for i, w in enumerate(words)]
 
 
 tts.PROVIDERS["azure"].update(ready=lambda: True, synth=fake)

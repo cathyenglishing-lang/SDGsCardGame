@@ -231,7 +231,8 @@ def bank_newer(row):
 
 
 def _not_chinese(text):
-    """Empty, or (as 5-1 and 5-2 once were) an English sentence where the Chinese title belongs."""
+    """Empty, or (as 5-1 and 5-2 once were) an English sentence where the Chinese title belongs.
+    (The table prints `keywords` under a title card, not this field: that was a wrong entry, not a leak.)"""
     return not re.search("[\u3400-\u9fff]", str(text or ""))
 
 
@@ -352,8 +353,8 @@ def check_doc(doc):
                 add(errors, "講稿是空的。", level, s["no"], "script")
             if not s["title_zh"]:    # 2026-11-09 meeting (T4): the Chinese hint must be there before publishing
                 add(errors, "中文標題是空的（學生靠它看懂這張卡）。", level, s["no"], "title_zh")
-            elif not re.search("[\u3400-\u9fff]", s["title_zh"]):   # it is printed under the title card: an English sentence here gave the answer away
-                add(errors, "中文標題裡沒有中文。這一行會印在標題卡上，不要放英文句子或講稿。", level, s["no"], "title_zh")
+            elif not re.search("[\u3400-\u9fff]", s["title_zh"]):   # 5-1 and 5-2 once had the A2 script here; it is what the teacher's pages and exports show as the card's Chinese title
+                add(errors, "中文標題裡沒有中文。這裡要填這張投影片的中文標題，不要放英文句子或講稿。", level, s["no"], "title_zh")
             if not s["keywords"]:    # T4 asks for this too; today 468 of 488 seed cards have none, so it stays a reminder until the teacher has filled them in
                 add(warnings, "還沒有提示字（卡面標題下的一行小字）。", level, s["no"], "keywords")
             if re.search("�|Ã[\u0080-¿]|â€", s["title_en"] + s["title_zh"] + s["script"]):

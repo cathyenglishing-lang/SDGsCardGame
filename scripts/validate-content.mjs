@@ -89,7 +89,7 @@ export function validate(content, topicNames = {}) {
         // 2026-11-09 meeting (T4): the Chinese title must be there; the hint line stays a reminder
         // until the teacher has filled them in (468 of 488 seed cards have none).
         if (!String(s.title_zh || "").trim()) errors.push(`${id}: Chinese title is empty`);
-        // 5-1 and 5-2 once had the A2 script in this field: it is printed under the title card, so the answer was on the table.
+        // 5-1 and 5-2 once had the A2 script in this field (shown on the teacher's pages and in exports; the table prints `keywords`).
         else if (!/[\u3400-\u9fff]/.test(s.title_zh)) errors.push(`${id}: the Chinese title has no Chinese in it ("${String(s.title_zh).slice(0, 40)}")`);
         else if (String(s.title_zh).trim() === String(s.script || "").trim()) errors.push(`${id}: the Chinese title is the script itself`);
         if (!String(s.keywords || "").trim()) warnings.push(`${id}: no hint line (keywords)`);

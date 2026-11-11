@@ -181,7 +181,7 @@ app.add_middleware(
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
-    expose_headers=["Content-Disposition"],   # so the page can read the file name of an Excel download
+    expose_headers=["Content-Disposition", "X-Word-Times"],   # so the page can read the file name of an Excel download
 )
 
 # =========================

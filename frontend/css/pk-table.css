@@ -600,3 +600,8 @@ button.pk-tc-face h3{font-size:clamp(.94rem,1.12vw,1.08rem);line-height:1.2}
 .pk-pick-accent{display:flex;align-items:center;gap:10px;margin:2px 0 4px;padding:8px 12px;border-radius:12px;background:#f1ead8;font:700 .88rem/1.2 var(--pk-round);color:#1b1838}
 .pk-pick-accent select{flex:1;min-width:0;min-height:40px;border-radius:10px;border:1px solid rgba(27,24,56,.25);background:#fff;color:#1b1838;font:inherit;padding:0 10px}
 .pk-pick-accent select:focus-visible{outline:3px solid #f59e0b;outline-offset:2px}
+/* Word-by-word highlighting while a sentence is read: said = already read, now = being read */
+.pk-w{border-radius:.28em;padding:0 .08em;margin:0 -.08em;transition:background-color .12s ease,color .12s ease}
+.pk-w.said{color:inherit;opacity:.62}
+.pk-w.now{background:#fde68a;color:#1b1838;opacity:1;box-shadow:0 0 0 .12em #fde68a}
+@media (prefers-reduced-motion:reduce){ .pk-w{transition:none} }

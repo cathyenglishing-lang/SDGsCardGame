@@ -637,7 +637,7 @@ for raw, want in (("SDG 9 is about industry; AI helps us.", "S D G 9 is about in
 sentences = sorted(TTS.material_texts())
 s1, s2, s3, s4 = sentences[0], sentences[1], sentences[2], sentences[3]
 check("the material's sentences are known to the voice service", len(sentences) > 100)
-check("without a key: no cloud voice is offered", client.get("/content/tts/options").json() == {"available": False, "accents": [], "default": None})
+check("without a key: no cloud voice is offered", client.get("/content/tts/options").json() == {"available": False, "accents": [], "default": None, "highlight": ["A1", "A2", "B1", "B2"]})
 r = client.get("/content/tts", params={"text": s1, "accent": "en-US"})
 check("…and a sentence answers 'use the device's voice' (no_key)", r.status_code == 409 and r.json() == {"fallback": True, "reason": "no_key"}, r.text[:120])
 calls = {"azure": [], "google": []}
@@ -766,6 +766,28 @@ check("…the editor names both slides and refuses to publish", any(e["field"] =
 lib_ = client.get("/content/library").json()["topics"]
 pairs_ = [(t_["id"], a_["no"], b_["no"]) for t_ in lib_ for ss_ in [next(iter(t_["levels"].values()))] for i_, a_ in enumerate(ss_) for b_ in ss_[i_ + 1:] if CL.titles_too_alike(a_["title_en"], b_["title_en"])]
 check("no topic served to students has two titles that are too alike", pairs_ == [], str(pairs_[:5]))
+
+section("逐字高亮: word times travel with the clip, and a changed sentence gets new ones")
+check("word times line up with the words as shown (SDGs is one shown word, three spoken)", TTS.word_times("The SDGs matter.", [(0.0, "The"), (0.2, "S"), (0.4, "D"), (0.6, "Gs"), (0.9, "matter")]) == [0.0, 0.2, 0.9], str(TTS.word_times("The SDGs matter.", [(0.0, "The"), (0.2, "S"), (0.4, "D"), (0.6, "Gs"), (0.9, "matter")])))
+check("…marks that cannot be lined up give no times (the browser estimates)", TTS.word_times("The SDGs matter.", [(0.0, "The"), (0.9, "matter")]) is None)
+timed = lambda text, voice, locale: (b"ID3timed" + b"\x00" * 400, [(0.3 * i, w) for i, w in enumerate(text.split())])
+TTS.PROVIDERS["azure"].update(ready=lambda: True, synth=timed)
+client.put("/teacher/tts", json={"accents": ["en-US", "en-NZ"], "default": "en-US"}, headers=admin)
+s5 = sentences[5]
+r = client.get("/content/tts", params={"text": s5, "accent": "en-NZ"})
+head_ = next((v for k, v in r.headers.items() if k.lower() == "x-word-times"), "")
+check("a clip from a provider that reports word starts carries one time per shown word", r.status_code == 200 and len(head_.split(",")) == len(s5.split()) and head_.split(",")[0] == "0", head_[:60])
+r = client.get("/content/tts", params={"text": s5, "accent": "en-NZ"})
+check("…and the stored clip sends the same times again", next((v for k, v in r.headers.items() if k.lower() == "x-word-times"), "") == head_)
+TTS.PROVIDERS["azure"]["synth"] = fake("azure")
+r = client.get("/content/tts", params={"text": sentences[6], "accent": "en-NZ"})
+check("a provider without word times sends none (no header, the clip still plays)", r.status_code == 200 and not any(k.lower() == "x-word-times" for k in r.headers))
+r = client.put("/teacher/tts", json={"highlight": ["A1", "A2"]}, headers=admin)
+check("the teacher chooses the levels that are highlighted, and the game is told", r.status_code == 200 and client.get("/content/tts/options").json()["highlight"] == ["A1", "A2"])
+check("…unknown levels are dropped", client.put("/teacher/tts", json={"highlight": ["A2", "C9"]}, headers=admin).json()["settings"]["highlight"] == ["A2"])
+for k_, v_ in real.items():
+    TTS.PROVIDERS[k_].update(v_)
+client.put("/teacher/tts", json=TTS.DEFAULT_SETTINGS, headers=admin)
 
 section("Other pages still work")
 check("3D story analytics leave card-game runs out (only the one 3D run made above is counted)", client.get("/learning/analytics", headers=admin).json()["overview"]["runs"] == 1)

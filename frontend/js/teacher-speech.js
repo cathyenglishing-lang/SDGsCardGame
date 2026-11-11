@@ -168,7 +168,14 @@
           <td class="nw"><button class="btn" type="button" data-try="${esc(a.code)}" ${keys ? "" : "disabled"}>🔊 試聽</button>
             ${a.offered ? `<button class="btn" type="button" data-prep="${esc(a.code)}" ${!keys || a.ready >= cloud.sentences || (preparing && preparing !== a.code) ? "disabled" : ""}>${preparing === a.code ? "準備中…（按一下停止）" : a.ready >= cloud.sentences && cloud.sentences ? "都準備好了" : "先準備好全部"}</button>` : ""}</td></tr>`).join("")}
       </tbody></table></div>
+      <h3 class="ts-h" style="margin-top:18px">逐字高亮</h3>
+      <div class="ts-hl">${["A1", "A2", "B1", "B2"].map(l => `<label class="check"><input type="checkbox" data-hl="${l}" ${(st.highlight || []).includes(l) ? "checked" : ""}> ${l}</label>`).join("")}</div>
+      <p class="ts-hint">勾起來的難度，朗讀時句子會一個字一個字亮起來（念過的變淡、正在念的有底色）。對初學者跟上句子有幫助；想讓高難度更接近「純聽力」可以取消。用裝置自己的聲音時也有效；雲端語音有提供每個字的時間時最準，沒有時依句子長度估算，誤差大約一兩個字。</p>
       <p class="ts-hint">「試聽」會用上面「試一句」的句子（沒打就用範例句），照念法表轉換後交給雲端語音。「先準備好全部」是事先把教材每一句都產生好，學生第一次聽就不用等一兩秒；不按也可以，第一位聽到那一句的學生會等一下。改了念法表或講稿，只有受影響的句子會重新產生。</p>`;
+    box.querySelectorAll("[data-hl]").forEach(c => c.onchange = () => {
+      const list = [...box.querySelectorAll("[data-hl]")].filter(x => x.checked).map(x => x.dataset.hl);
+      saveCloud({ highlight: list }, list.length ? `逐字高亮：${list.join("、")} 開啟。` : "逐字高亮已全部關閉。");
+    });
     box.querySelectorAll("[data-first]").forEach(b => b.onclick = () => saveCloud({ order: [b.dataset.first, ...st.order.filter(k => k !== b.dataset.first)] }, "已改變順序。"));
     box.querySelectorAll("[data-budget]").forEach(inp => inp.onchange = () => saveCloud({ budget: { ...st.budget, [inp.dataset.budget]: Math.max(0, Math.round(Number(inp.value) || 0)) } }, "已儲存每月上限。"));
     box.querySelectorAll("[data-offer]").forEach(c => c.onchange = () => {
