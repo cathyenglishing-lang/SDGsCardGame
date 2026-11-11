@@ -1296,7 +1296,7 @@ CONSOLE_TABLES = [
     "sdg_options", "difficulty_options", "tbl_sdg_parts", "tbl_sdg_sub_topics",
     "tbl_sdg_cards", "email_otps",
     "courses", "course_sections", "enrollments", "course_activities", "roster_imports", "chip_ledger",
-    "speech_recordings", "content_topics", "content_versions", "system_metrics", "user_daily_activity", "login_failures", "student_reports", "site_visits", "speech_rules",
+    "speech_recordings", "content_topics", "content_versions", "system_metrics", "user_daily_activity", "login_failures", "student_reports", "site_visits", "speech_rules", "tts_settings", "tts_usage", "tts_clips",
 ]
 
 TABLE_DOCS = {
@@ -1321,6 +1321,9 @@ TABLE_DOCS = {
     "content_topics": "Teaching material per game and topic: the published copy students get and the teacher's draft.",
     "content_versions": "A snapshot of every published version of a topic (for looking back and restoring).",
     "user_daily_activity": "Per account per day: requests, the busiest minute, times stopped by the rate limit (for spotting abuse).",
+    "tts_settings": "雲端語音: accents offered to students, the default accent, provider order and monthly character budgets.",
+    "tts_usage": "雲端語音: characters sent to each provider per month (what the budget is checked against).",
+    "tts_clips": "雲端語音: one row per synthesised sentence and accent; the mp3 itself is a file under TTS_DIR.",
     "speech_rules": "念法表: how an abbreviation or symbol is read aloud in every game (written → spoken), edited by the teacher.",
     "site_visits": "Every page view: anonymous visitor id, page, where they came from, guest or signed in, device; the IP only as a hash.",
     "student_reports": "Personal learning reports a teacher sent to a student (HTML), and when the student opened them.",
@@ -3383,6 +3386,10 @@ app.include_router(visits.router)
 from backend import speech_rules
 speech_rules.configure(get_db=get_db, auto_pk_sql=auto_pk_sql, require_teacher=require_teacher)
 app.include_router(speech_rules.router)
+
+from backend import tts
+tts.configure(get_db=get_db, auto_pk_sql=auto_pk_sql, require_teacher=require_teacher, say=speech_rules.say, material_texts=content_library.spoken_texts)
+app.include_router(tts.router)
 
 # =========================
 # CREATE INITIAL ADMIN

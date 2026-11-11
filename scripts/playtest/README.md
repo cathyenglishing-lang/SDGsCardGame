@@ -37,6 +37,7 @@ screenshot of every step in the folder given (`.playwright-mcp/` is git-ignored)
 | `library-walkthrough.mjs` | 教材管理: tree, edit, checks, draft, publish, versions, delete and undo, new topic, import, preview in the game. |
 | `quick-test-check.mjs` | 快速測試: the teacher's account ticks it on the mission card, only Part 1 is on the table, the wrap-up pays no chips, and the report lists the run without counting it. |
 | `speech-rules-check.mjs` | 語音念法: the table opens from the top menu, a sentence shows how it will be said, a duplicate row is refused, a new row is saved, and the card game then says it that way. |
+| `cloud-voice-check.mjs` | 雲端語音: the teacher's panel (offer an accent, 試聽, prepare clips) and the game (accent on the level card and on the table, one provider call per sentence, the device's voice when the provider fails). Start `python scripts/playtest/server_fake_voice.py` as the backend for this one: a fake provider that answers with a short tone, so no key is needed. |
 
 Trying the game by hand without matching every card: sign in as a teacher or admin and tick 快速測試 on the mission card, or add `?quick=1` to the game's address. Such a run is stored as a test and never counted.
 

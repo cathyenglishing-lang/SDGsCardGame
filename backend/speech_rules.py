@@ -9,6 +9,8 @@ guess differently on every device (2026-11-09 meeting, T2). Each row here says: 
   PUT /teacher/speech            teacher: replace the whole table
   POST /teacher/speech/reset     teacher: back to the built-in defaults
 """
+import re
+import time
 from datetime import datetime, timedelta, timezone
 from types import SimpleNamespace
 
@@ -54,6 +56,7 @@ def configure(**deps):
 
 
 def _write(cur, rows, user_id):
+    _cache["at"] = 0.0                      # the next say() reads the new table
     cur.execute("DELETE FROM speech_rules")
     now = _now()
     for i, r in enumerate(rows):
@@ -90,6 +93,45 @@ def clean(rows):
         seen.add(written)
         out.append({"written": written, "spoken": spoken})
     return out
+
+
+_cache = {"at": 0.0, "map": {}, "re": None}
+
+
+def _compiled():
+    """The table as one pattern, re-read from the database every 30 seconds (and at once after a save)."""
+    if time.time() - _cache["at"] < 30:
+        return _cache["map"], _cache["re"]
+    conn = D.get_db()
+    cur = conn.cursor()
+    rows = _rows(cur)
+    conn.close()
+    table = {r["written"]: r["spoken"] for r in rows if r["written"] and r["spoken"] and " " not in r["written"]}
+    keys = sorted(table, key=len, reverse=True)
+    pattern = re.compile("(^|[^A-Za-z0-9])(" + "|".join(re.escape(k) for k in keys) + ")(s?)(?![A-Za-z0-9])") if keys else None
+    _cache.update(at=time.time(), map=table, re=pattern)
+    return table, pattern
+
+
+def say(text):
+    """What a voice is given for this text. Must stay the same as CardLearnSay() in
+    frontend/js/speech-say.js: whole tokens only, a plural s kept on capital abbreviations,
+    dashes / semicolons / colons turned into a pause."""
+    t = str(text or "")
+    table, pattern = _compiled()
+    if pattern:
+        def swap(m):
+            before, word, plural = m.group(1), m.group(2), m.group(3)
+            if plural and not re.fullmatch(r"[A-Z0-9.]+", word):
+                return m.group(0)
+            return (before + ("" if re.match(r"[A-Za-z0-9]", word) else " ") + table[word] + plural
+                    + ("" if re.search(r"[A-Za-z0-9.]$", word) else " "))
+        t = pattern.sub(swap, t)
+    t = re.sub(r"\s*[—–]\s*|\s+-\s+", ", ", t)
+    t = re.sub(r"\s*;\s*", ", ", t)
+    t = re.sub(r"\s*:\s+", ", ", t)
+    t = re.sub(r"\s{2,}", " ", t)
+    return re.sub(r"\s+,", ",", t).strip()
 
 
 @router.get("/content/speech")

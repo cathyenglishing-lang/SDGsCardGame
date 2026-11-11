@@ -128,7 +128,7 @@ body.pk-v2 #gameScreen .pk-speak:active{transform:scale(.95)}
 body.pk-v2 #gameScreen .pk-speak:disabled{opacity:.38;cursor:not-allowed;box-shadow:none}
 body.pk-v2 #gameScreen .pk-speak.invite{animation:pkInvite 1.2s ease-in-out infinite}
 @keyframes pkInvite{50%{box-shadow:0 0 0 12px rgba(167,139,250,.25),0 14px 32px rgba(109,77,242,.6)}}
-body.pk-v2 #gameScreen .pk-voice-row{display:flex;align-items:center;gap:6px}
+body.pk-v2 #gameScreen .pk-voice-row{display:flex;flex-direction:column;align-items:center;gap:4px}
 body.pk-v2 #gameScreen .pk-voice .pk-rate-btn{padding:5px 10px;font-size:.78rem;border-radius:9px}
 body.pk-v2 #gameScreen .pk-repeat-n{font-size:.75rem;font-weight:800;color:#f4d27a;min-width:3.2em;text-align:left}
 body.pk-embed.pk-v2 #gameScreen .pk-hud-left .pk-change-btn{display:none}
@@ -597,3 +597,6 @@ button.pk-tc-face:focus-visible{outline:4px solid #f59e0b;outline-offset:3px}
 button.pk-tc-face{padding-top:36px}
 button.pk-tc-face h3{font-size:clamp(.94rem,1.12vw,1.08rem);line-height:1.2}
 @media (max-width:560px){ button.pk-tc-face{padding-top:30px} button.pk-tc-face h3{font-size:.88rem} }
+.pk-pick-accent{display:flex;align-items:center;gap:10px;margin:2px 0 4px;padding:8px 12px;border-radius:12px;background:#f1ead8;font:700 .88rem/1.2 var(--pk-round);color:#1b1838}
+.pk-pick-accent select{flex:1;min-width:0;min-height:40px;border-radius:10px;border:1px solid rgba(27,24,56,.25);background:#fff;color:#1b1838;font:inherit;padding:0 10px}
+.pk-pick-accent select:focus-visible{outline:3px solid #f59e0b;outline-offset:2px}

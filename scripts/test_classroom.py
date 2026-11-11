@@ -627,6 +627,80 @@ check("odd characters (%, quotes, <>) are stored as plain text", r.status_code =
 r = client.post("/teacher/speech/reset", headers=admin)
 check("the built-in table can be put back", r.status_code == 200 and client.get("/content/speech").json()["rules"] == sp0.json()["rules"])
 
+section("雲端語音: two providers, accents the teacher offers, budgets, and the way back to the device's voice")
+from backend import tts as TTS, speech_rules as SR  # noqa: E402
+for raw, want in (("SDG 9 is about industry; AI helps us.", "S D G 9 is about industry, A I helps us."), ("The SDGs matter — for everyone.", "The S D Gs matter, for everyone."),
+                  ("ChatGPT and GPT said STEM is fun.", "ChatGPT and G P T said STEM is fun."), ("AI can help us think, e.g. search.", "A I can help us think, for example search."),
+                  ("Hook + SDG 9 & AI Connection", "Hook + S D G 9 and A I Connection"), ("PM2.5 and CO2 rise: why?", "P M 2.5 and C O 2 rise, why?")):
+    check(f"the server rewrites text the same way as the browser ({raw[:18]}…)", SR.say(raw) == want, SR.say(raw))
+sentences = sorted(TTS.material_texts())
+s1, s2, s3, s4 = sentences[0], sentences[1], sentences[2], sentences[3]
+check("the material's sentences are known to the voice service", len(sentences) > 100)
+check("without a key: no cloud voice is offered", client.get("/content/tts/options").json() == {"available": False, "accents": [], "default": None})
+r = client.get("/content/tts", params={"text": s1, "accent": "en-US"})
+check("…and a sentence answers 'use the device's voice' (no_key)", r.status_code == 409 and r.json() == {"fallback": True, "reason": "no_key"}, r.text[:120])
+calls = {"azure": [], "google": []}
+fake = lambda name: (lambda text, voice, locale: (calls[name].append((text, voice, locale)), b"ID3" + name.encode() + b"\x00" * 400)[1])
+real = {k: dict(v) for k, v in TTS.PROVIDERS.items()}
+TTS.PROVIDERS["azure"].update(ready=lambda: True, synth=fake("azure"))
+o = client.get("/content/tts/options").json()
+check("with a key: the teacher's default accents are offered (American, British)", o["available"] and [a["code"] for a in o["accents"]] == ["en-US", "en-GB"] and o["default"] == "en-US", str(o))
+r = client.get("/content/tts", params={"text": s1, "accent": "en-GB"})
+check("a sentence of the material comes back as mp3 in the accent asked for", r.status_code == 200 and r.content.startswith(b"ID3azure") and calls["azure"][-1][1:] == ("en-GB-SoniaNeural", "en-GB") and calls["azure"][-1][0] == SR.say(s1), f"{r.status_code} {calls['azure'][-1:]}")
+n1 = len(calls["azure"])
+r = client.get("/content/tts", params={"text": s1, "accent": "en-GB"})
+check("…the second time it is the stored file: the provider is not called again", r.status_code == 200 and len(calls["azure"]) == n1)
+st_ = client.get("/teacher/tts", headers=admin).json()
+az = next(p_ for p_ in st_["providers"] if p_["key"] == "azure")
+check("…and the characters are counted once", az["used"] == len(SR.say(s1)) and az["clips"] == 1 and next(a for a in st_["accents"] if a["code"] == "en-GB")["ready"] == 1, str(az))
+r = client.get("/content/tts", params={"text": "Please read my own essay aloud for free.", "accent": "en-GB"})
+check("text that is not in the material is refused (nobody can spend the allowance)", r.status_code == 409 and r.json()["reason"] == "not_in_material" and len(calls["azure"]) == n1)
+check("an accent the teacher has not offered is refused", client.get("/content/tts", params={"text": s1, "accent": "en-AU"}).json().get("reason") == "accent_not_offered")
+check("a student cannot open the teacher's settings or the try-out", client.get("/teacher/tts", headers=stu).status_code in (401, 403) and client.post("/teacher/tts/try", json={"text": "Hi", "accent": "en-US"}, headers=stu).status_code in (401, 403))
+r = client.put("/teacher/tts", json={"accents": ["en-US", "en-GB", "en-AU"], "default": "en-AU"}, headers=admin)
+check("the teacher offers a third accent and makes it the default", r.status_code == 200 and client.get("/content/tts/options").json()["default"] == "en-AU" and len(client.get("/content/tts/options").json()["accents"]) == 3, r.text[:160])
+check("…an unknown accent is refused", client.put("/teacher/tts", json={"accents": ["xx-YY"]}, headers=admin).status_code == 400)
+r = client.post("/teacher/tts/try", json={"text": "The SDGs matter.", "accent": "en-AU"}, headers=admin)
+check("the teacher can hear any short sentence", r.status_code == 200 and calls["azure"][-1][0] == "The S D Gs matter." and calls["azure"][-1][1] == "en-AU-NatashaNeural")
+# the budget: when the first provider's month is used up, the second one answers; when both are, the device speaks
+TTS.PROVIDERS["google"].update(ready=lambda: True, synth=fake("google"))
+used_now = next(p_ for p_ in client.get("/teacher/tts", headers=admin).json()["providers"] if p_["key"] == "azure")["used"]
+client.put("/teacher/tts", json={"budget": {"azure": used_now + 5, "google": 900000}}, headers=admin)
+r = client.get("/content/tts", params={"text": s2, "accent": "en-US"})
+check("when Azure's month is used up, Google answers", r.status_code == 200 and r.content.startswith(b"ID3google") and calls["google"][-1][1] == "en-US-Chirp3-HD-Aoede", f"{r.status_code} {r.content[:12]!r}")
+client.put("/teacher/tts", json={"budget": {"azure": 0, "google": 0}}, headers=admin)
+r = client.get("/content/tts", params={"text": s3, "accent": "en-US"})
+check("when every budget is used up, the answer is 'use the device's voice'", r.status_code == 409 and r.json()["reason"] == "budget_used_up")
+check("…but a clip that is already stored still plays", client.get("/content/tts", params={"text": s2, "accent": "en-US"}).status_code == 200)
+client.put("/teacher/tts", json={"budget": {"azure": 450000, "google": 900000}}, headers=admin)
+# a provider that fails is skipped for a while
+def broken(text, voice, locale):
+    raise OSError("connection refused")
+TTS.PROVIDERS["azure"]["synth"] = broken
+r = client.get("/content/tts", params={"text": s3, "accent": "en-US"})
+paused = next(p_ for p_ in client.get("/teacher/tts", headers=admin).json()["providers"] if p_["key"] == "azure")["paused"]
+check("when Azure fails, Google answers and Azure is rested for a few minutes", r.status_code == 200 and r.content.startswith(b"ID3google") and paused is True)
+r = client.get("/content/tts", params={"text": s3, "accent": "en-IE"})
+client.put("/teacher/tts", json={"accents": ["en-US", "en-GB", "en-AU", "en-IE"]}, headers=admin)
+r = client.get("/content/tts", params={"text": s3, "accent": "en-IE"})
+check("an accent only the resting provider has falls back to the device (no error)", r.status_code == 409 and r.json()["reason"] == "provider_error", r.text[:120])
+TTS._paused.clear(); TTS.PROVIDERS["azure"]["synth"] = fake("azure")
+# preparing the whole material, a few clips per call
+out = client.post("/teacher/tts/prepare", json={"accent": "en-IE"}, headers=admin).json()
+check("'prepare everything' makes a few clips per call and says how many are left", out["made"] == TTS.PREPARE_BATCH and out["left"] == out["total"] - TTS.PREPARE_BATCH and out["stopped"] is None, str(out))
+# a change of the 念法表 makes a new clip for the sentences it touches
+with_ai = next(t for t in sentences if " AI " in t)
+client.get("/content/tts", params={"text": with_ai, "accent": "en-US"}); before_n = len(calls["azure"])
+rules_now = client.get("/content/speech").json()["rules"]
+client.put("/teacher/speech", json={"rules": [({"written": "AI", "spoken": "artificial intelligence"} if r_["written"] == "AI" else r_) for r_ in rules_now]}, headers=admin)
+r = client.get("/content/tts", params={"text": with_ai, "accent": "en-US"})
+check("changing the 念法表 re-makes the sentences it touches, with the new wording", r.status_code == 200 and len(calls["azure"]) == before_n + 1 and "artificial intelligence" in calls["azure"][-1][0] and " A I " not in calls["azure"][-1][0], calls["azure"][-1][0][:80])
+client.post("/teacher/speech/reset", headers=admin)
+for k_, v_ in real.items():
+    TTS.PROVIDERS[k_].update(v_)
+client.put("/teacher/tts", json=TTS.DEFAULT_SETTINGS, headers=admin)
+check("with the keys gone again the game is told to use the device's voice, and stored clips still play", client.get("/content/tts/options").json()["available"] is False and client.get("/content/tts", params={"text": s1, "accent": "en-GB"}).status_code == 200)
+
 section("Other pages still work")
 check("3D story analytics leave card-game runs out (only the one 3D run made above is counted)", client.get("/learning/analytics", headers=admin).json()["overview"]["runs"] == 1)
 check("old card-game analytics", client.get("/teacher/pk-analytics", headers=admin).status_code == 200)

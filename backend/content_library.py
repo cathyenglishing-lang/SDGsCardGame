@@ -124,6 +124,23 @@ def _loads(text):
         return None
 
 
+def spoken_texts(game="pecha_kucha"):
+    """Every script of the published, not archived topics: the text a student may ask a cloud voice for
+    (backend/tts.py)."""
+    conn = D.get_db()
+    cur = conn.cursor()
+    cur.execute("SELECT published_json FROM content_topics WHERE game = ? AND archived = 0 AND published_json IS NOT NULL", (game,))
+    out = set()
+    for row in cur.fetchall():
+        doc = _loads(row["published_json"]) or {}
+        for slides in (doc.get("levels") or {}).values():
+            for s in slides or []:
+                if str(s.get("script") or "").strip():
+                    out.add(str(s["script"]))
+    conn.close()
+    return out
+
+
 def _backfill_title_zh(cur):
     """Older databases were seeded before the question bank had every Chinese title (9-1 lacked six).
     Where the published card still has none and the seed file has one for the same card (same English

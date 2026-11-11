@@ -928,7 +928,7 @@ body.is-dragging-card .subtopic-poker:not(.correct) {
       <button class="pk-speak" id="pkSpeakBtn" type="button" onclick="pkSpeakTap()" aria-label="聽句子 Listen" disabled>
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 9.5v5a1 1 0 0 0 1 1h3.2l4.1 3.4a1 1 0 0 0 1.7-.8V5.9a1 1 0 0 0-1.7-.8L7.2 8.5H4a1 1 0 0 0-1 1z"/><path d="M15.5 8.6a4.6 4.6 0 0 1 0 6.8M18 6a8.2 8.2 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg>
       </button>
-      <div class="pk-voice-row"><button class="pk-rate-btn" id="pkRateBtn" type="button" onclick="pkCycleRate()" title="Speech speed">語速 1×</button><span class="pk-repeat-n" id="pkRepeatN"></span></div>
+      <div class="pk-voice-row"><button class="pk-rate-btn" id="pkRateBtn" type="button" onclick="pkCycleRate()" title="Speech speed">語速 1×</button><button class="pk-rate-btn" id="pkAccentBtn" type="button" onclick="pkCycleAccent()" title="換一種口音 Accent" hidden>口音</button><span class="pk-repeat-n" id="pkRepeatN"></span></div>
     </div>
   </div>
   
@@ -1679,6 +1679,8 @@ function pkOpenTopic(topicId, from){
     +   '<p class="pk-pick-step"><b>2</b>選難度</p>'
     +   '<h2>'+pkEsc(title)+'</h2>'+(zh?'<p class="pk-pick-zh">'+pkEsc(zh)+' · SDG '+t.sdg+'</p>':'')
     +   '<div class="pk-pick-levels">'+rows+'</div>'
+    +   (PK_TTS.on ? '<label class="pk-pick-accent"><span>朗讀口音</span><select id="pkPickAccent">'
+            + PK_TTS.accents.map(a=>'<option value="'+pkEsc(a.code)+'">'+pkEsc(a.label)+'</option>').join('')+'<option value="device">這台裝置的聲音</option></select></label>' : '')
     +   '<p class="pk-pick-foot">按一下難度就開始。玩完可以回來換更難的。</p>'
     + '</div></div>';
   document.body.appendChild(box);
@@ -1696,6 +1698,8 @@ function pkOpenTopic(topicId, from){
   requestAnimationFrame(()=>{ box.classList.add("open"); });
   box.addEventListener("click", e=>{ if(e.target === box) pkClosePick(true); });
   document.getElementById("pkPickClose").onclick = () => pkClosePick(true);
+  const acc = document.getElementById("pkPickAccent");
+  if(acc){ acc.value = pkAccent() || "device"; acc.onchange = () => pkSetAccent(acc.value === "device" ? null : acc.value); }
   const first = box.querySelector(".pk-lv:not(.is-locked)") || document.getElementById("pkPickClose");
   setTimeout(()=>{ try{ first.focus({preventScroll:true}); }catch(e){} }, still ? 0 : 420);
   const steps = document.querySelectorAll(".pk-steps li"); steps.forEach((li,i)=>li.classList.toggle("on", i===1));
@@ -1711,7 +1715,7 @@ document.addEventListener("keydown", e=>{
   const box = document.getElementById("pkPick"); if(!box) return;
   if(e.key === "Escape"){ e.preventDefault(); pkClosePick(true); return; }
   if(e.key === "Tab"){   // keep the keyboard inside the level menu
-    const f = [...box.querySelectorAll("button:not([disabled])")]; if(!f.length) return;
+    const f = [...box.querySelectorAll("button:not([disabled]), select")]; if(!f.length) return;
     const i = f.indexOf(document.activeElement);
     if(e.shiftKey && i <= 0){ e.preventDefault(); f[f.length-1].focus(); }
     else if(!e.shiftKey && i === f.length-1){ e.preventDefault(); f[0].focus(); }
@@ -1960,7 +1964,68 @@ function pkVoiceSync(speaking){
 }
 // Stop any reading now and make sure its "finished" callback never runs: without this, a reading
 // cut short by a part change or a new game came back later and left the listen button dead.
-function pkQuiet(){ pkSpeakToken++; isSpeaking = false; try{ window.speechSynthesis.cancel(); }catch(e){} }
+function pkQuiet(){ pkSpeakToken++; isSpeaking = false; try{ window.speechSynthesis.cancel(); }catch(e){} pkStopClip(); }
+
+// Cloud voices (backend/tts.py): when the server has one, a sentence is an mp3 in the accent the
+// student chose, the same on every device. Anything that goes wrong (no key, the month's allowance
+// used up, no network, a slow answer) ends in the browser's own voice, so the game never waits.
+const PK_TTS = { on:false, accents:[], def:null, clips:new Map(), audio:null, offUntil:0 };
+const PK_ACCENT_KEY = "cardlearn_tts_accent";
+function pkApiBase(){ return String(window.CARDLEARN_API_BASE_URL || "").replace(/\/+$/, ""); }
+async function pkLoadTts(){
+  try{
+    const r = await fetch(pkApiBase()+"/content/tts/options"); const d = r.ok ? await r.json() : null;
+    if(d && d.available && Array.isArray(d.accents) && d.accents.length){ PK_TTS.on = true; PK_TTS.accents = d.accents; PK_TTS.def = d.default || d.accents[0].code; }
+  }catch(e){ /* no cloud voice: the browser speaks */ }
+  pkPaintAccent();
+}
+// The accent in use: the student's choice when it is still offered, else the teacher's default; null = this device's voice.
+function pkAccent(){
+  if(!PK_TTS.on || PK_PREVIEW) return null;
+  let v = null; try{ v = localStorage.getItem(PK_ACCENT_KEY); }catch(e){}
+  if(v === "device") return null;
+  return PK_TTS.accents.some(a=>a.code===v) ? v : PK_TTS.def;
+}
+function pkAccentLabel(code){ const a = PK_TTS.accents.find(x=>x.code===code); return a ? a.label.split(" ")[0] : "裝置"; }
+function pkPaintAccent(){
+  const b = document.getElementById("pkAccentBtn"); if(!b) return;
+  b.hidden = !PK_TTS.on;
+  if(PK_TTS.on){ const a = pkAccent(); b.textContent = "口音 "+pkAccentLabel(a); b.setAttribute("aria-label", "口音："+(a ? pkAccentLabel(a) : "這台裝置的聲音")+"。按一下換下一種"); }
+  const sel = document.getElementById("pkPickAccent"); if(sel) sel.value = pkAccent() || "device";
+}
+function pkSetAccent(code){
+  try{ localStorage.setItem(PK_ACCENT_KEY, code || "device"); }catch(e){}
+  pkPaintAccent();
+  if(typeof PKT !== "undefined" && typeof RUN !== "undefined" && RUN) PKT.log("voice.accent", { accent: code || "device" });
+}
+function pkCycleAccent(){
+  const list = [...PK_TTS.accents.map(a=>a.code), null], i = list.indexOf(pkAccent());
+  const next = list[(i + 1) % list.length];
+  pkSetAccent(next);
+  if(typeof showToast === "function") showToast(next ? "口音："+PK_TTS.accents.find(a=>a.code===next).label : "改用這台裝置的聲音");
+}
+function pkStopClip(){ const a = PK_TTS.audio; PK_TTS.audio = null; if(a){ try{ a.onended = a.onerror = null; a.pause(); }catch(e){} } }
+// The mp3 of one sentence, or null when the browser should speak (the reason is remembered so a
+// missing key or a used-up allowance is not asked about again for five minutes).
+async function pkClip(text, accent){
+  const key = accent+"|"+text;
+  if(PK_TTS.clips.has(key)) return PK_TTS.clips.get(key);
+  if(Date.now() < PK_TTS.offUntil) return null;
+  const stop = typeof AbortController === "function" ? new AbortController() : null, timer = setTimeout(()=>{ if(stop) stop.abort(); }, 7000);
+  try{
+    const r = await fetch(pkApiBase()+"/content/tts?accent="+encodeURIComponent(accent)+"&text="+encodeURIComponent(text), stop ? { signal: stop.signal } : undefined);
+    if(!r.ok){
+      let why = ""; try{ why = (await r.json()).reason || ""; }catch(e){}
+      if(why !== "not_in_material" && why !== "text") PK_TTS.offUntil = Date.now() + 5*60*1000;
+      if(why === "not_in_material") PK_TTS.clips.set(key, null);
+      return null;
+    }
+    const url = URL.createObjectURL(await r.blob());
+    PK_TTS.clips.set(key, url);
+    return url;
+  }catch(e){ return null; }
+  finally{ clearTimeout(timer); }
+}
 function pkPaintSave(){
   const el = document.getElementById("pkSaveChip"); if(!el) return;
   if(!RUN){ el.hidden = true; return; }
@@ -2824,7 +2889,25 @@ function speak(text, onEndCallback) {
   };
   const rate = 0.82 * pkRate();
   const words = String(text).split(/\s+/).length;
-  const guard = setTimeout(done, (words / (2.4 * rate)) * 1500 + 2500);
+  let guard = setTimeout(done, (words / (2.4 * rate)) * 1500 + 2500 + 7000);
+  const accent = pkAccent();
+  if (accent) {
+    // The cloud voice first; the browser's voice the moment anything is missing or slow.
+    pkClip(String(text), accent).then(url => {
+      if (finished || my !== pkSpeakToken) return;
+      if (!url) return byBrowser();
+      const a = new Audio(url);
+      PK_TTS.audio = a;
+      a.playbackRate = Math.max(0.6, Math.min(1.4, 0.95 * pkRate()));
+      a.onloadedmetadata = () => { if (isFinite(a.duration) && a.duration > 0) { clearTimeout(guard); guard = setTimeout(done, (a.duration / a.playbackRate) * 1000 + 2500); } };
+      a.onended = () => { if (PK_TTS.audio === a) PK_TTS.audio = null; done(); };
+      a.onerror = () => { if (PK_TTS.audio === a) PK_TTS.audio = null; if (!finished && my === pkSpeakToken) byBrowser(); };
+      const p = a.play(); if (p && p.catch) p.catch(() => { if (PK_TTS.audio === a) PK_TTS.audio = null; if (!finished && my === pkSpeakToken) byBrowser(); });
+    });
+    return;
+  }
+  byBrowser();
+  function byBrowser() {
   const parts = String(text).split(/(?<=[.!?])\s+/).map(t => t.trim()).filter(Boolean);
   parts.forEach((t, i) => {
     const u = new SpeechSynthesisUtterance(window.CardLearnSay ? window.CardLearnSay(t) : t);   // what is spoken, not what is shown (js/speech-say.js)
@@ -2836,7 +2919,9 @@ function speak(text, onEndCallback) {
     speechSynthesis.speak(u);
   });
   if (!parts.length) done();
+  }
 }
+pkLoadTts();
 
 async function saveFullAttemptRecord() { return null; }
 

@@ -36,9 +36,9 @@ npm run build
 
 Verification (there is no automated test suite — these are the only checks):
 ```bash
-python -m py_compile backend/main.py backend/learning.py backend/classroom.py backend/recordings.py backend/learning_reports.py backend/content_library.py backend/speech_rules.py backend/rate_limit.py scripts/test_rate_limits.py
+python -m py_compile backend/main.py backend/learning.py backend/classroom.py backend/recordings.py backend/learning_reports.py backend/content_library.py backend/speech_rules.py backend/tts.py backend/rate_limit.py scripts/test_rate_limits.py
 python scripts/test_rate_limits.py   # Redis rate-limit self-test, needs REDIS_URL
-python scripts/test_classroom.py     # 184 checks: courses, roster, accounts, card-game data, chips, recordings, reports, material library (throw-away SQLite, never sql/app.db)
+python scripts/test_classroom.py     # 211 checks: courses, roster, accounts, card-game data, chips, recordings, reports, material library (throw-away SQLite, never sql/app.db)
 npm run build                         # frontend build check; runs the question-bank check first
 npm run content:check                 # question bank only (frontend/js/pk-content.js)
 ```
@@ -52,6 +52,7 @@ node scripts/playtest/teacher-walkthrough.mjs .playwright-mcp/teacher-walk      
 node scripts/playtest/library-walkthrough.mjs .playwright-mcp/library-walk                # teacher: material editor
 node scripts/playtest/quick-test-check.mjs .playwright-mcp/quick-test                      # the 快速測試 switch: Part 1 only, run not counted
 node scripts/playtest/speech-rules-check.mjs .playwright-mcp/speech-rules                  # teacher: 語音念法 table, and the game uses it
+node scripts/playtest/cloud-voice-check.mjs .playwright-mcp/cloud-voice                    # cloud voices and accents; needs `python scripts/playtest/server_fake_voice.py` as the backend
 node scripts/videos/make-videos.mjs                                                       # re-records the how-to videos in docs/videos/
 ```
 
@@ -69,6 +70,7 @@ pip install -r requirements.txt
 - `backend/learning.py` (learning events, card-game scoring), `backend/classroom.py` (courses, roster import with 系級, chips), `backend/recordings.py` (students' voice recordings), `backend/learning_reports.py` (the teacher's 學習紀錄: class → student → run, Excel) and `backend/content_library.py` (教材管理: draft / publish / versions) are routers mounted by `main.py`; they get main's helpers through `configure()` and never import it.
 - Everything a browser sends as learning data is untrusted (runs can be anonymous): `learning.clean_data()` / `json_safe()` fix the types when stored and when read; anything printed in the teacher pages goes through `esc()`. Never write a literal `%` inside SQL (psycopg reads it as a placeholder) — pass the pattern as a parameter.
 - The card game's material lives in the database (`content_topics`, edited in the teacher's 教材管理 and served by `GET /content/library`). `frontend/js/pk-content.js` is only the seed for an empty database and the fallback when the API cannot be reached; changing a script or title there still needs the topic's `version` raised and `npm run content:lock`, or the build stops — and it does not change a database that is already seeded.
+- Cloud voices (`backend/tts.py`): with `AZURE_SPEECH_KEY`+`AZURE_SPEECH_REGION` and/or `GOOGLE_TTS_API_KEY` the card game's sentences are synthesised once per accent, stored under `TTS_DIR` and served by `GET /content/tts` (published sentences only). No key, a used-up monthly budget or a failing provider all end in the browser's own voice. The text goes through the 念法表 first (`speech_rules.say()` must stay identical to `CardLearnSay()` in `frontend/js/speech-say.js`). Not yet tried against the real services.
 - API groups: `/auth`, `/content`, `/game`, `/teacher`, `/learning`, `/me`, `/health`. Auth is JWT bearer; `require_teacher()` gates teacher/admin routes; admin-only checks apply when changing/deleting admin accounts.
 - **Frontend**: static HTML/CSS/JS, no framework/bundler. Pages in `frontend/pages/`, all API calls centralized in `frontend/js/api.js`. Runtime API base URL comes from `window.CARDLEARN_API_BASE_URL` (set by `frontend/config.js` locally, generated into `dist/` on build).
 - `dist/` is **generated only** — always edit source under `frontend/`, then rebuild. Never hand-edit `dist/`.
