@@ -94,7 +94,7 @@ def _dir():
     if explicit:
         base = Path(explicit)
     elif os.getenv("AUDIO_DIR", "").strip():
-        base = Path(os.getenv("AUDIO_DIR").strip()).parent / "tts"
+        base = Path(os.getenv("AUDIO_DIR").strip()) / "tts"      # inside the folder the VM keeps and backs up (deploy/vm: ./data/audio)
     elif os.getenv("CARDLEARN_SQLITE_DIR", "").strip():
         base = Path(os.getenv("CARDLEARN_SQLITE_DIR").strip()) / "tts"
     else:

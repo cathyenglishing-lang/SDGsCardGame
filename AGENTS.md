@@ -4,7 +4,7 @@
 
 Current state, decisions, deployment map and rules for this project: `docs/handoff/` (newest file first, starting with `2026-10-14-innovation-harbor-handoff.md`). Pushing to `main` deploys to production (www.cathylanguagehub.com) — work on a branch and confirm with the owner before merging.
 
-Follow-ups from the 2026-11-09 evening meeting with Cathy (TODO T1–T5: ABC distractors too hard, TTS reads "SDG" badly, active email not sent / class-based recipient picker default unchecked, title_zh+keywords+title_en must not be empty, teacher/TA test data kept but excluded from analysis): `docs/handoff/2026-11-09-teacher-meeting-followups.md`.
+Meeting follow-ups T1–T5 (2026-11-09 with Cathy) and everything the company machine did on 2026-11-11 are in ONE file: `docs/handoff/2026-11-09-teacher-meeting-followups.md` — status of T1–T5 (T2, T4, T5 done; T1, T3 open), quick test, 念法表, cloud voices with accents (built, not yet tried against the real services: no key), the new topic menu, how to merge branch `claude/meeting-t4-t5` and go live, what was and was not verified. Read that file first; do not spread this over other files.
 
 Newest work (2026-11-09, branch `company/card-game-learning`, not merged): `docs/handoff/2026-11-09-card-game-closed-loop.md` — card game closed loop (events, saved results, wrap-up, chips), courses and roster import, what is still open.
 
