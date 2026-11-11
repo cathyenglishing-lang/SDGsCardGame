@@ -264,7 +264,8 @@
       : ["live", `已發佈第 ${sum.version} 版，學生看到的就是這裡的內容。`];
     el.className = "tl-state " + state[0];
     el.innerHTML = `<div><b>SDG ${esc(code(S.topic))} · ${state[1]}</b><small>${esc(savedText())}</small>
-        ${S.data.changes_data && (sum.has_draft || S.dirty) ? `<small class="note">這次改到了講稿或標題：發佈後會變成第 ${sum.version + 1} 版，新舊版的學習數據會分開統計。</small>` : ""}</div>
+        ${S.data.changes_data && (sum.has_draft || S.dirty) ? `<small class="note">這次改到了講稿或標題：發佈後會變成第 ${sum.version + 1} 版，新舊版的學習數據會分開統計。</small>` : ""}
+        ${sum.bank_newer ? `<small class="note bank">內建題庫有修正過的新版（題庫第 ${Number(sum.bank_newer)} 版）。因為你改過這個主題，系統沒有自動換掉你的內容。<button class="btn" type="button" id="tlTakeBank">把題庫新版載入成草稿來比較</button></small>` : ""}</div>
       <div class="tl-state-btns">
         ${last ? `<button class="btn" type="button" id="tlUndoLast" title="${esc(last.text)}">↶ 復原上一步</button>` : ""}
         ${S.level ? `<button class="btn" type="button" id="tlPreview" title="用學生的畫面玩玩看這份草稿，不會留下紀錄">▶ 預覽 ${esc(S.level)}</button>` : ""}
@@ -275,6 +276,11 @@
     if (near) { near.textContent = S.saving ? "儲存中…" : S.dirty ? "有修改…" : S.savedAt ? `✓ 已儲存 ${S.savedAt}` : ""; }
     if ($("tlUndoLast")) $("tlUndoLast").onclick = () => undoEntry(last);
     if ($("tlPreview")) $("tlPreview").onclick = async () => { await saveNow(); window.open(`/pages/pecha_kucha_builder.html?preview=1&topic=${encodeURIComponent(S.topic)}&level=${encodeURIComponent(S.level)}`, "_blank"); };
+    if ($("tlTakeBank")) $("tlTakeBank").onclick = async () => {
+      if (S.dirty || sum.has_draft) { toast("你有還沒發佈的修改。請先發佈或放棄修改，再載入題庫的新版，才不會蓋掉你正在改的內容。"); return; }
+      try { await call("POST", `/teacher/library/${S.game}/${S.topic}/take-bank`); await openTopic(S.topic, S.level); toast("題庫的新版已經載入成草稿：學生還看不到。看過沒問題再按「發佈給學生」；不要的話按「放棄修改」。"); }
+      catch (e) { toast(e.message); }
+    };
     if ($("tlDiscard")) $("tlDiscard").onclick = async () => { const entry = snapshot("放棄修改"); clearTimeout(S.timer); S.dirty = false;
       try { await call("POST", `/teacher/library/${S.game}/${S.topic}/discard`); await openTopic(S.topic, S.level); await load(S.topic);
         remember(entry); toast("已放棄修改，回到已發佈的內容。", () => undoEntry(entry)); } catch (e) { toast(e.message); } };

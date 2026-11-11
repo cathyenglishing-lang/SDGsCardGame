@@ -421,7 +421,8 @@ check("the card game's 9 topics are in the library, with the 3D games listed as 
 check("students get the published library without signing in", len(client.get("/content/library").json()["topics"]) == 9)
 check("a student cannot open the editor", client.get("/teacher/library", headers=stu).status_code == 403)
 t92 = client.get("/teacher/library/pecha_kucha/9-2", headers=admin).json()
-check("a topic opens with its slides, version and history", t92["summary"]["version"] == 1 and len(t92["doc"]["levels"]["A2"]) == 12 and len(t92["history"]) == 1 and not t92["errors"], str(t92["summary"]))
+v0 = t92["summary"]["version"]      # the bank's version of this topic (it rises whenever the bank's scripts are corrected)
+check("a topic opens with its slides, version and history", v0 >= 1 and len(t92["doc"]["levels"]["A2"]) == 12 and len(t92["history"]) == 1 and not t92["errors"], str(t92["summary"]))
 import copy as _copy
 doc = _copy.deepcopy(t92["doc"])
 doc["levels"]["A2"][5]["title_en"] = doc["levels"]["A2"][4]["title_en"]          # the bug the game had: two cards with one title
@@ -434,18 +435,18 @@ doc = _copy.deepcopy(t92["doc"])
 doc["levels"]["A2"][0]["title_zh"] = "全球永續的連結"
 client.put("/teacher/library/pecha_kucha/9-2/draft", json={"doc": doc}, headers=admin)
 r = client.post("/teacher/library/pecha_kucha/9-2/publish", json={"note": "改中文標題"}, headers=admin).json()
-check("changing only a Chinese title publishes without a new version (learning data stays comparable)", r["published"] and r["version"] == 1 and r["version_raised"] is False, str(r))
+check("changing only a Chinese title publishes without a new version (learning data stays comparable)", r["published"] and r["version"] == v0 and r["version_raised"] is False, str(r))
 doc["levels"]["A2"][0]["script"] = "Good morning, everyone. Today we look at SDG 9 and how we talk to AI."
 r = client.put("/teacher/library/pecha_kucha/9-2/draft", json={"doc": doc}, headers=admin).json()
 check("the editor is told when a change will start a new version", r["changes_data"] is True)
 r = client.post("/teacher/library/pecha_kucha/9-2/publish", json={}, headers=admin).json()
-check("changing a script raises the version", r["version"] == 2 and r["version_raised"] is True, str(r))
+check("changing a script raises the version", r["version"] == v0 + 1 and r["version_raised"] is True, str(r))
 live = next(t for t in client.get("/content/library").json()["topics"] if t["id"] == "9-2")
-check("students now get the new script and version 2", live["version"] == 2 and live["levels"]["A2"][0]["script"].startswith("Good morning, everyone. Today we look"))
+check("students now get the new script and the new version", live["version"] == v0 + 1 and live["levels"]["A2"][0]["script"].startswith("Good morning, everyone. Today we look"))
 check("saving the published text again leaves no draft", client.put("/teacher/library/pecha_kucha/9-2/draft", json={"doc": doc}, headers=admin).json()["has_draft"] is False)
-client.post("/teacher/library/pecha_kucha/9-2/restore-version", json={"version": 1}, headers=admin)
+client.post("/teacher/library/pecha_kucha/9-2/restore-version", json={"version": v0}, headers=admin)
 back = client.get("/teacher/library/pecha_kucha/9-2", headers=admin).json()
-check("an old version can be brought back as a draft (not live until published)", back["summary"]["has_draft"] and back["doc"]["levels"]["A2"][0]["script"] == t92["doc"]["levels"]["A2"][0]["script"] and live["version"] == 2)
+check("an old version can be brought back as a draft (not live until published)", back["summary"]["has_draft"] and back["doc"]["levels"]["A2"][0]["script"] == t92["doc"]["levels"]["A2"][0]["script"] and live["version"] == v0 + 1)
 check("discarding the draft goes back to what is published", client.post("/teacher/library/pecha_kucha/9-2/discard", headers=admin).json()["discarded"] and not client.get("/teacher/library/pecha_kucha/9-2", headers=admin).json()["summary"]["has_draft"])
 r = client.post("/teacher/library/pecha_kucha", json={"topic_id": "4-3", "title_en": "Reading for Everyone", "title_zh": "人人都能閱讀", "slides": 12, "levels": ["A2"]}, headers=admin)
 check("a new topic starts as a blank 12-slide draft", r.status_code == 200 and len(client.get("/teacher/library/pecha_kucha/4-3", headers=admin).json()["doc"]["levels"]["A2"]) == 12, r.text)
@@ -717,6 +718,41 @@ n_ = CL._backfill_title_zh(cur_); conn_.commit()
 cur_.execute("SELECT published_json FROM content_topics WHERE id = ?", (row_["id"],))
 now_ = json.loads(cur_.fetchone()["published_json"])["levels"][lvl_][2]["title_zh"]; conn_.close()
 check("an older database with the script in that field gets the real Chinese title at start-up", n_ == 1 and now_ == good_ and bool(CL.re.search("[㐀-鿿]", now_)), f"{n_} {now_!r}")
+
+section("A newer question bank reaches an existing database (and never overwrites the teacher's edits)")
+bank_ = CL._bank()
+conn_ = CL.D.get_db(); cur_ = conn_.cursor()
+def topic_row(tid):
+    cur_.execute("SELECT * FROM content_topics WHERE game = ? AND topic_id = ?", ("pecha_kucha", tid)); return dict(cur_.fetchone())
+# 13-2 was never edited in this run: pretend the database was filled from an older bank (one version behind, another script)
+r13 = topic_row("13-2"); old_doc = json.loads(r13["published_json"]); lv13 = sorted(old_doc["levels"])[0]
+old_doc["levels"][lv13][0]["script"] = "An older wording of this slide."
+seed13 = int(bank_["13-2"].get("version") or 1)
+cur_.execute("UPDATE content_topics SET published_json = ?, version = ?, bank_version = ? WHERE id = ?", (json.dumps(old_doc, ensure_ascii=False), seed13 - 1, seed13 - 1, r13["id"]))
+cur_.execute("UPDATE content_versions SET version = ? WHERE topic_pk = ?", (seed13 - 1, r13["id"])); conn_.commit()
+took = CL._take_bank_updates(cur_); conn_.commit()
+n13 = topic_row("13-2")
+check("a topic nobody edited takes the newer bank version as a new version", any(x.startswith("13-2→") for x in took) and n13["version"] == seed13 and n13["bank_version"] == seed13
+      and json.loads(n13["published_json"])["levels"][lv13][0]["script"] == bank_["13-2"]["levels"][lv13][0]["script"], f"{took} v{n13['version']}")
+cur_.execute("SELECT version, note FROM content_versions WHERE topic_pk = ? ORDER BY id DESC LIMIT 1", (r13["id"],)); last_ = cur_.fetchone()
+check("…the version list says it came from the bank, and the old version is still there", last_["version"] == seed13 and "題庫" in last_["note"])
+check("…a second start changes nothing", CL._take_bank_updates(cur_) == [])
+# 9-2 was edited and published by the teacher earlier in this run: it must be left alone, and offered
+r92 = topic_row("9-2"); before92 = r92["published_json"]
+cur_.execute("UPDATE content_topics SET bank_version = ? WHERE id = ?", (int(bank_["9-2"].get("version") or 1) - 1, r92["id"])); conn_.commit()
+took = CL._take_bank_updates(cur_); conn_.commit()
+check("a topic the teacher edited is NOT overwritten by a newer bank version", not any(x.startswith("9-2→") for x in took) and topic_row("9-2")["published_json"] == before92, str(took))
+conn_.close()
+sum92 = client.get("/teacher/library/pecha_kucha/9-2", headers=admin).json()["summary"]
+check("…the editor is told a newer bank version exists", sum92["bank_newer"] == int(bank_["9-2"].get("version") or 1), str(sum92.get("bank_newer")))
+check("…a student cannot load it", client.post("/teacher/library/pecha_kucha/9-2/take-bank", headers=stu).status_code in (401, 403))
+tb = client.post("/teacher/library/pecha_kucha/9-2/take-bank", headers=admin)
+got92 = client.get("/teacher/library/pecha_kucha/9-2", headers=admin).json()
+played92 = next(t_ for t_ in client.get("/content/library").json()["topics"] if t_["id"] == "9-2")
+check("…the teacher loads it as a draft: students still get the teacher's published version", tb.status_code == 200 and got92["summary"]["has_draft"] is True and got92["summary"]["bank_newer"] is None
+      and got92["doc"]["levels"]["A2"][0]["script"] == bank_["9-2"]["levels"]["A2"][0]["script"] and json.dumps(played92["levels"], sort_keys=True) == json.dumps(json.loads(before92)["levels"], sort_keys=True), tb.text[:160])
+check("…and it is not offered twice", client.post("/teacher/library/pecha_kucha/9-2/take-bank", headers=admin).status_code == 400)
+client.post("/teacher/library/pecha_kucha/9-2/discard", json={}, headers=admin)
 
 section("Other pages still work")
 check("3D story analytics leave card-game runs out (only the one 3D run made above is counted)", client.get("/learning/analytics", headers=admin).json()["overview"]["runs"] == 1)

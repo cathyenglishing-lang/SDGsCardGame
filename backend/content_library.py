@@ -83,11 +83,15 @@ def init_db():
             by_user INTEGER,
             at TEXT NOT NULL
         )""")
+    # bank_version: the version of the built-in question bank this topic last took (NULL = never looked at).
+    if "bank_version" not in D.table_columns(cur, "content_topics"):
+        cur.execute("ALTER TABLE content_topics ADD COLUMN bank_version INTEGER")
     cur.execute("SELECT COUNT(*) AS c FROM content_topics WHERE game = ?", ("pecha_kucha",))
     if cur.fetchone()["c"] == 0:
         _seed_card_game(cur)
     else:
         _backfill_title_zh(cur)
+        _take_bank_updates(cur)
     conn.commit()
     conn.close()
 
@@ -110,9 +114,9 @@ def _seed_card_game(cur):
         doc = {"id": t["id"], "sdg": t.get("sdg"), "title_en": t.get("title_en", ""), "title_zh": t.get("title_zh", ""), "levels": t.get("levels", {})}
         version = int(t.get("version") or 1)
         pk = D.execute_insert_returning(cur, """
-            INSERT INTO content_topics (game, topic_id, sdg, version, published_json, locked, created_at, updated_at, published_at)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)""",
-            ("pecha_kucha", t["id"], t.get("sdg"), version, json.dumps(doc, ensure_ascii=False), 1 if t["id"] in locked else 0, _now(), _now(), _now()), "id")
+            INSERT INTO content_topics (game, topic_id, sdg, version, published_json, locked, created_at, updated_at, published_at, bank_version)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+            ("pecha_kucha", t["id"], t.get("sdg"), version, json.dumps(doc, ensure_ascii=False), 1 if t["id"] in locked else 0, _now(), _now(), _now(), version), "id")
         cur.execute("INSERT INTO content_versions (topic_pk, version, doc_json, note, at) VALUES (?, ?, ?, ?, ?)",
                     (pk, version, json.dumps(doc, ensure_ascii=False), "內建題庫（frontend/js/pk-content.js）", _now()))
 
@@ -139,6 +143,91 @@ def spoken_texts(game="pecha_kucha"):
                     out.add(str(s["script"]))
     conn.close()
     return out
+
+
+BANK_NOTE = "內建題庫"
+
+
+_bank_cache = {"mtime": None, "topics": {}}
+
+
+def _bank():
+    """The question bank that ships with the frontend: {topic id: topic}, or {} when it cannot be read."""
+    path = Path(D.frontend_dir) / "js" / "pk-content.js"
+    try:
+        mtime = path.stat().st_mtime
+        if _bank_cache["mtime"] != mtime:
+            text = path.read_text(encoding="utf-8")
+            data = json.loads(text[text.index("window.PK_CONTENT = ") + len("window.PK_CONTENT = "):].rstrip().rstrip(";"))
+            _bank_cache.update(mtime=mtime, topics={t["id"]: t for t in data.get("topics", [])})
+        return _bank_cache["topics"]
+    except Exception as error:
+        print(f"[CONTENT] could not read {path}: {error}")
+        return {}
+
+
+def _bank_doc(t):
+    return clean_doc({"id": t["id"], "sdg": t.get("sdg"), "title_en": t.get("title_en", ""), "title_zh": t.get("title_zh", ""), "levels": t.get("levels", {})}, t["id"])
+
+
+def _teacher_touched(cur, row):
+    """Has anyone changed this topic in the editor? (a draft, or a published version that did not come from the bank)"""
+    if row["draft_json"]:
+        return True
+    cur.execute("SELECT note FROM content_versions WHERE topic_pk = ? ORDER BY id DESC LIMIT 1", (row["id"],))
+    last = cur.fetchone()
+    return bool(last) and not str(last["note"] or "").startswith(BANK_NOTE)
+
+
+def _take_bank_updates(cur):
+    """When the built-in question bank has a newer version of a topic (a corrected script, a better title):
+      • a topic nobody has edited in the editor takes it at once, as a new version (old plays keep the old
+        version number, so learning data from the two wordings is never mixed);
+      • a topic the teacher has edited is left exactly as it is; the editor shows that a newer bank version
+        exists and offers to load it as a draft (POST …/take-bank), to compare and publish or throw away.
+    Runs at every start; a topic is offered a bank version once (content_topics.bank_version)."""
+    bank = _bank()
+    cur.execute("SELECT * FROM content_topics WHERE game = 'pecha_kucha'")
+    taken = []
+    for row in [dict(r) for r in cur.fetchall()]:
+        t = bank.get(row["topic_id"])
+        if not t:
+            continue
+        seed_v = int(t.get("version") or 1)
+        have = row.get("bank_version")
+        if have is None:
+            # First look at an older database: the first stored version is the bank version it was filled from.
+            cur.execute("SELECT version, note FROM content_versions WHERE topic_pk = ? ORDER BY id ASC LIMIT 1", (row["id"],))
+            first = cur.fetchone()
+            have = int(first["version"]) if first and str(first["note"] or "").startswith(BANK_NOTE) else 1
+            row["bank_version"] = have
+            cur.execute("UPDATE content_topics SET bank_version = ? WHERE id = ?", (have, row["id"]))
+        if seed_v <= have or _teacher_touched(cur, row) or row["archived"]:
+            continue
+        doc = _bank_doc(t)
+        errors, _ = check_doc(doc)
+        if errors:
+            print(f"[CONTENT] {row['topic_id']}: bank version {seed_v} has {len(errors)} error(s); not taken")
+            continue
+        version = max(seed_v, int(row["version"] or 0) + 1)
+        cur.execute("UPDATE content_topics SET published_json = ?, version = ?, bank_version = ?, updated_at = ?, published_at = ? WHERE id = ?",
+                    (json.dumps(doc, ensure_ascii=False), version, seed_v, _now(), _now(), row["id"]))
+        cur.execute("INSERT INTO content_versions (topic_pk, version, doc_json, note, at) VALUES (?, ?, ?, ?, ?)",
+                    (row["id"], version, json.dumps(doc, ensure_ascii=False), f"{BANK_NOTE}更新（題庫第 {seed_v} 版：修正講稿與標題）", _now()))
+        taken.append(f"{row['topic_id']}→v{version}")
+    if taken:
+        print(f"[CONTENT] took newer bank versions: {', '.join(taken)}")
+    return taken
+
+
+def bank_newer(row):
+    """The bank version a teacher-edited topic has not taken yet, or None."""
+    t = _bank().get(row["topic_id"]) if row["game"] == "pecha_kucha" else None
+    if not t:
+        return None
+    seed_v = int(t.get("version") or 1)
+    have = row.get("bank_version")
+    return seed_v if seed_v > (1 if have is None else int(have)) else None
 
 
 def _not_chinese(text):
@@ -313,7 +402,7 @@ def _summary(row):
     return {"topic_id": row["topic_id"], "sdg": row["sdg"], "title_en": doc.get("title_en", ""), "title_zh": doc.get("title_zh", ""), "version": row["version"],
             "published": published is not None, "has_draft": draft is not None, "locked": bool(row["locked"]), "archived": bool(row["archived"]),
             "levels": {l: len(s) for l, s in (doc.get("levels") or {}).items()}, "errors": len(errors), "warnings": len(warnings),
-            "updated_at": row["updated_at"], "published_at": row["published_at"]}
+            "updated_at": row["updated_at"], "published_at": row["published_at"], "bank_newer": bank_newer(row)}
 
 
 def card_titles(game="pecha_kucha"):
@@ -418,6 +507,26 @@ def _save_draft(cur, row, doc, user):
     cur.execute("UPDATE content_topics SET draft_json = ?, sdg = ?, updated_at = ?, updated_by = ? WHERE id = ?",
                 (None if same else json.dumps(doc, ensure_ascii=False), doc["sdg"], _now(), user["id"], row["id"]))
     return doc, same
+
+
+@router.post("/teacher/library/{game}/{topic_id}/take-bank")
+def take_bank(game: str, topic_id: str, authorization: str | None = Header(default=None)):
+    """A topic the teacher has edited does not take a newer bank version by itself. This loads that version
+    as the DRAFT, so it can be compared, changed, published — or thrown away with 放棄修改. Nothing a
+    student sees changes here. The topic is not offered this bank version again."""
+    user = D.require_teacher(authorization)
+    conn = D.get_db()
+    cur = conn.cursor()
+    row = _row(cur, game, topic_id)
+    newer = bank_newer(row)
+    if not newer:
+        conn.close()
+        raise HTTPException(status_code=400, detail="內建題庫沒有比這裡更新的版本。")
+    doc, same = _save_draft(cur, row, _bank_doc(_bank()[topic_id]), user)
+    cur.execute("UPDATE content_topics SET bank_version = ? WHERE id = ?", (newer, row["id"]))
+    conn.commit()
+    conn.close()
+    return {"message": "已把題庫的新版載入成草稿。", "bank_version": newer, "same_as_published": same}
 
 
 @router.put("/teacher/library/{game}/{topic_id}/draft")

@@ -3362,6 +3362,7 @@ content_library.configure(
     get_db=get_db,
     auto_pk_sql=auto_pk_sql,
     execute_insert_returning=execute_insert_returning,
+    table_columns=table_columns,
     require_teacher=require_teacher,
     now_taipei=now_taipei,
     load_xlsx_rows=load_question_bank_rows,
