@@ -83,7 +83,7 @@ async function studentPlays(name, { topic, level, mistakes, width = 1024, height
     const parts = await page.evaluate(`document.querySelectorAll("#topicGrid .topic").length`);
     for (let i = 1; i <= parts; i++) {
       await page.click(`#topicGrid .topic:nth-child(${i})`);
-      await page.waitFor(`/牌發好了/.test(document.getElementById("status").textContent)`);
+      await page.waitFor(`/cards are dealt/.test(document.getElementById("status").textContent)`);
       await page.sleep(500);
       for (;;) {
         if (!(await page.evaluate(`gameData.length + (currentCardData ? 1 : 0)`))) break;
@@ -107,7 +107,7 @@ async function studentPlays(name, { topic, level, mistakes, width = 1024, height
       await page.click("#pkwNext");
     } else await page.click("#pkwSkip");
     await page.waitForSelector("#pkwAgain");
-    await page.waitFor(`/已儲存/.test(document.getElementById("pkwSave").textContent)`, 15000, name + " saved");
+    await page.waitFor(`/[Ss]aved/.test(document.getElementById("pkwSave").textContent)`, 15000, name + " saved");
     await page.sleep(600);
     return { mission, teacherNote, errors: page.errors.slice() };
   } catch (e) { problem(name, e.message); await page.shot(`${OUT}/error-${name}.png`); return { mission: "", teacherNote: "", errors: page.errors.slice() }; }
@@ -220,7 +220,7 @@ await page.close();
 // ── 4. the student sees the teacher's note the next time ──
 const again = await studentPlays("王小明", { topic: "9-1", level: "A2", mistakes: 4, second: true });
 if (!/句尾的 s/.test(again.teacherNote)) problem("feedback loop", "the student does not see the teacher's note on the read-aloud step: '" + again.teacherNote + "'");
-if (!/上次/.test(again.mission)) problem("feedback loop", "the second run's mission card does not mention last time");
+if (!/last time|Last time|personal best/.test(again.mission)) problem("feedback loop", "the second run's mission card does not mention last time");
 again.errors.forEach(e => problem("student again", e));
 
 await browser.close();

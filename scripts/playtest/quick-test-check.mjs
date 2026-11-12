@@ -37,11 +37,11 @@ try {
   const partsQuick = await page.evaluate(`document.querySelectorAll("#topicGrid .topic").length`);
   const goal = await page.evaluate(`document.querySelector("#pkMissionBody .pk-goal").textContent`);
   if (partsFull !== 6 || partsQuick !== 1) problem("mission", `parts on the table: ${partsFull} before, ${partsQuick} after ticking (expected 6 and 1)`);
-  if (!/快速測試/.test(goal)) problem("mission", "the goal line does not say this is a quick test: " + goal);
+  if (!/Quick test/.test(goal)) problem("mission", "the goal line does not say this is a quick test: " + goal);
   await page.shot(`${OUT}/01-mission-quick.png`);
   await page.click("#pkMissionGo");
   await page.click("#topicGrid .topic:nth-child(1)");
-  await page.waitFor(`/牌發好了/.test(document.getElementById("status").textContent)`); await page.sleep(500);
+  await page.waitFor(`/cards are dealt/.test(document.getElementById("status").textContent)`); await page.sleep(500);
   let cards = 0;
   for (;;) {
     if (!(await page.evaluate(`gameData.length + (currentCardData ? 1 : 0)`))) break;
@@ -54,7 +54,7 @@ try {
   const seconds = Math.round((Date.now() - started) / 1000);
   await page.shot(`${OUT}/02-wrapup-quick.png`);
   await page.click("#pkwNext"); await page.waitForSelector("#pkwSkip"); await page.click("#pkwSkip");      // step 2 (read aloud) skipped
-  await page.waitFor(`/測試局/.test((document.querySelector("#pkwChips") || {}).textContent || "")`, 15000, "the last step says this is a test run and pays no chips");
+  await page.waitFor(`/Test game/.test((document.querySelector("#pkwChips") || {}).textContent || "")`, 15000, "the last step says this is a test run and pays no chips");
   await page.shot(`${OUT}/03-wrapup-chips.png`);
   console.error(`quick test: ${cards} cards, wrap-up reached ${seconds} s after opening the page`);
   if (cards > 4) problem("table", "a quick test dealt " + cards + " cards (Part 1 has 2–3)");

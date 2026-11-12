@@ -35,6 +35,7 @@ from __future__ import annotations
 
 import base64
 import hashlib
+import re
 import json
 import os
 import time
@@ -244,8 +245,19 @@ def clip_hash(accent, spoken_text):
     return hashlib.sha256(f"{accent}\x01{spoken_text}".encode("utf-8")).hexdigest()[:32]
 
 
+_ACCENT_CODE = re.compile(r"[a-z]{2}-[A-Z]{2}")
+_HASH = re.compile(r"[0-9a-f]{32}")
+
+
 def clip_path(accent, h):
-    folder = _dir() / accent
+    # Both parts come from code (a known accent, a sha256), but they are checked anyway: a clip's file is always
+    # <TTS_DIR>/<xx-YY>/<32 hex>.mp3 and never anything a request could steer.
+    if not _ACCENT_CODE.fullmatch(str(accent)) or not _HASH.fullmatch(str(h)):
+        raise HTTPException(status_code=400, detail="bad clip")
+    base = _dir().resolve()
+    folder = (base / accent).resolve()
+    if folder.parent != base:
+        raise HTTPException(status_code=400, detail="bad clip")
     folder.mkdir(parents=True, exist_ok=True)
     return folder / f"{h}.mp3"
 

@@ -72,8 +72,8 @@ for (const [w, h] of [[1024, 768], [390, 844]]) {
     await page.click(`#pkPick .pk-lv[data-level="A2"]`); await page.waitForSelector("#pkMissionGo"); await page.sleep(400);
     await page.click("#pkQuick"); await page.sleep(300); await page.click("#pkMissionGo");
     await page.click("#topicGrid .topic:nth-child(1)");
-    await page.waitFor(`/牌發好了/.test(document.getElementById("status").textContent)`); await page.sleep(500);
-    if ((await page.evaluate(`document.getElementById("pkAccentBtn").textContent`)) !== "口音 英式") problem(where, "the accent button shows: " + (await page.evaluate(`document.getElementById("pkAccentBtn").textContent`)));
+    await page.waitFor(`/cards are dealt/.test(document.getElementById("status").textContent)`); await page.sleep(500);
+    if ((await page.evaluate(`document.getElementById("pkAccentBtn").textContent`)) !== "Accent British") problem(where, "the accent button shows: " + (await page.evaluate(`document.getElementById("pkAccentBtn").textContent`)));
     if (await page.evaluate(`(() => { const b = document.getElementById("pkAccentBtn").getBoundingClientRect(); return b.right > innerWidth + 1 || b.width < 40; })()`)) problem(where, "the accent button does not fit on screen");
     // card 1: the cloud clip in British English
     const n0 = (await calls()).length;
@@ -93,7 +93,7 @@ for (const [w, h] of [[1024, 768], [390, 844]]) {
     // card 2: the provider is broken → the device's voice, and the game goes on
     await fetch(BASE + "/_test/voice-broken?on=true", { method: "POST" });
     await page.click("#pkAccentBtn"); await page.sleep(200);                 // 英式 → 澳洲 (no clip stored for it)
-    if ((await page.evaluate(`document.getElementById("pkAccentBtn").textContent`)) !== "口音 澳洲") problem(where, "the accent button did not move to the next accent");
+    if ((await page.evaluate(`document.getElementById("pkAccentBtn").textContent`)) !== "Accent Australian") problem(where, "the accent button did not move to the next accent");
     await page.click("#mainDeck"); await page.sleep(200);
     await page.click("#pkSpeakBtn"); await page.waitFor(`canDrag === true`, 15000, "the sentence was spoken by the device when the provider failed");
     if (!(await page.evaluate(`PK_TTS.offUntil > Date.now()`))) problem(where, "after a failure the game keeps asking the provider");

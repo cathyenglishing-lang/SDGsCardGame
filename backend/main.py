@@ -1,6 +1,11 @@
 from fastapi import FastAPI, HTTPException, Header, Request, UploadFile, File
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
+import mimetypes as _mimetypes
+# Windows takes file types from the registry, where .js is often "text/plain": a browser then refuses to run
+# ES modules (the 3D games). Say what these files are, on every system.
+for _ext, _type in ((".js", "text/javascript"), (".mjs", "text/javascript"), (".css", "text/css"), (".glb", "model/gltf-binary"), (".json", "application/json")):
+    _mimetypes.add_type(_type, _ext)
 from fastapi.responses import FileResponse, JSONResponse
 from pydantic import BaseModel, EmailStr
 from datetime import datetime, timedelta, timezone
@@ -150,6 +155,43 @@ def rate_limit_identity(request: Request):
         if user_id is not None:
             return USER_API_RATE_LIMIT, f"user:{user_id}"
     return GLOBAL_API_RATE_LIMIT, f"ip:{get_client_ip(request)}"
+
+
+# ── path guard (2026-11-12) ──
+# Every request path is checked before any route or the static files see it. A URL never becomes a file path
+# unless it is plainly a file of the site: no "..", no backslash, no NUL or control character, no segment that
+# starts with "." (.git, .env), and no notes or source files that happen to live in the frontend folder.
+# The answer to a refused path is the same 404 a missing file gets, so it says nothing about what is on disk.
+from urllib.parse import unquote as _unquote
+
+_BLOCKED_SUFFIXES = (".md", ".py", ".pyc", ".map", ".bak", ".orig", ".swp", ".sh", ".ps1", ".env", ".ini", ".cfg", ".toml", ".lock", ".log", ".sql", ".db", ".sqlite")
+
+
+def unsafe_path(raw_path: str) -> bool:
+    p = raw_path
+    for _ in range(3):                      # %252e%252e → %2e%2e → ..: decode until it stops changing
+        q = _unquote(p)
+        if q == p:
+            break
+        p = q
+    if "\\" in p or any(ord(ch) < 32 or ord(ch) == 127 for ch in p):
+        return True
+    parts = [s for s in p.split("/") if s]
+    if any(s in ("..", ".") or s.startswith(".") for s in parts):
+        return True
+    last = parts[-1].lower() if parts else ""
+    return last.endswith(_BLOCKED_SUFFIXES) or last.endswith("~")
+
+
+@app.middleware("http")
+async def path_guard(request: Request, call_next):
+    raw = request.scope.get("raw_path")
+    raw = raw.decode("latin-1") if isinstance(raw, (bytes, bytearray)) else request.url.path
+    if unsafe_path(raw.split("?", 1)[0]) or unsafe_path(request.url.path):
+        return JSONResponse(status_code=404, content={"detail": "Not Found"})
+    response = await call_next(request)
+    response.headers.setdefault("X-Content-Type-Options", "nosniff")
+    return response
 
 
 @app.middleware("http")
@@ -1075,10 +1117,18 @@ def login_page():
     return FileResponse(FRONTEND_DIR / "pages" / "login.html")
 
 
+PAGES_DIR = (FRONTEND_DIR / "pages").resolve()
+_PAGE_NAME = re.compile(r"[a-z0-9][a-z0-9_-]{0,60}\.html")
+
+
 @app.get("/pages/{page_name}")
 def frontend_page(page_name: str):
-    page_path = FRONTEND_DIR / "pages" / page_name
-    if not page_path.is_file() or page_path.suffix.lower() != ".html":
+    # The name is checked as a name (letters, digits, - and _ with .html) before it touches the disk, and the
+    # resolved file must still be directly inside the pages folder: "..\\x.html" or a link out are both refused.
+    if not _PAGE_NAME.fullmatch(page_name or ""):
+        raise HTTPException(status_code=404, detail="page not found")
+    page_path = (PAGES_DIR / page_name).resolve()
+    if page_path.parent != PAGES_DIR or not page_path.is_file():
         raise HTTPException(status_code=404, detail="page not found")
     return FileResponse(page_path)
 
@@ -1089,7 +1139,7 @@ def frontend_page(page_name: str):
 def health_check():
     return {
         "message": "API is running",
-        "database": "postgresql" if USE_POSTGRES else str(DB_PATH),
+        "database": "postgresql" if USE_POSTGRES else "sqlite",          # never the file's location on the server
         "rate_limit": "redis" if RATE_LIMIT_ENABLED else "disabled",
         "time": now_taipei().isoformat(),
     }
@@ -1396,7 +1446,7 @@ def system_info(authorization: str | None = Header(default=None)):
         },
         "database": {
             "engine": "PostgreSQL" if USE_POSTGRES else "SQLite",
-            "location": _mask_db_url(DATABASE_URL) if USE_POSTGRES else str(DB_PATH),
+            "location": _mask_db_url(DATABASE_URL) if USE_POSTGRES else DB_PATH.name,   # the file name only, not the server's folders
             "connected": True,
             "table_count": len([v for v in counts.values() if v is not None]),
             "total_rows": sum(v for v in counts.values() if v),
@@ -3356,6 +3406,9 @@ app.include_router(learning.router)
 
 from backend import learning_reports
 app.include_router(learning_reports.router)
+from backend import sdg4_reports
+app.include_router(sdg4_reports.router)
+app.include_router(sdg4_reports.overall)
 
 from backend import content_library
 content_library.configure(
@@ -3376,7 +3429,7 @@ app.include_router(content_library.router)
 # Personal HTML reports a teacher sends to students (backend/reports.py)
 from backend import reports
 reports.configure(get_db=get_db, auto_pk_sql=auto_pk_sql, require_teacher=require_teacher, get_current_user=get_current_user,
-                  student_report=learning_reports.student_report)
+                  student_report=learning_reports.student_report, sdg4_run=sdg4_reports.run_detail, table_columns=table_columns)
 app.include_router(reports.router)
 
 # Anonymous visitor log for finding prospective schools / teachers (backend/visits.py)

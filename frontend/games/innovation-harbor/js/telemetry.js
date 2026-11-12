@@ -32,10 +32,15 @@ export async function startRun(info) {
     if (r.ok) { runId = (await r.json()).run_id; flush(); }
   } catch (e) { /* offline: events stay queued in localStorage */ persist(); }
 }
+// Returns what the server answered (score, chips) or null: the ending screen shows chips when it is there.
 export async function finishRun(payload) {
   await flush(true);
-  if (!API || !runId) return;
-  try { await fetch(`${API}/learning/runs/${runId}/finish`, { method: "POST", headers: headers(), body: JSON.stringify(payload) }); } catch (e) {}
+  if (!API || !runId) return null;
+  const ctl = new AbortController(), to = setTimeout(() => ctl.abort(), 8000);
+  try {
+    const r = await fetch(`${API}/learning/runs/${runId}/finish`, { method: "POST", headers: headers(), body: JSON.stringify(payload), signal: ctl.signal });
+    return r.ok ? await r.json() : null;
+  } catch (e) { return null; } finally { clearTimeout(to); }
 }
 function schedule(ms) { if (timer) return; timer = setTimeout(() => { timer = null; flush(); }, ms); }
 function persist() { if (GUEST) return; try { localStorage.setItem(QUEUE_KEY, JSON.stringify({ runId, queue: queue.slice(-500) })); } catch (e) {} }
@@ -53,6 +58,8 @@ async function flush(force = false) {
 }
 // Send what is left when the tab closes (best effort).
 addEventListener("pagehide", () => { if (API && runId && queue.length) { try { navigator.sendBeacon?.(`${API}/learning/events`, new Blob([JSON.stringify({ run_id: runId, events: queue.slice(0, 200) })], { type: "application/json" })); } catch (e) {} } });
+// Send what is queued right now (the tab is being hidden: on a phone this may be the last chance).
+export const flushNow = () => flush(true);
 export const learningStatus = () => ({ api: API, runId, queued: queue.length, logged: S.events.length });
 
 export function renderLog() {

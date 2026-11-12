@@ -900,11 +900,11 @@ body.is-dragging-card .subtopic-poker:not(.correct) {
     <div class="pk-hud-left">
       <span class="pk-sdg-badge" id="pkSdgBadge" title="SDG topic"></span>
       <span class="pk-level-chip" id="pkLevelChip" title="CEFR level"></span>
-      <button class="pk-change-btn" type="button" onclick="pkChangeTopic()">← 換主題</button>
+      <button class="pk-change-btn" type="button" onclick="pkChangeTopic()">← Topics</button>
     </div>
-    <div class="topic-grid" id="topicGrid" aria-label="六段 Parts"></div>
+    <div class="topic-grid" id="topicGrid" aria-label="Six parts"></div>
     <div class="header-actions">
-      <span class="pk-streak" id="pkStreak" hidden title="連續第一次就配對">🔥 ×<b>0</b></span>
+      <span class="pk-streak" id="pkStreak" hidden title="Matched first time in a row">🔥 ×<b>0</b></span>
       <span class="pk-save-chip" id="pkSaveChip" hidden></span>
       <button id="superFinishBtn" class="super-finish-btn" type="button">Super Finish</button>
       <div class="progress-panel" aria-label="game progress">
@@ -914,21 +914,21 @@ body.is-dragging-card .subtopic-poker:not(.correct) {
     </div>
   </div>
   <h1 class="game-title">SDG Pecha Kucha Card Game</h1>
-  <div id="status">點上面的 1–6，選一段開始。</div>
+  <div id="status">Tap 1–6 above to choose a part.</div>
   <div class="subtopic-box" id="subBox"></div>
   <div id="sentenceBox"></div>
   <div id="gameTimer"><span class="timer-label">TIME</span>00:00</div>
-  <div class="pk-wallet" id="pkWallet" hidden><span class="pk-wallet-pile"><span class="pk-wallet-ring" aria-hidden="true"></span><img id="pkWalletImg" alt="" width="92" height="112"></span><span class="pk-wallet-n"><b id="pkWalletN">+0</b><i>本局</i></span><small class="pk-wallet-bal" id="pkWalletBal"></small></div>
+  <div class="pk-wallet" id="pkWallet" hidden><span class="pk-wallet-pile"><span class="pk-wallet-ring" aria-hidden="true"></span><img id="pkWalletImg" alt="" width="92" height="112"></span><span class="pk-wallet-n"><b id="pkWalletN">+0</b><i>this game</i></span><small class="pk-wallet-bal" id="pkWalletBal"></small></div>
   <div class="deck-panel">
     <div class="dealt-card-container" id="dealtCardHolder"></div>
-    <div class="poker-card deck" id="mainDeck" onclick="dealNextCard()" role="button" tabindex="0" aria-label="發一張句子卡 Deal a sentence card">
+    <div class="poker-card deck" id="mainDeck" onclick="dealNextCard()" role="button" tabindex="0" aria-label="Deal a sentence card">
       <div class="card-inner"><div class="card-back">SDG</div></div>
     </div>
     <div class="pk-voice">
-      <button class="pk-speak" id="pkSpeakBtn" type="button" onclick="pkSpeakTap()" aria-label="聽句子 Listen" disabled>
+      <button class="pk-speak" id="pkSpeakBtn" type="button" onclick="pkSpeakTap()" aria-label="Listen" disabled>
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 9.5v5a1 1 0 0 0 1 1h3.2l4.1 3.4a1 1 0 0 0 1.7-.8V5.9a1 1 0 0 0-1.7-.8L7.2 8.5H4a1 1 0 0 0-1 1z"/><path d="M15.5 8.6a4.6 4.6 0 0 1 0 6.8M18 6a8.2 8.2 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg>
       </button>
-      <div class="pk-voice-row"><button class="pk-rate-btn" id="pkRateBtn" type="button" onclick="pkCycleRate()" title="Speech speed">語速 1×</button><button class="pk-rate-btn" id="pkAccentBtn" type="button" onclick="pkCycleAccent()" title="換一種口音 Accent" hidden>口音</button><span class="pk-repeat-n" id="pkRepeatN"></span></div>
+      <div class="pk-voice-row"><button class="pk-rate-btn" id="pkRateBtn" type="button" onclick="pkCycleRate()" title="Speech speed">Speed 1×</button><button class="pk-rate-btn" id="pkAccentBtn" type="button" onclick="pkCycleAccent()" title="Change accent" hidden>Accent</button><span class="pk-repeat-n" id="pkRepeatN"></span></div>
     </div>
   </div>
   
@@ -1532,12 +1532,12 @@ async function pkLoadLibrary(){
 let SELECTED = { topic: null, level: null };
 
 const SDG_META = {
-  4:{c:"#c5192d", n:"Quality Education 優質教育"},
-  5:{c:"#ff3a21", n:"Gender Equality 性別平權"},
-  9:{c:"#fd6925", n:"Industry, Innovation & Infrastructure 工業創新"},
-  13:{c:"#3f7e44", n:"Climate Action 氣候行動"},
+  4:{c:"#c5192d", n:"Quality Education"},
+  5:{c:"#ff3a21", n:"Gender Equality"},
+  9:{c:"#fd6925", n:"Industry, Innovation & Infrastructure"},
+  13:{c:"#3f7e44", n:"Climate Action"},
 };
-const LEVEL_LABEL = {A1:"入門", A2:"基礎", B1:"進階", B2:"高階"};
+const LEVEL_LABEL = {A1:"Beginner", A2:"Elementary", B1:"Intermediate", B2:"Upper-intermediate"};
 const LEVEL_ORDER = ["A1","A2","B1","B2"];
 // Card game: one playable topic per SDG (the most complete one); every other topic stays visible but locked.
 // Embedded runs from the 3D game (embed=harbor) may open any topic.
@@ -1569,8 +1569,8 @@ function pkSetQuick(on){
 }
 function pkGoalText(){
   const total = pkSlides().length;
-  if(PK_QUICK){ const n = SELECTED ? Object.keys(buildDB(SELECTED.topic, SELECTED.level).answers).length : 0; return "快速測試：只玩第 1 段（"+n+" 張），配完直接收尾。這一局標成測試，不給籌碼、不進班級統計。"; }
-  return "今天的目標：聽懂 "+total+" 張投影片，最後自己念一張。";
+  if(PK_QUICK){ const n = SELECTED ? Object.keys(buildDB(SELECTED.topic, SELECTED.level).answers).length : 0; return "Quick test: Part 1 only ("+n+" cards), then straight to the wrap-up. This game is marked as a test: no chips, and it is not counted in the class."; }
+  return "Today's goal: understand "+total+" slides, then read one aloud yourself.";
 }
 function pkClean(t){ t=String(t||"").replace(/^Topic\s*\d+\s*[:：]\s*/,"").trim(); return t.length>92?t.slice(0,90)+"…":t; }
 function pkCode(id){ return window.topicCode ? window.topicCode(id) : String(id); }   // what a topic is shown as: 9-1 → 9-A
@@ -1614,11 +1614,11 @@ function renderSelector(){
         + '<h1>SDG Pecha Kucha <span>Card Game</span></h1></div>' + pkWhoBar() + '</header>';
   if(!PK_READY){   // the course decides what is on the menu: nothing playable is shown before it is known
     host.innerHTML = h + '<div class="pk-felt pk-felt-wait"><div class="pk-ghosts" aria-hidden="true"><span></span><span></span><span></span></div>'
-      + '<p class="pk-loading" role="status"><span class="pk-spin"></span>正在載入你的課程和主題…</p></div>';
+      + '<p class="pk-loading" role="status"><span class="pk-spin"></span>Loading your course and topics…</p></div>';
     pkWireWho();
     return;
   }
-  h += '<ol class="pk-steps" aria-label="怎麼開始"><li class="on"><b>1</b>點一張主題牌</li><li><b>2</b>選難度</li><li><b>3</b>開始配對</li></ol>';
+  h += '<ol class="pk-steps" aria-label="How to start"><li class="on"><b>1</b>Pick a topic card</li><li><b>2</b>Choose a level</li><li><b>3</b>Start matching</li></ol>';
   h += '<div class="pk-felt'+(PK_SEL_DEALT ? ' pk-dealt' : '')+'">';
   let n = 0;
   Object.keys(bySdg).map(Number).sort((a,b)=>a-b).forEach(sdg=>{
@@ -1630,17 +1630,17 @@ function renderSelector(){
       const locked = !pkTopicOpen(t.id), title = pkTitle(t), zh = pkTitleZh(t);
       const many = levels.length > 3 ? ' many' : '';
       const corner = '<i></i>'+pkEsc(pkCode(t.id));
-      h += '<article class="pk-tcard'+(locked?' is-locked':'')+'" style="--d:'+(n++*110)+'ms" aria-label="'+pkEsc(pkCode(t.id)+' '+title+(locked?'（尚未開放）':''))+'">'
+      h += '<article class="pk-tcard'+(locked?' is-locked':'')+'" style="--d:'+(n++*110)+'ms" aria-label="'+pkEsc(pkCode(t.id)+' '+title+(locked?' (not open yet)':''))+'">'
          + '<div class="pk-tc-inner">'
          +   (locked
                ? '<div class="pk-tc-face" aria-hidden="true"><span class="pk-tc-corner tl">'+corner+'</span><h3>'+pkEsc(title)+'</h3></div>'
-               : '<button type="button" class="pk-tc-face pk-tc-open" data-topic="'+pkEsc(t.id)+'" onclick="pkOpenTopic(\''+t.id+'\', this)" aria-label="'+pkEsc(title+(zh?'　'+zh:'')+'。有 '+levels.join('、')+' 難度，點這張牌選難度')+'">'
+               : '<button type="button" class="pk-tc-face pk-tc-open" data-topic="'+pkEsc(t.id)+'" onclick="pkOpenTopic(\''+t.id+'\', this)" aria-label="'+pkEsc(title+(zh?'　'+zh:'')+'. Levels: '+levels.join(', ')+'. Tap this card to choose a level')+'">'
                +   '<span class="pk-tc-corner tl">'+corner+'</span><span class="pk-tc-corner br" aria-hidden="true">'+corner+'</span>'
                +   '<h3>'+pkEsc(title)+'</h3>'+(zh?'<p>'+pkEsc(zh)+'</p>':'')
                +   '<span class="pk-tc-lv" aria-hidden="true">'+levels.map(l=>'<i style="--lc:'+(LEVEL_TONE[l]||"#334155")+'"'+(pkLevelOpen(t,l)?'':' class="off"')+'>'+l+'</i>').join('')+'</span>'
-               +   '<span class="pk-tc-cta" aria-hidden="true">選這張 ▸</span>'
+               +   '<span class="pk-tc-cta" aria-hidden="true">Choose ▸</span>'
                + '</button>')
-         +   '<div class="pk-tc-back" aria-hidden="true">'+(locked ? '<span class="pk-tc-lock">🔒</span><b>'+pkEsc(pkCode(t.id))+'</b><small>即將開放</small>' : '<span class="pk-tc-seal">SDG<b>'+sdg+'</b></span>')+'</div>'
+         +   '<div class="pk-tc-back" aria-hidden="true">'+(locked ? '<span class="pk-tc-lock">🔒</span><b>'+pkEsc(pkCode(t.id))+'</b><small>Coming soon</small>' : '<span class="pk-tc-seal">SDG<b>'+sdg+'</b></span>')+'</div>'
          + '</div></article>';
     });
     h += '</div></section>';
@@ -1654,7 +1654,7 @@ function renderSelector(){
 // Step 2 of the menu (2026-11-11 redesign: the small chips on each card were not seen as buttons).
 // The chosen card flies from its place to the middle of the screen and turns over; its back is the
 // level menu: one big row per level with what the level means, and "開始" on the row itself.
-const LEVEL_DESC = { A1:"句子很短，最常用的字", A2:"短句、常用字", B1:"句子比較長，字比較難", B2:"長句、學術用字" };
+const LEVEL_DESC = { A1:"Very short sentences, the most common words", A2:"Short sentences, common words", B1:"Longer sentences, harder words", B2:"Long sentences, academic words" };
 let PK_PICK_FROM = null;
 function pkOpenTopic(topicId, from){
   const t = GAME_DATA.topics.find(x=>x.id===topicId); if(!t || !pkTopicOpen(t.id)) return;
@@ -1667,23 +1667,23 @@ function pkOpenTopic(topicId, from){
     return '<button type="button" class="pk-lv'+(open?'':' is-locked')+'" data-level="'+l+'" style="--lc:'+(LEVEL_TONE[l]||"#334155")+'"'
          + (open ? ' onclick="pkStartGame(\''+t.id+'\',\''+l+'\')"' : ' disabled')+'>'
          + '<span class="pk-lv-code">'+l+'</span>'
-         + '<span class="pk-lv-text"><b>'+(LEVEL_LABEL[l]||l)+(open && l===firstOpen && levels.length>1 ? '<em>第一次玩選這個</em>' : '')+'</b>'
-         +   '<small>'+(open ? pkEsc(LEVEL_DESC[l]||"")+' · '+n+' 張卡' : '老師還沒開放這個難度')+'</small></span>'
+         + '<span class="pk-lv-text"><b>'+(LEVEL_LABEL[l]||l)+(open && l===firstOpen && levels.length>1 ? '<em>Start here</em>' : '')+'</b>'
+         +   '<small>'+(open ? pkEsc(LEVEL_DESC[l]||"")+' · '+n+' cards' : 'Your teacher has not opened this level yet')+'</small></span>'
          + '<span class="pk-lv-bars" aria-hidden="true">'+bars+'</span>'
-         + '<span class="pk-lv-go" aria-hidden="true">'+(open?'開始 ▸':'🔒')+'</span></button>';
+         + '<span class="pk-lv-go" aria-hidden="true">'+(open?'Start ▸':'🔒')+'</span></button>';
   }).join('');
   const box = document.createElement("div");
-  box.id = "pkPick"; box.className = "pk-pick"; box.setAttribute("role","dialog"); box.setAttribute("aria-modal","true"); box.setAttribute("aria-label", title+"：選難度");
+  box.id = "pkPick"; box.className = "pk-pick"; box.setAttribute("role","dialog"); box.setAttribute("aria-modal","true"); box.setAttribute("aria-label", title+": choose a level");
   box.innerHTML = '<div class="pk-pick-card" style="--ac:'+meta.c+'">'
     + '<div class="pk-pick-front" aria-hidden="true"><span class="pk-tc-corner tl"><i></i>'+pkEsc(pkCode(t.id))+'</span><h3>'+pkEsc(title)+'</h3>'+(zh?'<p>'+pkEsc(zh)+'</p>':'')+'</div>'
     + '<div class="pk-pick-back">'
-    +   '<button type="button" class="pk-pick-x" id="pkPickClose" aria-label="換一張主題牌">← 換主題</button>'
-    +   '<p class="pk-pick-step"><b>2</b>選難度</p>'
+    +   '<button type="button" class="pk-pick-x" id="pkPickClose" aria-label="Choose another topic">← Topics</button>'
+    +   '<p class="pk-pick-step"><b>2</b>Choose a level</p>'
     +   '<h2>'+pkEsc(title)+'</h2>'+(zh?'<p class="pk-pick-zh">'+pkEsc(zh)+' · SDG '+t.sdg+'</p>':'')
     +   '<div class="pk-pick-levels">'+rows+'</div>'
-    +   (PK_TTS.on ? '<label class="pk-pick-accent"><span>朗讀口音</span><select id="pkPickAccent">'
-            + PK_TTS.accents.map(a=>'<option value="'+pkEsc(a.code)+'">'+pkEsc(a.label)+'</option>').join('')+'<option value="device">這台裝置的聲音</option></select></label>' : '')
-    +   '<p class="pk-pick-foot">按一下難度就開始。玩完可以回來換更難的。</p>'
+    +   (PK_TTS.on ? '<label class="pk-pick-accent"><span>Voice accent</span><select id="pkPickAccent">'
+            + PK_TTS.accents.map(a=>'<option value="'+pkEsc(a.code)+'">'+pkEsc(pkAccEn(a.label))+'</option>').join('')+'<option value="device">Device voice</option></select></label>' : '')
+    +   '<p class="pk-pick-foot">Tap a level to start. You can come back for a harder one.</p>'
     + '</div></div>';
   document.body.appendChild(box);
   PK_PICK_FROM = from || null;
@@ -1732,22 +1732,22 @@ function pkWhoClass(){ const u = pkWho(); return (u && u.class_name) || (PK_COUR
 function pkWhoBar(){
   if(PK_LINK.embed || PK_PREVIEW) return "";
   const m = PKT.mode(), here = encodeURIComponent("/pages/pecha_kucha_builder.html");
-  const login = '<a class="pk-bar-btn primary" href="/pages/login.html?next='+here+'">登入</a>';
-  const lobby = '<a class="pk-bar-btn" href="/pages/member_index.html">大廳</a>';
+  const login = '<a class="pk-bar-btn primary" href="/pages/login.html?next='+here+'">Sign in</a>';
+  const lobby = '<a class="pk-bar-btn" href="/pages/member_index.html">Lobby</a>';
   if(m === "user" && pkWho()){
     const name = pkWhoName(), cls = pkWhoClass();
     let course = "";
-    if(PK_COURSES.length > 1) course = '<label class="pk-course-pick"><span class="pk-sr">這次是哪一門課</span><select id="pkCourseSel">'
+    if(PK_COURSES.length > 1) course = '<label class="pk-course-pick"><span class="pk-sr">Which course is this for</span><select id="pkCourseSel">'
       + PK_COURSES.map(c=>'<option value="'+c.course_id+'"'+(PK_COURSE && c.course_id===PK_COURSE.course_id?' selected':'')+'>'+pkEsc(c.name)+'（'+pkEsc(c.section)+'）</option>').join('')+'</select></label>';
     const sub = PK_COURSES.length === 1 && PK_COURSE ? PK_COURSE.name : cls;
     const bal = PK_CHIPS ? (PK_CHIPS.balance || 0) : null;
     return '<div class="pk-who-bar">' + course
          + '<div class="pk-player"><span class="pk-avatar" aria-hidden="true">'+pkEsc(String(name).trim().slice(0,1).toUpperCase() || "♠")+'</span>'
          + '<span class="pk-pname"><b>'+pkEsc(name)+'</b>'+(sub ? '<small>'+pkEsc(sub)+'</small>' : '')+'</span></div>'
-         + (bal === null ? '' : '<div class="pk-bank" title="你累積的籌碼：'+bal+' 枚"><img src="'+pkChipImg(bal)+'" alt="" width="40" height="49"><b>'+bal+'</b><span class="pk-sr">枚籌碼</span></div>')
-         + lobby + '<button type="button" class="pk-bar-btn" id="pkLogout">換帳號</button></div>';
+         + (bal === null ? '' : '<div class="pk-bank" title="Your chips: '+bal+'"><img src="'+pkChipImg(bal)+'" alt="" width="40" height="49"><b>'+bal+'</b><span class="pk-sr"> chips</span></div>')
+         + lobby + '<button type="button" class="pk-bar-btn" id="pkLogout">Switch account</button></div>';
   }
-  const tag = m === "guest" ? ['訪', '訪客', '不記錄成績'] : ['?', '未登入', '不記名'];
+  const tag = m === "guest" ? ['G', 'Guest', 'Nothing is saved'] : ['?', 'Not signed in', 'No name on the record'];
   return '<div class="pk-who-bar"><div class="pk-player guest"><span class="pk-avatar" aria-hidden="true">'+tag[0]+'</span>'
        + '<span class="pk-pname"><b>'+tag[1]+'</b><small>'+tag[2]+'</small></span></div>' + login + (m === "guest" ? lobby : '') + '</div>';
 }
@@ -1838,8 +1838,8 @@ function pkPaintWallet(bump){
   el.style.setProperty("--fill", Math.round(PK_PILE.frac * 100) + "%");
   el.classList.toggle("has-part", PK_PILE.frac > 0);
   const bal = document.getElementById("pkWalletBal");
-  bal.textContent = m === "user" ? (PK_CHIPS ? "共 " + (PK_CHIPS.balance || 0) : "") : "不入帳";
-  el.title = m === "user" ? "這一局到目前的籌碼（結束時由伺服器結算）" : "訪客或未登入：籌碼不入帳";
+  bal.textContent = m === "user" ? (PK_CHIPS ? "Total " + (PK_CHIPS.balance || 0) : "") : "not saved";
+  el.title = m === "user" ? "Chips in this game so far (settled by the server at the end)" : "Guest or not signed in: chips are not saved";
   if(bump === true){ el.classList.remove("bump"); void el.offsetWidth; el.classList.add("bump"); }
 }
 // After every drop: bring the pile up to date. Chips fly from the card that was matched (from the
@@ -1905,24 +1905,24 @@ function pkBeginRun(){
 function pkShowMission(h){
   const total = pkSlides().length, t = SELECTED.topic, box = document.getElementById("pkMission");
   const n = h && h.last_version === t.version ? (h.review_cards||[]).length : 0;
-  const last = !h ? "" : !h.runs ? "第一次玩這個主題，慢慢聽就好。"
-    : (n ? "這次會再出現 "+n+" 句你上次配錯的句子，看看這次能不能第一次就配對。" : "上次你每一句都第一次就配對了。")
-      + (h.best_score!=null ? " 你的個人最佳是 "+h.best_score+" 分。" : "");
+  const last = !h ? "" : !h.runs ? "Your first time on this topic: take your time and listen."
+    : (n ? "This time "+n+" sentence"+(n===1?"":"s")+" you missed last time come back. See if you can match them first time." : "Last time you matched every sentence first time.")
+      + (h.best_score!=null ? " Your personal best is "+h.best_score+"." : "");
   if(!box.classList.contains("hidden") && document.getElementById("pkMissionLast")){   // already showing: only the line changes
     document.getElementById("pkMissionLast").textContent = last; return;
   }
   const mode = PKT.mode();
-  const who = PK_PREVIEW ? "預覽草稿：不會留下紀錄。" : mode === "user" && pkWho() ? '玩家：<b>'+pkEsc(pkWhoName())+'</b>'+(pkWhoClass() ? ' · '+pkEsc(pkWhoClass()) : '')
-    : mode === "guest" ? "訪客模式：這一局不記錄。" : "未登入：這一局不會記到你的名下。";
+  const who = PK_PREVIEW ? "Draft preview: nothing is saved." : mode === "user" && pkWho() ? 'Player: <b>'+pkEsc(pkWhoName())+'</b>'+(pkWhoClass() ? ' · '+pkEsc(pkWhoClass()) : '')
+    : mode === "guest" ? "Guest mode: this game is not saved." : "Not signed in: this game will not be saved under your name.";
   const parts = [1,2,3,4,5,6].map(i=>'<li><b>'+i+'</b>'+pkEsc(PKWrap.partRole(i,total))+'</li>').join('');
   document.getElementById("pkMissionBody").innerHTML =
       '<p class="pk-who-line">'+who+'</p>'
     + '<h2>'+pkEsc(pkTitle(t))+'</h2><p class="pk-mzh">'+pkEsc(pkTitleZh(t))+' · CEFR '+pkEsc(SELECTED.level)+'</p>'
     + '<p class="pk-goal">'+pkEsc(pkGoalText())+'</p>'
-    + (pkCanQuick() ? '<label class="pk-quick"><input type="checkbox" id="pkQuick"'+(PK_QUICK?' checked':'')+'><span><b>快速測試</b>：只玩第 1 段（老師、管理員和測試帳號才看得到這個選項）</span></label>' : '')
+    + (pkCanQuick() ? '<label class="pk-quick"><input type="checkbox" id="pkQuick"'+(PK_QUICK?' checked':'')+'><span><b>Quick test</b>: Part 1 only (only teachers, admins and test accounts see this)</span></label>' : '')
     + '<ol>'+parts+'</ol>'
     + '<p class="pk-last" id="pkMissionLast">'+pkEsc(last)+'</p>'
-    + '<div class="pk-actions"><button class="pk-btn ghost" type="button" id="pkMissionBack">← 換主題</button><button class="pk-btn primary" type="button" id="pkMissionGo">開始 ▸</button></div>';
+    + '<div class="pk-actions"><button class="pk-btn ghost" type="button" id="pkMissionBack">← Topics</button><button class="pk-btn primary" type="button" id="pkMissionGo">Start ▸</button></div>';
   box.classList.remove("hidden");
   const go = document.getElementById("pkMissionGo");
   go.onclick = () => {
@@ -1957,9 +1957,9 @@ function pkVoiceSync(speaking){
   const heard = !!card && card.dataset.hasListened === "true";
   b.disabled = !card || !!speaking;
   b.classList.toggle("invite", !!card && !speaking && !heard);
-  b.setAttribute("aria-label", heard ? "再聽一次 Repeat" : "聽句子 Listen");
+  b.setAttribute("aria-label", heard ? "Listen again" : "Listen");
   const n = document.getElementById("pkRepeatN");
-  if(n) n.textContent = card && RUN && RUN.cur && RUN.cur.repeats ? "重聽 "+RUN.cur.repeats : "";
+  if(n) n.textContent = card && RUN && RUN.cur && RUN.cur.repeats ? "Repeats "+RUN.cur.repeats : "";
   if(deck) deck.classList.toggle("pk-nudge", !card && currentTopic !== null && gameData.length > 0);
   const grid = document.getElementById("topicGrid");
   if(grid) grid.classList.toggle("idle", currentTopic === null && !(RUN && RUN.finished));
@@ -1989,11 +1989,12 @@ function pkAccent(){
   if(v === "device") return null;
   return PK_TTS.accents.some(a=>a.code===v) ? v : PK_TTS.def;
 }
-function pkAccentLabel(code){ const a = PK_TTS.accents.find(x=>x.code===code); return a ? a.label.split(" ")[0] : "裝置"; }
+function pkAccEn(label){ return String(label||"").replace(/^[^\x00-\x7f]+\s*/, "") || String(label||""); }   // "美式 American" → "American"
+function pkAccentLabel(code){ const a = PK_TTS.accents.find(x=>x.code===code); return a ? pkAccEn(a.label) : "Device"; }
 function pkPaintAccent(){
   const b = document.getElementById("pkAccentBtn"); if(!b) return;
   b.hidden = !PK_TTS.on;
-  if(PK_TTS.on){ const a = pkAccent(); b.textContent = "口音 "+pkAccentLabel(a); b.setAttribute("aria-label", "口音："+(a ? pkAccentLabel(a) : "這台裝置的聲音")+"。按一下換下一種"); }
+  if(PK_TTS.on){ const a = pkAccent(); b.textContent = "Accent "+pkAccentLabel(a); b.setAttribute("aria-label", "Accent: "+(a ? pkAccentLabel(a) : "device voice")+". Tap for the next one"); }
   const sel = document.getElementById("pkPickAccent"); if(sel) sel.value = pkAccent() || "device";
 }
 function pkSetAccent(code){
@@ -2005,7 +2006,7 @@ function pkCycleAccent(){
   const list = [...PK_TTS.accents.map(a=>a.code), null], i = list.indexOf(pkAccent());
   const next = list[(i + 1) % list.length];
   pkSetAccent(next);
-  if(typeof showToast === "function") showToast(next ? "口音："+PK_TTS.accents.find(a=>a.code===next).label : "改用這台裝置的聲音");
+  if(typeof showToast === "function") showToast(next ? "Accent: "+pkAccEn(PK_TTS.accents.find(a=>a.code===next).label) : "Using the device voice");
 }
 // ── Word-by-word highlighting (逐字高亮): the word being read is marked in the sentence on screen ──
 // Where the time of each word comes from, best first: (1) the voice service's own word times, sent with
@@ -2080,11 +2081,11 @@ function pkPaintSave(){
   if(!RUN){ el.hidden = true; return; }
   const st = PKT.state(); el.hidden = false;
   const expired = st.mode==="user" && st.needLogin && !PK_PREVIEW;
-  const [cls, text] = PK_PREVIEW ? ["warn", "預覽草稿 · 不記錄"] : st.mode==="guest" ? ["", "訪客 · 不記錄"] : st.mode==="anon" ? ["warn", "未登入 · 不記名"]
-    : st.needLogin ? ["warn", "登入過期 · 點此登入"]
-    : st.failing ? ["warn", "未連線 · 稍後補送"] : st.saving ? ["", "儲存中…"] : ["ok", "✓ 紀錄中"];
+  const [cls, text] = PK_PREVIEW ? ["warn", "Draft preview · not saved"] : st.mode==="guest" ? ["", "Guest · not saved"] : st.mode==="anon" ? ["warn", "Not signed in · no name"]
+    : st.needLogin ? ["warn", "Signed out · tap to sign in"]
+    : st.failing ? ["warn", "Offline · will send later"] : st.saving ? ["", "Saving…"] : ["ok", "✓ Recording"];
   el.className = "pk-save-chip "+cls; el.textContent = text;
-  el.title = st.mode==="user" ? "登入的帳號："+pkWhoName() : "";
+  el.title = st.mode==="user" ? "Signed in as "+pkWhoName() : "";
   // An expired sign-in: the chip opens the sign-in page in another tab; this page keeps the run and sends it afterwards.
   if(expired){ el.setAttribute("role","button"); el.tabIndex = 0; el.onclick = pkRelogin; el.onkeydown = e=>{ if(e.key==="Enter") pkRelogin(); }; }
   else { el.removeAttribute("role"); el.removeAttribute("tabindex"); el.onclick = null; el.onkeydown = null; }
@@ -2120,7 +2121,7 @@ function pkPartDone(part){
   document.querySelectorAll("#topicGrid .topic").forEach(t=>t.classList.remove("pk-next"));
   const chip = next && document.getElementById("topic-btn-"+next.id);
   if(chip) chip.classList.add("pk-next");
-  if(!PK_LINK.merge) updateStatus("Part "+part+" 完成（"+PKWrap.partRole(part, pkSlides().length)+"）。"+(next ? "點上面的 "+next.id+" 繼續。" : ""));
+  if(!PK_LINK.merge) updateStatus("Part "+part+" done ("+PKWrap.partRole(part, pkSlides().length)+"). "+(next ? "Tap "+next.id+" above to go on." : ""));
 }
 // Display title: the shared topic name (unlocks.js), else the cleaned source title.
 function pkTitle(t){ return (PK_LIBRARY && t.title_en) || (window.CARDLEARN_UNLOCKS.TOPICS[t.id]||{}).en || pkClean(t.title_en); }
@@ -2129,7 +2130,7 @@ function pkStartGame(topicId, level){
   const topic = GAME_DATA.topics.find(t=>t.id===topicId);
   if(!topic || !topic.levels[level]) return;
   if(!PK_READY && !PK_LINK.embed) return;             // the course is not known yet
-  if(!pkLevelOpen(topic, level)){ if(typeof showToast==="function") showToast("這個主題或難度還沒開放。"); return; }
+  if(!pkLevelOpen(topic, level)){ if(typeof showToast==="function") showToast("This topic or level is not open yet."); return; }
   pkClosePick(false);
   pkQuiet(); pkDealRound++;
   SELECTED = { topic, level };
@@ -2149,7 +2150,7 @@ function pkStartGame(topicId, level){
   document.getElementById("pkSdgBadge").textContent = pkCode(topic.id);
   document.getElementById("pkLevelChip").textContent = level;
   pkPileReset();
-  updateStatus("點上面的 1–6，選一段開始。");
+  updateStatus("Tap 1–6 above to choose a part.");
   pkSwitchBar(false);
   pkPrepare();
   initTopics();
@@ -2272,7 +2273,7 @@ async function pkInit(){
 // Read-aloud speed multiplier, shared with the 3D game (localStorage "cardlearn_tts_rate").
 const PK_RATES = [0.7, 0.85, 1, 1.15, 1.3];
 function pkRate(){ try{ const r=parseFloat(localStorage.getItem("cardlearn_tts_rate")); return PK_RATES.includes(r)?r:1; }catch(e){ return 1; } }
-function pkShowRate(){ const b=document.getElementById("pkRateBtn"); if(b) b.textContent="語速 "+pkRate()+"×"; }
+function pkShowRate(){ const b=document.getElementById("pkRateBtn"); if(b) b.textContent="Speed "+pkRate()+"×"; }
 function pkCycleRate(){ const r=PK_RATES[(PK_RATES.indexOf(pkRate())+1)%PK_RATES.length]; try{ localStorage.setItem("cardlearn_tts_rate",String(r)); }catch(e){} pkShowRate(); if(RUN && !RUN.finished) PKT.log("rate.change", { rate:r }); }
 function totalToMatchAll(){ return Object.values(DB.subtopics).reduce((a,s)=>a+s.length,0); }
 function pkOpenNextPart(){
@@ -2516,7 +2517,7 @@ pkInit();
 /* ── Topic selection ── */
 function handleTopicClick(id, el) {
   if (partStatus[id] === 'completed') {
-    showToast("這一段已經完成了。");
+    showToast("This part is already done.");
     return;
   }
   
@@ -2534,10 +2535,10 @@ function pkSwitchBar(show, id, el){
   if(!show){ if(bar) bar.remove(); return; }
   if(!bar){
     bar = document.createElement("div"); bar.id = "pkSwitchBar"; bar.className = "pk-switch-bar";
-    bar.setAttribute("role", "alertdialog"); bar.setAttribute("aria-label", "要換到另一段嗎");
+    bar.setAttribute("role", "alertdialog"); bar.setAttribute("aria-label", "Switch to another part?");
     document.querySelector(".pk-read-panel").appendChild(bar);
   }
-  bar.innerHTML = '<span>這一段還沒配完，換段會重來。</span><button type="button" class="stay" id="pkSwitchStay">繼續這一段</button><button type="button" id="pkSwitchGo">還是要換</button>';
+  bar.innerHTML = '<span>This part is not finished. Switching starts it again.</span><button type="button" class="stay" id="pkSwitchStay">Stay here</button><button type="button" id="pkSwitchGo">Switch anyway</button>';
   document.getElementById("pkSwitchStay").onclick = () => pkSwitchBar(false);
   document.getElementById("pkSwitchGo").onclick = () => { pkSwitchBar(false); stopTimer(); loadTopic(id, el); };
   document.getElementById("pkSwitchStay").focus();
@@ -2554,8 +2555,8 @@ function pkTableCue(){
   const limit = (innerWidth <= 640 ? Math.min(holder.top, timer.top) : holder.top) - 6;     // where the dock starts to cover the table
   const rects = open.map(c=>c.getBoundingClientRect());
   const below = rects.filter(r=>r.bottom - limit > Math.max(24, r.height*0.25)), above = rects.filter(r=>-r.top > Math.max(24, r.height*0.25));
-  if(below.length){ cue.textContent = "↓ 下面還有 "+below.length+" 張卡"; cue.onclick = () => scrollBy({ top: Math.max(...below.map(r=>r.bottom)) - limit + 10, behavior:"smooth" }); }
-  else if(above.length){ cue.textContent = "↑ 上面還有 "+above.length+" 張卡"; cue.onclick = () => scrollTo({ top:0, behavior:"smooth" }); }
+  if(below.length){ cue.textContent = "↓ "+below.length+" more below"; cue.onclick = () => scrollBy({ top: Math.max(...below.map(r=>r.bottom)) - limit + 10, behavior:"smooth" }); }
+  else if(above.length){ cue.textContent = "↑ "+above.length+" more above"; cue.onclick = () => scrollTo({ top:0, behavior:"smooth" }); }
   cue.hidden = !(below.length || above.length);
   cue.style.bottom = Math.round(innerHeight - limit + 4) + "px";
 }
@@ -2615,7 +2616,7 @@ async function loadTopic(id, el) {
   if (window.PKFX) PKFX.sweep(box);
   box.innerHTML = "";
   pkPartNote("");
-  updateStatus("發牌中…");
+  updateStatus("Dealing…");
   const decoy = pkPickDecoy(subs);
   box.classList.toggle("has-decoy", !!decoy);
   const table = subs.slice();
@@ -2664,18 +2665,18 @@ async function loadTopic(id, el) {
         if (!canDrag || !currentCardData) return;
         handleDrop(currentCardData, s.id, card);
       };
-      card.tabIndex = 0; card.setAttribute("role", "button"); card.setAttribute("aria-label", "投影片 " + String.fromCharCode(65 + index) + "：" + s.title);
+      card.tabIndex = 0; card.setAttribute("role", "button"); card.setAttribute("aria-label", "Slide " + String.fromCharCode(65 + index) + ": " + s.title);
       card.onkeydown = e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); card.click(); } };
       card.onclick = () => {
         if (card.classList.contains('correct')) return;
         if (card.dataset.busy) return;                       // the second tap of a double tap
         card.dataset.busy = "1"; setTimeout(() => { delete card.dataset.busy; }, 450);
         if (!currentCardData) {
-          updateStatus("先點牌堆抽一張句子卡。");
+          updateStatus("Tap the deck to draw a sentence card first.");
           return;
         }
         if (!canDrag) {
-          updateStatus("先按喇叭聽完，再選投影片卡。");
+          updateStatus("Listen to the whole sentence first, then choose a slide card.");
           return;
         }
         clearDropFeedback();
@@ -2684,7 +2685,7 @@ async function loadTopic(id, el) {
       box.appendChild(card);
       if (fx) PKFX.dealIn(card, document.getElementById("mainDeck"));
       if (index === table.length-1)
-        setTimeout(() => { if (dealing === pkDealRound) { updateStatus("牌發好了。點牌堆抽一張句子卡。"); pkTableCue(); } }, 600);
+        setTimeout(() => { if (dealing === pkDealRound) { updateStatus("The cards are dealt. Tap the deck to draw a sentence card."); pkTableCue(); } }, 600);
     }, index * 200);
   });
 
@@ -2696,9 +2697,9 @@ async function loadTopic(id, el) {
 
 /* ── Deal hand cards ── */
 function dealNextCard() {
-  if (!currentTopic)   return updateStatus("先點上面的 1–6 選一段。");
-  if (currentCardData) return updateStatus("先把手上這一句配對完。");
-  if (gameData.length === 0) return updateStatus("這一段完成了，選下一段。");
+  if (!currentTopic)   return updateStatus("Choose a part first: tap 1–6 above.");
+  if (currentCardData) return updateStatus("Match the sentence in your hand first.");
+  if (gameData.length === 0) return updateStatus("This part is done. Choose the next one.");
 
   canDrag = false;
   currentCardData = gameData.pop();
@@ -2717,7 +2718,7 @@ function dealNextCard() {
         <div class="playable-card-face">
           <div class="card-kicker">Sentence</div>
           <div class="card-scroll-text">${pkWordHtml(currentCardData.english)}</div>
-          <div class="drag-hint">先按喇叭聽</div>
+          <div class="drag-hint">Listen first</div>
         </div>
       </div>
       <div class="card-back">SDG</div>
@@ -2749,11 +2750,11 @@ function dealNextCard() {
     if (!currentCardData || isSpeaking) return;
     const hasListened = cardDiv.dataset.hasListened === "true";
     if (isRepeat && !hasListened) {
-      updateStatus("先聽一次。");
+      updateStatus("Listen once first.");
       return;
     }
     if (!isRepeat && hasListened) {
-      updateStatus("已經念過了，按喇叭可以再聽一次。");
+      updateStatus("It has been read. Tap the speaker to hear it again.");
       return;
     }
 
@@ -2762,7 +2763,7 @@ function dealNextCard() {
     listenBtn.disabled = true;
     repeatBtn.disabled = true;
     canDrag = false;
-    updateStatus(isRepeat ? "再念一次…" : "朗讀中，聽出重點…");
+    updateStatus(isRepeat ? "Reading again…" : "Reading… listen for the main idea.");
 
     if (isRepeat) {
       repeatListenCount++;
@@ -2789,9 +2790,9 @@ function dealNextCard() {
       listenBtn.disabled = true;
       repeatBtn.disabled = false;
       const dragHint = cardDiv.querySelector('.drag-hint');
-      if (dragHint) dragHint.textContent = '拖到或點對應的卡';
+      if (dragHint) dragHint.textContent = 'Drag to the right card, or tap it';
       cardDiv.style.boxShadow = "0 0 22px gold";
-      updateStatus("把句子拖到對應的投影片卡上，或直接點那張卡。");
+      updateStatus("Drag the sentence onto the slide card it belongs to, or just tap that card.");
       pkVoiceSync();
     });
   }
@@ -2800,7 +2801,7 @@ function dealNextCard() {
   repeatBtn.onclick = e => { e.stopPropagation(); playCard({ isRepeat:true }); };
   cardDiv.onclick = () => {
     if (cardDiv.dataset.hasListened === "true") {
-      updateStatus("已經念過了，按喇叭可以再聽一次。");
+      updateStatus("It has been read. Tap the speaker to hear it again.");
       return;
     }
     playCard({ isRepeat:false });
@@ -2810,7 +2811,7 @@ function dealNextCard() {
   if (window.PKFX && PKFX.motion()) PKFX.dealHand(cardDiv, document.getElementById("mainDeck"));
   pkFitHand();
   pkVoiceSync();
-  updateStatus("按喇叭聽這一句。聽完才開始計時。");
+  updateStatus("Tap the speaker to hear this sentence. The clock starts when it ends.");
 }
 
 
@@ -2896,7 +2897,7 @@ async function handleDrop(cardData, targetSubId, targetEl) {
       // Self-contained: show a completion summary once every part is done.
       const doneCount = Object.values(partStatus).filter(v => v === 'completed').length;
       if (doneCount === DB.topics.length) {
-        updateStatus("六段都完成了！");
+        updateStatus("All six parts done!");
         const finished = RUN; pkCommitRun();
         if (window.PKFX) PKFX.runWin(document.getElementById("subBox"));
         pkPileUpdate(document.getElementById("subBox"));
@@ -2906,13 +2907,13 @@ async function handleDrop(cardData, targetSubId, targetEl) {
       }
 
     } else {
-      updateStatus(`配對了！還有 ${totalToMatch - matchedCount} 張，點牌堆繼續。`);
+      updateStatus(`Matched! ${totalToMatch - matchedCount} to go. Tap the deck.`);
     }
 
   } else {
     // Incorrect match.
     errorCount++;
-    updateStatus("不是這張，再試一次。");
+    updateStatus("Not this one. Try again.");
     if (!window.PKFX || !RUN) { targetEl.style.animation = "shake 0.4s"; setTimeout(() => { targetEl.style.animation = ""; }, 400); }
   }
 }

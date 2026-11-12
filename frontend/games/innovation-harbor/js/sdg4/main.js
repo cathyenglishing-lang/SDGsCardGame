@@ -4,7 +4,7 @@
 // reading and "redo this slide", repeat as often as wanted) and formal (20 s, no pause, no going back).
 // Each part opens with a card on what it does; each slide shows a Chinese gist and key words; between
 // slides the big screen shows what the audience heard (browser speech recognition, where available).
-import { quality, manager, setMood, start, addUpdate } from "../world/scene.js";
+import { quality, manager, setMood, start, addUpdate, renderer, scene, camera, perfInfo } from "../world/scene.js";
 import { buildHarbor, SPOTS, H, drawScreen, PATHS, screenCanvas, screenTex } from "../world/harbor.js";
 import { buildDressing } from "../world/dressing.js";
 import { buildTraffic } from "../world/traffic.js";
@@ -15,13 +15,15 @@ import { startRoam, stopRoam } from "../world/roam.js";
 import { say } from "../ui/bubble.js";
 import { titleCard } from "../ui/fx.js";
 import { wireHints, hint } from "../i18n.js";
-import { log, startRun, finishRun } from "../telemetry.js";
+import { log, startRun, finishRun, flushNow } from "../telemetry.js";
 import { S } from "../state.js";
 import { $, esc, wait, pick, rand } from "../util.js";
 import { startAmbience, setMuted, isMuted, applause } from "../audio.js";
 import { getRate, cycleRate, listen, detectSpeech, speechFailed, speak, stopSpeaking } from "../speech.js";
 import { coverage } from "../vocab.js";
 import { accountAvatar } from "../account.js";
+import { enableCinematic } from "../world/post.js";
+import * as C from "../world/cinematic.js";
 import { TALK } from "./talk.js";
 import { THESIS, PARTS, SLIDES as GUIDE } from "./guide.js";
 
@@ -42,18 +44,54 @@ wireHints();
 $("#sound").onclick = () => { setMuted(!isMuted()); $("#sound").textContent = isMuted() ? "🔇" : "🔊"; };
 const showRate = r => { $("#rateBtn").textContent = `Speed ${r}×`; };
 showRate(getRate()); $("#rateBtn").onclick = () => showRate(cycleRate());
-manager.onProgress = (url, loaded, total) => { const p = Math.round(loaded / total * 100); $("#loadBar").style.width = p + "%"; $("#loadPct").textContent = p + "%"; };
+// ── loading: one bar for the whole set-up ──
+// The loading manager only knows about downloads (characters, textures), so the other steps report themselves:
+// harbor 0–20 %, downloads 20–72 %, the theater set 72–82 %, the cast 82–94 %, lights and shaders 94–100 %.
+// The bar never goes back, and paint() lets the browser draw it between two heavy steps.
+let shown = 0;
+function loadTo(p, label) {
+  shown = Math.max(shown, Math.min(100, Math.round(p)));
+  $("#loadBar").style.width = shown + "%"; $("#loadPct").textContent = shown + "%"; $("#loadTrack").setAttribute("aria-valuenow", shown);
+  if (label) $("#loadLabel").textContent = label;
+}
+const paint = () => new Promise(r => { let done = false; const go = () => { if (!done) { done = true; r(); } }; requestAnimationFrame(() => setTimeout(go, 0)); setTimeout(go, 120); });
+manager.onProgress = (url, loaded, total) => loadTo(20 + loaded / total * 52, "Loading the cast and textures 載入角色與貼圖");
+loadTo(4, "Building the harbor 建造港口"); await paint();
 
 setMood("dusk");
-buildHarbor(); buildDressing(); buildTraffic();
+buildHarbor(); loadTo(12); await paint();
+buildDressing(); buildTraffic(); loadTo(20, "Loading the cast and textures 載入角色與貼圖"); await paint();
 drawScreen("PECHA KUCHA", TALK.title, "20 slides · six parts", FOOTER);
 start();
 
 let introA = 0;
 const introDrift = addUpdate(dt => { if (S.started) return; introA += dt * 0.025; shot([27 + Math.sin(introA) * 40, 18, 30 + Math.cos(introA) * 30], [27, 3, 5], { k: 1.2 }); });
 
-await loadCharacterAssets();
-$("#loading").hidden = true;
+const theaterModel = C.loadTheater(manager);       // the Blender set downloads next to the characters
+await loadCharacterAssets(); await theaterModel;
+loadTo(72, "Setting the stage 佈置舞台"); await paint();
+C.initStage();                                      // lights, beams, dust, the set, the story's props (js/world/cinematic.js)
+loadTo(82, "Seating the audience 觀眾入座"); await paint();
+let LOAD_MS = 0, INTRO_AT = 0;                        // set by stageReady(): page open → stage ready
+
+// ── learning data (v2, 2026-11-12): where the time goes and where a student leaves ──
+// PHASES: ms spent in each part of the visit (load, intro, pier, walk, backstage, present, ending).
+// A slide's own numbers (dwell, attempts, heard) travel on pk.slide; pk.slide.start marks every attempt so a
+// student who leaves in the middle of a slide still shows up at that slide. page.hide marks leaving the tab.
+const PHASES = {};
+let phase = "intro", phaseT = performance.now(), curSlide = null;
+function enter(name) {
+  const now = performance.now(); const ms = Math.round(now - phaseT);
+  PHASES[phase] = (PHASES[phase] || 0) + ms;
+  log("phase", `${phase} → ${name}`, { phase: name, prev: phase, prev_ms: ms });
+  phase = name; phaseT = now;
+}
+const phaseTotals = () => ({ ...PHASES, [phase]: (PHASES[phase] || 0) + Math.round(performance.now() - phaseT) });
+document.addEventListener("visibilitychange", () => {
+  if (!S.started) return;
+  if (document.hidden) { log("page.hide", `${phase}${curSlide ? " · slide " + curSlide : ""}`, { phase, slide: curSlide }); flushNow(); }
+  else log("page.show", `${phase}${curSlide ? " · slide " + curSlide : ""}`, { phase, slide: curSlide });
+});
 
 S.avatar = await avatarKind;
 const player = makeActor(S.avatar, "Speaker");
@@ -75,7 +113,14 @@ for (let i = 0; i < quality.audience; i++) {
   a.setPos(18 + (i * 2.3) % 18 + rand(-0.4, 0.4), t.y, t.z + rand(-0.3, 0.3)); a.face(27, 4, true);
   a.play("idle", { variant: i }); dressRandom(a, i + 40); audience.push(a);
 }
-window.__dbg = { S, player, lin, audience, SLIDES };
+C.bindCast({ player, audience });
+loadTo(94, "Lighting and lenses 打光與鏡頭"); await paint();
+enableCinematic();                                  // bloom, depth of field, grade; steps down by itself on a slow device (js/world/post.js)
+try { renderer.compile(scene, camera); } catch (e) { /* shaders then compile on first use */ }
+loadTo(100, "Ready 準備好了"); await paint();
+$("#loading").hidden = true; window.__stageReady = true;
+LOAD_MS = Math.round(performance.now()); PHASES.load = LOAD_MS; INTRO_AT = performance.now(); phaseT = INTRO_AT;   // performance.now() counts from navigation start
+window.__dbg = { S, player, lin, audience, SLIDES, C, perfInfo };
 
 const LIN = { actor: lin };
 const t = (en, zh, o = {}) => say(LIN, { who: "Ms. Lin", role: "Your teacher", voice: "mei", en, zh, ...o }, player);
@@ -95,7 +140,8 @@ async function run() {
   SLIDE_SEC = FAST ? 2 : PRACTICE ? PACE.practice : PACE.formal;
   const mode = PRACTICE ? "practice" : "formal";
   startAmbience();
-  log("run.start", `SDG 4 stage, level ${S.level}, ${mode} (${SLIDE_SEC} s)`, { level: S.level, avatar: S.avatar, mode, quick: QUICK });
+  PHASES.intro = Math.round(performance.now() - INTRO_AT); phase = QUICK ? "backstage" : "pier"; phaseT = performance.now();
+  log("run.start", `SDG 4 stage, level ${S.level}, ${mode} (${SLIDE_SEC} s)`, { level: S.level, avatar: S.avatar, mode, quick: QUICK, load_ms: LOAD_MS, intro_ms: PHASES.intro, hq: (quality.tier ?? 1) >= 2, tier: quality.tier ?? null, mobile: !!quality.mobile, vw: innerWidth, vh: innerHeight, speech: detectSpeech() === "browser" ? "listen" : "read", dpr: +(devicePixelRatio || 1).toFixed(2) });
   startRun({ game: "sdg4-stage", chapter: "4-1", level: S.level, avatar: S.avatar, client: `${mode} · ` + navigator.userAgent.slice(0, 150) });
   $("#hud").hidden = false; $("#lvChip").textContent = `${S.level} · ${PRACTICE ? "練習 Practice" : "正式 Formal"}`;
   const clock = setInterval(() => { $("#clock").textContent = mmss((performance.now() - S.t0) / 1000); }, 500);
@@ -114,6 +160,7 @@ async function run() {
       PRACTICE ? "今天先練習：每張 30 秒，可以聽示範朗讀、可以重來一張，想練幾次都可以。練熟了再挑戰正式的 20 秒！" : "今天是正式上場：每張 20 秒。念出聲、不要停。我們走去海濱劇場吧！");
 
     // ── 2. Walk to the theater ──
+    enter("walk");
     await walkTo([14, 8], "Waterfront Theater");
   }
   lin.setPos(...SPOTS.meiTheater); lin.face(27, 5, true);
@@ -123,29 +170,37 @@ async function run() {
   player.setPos(16.5, 0.9, 5.5); player.face(27, 5.5, true);
   shot([15, 2.4, 9.5], [18, 1.5, 4.5], { instant: true });
   await fade(false, 450);
+  if (phase !== "backstage") enter("backstage");
   await talkMap();
 
   // ── 4. On stage ──
-  shot([27, 5.2, 17.5], [27, 2.4, 4], { k: 1.6 });
+  const crane = C.entrance();
   await player.walk(PATHS.stageEntry, { speed: 1.5 });
+  await crane;
   player.face(27, 20); audience.forEach(a => a.faceTo(player));
+  enter("present");
   await present();
 
   // ── 5. The one ending ──
+  enter("ending"); curSlide = null;
   clearInterval(clock);
   const secs = Math.round((performance.now() - S.t0) / 1000);
+  // The talk is over: the result goes to the server NOW, before the applause and Ms. Lin's words, so a student who
+  // closes the page during them still has a finished talk (chips, a report), not one that looks abandoned.
+  const heard = HEARD.filter(x => x != null); const avg = heard.length ? heard.reduce((a, b) => a + b, 0) / heard.length : null;
+  const phases = phaseTotals();
+  log("ending", PRACTICE ? "Practice complete" : "Your first Pecha Kucha", { key: PRACTICE ? "practice" : "formal", seconds: secs, heardAvg: avg, redo: REDO, model: MODEL, phases });
+  const resP = finishRun({ ending: PRACTICE ? "practice" : "formal", metrics: { seconds: secs, level: S.level, mode: PRACTICE ? "practice" : "formal", slideSec: SLIDE_SEC, slides: SLIDES.length, heardAvg: avg, heard: HEARD, speech: MODE, redo: REDO, model: MODEL,
+    quick: QUICK, phases, dwell: DWELL, attempts: ATTEMPTS, completed: SLIDES.length, v: 2, gfx: { ...perfInfo(), steps: C.stageInfo().steps } } });
   drawScreen("THANK YOU", TALK.title, `Presented by you · 20 slides × ${SLIDE_SEC} seconds`, FOOTER);
-  shot([27, 5.2, 17.5], [27, 2.4, 4]); applause(4);
+  C.finale(); applause(4);                                  // the lights come up and the camera lifts away
   audience.forEach((a, i) => setTimeout(() => a.play("react"), i * 120)); player.play("idle");
   await wait(2500);
   lin.faceTo(player);
   await say(LIN, PRACTICE
     ? { who: "Ms. Lin", role: "Your teacher", voice: "mei", en: "Good practice! You know the story now: the problem, the good news, the solutions and your ask. Practise again, or try the real 20 seconds.", zh: "練得很好！你已經知道整個故事：問題、好消息、解方，還有你的請求。可以再練一次，或挑戰正式的 20 秒。" }
     : { who: "Ms. Lin", role: "Your teacher", voice: "mei", en: "Wonderful! Twenty slides, twenty seconds each, and you never stopped. That is the Pecha Kucha spirit.", zh: "太棒了！20 張投影片、每張 20 秒，你一次都沒有停下來。這就是 Pecha Kucha 的精神。" });
-  const heard = HEARD.filter(x => x != null); const avg = heard.length ? heard.reduce((a, b) => a + b, 0) / heard.length : null;
-  log("ending", PRACTICE ? "Practice complete" : "Your first Pecha Kucha", { key: PRACTICE ? "practice" : "formal", seconds: secs, heardAvg: avg, redo: REDO, model: MODEL });
-  finishRun({ ending: PRACTICE ? "practice" : "formal", metrics: { seconds: secs, level: S.level, mode: PRACTICE ? "practice" : "formal", slideSec: SLIDE_SEC, slides: SLIDES.length, heardAvg: avg, heard: HEARD, speech: MODE, redo: REDO, model: MODEL } });
-  showEnding(secs);
+  showEnding(secs, await resP);
 }
 
 function mmss(sec) { sec = Math.max(0, Math.round(sec)); return `${Math.floor(sec / 60)}:${String(sec % 60).padStart(2, "0")}`; }
@@ -161,7 +216,8 @@ function walkTo([x, z], label) {
 
 // ── speech: "listen" = live recognition and the big-screen comparison; "read" = read silently ──
 let MODE = detectSpeech() === "browser" ? "listen" : "read";
-const HEARD = [];
+const MISSED = new Map();                      // word → slides where it was missed (final attempt of each slide)
+const HEARD = [], DWELL = [], ATTEMPTS = [];   // per slide: share heard, ms on the slide (all attempts), attempts
 let FAIL_CODE = null, REDO = 0, MODEL = 0;
 // Why the browser could not listen, in words a student can act on. iPad Safari hands recognition to
 // Siri / Dictation: with those off it fails at once ("service-not-allowed") and never asks for the microphone.
@@ -297,14 +353,8 @@ async function present() {
   tele.classList.toggle("practice", PRACTICE);
   $("#teleThesis").innerHTML = `<b>Your message</b> ${esc(THESIS.en)}${hint(THESIS.zh)}`;
   $("#teleParts").innerHTML = TALK.stages.map((st, i) => `<span data-i="${i}" title="${esc(st.zh)}">${st.part} ${esc(st.en)}</span>`).join("");
-  // Camera angles that never look through the audience tiers (they start at z 8.5): a high wide shot
-  // from behind the back row, a stage-wing shot, and a close front shot from the stage edge.
-  const shots = [
-    () => shot([27, 6.4, 19.5], [27, -0.4, 4]),      // the teleprompter covers the lower third: aim low so the speaker sits high
-    () => shot([17.2, 2.4, 6.8], [27, 0.4, 5.2]),
-    () => frontShot(player, { dist: 2.4, height: 0.45, side: 0.5 }),
-    () => shot([36.5, 2.6, 7.2], [26, 0.4, 4.5]),
-  ];
+  // Light, air, props and the camera move of each slide come from its `cue` in talk.js (C.cue). The moves never look
+  // through the audience tiers, and aim low: the teleprompter covers the lower third, so the speaker sits high.
   let lastStage = -1;
   for (const [i, s] of SLIDES.entries()) {
     S.stage = s.si;
@@ -312,14 +362,20 @@ async function present() {
       lastStage = s.si;
       $("#teleParts").querySelectorAll("span").forEach(x => { const k = +x.dataset.i; x.className = k < s.si ? "done" : k === s.si ? "now" : ""; });
       drawScreen(`PART ${s.stage.part} OF 6`, s.stage.en, PARTS[s.stage.part].lang, FOOTER);
-      player.play("idle"); shots[0]();
+      player.play("idle"); C.partCue();
       if (i) audience.forEach((a, k) => setTimeout(() => a.play("react"), k * 90));
+      const pc0 = performance.now(); curSlide = null;
       await partCard(s.stage);
+      log("pk.part.read", `part ${s.stage.part} card`, { part: s.stage.part, ms: Math.round(performance.now() - pc0) });
     }
     const g = GUIDE[s.no] || { zh: "", kw: [] };
+    const slideT0 = performance.now(); let att = 0; curSlide = s.no;
     for (;;) { // one slide; practice can redo it or hear the model first
+      att++;
+      log("pk.slide.start", `slide ${s.no} attempt ${att}`, { slide: s.no, part: s.stage.part, attempt: att });
       drawScreen(`SLIDE ${i + 1} / ${SLIDES.length}`, s.title, `Part ${s.stage.part} · ${s.stage.en}`, FOOTER);
-      shots[(i * 2) % shots.length](); player.play("talk");
+      { const n = s.stage.slides.length, k = s.stage.slides.findIndex(x => x.no === s.no); C.cue(s.cue, SLIDE_SEC, n > 1 ? k / (n - 1) : 0); }
+      player.play("talk");
       $("#teleCount").textContent = `${i + 1} / ${SLIDES.length}`;
       $("#telePart").textContent = `Part ${s.stage.part} · ${s.stage.en}`;
       $("#teleTitle").innerHTML = esc(s.title) + hint(s.zh);
@@ -329,7 +385,7 @@ async function present() {
       $("#teleKw").innerHTML = g.kw.filter(([forms]) => new RegExp(`\\b(${forms.split("|").join("|")})\\b`, "i").test(s.text[S.level]))
         .map(([forms, zh]) => `<span><b>${esc(forms.split("|").find(f => new RegExp(`\\b${f}\\b`, "i").test(s.text[S.level])) || forms.split("|")[0])}</b> ${esc(zh)}</span>`).join("");
       $("#teleHeard").textContent = MODE === "listen" ? "🎙 …" : "";
-      let action = null; const t0 = performance.now(); let cut = false;
+      let action = null; const t0 = performance.now();
       const heardP = MODE === "listen" ? listenSlide(SLIDE_SEC * 1000, txt => { $("#teleHeard").textContent = "🎙 " + (txt.length > 110 ? "…" + txt.slice(-110) : txt); }, () => !!action) : Promise.resolve(null);
       await new Promise(done => {
         const stop = a => { action = a; clearInterval(tick); done(); };
@@ -339,38 +395,65 @@ async function present() {
           const el = (performance.now() - t0) / 1000;
           $("#teleSec").textContent = Math.max(0, Math.ceil(SLIDE_SEC - el));
           $("#teleBar").style.width = Math.min(100, el / SLIDE_SEC * 100) + "%";
-          if (!cut && el > SLIDE_SEC / 2) { cut = true; shots[(i * 2 + 1) % shots.length](); }
           if (el >= SLIDE_SEC) stop("done");
         }, 100);
       });
       listen.stop && listen.stop();
       const said = await heardP;
-      if (action === "redo") { REDO++; log("pk.redo", `slide ${s.no}`, { slide: s.no }); continue; }
+      if (action === "redo") { REDO++; log("pk.redo", `slide ${s.no}`, { slide: s.no, attempt: att, at_ms: Math.round(performance.now() - t0) }); continue; }
       if (action === "model") {
         // the model reads the slide (nobody is listening meanwhile), then the student tries it fresh
-        MODEL++; log("pk.model", `slide ${s.no}`, { slide: s.no });
+        MODEL++; log("pk.model", `slide ${s.no}`, { slide: s.no, attempt: att });
         player.play("idle"); $("#teleHeard").textContent = "🔊 示範朗讀中… Listen to the model"; $("#teleSec").textContent = "—";
         await speak(s.text[S.level], "speaker");
         continue;
       }
+      const dwell = Math.round(performance.now() - slideT0); DWELL[i] = dwell; ATTEMPTS[i] = att;
+      const common = { slide: s.no, part: s.stage.part, dwell_ms: dwell, attempt_ms: Math.round(performance.now() - t0), attempts: att, redo: att - 1 };
       if (said != null && MODE === "listen") {
         // the comparison goes up on the big screen, then the camera returns to the speaker for the next slide
         const cov = coverage(s.text[S.level], said); HEARD[i] = cov.ratio;
-        log("pk.slide", `slide ${s.no} (${s.stage.en}) heard ${Math.round(cov.ratio * 100)}%`, { slide: s.no, part: s.stage.part, heard: cov.ratio, missed: cov.miss.slice(0, 8) });
+        for (const w of cov.miss) MISSED.set(w.toLowerCase(), (MISSED.get(w.toLowerCase()) || 0) + 1);
+        log("pk.slide", `slide ${s.no} (${s.stage.en}) heard ${Math.round(cov.ratio * 100)}%`, { ...common, heard: cov.ratio, missed: cov.miss.slice(0, 8), hit: cov.hit.length, miss: cov.miss.length,
+          words: s.text[S.level].split(/\s+/).length, said_words: said.split(/\s+/).filter(Boolean).length, engine: "listen" });
         drawHeard(i + 1, s, cov); tele.hidden = true; player.play("idle");
-        shot([27, 5.6, 16], [27, 5.9, 2.2]);
+        C.holdCamera(); shot([27, 5.6, 16], [27, 5.9, 2.2]);
         if (cov.ratio >= 0.7) audience.forEach((a, k) => k % 3 === 0 && a.play("react"));
         await wait(RESULT_SEC * 1000);
         tele.hidden = false;
       } else {
         HEARD[i] = null;
-        log("pk.slide", `slide ${s.no} (${s.stage.en})`, { slide: s.no, part: s.stage.part });
+        log("pk.slide", `slide ${s.no} (${s.stage.en})`, { ...common, words: s.text[S.level].split(/\s+/).length, engine: "read" });
       }
       break;
     }
   }
   stopSpeaking();
   tele.hidden = true;
+}
+
+// ── chips (2026-11-12): paid for the words read correctly; at most 3 paid runs per account per day ──
+const REASON = { "sdg4.read": ["Words you read correctly", "念對的字"], "sdg4.formal": ["The real 20-second talk", "完成正式 20 秒"] };
+const signedIn = () => { try { const u = JSON.parse(localStorage.getItem("user") || "null"); return !!(u && u.access_token); } catch (e) { return false; } };
+function chipsBlock(res) {
+  const c = res && res.chips, sc = res && res.score;
+  const top = [...MISSED].sort((a, b) => b[1] - a[1]).slice(0, 8).map(([w]) => esc(w)).join(", ");
+  const words = sc && sc.accuracy != null
+    ? `<p class="chip-words">You read <strong>${Math.round(sc.accuracy * 100)}%</strong> of the words the microphone could check (${sc.miss} missed).${hint("念對的字比例；麥克風沒聽到的算錯字。")}${top ? ` Practise: <em>${top}</em>` : ""}</p>` : "";
+  let head;
+  if (!signedIn()) head = `<p class="chip-note">Sign in with your class account to earn chips.${hint("用班級帳號登入才有籌碼。")}</p>`;
+  else if (!c) head = `<p class="chip-note">Your talk is saved, but chips could not be worked out just now.${hint("這次的紀錄已存好，只是現在算不出籌碼。")}</p>`;
+  else if (c.test) head = `<p class="chip-note">Test accounts do not earn chips.${hint("測試帳號不給籌碼。")}</p>`;
+  else if (c.run_limit && c.run_limit.used >= c.run_limit.limit && !(c.items || []).length)
+    head = `<p class="chip-note">You have already earned chips from ${c.run_limit.limit} talks today. Come back tomorrow for more.${hint("今天已經領過 " + c.run_limit.limit + " 次，明天再來。")}</p>`;
+  else {
+    const rows = (c.items || []).map(i => { const [en, zh] = REASON[i.reason] || [i.reason, ""];
+      return `<li><span>${esc(en)}${zh ? hint(zh) : ""}</span><b>${i.status === "capped" ? "full for today" : "+" + i.chips}</b></li>`; }).join("");
+    const left = c.run_limit ? Math.max(0, c.run_limit.limit - c.run_limit.used - 1) : null;
+    head = `<div class="chip-sum"><div class="chip-total"><small>Chips earned${hint("這次得到的籌碼")}</small><b>+${c.earned || 0}</b></div><ul>${rows}</ul></div>
+      <p class="chip-note">${c.held ? "Your teacher will check this one before the chips are added.<br>" : ""}Balance: <strong>${c.balance}</strong>${left != null ? ` · ${left} more paid talk${left === 1 ? "" : "s"} today` : ""}${hint("最多每天 3 次有籌碼" + (c.held ? "；這次要老師確認後才入帳" : ""))}</p>`;
+  }
+  return `<div class="chips-end">${head}${words}</div>`;
 }
 
 function heardBlock() {
@@ -383,7 +466,7 @@ function heardBlock() {
     <p>Average: <strong>${avg}%</strong>. The red words on the big screen are the ones to practise next time.${hint("大螢幕上的紅字就是下次要多練習的字。")}</p></div>`;
 }
 
-function showEnding(secs) {
+function showEnding(secs, res) {
   const again = mode => `?quick=1&mode=${mode}&lv=${S.level}`;
   const card = TALK.stages.map(st => `<li><b>${esc(st.en)}</b> ${esc(PARTS[st.part].zh.split("：")[0].split("，")[0])}</li>`).join("");
   $("#endCard").innerHTML = `
@@ -396,6 +479,7 @@ function showEnding(secs) {
       <div><small>Talk time</small><b>${mmss(SLIDES.length * SLIDE_SEC)}</b></div>
       <div><small>Whole visit</small><b>${mmss(secs)}</b></div>
     </div>
+    ${chipsBlock(res)}
     ${heardBlock()}
     <h3>The Pecha Kucha spirit${hint("Pecha Kucha 的精神")}</h3>
     <ul class="spirit">

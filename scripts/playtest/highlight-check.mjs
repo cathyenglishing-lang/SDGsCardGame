@@ -43,7 +43,7 @@ async function oneCase(name, { init, accent, expectSpans = true }) {
     await page.click(`#pkPick .pk-lv[data-level="A2"]`); await page.waitForSelector("#pkMissionGo"); await page.sleep(300);
     await page.click("#pkQuick"); await page.sleep(300); await page.click("#pkMissionGo");
     await page.click("#topicGrid .topic:nth-child(1)");
-    await page.waitFor(`/牌發好了/.test(document.getElementById("status").textContent)`); await page.sleep(500);
+    await page.waitFor(`/cards are dealt/.test(document.getElementById("status").textContent)`); await page.sleep(500);
     await page.click("#mainDeck"); await page.sleep(250);
     const total = await page.evaluate(`currentCardData.english.trim().split(/\\s+/).length`);
     await page.click("#pkSpeakBtn");

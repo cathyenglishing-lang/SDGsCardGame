@@ -10,7 +10,9 @@ Current state, decisions, deployment map and rules for this project: `docs/hando
 
 Meeting follow-ups T1–T5 (2026-11-09 with Cathy) and everything the company machine did on 2026-11-11 are in ONE file: `docs/handoff/2026-11-09-teacher-meeting-followups.md` — status of T1–T5 (T2, T4, T5 done; T1, T3 open), quick test, 念法表, cloud voices with accents (built, not yet tried against the real services: no key), the new topic menu, how to merge branch `claude/meeting-t4-t5` and go live, what was and was not verified. Read that file first; do not spread this over other files.
 
-Newest work (2026-11-09, branch `company/card-game-learning`, pushed to the `backup` remote `machencompeq/SDGsCardGame` — the company machine's account cannot push to `origin` — and not merged into `main`): `docs/handoff/2026-11-09-card-game-closed-loop.md` — card game closed loop, teacher back office (courses and roster with 系級, learning records, voice recordings, material editor, chips), what was verified (SQLite and PostgreSQL), how to go live, disk estimate for the lab VM, what is still open. Research behind the back-office design: `docs/文獻回顧.md`. How-to videos: `docs/videos/`.
+Newest work (2026-11-12, branch `claude/sdg4-cinematic-stage`, on top of `claude/meeting-t4-t5`, pushed to `backup`, not merged into `main`): `docs/handoff/2026-11-12-sdg4-cinematic-stage.md` — the SDG 4 stage as a film set (Blender-built theater, lights, cues per slide, quality tiers), its data chain, chips for the words read correctly (3 paid talks a day), the teacher's SDG 4 page (class → student → one talk, anomalies, reports per talk), what was and was not verified.
+
+Earlier (2026-11-09, branch `company/card-game-learning`, pushed to the `backup` remote `machencompeq/SDGsCardGame` — the company machine's account cannot push to `origin` — and not merged into `main`): `docs/handoff/2026-11-09-card-game-closed-loop.md` — card game closed loop, teacher back office (courses and roster with 系級, learning records, voice recordings, material editor, chips), what was verified (SQLite and PostgreSQL), how to go live, disk estimate for the lab VM, what is still open. Research behind the back-office design: `docs/文獻回顧.md`. How-to videos: `docs/videos/`.
 
 Newest plans (2026-11, branch `claude/class-roster-learning-data`): `docs/handoff/2026-11-08-card-game-learning-design.md` (card game design, KPIs, data rules, research plan, global chips) and `docs/handoff/2026-11-04-class-roster-learning-data-plan.md` (courses, roster import, learner IDs, content checks).
 
@@ -34,9 +36,9 @@ npm run build
 
 Verification (there is no automated test suite — these are the only checks):
 ```bash
-python -m py_compile backend/main.py backend/learning.py backend/classroom.py backend/recordings.py backend/learning_reports.py backend/content_library.py backend/speech_rules.py backend/tts.py backend/rate_limit.py scripts/test_rate_limits.py
+python -m py_compile backend/main.py backend/learning.py backend/classroom.py backend/recordings.py backend/learning_reports.py backend/content_library.py backend/speech_rules.py backend/tts.py backend/sdg4_reports.py backend/reports.py backend/rate_limit.py scripts/test_rate_limits.py
 python scripts/test_rate_limits.py   # Redis rate-limit self-test, needs REDIS_URL
-python scripts/test_classroom.py     # 238 checks: courses, roster, accounts, card-game data, chips, recordings, reports, material library (throw-away SQLite, never sql/app.db)
+python scripts/test_classroom.py     # 290 checks: courses, roster, accounts, card-game data, chips, recordings, reports, material library, the SDG 4 stage (throw-away SQLite, never sql/app.db)
 npm run build                         # frontend build check; runs the question-bank check first
 npm run content:check                 # question bank only (frontend/js/pk-content.js)
 ```
@@ -52,6 +54,7 @@ node scripts/playtest/quick-test-check.mjs .playwright-mcp/quick-test           
 node scripts/playtest/speech-rules-check.mjs .playwright-mcp/speech-rules                  # teacher: 語音念法 table, and the game uses it
 node scripts/playtest/cloud-voice-check.mjs .playwright-mcp/cloud-voice                    # cloud voices and accents; needs `python scripts/playtest/server_fake_voice.py` as the backend
 node scripts/playtest/highlight-check.mjs .playwright-mcp/highlight                        # word-by-word highlighting (same fake-voice backend)
+node scripts/playtest/sdg4-stage-check.mjs .playwright-mcp/sdg4                            # SDG 4 stage in 3D at three sizes + the teacher's SDG 4 page (needs network: three.js CDN; slow, software WebGL)
 node scripts/videos/make-videos.mjs                                                       # re-records the how-to videos in docs/videos/
 ```
 
@@ -72,6 +75,8 @@ pip install -r requirements.txt
 - Cloud voices (`backend/tts.py`): with `AZURE_SPEECH_KEY`+`AZURE_SPEECH_REGION` and/or `GOOGLE_TTS_API_KEY` the card game's sentences are synthesised once per accent, stored under `TTS_DIR` and served by `GET /content/tts` (published sentences only). No key, a used-up monthly budget or a failing provider all end in the browser's own voice. The text goes through the 念法表 first (`speech_rules.say()` must stay identical to `CardLearnSay()` in `frontend/js/speech-say.js`). Not yet tried against the real services.
 - A corrected question bank reaches an existing database: at start-up `content_library._take_bank_updates` gives a topic the bank's newer version when nobody edited that topic in the editor (it becomes a new version; `content_topics.bank_version` remembers what was taken); a topic the teacher edited is never overwritten — the editor offers the bank version as a draft. Change the bank with `scripts/apply_content_patch.py` (checks word counts, punctuation a voice trips on, titles), then `npm run content:lock`.
 - The line under a title card on the table is `keywords` (the teacher's hint) or, when empty, the slide's `title_zh` — so every card shows Chinese (2026-11-11, the teacher's T4). `title_zh` is required; an empty `keywords` is fine.
+- The SDG 4 stage (`frontend/games/innovation-harbor/sdg4-stage.html`, `js/sdg4/`): the film-set look is opt-in code in `js/world/post.js` (bloom, depth of field, grade; tiers 3→0 that step down on a slow device) and `js/world/cinematic.js` (lights, beams, props per slide, camera); `scene.js` only gained hooks, so the harbor game renders as before. Each slide's `cue` is in `js/sdg4/talk.js`. The theater set (`assets/sdg4/theater.glb`) and the loading poster are made by `scripts/blender/sdg4_theater.py` (Blender 4.2+, headless); without the GLB the stage falls back to its built-in pieces.
+- SDG 4 data: the stage's events (`phase`, `pk.slide.start`, `pk.slide` with dwell / attempts / hit / miss, `page.hide` …) go to `learning_events` like every game's; `backend/sdg4_reports.py` (`/learning/sdg4/*`, `/learning/records/watchlist`) works everything out from them, no extra table. Chips for a talk are paid on `learning.sdg4_score()` (the server's count of words heard), at most `SDG4_PAID_RUNS_PER_DAY` talks a day per account; a talk too quick to be real is held for the teacher. `reports.py` sends one report per talk (`student_reports.run_id`) and withholds talks that were left.
 - API groups: `/auth`, `/content`, `/game`, `/teacher`, `/learning`, `/me`, `/health`. Auth is JWT bearer; `require_teacher()` gates teacher/admin routes; admin-only checks apply when changing/deleting admin accounts.
 - **Frontend**: static HTML/CSS/JS, no framework/bundler. Pages in `frontend/pages/`, all API calls centralized in `frontend/js/api.js`. Runtime API base URL comes from `window.CARDLEARN_API_BASE_URL` (set by `frontend/config.js` locally, generated into `dist/` on build).
 - `dist/` is **generated only** — always edit source under `frontend/`, then rebuild. Never hand-edit `dist/`.

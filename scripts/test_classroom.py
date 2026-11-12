@@ -790,6 +790,219 @@ for k_, v_ in real.items():
     TTS.PROVIDERS[k_].update(v_)
 client.put("/teacher/tts", json=TTS.DEFAULT_SETTINGS, headers=admin)
 
+section("SDG 4 stage (2026-11-12): data chain, chips for the words read correctly, 3 paid talks a day, the teacher's page")
+from datetime import datetime as _dt, timedelta as _td  # noqa: E402
+from backend import sdg4_reports as S4  # noqa: E402
+
+
+def new_student(email, name):
+    c_ = main.get_db(); k_ = c_.cursor()
+    k_.execute("INSERT INTO users (name, email, password_hash, email_verified, privacy_agreed, role, public_id) VALUES (?, ?, ?, 1, 1, 'student', ?)",
+               (name, email, hashlib.sha256(b"TalkPass123").hexdigest(), main.new_public_id(k_)))
+    c_.commit(); c_.close()
+    r_, h_ = login(email, "TalkPass123")
+    return h_, r_.json()["user"]["id"] if "user" in r_.json() else client.get("/auth/me", headers=h_).json()["id"]
+
+
+def talk(headers, client_id, mode="formal", hit=16, miss=4, slides=20, finish=True, seconds=600, v2=True, redo_on=(), leave_during=None, engine="listen", extra=None, metrics=None):
+    """One SDG 4 talk through the real API. seconds: how long ago the run started (the server measures a run by its own clock)."""
+    r_ = client.post("/learning/runs", json={"game": "sdg4-stage", "chapter": "4-1", "level": "A2", "client_id": client_id, "client": f"{mode} · Mozilla/5.0 (Windows NT 10.0) test"}, headers=headers)
+    assert r_.status_code == 200, r_.text
+    rid = r_.json()["run_id"]
+    c_, k_ = learning.get_db()
+    k_.execute("UPDATE learning_runs SET started_at = ? WHERE id = ?", ((_dt.now(learning.TAIPEI) - _td(seconds=seconds)).isoformat(timespec="seconds"), rid))
+    c_.commit(); c_.close()
+    ev, t_ = [], 0.0
+
+    def add(type_, data=None, dt=0.5):
+        nonlocal t_
+        t_ += dt
+        ev.append({"seq": len(ev) + 1, "t": t_, "type": type_, "detail": "", "data": data})
+
+    add("run.start", {"level": "A2", "mode": mode, "quick": False, "load_ms": 4200, "intro_ms": 9000, "hq": False, "mobile": True, "vw": 390, "vh": 844, "speech": engine} if v2 else {"level": "A2", "mode": mode})
+    if v2:
+        add("phase", {"phase": "walk", "prev": "pier", "prev_ms": 40000}, 40)
+        add("phase", {"phase": "backstage", "prev": "walk", "prev_ms": 15000}, 15)
+        add("phase", {"phase": "present", "prev": "backstage", "prev_ms": 30000}, 30)
+    part_of = S4.SLIDE_PART
+    for n in range(1, slides + 1):
+        if n in (1, 4, 7, 10, 13, 17):
+            add("pk.part", {"part": part_of[n]})
+            if v2:
+                add("pk.part.read", {"part": part_of[n], "ms": 5000}, 5)
+        attempts = 1
+        if v2:
+            add("pk.slide.start", {"slide": n, "part": part_of[n], "attempt": 1})
+        if n in redo_on:
+            add("pk.redo", {"slide": n, "attempt": 1, "at_ms": 8000}, 8)
+            attempts = 2
+            if v2:
+                add("pk.slide.start", {"slide": n, "part": part_of[n], "attempt": 2})
+        if leave_during == n:
+            add("page.hide", {"phase": "present", "slide": n}, 6)
+            break
+        d_ = {"slide": n, "part": part_of[n]}
+        if engine == "listen":
+            d_.update({"heard": hit / (hit + miss), "missed": ["laboratory", "fair"][: 2 if miss else 0]})
+            if v2:
+                d_.update({"hit": hit, "miss": miss, "words": hit + miss, "said_words": hit + 1, "engine": "listen"})
+        elif v2:
+            d_.update({"words": hit + miss, "engine": "read"})
+        if v2:
+            d_.update({"dwell_ms": 20000 + 8000 * (attempts - 1), "attempt_ms": 20000, "attempts": attempts, "redo": attempts - 1})
+        d_.update(extra or {})
+        add("pk.slide", d_, 20)
+    if finish and v2:
+        add("phase", {"phase": "ending", "prev": "present", "prev_ms": 420000})
+        add("ending", {"key": mode, "phases": {"load": 4200, "intro": 9000, "pier": 40000, "walk": 15000, "backstage": 30000, "present": 420000, "ending": 3000}})
+    for i in range(0, len(ev), 150):
+        assert client.post("/learning/events", json={"run_id": rid, "events": ev[i:i + 150]}, headers=headers).status_code == 200
+    fin_ = client.post(f"/learning/runs/{rid}/finish", json={"ending": mode, "metrics": {"mode": mode, "heardAvg": 1.0, "heard": [1.0] * 20, **(metrics or {})}}, headers=headers) if finish else None
+    return rid, fin_
+
+
+talker, talker_id = new_student("talker@example.com", "Talker One")
+rid1, fin = talk(talker, "s4-1")
+j = fin.json()
+check("a formal talk with 80% of the words heard: 5 for the talk + 8 for the words", fin.status_code == 200 and j["chips"]["earned"] == 13 and {i_["reason"]: i_["chips"] for i_ in j["chips"]["items"]} == {"sdg4.formal": 5, "sdg4.read": 8}, str(j.get("chips")))
+check("…the accuracy is the server's (the browser claimed 100%)", j["score"]["accuracy"] == 0.8 and j["score"]["miss"] == 80 and j["score"]["complete"] and not j["score"]["held"], str(j["score"]))
+check("…and the answer says how many paid talks are used today", j["chips"]["run_limit"] == {"limit": 3, "used": 0}, str(j["chips"].get("run_limit")))
+again = client.post(f"/learning/runs/{rid1}/finish", json={"ending": "formal", "metrics": {"mode": "formal"}}, headers=talker).json()
+check("finishing the same talk twice pays once", again["chips"]["balance"] == 13 and again["chips"]["earned"] == 13, str(again["chips"]))
+_, fin = talk(talker, "s4-2", mode="practice", hit=11, miss=9)
+check("practice pays the words only: 55% → 6", fin.json()["chips"]["earned"] == 6 and fin.json()["chips"]["run_limit"]["used"] == 1, str(fin.json()["chips"]))
+_, fin = talk(talker, "s4-3", hit=20, miss=0)
+check("the third talk of the day still pays (5 + 10)", fin.json()["chips"]["earned"] == 15 and fin.json()["chips"]["balance"] == 34, str(fin.json()["chips"]))
+rid4, fin = talk(talker, "s4-4", hit=20, miss=0)
+c = fin.json()["chips"]
+check("the fourth talk pays nothing: one account, three paid talks a day", c["earned"] == 0 and c["items"] == [] and c["run_limit"] == {"limit": 3, "used": 3} and c["balance"] == 34, str(c))
+_, fin = talk(talker, "s4-5", mode="practice")
+check("…and a fifth one neither", fin.json()["chips"]["earned"] == 0 and fin.json()["chips"]["balance"] == 34, str(fin.json()["chips"]))
+
+quick, quick_id = new_student("quick@example.com", "Quick Two")
+fast_rid, fin = talk(quick, "s4-fast", seconds=30)
+j = fin.json()
+check("a talk finished in 30 seconds cannot be real: its chips wait for the teacher", j["score"]["held"] and "too_fast" in j["score"]["flags"] and j["chips"]["held"] and j["chips"]["balance"] == 0, str(j))
+short_rid, fin = talk(quick, "s4-short", slides=9)
+check("a run with 9 slides read pays nothing", fin.json()["chips"]["earned"] == 0 and "few_slides" in fin.json()["score"]["flags"], str(fin.json()))
+_, fin = talk(quick, "s4-silent", engine="read")
+check("read silently (no speech recognition): only the 5 for the formal talk", {i_["reason"]: i_["chips"] for i_ in fin.json()["chips"]["items"]} == {"sdg4.formal": 5} and fin.json()["score"]["accuracy"] is None, str(fin.json()["chips"]))
+_, fin = talk(quick, "s4-forged", extra={"hit": "999", "miss": -5})
+check("word counts of the wrong type are ignored, not trusted", fin.status_code == 200 and fin.json()["score"]["accuracy"] is None, str(fin.json().get("score")))
+admin_rid, fin = talk(admin, "s4-admin")
+check("a teacher's talk is test data: no chips", fin.json()["chips"]["test"] is True and fin.json()["chips"]["earned"] == 0, str(fin.json()["chips"]))
+anon_rid, fin = talk({}, "s4-anon")
+check("a talk without sign-in is stored and pays nothing", fin.status_code == 200 and fin.json()["chips"] is None)
+check("chips_for_run: nothing without the server's score", classroom.chips_for_run({"game": "sdg4-stage", "metrics": {"mode": "formal"}}, None, {}) == [])
+check("chips_for_run: 94% rounds to 9, 95% to 10", classroom.chips_for_run({"game": "sdg4-stage", "metrics": {}}, {"complete": True, "accuracy": 0.94}, {}) == [("sdg4.read", 9)] and classroom.chips_for_run({"game": "sdg4-stage", "metrics": {}}, {"complete": True, "accuracy": 0.95}, {}) == [("sdg4.read", 10)])
+
+# what the teacher sees
+left_rid, _ = talk(quick, "s4-left", finish=False, leave_during=7, redo_on=(3,))
+old_rid, _ = talk(quick, "s4-v1", v2=False, mode="practice")
+ov = client.get("/learning/sdg4/overview", headers=admin)
+rep4 = ov.json()
+o4 = rep4["overview"]
+check("SDG 4 page: the class overview", ov.status_code == 200 and o4["runs"] == o4["runs_total"] - o4["excluded_runs"] and o4["excluded"].get("test_account") == 1 and o4["finished"] >= 9, str(o4))
+s3, s7, s8 = (next(s_ for s_ in rep4["slides"] if s_["slide"] == n_) for n_ in (3, 7, 8))
+check("…per slide: reached, finished, how long, heard", s3["done"] >= 9 and s3["dwell_median_s"] == 20.0 and s3["redo_rate"] > 0 and 0 < s3["heard_avg"] <= 1 and s3["top_missed"][0]["word"] in ("laboratory", "fair"), str(s3))
+check("…slide 7 was reached by one run that did not finish it; slide 8 not by that run", s7["reached"] == s7["done"] + 1 and s7["completion"] < 1 and s8["reached"] == s8["done"], str((s7, s8)))
+check("…where runs were left", any(e_["kind"] == "slide" and e_["key"] == 7 and "第 7 張" in e_["label"] and "途中" in e_["label"] for e_ in rep4["exits"]), str(rep4["exits"]))
+ph = {p_["phase"]: p_ for p_ in rep4["phases"]}
+check("…time in each phase (median seconds)", ph["pier"]["median_s"] == 40.0 and ph["present"]["median_s"] == 420.0 and ph["load"]["median_s"] == 4.2, str(rep4["phases"]))
+check("…accuracy spread and device facts", sum(b_["n"] for b_ in rep4["accuracy_dist"]) >= 6 and o4["mobile"] >= 6 and o4["low_tier"] >= 6 and o4["load_median_s"] == 4.2, str((rep4["accuracy_dist"], o4)))
+me4 = next(s_ for s_ in rep4["students"] if s_["user_id"] == talker_id)
+check("…a row per student: talks, best / last accuracy, trend", me4["runs"] == 5 and me4["best"] == 1.0 and me4["finished"] == 5 and len(me4["trend"]) == 5 and me4["formal"] == 3 and me4["practice"] == 2, str(me4))
+check("…the teacher's own talk is listed among the runs, marked, and anonymous talks are counted as one student each", any(r_["excluded"] == "test_account" for r_ in rep4["runs"]) and any(s_["user_id"] is None for s_ in rep4["students"]))
+f4 = client.get("/learning/sdg4/overview", params={"mode": "practice"}, headers=admin).json()
+check("…filter by practice / formal", f4["overview"]["formal"] == 0 and f4["overview"]["practice"] >= 3, str(f4["overview"]))
+st4 = client.get(f"/learning/sdg4/student/{quick_id}", headers=admin).json()
+check("SDG 4 page: one student — talks, the one left early, words to practise", st4["totals"]["runs"] == 6 and st4["totals"]["left"] == 1 and st4["missed_words"][0]["word"] in ("laboratory", "fair") and len(st4["slides"]) == 20, str(st4["totals"]))
+one4 = client.get(f"/learning/sdg4/run/{left_rid}", headers=admin).json()
+a4 = one4["analysis"]
+check("SDG 4 page: one talk — left during slide 7 with the tab hidden, slide 3 redone", a4["exit"]["kind"] == "slide" and a4["exit"]["slide"] == 7 and a4["exit"]["state"] == "during" and a4["exit"]["hidden"] and a4["slides"][2]["redo"] == 1 and a4["slides"][2]["dwell_ms"] == 28000 and a4["slides_done"] == 6 and "中途離開" in one4["summary"], one4["summary"])
+check("…the open phase of an unfinished talk is timed from the events", a4["phases"].get("present", 0) > 100000 and a4["phases"]["pier"] == 40000, str(a4["phases"]))
+v1 = client.get(f"/learning/sdg4/run/{old_rid}", headers=admin).json()["analysis"]
+check("a talk recorded before this version still reads: heard per slide, no timings", v1["slides_done"] == 20 and v1["heard_avg"] == 0.8 and v1["has_timing"] is False and v1["accuracy"] is None and v1["finished"], str({k_: v1[k_] for k_ in ("slides_done", "heard_avg", "has_timing", "accuracy")}))
+check("students cannot open the SDG 4 page's data", client.get("/learning/sdg4/overview", headers=talker).status_code == 403 and client.get(f"/learning/sdg4/run/{rid1}", headers=talker).status_code == 403)
+check("an unknown run is 404", client.get("/learning/sdg4/run/99999999", headers=admin).status_code == 404)
+x4 = client.get("/learning/sdg4/export.xlsx", params={"names": "false"}, headers=admin)
+check("SDG 4 Excel export", x4.status_code == 200 and x4.content[:2] == b"PK", str(x4.status_code))
+try:
+    from openpyxl import load_workbook as _lw
+    import io as _io4
+    wb4 = _lw(_io4.BytesIO(x4.content))
+    head4 = [c_.value for c_ in wb4["Students"][1]]
+    check("…sheets for students, runs, slides, every slide of every run, phases, exits, missed words; no names", {"Students", "Runs", "Slides", "RunSlides", "Phases", "Exits", "MissedWords", "Events"} <= set(wb4.sheetnames) and head4[0] == "research_code" and "name" not in head4 and wb4["Slides"].max_row == 21 and wb4["RunSlides"].max_row > 100, str(wb4.sheetnames))
+except ImportError:
+    pass
+gen = client.get("/learning/records/game", params={"game": "sdg4-stage"}, headers=admin)
+check("the general records page still lists the SDG 4 talks", gen.status_code == 200 and gen.json()["overview"]["runs"] >= 9)
+held4 = [h_ for h_ in client.get("/teacher/chips", headers=admin).json()["held"] if h_["game"] == "sdg4-stage"]
+check("the too-quick talk's chips are in the teacher's list of held entries", len(held4) >= 1 and held4[0]["user_id"] == quick_id, str(held4)[:200])
+
+
+# anomalies per talk and per student, the student's state, the talk that represents them
+fast_row = next(r_ for r_ in rep4["runs"] if r_["id"] == fast_rid)
+check("each talk carries its own anomalies: the 30-second one is 'too good', with a reason in plain words", [f_["code"] for f_ in fast_row["anomalies"]] == ["too_fast"] and fast_row["anomalies"][0]["kind"] == "too_good" and "秒" in fast_row["anomalies"][0]["reason"], str(fast_row["anomalies"]))
+check("…the 9-slide talk that was sent as finished is flagged too", any(f_["code"] == "few_slides" for f_ in next(r_ for r_ in rep4["runs"] if r_["id"] == short_rid)["anomalies"]))
+check("…an ordinary talk has none", next(r_ for r_ in rep4["runs"] if r_["id"] == rid1)["anomalies"] == [])
+an4 = {a_["user_id"]: a_ for a_ in rep4["anomalies"]}
+check("students flagged in this game, with every reason gathered from their talks", quick_id in an4 and an4[quick_id]["too_good"] and len(an4[quick_id]["reasons"]) >= 2 and any("秒就送出" in w_ for w_ in an4[quick_id]["reasons"]), str(an4.get(quick_id)))
+q4 = next(s_ for s_ in rep4["students"] if s_["user_id"] == quick_id)
+check("a student who left one talk and finished a later one is 'recovered' (unsteady, not weak)", q4["state"] == "recovered" and "不是學習不佳" in q4["state_zh"] and me4["state"] == "steady", str((q4["state"], me4["state"])))
+check("the talk that represents a student is a finished one that is not flagged as too good", q4["best_run"]["run_id"] not in (fast_rid, short_rid, left_rid) and me4["best_run"]["accuracy"] == 1.0, str((q4["best_run"], me4["best_run"])))
+giveup, giveup_id = new_student("giveup@example.com", "Gave Up")
+g1, _ = talk(giveup, "s4-g1", finish=False, leave_during=2)
+g2, _ = talk(giveup, "s4-g2", finish=False, leave_during=5)
+rep4b = client.get("/learning/sdg4/overview", headers=admin).json()
+g4 = next(s_ for s_ in rep4b["students"] if s_["user_id"] == giveup_id)
+check("a student who never finished is 'abandoned_only' and has no representative talk", g4["state"] == "abandoned_only" and g4["best_run"] is None and g4["exits"] == 2 and rep4b["states"]["abandoned_only"] == 1 and rep4b["states"]["recovered"] >= 1, str((g4["state"], rep4b["states"])))
+jumper, jumper_id = new_student("jumper@example.com", "Jumper")
+talk(jumper, "s4-j1", hit=4, miss=16, seconds=900); talk(jumper, "s4-j2", hit=19, miss=1)
+rep4c = client.get("/learning/sdg4/overview", headers=admin).json()
+check("accuracy that jumps 75 points between two talks is a reason to look", any(a_["user_id"] == jumper_id and any("跳了" in w_ for w_ in a_["reasons"]) for a_ in rep4c["anomalies"]), str(rep4c["anomalies"])[:300])
+wl = client.get("/learning/records/watchlist", headers=admin)
+check("across games: one list of flagged students with each game's reasons", wl.status_code == 200 and any(p_["user_id"] == quick_id and p_["games"][0]["game"] == "sdg4-stage" for p_ in wl.json()["students"]) and "pecha_kucha" in wl.json()["by_game"] and isinstance(wl.json()["in_several_games"], int), wl.text[:300])
+check("…students cannot read it", client.get("/learning/records/watchlist", headers=talker).status_code == 403)
+
+# a report per talk; a talk that was left gets none, and the teacher is told
+sr = client.post("/teacher/reports/sdg4-run", json={"run_ids": [rid1, left_rid, anon_rid, admin_rid, g1], "note": "Slide 6 was much clearer this time."}, headers=admin)
+j = sr.json()
+check("one report per finished talk; left talks are withheld and named; test and anonymous talks are skipped", sr.status_code == 200 and j["sent"] == 1 and {w_["run_id"] for w_ in j["withheld"]} == {left_rid, g1} and len(j["skipped"]) == 2 and "中途離開" in j["message"], sr.text[:400])
+check("…the withheld entry says where the student stopped", any("第 7 張" in w_["reason"] and w_["user_id"] == quick_id for w_ in j["withheld"]), str(j["withheld"]))
+again = client.post("/teacher/reports/sdg4-run", json={"run_ids": [rid1]}, headers=admin).json()
+check("…the same talk is not reported twice unless asked", again["sent"] == 0 and len(again["already"]) == 1 and client.post("/teacher/reports/sdg4-run", json={"run_ids": [rid1], "again": True}, headers=admin).json()["sent"] == 1, str(again))
+mine = client.get("/me/reports", headers=talker).json()
+docs4 = [client.get(f"/me/reports/{x_['id']}", headers=talker) for x_ in mine["reports"] if "SDG 4" in x_["title"]]   # two were sent in the same second: either may come first
+check("the student receives it: accuracy, slide bars, words to practise, the teacher's note", len(docs4) == 2 and all(d_.status_code == 200 for d_ in docs4) and any(all(t_ in d_.json()["html"] for t_ in ("念對的字", "80%", "laboratory", "Slide 6 was much clearer")) for d_ in docs4), str(mine)[:200])
+check("…the student who gave up received nothing", not any("SDG 4" in x_["title"] for x_ in client.get("/me/reports", headers=giveup).json()["reports"]))
+sent4 = client.get("/teacher/reports/sdg4-sent", headers=admin).json()["runs"]
+check("the teacher's page knows which talks have a report", str(rid1) in sent4 and str(left_rid) not in sent4 and sent4[str(rid1)]["seen"] is True, str(sent4))
+check("students cannot send reports", client.post("/teacher/reports/sdg4-run", json={"run_ids": [rid1]}, headers=talker).status_code == 403)
+
+section("Paths (2026-11-12): no traversal, no hidden or source files, no server folders in any answer")
+for bad in ("/pages/..%5Cmain.py", "/pages/..%5C..%5Cbackend%5Cmain.html", "/pages/%2e%2e/index.html", "/static/../backend/main.py", "/static/%2e%2e/backend/main.py",
+            "/static/%252e%252e/%252e%252e/backend/main.py", "/static/js/..%2f..%2fbackend/main.py", "/static/.env", "/static/games/innovation-harbor/README.md",
+            "/static/js/api.js%00.html", "/.git/config", "/pages/Login.HTML", "/pages/a.html.bak"):
+    r_ = client.get(bad)
+    check(f"refused: {bad}", r_.status_code == 404 and b"import " not in r_.content and b"SECRET" not in r_.content, f"{r_.status_code} {r_.text[:80]}")
+check("ordinary pages and files still load, with nosniff", client.get("/pages/login.html").status_code == 200 and client.get("/static/js/api.js").status_code == 200 and client.get("/static/js/api.js").headers.get("x-content-type-options") == "nosniff")
+h_ = client.get("/health").text + client.get("/learning/health").text
+check("/health names the engine, never a folder or a file on the server", ("sqlite" in h_ or "postgresql" in h_) and "\\\\" not in h_ and "app.db" not in h_ and "learning.db" not in h_ and ":/" not in h_.replace("://", ""), h_[:200])
+import tempfile as _tf  # noqa: E402
+_old_audio = recordings.AUDIO_DIR
+recordings.AUDIO_DIR = _tf.mkdtemp(prefix="audio-guard-")
+check("a stored recording path is relative, and a path that leaves the audio folder is refused",
+      recordings._audio_file("2026-11/ab.webm") is not None and recordings._audio_file("../../backend/main.py") is None and recordings._audio_file(str(Path(__file__).resolve())) is None)
+recordings.AUDIO_DIR = _old_audio
+from backend import tts as _tts  # noqa: E402
+for a_, h2_ in (("../x", "a" * 32), ("en-US", "../../../etc"), ("en-US/..", "b" * 32)):
+    try:
+        _tts.clip_path(a_, h2_); ok_ = False
+    except Exception:
+        ok_ = True
+    check(f"a voice clip path cannot be steered: {a_!r} {h2_[:12]!r}", ok_)
+
 section("Other pages still work")
 check("3D story analytics leave card-game runs out (only the one 3D run made above is counted)", client.get("/learning/analytics", headers=admin).json()["overview"]["runs"] == 1)
 check("old card-game analytics", client.get("/teacher/pk-analytics", headers=admin).status_code == 200)

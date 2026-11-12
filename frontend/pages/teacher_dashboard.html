@@ -713,7 +713,7 @@ body{ background:var(--page); }
       <div class="mega" role="menu"><div class="mega-in">
           <button class="mega-tile nav-item" type="button" data-module="records" data-game="pecha_kucha"><span class="mt-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="12" height="16" rx="2"/><path d="M8 3h11a2 2 0 0 1 2 2v13"/><path d="M7 11h4M7 15h3"/></svg></span><span class="mt-tx"><b>Card Game</b><small>班級、個人、題目分析與錄音</small></span></button>
           <button class="mega-tile nav-item" type="button" data-module="records" data-game="innovation-harbor"><span class="mt-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 3 8l9 5 9-5-9-5z"/><path d="M3 8v8l9 5 9-5V8"/><path d="M12 13v8"/></svg></span><span class="mt-tx"><b>3D Harbor</b><small>3D 故事遊戲的學習紀錄</small></span></button>
-          <button class="mega-tile nav-item" type="button" data-module="records" data-game="sdg4-stage"><span class="mt-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16"/><path d="M6 20V9l6-5 6 5v11"/><circle cx="12" cy="12" r="2.2"/></svg></span><span class="mt-tx"><b>SDG 4 Stage</b><small>全文朗讀的紀錄</small></span></button>
+          <button class="mega-tile nav-item" type="button" data-module="sdg4"><span class="mt-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16"/><path d="M6 20V9l6-5 6 5v11"/><circle cx="12" cy="12" r="2.2"/></svg></span><span class="mt-tx"><b>SDG 4 Stage</b><small>逐張停留、重講、念對率、離開點、發報告</small></span></button>
           <button class="mega-tile nav-item" type="button" data-module="story_analytics"><span class="mt-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5 13.6 13.6 8.5 15.5l1.9-5.1z"/></svg></span><span class="mt-tx"><b>3D 故事路線分析</b><small>Harbor 學生在故事裡的選擇與異常</small></span></button>
       </div></div>
     </div>
@@ -1085,6 +1085,86 @@ body{ background:var(--page); }
       </div>
     </div>
   </section>
+  </section>
+
+  <!-- SDG 4 Stage: class → student → one talk (frontend/js/teacher-sdg4.js, backend/sdg4_reports.py) -->
+  <section id="sdg4Module" hidden>
+    <style>
+      #sdg4Module .panel{margin-bottom:16px;min-width:0}
+      #sdg4Module h2 small{display:block;font-size:13px;font-weight:600;color:var(--muted);margin-top:4px;line-height:1.5}
+      #sdg4Module .s4-h{margin:0 0 8px;font-size:16px}
+      #sdg4Module .s4-hint,#sdg4Module .s4-empty{color:var(--muted);font-size:13.5px;line-height:1.6;margin:6px 0}
+      #sdg4Module .s4-say{font-size:14px;line-height:1.65;margin:8px 0 0;padding:8px 12px;background:#f1f5f9;border-radius:10px}
+      #sdg4Module .s4-summary{font-size:15px;line-height:1.7;margin:4px 0 12px}
+      #sdg4Module .s4-warn{background:#fef3c7;color:#92400e;border-radius:10px;padding:8px 12px;font-weight:700;font-size:14px;margin:10px 0 0}
+      #sdg4Module .s4-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0}
+      #sdg4Module .s4-row label{display:flex;align-items:center;gap:6px;font-weight:700;font-size:14px;white-space:nowrap}
+      #sdg4Module .s4-row select,#sdg4Module .s4-row input{width:auto;min-width:100px;min-height:38px}
+      #sdg4Module .s4-grow{flex:1}
+      #sdg4Module .s4-crumbs{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:14px}
+      #sdg4Module .s4-crumb{border:0;background:none;color:#1d4ed8;font:inherit;font-weight:750;cursor:pointer;padding:6px 2px}
+      #sdg4Module .s4-crumb.now{color:#0f172a;cursor:default}
+      #sdg4Module .s4-sep{color:#94a3b8}
+      #sdg4Module .s4-kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+      #sdg4Module .s4-kpi{border:1px solid #e2e8f0;border-radius:12px;padding:10px 12px;min-width:0}
+      #sdg4Module .s4-kpi b{display:block;font-size:24px;line-height:1.2;font-variant-numeric:tabular-nums}
+      #sdg4Module .s4-kpi span{display:block;font-size:13px;font-weight:700}
+      #sdg4Module .s4-kpi small{display:block;font-size:12px;color:var(--muted)}
+      #sdg4Module .s4-two{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,430px),1fr));gap:16px}
+      #sdg4Module .s4-two > *{min-width:0}
+      #sdg4Module .s4-chart{display:block;width:100%;height:auto}
+      #sdg4Module .s4-grid{stroke:#e2e8f0;stroke-width:1}
+      #sdg4Module .s4-ax{font-size:10.5px;fill:#64748b}
+      #sdg4Module .s4-part{font-weight:800;font-size:9.5px}
+      #sdg4Module .s4-legend{display:flex;gap:14px;flex-wrap:wrap;font-size:12.5px;color:#475569;margin:6px 0 0}
+      #sdg4Module .s4-legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px;vertical-align:-1px}
+      #sdg4Module .s4-hbar{display:grid;grid-template-columns:minmax(120px,42%) 1fr 56px;gap:8px;align-items:center;font-size:13px;margin:5px 0}
+      #sdg4Module .s4-hbar span{overflow-wrap:anywhere}
+      #sdg4Module .s4-hbar i{display:block;height:12px;background:#eef2f7;border-radius:6px;overflow:hidden}
+      #sdg4Module .s4-hbar b{display:block;height:100%;border-radius:6px}
+      #sdg4Module .s4-hbar em{font-style:normal;font-weight:700;text-align:right;font-variant-numeric:tabular-nums}
+      #sdg4Module .s4-stack{display:flex;height:22px;border-radius:8px;overflow:hidden;background:#eef2f7}
+      #sdg4Module .s4-stack i{display:block;min-width:2px}
+      #sdg4Module .s4-sheet{overflow-x:auto}
+      #sdg4Module .s4-table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:640px}
+      #sdg4Module .s4-table th{text-align:left;font-size:12.5px;color:#475569;padding:8px;border-bottom:2px solid #e2e8f0;white-space:nowrap}
+      #sdg4Module .s4-table td{padding:8px;border-bottom:1px solid #eef2f7;vertical-align:middle}
+      #sdg4Module .s4-table td small{display:block;color:var(--muted);font-size:11.5px}
+      #sdg4Module .s4-table tr.off td{opacity:.55}
+      #sdg4Module .s4-log{min-width:0}
+      #sdg4Module .s4-link{border:0;background:none;color:#1d4ed8;font:inherit;font-weight:750;cursor:pointer;padding:4px 0;text-align:left}
+      #sdg4Module .s4-link:disabled{color:#0f172a;cursor:default}
+      #sdg4Module .s4-mini{min-height:32px;padding:0 10px;font-size:12.5px;white-space:nowrap}
+      #sdg4Module .s4-meter{display:inline-flex;align-items:center;gap:6px;font-weight:700;font-variant-numeric:tabular-nums}
+      #sdg4Module .s4-meter i{display:block;width:54px;height:8px;background:#eef2f7;border-radius:5px;overflow:hidden}
+      #sdg4Module .s4-meter b{display:block;height:100%}
+      #sdg4Module .s4-dash{color:#94a3b8;font-size:12.5px}
+      #sdg4Module .s4-spark{width:80px;height:26px;display:block}
+      #sdg4Module .s4-tag{display:inline-block;margin:2px 4px 2px 0;padding:1px 8px;border-radius:999px;background:#e2e8f0;color:#334155;font-size:11.5px;font-weight:750;white-space:nowrap}
+      #sdg4Module .s4-tag.warn{background:#fef3c7;color:#92400e}
+      #sdg4Module .s4-tag.bad{background:#fee2e2;color:#991b1b}
+      #sdg4Module .s4-tag.good{background:#dcfce7;color:#166534}
+      #sdg4Module .s4-tag.info{background:#dbeafe;color:#1e40af}
+      #sdg4Module .s4-ok{color:#166534;font-weight:700}
+      #sdg4Module .s4-bad{color:#b91c1c;font-weight:700}
+      #sdg4Module .s4-no{color:var(--muted);font-size:12.5px}
+      #sdg4Module .s4-att{margin:0;padding-left:20px;line-height:1.9;font-size:14px}
+      #sdg4Module .s4-anom{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:8px}
+      #sdg4Module .s4-anom > li{border-left:4px solid #f59e0b;background:#fffbeb;border-radius:0 10px 10px 0;padding:8px 12px;font-size:14px}
+      #sdg4Module .s4-anom > li.bad{border-color:#dc2626;background:#fef2f2}
+      #sdg4Module .s4-anom ul{margin:4px 0 0;padding-left:20px;line-height:1.7}
+      #sdg4Module .s4-sendresult{border:2px solid #2563eb}
+      #sdg4Module .s4-send textarea{display:block;width:100%;box-sizing:border-box;padding:8px 12px;border:1px solid #cbd5e1;border-radius:10px;font:inherit;font-size:14px;resize:vertical}
+      #sdg4Module .s4-check{display:flex;align-items:center;gap:8px;font-size:13.5px;margin:0 0 8px}
+      #sdg4Module .s4-words span{display:inline-block;margin:3px 6px 3px 0;padding:3px 10px;border-radius:999px;background:#fee2e2;color:#991b1b;font-weight:700;font-size:13px}
+      #sdg4Module .s4-words small{margin-left:6px;opacity:.7}
+      #sdg4Module .s4-pn{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;color:#fff;font-size:12px}
+      #sdg4Module .s4-missed{color:#b91c1c;font-size:12.5px}
+      #sdg4Module .s4-vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+      #sdg4Module details summary{cursor:pointer}
+      #sdg4Module input[type=checkbox]{width:18px;height:18px}
+    </style>
+    <div id="s4Root"></div>
   </section>
 
   <!-- 語音念法: how abbreviations are read aloud in every game (frontend/js/teacher-speech.js) -->
@@ -1620,6 +1700,7 @@ body{ background:var(--page); }
 <script src="/static/js/teacher-library.js"></script>
 <script src="/static/js/speech-say.js"></script>
 <script src="/static/js/teacher-speech.js"></script>
+<script src="/static/js/teacher-sdg4.js"></script>
 <script>
 const difficultyCodes = ["A2", "A1", "B1"];
 const difficultyLabels = { A2: "A2", A1: "A1", B1: "B1" };
@@ -1788,6 +1869,7 @@ const MODULE_SECTIONS = {
   records: "recordsModule",
   library: "libraryModule",
   speech: "speechModule",
+  sdg4: "sdg4Module",
   system: "systemModule",
   database: "databaseModule",
   resources: "resourcesModule",
@@ -1803,6 +1885,7 @@ const MODULE_LOADERS = {
   records: () => loadRecords(currentGame),
   library: () => loadLibrary(),
   speech: () => loadSpeechRules(),
+  sdg4: () => loadSdg4(),
   system: () => loadSystem(),
   database: () => loadDatabase(),
   resources: () => loadResources(),

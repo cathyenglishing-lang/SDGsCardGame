@@ -46,10 +46,11 @@ PASSWORD_ALPHABET = "abcdefghijkmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ23456789"
 
 # Chips (2026-11-08 design, "全域個人籌碼"). Changing a rule means a new CHIP_RULE_VERSION;
 # entries already written keep the version they were made with and are never recalculated.
-CHIP_RULE_VERSION = 1
+CHIP_RULE_VERSION = 2             # 2: SDG 4 stage pays for the words read correctly
 CHIP_DAILY_CAP = 60
 CHIP_FULL_REWARD_RUNS_PER_DAY = 2   # same topic and level: from the 3rd run of a day only the score pays
 CHIP_SPACED_DAYS = 2
+SDG4_PAID_RUNS_PER_DAY = 3          # one account earns chips from at most this many SDG 4 talks a day
 
 
 def configure(**deps):
@@ -888,8 +889,14 @@ def chips_for_run(run, score, context):
         if n:
             out.append(("harbor.stars", n))
     elif game == "sdg4-stage":
+        # Paid on what the server worked out from the events (learning.sdg4_score), not on what the browser says.
+        s = score or {}
+        if not s.get("complete"):
+            return []
         if metrics.get("mode") == "formal":
-            out.append(("sdg4.formal", 5))
+            out.append(("sdg4.formal", 5))                       # the real 20-second talk, finished
+        if s.get("accuracy") is not None:
+            out.append(("sdg4.read", int(s["accuracy"] * 10 + 0.5)))   # one chip per 10% of the words read correctly
     return [(reason, chips) for reason, chips in out if chips > 0]
 
 
@@ -909,6 +916,18 @@ def award_for_run(run, score, context):
         conn.close()
         return out
     wanted = chips_for_run(run, score, context)
+    run_limit = None
+    if run.get("game") == "sdg4-stage":
+        # At most SDG4_PAID_RUNS_PER_DAY talks a day pay chips. Counted from the ledger (held ones too, voided ones not),
+        # leaving out this run, so asking again for the same run gives the same answer.
+        cur.execute("""
+            SELECT COUNT(DISTINCT run_id) AS n FROM chip_ledger
+            WHERE user_id = ? AND game = ? AND run_id <> ? AND status IN ('posted', 'held') AND created_at >= ?""",
+            (user_id, "sdg4-stage", run["id"], _today()))
+        used = int(cur.fetchone()["n"])
+        run_limit = {"limit": SDG4_PAID_RUNS_PER_DAY, "used": used}
+        if used >= SDG4_PAID_RUNS_PER_DAY:
+            wanted = []
     held = bool(score and score.get("held"))
     items, room = [], max(0, CHIP_DAILY_CAP - _earned_today(cur, user_id))
     for reason, chips in wanted:
@@ -933,7 +952,7 @@ def award_for_run(run, score, context):
     out = {"items": items, "earned": sum(i["chips"] for i in items if i["status"] in ("posted", "held")),
            "held": held and any(i["status"] == "held" for i in items),
            "capped": any(i["status"] == "capped" for i in items) or any(i["chips"] < c for i, (_, c) in zip(items, wanted)),
-           "balance": _balance(cur, user_id), "today": _earned_today(cur, user_id), "daily_cap": CHIP_DAILY_CAP}
+           "balance": _balance(cur, user_id), "today": _earned_today(cur, user_id), "daily_cap": CHIP_DAILY_CAP, "run_limit": run_limit}
     conn.close()
     return out
 

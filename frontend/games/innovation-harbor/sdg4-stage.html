@@ -63,7 +63,12 @@
   <div class="cover" id="loading">
     <div class="card small">
       <h1><span>SDG 4 · PECHA KUCHA STAGE</span>Setting up the stage…</h1>
-      <div class="loadbar"><i id="loadBar"></i></div><p id="loadPct">0%</p>
+      <div class="loadbar" id="loadTrack" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Loading 載入進度"><i id="loadBar"></i></div>
+      <p class="loadrow"><span id="loadLabel">Starting 啟動中</span><b id="loadPct">0%</b></p>
+      <div class="loadslow" id="loadSlow" hidden>
+        <p>Still loading. The 3D stage needs a steady connection the first time. <small>還在載入。第一次進入需要下載 3D 場景，請確認網路；等很久都沒有動，可以重新載入，或先玩卡牌遊戲。</small></p>
+        <div class="row"><button class="btn" type="button" onclick="location.reload()">Reload 重新載入</button><a class="btn ghost" href="/pages/pecha_kucha_builder.html?topic=4-1">Card game instead 改玩卡牌</a></div>
+      </div>
     </div>
   </div>
   <div class="cover" id="intro" hidden>
@@ -88,6 +93,11 @@
   <div class="cover" id="ending" hidden><div class="card" id="endCard"></div></div>
 </div>
 <div id="fade"></div>
+<script>
+  // Works even when the 3D code never starts (a blocked CDN, no WebGL): after 20 s the loading card says so.
+  setTimeout(function () { if (!window.__stageReady) { var el = document.getElementById("loadSlow"); if (el) el.hidden = false; } }, 20000);
+  window.addEventListener("error", function () { if (!window.__stageReady) { var el = document.getElementById("loadSlow"); if (el) el.hidden = false; } });
+</script>
 <script type="module" src="js/sdg4/main.js"></script>
 </body>
 </html>

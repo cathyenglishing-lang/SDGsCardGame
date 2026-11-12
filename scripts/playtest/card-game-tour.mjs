@@ -79,7 +79,7 @@ for (const [w, h] of SIZES) {
 
   const playPart = async (index, { mistakes = 0, shots = false } = {}) => {
     await page.click(`#topicGrid .topic:nth-child(${index})`);
-    await page.waitFor(`/牌發好了/.test(document.getElementById("status").textContent)`);
+    await page.waitFor(`/cards are dealt/.test(document.getElementById("status").textContent)`);
     await page.sleep(650);
     // Every title card carries a Chinese line under the title: the teacher's hint, or the slide's Chinese title.
     const noHint = await page.evaluate(`[...document.querySelectorAll("#subBox .subtopic-poker")].filter(c => !/[㐀-鿿]/.test((c.querySelector(".card-kw") || {}).textContent || "")).length`);
@@ -118,7 +118,7 @@ for (const [w, h] of SIZES) {
   // ── switching parts in the middle of one ──
   await guard("switch part mid-way", async () => {
     await page.click("#topicGrid .topic:nth-child(2)");
-    await page.waitFor(`/牌發好了/.test(document.getElementById("status").textContent)`);
+    await page.waitFor(`/cards are dealt/.test(document.getElementById("status").textContent)`);
     await page.click("#mainDeck"); await page.sleep(300);
     await page.click("#topicGrid .topic:nth-child(3)");            // leave part 2 with a card in hand: the page asks first
     await page.waitForSelector("#pkSwitchBar"); await page.sleep(200); await audit("switch bar"); await shot("switch-bar");
@@ -126,7 +126,7 @@ for (const [w, h] of SIZES) {
     if (await page.evaluate(`currentTopic !== 2 || !currentCardData || !!document.getElementById("pkSwitchBar")`)) problem(size, "switch bar", "「繼續這一段」 did not keep the part and its card");
     await page.click("#topicGrid .topic:nth-child(3)"); await page.waitForSelector("#pkSwitchBar");
     await page.click("#pkSwitchGo");
-    await page.waitFor(`currentTopic === 3 && /牌發好了/.test(document.getElementById("status").textContent)`);
+    await page.waitFor(`currentTopic === 3 && /cards are dealt/.test(document.getElementById("status").textContent)`);
     await page.sleep(900);
   });
   await audit("after switching part"); await shot("switched-part");
@@ -171,9 +171,9 @@ for (const [w, h] of SIZES) {
   await page.sleep(200); await audit("wrap: read result"); await shot("wrap-read-result");
   await expect("wrap: read result", `!!document.querySelector(".pkw-sent.ok")`, "the take did not reach the teacher: " + (await page.evaluate(`(document.querySelector(".pkw-sent") || {}).textContent || "no status line"`)));
   await guard("wrap read → next", async () => { await page.click("#pkwNext"); await page.waitForSelector("#pkwAgain"); });
-  await page.waitFor(`/\+\d+|籌碼已滿|只計/.test(document.querySelector("#pkwChips p").textContent)`, 12000, "chips").catch(() => {});
+  await page.waitFor(`/\+\d+|chip limit|only the understanding/.test(document.querySelector("#pkwChips p").textContent)`, 12000, "chips").catch(() => {});
   await page.sleep(400); await audit("wrap: next"); await shot("wrap-next"); await page.shot(`${OUT}/${size}-wrap-next-full.png`, { fullPage: true });
-  await expect("wrap: next", `/已儲存/.test(document.getElementById("pkwSave").textContent)`, "the last step does not say the result is saved");
+  await expect("wrap: next", `/[Ss]aved/.test(document.getElementById("pkwSave").textContent)`, "the last step does not say the result is saved");
   await expect("wrap: three steps", `document.querySelectorAll("#pkWrap .pkw-dot").length === 3`, "the wrap-up is not the short three-step form");
 
   // the optional extras must lead back to the last step

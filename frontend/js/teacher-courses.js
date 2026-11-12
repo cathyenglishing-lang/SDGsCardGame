@@ -327,7 +327,7 @@ window.teacherToast = window.teacherToast || function (text, undo) {
 
   // ── chips: what waits for the teacher, every student's balance, add or take away with a reason ──
   const CHIP_REASON = { "pk.score": "聽懂分數", "pk.finish": "玩完整局", "pk.remedy": "補救配對", "pk.quiz": "小測", "pk.read": "朗讀", "pk.reflect": "反思",
-    "spaced.return": "隔幾天回來玩", "harbor.stars": "3D 遊戲的星星", "sdg4.formal": "正式發表", "teacher.grant": "老師加的", "teacher.deduct": "老師扣的" };
+    "spaced.return": "隔幾天回來玩", "harbor.stars": "3D 遊戲的星星", "sdg4.formal": "正式發表", "sdg4.read": "SDG 4 念對的字", "teacher.grant": "老師加的", "teacher.deduct": "老師扣的" };
   let chipOpen = null;                                  // user id whose "add or take away" row is open
   async function loadChips() {
     const box = $("tcChips"); if (!current || !box) return;

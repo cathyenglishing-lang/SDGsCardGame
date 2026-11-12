@@ -51,6 +51,9 @@ STAGE_NAMES = ["Hook", "Problem", "Explain", "Impact", "Strategy", "Conclusion"]
 MAX_BATCH = 200
 
 CARD_GAME = "pecha_kucha"
+SDG4_GAME = "sdg4-stage"
+SDG4_SLIDES = 20
+SDG4_MIN_SECONDS = 280      # 20 slides x 20 s x 0.7: a real run cannot be shorter than this
 
 _auth = {"current": None, "teacher": None, "course": None, "finish": None, "people": None, "recordings": None, "titles": None, "test_users": None}
 
@@ -434,6 +437,10 @@ def finish_run(run_id: int, data: RunFinishIn, authorization: str | None = Heade
     if run["game"] == CARD_GAME:
         score = score_events(_events_of(cur, run_id))
         metrics.update({k: score[k] for k in ("score", "scored_cards", "first_try_correct", "matched", "dealt", "complete", "repeats", "median_rt_ms", "flags", "wrap")})
+    elif run["game"] == SDG4_GAME:
+        score = sdg4_score(_events_of(cur, run_id), run, ended_at)
+        metrics["reading"] = {k: score[k] for k in ("accuracy", "hit", "miss", "slides", "complete", "seconds")}   # worked out here, not sent by the browser
+        metrics["flags"] = score["flags"]
     cur.execute("""
         UPDATE learning_runs SET ended_at = ?, ending = ?, vars_json = ?, stars_json = ?, metrics_json = ?, route_json = ?
         WHERE id = ?""",
@@ -482,6 +489,47 @@ def _run_context(cur, run, ended_at):
     return {"runs_before": len(earlier), "days_since_previous": days,
             "finished_today_same": sum(1 for r in earlier if r["level"] == run["level"] and str(r["ended_at"])[:10] == today),
             "best_before": max(scores) if scores else None, "previous_score": scores[0] if scores else None}
+
+
+# ── SDG 4 stage: how much of the script was read correctly (2026-11-12) ──
+def sdg4_slides(events):
+    """The last pk.slide event of every slide (a slide that was redone is represented by its final attempt)."""
+    out = {}
+    for e in events:
+        if e.get("type") != "pk.slide":
+            continue
+        d = e.get("data") or {}
+        n = d.get("slide")
+        if isinstance(n, bool) or not isinstance(n, int) or not 1 <= n <= SDG4_SLIDES:
+            continue
+        out[n] = d
+    return out
+
+
+def _count(v):
+    return int(v) if isinstance(v, (int, float)) and not isinstance(v, bool) and 0 <= v <= 300 else None
+
+
+def sdg4_score(events, run, ended_at):
+    """What the chips of an SDG 4 run are paid on, worked out here from the events (never from a number the
+    browser reports about itself): the share of script words the microphone heard, and whether the run looks
+    like a real one. A run that is too quick to be real is `held`: its chips wait for the teacher."""
+    slides = sdg4_slides(events)
+    hit = miss = 0
+    for d in slides.values():
+        h, m = _count(d.get("hit")), _count(d.get("miss"))
+        if h is not None and m is not None:
+            hit += h; miss += m
+    a, b = _parse_ts(run.get("started_at")), _parse_ts(ended_at)
+    seconds = (b - a).total_seconds() if a and b else None
+    complete = len(slides) >= SDG4_SLIDES - 2
+    flags = []
+    if not complete:
+        flags.append("few_slides")
+    if seconds is not None and seconds < SDG4_MIN_SECONDS:
+        flags.append("too_fast")
+    return {"accuracy": round(hit / (hit + miss), 3) if hit + miss else None, "hit": hit, "miss": miss, "slides": len(slides),
+            "complete": complete, "seconds": round(seconds) if seconds is not None else None, "flags": flags, "held": "too_fast" in flags}
 
 
 # ── card game scoring (2026-11-08 design, KPI 1) ──
@@ -596,8 +644,9 @@ def _numeric_stars(stars: dict):
 
 
 def _filters(chapter, level, date_from, date_to, user, game=None):
-    # game=None: the 3D story games (every run that is not the card game, which has its own report)
-    where, params = (["r.game = ?"], [game]) if game else (["r.game <> ?"], [CARD_GAME])
+    # game=None: the 3D story game. The card game and the SDG 4 stage have their own reports
+    # (learning_reports, sdg4_reports) and would only distort the story's numbers.
+    where, params = (["r.game = ?"], [game]) if game else (["r.game NOT IN (?, ?)"], [CARD_GAME, SDG4_GAME])
     if chapter:
         where.append("r.chapter = ?"); params.append(chapter)
     if level:
@@ -1004,7 +1053,7 @@ def export_xlsx(authorization: str | None = Header(default=None), chapter: str |
 
 @router.get("/health")
 def learning_health():
-    return {"database": "postgresql" if USE_POSTGRES else str(DB_PATH)}
+    return {"database": "postgresql" if USE_POSTGRES else "sqlite"}         # never the file's location on the server
 
 
 init_db()
