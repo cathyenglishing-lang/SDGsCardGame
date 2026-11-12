@@ -986,6 +986,7 @@ for bad in ("/pages/..%5Cmain.py", "/pages/..%5C..%5Cbackend%5Cmain.html", "/pag
             "/static/js/api.js%00.html", "/.git/config", "/pages/Login.HTML", "/pages/a.html.bak"):
     r_ = client.get(bad)
     check(f"refused: {bad}", r_.status_code == 404 and b"import " not in r_.content and b"SECRET" not in r_.content, f"{r_.status_code} {r_.text[:80]}")
+check("/.well-known/ (certificate renewal) is not blocked by the guard", client.get("/.well-known/acme-challenge/abc").status_code == 404 and not main.unsafe_path("/.well-known/acme-challenge/abc") and main.unsafe_path("/.well-known/../backend/main.py"))
 check("ordinary pages and files still load, with nosniff", client.get("/pages/login.html").status_code == 200 and client.get("/static/js/api.js").status_code == 200 and client.get("/static/js/api.js").headers.get("x-content-type-options") == "nosniff")
 h_ = client.get("/health").text + client.get("/learning/health").text
 check("/health names the engine, never a folder or a file on the server", ("sqlite" in h_ or "postgresql" in h_) and "\\\\" not in h_ and "app.db" not in h_ and "learning.db" not in h_ and ":/" not in h_.replace("://", ""), h_[:200])

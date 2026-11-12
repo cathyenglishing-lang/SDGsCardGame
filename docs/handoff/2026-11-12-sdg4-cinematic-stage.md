@@ -127,6 +127,8 @@ API：`POST /teacher/reports/sdg4-run`、`GET /teacher/reports/sdg4-sent`。
 | 錄音檔在資料庫只存相對於 `AUDIO_DIR` 的路徑（`2026-11/<隨機>.webm`），不再存伺服器的資料夾。每次讀檔或刪檔，都確認解析後的檔案仍在 `AUDIO_DIR` 裡。舊資料是絕對路徑，照樣能讀，也一樣要通過這個檢查。 | `backend/recordings.py` `_audio_file` |
 | 雲端語音檔的路徑只能是 `<TTS_DIR>/<xx-YY>/<32 個十六進位>.mp3`，其他一律拒絕。 | `backend/tts.py` `clip_path` |
 | 本機後端在 Windows 上把 `.js` 當成 `text/plain`，瀏覽器會拒跑 3D 遊戲。現在明確指定 MIME。 | `backend/main.py` |
+| `/.well-known/`（憑證續約）是例外，不會被擋；但 `/.well-known/../…` 一樣會被擋。 | `backend/main.py` |
+| 本機後端也在 `/games/…` 提供遊戲，和正式站相同。遊戲大廳的連結在本機不再 404。 | `backend/main.py` |
 
 測試新增 19 項：各種穿越寫法、隱藏檔、說明檔、`/health` 不含路徑、錄音與語音檔不能被導到別處。
 
@@ -136,8 +138,8 @@ API：`POST /teacher/reports/sdg4-run`、`GET /teacher/reports/sdg4-sent`。
 
 | 檢查 | 結果 |
 |---|---|
-| `scripts/test_classroom.py` SQLite | **309 / 309**（原 238：新增 52 項 SDG 4，涵蓋數據、籌碼、三次上限、扣住、各種偽造、報告、異常、狀態、跨遊戲；另有 19 項路徑防護） |
-| 同上 PostgreSQL 16 | **309 / 309** |
+| `scripts/test_classroom.py` SQLite | **310 / 310**（原 238：新增 52 項 SDG 4，涵蓋數據、籌碼、三次上限、扣住、各種偽造、報告、異常、狀態、跨遊戲；另有 20 項路徑防護） |
+| 同上 PostgreSQL 16 | **309 / 309**（最後一項 `/.well-known` 例外是之後加的，只在 SQLite 跑過） |
 | 卡牌遊戲走查（改成英文後） | `card-game-tour`（1024、390 寬）、`quick-test-check`、`teacher-walkthrough` 都是 0 個問題 |
 | `npm run build` | 0 個錯誤 |
 | 老師 SDG 4 頁（無頭 Chrome，1366 寬與 390 寬） | 全班、學生、單次、勾選發報告、放棄提醒、Excel 都正常 |

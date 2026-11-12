@@ -73,6 +73,10 @@ app = FastAPI(title="Card Education System API", version=APP_VERSION)
 # Mount frontend assets under /static so API routes remain unambiguous.
 # Frontend files are available through paths like /static/js/api.js.
 app.mount("/static", StaticFiles(directory=str(FRONTEND_DIR)), name="static")
+# The built site (dist/, what Vercel and the VM's nginx serve) has the games at /games/…, and the game hub links
+# there. Serve the same address from the source folder, so a local backend shows what production shows.
+if (FRONTEND_DIR / "games").is_dir():
+    app.mount("/games", StaticFiles(directory=str(FRONTEND_DIR / "games")), name="games")
 
 # =========================
 # CONFIG
@@ -177,6 +181,8 @@ def unsafe_path(raw_path: str) -> bool:
     if "\\" in p or any(ord(ch) < 32 or ord(ch) == 127 for ch in p):
         return True
     parts = [s for s in p.split("/") if s]
+    if parts[:1] == [".well-known"] and len(parts) > 1:      # certificate renewal (ACME) and security.txt live here
+        parts = parts[1:]
     if any(s in ("..", ".") or s.startswith(".") for s in parts):
         return True
     last = parts[-1].lower() if parts else ""

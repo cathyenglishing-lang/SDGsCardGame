@@ -33,6 +33,9 @@ const students = []; for (const p of people) students.push(await sign(p));
 if (!students[0] || !students[0].access_token) { console.error("Could not create the test students."); process.exit(2); }
 
 const browser = await launch({ webgl: true });
+// The teacher page draws itself again when slower answers arrive (watch list, sent reports): a real click that lands
+// during that redraw finds a detached element. Wait a moment, try the real click, and fall back to a DOM click.
+const nav = async (page, sel) => { await page.sleep(1200); await page.click(sel).catch(async () => { await page.sleep(1000); await page.evaluate(`document.querySelector(${JSON.stringify(sel)}).click()`); }); };
 const user = u => `localStorage.clear(); localStorage.setItem("user", ${JSON.stringify(JSON.stringify(u))});`;
 const PART = n => (n <= 3 ? 1 : n <= 6 ? 2 : n <= 9 ? 3 : n <= 12 ? 4 : n <= 16 ? 5 : 6);
 
@@ -158,15 +161,15 @@ if (ONLY !== "stage") {
         await page.click("#s4Root .s4-table .s4-link[data-student]").catch(async () => { await page.sleep(1000); await page.evaluate(`document.querySelector("#s4Root .s4-table .s4-link[data-student]").click()`); });
         await page.waitFor(`document.querySelector("#s4Root .s4-crumb.now") === null && document.querySelectorAll("#s4Root .s4-crumb").length === 2`, 15000, "the student page");
         await page.sleep(400); await page.shot(`${OUT}/${name}-student.png`, { fullPage: true });
-        await page.click("#s4Root [data-run]");
+        await nav(page, "#s4Root [data-run]");
         await page.waitFor(`!!document.querySelector("#s4Root .s4-crumb.now")`, 15000, "the talk page");
         await page.sleep(400); await page.shot(`${OUT}/${name}-talk.png`, { fullPage: true });
         if (await over()) problem(name, "the talk page scrolls sideways");
-        await page.click(`#s4Root [data-go="class"]`);
+        await nav(page, `#s4Root [data-go="class"]`);
         await page.waitFor(`!!document.getElementById("s4PickAll")`, 15000, "back on the class page");
-        await page.click("#s4PickAll"); await page.sleep(200);
+        await nav(page, "#s4PickAll"); await page.sleep(200);
         await page.evaluate(`document.getElementById("s4Note").value = "Slide 6 is the hard one. Practise the red words, then try the real 20 seconds."`);
-        await page.click("#s4Send");
+        await nav(page, "#s4Send");
         await page.waitFor(`!!document.querySelector("#s4Root .s4-sendresult")`, 15000, "the result of sending");
         await page.sleep(400); await page.shot(`${OUT}/${name}-reports-sent.png`);
         const res = await page.evaluate(`document.querySelector("#s4Root .s4-sendresult").textContent.replace(/\\s+/g, " ").trim().slice(0, 200)`);
