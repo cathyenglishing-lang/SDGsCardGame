@@ -18,8 +18,8 @@
 
   // What each of the six parts does in the talk (20-slide talks and the 12-slide SDG 9 talks).
   const PART_ROLE = {
-    20: ["開場：提出主題與問題", "問題：現在遇到的困難", "成果：已經做到的事", "解方：可以怎麼做", "影響：為什麼重要", "結論：呼籲行動"],
-    12: ["開場：連結 SDG 與主題", "問題：從學生情境切入", "解釋：背後的科學原理", "影響：會造成什麼後果", "策略：該怎麼應對", "結論：總結與使命"],
+    20: ["Opening: the topic and the question", "Problem: what is going wrong", "Achievements: what has been done", "Solutions: what can be done", "Impact: why it matters", "Conclusion: a call to action"],
+    12: ["Opening: the SDG and the topic", "Problem: from a student's situation", "Explanation: the science behind it", "Impact: what it leads to", "Strategy: how to respond", "Conclusion: summary and mission"],
   };
   const PART_EN = {
     20: ["Introduction", "Problem", "Achievements", "Solutions", "Implications", "Call to action"],
@@ -48,11 +48,11 @@
   function hashIndex(str, n) { let h = 2166136261; for (const ch of String(str)) { h ^= ch.charCodeAt(0); h = Math.imul(h, 16777619); } return n ? Math.abs(h) % n : 0; }
 
   const REFLECT = [
-    { facet: "planning", q: "開始聽之前，你有先想過這段可能會講什麼嗎？", a: ["有，我先看了標題卡猜內容", "有一點，聽到一半才開始猜", "沒有，直接聽", "沒想過可以這樣做"] },
-    { facet: "problem-solving", q: "聽到不懂的字時，你怎麼辦？", a: ["用前後文猜意思", "先跳過，抓住聽得懂的部分", "按重聽再聽一次", "就卡住了"] },
-    { facet: "attention", q: "聽到一半分心或跟不上時，你怎麼做？", a: ["很快把注意力拉回來", "重聽一次", "先放卡再說", "不太確定自己有沒有分心"] },
-    { facet: "translation", q: "你聽英文句子的時候，會在心裡翻成中文嗎？", a: ["幾乎每一句都翻", "只翻關鍵字", "很少翻，直接理解", "沒注意過"] },
-    { facet: "person", q: "和剛開始比，你現在對聽英文演講的感覺是？", a: ["比較有把握了", "差不多", "還是覺得很難", "看主題，有的比較容易"] },
+    { facet: "planning", q: "Before listening, did you think about what this part might say?", a: ["Yes: I read the title cards and guessed", "A little: I started guessing halfway", "No: I just listened", "I did not know I could do that"] },
+    { facet: "problem-solving", q: "What do you do when you hear a word you do not know?", a: ["Guess from the words around it", "Skip it and hold on to what I understand", "Press repeat and listen again", "I get stuck"] },
+    { facet: "attention", q: "What do you do when you lose focus or cannot keep up?", a: ["Bring my attention back quickly", "Listen again", "Place the card first and see", "I am not sure whether I lost focus"] },
+    { facet: "translation", q: "When you hear an English sentence, do you translate it into Chinese in your head?", a: ["Almost every sentence", "Only the key words", "Rarely: I understand it directly", "I never noticed"] },
+    { facet: "person", q: "Compared with when you started, how do you feel about listening to English talks now?", a: ["More confident", "About the same", "Still very hard", "It depends on the topic"] },
   ];
   const MAX_TAKES = 3;
 
@@ -101,7 +101,7 @@
     const dots = steps.length > 1 ? steps.map((s, i) => `<span class="pkw-dot ${i < at ? "done" : i === at ? "now" : ""}"></span>`).join("") : "";
     host.innerHTML = `
       <div class="pkw-card" role="dialog" aria-label="${esc(title)}">
-        <div class="pkw-top"><div class="pkw-dots" aria-label="第 ${at + 1} 步，共 ${steps.length} 步">${dots}</div><span class="pkw-save" id="pkwSave"></span></div>
+        <div class="pkw-top"><div class="pkw-dots" aria-label="Step ${at + 1} of ${steps.length}">${dots}</div><span class="pkw-save" id="pkwSave"></span></div>
         <h2 class="pkw-title">${title}</h2>
         ${sub ? `<p class="pkw-sub">${sub}</p>` : ""}
         <div class="pkw-body">${body}</div>
@@ -123,11 +123,11 @@
   function paintSave() {
     const el = host && host.querySelector("#pkwSave"); if (!el || !ctx) return;
     const s = ctx.state();
-    const [cls, text] = s.mode === "guest" ? ["guest", "訪客模式 · 不記錄成績"]
-      : s.needLogin ? ["warn", "登入已過期 · 點這裡重新登入，會自動補送"]
-      : s.failing ? ["warn", "尚未送出 · 連上網路後會自動補送"]
-      : s.saving ? ["busy", "儲存中…"]
-      : ["ok", s.mode === "anon" ? "✓ 已儲存（未登入，不記名）" : "✓ 成績已儲存"];
+    const [cls, text] = s.mode === "guest" ? ["guest", "Guest mode · nothing is saved"]
+      : s.needLogin ? ["warn", "Signed out · tap here to sign in again; your result will then be sent"]
+      : s.failing ? ["warn", "Not sent yet · it will be sent when you are online"]
+      : s.saving ? ["busy", "Saving…"]
+      : ["ok", s.mode === "anon" ? "✓ Saved (not signed in, no name)" : "✓ Result saved"];
     el.className = "pkw-save " + cls; el.textContent = text + (s.needLogin && s.mode !== "guest" ? " ▸" : "");
     const expired = s.needLogin && s.mode !== "guest";
     el.onclick = expired ? relogin : null; el.style.cursor = expired ? "pointer" : "";
@@ -147,7 +147,7 @@
     const st = ctx.state();
     if (st.server && st.server !== S.server && !st.saving) { S.server = st.server; paintChips(); }
   }
-  const nextBtn = (label = "下一步 ▸", attrs = "") => `<button class="pkw-btn primary" type="button" id="pkwNext" ${attrs}>${label}</button>`;
+  const nextBtn = (label = "Next ▸", attrs = "") => `<button class="pkw-btn primary" type="button" id="pkwNext" ${attrs}>${label}</button>`;
   const on = (sel, fn) => { const el = host.querySelector(sel); if (el) el.onclick = fn; return el; };
   const slideOf = no => ctx.slides.find(s => s.no === no);
 
@@ -159,27 +159,27 @@
     return `<div class="pkw-parts">` + ctx.summary.parts.map(p => {
       const lvl = p.s == null ? "na" : p.s >= 0.8 ? "hi" : p.s >= 0.4 ? "mid" : "lo";
       return `<div class="pkw-part ${lvl}" title="${esc(partRole(p.part, total))}"><b>${p.part}</b><span>${esc(partEn(p.part, total))}</span></div>`;
-    }).join("") + `</div><p class="pkw-legend"><i class="hi"></i>第一次就配對 <i class="mid"></i>部分 <i class="lo"></i>需要再練</p>`;
+    }).join("") + `</div><p class="pkw-legend"><i class="hi"></i>Matched first time <i class="mid"></i>Partly <i class="lo"></i>Needs practice</p>`;
   }
   function reviewItem(c) {
     const s = slideOf(c.no), was = slideOf(c.wrongNos[0]);
-    return `<li><div class="pkw-rv-head"><b>${esc(s.title_en)}</b><button class="pkw-ear" type="button" data-hear="${c.no}" aria-label="再聽一次這一句">🔊</button></div>
-      <span>${esc(s.script)}</span>${was ? `<small>你第一次放到的是「${esc(was.title_en)}」</small>` : ""}</li>`;
+    return `<li><div class="pkw-rv-head"><b>${esc(s.title_en)}</b><button class="pkw-ear" type="button" data-hear="${c.no}" aria-label="Hear this sentence again">🔊</button></div>
+      <span>${esc(s.script)}</span>${was ? `<small>You first put it on “${esc(was.title_en)}”</small>` : ""}</li>`;
   }
   function stepDone() {
     const sum = ctx.summary, shown = S.wrong.slice(0, 3), more = S.wrong.length - shown.length;
     const review = S.wrong.length
-      ? `<h3 class="pkw-h">這 ${S.wrong.length} 句第一次沒配對到</h3><ul class="pkw-list">${shown.map(reviewItem).join("")}</ul>${more > 0 ? `<p class="pkw-note">還有 ${more} 句，最後一步的複習清單裡看得到。</p>` : ""}`
-      : `<p class="pkw-allgood">每一句都第一次就配對了。</p>`;
-    shell("完成了！", `${esc(ctx.topic.title)}（${esc(ctx.level)}）`,
+      ? `<h3 class="pkw-h">${S.wrong.length} sentence${S.wrong.length === 1 ? "" : "s"} not matched first time</h3><ul class="pkw-list">${shown.map(reviewItem).join("")}</ul>${more > 0 ? `<p class="pkw-note">${more} more are in the review list on the last step.</p>` : ""}`
+      : `<p class="pkw-allgood">Every sentence matched first time.</p>`;
+    shell("Done!", `${esc(ctx.topic.title)} (${esc(ctx.level)})`,
       `<div class="pkw-stats">
-         <div><b>${sum.score == null ? "–" : sum.score}</b><span>聽懂分數</span></div>
-         <div><b>${fmt(sum.seconds)}</b><span>配對時間</span></div>
-         <div><b>${sum.repeats}</b><span>重聽次數</span></div>
+         <div><b>${sum.score == null ? "–" : sum.score}</b><span>Understanding score</span></div>
+         <div><b>${fmt(sum.seconds)}</b><span>Matching time</span></div>
+         <div><b>${sum.repeats}</b><span>Repeats</span></div>
        </div>
        ${partBar()}${review}
-       <p class="pkw-note">聽懂分數只看「第一次就配對」的句子，並扣掉用猜的機率；重聽不扣分。</p>`,
-      ctx.embed ? harborBtn() : nextBtn("下一步：念一張投影片 ▸"));
+       <p class="pkw-note">The understanding score counts only the sentences matched first time, minus the chance of guessing. Listening again costs nothing.</p>`,
+      ctx.embed ? harborBtn() : nextBtn("Next: read one slide aloud ▸"));
     host.querySelectorAll("[data-hear]").forEach(b => b.onclick = () => { const no = +b.dataset.hear; ctx.log("wrap.review.listen", { card: ctx.cardId(no) }); ctx.speak(slideOf(no).script); });
     const leave = () => { if (!S.reviewLogged) { S.reviewLogged = true; ctx.log("wrap.review", { missed: S.wrong.map(c => c.id), shown: shown.length }); } };
     if (ctx.embed) wireHarbor(leave); else on("#pkwNext", () => { leave(); go(); });
@@ -204,7 +204,7 @@
   }
   function stepRead() {
     if (!S.read && !S.histDone) {   // the teacher's requests are still on their way
-      shell("念一張投影片", "", `<p class="pkw-wait" role="status"><span class="pkw-spin"></span>正在看老師有沒有請你重念哪一張…</p>`, nextBtn("下一步 ▸", "disabled"));
+      shell("Read one slide aloud", "", `<p class="pkw-wait" role="status"><span class="pkw-spin"></span>Checking whether your teacher asked you to read a slide again…</p>`, nextBtn("Next ▸", "disabled"));
       const mine = S, proceed = () => { if (S === mine && ctx && steps[at] === "read" && !mine.read) render(); };
       mine.histWait = proceed;
       if (!mine.histTimer) mine.histTimer = setTimeout(() => { mine.histDone = true; proceed(); }, 2500);
@@ -218,33 +218,33 @@
       if (said.length) S.read.notes = said;
     }
     const R = S.read, target = Math.round(R.target), res = R.result, label = ctx.cardId(R.slide.no);
-    const verdict = res ? (res.ratio >= 0.85 && res.ratio <= 1.15 ? ["ok", "時間剛好"] : res.ratio < 0.85 ? ["warn", "念得比較快"] : ["warn", "念得比較慢"]) : null;
+    const verdict = res ? (res.ratio >= 0.85 && res.ratio <= 1.15 ? ["ok", "Right on time"] : res.ratio < 0.85 ? ["warn", "A little fast"] : ["warn", "A little slow"]) : null;
     const canSend = !!(ctx.voice && ctx.voice.canSend());
-    const sentLine = !res ? "" : !R.url ? `<p class="pkw-sent warn">這次沒有錄到聲音，只有計時，老師不會收到錄音。<br>要讓老師聽到：按網址列旁的鎖頭（iPad：設定 → Safari → 麥克風）允許麥克風，再按「重錄」。</p>`
-      : !canSend ? `<p class="pkw-sent">錄音只留在這台裝置。登入後念，老師才聽得到。</p>`
-      : R.sent === "sending" ? `<p class="pkw-sent busy">送給老師中…</p>`
-      : R.sent === "ok" ? `<p class="pkw-sent ok">✓ 已送給老師</p>`
-      : R.reason === "login" ? `<p class="pkw-sent warn">登入已過期，重新登入後再送。錄音還留在這一頁。 <button class="pkw-link" type="button" id="pkwRelogin">重新登入</button><button class="pkw-link" type="button" id="pkwResend">再送一次</button></p>`
-      : `<p class="pkw-sent warn">${esc(R.sent || "還沒送出。")} <button class="pkw-link" type="button" id="pkwResend">再送一次</button></p>`;
-    shell("念一張投影片", R.why === "redo" ? `老師請你把這一張再念一次。照 ${esc(ctx.level)} 的速度大約 ${target} 秒。`
-      : R.why === "missed" ? `這是你剛才第一次沒配對到的句子。照 ${esc(ctx.level)} 的速度大約 ${target} 秒。` : `照 ${esc(ctx.level)} 的速度大約 ${target} 秒，就是 Pecha Kucha 一張投影片的長度。`,
-      `${R.notes ? `<div class="pkw-teacher"><b>老師上次的回饋</b>${R.notes.slice(0, 2).map(n => `<p>${n.status === "redo" ? "請重錄：" : ""}${esc(n.teacher_note || "請再念一次。")}</p>`).join("")}</div>` : ""}
+    const sentLine = !res ? "" : !R.url ? `<p class="pkw-sent warn">Nothing was recorded this time, only the time: your teacher will not get a recording.<br>To let your teacher hear you: tap the padlock next to the address (iPad: Settings → Safari → Microphone), allow the microphone, then press “Record again”.</p>`
+      : !canSend ? `<p class="pkw-sent">The recording stays on this device. Sign in before you read so your teacher can hear it.</p>`
+      : R.sent === "sending" ? `<p class="pkw-sent busy">Sending to your teacher…</p>`
+      : R.sent === "ok" ? `<p class="pkw-sent ok">✓ Sent to your teacher</p>`
+      : R.reason === "login" ? `<p class="pkw-sent warn">You are signed out. Sign in again, then send. The recording is still on this page. <button class="pkw-link" type="button" id="pkwRelogin">Sign in again</button><button class="pkw-link" type="button" id="pkwResend">Send again</button></p>`
+      : `<p class="pkw-sent warn">${esc(R.sent || "Not sent yet.")} <button class="pkw-link" type="button" id="pkwResend">Send again</button></p>`;
+    shell("Read one slide aloud", R.why === "redo" ? `Your teacher asked you to read this slide again. At ${esc(ctx.level)} speed it takes about ${target} seconds.`
+      : R.why === "missed" ? `This is a sentence you did not match first time. At ${esc(ctx.level)} speed it takes about ${target} seconds.` : `At ${esc(ctx.level)} speed it takes about ${target} seconds: the length of one Pecha Kucha slide.`,
+      `${R.notes ? `<div class="pkw-teacher"><b>Your teacher’s last feedback</b>${R.notes.slice(0, 2).map(n => `<p>${n.status === "redo" ? "Please record again: " : ""}${esc(n.teacher_note || "Please read it again.")}</p>`).join("")}</div>` : ""}
        <div class="pkw-clip"><b>${esc(R.slide.title_en)}</b><p>${esc(R.slide.script)}</p></div>
        <div class="pkw-readbar">
-         <button class="pkw-btn ghost" type="button" id="pkwModel">🔊 示範</button>
-         <button class="pkw-btn rec" type="button" id="pkwRec" ${res && R.takes >= MAX_TAKES ? "disabled" : ""}>${res ? (R.takes >= MAX_TAKES ? "已達重錄上限" : "● 重錄") : "● 開始朗讀"}</button>
+         <button class="pkw-btn ghost" type="button" id="pkwModel">🔊 Model</button>
+         <button class="pkw-btn rec" type="button" id="pkwRec" ${res && R.takes >= MAX_TAKES ? "disabled" : ""}>${res ? (R.takes >= MAX_TAKES ? "No more takes" : "● Record again") : "● Start reading"}</button>
          <span class="pkw-clock" id="pkwClock">00:00 / ${fmt(target)}</span>
        </div>
        <div id="pkwReadOut">${res ? `
          <div class="pkw-stats">
-           <div><b>${fmt(res.seconds)}</b><span>你的時間</span></div>
-           <div><b>${res.wpm}</b><span>每分鐘字數</span></div>
-           <div class="${verdict[0]}"><b>${verdict[1]}</b><span>目標 ${target} 秒</span></div>
+           <div><b>${fmt(res.seconds)}</b><span>Your time</span></div>
+           <div><b>${res.wpm}</b><span>Words a minute</span></div>
+           <div class="${verdict[0]}"><b>${verdict[1]}</b><span>Target ${target} s</span></div>
          </div>
-         ${res.heard != null ? `<p class="pkw-note">機器聽到約 ${Math.round(res.heard * 100)}% 的字（只供參考，不計分）。</p>` : ""}
+         ${res.heard != null ? `<p class="pkw-note">The computer heard about ${Math.round(res.heard * 100)}% of the words (for your information only, not scored).</p>` : ""}
          ${R.url ? `<audio controls src="${R.url}" class="pkw-audio"></audio>` : ""}${sentLine}` : ""}</div>
        <p class="pkw-feedback" id="pkwFb"></p>`,
-      (res ? "" : `<button class="pkw-btn ghost" type="button" id="pkwSkip">這次先略過</button>`) + nextBtn("下一步 ▸", res ? "" : "disabled"));
+      (res ? "" : `<button class="pkw-btn ghost" type="button" id="pkwSkip">Skip this time</button>`) + nextBtn("Next ▸", res ? "" : "disabled"));
     on("#pkwModel", () => { if (!rec) ctx.speak(R.slide.script); });
     on("#pkwSkip", () => { ctx.log("wrap.read.skip", { clip: label }); stopRecording(true); go(); });
     on("#pkwNext", () => { stopRecording(true); go(); });
@@ -323,10 +323,10 @@
             sr.start(); mine.sr = sr;
           } catch (e) {}
         }
-      } else if (fb) fb.innerHTML = "用不到麥克風，這次<b>只計時，老師不會收到錄音</b>：念完按「念完了」。<br>想錄音：按網址列旁的鎖頭（iPad：設定 → Safari → 麥克風）允許麥克風，再重錄一次。";
+      } else if (fb) fb.innerHTML = "No microphone: this time <b>only the time is measured, and your teacher gets no recording</b>. Press “Done reading” when you finish.<br>To record: tap the padlock next to the address (iPad: Settings → Safari → Microphone), allow the microphone, then record again.";
       mine.t0 = performance.now();
       const live = host.querySelector("#pkwRec"), clock = host.querySelector("#pkwClock");
-      if (live) { live.textContent = "■ 念完了"; live.classList.add("live"); setTimeout(() => { if (rec === mine && live.isConnected) live.disabled = false; }, 1500); }
+      if (live) { live.textContent = "■ Done reading"; live.classList.add("live"); setTimeout(() => { if (rec === mine && live.isConnected) live.disabled = false; }, 1500); }
       if (clock) clock.classList.add("live");
       mine.timer = setInterval(() => { if (clock && rec === mine) clock.textContent = `${fmt((performance.now() - mine.t0) / 1000)} / ${fmt(target)}`; }, 250);
       R.busy = false;
@@ -339,21 +339,21 @@
     const wrong = sum.cards.filter(c => c.first === false).map(c => slideOf(c.no)).filter(Boolean);
     const missed = S.quiz ? S.quiz.missed : [];
     const back = new Date(Date.now() + 2 * 86400000), back2 = new Date(Date.now() + 3 * 86400000);
-    const day = d => `${d.getMonth() + 1}/${d.getDate()}（${"日一二三四五六"[d.getDay()]}）`;
+    const day = d => `${["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"][d.getDay()]} ${d.getMonth() + 1}/${d.getDate()}`;
     const best = ctx.bestBefore;
-    const bestLine = sum.score == null || best === undefined ? "–" : best == null ? "這是你這個主題的第一筆紀錄。" : sum.score > best ? `個人最佳！上次最高 ${best}，這次 ${sum.score}。` : `你的個人最佳是 ${best}，這次 ${sum.score}。`;
-    const extras = [!S.quiz ? `<button class="pkw-btn ghost" type="button" id="pkwQuiz">小測 5 題</button>` : "", !S.reflect ? `<button class="pkw-btn ghost" type="button" id="pkwReflect">寫一句反思</button>` : ""].join("");
-    shell("做得好！", "", `
+    const bestLine = sum.score == null || best === undefined ? "–" : best == null ? "This is your first result on this topic." : sum.score > best ? `Personal best! Your best was ${best}; this time ${sum.score}.` : `Your personal best is ${best}; this time ${sum.score}.`;
+    const extras = [!S.quiz ? `<button class="pkw-btn ghost" type="button" id="pkwQuiz">5-question quiz</button>` : "", !S.reflect ? `<button class="pkw-btn ghost" type="button" id="pkwReflect">Write one reflection</button>` : ""].join("");
+    shell("Well done!", "", `
       <div class="pkw-next-grid">
-        <div class="pkw-box dark" id="pkwChips"><h3>籌碼</h3><p>計算中…</p></div>
-        <div class="pkw-box"><h3>個人紀錄</h3><p>${esc(bestLine)}</p></div>
-        <div class="pkw-box"><h3>什麼時候再來</h3><p>${day(back)} 或 ${day(back2)} 再玩一次同一個主題，記得最牢。</p></div>
+        <div class="pkw-box dark" id="pkwChips"><h3>Chips</h3><p>Working it out…</p></div>
+        <div class="pkw-box"><h3>Your record</h3><p>${esc(bestLine)}</p></div>
+        <div class="pkw-box"><h3>When to come back</h3><p>Play the same topic again on ${day(back)} or ${day(back2)}: that is when it sticks best.</p></div>
       </div>
-      ${extras ? `<div class="pkw-extras"><span>還想多練？（可以不做）</span>${extras}</div>` : ""}
-      ${wrong.length || missed.length ? `<details class="pkw-box pkw-review"><summary>複習清單（${wrong.length} 句${missed.length ? "、" + missed.length + " 個字" : ""}）</summary>
+      ${extras ? `<div class="pkw-extras"><span>Want more practice? (optional)</span>${extras}</div>` : ""}
+      ${wrong.length || missed.length ? `<details class="pkw-box pkw-review"><summary>Review list (${wrong.length} sentence${wrong.length === 1 ? "" : "s"}${missed.length ? ", " + missed.length + " word" + (missed.length === 1 ? "" : "s") : ""})</summary>
         ${wrong.length ? `<ul class="pkw-list">${wrong.map(s => `<li><b>${esc(s.title_en)}</b><span>${esc(s.script)}</span></li>`).join("")}</ul>` : ""}
-        ${missed.length ? `<p class="pkw-listhead">小測沒答對的字</p><p class="pkw-words">${missed.map(m => `<b>${esc(m.word)}</b>`).join(" ")}</p>` : ""}</details>` : ""}`,
-      `<button class="pkw-btn ghost" type="button" id="pkwTopic">← 換主題</button><button class="pkw-btn primary" type="button" id="pkwAgain">再玩一次</button>`);
+        ${missed.length ? `<p class="pkw-listhead">Words missed in the quiz</p><p class="pkw-words">${missed.map(m => `<b>${esc(m.word)}</b>`).join(" ")}</p>` : ""}</details>` : ""}`,
+      `<button class="pkw-btn ghost" type="button" id="pkwTopic">← Topics</button><button class="pkw-btn primary" type="button" id="pkwAgain">Play again</button>`);
     on("#pkwTopic", () => { const a = ctx.actions; close(); a.changeTopic(); });
     on("#pkwAgain", () => { const a = ctx.actions; close(); a.again(); });
     on("#pkwQuiz", () => extra("quiz"));
@@ -372,7 +372,7 @@
   }
   // An optional extra: do it, then come back to the last step, where the chips are counted again.
   function extra(name) { steps = ["done", "read", name, "next"]; at = 2; S.closing = false; render(); host.scrollTop = 0; }
-  const CHIP_LABEL = { "pk.score": "聽懂分數", "pk.finish": "走完一局", "pk.remedy": "錯句重練", "pk.quiz": "小測答對", "pk.read": "完成朗讀", "pk.reflect": "寫了反思", "spaced.return": "隔幾天再回來" };
+  const CHIP_LABEL = { "pk.score": "Understanding score", "pk.finish": "Finished the game", "pk.remedy": "Missed sentences matched again", "pk.quiz": "Quiz answers", "pk.read": "Read aloud", "pk.reflect": "Reflection", "spaced.return": "Came back after a few days" };
   // The chip box settles this run's pile (ctx.provisional, what the table showed: the listening
   // score's chips) to what the server really gave. The server's number is the only one shown as
   // earned; the count runs from the table's pile to it (down too, when today's 60 is full), the
@@ -382,19 +382,19 @@
     const s = ctx.state(), prov = typeof ctx.provisional === "number" ? ctx.provisional : null;
     const pile = (n, extra = "") => ctx.pileImg ? `<img class="pkw-pile" src="${esc(ctx.pileImg(n))}" alt=""${extra}>` : "";
     const table = cls => prov === null ? "" : `<span class="pkw-settle ${cls}">${pile(prov)}<b class="pkw-chipnum">+${prov}</b></span>`;
-    if (s.mode === "guest") { p.innerHTML = table("off") + "訪客模式不累積籌碼。登入後玩才會記錄。"; return; }
-    if (s.mode === "anon") { p.innerHTML = table("off") + "登入後玩才會累積籌碼。"; return; }
+    if (s.mode === "guest") { p.innerHTML = table("off") + "Guest mode earns no chips. Sign in to have your games saved."; return; }
+    if (s.mode === "anon") { p.innerHTML = table("off") + "Sign in to earn chips."; return; }
     const chips = S.server && S.server.chips;
-    if (!chips) { p.innerHTML = table("wait") + esc(s.needLogin ? "登入已過期：重新登入後會補算。" : s.failing ? "連上網路後會補算。" : "計算中…"); return; }
+    if (!chips) { p.innerHTML = table("wait") + esc(s.needLogin ? "Signed out: chips are worked out after you sign in again." : s.failing ? "Chips are worked out when you are online." : "Working it out…"); return; }
     const items = chips.items.filter(i => i.chips > 0), earned = chips.earned || 0;
     // The same answer again (a save-state change, a late copy): keep what is on screen, which may be mid-count.
     const key = JSON.stringify(chips);
     if (S.chipKey === key && p.querySelector(".pkw-items")) return;
     S.chipKey = key;
     p.classList.remove("pkw-settling", "pkw-settled");
-    const note = (chips.held ? "這局的籌碼等老師確認後入帳。" : `目前共有 <b class="pkw-bal">${chips.balance}</b> 枚。`)
-      + (chips.capped ? " 今天的籌碼已滿，明天再來。" : "")
-      + (S.server.history && S.server.history.finished_today_same >= 2 ? " 同一個主題和難度，今天第 3 局起只計聽懂分數；隔兩天再回來會多 5 枚。" : "");
+    const note = (chips.test ? "Test game: no chips, and not counted in the class." : chips.held ? "These chips are added after your teacher checks this game." : `You now have <b class="pkw-bal">${chips.balance}</b> chips.`)
+      + (chips.capped ? " You have reached today's chip limit. Come back tomorrow." : "")
+      + (S.server.history && S.server.history.finished_today_same >= 2 ? " From the 3rd game of the same topic and level in a day, only the understanding score pays. Come back after two days for 5 extra chips." : "");
     const start = typeof S.shownEarned === "number" ? S.shownEarned : prov === null ? 0 : prov, fx = ctx.fx;
     const play = S.shownEarned !== earned && fx && fx.motion() && (earned !== start || items.length);
     S.shownEarned = earned;   // a later redraw (after the quiz, a late answer) counts on from here
@@ -440,17 +440,17 @@
     if (!S.quiz) S.quiz = { items: buildQuiz(), i: 0, correct: 0, missed: [] };
     const Q = S.quiz, item = Q.items[Q.i];
     if (!item) {
-      shell("小測完成", "", `<div class="pkw-stats one"><div><b>${Q.correct} / ${Q.items.length}</b><span>答對</span></div></div>`
-        + (Q.missed.length ? `<p class="pkw-note">沒答對的字會放進複習清單：${Q.missed.map(m => `<b>${esc(m.word)}</b>`).join("、")}</p>` : `<p class="pkw-note">全對！</p>`), nextBtn("回到最後一步 ▸"));
+      shell("Quiz done", "", `<div class="pkw-stats one"><div><b>${Q.correct} / ${Q.items.length}</b><span>correct</span></div></div>`
+        + (Q.missed.length ? `<p class="pkw-note">Missed words go into the review list: ${Q.missed.map(m => `<b>${esc(m.word)}</b>`).join(", ")}</p>` : `<p class="pkw-note">All correct!</p>`), nextBtn("Back to the last step ▸"));
       on("#pkwNext", () => go());
       return;
     }
     let answered = false;
-    shell(`聽句子，選出空格的字（${Q.i + 1} / ${Q.items.length}）`, "先聽，再選出空格裡的字。",
-      `<div class="pkw-sentence"><p>${esc(item.text)}</p><button class="pkw-btn ghost" type="button" id="pkwListen">🔊 再聽一次</button></div>
+    shell(`Listen and choose the missing word (${Q.i + 1} / ${Q.items.length})`, "Listen first, then choose the word for the gap.",
+      `<div class="pkw-sentence"><p>${esc(item.text)}</p><button class="pkw-btn ghost" type="button" id="pkwListen">🔊 Listen again</button></div>
        <div class="pkw-options words">${item.options.map(o => `<button type="button" class="pkw-opt" data-w="${esc(o)}">${esc(o)}</button>`).join("")}</div>
        <p class="pkw-feedback" id="pkwFb"></p>`,
-      nextBtn(Q.i + 1 < Q.items.length ? "下一題 ▸" : "看結果 ▸", "disabled"));
+      nextBtn(Q.i + 1 < Q.items.length ? "Next question ▸" : "See the result ▸", "disabled"));
     ctx.speak(item.slide.script);
     on("#pkwListen", () => ctx.speak(item.slide.script));
     host.querySelectorAll(".pkw-opt").forEach(b => b.onclick = () => {
@@ -461,7 +461,7 @@
       ctx.log("wrap.quiz.answer", { card: ctx.cardId(item.slide.no), word: item.word.toLowerCase(), chosen: b.dataset.w, correct });
       host.querySelectorAll(".pkw-opt").forEach(x => { x.disabled = true; if (x.dataset.w === item.word.toLowerCase()) x.classList.add("right"); });
       if (!correct) b.classList.add("wrong");
-      host.querySelector("#pkwFb").innerHTML = (correct ? "✓ 答對了。" : `答案是 <b>${esc(item.word)}</b>。`) + ` <span class="pkw-full">${esc(item.slide.script)}</span>`;
+      host.querySelector("#pkwFb").innerHTML = (correct ? "✓ Correct." : `The answer is <b>${esc(item.word)}</b>.`) + ` <span class="pkw-full">${esc(item.slide.script)}</span>`;
       host.querySelector("#pkwNext").disabled = false;
     });
     on("#pkwNext", () => {
@@ -475,12 +475,12 @@
   function stepReflect() {
     if (!S.reflect) S.reflect = { item: REFLECT[(ctx.runsBefore || 0) % REFLECT.length], answer: null, sentence: "" };
     const F = S.reflect;
-    shell("想一想", "沒有標準答案。", `
+    shell("Think about it", "There is no right answer.", `
       <p class="pkw-q">${esc(F.item.q)}</p>
       <div class="pkw-options">${F.item.a.map((a, i) => `<button type="button" class="pkw-opt ${F.answer === i ? "on" : ""}" data-i="${i}">${esc(a)}</button>`).join("")}</div>
-      <label class="pkw-q" for="pkwSentence">用一句英文，把 SDG ${esc(String(ctx.topic.sdg))} 和你自己的生活連起來：</label>
+      <label class="pkw-q" for="pkwSentence">In one English sentence, connect SDG ${esc(String(ctx.topic.sdg))} with your own life:</label>
       <textarea id="pkwSentence" class="pkw-text" rows="2" maxlength="300" placeholder="In my daily life, I …">${esc(F.sentence)}</textarea>`,
-      `<button class="pkw-btn ghost" type="button" id="pkwSkip">不寫了</button>` + nextBtn("送出 ▸", "disabled"));
+      `<button class="pkw-btn ghost" type="button" id="pkwSkip">Skip</button>` + nextBtn("Send ▸", "disabled"));
     const sync = () => { host.querySelector("#pkwNext").disabled = !(F.answer != null && F.sentence.trim().split(/\s+/).filter(Boolean).length >= 3); };
     host.querySelectorAll(".pkw-opt").forEach(b => b.onclick = () => { F.answer = +b.dataset.i; host.querySelectorAll(".pkw-opt").forEach(x => x.classList.toggle("on", x === b)); sync(); });
     host.querySelector("#pkwSentence").oninput = e => { F.sentence = e.target.value; sync(); };
@@ -493,12 +493,12 @@
   }
 
   // ── inside the 3D game ──
-  function harborBtn(attrs = "") { return `<button class="pkw-btn primary" type="button" id="pkwHarbor" ${attrs}>回到 Innovation Harbor ▸</button>`; }
+  function harborBtn(attrs = "") { return `<button class="pkw-btn primary" type="button" id="pkwHarbor" ${attrs}>Back to Innovation Harbor ▸</button>`; }
   function wireHarbor(before) {
     on("#pkwHarbor", () => {
       if (before) before();
       ctx.log("wrap.done", { steps, embed: true });
-      const btn = host.querySelector("#pkwHarbor"); btn.disabled = true; btn.textContent = "儲存中…";
+      const btn = host.querySelector("#pkwHarbor"); btn.disabled = true; btn.textContent = "Saving…";
       // Leaving removes this frame, so give the save a moment first; what is not through by then
       // stays in the browser and is sent the next time the card game opens.
       const c = ctx, actions = ctx.actions;

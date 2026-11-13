@@ -183,6 +183,22 @@ def card_summary(run, events, detail=None, score=None):
     return " ".join(s)
 
 
+# Why a run is listed but not counted (2026-11-09 meeting, T5: test data is kept, never analysed).
+EXCLUDED = {"test_account": "測試帳號（老師／助教）", "embed": "3D 遊戲裡的小站", "test_run": "快速測試（只玩一段）", "partial": "只玩部分段落"}
+
+
+def _excluded(metrics, person):
+    if person.get("test"):
+        return "test_account"
+    if metrics.get("embed"):
+        return "embed"
+    if metrics.get("test"):
+        return "test_run"
+    if isinstance(metrics.get("parts"), list) and metrics.get("parts"):
+        return "partial"
+    return None
+
+
 def _run_row(run, people, score=None):
     p = people.get(run.get("user_id")) or {}
     m = run.get("metrics") or {}
@@ -195,7 +211,7 @@ def _run_row(run, people, score=None):
             "wrap_done": bool(((score or m).get("wrap") or {}).get("done")) if isinstance((score or m).get("wrap"), dict) else False,
             "ending": run.get("ending"), "avg_stars": round(sum(stars) / len(stars), 2) if stars else None,
             "coverage": _num(m.get("heardAvg")), "mode": m.get("mode") if m.get("mode") in ("practice", "formal") else None,
-            "version": run.get("content_version"), "embed": bool(m.get("embed"))}
+            "version": run.get("content_version"), "embed": bool(m.get("embed")), "excluded": _excluded(m, p), "test": bool(p.get("test"))}
 
 
 def _device(client):
@@ -299,7 +315,8 @@ def _game_report(game, course_id, section_id, chapter, level, date_from, date_to
     card = game == CARD
     students, card_stats, confusion = {}, {}, Counter()
     funnel = Counter(); abandon_points = Counter(); run_rows = []
-    # With a course chosen every enrolled student gets a row, played or not.
+    excluded, excluded_by_user = Counter(), Counter()
+    # With a course chosen every enrolled student gets a row, played or not (test accounts too, marked).
     if course_id:
         for uid, p in people.items():
             if p.get("status") in (None, "active"):
@@ -317,9 +334,12 @@ def _game_report(game, course_id, section_id, chapter, level, date_from, date_to
         row = _run_row(r, people, score)
         row["active_minutes"] = _active_minutes(evs)
         run_rows.append(row)
-        if card and row["embed"]:
-            # The short station inside the 3D game: listed among the runs (marked), but it is not a
-            # card-game run of its own, so it stays out of the class numbers.
+        if row["excluded"]:
+            # Listed among the runs (marked) but not a run of the class: a teacher's or test account,
+            # the short station inside the 3D game, a quick test or a partial play.
+            excluded[row["excluded"]] += 1
+            if r.get("user_id") is not None:
+                excluded_by_user[r["user_id"]] += 1
             continue
         key = r.get("user_id") if r.get("user_id") is not None else f"anon:{r['id']}"
         st = students.get(key) or {"runs": 0, "finished": 0, "scores": [], "repeats": 0, "flags": 0, "active": 0.0, "last": None, "first_ok": 0, "first_n": 0,
@@ -379,7 +399,8 @@ def _game_report(game, course_id, section_id, chapter, level, date_from, date_to
     for key, st in students.items():
         p = people.get(key) or {}
         base = {"user_id": key if isinstance(key, int) else None, "name": p.get("name") or (st or {}).get("username") or "anonymous", "student_no": p.get("student_no"),
-                "public_id": p.get("public_id"), "section": p.get("section"), "recordings": recs.get(key, {"total": 0, "new": 0})}
+                "public_id": p.get("public_id"), "section": p.get("section"), "recordings": recs.get(key, {"total": 0, "new": 0}),
+                "test": bool(p.get("test")), "excluded_runs": excluded_by_user.get(key, 0)}
         if st is None:
             rows.append({**base, "runs": 0, "finished": 0, "scores": [], "best": None, "last_score": None, "last": None, "active_minutes": 0, "repeats": 0, "flags": 0,
                          "first_rate": None, "first_ok": 0, "first_n": 0, "avg_stars": None, "quiz": None, "wrap_done": 0, "reads": 0, "reflects": 0, "topics": [], "levels": []})
@@ -391,7 +412,7 @@ def _game_report(game, course_id, section_id, chapter, level, date_from, date_to
                      "avg_stars": round(sum(st["stars"]) / len(st["stars"]), 2) if st["stars"] else None, "best_ending": (st["endings"].most_common(1) or [(None, 0)])[0][0],
                      "quiz": f"{st['quiz_ok']}/{st['quiz_n']}" if st["quiz_n"] else None, "wrap_done": st["wrap_done"], "reads": st["reads"], "reflects": st["reflects"],
                      "topics": sorted(t for t in st["topics"] if t), "levels": sorted(l for l in st["levels"] if l), "_st": st})
-    anomalies = _anomalies(rows, card) if card else []
+    anomalies = _anomalies([r for r in rows if not r["test"]], card) if card else []
     by_user = {a["user_id"]: a for a in anomalies}
     for r in rows:
         r.pop("_st", None)
@@ -406,14 +427,18 @@ def _game_report(game, course_id, section_id, chapter, level, date_from, date_to
                       "repeats_avg": round(cs["repeats"] / cs["n"], 2) if cs["n"] else 0, "rt_median_ms": _median(cs["rt"]),
                       "top_wrong": {"target": top[0][0], "n": top[0][1]} if top else None})
     cards.sort(key=lambda c: (c["s"] if c["s"] is not None else 9, str(c["card"])))
-    played = [r for r in rows if r["runs"]]
-    all_scores = [x["score"] for r in rows for x in r["scores"]]
-    mins = [r["minutes"] for r in run_rows if r["minutes"] is not None]
+    real = [r for r in rows if not r["test"]]            # the class: test accounts are listed, not counted
+    played = [r for r in real if r["runs"]]
+    counted = [r for r in run_rows if not r["excluded"]]
+    all_scores = [x["score"] for r in real for x in r["scores"]]
+    mins = [r["minutes"] for r in counted if r["minutes"] is not None]
     return {"game": game, "name": GAME_NAMES.get(game, game),
-            "overview": {"runs": len(runs), "finished": sum(1 for r in runs if r.get("ended_at")), "students_played": len(played), "students_listed": len(rows),
-                         "not_played": len(rows) - len(played), "avg_score": round(sum(all_scores) / len(all_scores)) if all_scores else None,
+            "overview": {"runs": len(counted), "finished": sum(1 for r in counted if r.get("ended_at")), "students_played": len(played), "students_listed": len(real),
+                         "not_played": len(real) - len(played), "avg_score": round(sum(all_scores) / len(all_scores)) if all_scores else None,
                          "avg_minutes": round(sum(mins) / len(mins), 1) if mins else None, "events": sum(r.get("event_count") or 0 for r in runs),
-                         "flagged_runs": sum(1 for r in run_rows if r["flags"]), "unreadable_runs": skipped,
+                         "flagged_runs": sum(1 for r in counted if r["flags"]), "unreadable_runs": skipped,
+                         "runs_total": len(runs), "excluded_runs": sum(excluded.values()), "excluded": {k: excluded[k] for k in EXCLUDED if excluded[k]},
+                         "test_accounts": len(rows) - len(real),
                          "runs_listed": min(len(run_rows), run_limit) if run_limit else len(run_rows)},
             "students": rows, "cards": cards, "anomalies": anomalies,
             "confusion": [{"card": c, "target": t, "n": n} for (c, t), n in confusion.most_common(20)],
@@ -467,7 +492,7 @@ def student_report(user_id: int, date_from: str | None = Query(default=None, ali
                     reflections.append({"at": e.get("created_at"), "game": r["game"], "run_id": r["id"], "question": e["type"].split(".")[1], "sentence": str(d.get("text") or e.get("detail") or "")[:600]})
             continue
         detail = both[0]
-        if row["embed"]:      # the station inside the 3D game: listed, not counted as a card-game run
+        if row["excluded"] and row["excluded"] != "test_account":   # 3D station, quick test, partial play: listed, not a card-game run
             continue
         t = topics.setdefault((r["chapter"], r["level"]), {"chapter": r["chapter"], "level": r["level"], "runs": 0, "finished": 0, "scores": [], "last": None})
         t["runs"] += 1; t["finished"] += 1 if r.get("ended_at") else 0; t["last"] = r["started_at"]
@@ -489,7 +514,8 @@ def student_report(user_id: int, date_from: str | None = Query(default=None, ali
     weak_rows = sorted(({**w, "wrong": [{"target": k, "n": v} for k, v in w["wrong"].most_common(3)]} for w in weak.values() if w["misses"]), key=lambda w: (-w["misses"], str(w["card"])))
     profile = L._auth["profile"](user_id) if L._auth.get("profile") else {}
     devices = Counter(_device(r.get("client")) for r in runs if r.get("client"))
-    return {"student": {"user_id": user_id, "name": person.get("name"), "student_no": person.get("student_no"), "public_id": person.get("public_id")},
+    return {"student": {"user_id": user_id, "name": person.get("name"), "student_no": person.get("student_no"), "public_id": person.get("public_id"),
+                        "test": bool(person.get("test")), "role": person.get("role")},
             "profile": {**profile, "devices": [{"device": k, "runs": v} for k, v in devices.most_common() if k != "?"]},
             "daily": [{"day": d, "runs": n} for d, n in sorted(Counter(str(r["started_at"])[:10] for r in runs).items())],
             "totals": {"runs": len(runs), "finished": sum(1 for r in runs if r.get("ended_at")), "active_minutes": round(total_active, 1),
@@ -550,6 +576,8 @@ def export(game: str = CARD, course_id: int | None = None, section_id: int | Non
     events = _events(cur, ids)
     conn.close()
     who = {r["id"]: r for r in rep["runs"]}
+    counted_ids = [r["id"] for r in rep["runs"] if not r["excluded"]]
+    students = [s for s in rep["students"] if not s["test"]]
     ident = (lambda r: [r.get("public_id"), r.get("student_no"), r.get("name")]) if names else (lambda r: [r.get("public_id")])
     id_head = ["research_code", "student_no", "name"] if names else ["research_code"]
     wb = Workbook(); wb.remove(wb.active)
@@ -565,7 +593,8 @@ def export(game: str = CARD, course_id: int | None = None, section_id: int | Non
     sheet("說明 README", ["工作表 sheet", "欄位 column", "說明"], [
         ["(file)", "", "含姓名與學號：只給授課老師。" if names else "不含姓名、學號、email：學生只用研究代碼（research_code）表示，可以交給研究使用。"],
         ["Summary", "", "匯出時間、篩選條件、整體數字"],
-        ["Students", "", "每位學生一列（選了課程時，還沒玩的學生也會列出）"],
+        ["Students", "", "每位學生一列（選了課程時，還沒玩的學生也會列出）。老師、助教和標成測試帳號的人不在這張表"],
+        ["(test data)", "", "測試資料（老師／管理員／測試帳號的局、3D 遊戲裡的小站、快速測試或只玩部分段落的局）只出現在 Runs（有 excluded_reason）和 Events，不進任何統計表"],
         ["Students", "best_score / last_score", "聽懂分數 0–100：每句只看第一次配對，並扣掉用猜的機率"],
         ["Students", "first_try_rate", "第一次就配對的句子比例（0–1）"],
         ["Students", "active_minutes", "實際操作的分鐘數（停超過 90 秒不算）"],
@@ -583,16 +612,16 @@ def export(game: str = CARD, course_id: int | None = None, section_id: int | Non
     ov = rep["overview"]
     sheet("Summary", ["metric", "value"], [["exported", L._now()], ["game", rep["name"]], ["filters", {"course_id": course_id, "section_id": section_id, "chapter": chapter, "level": level, "from": date_from, "to": date_to}]] + [[k, v] for k, v in ov.items()])
     sheet("Students", id_head + ["class", "runs", "finished", "best_score", "last_score", "first_try_rate", "active_minutes", "repeats", "quiz", "wrap_ups_done", "read_aloud", "reflections", "recordings", "flagged_runs", "avg_stars", "last_played"],
-          [ident(s) + [s.get("section"), s["runs"], s["finished"], s["best"], s["last_score"], s["first_rate"], s["active_minutes"], s["repeats"], s["quiz"], s["wrap_done"], s["reads"], s["reflects"], s["recordings"]["total"], s["flags"], s.get("avg_stars"), s["last"]] for s in rep["students"]])
-    sheet("Runs", ["run_id"] + id_head + ["topic", "level", "version", "started_at", "ended_at", "minutes", "active_minutes", "score", "wrap_up_done", "flags", "ending", "avg_stars", "events", "embedded_in_3d_game"],
-          [[r["id"]] + ident(r) + [r["chapter"], r["level"], r["version"], r["started_at"], r["ended_at"], r["minutes"], r["active_minutes"], r["score"], r["wrap_done"], ", ".join(r["flags"]), r["ending"], r["avg_stars"], r["events"], r["embed"]] for r in rep["runs"]])
+          [ident(s) + [s.get("section"), s["runs"], s["finished"], s["best"], s["last_score"], s["first_rate"], s["active_minutes"], s["repeats"], s["quiz"], s["wrap_done"], s["reads"], s["reflects"], s["recordings"]["total"], s["flags"], s.get("avg_stars"), s["last"]] for s in students])
+    sheet("Runs", ["run_id"] + id_head + ["topic", "level", "version", "started_at", "ended_at", "minutes", "active_minutes", "score", "wrap_up_done", "flags", "ending", "avg_stars", "events", "embedded_in_3d_game", "excluded_reason"],
+          [[r["id"]] + ident(r) + [r["chapter"], r["level"], r["version"], r["started_at"], r["ended_at"], r["minutes"], r["active_minutes"], r["score"], r["wrap_done"], ", ".join(r["flags"]), r["ending"], r["avg_stars"], r["events"], r["embed"], r["excluded"]] for r in rep["runs"]])
     if game == CARD:
         titles = L._auth["titles"]() if L._auth.get("titles") else {}
         sheet("Cards", ["card", "title", "version", "part", "first_tries", "students", "first_try_rate", "score_s", "repeats_per_play", "median_reaction_ms", "most_confused_with", "confused_with_title", "times"],
               [[c["card"], titles.get(c["card"]), c["version"], c["part"], c["n"], c["students"], c["first_rate"], c["s"], c["repeats_avg"], c["rt_median_ms"], (c["top_wrong"] or {}).get("target"), titles.get((c["top_wrong"] or {}).get("target")), (c["top_wrong"] or {}).get("n")] for c in rep["cards"]])
         sheet("Confusions", ["sentence_card", "put_on", "times"], [[c["card"], c["target"], c["n"]] for c in rep["confusion"]])
         per_card, quiz, reads, reflects = [], [], [], []
-        for rid in ids:
+        for rid in counted_ids:
             both = _scored(who[rid], events.get(rid, []))
             if both is None:
                 continue

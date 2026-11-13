@@ -1,6 +1,9 @@
 // SDG 4-1 "Quality Education in Taiwan": the full 20-slide Pecha Kucha talk at A2 / B1 / B2.
 // Generated from content/canonical/sdg4-1.json on the feat/mission-engine branch (content_version 2026.09.1),
 // the quality-gated material: every slide fits 20 seconds at its level's speaking rate.
+// `cue` (2026-11-12): what the stage does while this slide is spoken (js/world/cinematic.js): light = warm | cool |
+// dim | split | spot | rise; fog 0 (clear) .. 1 (thick); cam = wide | side | sideR | push | low; props = the small
+// sets that appear on stage; note = why it fits the slide. A cue never changes what the student reads.
 export const TALK = {
  "id": "sdg4-1",
  "title": "Quality Education in Taiwan",
@@ -12,6 +15,7 @@ export const TALK = {
    "slides": [
     {
      "no": 1,
+     "cue": {"light": "spot", "fog": 0.35, "cam": "push", "props": ["question", "scale"], "note": "The opening question: is school fair? A single spot, a scale that does not balance."},
      "title": "Challenge Taiwan’s education fairness",
      "zh": "挑戰教育公平性",
      "text": {
@@ -22,6 +26,7 @@ export const TALK = {
     },
     {
      "no": 2,
+     "cue": {"light": "warm", "fog": 0.2, "cam": "wide", "props": ["book", "globe"], "note": "The promise of SDG 4: learning for everyone, for life."},
      "title": "SDG 4 inclusive lifelong learning",
      "zh": "確保有教無類、公平以及高品質的教育，並推進終身學習機會",
      "text": {
@@ -32,6 +37,7 @@ export const TALK = {
     },
     {
      "no": 3,
+     "cue": {"light": "cool", "fog": 0.25, "cam": "side", "props": ["chips", "gears"], "note": "STEM and the chip industry that made Taiwan rich."},
      "title": "STEM drives Taiwan innovation",
      "zh": "STEM領域的人才與研發，作為推動台灣產業升級與創新的核心引擎",
      "text": {
@@ -49,6 +55,7 @@ export const TALK = {
    "slides": [
     {
      "no": 4,
+     "cue": {"light": "dim", "fog": 0.8, "cam": "wide", "props": ["school", "desks"], "note": "Fewer births, closed schools: the room goes dark, the desks are empty."},
      "title": "Low birth rate school closures",
      "zh": "少子化導致的學校併校與停辦",
      "text": {
@@ -59,6 +66,7 @@ export const TALK = {
     },
     {
      "no": 5,
+     "cue": {"light": "cool", "fog": 0.45, "cam": "low", "props": ["exam"], "note": "Exam pressure: cold light, test papers circling."},
      "title": "Exam pressure kills STEM creativity",
      "zh": "考試壓力扼殺創造力",
      "text": {
@@ -69,6 +77,7 @@ export const TALK = {
     },
     {
      "no": 6,
+     "cue": {"light": "split", "fog": 0.4, "cam": "wide", "props": ["towers", "hut"], "note": "City and countryside: one side of the stage bright, the other left in the dark."},
      "title": "Urban-rural resource inequality gap",
      "zh": "城鄉資源差距",
      "text": {
@@ -86,6 +95,7 @@ export const TALK = {
    "slides": [
     {
      "no": 7,
+     "cue": {"light": "warm", "fog": 0.15, "cam": "push", "props": ["graduates"], "note": "Good news: 12 free years, 99% finish primary school."},
      "title": "12-year free education success",
      "zh": "十二年國教的成效",
      "text": {
@@ -96,6 +106,7 @@ export const TALK = {
     },
     {
      "no": 8,
+     "cue": {"light": "warm", "fog": 0.15, "cam": "sideR", "props": ["blocks"], "note": "Preschool: counting and sharing start with toy blocks."},
      "title": "Preschool subsidies help disadvantaged",
      "zh": "推動幼教補助，支援弱勢族群",
      "text": {
@@ -106,6 +117,7 @@ export const TALK = {
     },
     {
      "no": 9,
+     "cue": {"light": "warm", "fog": 0.2, "cam": "wide", "props": ["bars", "graduates"], "note": "Enrollment above the world average: the bars rise."},
      "title": "High enrollment beats global average",
      "zh": "入學率高於全球平均水準",
      "text": {
@@ -123,6 +135,7 @@ export const TALK = {
    "slides": [
     {
      "no": 10,
+     "cue": {"light": "cool", "fog": 0.2, "cam": "low", "props": ["gears", "blocks"], "note": "Hands-on science: students build instead of only reading."},
      "title": "Government funds hands-on STEM",
      "zh": "政府資助實作型 STEM 教育",
      "text": {
@@ -133,6 +146,7 @@ export const TALK = {
     },
     {
      "no": 11,
+     "cue": {"light": "cool", "fog": 0.3, "cam": "push", "props": ["tablets", "chips"], "note": "Digital lessons in 80% of schools: tablets float over the stage."},
      "title": "Digital tools teach AI ethics",
      "zh": "利用數位工具推廣 AI 倫理教育",
      "text": {
@@ -143,6 +157,7 @@ export const TALK = {
     },
     {
      "no": 12,
+     "cue": {"light": "warm", "fog": 0.2, "cam": "side", "props": ["turbine"], "note": "Internships with green-energy engineers."},
      "title": "Internships prepare green tech careers",
      "zh": "透過實習為綠能科技職涯奠定基礎",
      "text": {
@@ -160,6 +175,7 @@ export const TALK = {
    "slides": [
     {
      "no": 13,
+     "cue": {"light": "warm", "fog": 0.2, "cam": "wide", "props": ["bars", "globe"], "note": "Exports worth 500 billion dollars, and the science to plan for heat and floods."},
      "title": "STEM boosts economy climate solutions",
      "zh": "STEM 推動經濟成長與氣候解決方案",
      "text": {
@@ -170,6 +186,7 @@ export const TALK = {
     },
     {
      "no": 14,
+     "cue": {"light": "spot", "fog": 0.4, "cam": "push", "props": ["bar30"], "note": "Only 3 in 10 engineering students are women: three figures lit, seven dark."},
      "title": "Gender gaps persist in engineering",
      "zh": "工程領域的性別差距依然存在",
      "text": {
@@ -180,6 +197,7 @@ export const TALK = {
     },
     {
      "no": 15,
+     "cue": {"light": "dim", "fog": 0.7, "cam": "low", "props": ["desks"], "note": "Talent wasted if the gaps stay open: empty desks again."},
      "title": "Ignore issues waste future talent",
      "zh": "忽視問題將埋沒未來人才",
      "text": {
@@ -190,6 +208,7 @@ export const TALK = {
     },
     {
      "no": 16,
+     "cue": {"light": "cool", "fog": 0.3, "cam": "sideR", "props": ["globe", "turbine"], "note": "A country that can take a shock: schools that keep up with the world."},
      "title": "Education builds resilient Taiwan",
      "zh": "以教育打造韌性台灣",
      "text": {
@@ -207,6 +226,7 @@ export const TALK = {
    "slides": [
     {
      "no": 17,
+     "cue": {"light": "split", "fog": 0.3, "cam": "wide", "props": ["scaleLevel", "bars"], "note": "Summary: real progress next to problems that remain."},
      "title": "SDG 4 progress with problems",
      "zh": "SDG 4 雖有進展，但挑戰依舊",
      "text": {
@@ -217,6 +237,7 @@ export const TALK = {
     },
     {
      "no": 18,
+     "cue": {"light": "cool", "fog": 0.35, "cam": "side", "props": ["exam", "gears"], "note": "High scores are not creativity: rebuild, do not decorate."},
      "title": "Challenge high scores creativity lacks",
      "zh": "挑戰高分目標，卻喪失了創造力",
      "text": {
@@ -227,6 +248,7 @@ export const TALK = {
     },
     {
      "no": 19,
+     "cue": {"light": "warm", "fog": 0.15, "cam": "push", "props": ["graduates", "tablets"], "note": "Science open to girls, country students and poorer families."},
      "title": "Advocate inclusive STEM for all",
      "zh": "推廣無界限 STEM，落實全民科學教育",
      "text": {
@@ -237,6 +259,7 @@ export const TALK = {
     },
     {
      "no": 20,
+     "cue": {"light": "rise", "fog": 0.1, "cam": "wide", "props": ["lanterns"], "note": "The ask: the lights come up, the audience's phones light, lanterns rise."},
      "title": "Act together equitable future now",
      "zh": "攜手並進，共創公平未來，就在當下",
      "text": {

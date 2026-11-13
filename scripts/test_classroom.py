@@ -421,7 +421,8 @@ check("the card game's 9 topics are in the library, with the 3D games listed as 
 check("students get the published library without signing in", len(client.get("/content/library").json()["topics"]) == 9)
 check("a student cannot open the editor", client.get("/teacher/library", headers=stu).status_code == 403)
 t92 = client.get("/teacher/library/pecha_kucha/9-2", headers=admin).json()
-check("a topic opens with its slides, version and history", t92["summary"]["version"] == 1 and len(t92["doc"]["levels"]["A2"]) == 12 and len(t92["history"]) == 1 and not t92["errors"], str(t92["summary"]))
+v0 = t92["summary"]["version"]      # the bank's version of this topic (it rises whenever the bank's scripts are corrected)
+check("a topic opens with its slides, version and history", v0 >= 1 and len(t92["doc"]["levels"]["A2"]) == 12 and len(t92["history"]) == 1 and not t92["errors"], str(t92["summary"]))
 import copy as _copy
 doc = _copy.deepcopy(t92["doc"])
 doc["levels"]["A2"][5]["title_en"] = doc["levels"]["A2"][4]["title_en"]          # the bug the game had: two cards with one title
@@ -434,18 +435,18 @@ doc = _copy.deepcopy(t92["doc"])
 doc["levels"]["A2"][0]["title_zh"] = "全球永續的連結"
 client.put("/teacher/library/pecha_kucha/9-2/draft", json={"doc": doc}, headers=admin)
 r = client.post("/teacher/library/pecha_kucha/9-2/publish", json={"note": "改中文標題"}, headers=admin).json()
-check("changing only a Chinese title publishes without a new version (learning data stays comparable)", r["published"] and r["version"] == 1 and r["version_raised"] is False, str(r))
+check("changing only a Chinese title publishes without a new version (learning data stays comparable)", r["published"] and r["version"] == v0 and r["version_raised"] is False, str(r))
 doc["levels"]["A2"][0]["script"] = "Good morning, everyone. Today we look at SDG 9 and how we talk to AI."
 r = client.put("/teacher/library/pecha_kucha/9-2/draft", json={"doc": doc}, headers=admin).json()
 check("the editor is told when a change will start a new version", r["changes_data"] is True)
 r = client.post("/teacher/library/pecha_kucha/9-2/publish", json={}, headers=admin).json()
-check("changing a script raises the version", r["version"] == 2 and r["version_raised"] is True, str(r))
+check("changing a script raises the version", r["version"] == v0 + 1 and r["version_raised"] is True, str(r))
 live = next(t for t in client.get("/content/library").json()["topics"] if t["id"] == "9-2")
-check("students now get the new script and version 2", live["version"] == 2 and live["levels"]["A2"][0]["script"].startswith("Good morning, everyone. Today we look"))
+check("students now get the new script and the new version", live["version"] == v0 + 1 and live["levels"]["A2"][0]["script"].startswith("Good morning, everyone. Today we look"))
 check("saving the published text again leaves no draft", client.put("/teacher/library/pecha_kucha/9-2/draft", json={"doc": doc}, headers=admin).json()["has_draft"] is False)
-client.post("/teacher/library/pecha_kucha/9-2/restore-version", json={"version": 1}, headers=admin)
+client.post("/teacher/library/pecha_kucha/9-2/restore-version", json={"version": v0}, headers=admin)
 back = client.get("/teacher/library/pecha_kucha/9-2", headers=admin).json()
-check("an old version can be brought back as a draft (not live until published)", back["summary"]["has_draft"] and back["doc"]["levels"]["A2"][0]["script"] == t92["doc"]["levels"]["A2"][0]["script"] and live["version"] == 2)
+check("an old version can be brought back as a draft (not live until published)", back["summary"]["has_draft"] and back["doc"]["levels"]["A2"][0]["script"] == t92["doc"]["levels"]["A2"][0]["script"] and live["version"] == v0 + 1)
 check("discarding the draft goes back to what is published", client.post("/teacher/library/pecha_kucha/9-2/discard", headers=admin).json()["discarded"] and not client.get("/teacher/library/pecha_kucha/9-2", headers=admin).json()["summary"]["has_draft"])
 r = client.post("/teacher/library/pecha_kucha", json={"topic_id": "4-3", "title_en": "Reading for Everyone", "title_zh": "人人都能閱讀", "slides": 12, "levels": ["A2"]}, headers=admin)
 check("a new topic starts as a blank 12-slide draft", r.status_code == 200 and len(client.get("/teacher/library/pecha_kucha/4-3", headers=admin).json()["doc"]["levels"]["A2"]) == 12, r.text)
@@ -531,6 +532,477 @@ check("the teacher's recording list can be narrowed by date", client.get("/teach
 check("…and so can a student's page", client.get(f"/learning/records/student/{student_id}", params={"from": "2099-01-01"}, headers=admin).json()["totals"]["runs"] == 0)
 ch = client.get("/teacher/chips", params={"course_id": course_id}, headers=admin)
 check("the chip list of a course opens and lists its students", ch.status_code == 200 and len(ch.json()["students"]) >= 1, ch.text[:200])
+
+section("Meeting follow-ups (2026-11-09): T4 Chinese titles, T5 test data kept but not analysed")
+from backend import content_library as CL  # noqa: E402
+# T5 — the admin's (a teacher's) own play
+a_run, _, a_fin = play(admin, "admin-run", drops)
+check("T5: a teacher's / admin's run pays no chips and the answer says it is test data", a_fin.json()["chips"]["test"] is True and a_fin.json()["chips"]["earned"] == 0, str(a_fin.json()["chips"]))
+rep5 = client.get("/learning/records/game", params={"game": "pecha_kucha"}, headers=admin).json()
+row5 = next((r_ for r_ in rep5["runs"] if r_["id"] == a_run), None)
+check("…the class report lists it with the reason 'test_account'", bool(row5) and row5["excluded"] == "test_account" and row5["test"] is True, str(row5)[:200])
+check("…and does not count it", rep5["overview"]["excluded"].get("test_account", 0) >= 1 and a_run not in [x["run_id"] for s_ in rep5["students"] for x in s_["scores"]] and rep5["overview"]["runs"] == rep5["overview"]["runs_total"] - rep5["overview"]["excluded_runs"], str(rep5["overview"]))
+# T5 — a student's quick test (Part 1 only, metrics.test)
+q_run, _, _ = play(stu, "quick-1", [(1, 1, 3, 4000)], finish=False)
+q_fin = client.post(f"/learning/runs/{q_run}/finish", json={"metrics": {"test": True, "parts": [1]}}, headers=stu)
+check("T5: a quick test pays no chips", q_fin.status_code == 200 and q_fin.json()["chips"]["test"] is True and q_fin.json()["chips"]["earned"] == 0, q_fin.text[:200])
+rep5 = client.get("/learning/records/game", params={"game": "pecha_kucha"}, headers=admin).json()
+rowq = next((r_ for r_ in rep5["runs"] if r_["id"] == q_run), None)
+check("…and is listed as 'test_run', not counted", bool(rowq) and rowq["excluded"] == "test_run" and rep5["overview"]["excluded"].get("test_run", 0) >= 1, str(rowq)[:200])
+# T5 — the teacher marks a student as a test account, and back
+rep_c = client.get("/learning/records/game", params={"game": "pecha_kucha", "course_id": course_id}, headers=admin).json()
+listed_before = rep_c["overview"]["students_listed"]
+runs_before = next(s_ for s_ in rep_c["students"] if s_["user_id"] == student_id)["runs"]
+r = client.patch(f"/teacher/users/{student_id}/test-account", json={"test": True}, headers=admin)
+rep_t = client.get("/learning/records/game", params={"game": "pecha_kucha", "course_id": course_id}, headers=admin).json()
+srow = next(s_ for s_ in rep_t["students"] if s_["user_id"] == student_id)
+check("T5: a student marked as a test account keeps a row (marked) and his runs are no longer counted",
+      r.status_code == 200 and srow["test"] is True and srow["runs"] == 0 and srow["excluded_runs"] >= runs_before and rep_t["overview"]["students_listed"] == listed_before - 1 and rep_t["overview"]["test_accounts"] >= 1, str(srow)[:200] + " " + str(rep_t["overview"]))
+check("…the roster shows the mark", any(s_["user_id"] == student_id and s_["test"] is True and s_["test_fixed"] is False for s_ in client.get(f"/teacher/courses/{course_id}/roster", headers=admin).json()["students"]))
+sp = client.get(f"/learning/records/student/{student_id}", headers=admin).json()
+check("…his own page still shows every run, marked", sp["student"]["test"] is True and sp["totals"]["runs"] >= runs_before and all(r_["excluded"] == "test_account" for r_ in sp["runs"]), str(sp["totals"]))
+check("…the anomaly list leaves test accounts out", student_id not in [a_["user_id"] for a_ in rep_t.get("anomalies", [])])
+admin_id = client.get("/auth/me", headers=admin).json()["id"]
+check("T5: an admin's or teacher's account cannot be unmarked", client.patch(f"/teacher/users/{admin_id}/test-account", json={"test": False}, headers=admin).status_code == 400)
+r = client.patch(f"/teacher/users/{student_id}/test-account", json={"test": False}, headers=admin)
+rep_u = client.get("/learning/records/game", params={"game": "pecha_kucha", "course_id": course_id}, headers=admin).json()
+check("…unmarking counts the student again", r.status_code == 200 and next(s_ for s_ in rep_u["students"] if s_["user_id"] == student_id)["runs"] == runs_before and rep_u["overview"]["students_listed"] == listed_before)
+# T5 — the 3D analytics and the exports
+r = client.post("/learning/runs", json={"game": "innovation-harbor", "chapter": "9-1", "level": "A2", "client_id": "admin-3d"}, headers=admin)
+client.post(f"/learning/runs/{r.json()['run_id']}/finish", json={"metrics": {"score": 50}, "stars": {"a": 2}}, headers=admin)
+an = client.get("/learning/analytics", headers=admin).json()
+check("T5: the 3D story analytics leave the admin's run out and say so", an["overview"]["runs"] == 1 and an["test_runs_left_out"] == 1, str(an["overview"]) + " left_out=" + str(an.get("test_runs_left_out")))
+x = client.get("/learning/records/export.xlsx", params={"game": "pecha_kucha"}, headers=admin)
+try:
+    import io as _io
+    from openpyxl import load_workbook
+    wb = load_workbook(_io.BytesIO(x.content), read_only=True)
+    runs_head = [c for c in next(wb["Runs"].iter_rows(values_only=True))]
+    runs_rows = list(wb["Runs"].iter_rows(values_only=True))[1:]
+    admin_code = client.get("/auth/me", headers=admin).json().get("public_id")
+    stu_codes = [row_[0] for row_ in list(wb["Students"].iter_rows(values_only=True))[1:]]
+    excl_col = runs_head.index("excluded_reason")
+    check("T5: the Excel 'Runs' sheet names why a run is not counted; 'Students' has no test account", x.status_code == 200 and any(row_[excl_col] == "test_account" for row_ in runs_rows) and admin_code not in stu_codes, f"{x.status_code} codes={stu_codes[:5]}")
+    att_runs = {row_[0] for row_ in list(wb["CardAttempts"].iter_rows(values_only=True))[1:]}
+    check("…and the analysis sheets have no test runs", a_run not in att_runs and q_run not in att_runs)
+except ImportError:
+    check("T5: Excel export opens (openpyxl missing: columns not checked)", x.status_code == 200)
+# T4 — the material checks
+twelve = [{"no": i + 1, "part": p_, "title_en": f"Card {i + 1}", "title_zh": "", "script": "Hello world.", "purpose": "", "keywords": ""} for i, p_ in enumerate([1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6])]
+errs4, warns4 = CL.check_doc({"id": "t4", "sdg": 9, "title_en": "T4", "title_zh": "", "levels": {"A2": twelve}})
+check("T4: an empty Chinese title is an error (topic and card); an empty hint line is allowed (the Chinese title is printed instead)",
+      any(e["field"] == "title_zh" and e["no"] is None for e in errs4) and sum(1 for e in errs4 if e["field"] == "title_zh" and e["no"]) == 12
+      and not any(e["field"] == "keywords" for e in errs4 + warns4),      # an empty hint is fine: the table then prints the Chinese title
+      f"errors={[e['message'] for e in errs4][:3]}")
+r = client.put("/teacher/library/pecha_kucha/13-1/draft", json={"doc": {**client.get("/teacher/library/pecha_kucha/13-1", headers=admin).json()["doc"], "title_zh": ""}}, headers=admin) if client.get("/teacher/library/pecha_kucha/13-1", headers=admin).status_code == 200 else None
+if r is not None and r.status_code == 200:
+    pub = client.post("/teacher/library/pecha_kucha/13-1/publish", json={}, headers=admin)
+    check("T4: a topic without a Chinese name cannot be published", pub.status_code in (400, 409, 422), f"{pub.status_code} {pub.text[:120]}")
+    client.post("/teacher/library/pecha_kucha/13-1/discard", json={}, headers=admin)
+# T4 — an older database gets its missing Chinese titles from the question bank at start-up
+seed_doc = json.loads((Path(main.FRONTEND_DIR) / "js" / "pk-content.js").read_text(encoding="utf-8").split("window.PK_CONTENT = ", 1)[1].rstrip().rstrip(";"))
+seed_131 = next(t_ for t_ in seed_doc["topics"] if t_["id"] == "13-1")
+conn_ = CL.D.get_db(); cur_ = conn_.cursor()
+cur_.execute("SELECT id, published_json FROM content_topics WHERE game = ? AND topic_id = ?", ("pecha_kucha", "13-1"))
+row_ = cur_.fetchone()
+doc_ = json.loads(row_["published_json"]); lvl_ = sorted(doc_["levels"])[0]; want_ = next(s_["title_zh"] for s_ in seed_131["levels"][lvl_] if s_["no"] == 1)
+doc_["levels"][lvl_][0]["title_zh"] = ""
+cur_.execute("UPDATE content_topics SET published_json = ? WHERE id = ?", (json.dumps(doc_, ensure_ascii=False), row_["id"])); conn_.commit()
+filled_ = CL._backfill_title_zh(cur_); conn_.commit()
+cur_.execute("SELECT published_json FROM content_topics WHERE id = ?", (row_["id"],))
+got_ = json.loads(cur_.fetchone()["published_json"])["levels"][lvl_][0]["title_zh"]; conn_.close()
+check("T4: an older database gets a missing Chinese title back from the question bank at start-up (nothing else touched)", filled_ == 1 and got_ == want_ and bool(want_), f"filled={filled_} got={got_!r} want={want_!r}")
+
+section("語音念法 (T2): one table for the whole platform, edited by the teacher")
+sp0 = client.get("/content/speech")
+check("the games get the table without signing in, with SDG and AI in it", sp0.status_code == 200 and {"written": "SDG", "spoken": "S D G"} in sp0.json()["rules"] and any(r_["written"] == "AI" for r_ in sp0.json()["rules"]), sp0.text[:200])
+check("a student cannot change it", client.put("/teacher/speech", json={"rules": []}, headers=stu).status_code in (401, 403) and client.get("/teacher/speech", headers=stu).status_code in (401, 403))
+mine = sp0.json()["rules"] + [{"written": "NPTU", "spoken": "N P T U"}, {"written": "", "spoken": ""}]
+r = client.put("/teacher/speech", json={"rules": mine}, headers=admin)
+check("the teacher adds a row; an empty row is dropped", r.status_code == 200 and r.json()["saved"] == len(sp0.json()["rules"]) + 1 and {"written": "NPTU", "spoken": "N P T U"} in client.get("/content/speech").json()["rules"], r.text[:200])
+for bad_rules, why in (([{"written": "SDG", "spoken": "x"}, {"written": "SDG", "spoken": "y"}], "出現兩次"), ([{"written": "SDG", "spoken": ""}], "念成"), ([{"written": "two words", "spoken": "x"}], "空格"), ([{"written": "x" * 41, "spoken": "x"}], "太長")):
+    r = client.put("/teacher/speech", json={"rules": bad_rules}, headers=admin)
+    check(f"…a bad table is refused with the reason ({why})", r.status_code == 400 and why in r.text, r.text[:160])
+check("…and a refused table changes nothing", {"written": "NPTU", "spoken": "N P T U"} in client.get("/content/speech").json()["rules"])
+r = client.put("/teacher/speech", json={"rules": [{"written": "%s", "spoken": "100%"}, {"written": "<b>", "spoken": "it's \"quoted\""}]}, headers=admin)
+check("odd characters (%, quotes, <>) are stored as plain text", r.status_code == 200 and client.get("/content/speech").json()["rules"] == [{"written": "%s", "spoken": "100%"}, {"written": "<b>", "spoken": "it's \"quoted\""}], r.text[:200])
+r = client.post("/teacher/speech/reset", headers=admin)
+check("the built-in table can be put back", r.status_code == 200 and client.get("/content/speech").json()["rules"] == sp0.json()["rules"])
+
+section("雲端語音: two providers, accents the teacher offers, budgets, and the way back to the device's voice")
+from backend import tts as TTS, speech_rules as SR  # noqa: E402
+for raw, want in (("SDG 9 is about industry; AI helps us.", "S D G 9 is about industry, A I helps us."), ("The SDGs matter — for everyone.", "The S D Gs matter, for everyone."),
+                  ("ChatGPT and GPT said STEM is fun.", "ChatGPT and G P T said STEM is fun."), ("AI can help us think, e.g. search.", "A I can help us think, for example search."),
+                  ("Hook + SDG 9 & AI Connection", "Hook + S D G 9 and A I Connection"), ("PM2.5 and CO2 rise: why?", "P M 2.5 and C O 2 rise, why?")):
+    check(f"the server rewrites text the same way as the browser ({raw[:18]}…)", SR.say(raw) == want, SR.say(raw))
+sentences = sorted(TTS.material_texts())
+s1, s2, s3, s4 = sentences[0], sentences[1], sentences[2], sentences[3]
+check("the material's sentences are known to the voice service", len(sentences) > 100)
+check("without a key: no cloud voice is offered", client.get("/content/tts/options").json() == {"available": False, "accents": [], "default": None, "highlight": ["A1", "A2", "B1", "B2"]})
+r = client.get("/content/tts", params={"text": s1, "accent": "en-US"})
+check("…and a sentence answers 'use the device's voice' (no_key)", r.status_code == 409 and r.json() == {"fallback": True, "reason": "no_key"}, r.text[:120])
+calls = {"azure": [], "google": []}
+fake = lambda name: (lambda text, voice, locale: (calls[name].append((text, voice, locale)), b"ID3" + name.encode() + b"\x00" * 400)[1])
+real = {k: dict(v) for k, v in TTS.PROVIDERS.items()}
+TTS.PROVIDERS["azure"].update(ready=lambda: True, synth=fake("azure"))
+o = client.get("/content/tts/options").json()
+check("with a key: the teacher's default accents are offered (American, British)", o["available"] and [a["code"] for a in o["accents"]] == ["en-US", "en-GB"] and o["default"] == "en-US", str(o))
+r = client.get("/content/tts", params={"text": s1, "accent": "en-GB"})
+check("a sentence of the material comes back as mp3 in the accent asked for", r.status_code == 200 and r.content.startswith(b"ID3azure") and calls["azure"][-1][1:] == ("en-GB-SoniaNeural", "en-GB") and calls["azure"][-1][0] == SR.say(s1), f"{r.status_code} {calls['azure'][-1:]}")
+n1 = len(calls["azure"])
+r = client.get("/content/tts", params={"text": s1, "accent": "en-GB"})
+check("…the second time it is the stored file: the provider is not called again", r.status_code == 200 and len(calls["azure"]) == n1)
+st_ = client.get("/teacher/tts", headers=admin).json()
+az = next(p_ for p_ in st_["providers"] if p_["key"] == "azure")
+check("…and the characters are counted once", az["used"] == len(SR.say(s1)) and az["clips"] == 1 and next(a for a in st_["accents"] if a["code"] == "en-GB")["ready"] == 1, str(az))
+r = client.get("/content/tts", params={"text": "Please read my own essay aloud for free.", "accent": "en-GB"})
+check("text that is not in the material is refused (nobody can spend the allowance)", r.status_code == 409 and r.json()["reason"] == "not_in_material" and len(calls["azure"]) == n1)
+check("an accent the teacher has not offered is refused", client.get("/content/tts", params={"text": s1, "accent": "en-AU"}).json().get("reason") == "accent_not_offered")
+check("a student cannot open the teacher's settings or the try-out", client.get("/teacher/tts", headers=stu).status_code in (401, 403) and client.post("/teacher/tts/try", json={"text": "Hi", "accent": "en-US"}, headers=stu).status_code in (401, 403))
+r = client.put("/teacher/tts", json={"accents": ["en-US", "en-GB", "en-AU"], "default": "en-AU"}, headers=admin)
+check("the teacher offers a third accent and makes it the default", r.status_code == 200 and client.get("/content/tts/options").json()["default"] == "en-AU" and len(client.get("/content/tts/options").json()["accents"]) == 3, r.text[:160])
+check("…an unknown accent is refused", client.put("/teacher/tts", json={"accents": ["xx-YY"]}, headers=admin).status_code == 400)
+r = client.post("/teacher/tts/try", json={"text": "The SDGs matter.", "accent": "en-AU"}, headers=admin)
+check("the teacher can hear any short sentence", r.status_code == 200 and calls["azure"][-1][0] == "The S D Gs matter." and calls["azure"][-1][1] == "en-AU-NatashaNeural")
+# the budget: when the first provider's month is used up, the second one answers; when both are, the device speaks
+TTS.PROVIDERS["google"].update(ready=lambda: True, synth=fake("google"))
+used_now = next(p_ for p_ in client.get("/teacher/tts", headers=admin).json()["providers"] if p_["key"] == "azure")["used"]
+client.put("/teacher/tts", json={"budget": {"azure": used_now + 5, "google": 900000}}, headers=admin)
+r = client.get("/content/tts", params={"text": s2, "accent": "en-US"})
+check("when Azure's month is used up, Google answers", r.status_code == 200 and r.content.startswith(b"ID3google") and calls["google"][-1][1] == "en-US-Chirp3-HD-Aoede", f"{r.status_code} {r.content[:12]!r}")
+client.put("/teacher/tts", json={"budget": {"azure": 0, "google": 0}}, headers=admin)
+r = client.get("/content/tts", params={"text": s3, "accent": "en-US"})
+check("when every budget is used up, the answer is 'use the device's voice'", r.status_code == 409 and r.json()["reason"] == "budget_used_up")
+check("…but a clip that is already stored still plays", client.get("/content/tts", params={"text": s2, "accent": "en-US"}).status_code == 200)
+client.put("/teacher/tts", json={"budget": {"azure": 450000, "google": 900000}}, headers=admin)
+# a provider that fails is skipped for a while
+def broken(text, voice, locale):
+    raise OSError("connection refused")
+TTS.PROVIDERS["azure"]["synth"] = broken
+r = client.get("/content/tts", params={"text": s3, "accent": "en-US"})
+paused = next(p_ for p_ in client.get("/teacher/tts", headers=admin).json()["providers"] if p_["key"] == "azure")["paused"]
+check("when Azure fails, Google answers and Azure is rested for a few minutes", r.status_code == 200 and r.content.startswith(b"ID3google") and paused is True)
+r = client.get("/content/tts", params={"text": s3, "accent": "en-IE"})
+client.put("/teacher/tts", json={"accents": ["en-US", "en-GB", "en-AU", "en-IE"]}, headers=admin)
+r = client.get("/content/tts", params={"text": s3, "accent": "en-IE"})
+check("an accent only the resting provider has falls back to the device (no error)", r.status_code == 409 and r.json()["reason"] == "provider_error", r.text[:120])
+TTS._paused.clear(); TTS.PROVIDERS["azure"]["synth"] = fake("azure")
+# preparing the whole material, a few clips per call
+out = client.post("/teacher/tts/prepare", json={"accent": "en-IE"}, headers=admin).json()
+check("'prepare everything' makes a few clips per call and says how many are left", out["made"] == TTS.PREPARE_BATCH and out["left"] == out["total"] - TTS.PREPARE_BATCH and out["stopped"] is None, str(out))
+# a change of the 念法表 makes a new clip for the sentences it touches
+with_ai = next(t for t in sentences if " AI " in t)
+client.get("/content/tts", params={"text": with_ai, "accent": "en-US"}); before_n = len(calls["azure"])
+rules_now = client.get("/content/speech").json()["rules"]
+client.put("/teacher/speech", json={"rules": [({"written": "AI", "spoken": "artificial intelligence"} if r_["written"] == "AI" else r_) for r_ in rules_now]}, headers=admin)
+r = client.get("/content/tts", params={"text": with_ai, "accent": "en-US"})
+check("changing the 念法表 re-makes the sentences it touches, with the new wording", r.status_code == 200 and len(calls["azure"]) == before_n + 1 and "artificial intelligence" in calls["azure"][-1][0] and " A I " not in calls["azure"][-1][0], calls["azure"][-1][0][:80])
+client.post("/teacher/speech/reset", headers=admin)
+for k_, v_ in real.items():
+    TTS.PROVIDERS[k_].update(v_)
+client.put("/teacher/tts", json=TTS.DEFAULT_SETTINGS, headers=admin)
+check("with the keys gone again the game is told to use the device's voice, and stored clips still play", client.get("/content/tts/options").json()["available"] is False and client.get("/content/tts", params={"text": s1, "accent": "en-GB"}).status_code == 200)
+
+section("Chinese titles must be Chinese (5-1 and 5-2 had the English script there)")
+bad12 = [{**c_, "title_zh": "Think about a beautiful bird.", "keywords": "x"} for c_ in twelve]
+errs_, _ = CL.check_doc({"id": "t5", "sdg": 5, "title_en": "T", "title_zh": "測試", "levels": {"A2": bad12}})
+check("a 'Chinese title' with no Chinese in it is an error", sum(1 for e in errs_ if e["field"] == "title_zh" and "沒有中文" in e["message"]) == 12, str([e["message"] for e in errs_][:2]))
+lib_ = client.get("/content/library").json()["topics"]
+leaks = [(t_["id"], l_, s_["no"]) for t_ in lib_ for l_, ss_ in t_["levels"].items() for s_ in ss_ if not CL.re.search("[㐀-鿿]", s_.get("title_zh") or "")]
+check("no card served to students has an English sentence as its Chinese title", leaks == [], str(leaks[:5]))
+conn_ = CL.D.get_db(); cur_ = conn_.cursor()
+cur_.execute("SELECT id, published_json FROM content_topics WHERE game = ? AND topic_id = ?", ("pecha_kucha", "5-1"))
+row_ = cur_.fetchone(); doc_ = json.loads(row_["published_json"]); lvl_ = sorted(doc_["levels"])[0]
+good_ = doc_["levels"][lvl_][2]["title_zh"]; doc_["levels"][lvl_][2]["title_zh"] = doc_["levels"][lvl_][2]["script"]
+cur_.execute("UPDATE content_topics SET published_json = ? WHERE id = ?", (json.dumps(doc_, ensure_ascii=False), row_["id"])); conn_.commit()
+n_ = CL._backfill_title_zh(cur_); conn_.commit()
+cur_.execute("SELECT published_json FROM content_topics WHERE id = ?", (row_["id"],))
+now_ = json.loads(cur_.fetchone()["published_json"])["levels"][lvl_][2]["title_zh"]; conn_.close()
+check("an older database with the script in that field gets the real Chinese title at start-up", n_ == 1 and now_ == good_ and bool(CL.re.search("[㐀-鿿]", now_)), f"{n_} {now_!r}")
+
+section("A newer question bank reaches an existing database (and never overwrites the teacher's edits)")
+bank_ = CL._bank()
+conn_ = CL.D.get_db(); cur_ = conn_.cursor()
+def topic_row(tid):
+    cur_.execute("SELECT * FROM content_topics WHERE game = ? AND topic_id = ?", ("pecha_kucha", tid)); return dict(cur_.fetchone())
+# 13-2 was never edited in this run: pretend the database was filled from an older bank (one version behind, another script)
+r13 = topic_row("13-2"); old_doc = json.loads(r13["published_json"]); lv13 = sorted(old_doc["levels"])[0]
+old_doc["levels"][lv13][0]["script"] = "An older wording of this slide."
+seed13 = int(bank_["13-2"].get("version") or 1)
+cur_.execute("UPDATE content_topics SET published_json = ?, version = ?, bank_version = ? WHERE id = ?", (json.dumps(old_doc, ensure_ascii=False), seed13 - 1, seed13 - 1, r13["id"]))
+cur_.execute("UPDATE content_versions SET version = ? WHERE topic_pk = ?", (seed13 - 1, r13["id"])); conn_.commit()
+took = CL._take_bank_updates(cur_); conn_.commit()
+n13 = topic_row("13-2")
+check("a topic nobody edited takes the newer bank version as a new version", any(x.startswith("13-2→") for x in took) and n13["version"] == seed13 and n13["bank_version"] == seed13
+      and json.loads(n13["published_json"])["levels"][lv13][0]["script"] == bank_["13-2"]["levels"][lv13][0]["script"], f"{took} v{n13['version']}")
+cur_.execute("SELECT version, note FROM content_versions WHERE topic_pk = ? ORDER BY id DESC LIMIT 1", (r13["id"],)); last_ = cur_.fetchone()
+check("…the version list says it came from the bank, and the old version is still there", last_["version"] == seed13 and "題庫" in last_["note"])
+check("…a second start changes nothing", CL._take_bank_updates(cur_) == [])
+# 9-2 was edited and published by the teacher earlier in this run: it must be left alone, and offered
+r92 = topic_row("9-2"); before92 = r92["published_json"]
+cur_.execute("UPDATE content_topics SET bank_version = ? WHERE id = ?", (int(bank_["9-2"].get("version") or 1) - 1, r92["id"])); conn_.commit()
+took = CL._take_bank_updates(cur_); conn_.commit()
+check("a topic the teacher edited is NOT overwritten by a newer bank version", not any(x.startswith("9-2→") for x in took) and topic_row("9-2")["published_json"] == before92, str(took))
+conn_.close()
+sum92 = client.get("/teacher/library/pecha_kucha/9-2", headers=admin).json()["summary"]
+check("…the editor is told a newer bank version exists", sum92["bank_newer"] == int(bank_["9-2"].get("version") or 1), str(sum92.get("bank_newer")))
+check("…a student cannot load it", client.post("/teacher/library/pecha_kucha/9-2/take-bank", headers=stu).status_code in (401, 403))
+tb = client.post("/teacher/library/pecha_kucha/9-2/take-bank", headers=admin)
+got92 = client.get("/teacher/library/pecha_kucha/9-2", headers=admin).json()
+played92 = next(t_ for t_ in client.get("/content/library").json()["topics"] if t_["id"] == "9-2")
+check("…the teacher loads it as a draft: students still get the teacher's published version", tb.status_code == 200 and got92["summary"]["has_draft"] is True and got92["summary"]["bank_newer"] is None
+      and got92["doc"]["levels"]["A2"][0]["script"] == bank_["9-2"]["levels"]["A2"][0]["script"] and json.dumps(played92["levels"], sort_keys=True) == json.dumps(json.loads(before92)["levels"], sort_keys=True), tb.text[:160])
+check("…and it is not offered twice", client.post("/teacher/library/pecha_kucha/9-2/take-bank", headers=admin).status_code == 400)
+client.post("/teacher/library/pecha_kucha/9-2/discard", json={}, headers=admin)
+
+section("T1: titles that differ by a word cannot be published (they are the choices on the table)")
+for a_, b_, want_ in (("Conclusion & Call to Action", "Conclusion", True), ("Scientific Explanation", "Scientific Explanation: How?", True), ("Impact & Significance", "Impact & Significance on Society", True),
+                      ("AI Literacy Strategy 1", "AI Literacy Strategy 2", True), ("Strategy 1: Stop and Question", "Strategy 2: Check the Sources", False),
+                      ("Why? AI Only Predicts the Next Word", "How Fake Answers Sound Real", False), ("The Wage Gap Challenge", "Missing Voices in Leadership", False)):
+    check(f"too alike? {a_!r} / {b_!r} → {want_}", CL.titles_too_alike(a_, b_) is want_)
+alike12 = [{**c_, "title_zh": "測試", "keywords": "x"} for c_ in twelve]
+alike12[10]["title_en"], alike12[11]["title_en"] = "Conclusion & Call to Action", "Conclusion"
+errs_, _ = CL.check_doc({"id": "t1", "sdg": 9, "title_en": "T", "title_zh": "測試", "levels": {"A2": alike12}})
+check("…the editor names both slides and refuses to publish", any(e["field"] == "title_en" and e["no"] == 12 and "太像" in e["message"] for e in errs_), str([e["message"] for e in errs_][:2]))
+lib_ = client.get("/content/library").json()["topics"]
+pairs_ = [(t_["id"], a_["no"], b_["no"]) for t_ in lib_ for ss_ in [next(iter(t_["levels"].values()))] for i_, a_ in enumerate(ss_) for b_ in ss_[i_ + 1:] if CL.titles_too_alike(a_["title_en"], b_["title_en"])]
+check("no topic served to students has two titles that are too alike", pairs_ == [], str(pairs_[:5]))
+
+section("逐字高亮: word times travel with the clip, and a changed sentence gets new ones")
+check("word times line up with the words as shown (SDGs is one shown word, three spoken)", TTS.word_times("The SDGs matter.", [(0.0, "The"), (0.2, "S"), (0.4, "D"), (0.6, "Gs"), (0.9, "matter")]) == [0.0, 0.2, 0.9], str(TTS.word_times("The SDGs matter.", [(0.0, "The"), (0.2, "S"), (0.4, "D"), (0.6, "Gs"), (0.9, "matter")])))
+check("…marks that cannot be lined up give no times (the browser estimates)", TTS.word_times("The SDGs matter.", [(0.0, "The"), (0.9, "matter")]) is None)
+timed = lambda text, voice, locale: (b"ID3timed" + b"\x00" * 400, [(0.3 * i, w) for i, w in enumerate(text.split())])
+TTS.PROVIDERS["azure"].update(ready=lambda: True, synth=timed)
+client.put("/teacher/tts", json={"accents": ["en-US", "en-NZ"], "default": "en-US"}, headers=admin)
+s5 = sentences[5]
+r = client.get("/content/tts", params={"text": s5, "accent": "en-NZ"})
+head_ = next((v for k, v in r.headers.items() if k.lower() == "x-word-times"), "")
+check("a clip from a provider that reports word starts carries one time per shown word", r.status_code == 200 and len(head_.split(",")) == len(s5.split()) and head_.split(",")[0] == "0", head_[:60])
+r = client.get("/content/tts", params={"text": s5, "accent": "en-NZ"})
+check("…and the stored clip sends the same times again", next((v for k, v in r.headers.items() if k.lower() == "x-word-times"), "") == head_)
+TTS.PROVIDERS["azure"]["synth"] = fake("azure")
+r = client.get("/content/tts", params={"text": sentences[6], "accent": "en-NZ"})
+check("a provider without word times sends none (no header, the clip still plays)", r.status_code == 200 and not any(k.lower() == "x-word-times" for k in r.headers))
+r = client.put("/teacher/tts", json={"highlight": ["A1", "A2"]}, headers=admin)
+check("the teacher chooses the levels that are highlighted, and the game is told", r.status_code == 200 and client.get("/content/tts/options").json()["highlight"] == ["A1", "A2"])
+check("…unknown levels are dropped", client.put("/teacher/tts", json={"highlight": ["A2", "C9"]}, headers=admin).json()["settings"]["highlight"] == ["A2"])
+for k_, v_ in real.items():
+    TTS.PROVIDERS[k_].update(v_)
+client.put("/teacher/tts", json=TTS.DEFAULT_SETTINGS, headers=admin)
+
+section("SDG 4 stage (2026-11-12): data chain, chips for the words read correctly, 3 paid talks a day, the teacher's page")
+from datetime import datetime as _dt, timedelta as _td  # noqa: E402
+from backend import sdg4_reports as S4  # noqa: E402
+
+
+def new_student(email, name):
+    c_ = main.get_db(); k_ = c_.cursor()
+    k_.execute("INSERT INTO users (name, email, password_hash, email_verified, privacy_agreed, role, public_id) VALUES (?, ?, ?, 1, 1, 'student', ?)",
+               (name, email, hashlib.sha256(b"TalkPass123").hexdigest(), main.new_public_id(k_)))
+    c_.commit(); c_.close()
+    r_, h_ = login(email, "TalkPass123")
+    return h_, r_.json()["user"]["id"] if "user" in r_.json() else client.get("/auth/me", headers=h_).json()["id"]
+
+
+def talk(headers, client_id, mode="formal", hit=16, miss=4, slides=20, finish=True, seconds=600, v2=True, redo_on=(), leave_during=None, engine="listen", extra=None, metrics=None):
+    """One SDG 4 talk through the real API. seconds: how long ago the run started (the server measures a run by its own clock)."""
+    r_ = client.post("/learning/runs", json={"game": "sdg4-stage", "chapter": "4-1", "level": "A2", "client_id": client_id, "client": f"{mode} · Mozilla/5.0 (Windows NT 10.0) test"}, headers=headers)
+    assert r_.status_code == 200, r_.text
+    rid = r_.json()["run_id"]
+    c_, k_ = learning.get_db()
+    k_.execute("UPDATE learning_runs SET started_at = ? WHERE id = ?", ((_dt.now(learning.TAIPEI) - _td(seconds=seconds)).isoformat(timespec="seconds"), rid))
+    c_.commit(); c_.close()
+    ev, t_ = [], 0.0
+
+    def add(type_, data=None, dt=0.5):
+        nonlocal t_
+        t_ += dt
+        ev.append({"seq": len(ev) + 1, "t": t_, "type": type_, "detail": "", "data": data})
+
+    add("run.start", {"level": "A2", "mode": mode, "quick": False, "load_ms": 4200, "intro_ms": 9000, "hq": False, "mobile": True, "vw": 390, "vh": 844, "speech": engine} if v2 else {"level": "A2", "mode": mode})
+    if v2:
+        add("phase", {"phase": "walk", "prev": "pier", "prev_ms": 40000}, 40)
+        add("phase", {"phase": "backstage", "prev": "walk", "prev_ms": 15000}, 15)
+        add("phase", {"phase": "present", "prev": "backstage", "prev_ms": 30000}, 30)
+    part_of = S4.SLIDE_PART
+    for n in range(1, slides + 1):
+        if n in (1, 4, 7, 10, 13, 17):
+            add("pk.part", {"part": part_of[n]})
+            if v2:
+                add("pk.part.read", {"part": part_of[n], "ms": 5000}, 5)
+        attempts = 1
+        if v2:
+            add("pk.slide.start", {"slide": n, "part": part_of[n], "attempt": 1})
+        if n in redo_on:
+            add("pk.redo", {"slide": n, "attempt": 1, "at_ms": 8000}, 8)
+            attempts = 2
+            if v2:
+                add("pk.slide.start", {"slide": n, "part": part_of[n], "attempt": 2})
+        if leave_during == n:
+            add("page.hide", {"phase": "present", "slide": n}, 6)
+            break
+        d_ = {"slide": n, "part": part_of[n]}
+        if engine == "listen":
+            d_.update({"heard": hit / (hit + miss), "missed": ["laboratory", "fair"][: 2 if miss else 0]})
+            if v2:
+                d_.update({"hit": hit, "miss": miss, "words": hit + miss, "said_words": hit + 1, "engine": "listen"})
+        elif v2:
+            d_.update({"words": hit + miss, "engine": "read"})
+        if v2:
+            d_.update({"dwell_ms": 20000 + 8000 * (attempts - 1), "attempt_ms": 20000, "attempts": attempts, "redo": attempts - 1})
+        d_.update(extra or {})
+        add("pk.slide", d_, 20)
+    if finish and v2:
+        add("phase", {"phase": "ending", "prev": "present", "prev_ms": 420000})
+        add("ending", {"key": mode, "phases": {"load": 4200, "intro": 9000, "pier": 40000, "walk": 15000, "backstage": 30000, "present": 420000, "ending": 3000}})
+    for i in range(0, len(ev), 150):
+        assert client.post("/learning/events", json={"run_id": rid, "events": ev[i:i + 150]}, headers=headers).status_code == 200
+    fin_ = client.post(f"/learning/runs/{rid}/finish", json={"ending": mode, "metrics": {"mode": mode, "heardAvg": 1.0, "heard": [1.0] * 20, **(metrics or {})}}, headers=headers) if finish else None
+    return rid, fin_
+
+
+talker, talker_id = new_student("talker@example.com", "Talker One")
+rid1, fin = talk(talker, "s4-1")
+j = fin.json()
+check("a formal talk with 80% of the words heard: 5 for the talk + 8 for the words", fin.status_code == 200 and j["chips"]["earned"] == 13 and {i_["reason"]: i_["chips"] for i_ in j["chips"]["items"]} == {"sdg4.formal": 5, "sdg4.read": 8}, str(j.get("chips")))
+check("…the accuracy is the server's (the browser claimed 100%)", j["score"]["accuracy"] == 0.8 and j["score"]["miss"] == 80 and j["score"]["complete"] and not j["score"]["held"], str(j["score"]))
+check("…and the answer says how many paid talks are used today", j["chips"]["run_limit"] == {"limit": 3, "used": 0}, str(j["chips"].get("run_limit")))
+again = client.post(f"/learning/runs/{rid1}/finish", json={"ending": "formal", "metrics": {"mode": "formal"}}, headers=talker).json()
+check("finishing the same talk twice pays once", again["chips"]["balance"] == 13 and again["chips"]["earned"] == 13, str(again["chips"]))
+_, fin = talk(talker, "s4-2", mode="practice", hit=11, miss=9)
+check("practice pays the words only: 55% → 6", fin.json()["chips"]["earned"] == 6 and fin.json()["chips"]["run_limit"]["used"] == 1, str(fin.json()["chips"]))
+_, fin = talk(talker, "s4-3", hit=20, miss=0)
+check("the third talk of the day still pays (5 + 10)", fin.json()["chips"]["earned"] == 15 and fin.json()["chips"]["balance"] == 34, str(fin.json()["chips"]))
+rid4, fin = talk(talker, "s4-4", hit=20, miss=0)
+c = fin.json()["chips"]
+check("the fourth talk pays nothing: one account, three paid talks a day", c["earned"] == 0 and c["items"] == [] and c["run_limit"] == {"limit": 3, "used": 3} and c["balance"] == 34, str(c))
+_, fin = talk(talker, "s4-5", mode="practice")
+check("…and a fifth one neither", fin.json()["chips"]["earned"] == 0 and fin.json()["chips"]["balance"] == 34, str(fin.json()["chips"]))
+
+quick, quick_id = new_student("quick@example.com", "Quick Two")
+fast_rid, fin = talk(quick, "s4-fast", seconds=30)
+j = fin.json()
+check("a talk finished in 30 seconds cannot be real: its chips wait for the teacher", j["score"]["held"] and "too_fast" in j["score"]["flags"] and j["chips"]["held"] and j["chips"]["balance"] == 0, str(j))
+short_rid, fin = talk(quick, "s4-short", slides=9)
+check("a run with 9 slides read pays nothing", fin.json()["chips"]["earned"] == 0 and "few_slides" in fin.json()["score"]["flags"], str(fin.json()))
+_, fin = talk(quick, "s4-silent", engine="read")
+check("read silently (no speech recognition): only the 5 for the formal talk", {i_["reason"]: i_["chips"] for i_ in fin.json()["chips"]["items"]} == {"sdg4.formal": 5} and fin.json()["score"]["accuracy"] is None, str(fin.json()["chips"]))
+_, fin = talk(quick, "s4-forged", extra={"hit": "999", "miss": -5})
+check("word counts of the wrong type are ignored, not trusted", fin.status_code == 200 and fin.json()["score"]["accuracy"] is None, str(fin.json().get("score")))
+admin_rid, fin = talk(admin, "s4-admin")
+check("a teacher's talk is test data: no chips", fin.json()["chips"]["test"] is True and fin.json()["chips"]["earned"] == 0, str(fin.json()["chips"]))
+anon_rid, fin = talk({}, "s4-anon")
+check("a talk without sign-in is stored and pays nothing", fin.status_code == 200 and fin.json()["chips"] is None)
+check("chips_for_run: nothing without the server's score", classroom.chips_for_run({"game": "sdg4-stage", "metrics": {"mode": "formal"}}, None, {}) == [])
+check("chips_for_run: 94% rounds to 9, 95% to 10", classroom.chips_for_run({"game": "sdg4-stage", "metrics": {}}, {"complete": True, "accuracy": 0.94}, {}) == [("sdg4.read", 9)] and classroom.chips_for_run({"game": "sdg4-stage", "metrics": {}}, {"complete": True, "accuracy": 0.95}, {}) == [("sdg4.read", 10)])
+
+# what the teacher sees
+left_rid, _ = talk(quick, "s4-left", finish=False, leave_during=7, redo_on=(3,))
+old_rid, _ = talk(quick, "s4-v1", v2=False, mode="practice")
+ov = client.get("/learning/sdg4/overview", headers=admin)
+rep4 = ov.json()
+o4 = rep4["overview"]
+check("SDG 4 page: the class overview", ov.status_code == 200 and o4["runs"] == o4["runs_total"] - o4["excluded_runs"] and o4["excluded"].get("test_account") == 1 and o4["finished"] >= 9, str(o4))
+s3, s7, s8 = (next(s_ for s_ in rep4["slides"] if s_["slide"] == n_) for n_ in (3, 7, 8))
+check("…per slide: reached, finished, how long, heard", s3["done"] >= 9 and s3["dwell_median_s"] == 20.0 and s3["redo_rate"] > 0 and 0 < s3["heard_avg"] <= 1 and s3["top_missed"][0]["word"] in ("laboratory", "fair"), str(s3))
+check("…slide 7 was reached by one run that did not finish it; slide 8 not by that run", s7["reached"] == s7["done"] + 1 and s7["completion"] < 1 and s8["reached"] == s8["done"], str((s7, s8)))
+check("…where runs were left", any(e_["kind"] == "slide" and e_["key"] == 7 and "第 7 張" in e_["label"] and "途中" in e_["label"] for e_ in rep4["exits"]), str(rep4["exits"]))
+ph = {p_["phase"]: p_ for p_ in rep4["phases"]}
+check("…time in each phase (median seconds)", ph["pier"]["median_s"] == 40.0 and ph["present"]["median_s"] == 420.0 and ph["load"]["median_s"] == 4.2, str(rep4["phases"]))
+check("…accuracy spread and device facts", sum(b_["n"] for b_ in rep4["accuracy_dist"]) >= 6 and o4["mobile"] >= 6 and o4["low_tier"] >= 6 and o4["load_median_s"] == 4.2, str((rep4["accuracy_dist"], o4)))
+me4 = next(s_ for s_ in rep4["students"] if s_["user_id"] == talker_id)
+check("…a row per student: talks, best / last accuracy, trend", me4["runs"] == 5 and me4["best"] == 1.0 and me4["finished"] == 5 and len(me4["trend"]) == 5 and me4["formal"] == 3 and me4["practice"] == 2, str(me4))
+check("…the teacher's own talk is listed among the runs, marked, and anonymous talks are counted as one student each", any(r_["excluded"] == "test_account" for r_ in rep4["runs"]) and any(s_["user_id"] is None for s_ in rep4["students"]))
+f4 = client.get("/learning/sdg4/overview", params={"mode": "practice"}, headers=admin).json()
+check("…filter by practice / formal", f4["overview"]["formal"] == 0 and f4["overview"]["practice"] >= 3, str(f4["overview"]))
+st4 = client.get(f"/learning/sdg4/student/{quick_id}", headers=admin).json()
+check("SDG 4 page: one student — talks, the one left early, words to practise", st4["totals"]["runs"] == 6 and st4["totals"]["left"] == 1 and st4["missed_words"][0]["word"] in ("laboratory", "fair") and len(st4["slides"]) == 20, str(st4["totals"]))
+one4 = client.get(f"/learning/sdg4/run/{left_rid}", headers=admin).json()
+a4 = one4["analysis"]
+check("SDG 4 page: one talk — left during slide 7 with the tab hidden, slide 3 redone", a4["exit"]["kind"] == "slide" and a4["exit"]["slide"] == 7 and a4["exit"]["state"] == "during" and a4["exit"]["hidden"] and a4["slides"][2]["redo"] == 1 and a4["slides"][2]["dwell_ms"] == 28000 and a4["slides_done"] == 6 and "中途離開" in one4["summary"], one4["summary"])
+check("…the open phase of an unfinished talk is timed from the events", a4["phases"].get("present", 0) > 100000 and a4["phases"]["pier"] == 40000, str(a4["phases"]))
+v1 = client.get(f"/learning/sdg4/run/{old_rid}", headers=admin).json()["analysis"]
+check("a talk recorded before this version still reads: heard per slide, no timings", v1["slides_done"] == 20 and v1["heard_avg"] == 0.8 and v1["has_timing"] is False and v1["accuracy"] is None and v1["finished"], str({k_: v1[k_] for k_ in ("slides_done", "heard_avg", "has_timing", "accuracy")}))
+check("students cannot open the SDG 4 page's data", client.get("/learning/sdg4/overview", headers=talker).status_code == 403 and client.get(f"/learning/sdg4/run/{rid1}", headers=talker).status_code == 403)
+check("an unknown run is 404", client.get("/learning/sdg4/run/99999999", headers=admin).status_code == 404)
+x4 = client.get("/learning/sdg4/export.xlsx", params={"names": "false"}, headers=admin)
+check("SDG 4 Excel export", x4.status_code == 200 and x4.content[:2] == b"PK", str(x4.status_code))
+try:
+    from openpyxl import load_workbook as _lw
+    import io as _io4
+    wb4 = _lw(_io4.BytesIO(x4.content))
+    head4 = [c_.value for c_ in wb4["Students"][1]]
+    check("…sheets for students, runs, slides, every slide of every run, phases, exits, missed words; no names", {"Students", "Runs", "Slides", "RunSlides", "Phases", "Exits", "MissedWords", "Events"} <= set(wb4.sheetnames) and head4[0] == "research_code" and "name" not in head4 and wb4["Slides"].max_row == 21 and wb4["RunSlides"].max_row > 100, str(wb4.sheetnames))
+except ImportError:
+    pass
+gen = client.get("/learning/records/game", params={"game": "sdg4-stage"}, headers=admin)
+check("the general records page still lists the SDG 4 talks", gen.status_code == 200 and gen.json()["overview"]["runs"] >= 9)
+held4 = [h_ for h_ in client.get("/teacher/chips", headers=admin).json()["held"] if h_["game"] == "sdg4-stage"]
+check("the too-quick talk's chips are in the teacher's list of held entries", len(held4) >= 1 and held4[0]["user_id"] == quick_id, str(held4)[:200])
+
+
+# anomalies per talk and per student, the student's state, the talk that represents them
+fast_row = next(r_ for r_ in rep4["runs"] if r_["id"] == fast_rid)
+check("each talk carries its own anomalies: the 30-second one is 'too good', with a reason in plain words", [f_["code"] for f_ in fast_row["anomalies"]] == ["too_fast"] and fast_row["anomalies"][0]["kind"] == "too_good" and "秒" in fast_row["anomalies"][0]["reason"], str(fast_row["anomalies"]))
+check("…the 9-slide talk that was sent as finished is flagged too", any(f_["code"] == "few_slides" for f_ in next(r_ for r_ in rep4["runs"] if r_["id"] == short_rid)["anomalies"]))
+check("…an ordinary talk has none", next(r_ for r_ in rep4["runs"] if r_["id"] == rid1)["anomalies"] == [])
+an4 = {a_["user_id"]: a_ for a_ in rep4["anomalies"]}
+check("students flagged in this game, with every reason gathered from their talks", quick_id in an4 and an4[quick_id]["too_good"] and len(an4[quick_id]["reasons"]) >= 2 and any("秒就送出" in w_ for w_ in an4[quick_id]["reasons"]), str(an4.get(quick_id)))
+q4 = next(s_ for s_ in rep4["students"] if s_["user_id"] == quick_id)
+check("a student who left one talk and finished a later one is 'recovered' (unsteady, not weak)", q4["state"] == "recovered" and "不是學習不佳" in q4["state_zh"] and me4["state"] == "steady", str((q4["state"], me4["state"])))
+check("the talk that represents a student is a finished one that is not flagged as too good", q4["best_run"]["run_id"] not in (fast_rid, short_rid, left_rid) and me4["best_run"]["accuracy"] == 1.0, str((q4["best_run"], me4["best_run"])))
+giveup, giveup_id = new_student("giveup@example.com", "Gave Up")
+g1, _ = talk(giveup, "s4-g1", finish=False, leave_during=2)
+g2, _ = talk(giveup, "s4-g2", finish=False, leave_during=5)
+rep4b = client.get("/learning/sdg4/overview", headers=admin).json()
+g4 = next(s_ for s_ in rep4b["students"] if s_["user_id"] == giveup_id)
+check("a student who never finished is 'abandoned_only' and has no representative talk", g4["state"] == "abandoned_only" and g4["best_run"] is None and g4["exits"] == 2 and rep4b["states"]["abandoned_only"] == 1 and rep4b["states"]["recovered"] >= 1, str((g4["state"], rep4b["states"])))
+jumper, jumper_id = new_student("jumper@example.com", "Jumper")
+talk(jumper, "s4-j1", hit=4, miss=16, seconds=900); talk(jumper, "s4-j2", hit=19, miss=1)
+rep4c = client.get("/learning/sdg4/overview", headers=admin).json()
+check("accuracy that jumps 75 points between two talks is a reason to look", any(a_["user_id"] == jumper_id and any("跳了" in w_ for w_ in a_["reasons"]) for a_ in rep4c["anomalies"]), str(rep4c["anomalies"])[:300])
+wl = client.get("/learning/records/watchlist", headers=admin)
+check("across games: one list of flagged students with each game's reasons", wl.status_code == 200 and any(p_["user_id"] == quick_id and p_["games"][0]["game"] == "sdg4-stage" for p_ in wl.json()["students"]) and "pecha_kucha" in wl.json()["by_game"] and isinstance(wl.json()["in_several_games"], int), wl.text[:300])
+check("…students cannot read it", client.get("/learning/records/watchlist", headers=talker).status_code == 403)
+
+# a report per talk; a talk that was left gets none, and the teacher is told
+sr = client.post("/teacher/reports/sdg4-run", json={"run_ids": [rid1, left_rid, anon_rid, admin_rid, g1], "note": "Slide 6 was much clearer this time."}, headers=admin)
+j = sr.json()
+check("one report per finished talk; left talks are withheld and named; test and anonymous talks are skipped", sr.status_code == 200 and j["sent"] == 1 and {w_["run_id"] for w_ in j["withheld"]} == {left_rid, g1} and len(j["skipped"]) == 2 and "中途離開" in j["message"], sr.text[:400])
+check("…the withheld entry says where the student stopped", any("第 7 張" in w_["reason"] and w_["user_id"] == quick_id for w_ in j["withheld"]), str(j["withheld"]))
+again = client.post("/teacher/reports/sdg4-run", json={"run_ids": [rid1]}, headers=admin).json()
+check("…the same talk is not reported twice unless asked", again["sent"] == 0 and len(again["already"]) == 1 and client.post("/teacher/reports/sdg4-run", json={"run_ids": [rid1], "again": True}, headers=admin).json()["sent"] == 1, str(again))
+mine = client.get("/me/reports", headers=talker).json()
+docs4 = [client.get(f"/me/reports/{x_['id']}", headers=talker) for x_ in mine["reports"] if "SDG 4" in x_["title"]]   # two were sent in the same second: either may come first
+check("the student receives it: accuracy, slide bars, words to practise, the teacher's note", len(docs4) == 2 and all(d_.status_code == 200 for d_ in docs4) and any(all(t_ in d_.json()["html"] for t_ in ("念對的字", "80%", "laboratory", "Slide 6 was much clearer")) for d_ in docs4), str(mine)[:200])
+check("…the student who gave up received nothing", not any("SDG 4" in x_["title"] for x_ in client.get("/me/reports", headers=giveup).json()["reports"]))
+sent4 = client.get("/teacher/reports/sdg4-sent", headers=admin).json()["runs"]
+check("the teacher's page knows which talks have a report", str(rid1) in sent4 and str(left_rid) not in sent4 and sent4[str(rid1)]["seen"] is True, str(sent4))
+check("students cannot send reports", client.post("/teacher/reports/sdg4-run", json={"run_ids": [rid1]}, headers=talker).status_code == 403)
+
+section("Paths (2026-11-12): no traversal, no hidden or source files, no server folders in any answer")
+for bad in ("/pages/..%5Cmain.py", "/pages/..%5C..%5Cbackend%5Cmain.html", "/pages/%2e%2e/index.html", "/static/../backend/main.py", "/static/%2e%2e/backend/main.py",
+            "/static/%252e%252e/%252e%252e/backend/main.py", "/static/js/..%2f..%2fbackend/main.py", "/static/.env", "/static/games/innovation-harbor/README.md",
+            "/static/js/api.js%00.html", "/.git/config", "/pages/Login.HTML", "/pages/a.html.bak"):
+    r_ = client.get(bad)
+    check(f"refused: {bad}", r_.status_code == 404 and b"import " not in r_.content and b"SECRET" not in r_.content, f"{r_.status_code} {r_.text[:80]}")
+check("/.well-known/ (certificate renewal) is not blocked by the guard", client.get("/.well-known/acme-challenge/abc").status_code == 404 and not main.unsafe_path("/.well-known/acme-challenge/abc") and main.unsafe_path("/.well-known/../backend/main.py"))
+check("ordinary pages and files still load, with nosniff", client.get("/pages/login.html").status_code == 200 and client.get("/static/js/api.js").status_code == 200 and client.get("/static/js/api.js").headers.get("x-content-type-options") == "nosniff")
+h_ = client.get("/health").text + client.get("/learning/health").text
+check("/health names the engine, never a folder or a file on the server", ("sqlite" in h_ or "postgresql" in h_) and "\\\\" not in h_ and "app.db" not in h_ and "learning.db" not in h_ and ":/" not in h_.replace("://", ""), h_[:200])
+import tempfile as _tf  # noqa: E402
+_old_audio = recordings.AUDIO_DIR
+recordings.AUDIO_DIR = _tf.mkdtemp(prefix="audio-guard-")
+check("a stored recording path is relative, and a path that leaves the audio folder is refused",
+      recordings._audio_file("2026-11/ab.webm") is not None and recordings._audio_file("../../backend/main.py") is None and recordings._audio_file(str(Path(__file__).resolve())) is None)
+recordings.AUDIO_DIR = _old_audio
+from backend import tts as _tts  # noqa: E402
+for a_, h2_ in (("../x", "a" * 32), ("en-US", "../../../etc"), ("en-US/..", "b" * 32)):
+    try:
+        _tts.clip_path(a_, h2_); ok_ = False
+    except Exception:
+        ok_ = True
+    check(f"a voice clip path cannot be steered: {a_!r} {h2_[:12]!r}", ok_)
 
 section("Other pages still work")
 check("3D story analytics leave card-game runs out (only the one 3D run made above is counted)", client.get("/learning/analytics", headers=admin).json()["overview"]["runs"] == 1)

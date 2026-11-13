@@ -107,15 +107,28 @@ export function setMood(name) {
 const updaters = new Set();
 export const addUpdate = fn => { updaters.add(fn); return () => updaters.delete(fn); };
 export const removeUpdate = fn => updaters.delete(fn);
+// Opt-in hooks (2026-11-12, the SDG 4 stage's cinematic look; the harbor game does not use them and renders as before):
+// setRenderFrame swaps the plain render for a post-processing chain, onResize tells it about a new size,
+// perfInfo says how the scene is running on this device.
+const plainRender = () => renderer.render(scene, camera);
+let renderFrame = plainRender;
+export const setRenderFrame = fn => { renderFrame = fn || plainRender; };
+const resizers = new Set();
+export const onResize = fn => { resizers.add(fn); };
+const perf = { frames: 0, fps: 0, acc: 0, n: 0 };
+export const perfInfo = () => ({ tier: quality.tier ?? (quality.high ? 3 : 1), fps: Math.round(perf.fps), frames: perf.frames, drawCalls: renderer.info.render.calls,
+  triangles: renderer.info.render.triangles, pixelRatio: +renderer.getPixelRatio().toFixed(2) });
 let running = false;
 export function start() {
   if (running) return; running = true;
   renderer.setAnimationLoop(() => {
-    const dt = Math.min(0.05, clock.getDelta()) * SPEED, t = clock.elapsedTime * SPEED;
+    const raw = clock.getDelta(), dt = Math.min(0.05, raw) * SPEED, t = clock.elapsedTime * SPEED;
+    perf.frames++; perf.acc += raw; perf.n++;
+    if (perf.acc >= 1) { perf.fps = perf.n / perf.acc; perf.acc = 0; perf.n = 0; }
     if (water.material.uniforms?.time) water.material.uniforms.time.value += dt * 0.55;
     else waterNormals.offset.x += dt * 0.004;
     for (const f of updaters) f(dt, t);
-    renderer.render(scene, camera);
+    renderFrame(dt, t);
     labelRenderer.render(scene, camera);
   });
 }
@@ -123,5 +136,6 @@ export function resize() {
   const w = innerWidth, h = innerHeight;
   renderer.setSize(w, h, false); labelRenderer.setSize(w, h);
   camera.aspect = w / h; camera.updateProjectionMatrix();
+  for (const f of resizers) f(w, h);
 }
 addEventListener("resize", resize); resize();

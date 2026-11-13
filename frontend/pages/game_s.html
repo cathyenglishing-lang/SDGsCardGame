@@ -839,6 +839,7 @@ body.is-dragging-card .subtopic-poker:not(.correct) {
 }
 
 </style>
+<script src="/static/js/speech-say.js"></script>
 </head>
 <body>
 
@@ -1783,7 +1784,7 @@ function speak(text, onEndCallback) {
   box.classList.add("active");
   box.innerHTML = `<div class="sentence-text">${escapeHTML(text)}</div>`;
 
-  const u = new SpeechSynthesisUtterance(text);
+  const u = new SpeechSynthesisUtterance(window.CardLearnSay ? window.CardLearnSay(text) : text);
   if (cachedVoice) u.voice = cachedVoice;
   u.lang = "en-US";
   u.rate = 0.82;

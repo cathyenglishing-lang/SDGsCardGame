@@ -8,12 +8,21 @@ Student: GET  /me/reports                                  → my reports (newes
 The HTML is built here with every value escaped; the student page shows it in a sandboxed iframe.
 """
 import html, json
+import re
 from collections import Counter
 from datetime import datetime, timedelta, timezone
 from types import SimpleNamespace
 
 from fastapi import APIRouter, Header, HTTPException
 from pydantic import BaseModel
+
+
+def topic_code(topic_id):
+    """What a topic is shown as: 9-1 → 9-A (the same rule as frontend/js/topic-code.js). The stored id does not change."""
+    m = re.fullmatch(r"(\d{1,2})-(\d{1,2})", str(topic_id or ""))
+    if not m or not 1 <= int(m.group(2)) <= 26:
+        return str(topic_id or "")
+    return f"{m.group(1)}-{chr(64 + int(m.group(2)))}"
 
 router = APIRouter(tags=["reports"])
 D = SimpleNamespace()
@@ -37,6 +46,10 @@ def configure(**deps):
             seen_at TEXT
         )""")
     cur.execute("CREATE INDEX IF NOT EXISTS idx_student_reports_user ON student_reports (user_id)")
+    # 2026-11-12: a report can be about ONE run (an SDG 4 talk). Older rows keep run_id NULL.
+    have = D.table_columns(cur, "student_reports") if getattr(D, "table_columns", None) else ["run_id"]
+    if "run_id" not in have:
+        cur.execute("ALTER TABLE student_reports ADD COLUMN run_id INTEGER")
     conn.commit()
     conn.close()
     _init_feedback()
@@ -71,7 +84,7 @@ def build_html(d, note, teacher_name, titles):
         svg = (f'<svg viewBox="0 0 {W} {H}" class="line"><polyline points="{" ".join(f"{x:.1f},{y:.1f}" for x, y in pts)}" />'
                + "".join(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="4"><title>{e(s[2])}：{e(s[1])}</title></circle>' for (x, y), s in zip(pts, scores))
                + f'<text x="16" y="{H - 4}">第一次</text><text x="{W - 16}" y="{H - 4}" text-anchor="end">最近一次</text></svg>')
-    bars = "".join(f'<div class="bar"><span>{e(x["chapter"])} {e(titles.get(x["chapter"], ""))} <small>{e(x["level"])}</small></span><i><b style="width:{max(2, _num(x.get("best")) or 0)}%"></b></i><em>{e(x.get("best"))}</em></div>'
+    bars = "".join(f'<div class="bar"><span>{e(topic_code(x["chapter"]))} {e(titles.get(x["chapter"], ""))} <small>{e(x["level"])}</small></span><i><b style="width:{max(2, _num(x.get("best")) or 0)}%"></b></i><em>{e(x.get("best"))}</em></div>'
                    for x in topics if _num(x.get("best")) is not None)
     weak = d.get("weak_cards") or []
     practise = "".join(f'<li><b>{e(w.get("title") or w.get("card"))}</b><span>{e(w.get("script") or "")}</span><small>{e(w.get("plays"))} 次裡有 {e(w.get("misses"))} 次第一次沒配對到</small></li>' for w in weak[:6])
@@ -155,6 +168,95 @@ def send(data: SendIn, authorization: str | None = Header(default=None)):
     conn.commit()
     conn.close()
     return {"sent": len(sent), "skipped": skipped}
+
+
+class RunReportIn(BaseModel):
+    run_ids: list[int]
+    note: str | None = None
+    again: bool = False          # send even when this talk already has a report
+
+
+def build_talk_html(d, note, teacher_name):
+    """The report of ONE SDG 4 talk: what was heard, slide by slide, and the words to practise next."""
+    r, a = d["run"], d["analysis"]
+    acc = a.get("accuracy")
+    bars = "".join(
+        f'<div class="row"><span class="n">{e(s["slide"])}</span><span class="bar"><i style="width:{round((_num(s.get("heard")) or 0) * 100)}%;background:{"#16a34a" if (_num(s.get("heard")) or 0) >= .7 else "#d97706" if (_num(s.get("heard")) or 0) >= .4 else "#dc2626"}"></i></span>'
+        f'<span class="v">{"–" if _num(s.get("heard")) is None else str(round(s["heard"] * 100)) + "%"}</span><span class="w">{e("、".join(s.get("missed") or []))}</span></div>'
+        for s in a.get("slides") or [] if s.get("done"))
+    words = Counter(w.lower() for s in a.get("slides") or [] for w in s.get("missed") or [])
+    top = "".join(f"<span>{e(w)}</span>" for w, _ in words.most_common(14))
+    praise = ("幾乎每個字觀眾都聽到了，可以挑戰更高的等級或正式的 20 秒。" if acc is not None and acc >= 0.85 else
+              "大部分的字觀眾都聽到了。把下面幾個字多念幾次，會更清楚。" if acc is not None and acc >= 0.6 else
+              "你把整場念完了，這很不容易。先用練習模式聽示範，再念下面這些字。" if acc is not None else
+              "你把整場念完了。這次沒有語音辨識（默讀），下次開麥克風念出聲，就能看到觀眾聽到多少。")
+    mode = {"practice": "練習（每張 30 秒）", "formal": "正式（每張 20 秒）"}.get(r.get("mode"), "")
+    return f"""<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<style>body{{font-family:system-ui,"Noto Sans TC","Microsoft JhengHei",sans-serif;color:#0f172a;margin:0;padding:20px;line-height:1.6;background:#f8fafc}}
+.card{{background:#fff;border:1px solid #e2e8f0;border-radius:14px;padding:16px 18px;margin:0 0 14px}}h1{{font-size:22px;margin:0 0 4px}}h2{{font-size:16px;margin:0 0 8px}}
+.k{{display:flex;gap:18px;flex-wrap:wrap}}.k div{{min-width:90px}}.k b{{display:block;font-size:26px}}.k span{{color:#64748b;font-size:13px}}
+.row{{display:grid;grid-template-columns:26px 1fr 44px;gap:8px;align-items:center;font-size:13px;margin:3px 0}}.row .w{{grid-column:2 / -1;color:#b91c1c;font-size:12px}}
+.bar{{height:10px;background:#e2e8f0;border-radius:6px;overflow:hidden}}.bar i{{display:block;height:100%}}.n{{font-weight:700;text-align:right}}
+.words span{{display:inline-block;margin:3px 6px 3px 0;padding:3px 10px;border-radius:999px;background:#fee2e2;color:#991b1b;font-weight:700}}.muted{{color:#64748b;font-size:13px}}</style></head><body>
+<div class="card"><h1>SDG 4 Pecha Kucha Stage：你的上台報告</h1><p class="muted">{e(str(r.get("started_at") or "")[:16].replace("T", " "))}　{e(mode)}　等級 {e(r.get("level") or "")}</p>
+<div class="k"><div><b>{"–" if acc is None else str(round(acc * 100)) + "%"}</b><span>念對的字</span></div><div><b>{e(a.get("slides_done"))} / 20</b><span>念完的投影片</span></div><div><b>{e(a.get("redo") or 0)}</b><span>重講幾張</span></div></div>
+<p>{e(praise)}</p></div>
+{f'<div class="card"><h2>老師的話</h2><p>{e(note)}</p><p class="muted">— {e(teacher_name)}</p></div>' if note else ""}
+{f'<div class="card"><h2>下次先練這幾個字</h2><p class="words">{top}</p></div>' if top else ""}
+{f'<div class="card"><h2>每一張投影片，觀眾聽到多少</h2>{bars}<p class="muted">紅字是麥克風沒有聽到的字。語音辨識不是百分之百準，請看趨勢，不要只看單一數字。</p></div>' if bars else ""}
+</body></html>"""
+
+
+@router.post("/teacher/reports/sdg4-run")
+def send_talk_reports(data: RunReportIn, authorization: str | None = Header(default=None)):
+    """One report per talk. A talk the student left before the end gets NO report: the answer lists those talks
+    (`withheld`) so the teacher knows who to speak to instead. Test data and anonymous talks are skipped."""
+    teacher = D.require_teacher(authorization)
+    ids = list(dict.fromkeys(int(i) for i in data.run_ids))[:200]
+    if not ids:
+        raise HTTPException(status_code=400, detail="沒有選上台紀錄")
+    note = (data.note or "").strip()[:2000]
+    now = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    sent, withheld, skipped, already = [], [], [], []
+    conn = D.get_db()
+    cur = conn.cursor()
+    for rid in ids:
+        try:
+            d = D.sdg4_run(rid, authorization)
+        except HTTPException:
+            skipped.append({"run_id": rid, "reason": "找不到這一次上台"}); continue
+        r, a = d["run"], d["analysis"]
+        who = {"run_id": rid, "user_id": r.get("user_id"), "name": r.get("name")}
+        if r.get("user_id") is None:
+            skipped.append({**who, "reason": "沒有登入的上台，不知道是誰"}); continue
+        if r.get("excluded"):
+            skipped.append({**who, "reason": "測試資料，不發報告"}); continue
+        if not a.get("finished"):
+            withheld.append({**who, "reason": (a.get("exit") or {}).get("label") or "中途離開", "slides_done": a.get("slides_done")}); continue
+        cur.execute("SELECT id FROM student_reports WHERE run_id = ?", (rid,))
+        if cur.fetchone() and not data.again:
+            already.append(who); continue
+        title = f"{str(r.get('started_at') or '')[5:10].replace('-', '/')} SDG 4 上台報告"
+        cur.execute("INSERT INTO student_reports (user_id, title, html, note, created_by, created_at, run_id) VALUES (?, ?, ?, ?, ?, ?, ?)",
+                    (r["user_id"], title, build_talk_html(d, note, teacher.get("name") or "老師"), note or None, teacher.get("id"), now, rid))
+        sent.append(who)
+    conn.commit()
+    conn.close()
+    return {"sent": len(sent), "sent_runs": sent, "withheld": withheld, "already": already, "skipped": skipped,
+            "message": (f"發出 {len(sent)} 份。" + (f"有 {len(withheld)} 次上台是中途離開的，沒有發報告，請直接和這幾位學生聊聊。" if withheld else "")
+                        + (f"{len(already)} 次已經發過，沒有重發。" if already else ""))}
+
+
+@router.get("/teacher/reports/sdg4-sent")
+def talk_reports_sent(authorization: str | None = Header(default=None)):
+    """Which talks already have a report, and whether the student opened it."""
+    D.require_teacher(authorization)
+    conn = D.get_db()
+    cur = conn.cursor()
+    cur.execute("SELECT run_id, MAX(created_at) AS created_at, MAX(seen_at) AS seen_at FROM student_reports WHERE run_id IS NOT NULL GROUP BY run_id")
+    rows = [dict(r) for r in cur.fetchall()]
+    conn.close()
+    return {"runs": {str(r["run_id"]): {"sent_at": r["created_at"], "seen": bool(r["seen_at"])} for r in rows}}
 
 
 @router.get("/teacher/reports")

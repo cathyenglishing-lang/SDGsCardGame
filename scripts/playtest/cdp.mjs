@@ -18,12 +18,13 @@ const CANDIDATES = [
   "/usr/bin/google-chrome", "/usr/bin/chromium",
 ].filter(Boolean);
 
-export async function launch({ headless = true } = {}) {
+// webgl: true starts Chrome with software WebGL (SwiftShader) for the 3D games; the other checks keep the GPU off.
+export async function launch({ headless = true, webgl = false } = {}) {
   const exe = CANDIDATES.find(p => existsSync(p));
   if (!exe) throw new Error("No Chrome found; set CHROME_PATH");
   const profile = mkdtempSync(join(tmpdir(), "pk-cdp-"));
   const proc = spawn(exe, [headless ? "--headless=new" : "", "--remote-debugging-port=0", `--user-data-dir=${profile}`, "--no-first-run", "--no-default-browser-check",
-    "--disable-gpu", "--hide-scrollbars", "--mute-audio", "--use-fake-ui-for-media-stream", "--use-fake-device-for-media-stream", "about:blank"].filter(Boolean), { stdio: ["ignore", "ignore", "pipe"] });
+    ...(webgl ? ["--use-gl=angle", "--use-angle=swiftshader", "--enable-unsafe-swiftshader", "--ignore-gpu-blocklist"] : ["--disable-gpu"]), "--hide-scrollbars", "--mute-audio", "--use-fake-ui-for-media-stream", "--use-fake-device-for-media-stream", "about:blank"].filter(Boolean), { stdio: ["ignore", "ignore", "pipe"] });
   const wsUrl = await new Promise((resolve, reject) => {
     let buf = ""; const t = setTimeout(() => reject(new Error("Chrome did not start")), 20000);
     proc.stderr.on("data", d => { buf += d; const m = buf.match(/DevTools listening on (ws:\/\/\S+)/); if (m) { clearTimeout(t); resolve(m[1]); } });

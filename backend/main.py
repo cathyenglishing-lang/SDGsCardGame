@@ -1,6 +1,11 @@
 from fastapi import FastAPI, HTTPException, Header, Request, UploadFile, File
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
+import mimetypes as _mimetypes
+# Windows takes file types from the registry, where .js is often "text/plain": a browser then refuses to run
+# ES modules (the 3D games). Say what these files are, on every system.
+for _ext, _type in ((".js", "text/javascript"), (".mjs", "text/javascript"), (".css", "text/css"), (".glb", "model/gltf-binary"), (".json", "application/json")):
+    _mimetypes.add_type(_type, _ext)
 from fastapi.responses import FileResponse, JSONResponse
 from pydantic import BaseModel, EmailStr
 from datetime import datetime, timedelta, timezone
@@ -68,6 +73,10 @@ app = FastAPI(title="Card Education System API", version=APP_VERSION)
 # Mount frontend assets under /static so API routes remain unambiguous.
 # Frontend files are available through paths like /static/js/api.js.
 app.mount("/static", StaticFiles(directory=str(FRONTEND_DIR)), name="static")
+# The built site (dist/, what Vercel and the VM's nginx serve) has the games at /games/…, and the game hub links
+# there. Serve the same address from the source folder, so a local backend shows what production shows.
+if (FRONTEND_DIR / "games").is_dir():
+    app.mount("/games", StaticFiles(directory=str(FRONTEND_DIR / "games")), name="games")
 
 # =========================
 # CONFIG
@@ -152,6 +161,45 @@ def rate_limit_identity(request: Request):
     return GLOBAL_API_RATE_LIMIT, f"ip:{get_client_ip(request)}"
 
 
+# ── path guard (2026-11-12) ──
+# Every request path is checked before any route or the static files see it. A URL never becomes a file path
+# unless it is plainly a file of the site: no "..", no backslash, no NUL or control character, no segment that
+# starts with "." (.git, .env), and no notes or source files that happen to live in the frontend folder.
+# The answer to a refused path is the same 404 a missing file gets, so it says nothing about what is on disk.
+from urllib.parse import unquote as _unquote
+
+_BLOCKED_SUFFIXES = (".md", ".py", ".pyc", ".map", ".bak", ".orig", ".swp", ".sh", ".ps1", ".env", ".ini", ".cfg", ".toml", ".lock", ".log", ".sql", ".db", ".sqlite")
+
+
+def unsafe_path(raw_path: str) -> bool:
+    p = raw_path
+    for _ in range(3):                      # %252e%252e → %2e%2e → ..: decode until it stops changing
+        q = _unquote(p)
+        if q == p:
+            break
+        p = q
+    if "\\" in p or any(ord(ch) < 32 or ord(ch) == 127 for ch in p):
+        return True
+    parts = [s for s in p.split("/") if s]
+    if parts[:1] == [".well-known"] and len(parts) > 1:      # certificate renewal (ACME) and security.txt live here
+        parts = parts[1:]
+    if any(s in ("..", ".") or s.startswith(".") for s in parts):
+        return True
+    last = parts[-1].lower() if parts else ""
+    return last.endswith(_BLOCKED_SUFFIXES) or last.endswith("~")
+
+
+@app.middleware("http")
+async def path_guard(request: Request, call_next):
+    raw = request.scope.get("raw_path")
+    raw = raw.decode("latin-1") if isinstance(raw, (bytes, bytearray)) else request.url.path
+    if unsafe_path(raw.split("?", 1)[0]) or unsafe_path(request.url.path):
+        return JSONResponse(status_code=404, content={"detail": "Not Found"})
+    response = await call_next(request)
+    response.headers.setdefault("X-Content-Type-Options", "nosniff")
+    return response
+
+
 @app.middleware("http")
 async def global_api_rate_limit(request: Request, call_next):
     if request.method != "OPTIONS" and is_api_rate_limited_path(request.url.path):
@@ -181,7 +229,7 @@ app.add_middleware(
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
-    expose_headers=["Content-Disposition"],   # so the page can read the file name of an Excel download
+    expose_headers=["Content-Disposition", "X-Word-Times"],   # so the page can read the file name of an Excel download
 )
 
 # =========================
@@ -535,6 +583,8 @@ def init_db():
     #   must_change_password      imported accounts change their password at first sign-in
     #   account_source            self / import / bulk
     #   consent_research/_audio   NULL = not asked yet, 1 = agreed, 0 = declined (kept separately)
+    #   test_account              1 = a teacher's / assistant's test account: its plays are kept but
+    #                             left out of every class statistic (teacher and admin roles always are)
     columns = table_columns(cur, "users")
     for name, ddl in (
         ("student_no", "TEXT"),
@@ -544,6 +594,7 @@ def init_db():
         ("account_source", "TEXT DEFAULT 'self'"),
         ("consent_research", "INTEGER"),
         ("consent_audio", "INTEGER"),
+        ("test_account", "INTEGER DEFAULT 0"),
     ):
         if name not in columns:
             execute_with_retry(cur, f"ALTER TABLE users ADD COLUMN {name} {ddl}")
@@ -1072,10 +1123,18 @@ def login_page():
     return FileResponse(FRONTEND_DIR / "pages" / "login.html")
 
 
+PAGES_DIR = (FRONTEND_DIR / "pages").resolve()
+_PAGE_NAME = re.compile(r"[a-z0-9][a-z0-9_-]{0,60}\.html")
+
+
 @app.get("/pages/{page_name}")
 def frontend_page(page_name: str):
-    page_path = FRONTEND_DIR / "pages" / page_name
-    if not page_path.is_file() or page_path.suffix.lower() != ".html":
+    # The name is checked as a name (letters, digits, - and _ with .html) before it touches the disk, and the
+    # resolved file must still be directly inside the pages folder: "..\\x.html" or a link out are both refused.
+    if not _PAGE_NAME.fullmatch(page_name or ""):
+        raise HTTPException(status_code=404, detail="page not found")
+    page_path = (PAGES_DIR / page_name).resolve()
+    if page_path.parent != PAGES_DIR or not page_path.is_file():
         raise HTTPException(status_code=404, detail="page not found")
     return FileResponse(page_path)
 
@@ -1086,7 +1145,7 @@ def frontend_page(page_name: str):
 def health_check():
     return {
         "message": "API is running",
-        "database": "postgresql" if USE_POSTGRES else str(DB_PATH),
+        "database": "postgresql" if USE_POSTGRES else "sqlite",          # never the file's location on the server
         "rate_limit": "redis" if RATE_LIMIT_ENABLED else "disabled",
         "time": now_taipei().isoformat(),
     }
@@ -1293,7 +1352,7 @@ CONSOLE_TABLES = [
     "sdg_options", "difficulty_options", "tbl_sdg_parts", "tbl_sdg_sub_topics",
     "tbl_sdg_cards", "email_otps",
     "courses", "course_sections", "enrollments", "course_activities", "roster_imports", "chip_ledger",
-    "speech_recordings", "content_topics", "content_versions", "system_metrics", "user_daily_activity", "login_failures", "student_reports", "student_feedback", "site_visits",
+    "speech_recordings", "content_topics", "content_versions", "system_metrics", "user_daily_activity", "login_failures", "student_reports", "student_feedback", "site_visits", "speech_rules", "tts_settings", "tts_usage", "tts_clips",
 ]
 
 TABLE_DOCS = {
@@ -1319,6 +1378,10 @@ TABLE_DOCS = {
     "content_versions": "A snapshot of every published version of a topic (for looking back and restoring).",
     "user_daily_activity": "Per account per day: requests, the busiest minute, times stopped by the rate limit (for spotting abuse).",
     "student_feedback": "The teacher's comment for each student (a draft until it is sent with a report).",
+    "tts_settings": "雲端語音: accents offered to students, the default accent, provider order and monthly character budgets.",
+    "tts_usage": "雲端語音: characters sent to each provider per month (what the budget is checked against).",
+    "tts_clips": "雲端語音: one row per synthesised sentence and accent; the mp3 itself is a file under TTS_DIR.",
+    "speech_rules": "念法表: how an abbreviation or symbol is read aloud in every game (written → spoken), edited by the teacher.",
     "site_visits": "Every page view: anonymous visitor id, page, where they came from, guest or signed in, device; the IP only as a hash.",
     "student_reports": "Personal learning reports a teacher sent to a student (HTML), and when the student opened them.",
     "login_failures": "Every failed sign-in (wrong password or unknown account), with the IP.",
@@ -1391,7 +1454,7 @@ def system_info(authorization: str | None = Header(default=None)):
         },
         "database": {
             "engine": "PostgreSQL" if USE_POSTGRES else "SQLite",
-            "location": _mask_db_url(DATABASE_URL) if USE_POSTGRES else str(DB_PATH),
+            "location": _mask_db_url(DATABASE_URL) if USE_POSTGRES else DB_PATH.name,   # the file name only, not the server's folders
             "connected": True,
             "table_count": len([v for v in counts.values() if v is not None]),
             "total_rows": sum(v for v in counts.values() if v),
@@ -3345,17 +3408,22 @@ learning.configure(
     on_finish=classroom.award_for_run,
     people=classroom.people_for_report,
     recordings=recordings.counts_by_user,
+    test_users=classroom.test_user_ids,
 )
 app.include_router(learning.router)
 
 from backend import learning_reports
 app.include_router(learning_reports.router)
+from backend import sdg4_reports
+app.include_router(sdg4_reports.router)
+app.include_router(sdg4_reports.overall)
 
 from backend import content_library
 content_library.configure(
     get_db=get_db,
     auto_pk_sql=auto_pk_sql,
     execute_insert_returning=execute_insert_returning,
+    table_columns=table_columns,
     require_teacher=require_teacher,
     now_taipei=now_taipei,
     load_xlsx_rows=load_question_bank_rows,
@@ -3369,13 +3437,21 @@ app.include_router(content_library.router)
 # Personal HTML reports a teacher sends to students (backend/reports.py)
 from backend import reports
 reports.configure(get_db=get_db, use_postgres=USE_POSTGRES, auto_pk_sql=auto_pk_sql, require_teacher=require_teacher, get_current_user=get_current_user,
-                  student_report=learning_reports.student_report)
+                  student_report=learning_reports.student_report, sdg4_run=sdg4_reports.run_detail, table_columns=table_columns)
 app.include_router(reports.router)
 
 # Anonymous visitor log for finding prospective schools / teachers (backend/visits.py)
 from backend import visits
 visits.configure(get_db=get_db, auto_pk_sql=auto_pk_sql, require_teacher=require_teacher, get_current_user=get_current_user, client_ip=get_client_ip)
 app.include_router(visits.router)
+
+from backend import speech_rules
+speech_rules.configure(get_db=get_db, auto_pk_sql=auto_pk_sql, require_teacher=require_teacher)
+app.include_router(speech_rules.router)
+
+from backend import tts
+tts.configure(get_db=get_db, auto_pk_sql=auto_pk_sql, require_teacher=require_teacher, say=speech_rules.say, material_texts=content_library.spoken_texts)
+app.include_router(tts.router)
 
 # =========================
 # CREATE INITIAL ADMIN

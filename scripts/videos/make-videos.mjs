@@ -79,14 +79,16 @@ await video("學生 登入到玩完一局", async () => {
   await rec.waitForSelector('[data-game="pecha-kucha-builder"]');
   await rec.say("進到遊戲大廳。點「Pecha Kucha Card Game」。");
   await rec.click('[data-game="pecha-kucha-builder"]');
-  await rec.waitFor(`location.pathname.endsWith("/pecha_kucha_builder.html") && !!document.querySelector(".pk-course-bar")`, 15000, "game menu");
+  await rec.waitFor(`location.pathname.endsWith("/pecha_kucha_builder.html") && !!document.querySelector(".pk-tcard")`, 15000, "game menu");
   await rec.evaluate(SPEECH);
-  await rec.say("這裡只會出現老師這門課開放的主題。選一個難度開始。");
-  await rec.click(`.pk-lvl[onclick*="'9-1','A2'"]`); await rec.waitForSelector("#pkMissionGo");
+  await rec.say("這裡只會出現老師這門課開放的主題。點一張主題牌。");
+  await rec.click(`.pk-tc-open[data-topic="9-1"]`); await rec.waitForSelector(`#pkPick.open .pk-lv[data-level="A2"]`);
+  await rec.say("牌會翻過來：選難度，按一下就開始。", 1800);
+  await rec.click(`#pkPick .pk-lv[data-level="A2"]`); await rec.waitForSelector("#pkMissionGo");
   await rec.say("任務卡：今天的目標和這場演講的六段。按「開始」。", 2200);
   await rec.click("#pkMissionGo");
   await rec.say("上面的 1–6 是六段。點 1，牌會發到桌上；其中 1 張是陷阱，沒有句子屬於它。");
-  await rec.click("#topicGrid .topic:nth-child(1)"); await rec.waitFor(`/牌發好了/.test(document.getElementById("status").textContent)`); await rec.sleep(900);
+  await rec.click("#topicGrid .topic:nth-child(1)"); await rec.waitFor(`/cards are dealt/.test(document.getElementById("status").textContent)`); await rec.sleep(900);
   await rec.say("點牌堆抽一張句子卡，再按右下的喇叭聽這一句。");
   await rec.click("#mainDeck"); await rec.click("#pkSpeakBtn"); await rec.waitFor("canDrag === true");
   await rec.say("把句子點到（或拖到）對應的投影片卡上。配錯會晃一下，可以再試；想再聽就再按喇叭。");
@@ -97,7 +99,7 @@ await video("學生 登入到玩完一局", async () => {
   const playRest = async pause => { for (;;) { if (!(await rec.evaluate("gameData.length + (currentCardData ? 1 : 0)"))) break; await rec.click("#mainDeck", { pause }); await rec.click("#pkSpeakBtn", { pause: 100 }); await rec.waitFor("canDrag === true"); sub = await rec.evaluate("currentCardData.subId"); await rec.click(`#subBox .subtopic-poker[data-sub-id="${sub}"]`, { pause }); } await rec.sleep(700); };
   await playRest(500);
   await rec.say("一段完成後，上面的數字會變成金色。其他五段也是一樣的玩法（影片加快）。", 2000);
-  for (let i = 2; i <= 6; i++) { await rec.click(`#topicGrid .topic:nth-child(${i})`, { pause: 200 }); await rec.waitFor(`/牌發好了/.test(document.getElementById("status").textContent)`); await rec.sleep(300); await playRest(160); }
+  for (let i = 2; i <= 6; i++) { await rec.click(`#topicGrid .topic:nth-child(${i})`, { pause: 200 }); await rec.waitFor(`/cards are dealt/.test(document.getElementById("status").textContent)`); await rec.sleep(300); await playRest(160); }
   await rec.waitForSelector("#pkWrap .pkw-card"); await rec.sleep(1200);
   await rec.say("六段完成！這裡有聽懂分數，和第一次沒配對到的句子：屬於哪一張、你放到哪一張，可以按喇叭再聽。", 3200);
   await rec.click("#pkwNext"); await rec.waitForSelector("#pkwRec");

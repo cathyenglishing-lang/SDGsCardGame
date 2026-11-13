@@ -11,7 +11,7 @@
   const newId = () => (crypto.randomUUID ? crypto.randomUUID() : Date.now().toString(36) + Math.random().toString(36).slice(2, 12));
   let consent = null;   // { audio, research, retention_days } once known
   let consentStatus = 0; // HTTP status of the last failed try
-  const EXPIRED = { ok: false, reason: "login", message: "登入已過期，重新登入後再送。" };
+  const EXPIRED = { ok: false, reason: "login", message: "You are signed out. Sign in again, then send." };
 
   async function call(path, options = {}) {
     const r = await fetch(API() + path, { ...options, headers: { ...(options.headers || {}), Authorization: "Bearer " + token() } });
@@ -29,21 +29,21 @@
   function ask(days) {
     return new Promise(resolve => {
       const wrap = document.createElement("div");
-      wrap.setAttribute("role", "dialog"); wrap.setAttribute("aria-modal", "true"); wrap.setAttribute("aria-label", "把錄音送給老師");
+      wrap.setAttribute("role", "dialog"); wrap.setAttribute("aria-modal", "true"); wrap.setAttribute("aria-label", "Send your recording to your teacher");
       wrap.style.cssText = "position:fixed;inset:0;z-index:100000;display:grid;place-items:center;padding:16px;background:rgba(2,6,23,.8);font-family:Arial,'Microsoft JhengHei','PingFang TC',sans-serif";
       wrap.innerHTML = `
         <div style="width:min(480px,100%);max-height:92vh;overflow:auto;background:#fff;color:#0f172a;border-radius:20px;padding:22px 22px 18px;line-height:1.6;text-align:left">
-          <h2 style="margin:0 0 8px;font-size:20px">把錄音送給老師</h2>
+          <h2 style="margin:0 0 8px;font-size:20px">Send your recording to your teacher</h2>
           <ul style="margin:0 0 12px;padding-left:20px;font-size:14.5px;color:#334155">
-            <li>只有老師和平台管理員聽得到，不會公開，也不會拿去訓練 AI。</li>
-            <li>保存 ${days} 天後自動刪除；你可以隨時請老師刪掉。</li>
-            <li>不送出也可以完成遊戲，成績不受影響。</li>
-            <li>如果畫面顯示「機器聽到的字」，那是瀏覽器把聲音送到 Google 辨識的結果。</li>
+            <li>Only your teacher and the platform administrators can listen. It is never made public and never used to train AI.</li>
+            <li>It is deleted automatically after ${days} days, and you can ask your teacher to delete it at any time.</li>
+            <li>You can finish the game without sending it. Your result does not change.</li>
+            <li>If the page shows “what the computer heard”, that comes from the browser sending the sound to Google for recognition.</li>
           </ul>
           <p style="margin:0 0 14px;font-size:13px;color:#64748b">Only your teacher can listen. Recordings are deleted after ${days} days. You can finish the game without sending.</p>
           <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end">
-            <button type="button" data-a="no" style="border:0;border-radius:12px;padding:12px 16px;min-height:44px;font-weight:800;font-size:15px;background:#eef2f7;color:#0f172a;cursor:pointer">先不要</button>
-            <button type="button" data-a="yes" style="border:0;border-radius:12px;padding:12px 18px;min-height:44px;font-weight:800;font-size:15px;color:#fff;background:linear-gradient(135deg,#2563eb,#0ea5e9);cursor:pointer">同意，以後都送出給老師</button>
+            <button type="button" data-a="no" style="border:0;border-radius:12px;padding:12px 16px;min-height:44px;font-weight:800;font-size:15px;background:#eef2f7;color:#0f172a;cursor:pointer">Not now</button>
+            <button type="button" data-a="yes" style="border:0;border-radius:12px;padding:12px 18px;min-height:44px;font-weight:800;font-size:15px;color:#fff;background:linear-gradient(135deg,#2563eb,#0ea5e9);cursor:pointer">I agree: send my recordings to my teacher</button>
           </div>
         </div>`;
       const done = v => { wrap.remove(); resolve(v); };
@@ -60,15 +60,15 @@
     recorderOptions: { audioBitsPerSecond: 32000 },
     async consent() { return loadConsent(); },
     async send(blob, meta = {}) {
-      if (!Voice.canSend()) return { ok: false, reason: "guest", message: "登入後才能把錄音送給老師。" };
-      if (!blob || !blob.size) return { ok: false, reason: "error", message: "沒有錄到聲音。" };
+      if (!Voice.canSend()) return { ok: false, reason: "guest", message: "Sign in to send recordings to your teacher." };
+      if (!blob || !blob.size) return { ok: false, reason: "error", message: "Nothing was recorded." };
       const c = await loadConsent();
       if (!c && (consentStatus === 401 || consentStatus === 403)) return EXPIRED;
-      if (!c) return { ok: false, reason: "offline", message: "現在連不上伺服器，錄音還沒送出。" };
+      if (!c) return { ok: false, reason: "offline", message: "The server cannot be reached. The recording has not been sent." };
       if (c.required && c.audio !== true) {
-        if (!(await ask(c.retention_days || 150))) return { ok: false, reason: "declined", message: "沒有送出。錄音只留在這台裝置。" };
+        if (!(await ask(c.retention_days || 150))) return { ok: false, reason: "declined", message: "Not sent. The recording stays on this device." };
         try { const r = await call("/me/consent", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ audio: true }) }); if (r.ok) consent = r.data; else throw 0; }
-        catch (e) { return { ok: false, reason: "offline", message: "現在連不上伺服器，錄音還沒送出。" }; }
+        catch (e) { return { ok: false, reason: "offline", message: "The server cannot be reached. The recording has not been sent." }; }
       }
       const form = new FormData();
       const type = (blob.type || "audio/webm").split(";")[0];
@@ -81,9 +81,9 @@
         const r = await call("/me/recordings", { method: "POST", body: form });
         if (r.ok) return { ok: true, id: r.data.id };
         if (r.status === 401) return EXPIRED;
-        if (r.status === 413) return { ok: false, reason: "too-large", message: "錄音太長了，請錄短一點再送。" };
-        return { ok: false, reason: "error", message: (r.data && r.data.detail) || "沒有送出，請再試一次。" };
-      } catch (e) { return { ok: false, reason: "offline", message: "現在連不上網路，錄音還沒送出。連上後請再按一次送出。" }; }
+        if (r.status === 413) return { ok: false, reason: "too-large", message: "The recording is too long. Please record a shorter one." };
+        return { ok: false, reason: "error", message: (r.data && r.data.detail) || "Not sent. Please try again." };
+      } catch (e) { return { ok: false, reason: "offline", message: "You are offline. The recording has not been sent. Press send again when you are online." }; }
     },
     // Passages of one topic the teacher wants read again: the newest recording of a passage is marked "redo".
     // → [{ label, level, teacher_note }]

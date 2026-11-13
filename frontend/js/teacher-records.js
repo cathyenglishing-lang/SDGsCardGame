@@ -53,7 +53,8 @@
   const cardScript = id => { const s = T.slide(id); return s ? (s.script || "") : ""; };
   const cardLabel = id => { const no = cardNo(id), t = cardTitle(id); return no ? `第 ${no} 張${t ? "「" + t + "」" : ""}` : String(id ?? ""); };
   const cardCell = id => { const no = cardNo(id), t = cardTitle(id); return no ? `<b class="tr-no">${no}</b> ${esc(t || "（教材裡找不到這一張）")}` : esc(id); };
-  const topicLabel = ch => { const nm = T.name(ch); return nm ? `${ch} ${nm}` : String(ch ?? ""); };
+  const code = id => (window.topicCode ? window.topicCode(id) : String(id ?? ""));   // 9-1 is shown as 9-A (js/topic-code.js)
+  const topicLabel = ch => { const nm = T.name(ch); return nm ? `${code(ch)} ${nm}` : code(ch); };
   // Codes inside a sentence the server wrote ("第一次配錯：s02、s01") become slide numbers and titles.
   const codes = (text, run) => String(text ?? "")
     .replace(/\d{1,2}-\d{1,2}\/[A-C][12]\/s\d{2}/g, m => cardLabel(m))
@@ -290,7 +291,7 @@
         ${tile(n(o.students_played), "玩過的學生")}${tile(S.courseId ? n(o.not_played) : "–", S.courseId ? "還沒玩的學生" : "還沒玩（先選課程）", S.courseId && num(o.not_played) ? "warn" : "")}
         ${tile(n(o.runs), "開始的局數")}${tile(n(o.finished), "玩完的局數")}
         ${card ? tile(n(o.avg_score), "平均聽懂分數") : ""}${tile(n(o.avg_minutes), "平均分鐘／局")}${tile(n(o.flagged_runs), "有標記的局", num(o.flagged_runs) ? "warn" : "")}
-      </div></section>
+      </div>${num(o.excluded_runs) ? `<p class="tr-hint">另有 ${n(o.excluded_runs)} 局不計入上面的數字：${Object.entries(o.excluded || {}).map(([k, v]) => `${EXCL[k] || k} ${n(v)} 局`).join("、")}${num(o.test_accounts) ? `；名單裡有 ${n(o.test_accounts)} 個測試帳號（老師、助教）` : ""}。這些局還在「個人分析」的局列表裡，有標記。</p>` : ""}</section>
       <section class="panel"><h3 class="tr-h">各系級比較</h3>
         ${list.length ? `<p class="tr-say">${esc(classSay(list, card))}</p>
         <div class="scrollx"><table class="part-table tr-table tr-cls"><thead><tr><th>系級</th><th>學生</th><th>玩過</th><th>玩完</th>${card ? "<th>平均最好分數</th><th>平均最近分數</th><th>第一次就配對</th>" : "<th>平均星數</th>"}<th>錄音</th><th>要注意</th></tr></thead><tbody>
@@ -320,7 +321,7 @@
         <div class="scrollx"><table class="part-table tr-table"><thead><tr><th class="tr-ck"><input type="checkbox" id="trAll" aria-label="全選列出的學生"></th><th>系級</th><th>學生</th><th>局數</th>${card ? "<th>最佳／最近</th><th>分數變化</th><th>第一次就配對</th>" : "<th>平均星數</th><th>結局</th>"}<th>錄音</th><th>要注意</th><th>評語（寄報告時一起送出）</th></tr></thead><tbody>
           ${rep.students.length ? rep.students.map(s => `<tr class="${s.user_id ? "tr-click" : ""} ${s.runs ? "" : "mute"}" data-student="${s.user_id ? Number(s.user_id) : ""}" data-sec="${esc(s.section || "")}" data-q="${esc(((s.name || "") + " " + (s.student_no || "")).toLowerCase())}" ${s.user_id ? 'tabindex="0"' : ""}>
             <td class="tr-ck">${s.user_id ? `<input type="checkbox" data-pick="${Number(s.user_id)}" aria-label="選取 ${esc(s.name)}">` : ""}</td>
-            <td class="nw">${esc(s.section || "")}</td><td>${who(s)}</td><td class="nw">${s.runs ? `${Number(s.runs)} 局 <small>玩完 ${Number(s.finished)}</small><small class="tr-sub">最近 ${esc(dt(s.last))}</small>` : `<span class="tr-badge warn">還沒玩</span>`}</td>
+            <td class="nw">${esc(s.section || "")}</td><td>${who(s)}${s.test ? ` <span class="tr-badge" title="老師／助教／測試帳號：局會保留，不進班級統計">測試帳號</span>` : ""}</td><td class="nw">${s.runs ? `${Number(s.runs)} 局 <small>玩完 ${Number(s.finished)}</small><small class="tr-sub">最近 ${esc(dt(s.last))}</small>` : s.test ? `<span class="tr-badge">${num(s.excluded_runs) ? n(s.excluded_runs) + " 局（不計）" : "測試"}</span>` : `<span class="tr-badge warn">還沒玩</span>`}</td>
             ${card ? `<td class="nw">${n(s.best)} ／ ${n(s.last_score)}</td><td>${spark(s.scores)}</td><td>${num(s.first_n) ? `${n(s.first_ok)} / ${n(s.first_n)} 句` : "–"}</td>` : `<td>${n(s.avg_stars)}</td><td>${esc(s.best_ending || "–")}</td>`}
             <td>${s.recordings && num(s.recordings.total) ? `${n(s.recordings.total)} 段${num(s.recordings.new) ? ` <span class="tr-badge warn">${n(s.recordings.new)} 未聽</span>` : ""}` : "–"}</td>
             <td>${s.anomaly ? `<span class="tr-anom ${s.anomaly.severity}">${s.anomaly.too_good ? "好得不正常" : "行為異常"}${s.anomaly.n > 1 ? " ×" + s.anomaly.n : ""}</span> ` : ""}${Object.entries(kinds[s.user_id] || {}).map(([f, c]) => `<span class="tr-badge bad">${esc(FLAG[f] || f)} ×${c}</span>`).join(" ") || (num(s.flags) ? `<span class="tr-badge bad">${n(s.flags)} 局有標記</span>` : "")}</td>
@@ -335,7 +336,7 @@
         ${hard ? `<p class="tr-say">最難的是 ${esc(cardLabel(hard.card))}：${n(hard.n)} 人次裡只有 ${n(hard.first_ok)} 人次第一次就配對${hard.top_wrong ? "，最常被放到 " + esc(cardLabel(hard.top_wrong.target)) : ""}。</p>` : ""}
         <p class="tr-hint">「聽懂程度」只看每位學生第一次放卡，並扣掉用猜的機率：0 = 跟亂猜一樣，100 = 每個人第一次就配對。滑鼠停在一列上可以看到那一句的講稿。</p>
         <div class="scrollx"><table class="part-table tr-table"><thead><tr><th>這一句（投影片）</th><th>最常被放到</th><th>聽懂程度</th><th>第一次就配對</th><th>每次重聽</th><th>反應秒數</th></tr></thead><tbody>
-          ${rep.cards.length ? rep.cards.map(c => { const p = T.parse(c.card), s = num(c.s); return `<tr title="${esc(cardScript(c.card))}"><td>${cardCell(c.card)}<small class="tr-sub">${esc(p.topic)} ${esc(p.level)}${num(c.version) ? " · 第 " + num(c.version) + " 版教材" : ""}</small></td>
+          ${rep.cards.length ? rep.cards.map(c => { const p = T.parse(c.card), s = num(c.s); return `<tr title="${esc(cardScript(c.card))}"><td>${cardCell(c.card)}<small class="tr-sub">${esc(code(p.topic))} ${esc(p.level)}${num(c.version) ? " · 第 " + num(c.version) + " 版教材" : ""}</small></td>
             <td>${c.top_wrong ? `${cardCell(c.top_wrong.target)} <small>×${n(c.top_wrong.n)}</small>` : "–"}</td>
             <td class="nw">${s === null ? "–" : bar(Math.max(0, s) * 100, s < 0.4 ? "bad" : s < 0.8 ? "mid" : "good") + " " + Math.round(Math.max(0, s) * 100)}</td><td class="nw">${n(c.first_ok)} / ${n(c.n)} 人次</td><td>${n(c.repeats_avg)}</td><td>${num(c.rt_median_ms) === null ? "–" : (num(c.rt_median_ms) / 1000).toFixed(1)}</td></tr>`; }).join("") : `<tr><td colspan="6">還沒有作答紀錄。</td></tr>`}
         </tbody></table></div></section>
@@ -463,12 +464,13 @@
     });
     if ($("trPeopleN")) $("trPeopleN").textContent = shown === total ? `${total} 位` : `${shown} / ${total} 位`;
   }
+  const EXCL = { test_account: "測試帳號", embed: "3D 內嵌", test_run: "快速測試", partial: "只玩部分" };
   const scoreOf = r => (num(r.score) ?? num(r.avg_stars) ?? (num(r.coverage) !== null ? pct(r.coverage) : "–"));
   function runsTable(runs, card, withName = true) {
     return `<div class="scrollx"><table class="part-table tr-table"><thead><tr><th>開始</th>${withName ? "<th>學生</th>" : "<th>遊戲</th>"}<th>主題</th><th>${card ? "聽懂分數" : "分數／星數"}</th><th>玩完</th><th>分鐘</th><th>要注意</th></tr></thead><tbody>
       ${runs.length ? runs.map(r => `<tr class="tr-click" data-run="${Number(r.id)}" tabindex="0"><td class="nw">${esc(dt(r.started_at))}</td><td>${withName ? who(r) : esc(GAME_ZH[r.game] || r.game)}</td><td>${esc(r.game === "pecha_kucha" ? topicLabel(r.chapter) : r.chapter)} <small>${esc(r.level || "")}</small></td>
         <td>${esc(scoreOf(r))}</td><td>${r.ended_at ? (r.game === "pecha_kucha" ? (r.wrap_done ? "✓ 含收尾" : "✓ 只配對") : "✓") : `<span class="tr-badge warn">沒玩完</span>`}</td><td>${n(r.minutes)}${num(r.active_minutes) !== null ? `<small class="tr-sub">有效 ${n(r.active_minutes)}</small>` : ""}</td>
-        <td>${(r.flags || []).map(f => `<span class="tr-badge bad">${esc(FLAG[f] || f)}</span>`).join(" ")}${r.embed ? ` <span class="tr-badge">3D 內嵌</span>` : ""}</td></tr>`).join("") : `<tr><td colspan="7">沒有紀錄。</td></tr>`}
+        <td>${(r.flags || []).map(f => `<span class="tr-badge bad">${esc(FLAG[f] || f)}</span>`).join(" ")}${r.excluded ? ` <span class="tr-badge" title="這一局不計入班級統計">${esc(EXCL[r.excluded] || "不計")}</span>` : ""}</td></tr>`).join("") : `<tr><td colspan="7">沒有紀錄。</td></tr>`}
     </tbody></table></div>`;
   }
   const wireRuns = () => document.querySelectorAll("#trView [data-run]").forEach(r => { r.onclick = () => runModal(Number(r.dataset.run), r); r.onkeydown = e => { if (e.key === "Enter") r.click(); }; });
@@ -539,8 +541,9 @@
     const st = d.student, t = d.totals, row = (S.report ? S.report.students : []).find(x => x.user_id === S.studentId) || {};
     $("trView").innerHTML = `
       <section class="panel">
-        <div class="section-h"><h2>${esc(st.name)} <small>${esc(st.student_no || "")}${row.section ? " · " + esc(row.section) : ""} · 研究代碼 ${esc(st.public_id || "–")}</small></h2><div class="row"><button class="btn btn-primary" type="button" id="trSendOne">📨 傳學習報告給他</button><button class="btn" type="button" id="trBack">← 回學生名單</button></div></div>
+        <div class="section-h"><h2>${esc(st.name)}${st.test ? ` <span class="tr-badge">測試帳號</span>` : ""} <small>${esc(st.student_no || "")}${row.section ? " · " + esc(row.section) : ""} · 研究代碼 ${esc(st.public_id || "–")}</small></h2><div class="row"><button class="btn btn-primary" type="button" id="trSendOne">📨 傳學習報告給他</button><button class="btn" type="button" id="trBack">← 回學生名單</button></div></div>
         ${S.from || S.to ? `<p class="tr-hint">只看 ${esc(S.from || "最早")} 到 ${esc(S.to || "今天")} 的紀錄。要看全部請按上面的「清除篩選」。</p>` : ""}
+        ${st.test ? `<p class="tr-hint">這是${st.role === "teacher" ? "老師" : st.role === "admin" ? "管理員" : "標成測試"}的帳號：這一頁照常顯示他玩的每一局，但這些局不進班級統計、題目難度和研究匯出。</p>` : ""}
         ${profileCard(d.profile || {}, row)}
         <div class="tr-fbbox"><label>給 ${esc(st.name)} 的評語 <small>先存成草稿，按「傳學習報告給他」才會送出</small><textarea id="trFbOne" rows="3" maxlength="2000" placeholder="例如：第 7 張的句子多聽兩次，下次會更好！">${esc((S.fb && S.fb[S.studentId] || {}).text || "")}</textarea></label><small class="tr-saved" id="trFbOneMsg"></small></div>
         <div class="tr-tiles">${tile(n(t.runs), "開始的局數")}${tile(n(t.finished), "玩完的局數")}${tile(n(t.active_minutes), "有效學習分鐘")}${tile(n(t.games), "玩過的遊戲")}${tile(v.recordings.length, "送出的錄音")}${tile(n(t.events), "操作紀錄筆數")}${tile(dt(t.first_played), "第一次玩")}${tile(dt(t.last_played), "最近一次")}</div>

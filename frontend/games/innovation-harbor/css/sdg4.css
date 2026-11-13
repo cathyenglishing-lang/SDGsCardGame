@@ -96,3 +96,29 @@
   .tele-gist { font-size: .92rem; line-height: 1.5; }
   .tele-heard { font-size: .78rem; }
 }
+
+/* ── ending: chips (2026-11-12) ── */
+.chips-end{margin:14px 0;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.04)}
+.chip-sum{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.chip-total{min-width:96px}.chip-total small{display:block;opacity:.75}.chip-total b{font:700 34px/1.1 "Chakra Petch",sans-serif;color:#ffc54d}
+.chip-sum ul{list-style:none;margin:0;padding:0;flex:1;min-width:200px}
+.chip-sum li{display:flex;justify-content:space-between;gap:10px;padding:3px 0;border-bottom:1px dashed var(--line)}
+.chip-note,.chip-words{margin:8px 0 0;font-size:.92em}
+.chip-words em{color:#ff7466;font-style:normal}
+
+/* ── loading card: one bar with a label for the step, and a message when it takes too long (2026-11-12) ── */
+.sdg4 #loading .card.small{width:min(430px,100%)}
+.sdg4 .loadbar{height:8px}
+.sdg4 .loadbar i{transition:width .35s ease-out}
+.sdg4 .loadrow{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:8px 0 0;font-size:.9rem}
+.sdg4 .loadrow span{overflow-wrap:anywhere}
+.sdg4 .loadrow b{font-family:"Chakra Petch",sans-serif;font-variant-numeric:tabular-nums}
+.sdg4 .loadslow{display:grid;gap:10px;border-top:1px solid var(--line);margin-top:12px;padding-top:12px}
+.sdg4 .loadslow[hidden]{display:none}
+.sdg4 .loadslow p{margin:0;font-size:.9rem;line-height:1.5}
+.sdg4 .loadslow small{display:block;color:var(--muted);margin-top:4px}
+/* tiers 0–1 have no post-processing: a CSS vignette stands in for the grade */
+body.vignette-lite::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:1;background:radial-gradient(ellipse at 50% 45%,transparent 55%,rgba(6,10,16,.5) 100%)}
+@media (prefers-reduced-motion:reduce){.sdg4 .loadbar i{transition:none}}
+/* the loading screen's backdrop: the theater rendered in Blender (scripts/blender/sdg4_theater.py) */
+.sdg4 #loading{background:linear-gradient(rgba(8,12,18,.35),rgba(8,12,18,.78)),url("../assets/sdg4/poster.jpg") center/cover no-repeat,#0d1620}

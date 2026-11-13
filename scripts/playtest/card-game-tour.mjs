@@ -31,7 +31,7 @@ for (const [w, h] of SIZES) {
       const shown = sel => [...document.querySelectorAll(sel)].filter(vis);
       const game = !document.getElementById("gameScreen").classList.contains("hidden") && document.getElementById("pkWrap").classList.contains("hidden") && document.getElementById("pkMission").classList.contains("hidden");
       const scope = !document.getElementById("pkWrap").classList.contains("hidden") ? "#pkWrap " : !document.getElementById("pkMission").classList.contains("hidden") ? "#pkMission " : game ? "#gameScreen " : "#selectorScreen ";
-      shown(scope + "button, " + scope + ".subtopic-poker, " + scope + ".topic, " + scope + ".pk-topic, " + scope + ".pkw-card, " + scope + "#dealtCardHolder, " + scope + "#mainDeck, " + scope + "#gameTimer, " + scope + ".pk-wallet, " + scope + ".pk-hud-left > *, " + scope + ".header-actions > *").forEach(e => {
+      shown(scope + "button, " + scope + ".subtopic-poker, " + scope + ".topic, " + scope + ".pk-tcard, " + scope + ".pkw-card, " + scope + "#dealtCardHolder, " + scope + "#mainDeck, " + scope + "#gameTimer, " + scope + ".pk-wallet, " + scope + ".pk-hud-left > *, " + scope + ".header-actions > *").forEach(e => {
         const r = e.getBoundingClientRect();
         if (r.left < -1 || r.right > innerWidth + 1) out.push(name(e) + " runs off the side (" + Math.round(r.left) + ".." + Math.round(r.right) + " of " + innerWidth + ")");
       });
@@ -63,14 +63,14 @@ for (const [w, h] of SIZES) {
 
   // ── menu → mission → empty table ──
   await page.goto(BASE + "/pages/pecha_kucha_builder.html");
-  await page.waitForSelector(".pk-topic"); await page.sleep(500);
+  await page.waitForSelector(".pk-tcard"); await page.sleep(500);
   await audit("menu"); await shot("menu");
   await guard("mission → back to the menu", async () => {
-    await page.click(`.pk-lvl[onclick*="'${TOPIC}','${LEVEL}'"]`); await page.waitForSelector("#pkMissionBack"); await page.sleep(450);
-    await page.click("#pkMissionBack"); await page.waitForSelector(".pk-topic");
+    await page.click(`.pk-tc-open[data-topic="${TOPIC}"]`); await page.waitForSelector(`#pkPick.open .pk-lv[data-level="${LEVEL}"]`); await page.sleep(750); await page.click(`#pkPick .pk-lv[data-level="${LEVEL}"]`); await page.waitForSelector("#pkMissionBack"); await page.sleep(450);
+    await page.click("#pkMissionBack"); await page.waitForSelector(".pk-tcard");
     if (await page.evaluate(`RUN !== null || !document.getElementById("pkMission").classList.contains("hidden")`)) problem(size, "mission → back", "leaving the mission card left a run or the card open");
   });
-  await guard("menu → mission", async () => { await page.click(`.pk-lvl[onclick*="'${TOPIC}','${LEVEL}'"]`); await page.waitForSelector("#pkMissionGo"); });
+  await guard("menu → mission", async () => { await page.click(`.pk-tc-open[data-topic="${TOPIC}"]`); await page.waitForSelector(`#pkPick.open .pk-lv[data-level="${LEVEL}"]`); await page.sleep(750); await page.click(`#pkPick .pk-lv[data-level="${LEVEL}"]`); await page.waitForSelector("#pkMissionGo"); });
   await page.sleep(500); await audit("mission"); await shot("mission");
   await expect("mission", `document.getElementById("selectorScreen").classList.contains("hidden")`, "the menu is still showing behind the mission card");
   await guard("mission → table", async () => { await page.click("#pkMissionGo"); });
@@ -79,8 +79,11 @@ for (const [w, h] of SIZES) {
 
   const playPart = async (index, { mistakes = 0, shots = false } = {}) => {
     await page.click(`#topicGrid .topic:nth-child(${index})`);
-    await page.waitFor(`/牌發好了/.test(document.getElementById("status").textContent)`);
+    await page.waitFor(`/cards are dealt/.test(document.getElementById("status").textContent)`);
     await page.sleep(650);
+    // Every title card carries a Chinese line under the title: the teacher's hint, or the slide's Chinese title.
+    const noHint = await page.evaluate(`[...document.querySelectorAll("#subBox .subtopic-poker")].filter(c => !/[㐀-鿿]/.test((c.querySelector(".card-kw") || {}).textContent || "")).length`);
+    if (noHint) problem(size, "part dealt", noHint + " title card(s) on the table have no Chinese hint line");
     if (shots) { await audit("part dealt"); await shot("part-dealt"); }
     let first = true, wrong = mistakes;
     for (;;) {
@@ -115,7 +118,7 @@ for (const [w, h] of SIZES) {
   // ── switching parts in the middle of one ──
   await guard("switch part mid-way", async () => {
     await page.click("#topicGrid .topic:nth-child(2)");
-    await page.waitFor(`/牌發好了/.test(document.getElementById("status").textContent)`);
+    await page.waitFor(`/cards are dealt/.test(document.getElementById("status").textContent)`);
     await page.click("#mainDeck"); await page.sleep(300);
     await page.click("#topicGrid .topic:nth-child(3)");            // leave part 2 with a card in hand: the page asks first
     await page.waitForSelector("#pkSwitchBar"); await page.sleep(200); await audit("switch bar"); await shot("switch-bar");
@@ -123,7 +126,7 @@ for (const [w, h] of SIZES) {
     if (await page.evaluate(`currentTopic !== 2 || !currentCardData || !!document.getElementById("pkSwitchBar")`)) problem(size, "switch bar", "「繼續這一段」 did not keep the part and its card");
     await page.click("#topicGrid .topic:nth-child(3)"); await page.waitForSelector("#pkSwitchBar");
     await page.click("#pkSwitchGo");
-    await page.waitFor(`currentTopic === 3 && /牌發好了/.test(document.getElementById("status").textContent)`);
+    await page.waitFor(`currentTopic === 3 && /cards are dealt/.test(document.getElementById("status").textContent)`);
     await page.sleep(900);
   });
   await audit("after switching part"); await shot("switched-part");
@@ -140,10 +143,10 @@ for (const [w, h] of SIZES) {
   await shot("fast-switch");
 
   // ── leave to the menu and come back ──
-  await guard("table → menu", async () => { await page.click(".pk-change-btn"); await page.waitForSelector(".pk-topic"); });
+  await guard("table → menu", async () => { await page.click(".pk-change-btn"); await page.waitForSelector(".pk-tcard"); });
   await page.sleep(300); await audit("menu again"); await shot("menu-again");
   await expect("menu again", `document.getElementById("gameScreen").classList.contains("hidden") && document.getElementById("pkMission").classList.contains("hidden") && document.getElementById("pkWrap").classList.contains("hidden")`, "game, mission or wrap-up still showing over the menu");
-  await guard("menu → mission again", async () => { await page.click(`.pk-lvl[onclick*="'${TOPIC}','${LEVEL}'"]`); await page.waitForSelector("#pkMissionGo"); await page.click("#pkMissionGo"); });
+  await guard("menu → mission again", async () => { await page.click(`.pk-tc-open[data-topic="${TOPIC}"]`); await page.waitForSelector(`#pkPick.open .pk-lv[data-level="${LEVEL}"]`); await page.sleep(750); await page.click(`#pkPick .pk-lv[data-level="${LEVEL}"]`); await page.waitForSelector("#pkMissionGo"); await page.click("#pkMissionGo"); });
   await page.sleep(400);
   await expect("new run", `document.querySelectorAll("#topicGrid .topic.completed").length === 0 && document.querySelectorAll("#subBox .subtopic-poker").length === 0 && document.getElementById("pkStreak").hidden && /00:00/.test(document.getElementById("gameTimer").textContent)`, "a new run did not start clean (chips, table, streak or timer left over)");
   await audit("new run"); await shot("new-run");
@@ -168,9 +171,9 @@ for (const [w, h] of SIZES) {
   await page.sleep(200); await audit("wrap: read result"); await shot("wrap-read-result");
   await expect("wrap: read result", `!!document.querySelector(".pkw-sent.ok")`, "the take did not reach the teacher: " + (await page.evaluate(`(document.querySelector(".pkw-sent") || {}).textContent || "no status line"`)));
   await guard("wrap read → next", async () => { await page.click("#pkwNext"); await page.waitForSelector("#pkwAgain"); });
-  await page.waitFor(`/\+\d+|籌碼已滿|只計/.test(document.querySelector("#pkwChips p").textContent)`, 12000, "chips").catch(() => {});
+  await page.waitFor(`/\+\d+|chip limit|only the understanding/.test(document.querySelector("#pkwChips p").textContent)`, 12000, "chips").catch(() => {});
   await page.sleep(400); await audit("wrap: next"); await shot("wrap-next"); await page.shot(`${OUT}/${size}-wrap-next-full.png`, { fullPage: true });
-  await expect("wrap: next", `/已儲存/.test(document.getElementById("pkwSave").textContent)`, "the last step does not say the result is saved");
+  await expect("wrap: next", `/[Ss]aved/.test(document.getElementById("pkwSave").textContent)`, "the last step does not say the result is saved");
   await expect("wrap: three steps", `document.querySelectorAll("#pkWrap .pkw-dot").length === 3`, "the wrap-up is not the short three-step form");
 
   // the optional extras must lead back to the last step

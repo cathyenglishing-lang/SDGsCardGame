@@ -37,6 +37,17 @@ export function levelHash(slides) {
   return h.digest("hex").slice(0, 16);
 }
 
+const TITLE_STOP = new Set(["the", "a", "an", "of", "and", "to", "in", "on", "for", "is"]);
+const titleWords = t => new Set(String(t || "").toLowerCase().replace(/[^a-z0-9 ]/g, " ").split(/\s+/).filter(w => w && !TITLE_STOP.has(w)));
+// Too alike: every word of one title is in the other, or 60% or more of all their words are shared.
+// The same rule is in backend/content_library.py (titles_too_alike).
+export function titlesTooAlike(a, b) {
+  const A = titleWords(a), B = titleWords(b);
+  if (!A.size || !B.size) return false;
+  const shared = [...A].filter(w => B.has(w)).length;
+  return shared === Math.min(A.size, B.size) || shared / (A.size + B.size - shared) >= 0.6;
+}
+
 export function validate(content, topicNames = {}) {
   const errors = [], warnings = [];
   const topics = content?.topics;
@@ -51,7 +62,7 @@ export function validate(content, topicNames = {}) {
     if (!Number.isInteger(t.version) || t.version < 1) errors.push(`${T}: "version" must be a whole number from 1`);
     if (!String(t.title_en || "").trim()) errors.push(`${T}: English topic title is empty`);
     if (/^(SDG\s*\d+(-\d+)?\s*[:：]?|Topic\s*\d+\s*[:：])/i.test(String(t.title_en || ""))) errors.push(`${T}: topic title "${t.title_en}" is a placeholder or still has a "Topic n:" / "SDG n:" prefix`);
-    if (!String(t.title_zh || "").trim()) warnings.push(`${T}: Chinese topic title is empty`);
+    if (!String(t.title_zh || "").trim()) errors.push(`${T}: Chinese topic title is empty`);
     if (Object.keys(topicNames).length) {
       if (!topicNames[t.id]) errors.push(`${T}: not listed in frontend/js/unlocks.js TOPICS`);
       else if (topicNames[t.id].en !== t.title_en) errors.push(`${T}: title "${t.title_en}" differs from unlocks.js "${topicNames[t.id].en}"`);
@@ -75,7 +86,12 @@ export function validate(content, topicNames = {}) {
         for (const [k, label] of [["title_en", "English title"], ["script", "script"]]) {
           if (!String(s[k] || "").trim()) errors.push(`${id}: ${label} is empty`);
         }
-        if (!String(s.title_zh || "").trim()) warnings.push(`${id}: Chinese title is empty`);
+        // 2026-11-09 meeting (T4): every card needs a Chinese hint. The table prints the hint line
+        // (keywords) or, when that is empty, the Chinese title — so the Chinese title must be there.
+        if (!String(s.title_zh || "").trim()) errors.push(`${id}: Chinese title is empty`);
+        // 5-1 and 5-2 once had the A2 script in this field (shown on the teacher's pages and in exports; the table prints `keywords`).
+        else if (!/[\u3400-\u9fff]/.test(s.title_zh)) errors.push(`${id}: the Chinese title has no Chinese in it ("${String(s.title_zh).slice(0, 40)}")`);
+        else if (String(s.title_zh).trim() === String(s.script || "").trim()) errors.push(`${id}: the Chinese title is the script itself`);
         const text = `${s.title_en}${s.title_zh}${s.script}${s.keywords}`;
         if (/�|Ã[\u0080-¿]|â€|ï¿½/.test(text)) errors.push(`${id}: text looks garbled (encoding)`);
         // Keywords written in English must really be in the script; a Chinese outline hint is not checked.
@@ -93,6 +109,12 @@ export function validate(content, topicNames = {}) {
           if (seen.has(key)) errors.push(`${L}: part ${p} has two cards titled "${s.title_en}" (slides ${seen.get(key)} and ${s.no}); the game cannot tell them apart`);
           seen.set(key, s.no);
         }
+      }
+      // 2026-11-09 meeting, T1: the title cards on the table are the choices A, B, C, D. Two titles that
+      // differ by a word ("Conclusion" / "Conclusion & Call to Action") cannot be told apart by meaning.
+      // Any other slide of the talk can also be dealt as the trap card, so the whole topic is compared.
+      if (l === levels[0]) for (let i = 0; i < slides.length; i++) for (let j = i + 1; j < slides.length; j++) {
+        if (titlesTooAlike(slides[i].title_en, slides[j].title_en)) errors.push(`${T}: the titles of slides ${slides[i].no} and ${slides[j].no} are too alike to choose between ("${slides[i].title_en}" / "${slides[j].title_en}")`);
       }
       // The same slide keeps its title at every level; only the script changes.
       if (!reference) reference = { level: l, slides };

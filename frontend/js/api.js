@@ -400,6 +400,7 @@ window.api = {
     rosterCommit(payload) { return request("/teacher/roster/commit", { method: "POST", auth: true, body: JSON.stringify(payload) }); },
     patchEnrollment(id, payload) { return request(`/teacher/enrollments/${encodeURIComponent(id)}`, { method: "PATCH", auth: true, body: JSON.stringify(payload) }); },
     resetPassword(userId) { return request(`/teacher/users/${encodeURIComponent(userId)}/reset-password`, { method: "POST", auth: true }); },
+    setTestAccount(userId, test) { return request(`/teacher/users/${encodeURIComponent(userId)}/test-account`, { method: "PATCH", auth: true, body: JSON.stringify({ test: !!test }) }); },
     chips(courseId) { return request(`/teacher/chips${courseId ? "?course_id=" + encodeURIComponent(courseId) : ""}`, { method: "GET", auth: true }); },
     adjustChips(userId, delta, note) { return request("/teacher/chips/adjust", { method: "POST", auth: true, body: JSON.stringify({ user_id: userId, delta, note }) }); },
     resolveChips(entryId, action, note) { return request(`/teacher/chips/${encodeURIComponent(entryId)}/resolve`, { method: "POST", auth: true, body: JSON.stringify({ action, note }) }); },

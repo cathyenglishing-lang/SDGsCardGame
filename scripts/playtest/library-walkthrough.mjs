@@ -34,17 +34,21 @@ await page.goto(BASE + "/pages/teacher_dashboard.html");
 await page.waitFor(`typeof MODULE_LOADERS === "object" && /\\d/.test(document.body.textContent)`, 8000, "dashboard ready"); await page.sleep(800);   // the menu answers once the sign-in check is done
 
 await step("open the editor", async () => {
-  await page.click('[data-module="library"]'); await page.waitForSelector("#tlTree [data-topic]");
+  await page.click('.tn-item[data-menu="content"] .tn-btn');     // the top menu: open the group, then the tile
+  await page.waitFor(`document.querySelector('.tn-item[data-menu="content"]').classList.contains("open")`, 5000, "the 教材 menu opens"); await page.sleep(350);
+  await page.click('.tn-item[data-menu="content"] [data-module="library"]'); await page.waitForSelector("#tlTree [data-topic]");
   const topics = await page.evaluate(`document.querySelectorAll("#tlTree [data-topic]").length`);
   if (topics < 9) problem("open the editor", "the tree lists " + topics + " topics, expected at least 9");
-  if (!(await text("#tlTree")).includes("還不能在這裡編輯")) problem("open the editor", "the tree does not say which games cannot be edited here");
+  // Every game has a tab; the ones whose material is not editable here are marked (class "ro").
+  const tabs = await page.evaluate(`[document.querySelectorAll(".tl-games .tl-game").length, document.querySelectorAll(".tl-games .tl-game.ro").length].join("/")`);
+  if (!/^[2-9]\/[1-9]/.test(tabs)) problem("open the editor", "the game tabs do not show which games cannot be edited here (tabs/read-only: " + tabs + ")");
   await shot("tree");
 });
 
 const before = await live("9-2");
 await step("open 9-2", async () => {
   await page.click('#tlTree [data-topic="9-2"]');
-  await page.waitFor(`document.querySelector(".tl-code") && document.querySelector(".tl-code").textContent.includes("9-2") && !!document.querySelector("#tlEdit [data-f='script']")`, 8000, "9-2 is open");
+  await page.waitFor(`document.querySelector(".tl-code") && document.querySelector(".tl-code").textContent.includes("9-B") && !!document.querySelector("#tlEdit [data-f='script']")`, 8000, "9-2 is open");
   if (!/已發佈第 \d+ 版/.test(await text("#tlState"))) problem("open 9-2", "the state line does not say which version is published: " + (await text("#tlState")));
   if (!/檢查通過/.test(await text("#tlChecks"))) problem("open 9-2", "a published topic should pass its checks: " + (await text("#tlChecks")).slice(0, 120));
   await shot("topic");
@@ -101,7 +105,7 @@ await step("new topic from a pasted sheet", async () => {
   await fill("#tlNewId", newId); await fill("#tlNewEn", "Reading for Everyone"); await fill("#tlNewZh", "人人都能閱讀");
   await shot("new-topic");
   await page.click('#tlNewForm button[type="submit"]');
-  await page.waitFor(`document.querySelector("#tlTree .tl-node.on") && document.querySelector("#tlTree .tl-node.on").textContent.includes("${newId}")`, 8000, "new topic opened");
+  await page.waitFor(`document.querySelector("#tlTree .tl-node.on") && document.querySelector("#tlTree .tl-node.on").dataset.topic === "${newId}"`, 8000, "new topic opened");
   if (!/還沒發佈過/.test(await text("#tlState"))) problem("new topic", "a new topic should say it has never been published: " + (await text("#tlState")));
   if (await live(newId)) problem("new topic", "students can already see an unpublished topic");
   await page.click("#tlImportBtn"); await page.waitForSelector("#tlImportText");
@@ -119,7 +123,7 @@ await step("new topic from a pasted sheet", async () => {
 await step("the game shows the teacher's title", async () => {
   const game = await browser.page({ width: 1024, height: 768 });
   await game.goto(BASE + "/health"); await game.evaluate(`localStorage.clear(); localStorage.setItem("user", ${JSON.stringify(JSON.stringify(admin))});`);
-  await game.goto(BASE + "/pages/pecha_kucha_builder.html"); await game.waitForSelector(".pk-topic"); await game.sleep(700);
+  await game.goto(BASE + "/pages/pecha_kucha_builder.html"); await game.waitForSelector(".pk-tcard"); await game.sleep(700);
   const menu = await game.evaluate(`document.getElementById("selectorScreen").textContent`);
   if (!menu.includes("Reading for Everyone")) problem("the game", "the topic menu does not show the newly published topic");
   await game.shot(`${OUT}/${String(++n).padStart(2, "0")}-game-menu.png`);
@@ -138,13 +142,13 @@ await step("delete the topic and undo", async () => {
   if (await live(newId)) problem("delete the topic", "students still get a deleted topic");
   await shot("topic-deleted");
   await page.click("#tlUndo");
-  await page.waitFor(`document.querySelector("#tlTree .tl-node.on") && document.querySelector("#tlTree .tl-node.on").textContent.includes("${newId}")`, 8000, "topic restored and opened");
+  await page.waitFor(`document.querySelector("#tlTree .tl-node.on") && document.querySelector("#tlTree .tl-node.on").dataset.topic === "${newId}"`, 8000, "topic restored and opened");
   if (!(await live(newId))) problem("delete the topic", "undo did not give the topic back to students");
 });
 
 await step("take back an old version", async () => {
   await page.click('#tlTree [data-topic="9-2"]');
-  await page.waitFor(`document.querySelector(".tl-code") && document.querySelector(".tl-code").textContent.includes("9-2") && !!document.querySelector("#tlEdit [data-f='script']")`, 8000, "9-2 is open");
+  await page.waitFor(`document.querySelector(".tl-code") && document.querySelector(".tl-code").textContent.includes("9-B") && !!document.querySelector("#tlEdit [data-f='script']")`, 8000, "9-2 is open");
   await page.sleep(300);
   await page.evaluate(`document.querySelector(".tl-history").open = true`); await page.sleep(200);
   await page.click(`.tl-history [data-ver="${before.version}"]`);

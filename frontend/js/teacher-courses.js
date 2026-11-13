@@ -147,7 +147,7 @@ window.teacherToast = window.teacherToast || function (text, undo) {
         <p class="tc-hint">勾選後，這門課的學生在卡牌遊戲只會看到這些主題和難度；全部不勾＝照全站的開放規則。<b>勾了就自動儲存。</b>這裡列的是「教材管理」已發佈的主題；上鎖的主題要先到教材管理開放，學生才玩得到。</p>
         <div class="tc-acts">${topics(c).map(t => {
           const a = c.activities.find(x => x.game === "pecha_kucha" && x.topic_id === t.id);
-          return `<div class="tc-act ${t.locked || t.gone ? "off" : ""}" data-topic="${esc(t.id)}"><div><b>SDG ${esc(t.id)}</b> ${esc(t.en)}<small>${esc(t.zh)}</small>
+          return `<div class="tc-act ${t.locked || t.gone ? "off" : ""}" data-topic="${esc(t.id)}"><div><b>SDG ${esc(window.topicCode ? window.topicCode(t.id) : t.id)}</b> ${esc(t.en)}<small>${esc(t.zh)}</small>
               ${t.locked ? `<small class="tc-lock">🔒 已上鎖：先到教材管理開放，學生才玩得到</small>` : ""}${t.gone ? `<small class="tc-lock">${esc(t.gone)}：學生看不到。不需要的話把勾拿掉。</small>` : ""}</div>
             <div class="tc-lv">${t.levels.map(l => `<label><input type="checkbox" value="${esc(l)}" ${a && a.levels.includes(l) ? "checked" : ""}> ${esc(l)}</label>`).join("")}</div></div>`;
         }).join("")}</div>
@@ -304,14 +304,22 @@ window.teacherToast = window.teacherToast || function (text, undo) {
     if (!current || !$("tcRoster")) return;
     try {
       roster = (await api.teacher.courseRoster(current.id)).students;
-      $("tcRoster").innerHTML = roster.length ? `<table class="part-table tc-table"><thead><tr><th>系級</th><th>學號</th><th>姓名</th><th>帳號</th><th>研究代碼</th><th>狀態</th><th></th></tr></thead><tbody>
-        ${roster.map(s => `<tr class="${s.status === "active" ? "" : "mute"}"><td>${esc(s.section)}</td><td>${esc(s.student_no || "")}</td><td>${esc(s.name)}</td><td>${esc(s.email)}</td><td><code>${esc(s.public_id || "")}</code></td>
+      $("tcRoster").innerHTML = roster.length ? `<table class="part-table tc-table"><thead><tr><th>系級</th><th>學號</th><th>姓名</th><th>帳號</th><th>研究代碼</th><th>狀態</th><th title="勾起來的人玩的局會保留，但不進班級統計、題目難度和研究匯出">測試帳號</th><th></th></tr></thead><tbody>
+        ${roster.map(s => `<tr class="${s.status === "active" ? "" : "mute"} ${s.test ? "tc-testrow" : ""}"><td>${esc(s.section)}</td><td>${esc(s.student_no || "")}</td><td>${esc(s.name)}${s.test ? ` <span class="tc-badge mute">測試</span>` : ""}</td><td>${esc(s.email)}</td><td><code>${esc(s.public_id || "")}</code></td>
           <td>${s.status === "active" ? (s.must_change_password ? `<span class="tc-badge info">還沒登入改密碼</span>` : `<span class="tc-badge good">已啟用</span>`) : `<span class="tc-badge mute">退選</span>`}
             ${resetShown[s.user_id] ? `<br><small class="tc-newpw">新的初始密碼 <code>${esc(resetShown[s.user_id])}</code>（只在這一頁顯示）</small>` : ""}</td>
+          <td class="nw"><label class="check tc-test" title="${s.test_fixed ? "老師和管理員的帳號一定是測試帳號" : "勾起來：這個人玩的局不進班級統計"}"><input type="checkbox" data-test="${Number(s.user_id)}" data-name="${esc(s.name)}" ${s.test ? "checked" : ""} ${s.test_fixed ? "disabled" : ""}> ${s.test_fixed ? "老師" : "不計"}</label></td>
           <td class="tc-actions"><button class="btn" type="button" data-reset="${Number(s.user_id)}">重設密碼</button>
             <button class="btn" type="button" data-enr="${Number(s.enrollment_id)}" data-to="${s.status === "active" ? "dropped" : "active"}" data-name="${esc(s.name)}">${s.status === "active" ? "標為退選" : "恢復"}</button></td></tr>`).join("")}
       </tbody></table>` : `<p class="tc-hint">這門課還沒有學生。用上面的「匯入名單」加入。</p>`;
       document.querySelectorAll("#tcRoster [data-reset]").forEach(b => b.onclick = () => resetPw(Number(b.dataset.reset), b));
+      document.querySelectorAll("#tcRoster [data-test]").forEach(c => c.onchange = async () => {
+        c.disabled = true;
+        try { await api.teacher.setTestAccount(Number(c.dataset.test), c.checked);
+          toast(c.checked ? `${c.dataset.name} 標成測試帳號：之後和之前玩的局都不進班級統計（紀錄保留）。` : `${c.dataset.name} 不再是測試帳號：他玩的局會計入班級統計。`);
+          loadRoster(); }
+        catch (e) { c.checked = !c.checked; c.disabled = false; toast(e.message || "沒有存成功，請再試一次。"); }
+      });
       document.querySelectorAll("#tcRoster [data-enr]").forEach(b => b.onclick = () => setEnrollment(b.dataset.enr, b.dataset.to, b.dataset.name, true));
     } catch (e) { $("tcRoster").innerHTML = `<p class="tc-msg bad">${esc(e.message)}</p>`; }
     loadChips();
@@ -319,7 +327,7 @@ window.teacherToast = window.teacherToast || function (text, undo) {
 
   // ── chips: what waits for the teacher, every student's balance, add or take away with a reason ──
   const CHIP_REASON = { "pk.score": "聽懂分數", "pk.finish": "玩完整局", "pk.remedy": "補救配對", "pk.quiz": "小測", "pk.read": "朗讀", "pk.reflect": "反思",
-    "spaced.return": "隔幾天回來玩", "harbor.stars": "3D 遊戲的星星", "sdg4.formal": "正式發表", "teacher.grant": "老師加的", "teacher.deduct": "老師扣的" };
+    "spaced.return": "隔幾天回來玩", "harbor.stars": "3D 遊戲的星星", "sdg4.formal": "正式發表", "sdg4.read": "SDG 4 念對的字", "teacher.grant": "老師加的", "teacher.deduct": "老師扣的" };
   let chipOpen = null;                                  // user id whose "add or take away" row is open
   async function loadChips() {
     const box = $("tcChips"); if (!current || !box) return;

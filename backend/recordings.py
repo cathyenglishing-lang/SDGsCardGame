@@ -98,9 +98,11 @@ def _remove_files(cur, where, params):
     cur.execute(f"SELECT file_path FROM speech_recordings WHERE {where} AND file_path IS NOT NULL", params)
     for row in cur.fetchall():
         try:
-            Path(row["file_path"]).unlink(missing_ok=True)
+            f = _audio_file(row["file_path"])
+            if f:
+                f.unlink(missing_ok=True)
         except OSError as error:
-            print(f"[RECORDINGS] could not delete {row['file_path']}: {error}")
+            print(f"[RECORDINGS] could not delete a recording file: {error}")
 
 
 def _purge(cur):
@@ -115,12 +117,32 @@ def forget_user(cur, user_id):
 
 
 def _store_file(audio, mime):
-    """Write the clip under AUDIO_DIR and return its path; the name is random and carries no personal data."""
-    folder = Path(AUDIO_DIR) / D.now_taipei().strftime("%Y-%m")
+    """Write the clip under AUDIO_DIR. The name is random and carries no personal data, and what goes into the
+    database is the path RELATIVE to AUDIO_DIR ("2026-11/ab12….webm"): the server's folders are not stored, and the
+    clip keeps working if AUDIO_DIR moves."""
+    month = D.now_taipei().strftime("%Y-%m")
+    folder = Path(AUDIO_DIR) / month
     folder.mkdir(parents=True, exist_ok=True)
-    path = folder / f"{secrets.token_hex(12)}.{EXTENSIONS.get(mime, 'bin')}"
-    path.write_bytes(audio)
-    return str(path)
+    name = f"{secrets.token_hex(12)}.{EXTENSIONS.get(mime, 'bin')}"
+    (folder / name).write_bytes(audio)
+    return f"{month}/{name}"
+
+
+def _audio_file(stored):
+    """The file a database row points at, or None. Older rows hold an absolute path, newer ones a relative one;
+    either way the resolved file must be inside AUDIO_DIR, so a changed row can never make the server read or
+    delete a file anywhere else."""
+    if not stored or not AUDIO_DIR:
+        return None
+    base = Path(AUDIO_DIR).resolve()
+    p = Path(str(stored))
+    p = (p if p.is_absolute() else base / p).resolve()
+    try:
+        p.relative_to(base)
+    except ValueError:
+        print("[RECORDINGS] refused a stored path outside AUDIO_DIR")
+        return None
+    return p
 
 
 def storage_info():
@@ -243,7 +265,9 @@ async def upload_recording(
         conn.commit()
     except Exception as error:
         if file_path:
-            Path(file_path).unlink(missing_ok=True)
+            f = _audio_file(file_path)
+            if f:
+                f.unlink(missing_ok=True)
         conn.close()
         if D.is_integrity_error(error):   # two copies of the same upload raced
             return {"saved": True, "duplicate": True}
@@ -315,7 +339,10 @@ def recording_audio(rec_id: int, authorization: str | None = Header(default=None
     conn.close()
     if row["file_path"]:
         try:
-            audio = Path(row["file_path"]).read_bytes()
+            f = _audio_file(row["file_path"])
+            if not f:
+                raise OSError("outside AUDIO_DIR")
+            audio = f.read_bytes()
         except OSError:
             raise HTTPException(status_code=410, detail="錄音檔已不在磁碟上。The audio file is no longer on disk.")
     else:
