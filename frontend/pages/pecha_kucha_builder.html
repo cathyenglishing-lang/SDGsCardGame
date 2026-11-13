@@ -1681,8 +1681,9 @@ function pkOpenTopic(topicId, from){
     +   '<p class="pk-pick-step"><b>2</b>Choose a level</p>'
     +   '<h2>'+pkEsc(title)+'</h2>'+(zh?'<p class="pk-pick-zh">'+pkEsc(zh)+' · SDG '+t.sdg+'</p>':'')
     +   '<div class="pk-pick-levels">'+rows+'</div>'
-    +   (PK_TTS.on ? '<label class="pk-pick-accent"><span>Voice accent</span><select id="pkPickAccent">'
-            + PK_TTS.accents.map(a=>'<option value="'+pkEsc(a.code)+'">'+pkEsc(pkAccEn(a.label))+'</option>').join('')+'<option value="device">Device voice</option></select></label>' : '')
+    +   (PK_TTS.on ? '<div class="pk-pick-voice"><label class="pk-pick-accent"><span>Voice</span><select id="pkPickKind">'
+            + pkKinds().map(k=>'<option value="'+k+'">'+PK_KIND[k].name+'</option>').join('')+'<option value="device">Device voice</option></select></label>'
+            + '<label class="pk-pick-accent"><span>Accent</span><select id="pkPickAccent"></select></label></div>' : '')
     +   '<p class="pk-pick-foot">Tap a level to start. You can come back for a harder one.</p>'
     + '</div></div>';
   document.body.appendChild(box);
@@ -1700,8 +1701,8 @@ function pkOpenTopic(topicId, from){
   requestAnimationFrame(()=>{ box.classList.add("open"); });
   box.addEventListener("click", e=>{ if(e.target === box) pkClosePick(true); });
   document.getElementById("pkPickClose").onclick = () => pkClosePick(true);
-  const acc = document.getElementById("pkPickAccent");
-  if(acc){ acc.value = pkAccent() || "device"; acc.onchange = () => pkSetAccent(acc.value === "device" ? null : acc.value); }
+  const kindSel = document.getElementById("pkPickKind"), acc = document.getElementById("pkPickAccent");
+  if(kindSel){ kindSel.onchange = () => pkSetKind(kindSel.value === "device" ? null : kindSel.value); acc.onchange = () => pkSetAccent(acc.value); pkPaintAccent(); }
   const first = box.querySelector(".pk-lv:not(.is-locked)") || document.getElementById("pkPickClose");
   setTimeout(()=>{ try{ first.focus({preventScroll:true}); }catch(e){} }, still ? 0 : 420);
   const steps = document.querySelectorAll(".pk-steps li"); steps.forEach((li,i)=>li.classList.toggle("on", i===1));
@@ -1990,12 +1991,31 @@ function pkAccent(){
   return PK_TTS.accents.some(a=>a.code===v) ? v : PK_TTS.def;
 }
 function pkAccEn(label){ return String(label||"").replace(/^[^\x00-\x7f]+\s*/, "") || String(label||""); }   // "美式 American" → "American"
-function pkAccentLabel(code){ const a = PK_TTS.accents.find(x=>x.code===code); return a ? pkAccEn(a.label) : "Device"; }
+// Two kinds of cloud voice (backend/tts.py): "-N2" codes are Google Neural2, whose word times are exact, so the
+// highlight follows the voice; the others are the most natural (Chirp 3 HD), with an estimated highlight.
+const PK_KIND = { n2:{ name:"Clear · exact highlight", short:"Clear" }, hd:{ name:"HD · most natural", short:"HD" } };
+const pkKindOf = code => /-N2$/.test(String(code||"")) ? "n2" : "hd";
+const pkBaseOf = code => String(code||"").replace(/-N2$/, "");
+function pkKinds(){ return ["n2","hd"].filter(k=>PK_TTS.accents.some(a=>pkKindOf(a.code)===k)); }
+function pkAccName(code){ const a = PK_TTS.accents.find(x=>x.code===code); return a ? pkAccEn(a.label).replace(/\s*HD$/, "") : "Device"; }
+function pkSetKind(kind){
+  if(!kind){ pkSetAccent(null); return; }
+  const cur = pkAccent(), same = PK_TTS.accents.filter(a=>pkKindOf(a.code)===kind);
+  const pick = same.find(a=>pkBaseOf(a.code)===pkBaseOf(cur)) || same[0];
+  if(pick) pkSetAccent(pick.code);
+}
+function pkAccentLabel(code){ return code ? pkAccName(code) + (pkKinds().length > 1 ? " · " + PK_KIND[pkKindOf(code)].short : "") : "Device"; }
 function pkPaintAccent(){
   const b = document.getElementById("pkAccentBtn"); if(!b) return;
   b.hidden = !PK_TTS.on;
   if(PK_TTS.on){ const a = pkAccent(); b.textContent = "Accent "+pkAccentLabel(a); b.setAttribute("aria-label", "Accent: "+(a ? pkAccentLabel(a) : "device voice")+". Tap for the next one"); }
-  const sel = document.getElementById("pkPickAccent"); if(sel) sel.value = pkAccent() || "device";
+  const a = pkAccent(), kindSel = document.getElementById("pkPickKind"), sel = document.getElementById("pkPickAccent");
+  if(kindSel){
+    kindSel.value = a ? pkKindOf(a) : "device";
+    const kind = a ? pkKindOf(a) : (pkKinds()[0] || "n2");
+    sel.innerHTML = PK_TTS.accents.filter(x=>pkKindOf(x.code)===kind).map(x=>'<option value="'+pkEsc(x.code)+'">'+pkEsc(pkAccName(x.code))+'</option>').join('');
+    sel.disabled = !a; if(a) sel.value = a;
+  }
 }
 function pkSetAccent(code){
   try{ localStorage.setItem(PK_ACCENT_KEY, code || "device"); }catch(e){}
@@ -2003,10 +2023,11 @@ function pkSetAccent(code){
   if(typeof PKT !== "undefined" && typeof RUN !== "undefined" && RUN) PKT.log("voice.accent", { accent: code || "device" });
 }
 function pkCycleAccent(){
-  const list = [...PK_TTS.accents.map(a=>a.code), null], i = list.indexOf(pkAccent());
+  const order = pkKinds().flatMap(k=>PK_TTS.accents.filter(a=>pkKindOf(a.code)===k).map(a=>a.code));
+  const list = [...order, null], i = list.indexOf(pkAccent());
   const next = list[(i + 1) % list.length];
   pkSetAccent(next);
-  if(typeof showToast === "function") showToast(next ? "Accent: "+pkAccEn(PK_TTS.accents.find(a=>a.code===next).label) : "Using the device voice");
+  if(typeof showToast === "function") showToast(next ? "Voice: "+pkAccentLabel(next) : "Using the device voice");
 }
 // ── Word-by-word highlighting (逐字高亮): the word being read is marked in the sentence on screen ──
 // Where the time of each word comes from, best first: (1) the voice service's own word times, sent with

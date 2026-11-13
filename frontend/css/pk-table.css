@@ -605,3 +605,8 @@ button.pk-tc-face h3{font-size:clamp(.94rem,1.12vw,1.08rem);line-height:1.2}
 .pk-w.said{color:inherit;opacity:.62}
 .pk-w.now{background:#fde68a;color:#1b1838;opacity:1;box-shadow:0 0 0 .12em #fde68a}
 @media (prefers-reduced-motion:reduce){ .pk-w{transition:none} }
+
+/* level picker: voice type + accent side by side (2026-11-13) */
+body.pk-v2 .pk-pick-voice{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+body.pk-v2 .pk-pick-voice .pk-pick-accent{flex:1 1 180px}
+body.pk-v2 .pk-pick-voice select:disabled{opacity:.5}
