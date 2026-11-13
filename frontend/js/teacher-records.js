@@ -531,6 +531,77 @@
     return `<section class="tr-chart"><h4>各主題最好的分數</h4>${t.map(x => `<div class="tr-tbar"><span>${esc(topicLabel(x.chapter))} <small>${esc(x.level)}</small></span>${bar(num(x.best), num(x.best) < 40 ? "bad" : num(x.best) < 70 ? "mid" : "good")}<b>${n(x.best)}</b></div>`).join("")}</section>`;
   }
 
+  // ── 錄音打包下載（ZIP）──
+  // The server puts every matching clip in one ZIP (系級/學號_姓名/…) with 錄音清單.csv; downloading does not mark anything heard.
+  async function downloadZip(params, btn) {
+    const label = btn.textContent; btn.disabled = true; btn.textContent = "打包中…";
+    try {
+      const q = new URLSearchParams(Object.entries(params).filter(([, v]) => v !== null && v !== undefined && v !== "")).toString();
+      const r = await fetch(API() + "/teacher/recordings/download.zip" + (q ? "?" + q : ""), { headers: head() });
+      if (!r.ok) { const d = (await r.json().catch(() => ({}))).detail; throw new Error(typeof d === "string" ? d : "下載失敗，請再試一次。"); }
+      const cd = r.headers.get("Content-Disposition") || "";
+      let name = "recordings.zip";
+      try { const m = cd.match(/filename\*=UTF-8''([^;]+)/i); if (m) name = decodeURIComponent(m[1]); } catch (e) {}
+      const a = document.createElement("a"); a.href = URL.createObjectURL(await r.blob()); a.download = name;
+      document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 5000);
+      const got = num(r.headers.get("X-Recordings")), miss = num(r.headers.get("X-Missing"));
+      toast(`已下載 ${name}${got !== null ? `（${got} 段）` : ""}${miss ? `，其中 ${miss} 段檔案已不在` : ""}。裡面有學生姓名和聲音，請不要外流。`);
+    } catch (e) { toast(e.message); }
+    finally { btn.disabled = false; btn.textContent = label; }
+  }
+
+  // ── 一位學生：每一局的時間軸（什麼時候、玩什麼、怎麼作答、有沒有異常、錄音）──
+  const WEEK = "日一二三四五六";
+  function answersLine(a) {
+    if (!a) return "";
+    const parts = [`${n(a.answered)}/${n(a.cards)} 張卡有作答`, `第一次就對 <b>${n(a.first_right)}</b> 張`];
+    if (num(a.first_wrong)) parts.push(`<span class="tr-bad">配錯 ${n(a.first_wrong)} 張</span>`);
+    parts.push(`重聽 ${n(a.repeats, "0")} 次`);
+    if (num(a.quiz)) parts.push(`小測 ${n(a.quiz_right)}/${n(a.quiz)}`);
+    if (num(a.reads)) parts.push(`朗讀 ${n(a.reads)} 張`);
+    return parts.join(" · ");
+  }
+  function runTimeline(runs, recs) {
+    if (!runs.length) return `<p class="tr-hint">這位學生還沒有任何一局。</p>`;
+    const byRun = new Map();
+    for (const r of recs) if (r.run_id) { const k = Number(r.run_id); if (!byRun.has(k)) byRun.set(k, []); byRun.get(k).push(r); }
+    let lastDay = "";
+    return `<ol class="tr-tl">${runs.map(r => {
+      const day = String(r.started_at || "").slice(0, 10), d = new Date(day + "T12:00:00");
+      const dayHead = day !== lastDay ? `<li class="tr-tl-day">${esc(day)}${isNaN(d) ? "" : `（${WEEK[d.getDay()]}）`}</li>` : ""; lastDay = day;
+      const card = r.game === "pecha_kucha", flags = r.flags || [];
+      const state = flags.length ? flags.map(f => `<span class="tr-badge bad" title="${esc((FLAG_WHY[f] ? FLAG_WHY[f]("這") : ""))}">⚠ ${esc(FLAG[f] || f)}</span>`).join(" ") : `<span class="tr-badge good">✓ 沒有異常</span>`;
+      const done = r.ended_at ? (card ? (r.wrap_done ? `<span class="tr-badge good">玩完＋收尾</span>` : `<span class="tr-badge info">只配對完</span>`) : `<span class="tr-badge good">玩完</span>`) : `<span class="tr-badge warn">沒玩完</span>`;
+      const clips = byRun.get(Number(r.id)) || [];
+      return `${dayHead}<li class="tr-tl-item${flags.length ? " flagged" : ""}">
+        <time>${esc(String(r.started_at || "").slice(11, 16))}${r.ended_at ? `<small>–${esc(String(r.ended_at).slice(11, 16))}</small>` : ""}</time>
+        <div class="tr-tl-body">
+          <div class="tr-tl-head"><b>${esc(GAME_ZH[r.game] || r.game)} · ${esc(card ? topicLabel(r.chapter) : r.chapter || "")} ${esc(r.level || "")}</b>
+            <span class="tr-tl-score">${card ? "聽懂分數" : "分數"} <b>${esc(scoreOf(r))}</b></span>${done} ${state}${r.excluded ? ` <span class="tr-badge" title="這一局不計入班級統計">${esc(EXCL[r.excluded] || "不計")}</span>` : ""}</div>
+          <p class="tr-tl-ans">${r.answers ? answersLine(r.answers) : ""}${num(r.minutes) !== null ? `${r.answers ? " · " : ""}${n(r.minutes)} 分鐘（有效 ${n(r.active_minutes)}）` : ""}</p>
+          ${clips.length ? `<div class="tr-tl-clips">${clips.map(c => `<span class="tr-tl-clip" data-rec-play="${Number(c.id)}"><button class="btn" type="button">▶ ${esc(c.label || "錄音")}${num(c.seconds) !== null ? ` ${n(c.seconds)} 秒` : ""}</button><span data-player></span><span class="tr-badge ${(STATUS[c.status] || STATUS.new)[1]}">${(STATUS[c.status] || STATUS.new)[0]}</span></span>`).join("")}</div>` : ""}
+          <button class="btn tr-tl-more" type="button" data-run="${Number(r.id)}">看每一張卡怎麼作答 ▸</button>
+        </div></li>`;
+    }).join("")}</ol>`;
+  }
+  // The small ▶ buttons in the time line: fetch the clip (that marks it heard on the server) and play it in place.
+  function wireTimelineClips() {
+    document.querySelectorAll("#trView [data-rec-play]").forEach(box => {
+      const btn = box.querySelector("button");
+      btn.onclick = async () => {
+        btn.disabled = true; const label = btn.textContent; btn.textContent = "載入中…";
+        try {
+          const r = await fetch(API() + `/teacher/recordings/${Number(box.dataset.recPlay)}/audio`, { headers: head() });
+          if (!r.ok) { const d = (await r.json().catch(() => ({}))).detail; throw new Error(typeof d === "string" ? d : "播放失敗"); }
+          const audio = document.createElement("audio"); audio.controls = true; audio.autoplay = true; audio.src = URL.createObjectURL(await r.blob());
+          box.querySelector("[data-player]").replaceChildren(audio); btn.remove();
+          const b = box.querySelector(".tr-badge"); if (b && b.textContent === STATUS.new[0]) { b.textContent = STATUS.heard[0]; b.className = "tr-badge " + STATUS.heard[1]; }
+          voiceBadge().catch(() => {});
+        } catch (e) { btn.disabled = false; btn.textContent = label; toast(e.message); }
+      };
+    });
+  }
+
   // ── 一位學生 ──
   async function studentView(my) {
     const [d, v, fbAll] = await Promise.all([get("/learning/records/student/" + Number(S.studentId), dates()), get("/teacher/recordings", { user_id: S.studentId, ...dates() }), get("/teacher/feedback").catch(() => ({ feedback: {} }))]);
@@ -555,15 +626,18 @@
       <div class="tr-two">
         <section class="panel"><h3 class="tr-h">需要再練的句子</h3>${d.weak_cards.length ? `<ul class="tr-list">${d.weak_cards.slice(0, 12).map(w => { const p = T.parse(w.card); return `<li><b>${esc(cardLabel(w.card))}</b> <small>${esc(topicLabel(p.topic))} ${esc(p.level)} · ${n(w.plays)} 次中 ${n(w.misses)} 次第一次沒配對到${w.last_first ? " · 最近一次配對了" : ""}</small><span>${esc(cardScript(w.card))}</span>${(w.wrong || []).length ? `<small>放到過：${w.wrong.map(x => esc(cardLabel(x.target)) + " ×" + n(x.n)).join("、")}</small>` : ""}</li>`; }).join("")}</ul>` : `<p class="tr-hint">沒有第一次配錯的句子。</p>`}
           ${d.quiz_missed.length ? `<h3 class="tr-h">小測沒答對的字</h3><p class="tr-words">${d.quiz_missed.map(q => `<b>${esc(q.word)}</b>${num(q.n) > 1 ? ` ×${n(q.n)}` : ""}`).join(" ")}</p>` : ""}</section>
-        <section class="panel"><h3 class="tr-h">語音</h3>${voiceRows(v.recordings, false)}
+        <section class="panel"><div class="section-h"><h3 class="tr-h">語音（${v.recordings.length} 段）</h3>${v.recordings.length ? `<button class="btn" type="button" id="trZipOne">⬇ 下載他的所有錄音（ZIP）</button>` : ""}</div>${voiceRows(v.recordings, false)}
           ${d.speaking.length ? `<h3 class="tr-h">口說紀錄（時間、語速、機器辨識）</h3><div class="scrollx"><table class="part-table tr-table"><thead><tr><th>時間</th><th>念的內容</th><th>秒／目標</th><th>字/分</th><th>機器聽到</th><th>錄音</th></tr></thead><tbody>${d.speaking.slice(0, 40).map(x => `<tr><td class="nw">${esc(dt(x.at))}</td><td>${esc(clipLabel(x.clip))}<small class="tr-sub">${esc(GAME_ZH[x.game] || x.game)}</small></td><td class="nw">${n(x.seconds)}${num(x.target) !== null ? " / " + n(x.target) : ""}</td><td>${n(x.wpm)}</td><td>${pct(x.heard)}</td><td>${x.uploaded ? "已送出" : x.recorded ? "只在學生裝置" : "–"}</td></tr>`).join("")}</tbody></table></div>` : ""}</section>
       </div>
       ${d.reflections.length ? `<section class="panel"><h3 class="tr-h">學生寫的反思</h3><ul class="tr-list">${d.reflections.map(x => `<li><small>${esc(dt(x.at))} · ${esc(GAME_ZH[x.game] || x.game)}${x.question ? " · " + esc(x.question) : ""}${x.answer ? " → " + esc(x.answer) : ""}</small><span>${esc(x.sentence || "")}</span></li>`).join("")}</ul></section>` : ""}
-      <section class="panel"><h3 class="tr-h">這位學生的每一局（點一列看每一步）</h3>${runsTable(d.runs, false, false)}</section>`;
+      <section class="panel" id="trTimeline"><h3 class="tr-h">什麼時候玩了什麼、怎麼作答、有沒有異常</h3>
+        <p class="tr-hint">一局一列，最新的在上面。「⚠」是這一局的作答方式不像一般練習（例如同一句連放很多張才對，或極快又全對），請點「看每一張卡怎麼作答」確認。▶ 可以直接聽這一局送出的錄音。</p>
+        ${runTimeline(d.runs, v.recordings)}</section>`;
     $("trBack").onclick = () => { S.studentId = null; refresh(); };
     $("trSendOne").onclick = async () => { await saveFb(S.studentId, $("trFbOne").value, $("trFbOneMsg")); sendReports([S.studentId], st.name); };
     $("trFbOne").onblur = () => saveFb(S.studentId, $("trFbOne").value, $("trFbOneMsg"));
-    wireRuns(); wireVoice();
+    if ($("trZipOne")) $("trZipOne").onclick = e => downloadZip({ user_id: S.studentId, ...dates() }, e.currentTarget);
+    wireRuns(); wireVoice(); wireTimelineClips();
   }
 
   // ── 一局 ──
@@ -710,12 +784,15 @@
         <span class="tr-seglite">排序 ${[["new", "最新的在上面"], ["old", "最早的在上面"]].map(([k, l]) => `<button type="button" class="${S.voiceSort === k ? "on" : ""}" data-vsort="${k}">${l}</button>`).join("")}</span>
         <span class="tr-seglite">分組 ${[["", "不分組"], ["section", "依系級"], ["student", "依學生"]].map(([k, l]) => `<button type="button" class="${S.voiceGroup === k ? "on" : ""}" data-vgroup="${k}">${l}</button>`).join("")}</span>
       </div>
+      <div class="tr-row tr-zip"><button class="btn btn-primary" type="button" id="trZipAll">⬇ 批次下載這些錄音（ZIP）</button>
+        <small class="tr-hint">照上面選的課程、系級、日期、主題、狀態打包；ZIP 裡依「系級／學號_姓名」分資料夾，附一份錄音清單.csv。要下載某一位學生的全部錄音，請到「個人分析」點他的名字。</small></div>
       ${voiceGrouped(v.recordings)}</section>`;
     document.querySelectorAll("#trView [data-vs]").forEach(b => b.onclick = () => { S.voiceStatus = b.dataset.vs; refresh(); });
     document.querySelectorAll("#trView [data-vsort]").forEach(b => b.onclick = () => { S.voiceSort = b.dataset.vsort; voiceView(round); });
     document.querySelectorAll("#trView [data-vgroup]").forEach(b => b.onclick = () => { S.voiceGroup = b.dataset.vgroup; voiceView(round); });
     $("trVoiceTopic").onchange = e => { S.voiceTopic = e.target.value; refresh(); };
     $("trVoiceFind").oninput = e => { S.voiceFind = e.target.value; applyFind(); };
+    $("trZipAll").onclick = e => downloadZip({ ...voiceFilter(), status: S.voiceStatus }, e.currentTarget);
     wireVoice(); applyFind();
   }
 

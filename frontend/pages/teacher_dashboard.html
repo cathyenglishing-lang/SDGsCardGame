@@ -1532,6 +1532,23 @@ body{ background:var(--page); }
       #recordsModule .tr-say{margin:0 0 10px;font-size:14.5px;font-weight:700;color:#1e293b}
       #recordsModule .tr-voice{display:grid;gap:10px}
       #recordsModule .tr-clip{border:1px solid var(--line);border-radius:12px;padding:12px 14px;background:#fff}
+      #recordsModule .tr-tl{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:8px}
+      #recordsModule .tr-tl-day{margin:10px 0 0;font-weight:800;color:var(--muted);font-size:13px}
+      #recordsModule .tr-tl-item{display:grid;grid-template-columns:64px 1fr;gap:12px;border:1px solid var(--line);border-left:4px solid #16a34a;border-radius:12px;padding:10px 12px;background:#fff}
+      #recordsModule .tr-tl-item.flagged{border-left-color:#dc2626;background:#fff7f7}
+      #recordsModule .tr-tl-item time{font-weight:800;font-size:15px;font-variant-numeric:tabular-nums}
+      #recordsModule .tr-tl-item time small{display:block;font-weight:600;color:var(--muted);font-size:12px}
+      #recordsModule .tr-tl-head{display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px}
+      #recordsModule .tr-tl-score{font-size:13px;color:var(--muted)}
+      #recordsModule .tr-tl-score b{font-size:16px;color:var(--text,#0f172a)}
+      #recordsModule .tr-tl-ans{margin:6px 0 0;font-size:13.5px}
+      #recordsModule .tr-tl-ans .tr-bad{color:#b91c1c;font-weight:700}
+      #recordsModule .tr-tl-clips{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+      #recordsModule .tr-tl-clip{display:inline-flex;align-items:center;gap:6px}
+      #recordsModule .tr-tl-clip audio{height:34px;max-width:260px}
+      #recordsModule .tr-tl-more{margin-top:8px}
+      #recordsModule .tr-zip{align-items:center;gap:10px}
+      @media (max-width:560px){ #recordsModule .tr-tl-item{grid-template-columns:1fr} }
       #recordsModule .tr-clip-head{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
       #recordsModule .tr-clip-head small{color:var(--muted);font-size:12.5px}
       #recordsModule .tr-script{margin:8px 0;font-size:14.5px;line-height:1.6;color:#1e293b}

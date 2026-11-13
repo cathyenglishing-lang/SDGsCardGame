@@ -480,6 +480,12 @@ def student_report(user_id: int, date_from: str | None = Query(default=None, ali
             continue
         score = both[1] if both else None
         row = _run_row(r, {user_id: person}, score); row["active_minutes"] = active
+        if both:   # how this run was answered, in numbers the teacher can read at a glance
+            cs = [c for c in both[0]["cards"] if c["first"] is not None]
+            qz = both[0]["quiz"]
+            row["answers"] = {"cards": len(both[0]["cards"]), "answered": len(cs), "first_right": sum(1 for c in cs if c["first"]),
+                              "first_wrong": sum(1 for c in cs if not c["first"]), "repeats": sum(c["repeats"] or 0 for c in cs),
+                              "quiz": len(qz), "quiz_right": sum(1 for q in qz if q["correct"]), "reads": len(both[0]["reads"])}
         run_rows.append(row)
         if r["game"] != CARD:
             for e in evs:   # what the 3D games collect about speaking

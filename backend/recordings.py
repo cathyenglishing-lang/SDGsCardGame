@@ -18,14 +18,20 @@ Teacher:  GET /teacher/recordings · GET /teacher/recordings/{id}/audio · PATCH
 """
 from __future__ import annotations
 
+import csv
+import io
 import math
 import os
+import re
 import secrets
+import tempfile
+import zipfile
 from datetime import timedelta
 from pathlib import Path
 from types import SimpleNamespace
 
 from fastapi import APIRouter, File, Form, Header, HTTPException, Query, Response, UploadFile
+from fastapi.responses import StreamingResponse
 from pydantic import BaseModel
 
 router = APIRouter(tags=["recordings"])
@@ -292,12 +298,8 @@ def my_recordings(game: str | None = None, topic_id: str | None = None, label: s
 
 
 # ── teacher ──
-@router.get("/teacher/recordings")
-def list_recordings(course_id: int | None = None, section_id: int | None = None, user_id: int | None = None, status: str | None = None,
-                    game: str | None = None, topic_id: str | None = None, level: str | None = None,
-                    date_from: str | None = Query(default=None, alias="from"), date_to: str | None = Query(default=None, alias="to"), limit: int = 300,
-                    authorization: str | None = Header(default=None)):
-    D.require_teacher(authorization)
+def _filter(course_id=None, section_id=None, user_id=None, status=None, game=None, topic_id=None, level=None, date_from=None, date_to=None):
+    """WHERE clause + values for the teacher's recording filters. Only fixed column names go into the SQL."""
     where, params = [], []
     for col, val in (("course_id", course_id), ("section_id", section_id), ("user_id", user_id), ("status", status), ("game", game), ("topic_id", topic_id), ("level", level)):
         if val not in (None, ""):
@@ -306,7 +308,103 @@ def list_recordings(course_id: int | None = None, section_id: int | None = None,
         where.append("r.created_at >= ?"); params.append(date_from)
     if date_to:
         where.append("r.created_at <= ?"); params.append(date_to + "T23:59:59")
-    clause = (" WHERE " + " AND ".join(where)) if where else ""
+    return ((" WHERE " + " AND ".join(where)) if where else ""), params
+
+
+_UNSAFE = re.compile(r'[\\/:*?"<>|\x00-\x1f]+')
+
+
+def _part(v, n=40):
+    """One piece of a file name inside the ZIP: no folder separators or characters Windows refuses."""
+    return (_UNSAFE.sub("_", str(v or "")).strip(" ._") or "_")[:n]
+
+
+ZIP_MAX = int(os.getenv("AUDIO_ZIP_MAX", "").strip() or 2000)
+
+
+@router.get("/teacher/recordings/download.zip")
+def download_recordings(course_id: int | None = None, section_id: int | None = None, user_id: int | None = None, status: str | None = None,
+                        game: str | None = None, topic_id: str | None = None, level: str | None = None,
+                        date_from: str | None = Query(default=None, alias="from"), date_to: str | None = Query(default=None, alias="to"),
+                        authorization: str | None = Header(default=None)):
+    """Every recording that matches the filters in one ZIP: 系級/學號_姓名/日期_主題_等級_投影片_id.webm, plus
+    錄音清單.csv (who, when, what was read, seconds, status, feedback). Downloading does not mark anything heard."""
+    D.require_teacher(authorization)
+    clause, params = _filter(course_id, section_id, user_id, status, game, topic_id, level, date_from, date_to)
+    conn = D.get_db()
+    cur = conn.cursor()
+    cur.execute(f"""
+        SELECT r.id, r.user_id, r.game, r.topic_id, r.level, r.label, r.script_text, r.seconds, r.target_seconds, r.wpm, r.mime, r.status,
+               r.teacher_note, r.created_at, r.file_path, u.name, u.student_no, s.label AS section, c.name AS course_name
+        FROM speech_recordings r JOIN users u ON u.id = r.user_id
+        LEFT JOIN course_sections s ON s.id = r.section_id LEFT JOIN courses c ON c.id = r.course_id
+        {clause} ORDER BY s.label, u.student_no, r.id LIMIT ?""", params + [ZIP_MAX + 1])
+    rows = [dict(r) for r in cur.fetchall()]
+    if not rows:
+        conn.close()
+        raise HTTPException(status_code=404, detail="這個條件下沒有錄音。")
+    if len(rows) > ZIP_MAX:
+        conn.close()
+        raise HTTPException(status_code=413, detail=f"超過 {ZIP_MAX} 段，請先用系級、學生或日期縮小範圍再下載。")
+    out = tempfile.SpooledTemporaryFile(max_size=32 * 1024 * 1024)
+    index = io.StringIO()
+    w = csv.writer(index)
+    w.writerow(["檔名", "系級", "學號", "姓名", "課程", "時間", "遊戲", "主題", "等級", "投影片", "念的內容", "秒", "目標秒", "字/分", "狀態", "老師回饋", "錄音id"])
+    status_zh = {"new": "未聽", "heard": "已聽", "feedback": "已回饋", "redo": "請重錄"}
+    missing = 0
+    with zipfile.ZipFile(out, "w", zipfile.ZIP_STORED) as z:   # webm is already compressed
+        for r in rows:
+            if r["file_path"]:
+                p = _audio_file(r["file_path"])
+                try:
+                    audio = p.read_bytes() if p else None
+                except OSError:
+                    audio = None
+            else:
+                cur.execute("SELECT audio FROM speech_recordings WHERE id = ?", (r["id"],))
+                a = cur.fetchone()
+                audio = bytes(a["audio"]) if a and a["audio"] is not None else None
+            ext = EXTENSIONS.get(r["mime"] or "", "webm")
+            when = str(r["created_at"] or "")[:16].replace("T", " ")
+            folder = f"{_part(r['section'] or '沒有系級')}/{_part(r['student_no'] or 'no-id', 20)}_{_part(r['name'], 20)}"
+            name = f"{folder}/{_part(when.replace(':', '').replace(' ', '_'), 20)}_{_part(r['topic_id'] or r['game'], 12)}_{_part(r['level'] or '', 4)}_{_part(r['label'] or 'clip', 30)}_{r['id']}.{ext}"
+            if audio is None:
+                missing += 1
+                name = "(檔案已不在)" + name
+            else:
+                z.writestr(name, audio)
+            w.writerow([name, r["section"] or "", r["student_no"] or "", r["name"] or "", r["course_name"] or "", when, r["game"], r["topic_id"] or "",
+                        r["level"] or "", r["label"] or "", r["script_text"] or "", r["seconds"], r["target_seconds"], r["wpm"],
+                        status_zh.get(r["status"], r["status"]), r["teacher_note"] or "", r["id"]])
+        z.writestr("錄音清單.csv", "\ufeff" + index.getvalue())
+    conn.close()
+    size = out.tell()
+    out.seek(0)
+    who = rows[0]["name"] if user_id else (rows[0]["section"] if section_id else rows[0]["course_name"] if course_id else "all")
+    fname = f"recordings_{_part(who, 30)}_{D.now_taipei().strftime('%Y%m%d')}.zip"
+    from urllib.parse import quote
+
+    def chunks():
+        try:
+            while True:
+                b = out.read(1024 * 256)
+                if not b:
+                    break
+                yield b
+        finally:
+            out.close()
+    return StreamingResponse(chunks(), media_type="application/zip", headers={
+        "Content-Disposition": f"attachment; filename=\"recordings.zip\"; filename*=UTF-8''{quote(fname)}",
+        "Content-Length": str(size), "Cache-Control": "private, no-store", "X-Recordings": str(len(rows) - missing), "X-Missing": str(missing)})
+
+
+@router.get("/teacher/recordings")
+def list_recordings(course_id: int | None = None, section_id: int | None = None, user_id: int | None = None, status: str | None = None,
+                    game: str | None = None, topic_id: str | None = None, level: str | None = None,
+                    date_from: str | None = Query(default=None, alias="from"), date_to: str | None = Query(default=None, alias="to"), limit: int = 300,
+                    authorization: str | None = Header(default=None)):
+    D.require_teacher(authorization)
+    clause, params = _filter(course_id, section_id, user_id, status, game, topic_id, level, date_from, date_to)
     conn = D.get_db()
     cur = conn.cursor()
     _purge(cur)

@@ -1618,7 +1618,7 @@ function renderSelector(){
     pkWireWho();
     return;
   }
-  h += '<ol class="pk-steps" aria-label="How to start"><li class="on"><b>1</b>Pick a topic card</li><li><b>2</b>Choose a level</li><li><b>3</b>Start matching</li></ol>';
+  h += '<ol class="pk-steps" aria-label="How to start"><li class="on"><b>1</b>Pick a topic card</li><li><b>2</b>Choose a level</li><li><b>3</b>Pick a voice &amp; start</li></ol>';
   h += '<div class="pk-felt'+(PK_SEL_DEALT ? ' pk-dealt' : '')+'">';
   let n = 0;
   Object.keys(bySdg).map(Number).sort((a,b)=>a-b).forEach(sdg=>{
@@ -1665,12 +1665,12 @@ function pkOpenTopic(topicId, from){
   const rows = levels.map(l=>{
     const open = pkLevelOpen(t,l), n = t.levels[l].length, bars = [0,1,2,3].map(i=>'<i'+(i<=LEVEL_ORDER.indexOf(l)?' class="on"':'')+'></i>').join('');
     return '<button type="button" class="pk-lv'+(open?'':' is-locked')+'" data-level="'+l+'" style="--lc:'+(LEVEL_TONE[l]||"#334155")+'"'
-         + (open ? ' onclick="pkStartGame(\''+t.id+'\',\''+l+'\')"' : ' disabled')+'>'
+         + (open ? ' onclick="pkPickLevel(\''+t.id+'\',\''+l+'\')"' : ' disabled')+'>'
          + '<span class="pk-lv-code">'+l+'</span>'
          + '<span class="pk-lv-text"><b>'+(LEVEL_LABEL[l]||l)+(open && l===firstOpen && levels.length>1 ? '<em>Start here</em>' : '')+'</b>'
          +   '<small>'+(open ? pkEsc(LEVEL_DESC[l]||"")+' · '+n+' cards' : 'Your teacher has not opened this level yet')+'</small></span>'
          + '<span class="pk-lv-bars" aria-hidden="true">'+bars+'</span>'
-         + '<span class="pk-lv-go" aria-hidden="true">'+(open?'Start ▸':'🔒')+'</span></button>';
+         + '<span class="pk-lv-go" aria-hidden="true">'+(open?(PK_TTS.on?'Next ▸':'Start ▸'):'🔒')+'</span></button>';
   }).join('');
   const box = document.createElement("div");
   box.id = "pkPick"; box.className = "pk-pick"; box.setAttribute("role","dialog"); box.setAttribute("aria-modal","true"); box.setAttribute("aria-label", title+": choose a level");
@@ -1681,11 +1681,20 @@ function pkOpenTopic(topicId, from){
     +   '<p class="pk-pick-step"><b>2</b>Choose a level</p>'
     +   '<h2>'+pkEsc(title)+'</h2>'+(zh?'<p class="pk-pick-zh">'+pkEsc(zh)+' · SDG '+t.sdg+'</p>':'')
     +   '<div class="pk-pick-levels">'+rows+'</div>'
-    +   (PK_TTS.on ? '<div class="pk-pick-voice"><label class="pk-pick-accent"><span>Voice</span><select id="pkPickKind">'
+    +   '<p class="pk-pick-foot">'+(PK_TTS.on ? 'Tap a level. Next you choose the voice.' : 'Tap a level to start. You can come back for a harder one.')+'</p>'
+    + '</div>'
+    // page 2 (owner, 2026-11-13: "做成兩頁"): the voice and accent, then Start
+    + (PK_TTS.on ? '<div class="pk-pick-back pk-pick-page2" hidden>'
+    +   '<button type="button" class="pk-pick-x" id="pkPickBack">← Levels</button>'
+    +   '<p class="pk-pick-step"><b>3</b>Choose a voice, then start</p>'
+    +   '<h2>'+pkEsc(title)+'</h2><div class="pk-pick-chosen" id="pkPickChosen"></div>'
+    +   '<div class="pk-pick-voice"><label class="pk-pick-accent"><span>Voice</span><select id="pkPickKind">'
             + pkKinds().map(k=>'<option value="'+k+'">'+PK_KIND[k].name+'</option>').join('')+'<option value="device">Device voice</option></select></label>'
-            + '<label class="pk-pick-accent"><span>Accent</span><select id="pkPickAccent"></select></label></div>' : '')
-    +   '<p class="pk-pick-foot">Tap a level to start. You can come back for a harder one.</p>'
-    + '</div></div>';
+            + '<label class="pk-pick-accent"><span>Accent</span><select id="pkPickAccent"></select></label></div>'
+    +   '<button type="button" class="pk-pick-go" id="pkPickGo">Start ▸</button>'
+    +   '<p class="pk-pick-foot">You can change the voice later with the Accent button in the game.</p>'
+    + '</div>' : '')
+    + '</div>';
   document.body.appendChild(box);
   PK_PICK_FROM = from || null;
   const card = box.querySelector(".pk-pick-card");
@@ -1701,11 +1710,31 @@ function pkOpenTopic(topicId, from){
   requestAnimationFrame(()=>{ box.classList.add("open"); });
   box.addEventListener("click", e=>{ if(e.target === box) pkClosePick(true); });
   document.getElementById("pkPickClose").onclick = () => pkClosePick(true);
+  if(document.getElementById("pkPickBack")) document.getElementById("pkPickBack").onclick = () => pkPickPage(1);
   const kindSel = document.getElementById("pkPickKind"), acc = document.getElementById("pkPickAccent");
   if(kindSel){ kindSel.onchange = () => pkSetKind(kindSel.value === "device" ? null : kindSel.value); acc.onchange = () => pkSetAccent(acc.value); pkPaintAccent(); }
   const first = box.querySelector(".pk-lv:not(.is-locked)") || document.getElementById("pkPickClose");
   setTimeout(()=>{ try{ first.focus({preventScroll:true}); }catch(e){} }, still ? 0 : 420);
   const steps = document.querySelectorAll(".pk-steps li"); steps.forEach((li,i)=>li.classList.toggle("on", i===1));
+}
+// Page 1 → page 2: remember the level, show the voice page. Without cloud voices there is nothing to choose: start.
+function pkPickLevel(topicId, level){
+  if(!PK_TTS.on || !document.querySelector("#pkPick .pk-pick-page2")) return pkStartGame(topicId, level);
+  const box = document.getElementById("pkPick");
+  box.dataset.topic = topicId; box.dataset.level = level;
+  document.getElementById("pkPickChosen").innerHTML = '<span class="pk-lv-code" style="--lc:'+(LEVEL_TONE[level]||"#334155")+'">'+pkEsc(level)+'</span><b>'+pkEsc(LEVEL_LABEL[level]||level)+'</b><small>'+pkEsc(LEVEL_DESC[level]||"")+'</small>';
+  document.getElementById("pkPickGo").onclick = () => pkStartGame(topicId, level);
+  pkPickPage(2);
+}
+function pkPickPage(n){
+  const box = document.getElementById("pkPick"); if(!box) return;
+  const p1 = box.querySelector(".pk-pick-back:not(.pk-pick-page2)"), p2 = box.querySelector(".pk-pick-page2");
+  if(!p2) return;
+  p1.hidden = n === 2; p2.hidden = n !== 2;
+  box.setAttribute("aria-label", n === 2 ? "Choose a voice" : "Choose a level");
+  document.querySelectorAll(".pk-steps li").forEach((li,i)=>li.classList.toggle("on", i===(n===2?2:1)));
+  const focus = n === 2 ? document.getElementById("pkPickGo") : box.querySelector('.pk-lv[data-level="'+(box.dataset.level||"")+'"]') || box.querySelector(".pk-lv:not(.is-locked)");
+  try{ focus.focus({preventScroll:true}); }catch(e){}
 }
 function pkClosePick(backToCard){
   const box = document.getElementById("pkPick"); if(!box) return;
@@ -1716,9 +1745,9 @@ function pkClosePick(backToCard){
 }
 document.addEventListener("keydown", e=>{
   const box = document.getElementById("pkPick"); if(!box) return;
-  if(e.key === "Escape"){ e.preventDefault(); pkClosePick(true); return; }
+  if(e.key === "Escape"){ e.preventDefault(); const p2 = box.querySelector(".pk-pick-page2"); if(p2 && !p2.hidden) pkPickPage(1); else pkClosePick(true); return; }
   if(e.key === "Tab"){   // keep the keyboard inside the level menu
-    const f = [...box.querySelectorAll("button:not([disabled]), select")]; if(!f.length) return;
+    const f = [...box.querySelectorAll("button:not([disabled]), select")].filter(el=>!el.closest("[hidden]")); if(!f.length) return;
     const i = f.indexOf(document.activeElement);
     if(e.shiftKey && i <= 0){ e.preventDefault(); f[f.length-1].focus(); }
     else if(!e.shiftKey && i === f.length-1){ e.preventDefault(); f[0].focus(); }

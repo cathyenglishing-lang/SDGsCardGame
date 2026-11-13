@@ -610,3 +610,15 @@ button.pk-tc-face h3{font-size:clamp(.94rem,1.12vw,1.08rem);line-height:1.2}
 body.pk-v2 .pk-pick-voice{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
 body.pk-v2 .pk-pick-voice .pk-pick-accent{flex:1 1 180px}
 body.pk-v2 .pk-pick-voice select:disabled{opacity:.5}
+
+/* level picker in two pages (2026-11-13): page 1 the level, page 2 the voice + Start */
+.pk-pick-back[hidden]{display:none}
+.pk-pick-chosen{display:grid;grid-template-columns:auto 1fr;column-gap:12px;align-items:center;margin:16px 0 14px;padding:10px 12px;border-radius:16px;background:#fff;border:2px solid rgba(27,24,56,.12)}
+.pk-pick-chosen .pk-lv-code{grid-row:span 2}
+.pk-pick-chosen b{font:700 1.08rem/1.2 var(--pk-round)}
+.pk-pick-chosen small{font-size:.84rem;color:#5b5873}
+.pk-pick-page2 .pk-pick-voice{display:grid;gap:10px}
+.pk-pick-go{margin:18px 0 6px;min-height:56px;border:0;border-radius:16px;background:#15803d;color:#fff;font:700 1.15rem/1 var(--pk-round);cursor:pointer;box-shadow:0 10px 22px rgba(21,128,61,.28);transition:translate .12s}
+.pk-pick-go:hover{translate:0 -2px}
+.pk-pick-go:focus-visible{outline:3px solid #f59e0b;outline-offset:2px}
+@media (prefers-reduced-motion:reduce){ .pk-pick-go{transition:none} }

@@ -384,6 +384,17 @@ check("the student sees the teacher's note", mine and mine[0]["teacher_note"] ==
 check("recordings are counted per student for the reports", recordings.counts_by_user().get(mine[0]["user_id"], {}).get("total") == 1)
 info = recordings.storage_info()
 check("storage info knows where and how much", info["recordings"] == 1 and info["bytes"] == len(clip) and info["where"] == "database", str(info))
+import io as _io, zipfile as _zf  # noqa: E402
+r = client.get("/teacher/recordings/download.zip", headers=admin)
+z = _zf.ZipFile(_io.BytesIO(r.content)) if r.status_code == 200 else None
+names_ = z.namelist() if z else []
+check("batch download: one ZIP with the clip in a 系級/學號_姓名 folder and a list", r.status_code == 200 and r.headers.get("content-type") == "application/zip" and "錄音清單.csv" in names_ and any(n.endswith(".webm") and "Old Student" in n for n in names_), r.text[:200] + str(names_))
+check("…the clip in the ZIP is the same bytes", z is not None and z.read(next(n for n in names_ if n.endswith(".webm"))) == clip)
+check("…the list names the student and what was read", z is not None and "Many college" in z.read("錄音清單.csv").decode("utf-8-sig"))
+check("…one student's recordings only (user_id)", client.get("/teacher/recordings/download.zip", params={"user_id": 999999}, headers=admin).status_code == 404)
+check("…downloading does not change the status", client.get("/teacher/recordings", headers=admin).json()["counts"]["redo"] == 1)
+check("…students cannot download", client.get("/teacher/recordings/download.zip", headers=old).status_code == 403)
+check("…a file name piece cannot climb folders", recordings._part("../../etc/passwd") == "etc_passwd" and "/" not in recordings._part("a/b\c"))
 
 section("Teacher's learning records")
 g = client.get("/learning/records/games", headers=admin).json()
@@ -398,6 +409,8 @@ check("per card: first-try rate and what it was confused with", c2["n"] >= 1 and
 check("the funnel counts starts and finished wrap-ups", rep["funnel"][0]["runs"] >= rep["funnel"][-1]["runs"] >= 1, str(rep["funnel"]))
 check("students cannot read the records", client.get("/learning/records/game", headers=old).status_code == 403)
 st = client.get(f"/learning/records/student/{student_id}", headers=admin).json()
+_ans = [x for x in st["runs"] if x.get("answers")]
+check("student page: each card-game run says how it was answered", _ans and all(k in _ans[0]["answers"] for k in ("cards", "first_right", "first_wrong", "repeats")) and _ans[0]["answers"]["first_right"] + _ans[0]["answers"]["first_wrong"] == _ans[0]["answers"]["answered"], str(_ans[:1]))
 check("by student: totals, topics played, weak sentences, run list", st["totals"]["runs"] >= 6 and any(t["chapter"] == "9-1" for t in st["card_topics"]) and st["weak_cards"][0]["card"] == "9-1/A2/s02" and len(st["runs"]) == st["totals"]["runs"], str(st["totals"]))
 one = client.get(f"/learning/records/run/{run_id}", headers=admin).json()
 check("one run: card by card, with a plain summary and the raw events", len(one["cards"]) == 4 and one["cards"][1]["first"] is False and one["cards"][1]["wrong_targets"] == ["9-1/A2/s03"] and "聽懂分數 63" in one["summary"] and len(one["events"]) >= 10, one["summary"])
