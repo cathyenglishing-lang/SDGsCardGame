@@ -579,7 +579,7 @@
           <div class="tr-tl-head"><b>${esc(GAME_ZH[r.game] || r.game)} · ${esc(card ? topicLabel(r.chapter) : r.chapter || "")} ${esc(r.level || "")}</b>
             <span class="tr-tl-score">${card ? "聽懂分數" : "分數"} <b>${esc(scoreOf(r))}</b></span>${done} ${state}${r.excluded ? ` <span class="tr-badge" title="這一局不計入班級統計">${esc(EXCL[r.excluded] || "不計")}</span>` : ""}</div>
           <p class="tr-tl-ans">${r.answers ? answersLine(r.answers) : ""}${num(r.minutes) !== null ? `${r.answers ? " · " : ""}${n(r.minutes)} 分鐘（有效 ${n(r.active_minutes)}）` : ""}</p>
-          ${clips.length ? `<div class="tr-tl-clips">${clips.map(c => `<span class="tr-tl-clip" data-rec-play="${Number(c.id)}"><button class="btn" type="button">▶ ${esc(c.label || "錄音")}${num(c.seconds) !== null ? ` ${n(c.seconds)} 秒` : ""}</button><span data-player></span><span class="tr-badge ${(STATUS[c.status] || STATUS.new)[1]}">${(STATUS[c.status] || STATUS.new)[0]}</span></span>`).join("")}</div>` : ""}
+          ${clips.length ? `<div class="tr-tl-clips">${clips.map(c => `<span class="tr-tl-clip" data-rec-play="${Number(c.id)}"><button class="btn" type="button" title="${esc(c.script_text || "")}">▶ ${esc(c.label ? cardLabel(c.label) : "錄音")}${num(c.seconds) !== null ? ` ${n(c.seconds)} 秒` : ""}</button><span data-player></span><span class="tr-badge ${(STATUS[c.status] || STATUS.new)[1]}">${(STATUS[c.status] || STATUS.new)[0]}</span></span>`).join("")}</div>` : ""}
           <button class="btn tr-tl-more" type="button" data-run="${Number(r.id)}">看每一張卡怎麼作答 ▸</button>
         </div></li>`;
     }).join("")}</ol>`;

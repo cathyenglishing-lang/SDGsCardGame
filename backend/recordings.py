@@ -367,7 +367,7 @@ def download_recordings(course_id: int | None = None, section_id: int | None = N
             ext = EXTENSIONS.get(r["mime"] or "", "webm")
             when = str(r["created_at"] or "")[:16].replace("T", " ")
             folder = f"{_part(r['section'] or '沒有系級')}/{_part(r['student_no'] or 'no-id', 20)}_{_part(r['name'], 20)}"
-            name = f"{folder}/{_part(when.replace(':', '').replace(' ', '_'), 20)}_{_part(r['topic_id'] or r['game'], 12)}_{_part(r['level'] or '', 4)}_{_part(r['label'] or 'clip', 30)}_{r['id']}.{ext}"
+            name = f"{folder}/{_part(when.replace(':', '').replace(' ', '_'), 20)}_{_part(r['topic_id'] or r['game'], 12)}_{_part(r['level'] or '', 4)}_{_part(str(r['label'] or 'clip').split('/')[-1], 30)}_{r['id']}.{ext}"
             if audio is None:
                 missing += 1
                 name = "(檔案已不在)" + name
