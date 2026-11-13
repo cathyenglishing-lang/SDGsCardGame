@@ -16,3 +16,7 @@ sql/*.db-*
 
 # demo / class account lists (contain passwords)
 demo-accounts*.txt
+
+# IP location databases for the visitor log (deploy/vm/update-geoip.sh downloads them)
+*.mmdb
+data/geoip/

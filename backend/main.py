@@ -3447,7 +3447,7 @@ app.include_router(reports.router)
 
 # Anonymous visitor log for finding prospective schools / teachers (backend/visits.py)
 from backend import visits
-visits.configure(get_db=get_db, auto_pk_sql=auto_pk_sql, require_teacher=require_teacher, get_current_user=get_current_user, client_ip=get_client_ip)
+visits.configure(get_db=get_db, auto_pk_sql=auto_pk_sql, table_columns=table_columns, require_teacher=require_teacher, get_current_user=get_current_user, client_ip=get_client_ip)
 app.include_router(visits.router)
 
 from backend import speech_rules
