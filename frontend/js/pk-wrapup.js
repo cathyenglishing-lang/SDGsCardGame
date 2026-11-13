@@ -1,6 +1,6 @@
 // Wrap-up of a Pecha Kucha Card Game run — short on purpose (teacher, 2026-11-09: after the cards the
 // student reads aloud; the ending must not be long or painful, and it must review the learning).
-// Three steps, about two minutes:
+// The moment it ends: a 3D chest opens (0, the finale). Then three steps, about two minutes:
 //   1 done   the score, the six parts, and the sentences missed on the first try, each with the
 //            slide it belongs to and where the student put it (tap to hear it again) — no re-matching
 //   2 read   read ONE slide aloud (about 20 s, a Pecha Kucha slide): the sentence the student missed
@@ -55,6 +55,9 @@
     { facet: "person", q: "Compared with when you started, how do you feel about listening to English talks now?", a: ["More confident", "About the same", "Still very hard", "It depends on the topic"] },
   ];
   const MAX_TAKES = 3;
+  // The optional 5-question quiz and the reflection are switched off (owner, 2026-11-13: a new question type
+  // after the game confuses students). Turn this on to offer them again on the last screen.
+  const EXTRAS = false;
 
   let ctx = null, host = null, steps = [], at = 0, S = null, unsub = null, shownStep = "";
 
@@ -64,7 +67,7 @@
       started: performance.now(), quiz: null, read: null, reflect: null, server: null, closing: false, reviewLogged: false, doneLogged: false,
       wrong: ctx.summary.cards.filter(c => c.first === false).sort((a, b) => b.attempts - a.attempts),
     };
-    steps = ctx.embed ? ["done"] : ["done", "read", "next"];
+    steps = ctx.embed ? ["done"] : ["chest", "done", "read", "next"];
     at = 0; shownStep = "";
     // Has the teacher asked for a passage of this topic to be read again? Then that is the one to read.
     const mine = S;
@@ -87,6 +90,7 @@
   function close() {
     if (unsub) { unsub(); unsub = null; }
     stopRecording(true);
+    if (S) clearTimeout(S.chestTimer);
     if (S && S.read && S.read.url) { try { URL.revokeObjectURL(S.read.url); } catch (e) {} }
     if (host) { host.classList.add("hidden"); host.innerHTML = ""; }
     ctx = null;
@@ -98,10 +102,11 @@
     host.scrollTop = 0; window.scrollTo(0, 0);
   }
   function shell(title, sub, body, foot) {
-    const dots = steps.length > 1 ? steps.map((s, i) => `<span class="pkw-dot ${i < at ? "done" : i === at ? "now" : ""}"></span>`).join("") : "";
+    const shown = steps.filter(x => x !== "chest"), here = shown.indexOf(steps[at]);
+    const dots = shown.length > 1 ? shown.map((s, i) => `<span class="pkw-dot ${i < here ? "done" : i === here ? "now" : ""}"></span>`).join("") : "";
     host.innerHTML = `
       <div class="pkw-card" role="dialog" aria-label="${esc(title)}">
-        <div class="pkw-top"><div class="pkw-dots" aria-label="Step ${at + 1} of ${steps.length}">${dots}</div><span class="pkw-save" id="pkwSave"></span></div>
+        <div class="pkw-top"><div class="pkw-dots" aria-label="Step ${here + 1} of ${shown.length}">${dots}</div><span class="pkw-save" id="pkwSave"></span></div>
         <h2 class="pkw-title">${title}</h2>
         ${sub ? `<p class="pkw-sub">${sub}</p>` : ""}
         <div class="pkw-body">${body}</div>
@@ -151,7 +156,7 @@
   const on = (sel, fn) => { const el = host.querySelector(sel); if (el) el.onclick = fn; return el; };
   const slideOf = no => ctx.slides.find(s => s.no === no);
 
-  function render() { ({ done: stepDone, read: stepRead, next: stepNext, quiz: stepQuiz, reflect: stepReflect })[steps[at]](); }
+  function render() { ({ chest: stepChest, done: stepDone, read: stepRead, next: stepNext, quiz: stepQuiz, reflect: stepReflect })[steps[at]](); }
 
   // ── 1 結果與錯句回顧 ──
   function partBar() {
@@ -166,22 +171,125 @@
     return `<li><div class="pkw-rv-head"><b>${esc(s.title_en)}</b><button class="pkw-ear" type="button" data-hear="${c.no}" aria-label="Hear this sentence again">🔊</button></div>
       <span>${esc(s.script)}</span>${was ? `<small>You first put it on “${esc(was.title_en)}”</small>` : ""}</li>`;
   }
+  // ── 0 寶箱：一局結束的那一刻 ──
+  // The moment the game is over, so nobody wonders whether it ended: the chest drops onto the table,
+  // shakes, the lid swings open, light and this run's chips burst out, confetti. Then the results.
+  // Pure CSS 3D + Web Animations (no WebGL): it runs on old iPads; with reduced motion it is a still,
+  // open chest. Tap anywhere or press Enter to go on; it also goes on by itself after a few seconds.
+  function stepChest() {
+    const sum = ctx.summary, prov = typeof ctx.provisional === "number" ? ctx.provisional : null;
+    const st = ctx.state(), guest = st.mode === "guest";
+    const chipLine = ctx.test ? "Test game · no chips" : guest ? "Guest mode · no chips" : prov === null ? "" : `+${prov} chips`;
+    const best = ctx.bestBefore, beat = sum.score != null && typeof best === "number" && sum.score > best;
+    host.innerHTML = `
+      <div class="pkw-chest-stage" role="dialog" aria-label="Game complete" tabindex="-1">
+        <div class="pkw-rays" aria-hidden="true"></div>
+        <h2 class="pkw-chest-title">Complete!</h2>
+        <p class="pkw-chest-sub">${esc(ctx.topic.title)} · ${esc(ctx.level)}</p>
+        <div class="pkw-chest-wrap" aria-hidden="true">
+          <div class="pkw-beam"></div>
+          <div class="pkw-chest">
+            <div class="pkw-chest-body"><i class="band l"></i><i class="band r"></i><i class="lock"></i></div>
+            <div class="pkw-chest-lid"><i class="band l"></i><i class="band r"></i></div>
+            <div class="pkw-chest-inside"></div>
+          </div>
+          <div class="pkw-chest-shadow"></div>
+        </div>
+        <div class="pkw-chest-score"><b id="pkwChestScore">${sum.score == null ? "–" : 0}</b><span>Understanding score${beat ? ` · <em>Personal best!</em>` : ""}</span></div>
+        ${chipLine ? `<p class="pkw-chest-chips">${ctx.pileImg && prov !== null && !ctx.test && !guest ? `<img src="${esc(ctx.pileImg(prov))}" alt="">` : ""}<span>${esc(chipLine)}</span></p>` : ""}
+        <button class="pkw-btn primary pkw-chest-go" type="button" id="pkwNext">See my results ▸</button>
+      </div>`;
+    const stage = host.firstElementChild, mine = S, fx = ctx.fx, motion = fx && fx.motion();
+    stage.focus({ preventScroll: true });
+    const next = () => { if (S !== mine || steps[at] !== "chest") return; clearTimeout(S.chestTimer); go(); };
+    on("#pkwNext", next);
+    stage.onclick = e => { if (e.target === stage || e.target.closest(".pkw-chest-wrap")) next(); };
+    stage.onkeydown = e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); next(); } };
+    const scoreEl = host.querySelector("#pkwChestScore");
+    const countUp = () => {
+      if (sum.score == null) return;
+      if (!motion) { scoreEl.textContent = sum.score; return; }
+      const t0 = performance.now(), dur = 1100;
+      const tick = now => { if (S !== mine || !scoreEl.isConnected) return; const k = Math.min(1, (now - t0) / dur); scoreEl.textContent = Math.round(sum.score * (1 - Math.pow(1 - k, 3))); if (k < 1) requestAnimationFrame(tick); };
+      requestAnimationFrame(tick);
+    };
+    if (!motion) { stage.classList.add("open", "still"); countUp(); S.chestTimer = setTimeout(next, 6000); return; }
+    stage.classList.add("play");
+    // drop (0–520 ms), shake (520–1000), open (1000–1500), burst (1350+)
+    setTimeout(() => { if (S === mine) stage.classList.add("open"); }, 1000);
+    setTimeout(() => {
+      if (S !== mine) return;
+      const box = host.querySelector(".pkw-chest-inside");
+      burstChips(box, Math.max(6, Math.min(16, (prov || 0) + 6)));
+      if (fx.confetti) fx.confetti(innerWidth <= 640 ? 50 : 90);
+      countUp();
+    }, 1350);
+    S.chestTimer = setTimeout(next, 7000);
+  }
+  // Chips leap out of the open chest and fall away (decoration; the chip numbers live elsewhere).
+  function burstChips(from, n) {
+    if (!from || !from.isConnected) return;
+    const r = from.getBoundingClientRect(), x0 = r.left + r.width / 2, y0 = r.top + r.height / 2;
+    for (let i = 0; i < n; i++) {
+      const c = document.createElement("i");
+      c.className = "pkw-flychip"; c.style.left = x0 + "px"; c.style.top = y0 + "px";
+      if (ctx.pileImg) c.style.backgroundImage = `url("${ctx.pileImg(0)}")`;
+      document.body.appendChild(c);
+      const ang = (-150 + Math.random() * 120) * Math.PI / 180, dist = 140 + Math.random() * 180, up = 120 + Math.random() * 160;
+      const dx = Math.cos(ang) * dist, dy = -up, spin = (Math.random() < .5 ? -1 : 1) * (360 + Math.random() * 540);
+      const a = c.animate([
+        { transform: "translate(-50%,-50%) scale(.4) rotateX(0deg)", opacity: 0 },
+        { transform: `translate(calc(-50% + ${dx * .55}px), calc(-50% + ${dy}px)) scale(1) rotateX(${spin / 2}deg)`, opacity: 1, offset: .45 },
+        { transform: `translate(calc(-50% + ${dx}px), calc(-50% + ${dy + 260}px)) scale(.9) rotateX(${spin}deg)`, opacity: 0 },
+      ], { duration: 1300 + Math.random() * 500, delay: i * 45, easing: "cubic-bezier(.2,.7,.4,1)", fill: "both" });
+      a.onfinish = a.oncancel = () => c.remove();
+    }
+  }
+
+  // ── 1 本局成績單：這一局的每一張牌 ──
+  // One screen, numbers and cards first: the score (and against the student's best), time, re-listens,
+  // then every card of this run as a small card — green matched first time, red missed (tap: hear it,
+  // read it, see where it went), amber matched after re-listening. Then the six parts.
+  function cardTile(c) {
+    const s = slideOf(c.no); if (!s) return "";
+    const cls = c.first === true ? (c.repeats ? "rep" : "ok") : c.first === false ? "miss" : "na";
+    const mark = cls === "ok" ? "✓" : cls === "rep" ? "↻" : cls === "miss" ? "✗" : "·";
+    return `<button type="button" class="pkw-tile ${cls}" data-tile="${c.no}" aria-label="Slide ${c.no}: ${esc(s.title_en)} — ${cls === "miss" ? "missed first time" : cls === "na" ? "not played" : "matched first time"}">
+      <span class="ix">${c.no}</span><b>${esc(s.title_en)}</b><i>${mark}</i></button>`;
+  }
+  function tileDetail(no) {
+    const c = ctx.summary.cards.find(x => x.no === no), s = slideOf(no); if (!c || !s) return "";
+    const was = (c.wrongNos || []).map(slideOf).filter(Boolean);
+    return `<div class="pkw-tile-detail ${c.first === false ? "miss" : "ok"}">
+      <div class="pkw-rv-head"><b>${c.no}. ${esc(s.title_en)}</b><button class="pkw-ear" type="button" data-hear="${c.no}" aria-label="Hear this sentence again">🔊</button></div>
+      <span>${esc(s.script)}</span>
+      <small>${c.first === false ? `You first put it on “${esc(was[0] ? was[0].title_en : "another card")}”${c.attempts > 2 ? ` · ${c.attempts} tries` : ""}` : c.repeats ? `Matched first time after listening ${c.repeats + 1} times` : "Matched first time"}</small></div>`;
+  }
   function stepDone() {
-    const sum = ctx.summary, shown = S.wrong.slice(0, 3), more = S.wrong.length - shown.length;
-    const review = S.wrong.length
-      ? `<h3 class="pkw-h">${S.wrong.length} sentence${S.wrong.length === 1 ? "" : "s"} not matched first time</h3><ul class="pkw-list">${shown.map(reviewItem).join("")}</ul>${more > 0 ? `<p class="pkw-note">${more} more are in the review list on the last step.</p>` : ""}`
-      : `<p class="pkw-allgood">Every sentence matched first time.</p>`;
-    shell("Done!", `${esc(ctx.topic.title)} (${esc(ctx.level)})`,
+    const sum = ctx.summary, cards = sum.cards.slice().sort((a, b) => a.no - b.no);
+    const okN = cards.filter(c => c.first === true).length, best = ctx.bestBefore;
+    const cmp = sum.score == null || best === undefined ? "" : best == null ? `<em class="new">First result on this topic</em>`
+      : sum.score > best ? `<em class="up">Best ever · +${sum.score - best}</em>` : sum.score === best ? `<em>Same as your best</em>` : `<em>Your best: ${best}</em>`;
+    shell("Your results", `${esc(ctx.topic.title)} (${esc(ctx.level)})`,
       `<div class="pkw-stats">
-         <div><b>${sum.score == null ? "–" : sum.score}</b><span>Understanding score</span></div>
-         <div><b>${fmt(sum.seconds)}</b><span>Matching time</span></div>
-         <div><b>${sum.repeats}</b><span>Repeats</span></div>
+         <div class="main"><b>${sum.score == null ? "–" : sum.score}</b><span>Understanding score</span>${cmp}</div>
+         <div><b>${okN}<small>/${cards.length}</small></b><span>Right first time</span></div>
+         <div><b>${fmt(sum.seconds)}</b><span>Time</span></div>
+         <div><b>${sum.repeats}</b><span>Listened again</span></div>
        </div>
-       ${partBar()}${review}
-       <p class="pkw-note">The understanding score counts only the sentences matched first time, minus the chance of guessing. Listening again costs nothing.</p>`,
+       <div class="pkw-tiles" role="group" aria-label="Every card of this game">${cards.map(cardTile).join("")}</div>
+       <p class="pkw-legend"><i class="ok"></i>Right first time <i class="rep"></i>Right after listening again <i class="miss"></i>Missed — tap to hear it</p>
+       <div id="pkwTileOut">${S.wrong.length ? tileDetail(S.wrong[0].no) : `<p class="pkw-allgood">Every sentence matched first time!</p>`}</div>
+       ${partBar()}`,
       ctx.embed ? harborBtn() : nextBtn("Next: read one slide aloud ▸"));
-    host.querySelectorAll("[data-hear]").forEach(b => b.onclick = () => { const no = +b.dataset.hear; ctx.log("wrap.review.listen", { card: ctx.cardId(no) }); ctx.speak(slideOf(no).script); });
-    const leave = () => { if (!S.reviewLogged) { S.reviewLogged = true; ctx.log("wrap.review", { missed: S.wrong.map(c => c.id), shown: shown.length }); } };
+    const wireHear = () => host.querySelectorAll("[data-hear]").forEach(b => b.onclick = () => { const no = +b.dataset.hear; ctx.log("wrap.review.listen", { card: ctx.cardId(no) }); ctx.speak(slideOf(no).script); });
+    host.querySelectorAll("[data-tile]").forEach(b => b.onclick = () => {
+      host.querySelectorAll("[data-tile]").forEach(x => x.classList.toggle("sel", x === b));
+      host.querySelector("#pkwTileOut").innerHTML = tileDetail(+b.dataset.tile); wireHear();
+    });
+    if (S.wrong.length) { const first = host.querySelector(`[data-tile="${S.wrong[0].no}"]`); if (first) first.classList.add("sel"); }
+    wireHear();
+    const leave = () => { if (!S.reviewLogged) { S.reviewLogged = true; ctx.log("wrap.review", { missed: S.wrong.map(c => c.id), shown: S.wrong.length }); } };
     if (ctx.embed) wireHarbor(leave); else on("#pkwNext", () => { leave(); go(); });
   }
 
@@ -342,7 +450,7 @@
     const day = d => `${["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"][d.getDay()]} ${d.getMonth() + 1}/${d.getDate()}`;
     const best = ctx.bestBefore;
     const bestLine = sum.score == null || best === undefined ? "–" : best == null ? "This is your first result on this topic." : sum.score > best ? `Personal best! Your best was ${best}; this time ${sum.score}.` : `Your personal best is ${best}; this time ${sum.score}.`;
-    const extras = [!S.quiz ? `<button class="pkw-btn ghost" type="button" id="pkwQuiz">5-question quiz</button>` : "", !S.reflect ? `<button class="pkw-btn ghost" type="button" id="pkwReflect">Write one reflection</button>` : ""].join("");
+    const extras = !EXTRAS ? "" : [!S.quiz ? `<button class="pkw-btn ghost" type="button" id="pkwQuiz">5-question quiz</button>` : "", !S.reflect ? `<button class="pkw-btn ghost" type="button" id="pkwReflect">Write one reflection</button>` : ""].join("");
     shell("Well done!", "", `
       <div class="pkw-next-grid">
         <div class="pkw-box dark" id="pkwChips"><h3>Chips</h3><p>Working it out…</p></div>

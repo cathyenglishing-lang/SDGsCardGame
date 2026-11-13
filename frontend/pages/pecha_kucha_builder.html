@@ -2209,7 +2209,7 @@ function pkOpenWrap(){
   PKWrap.open({
     host: document.getElementById("pkWrap"), level, slides: pkSlides(),
     topic: { id:topic.id, sdg:topic.sdg, version:topic.version, title:pkTitle(topic) },
-    summary: sum, embed: !!PK_LINK.embed,
+    summary: sum, embed: !!PK_LINK.embed, test: !!PK_QUICK,
     userKey: (who && who.user && (who.user.public_id || who.user.id || who.user.username)) || "guest",
     runsBefore: run.history ? run.history.runs_all_levels : 0,
     bestBefore: run.history ? run.history.best_score : undefined,   // undefined = not known (guest, signed out, or the answer never came)
