@@ -688,6 +688,11 @@ r = client.get("/content/tts", params={"text": s3, "accent": "en-US"})
 check("when every budget is used up, the answer is 'use the device's voice'", r.status_code == 409 and r.json()["reason"] == "budget_used_up")
 check("…but a clip that is already stored still plays", client.get("/content/tts", params={"text": s2, "accent": "en-US"}).status_code == 200)
 client.put("/teacher/tts", json={"budget": {"azure": 450000, "google": 900000}}, headers=admin)
+r = client.put("/teacher/tts", json={"budget": {"azure": 50_000_000, "google": 50_000_000}}, headers=admin)
+check("no setting can raise a budget above the free allowance", TTS.clean_settings({"budget": {"google": 50_000_000, "azure": 9_000_000}})["budget"] == {"google": 950_000, "azure": 480_000})
+client.put("/teacher/tts", json={"budget": {"azure": 450000, "google": 900000}}, headers=admin)
+check("Neural2 is counted with its SSML wrapper and escapes, like the provider bills it", TTS.billed_chars("google", "en-US-Neural2-F", "A & B") == 15 + len("A &amp; B") and TTS.billed_chars("google", "en-US-Chirp3-HD-Aoede", "A & B") == 5)
+check("the budget month follows the provider's (US Pacific) calendar", TTS._month() == __import__("datetime").datetime.now(TTS.BILLING_TZ).strftime("%Y-%m"))
 # a provider that fails is skipped for a while
 def broken(text, voice, locale):
     raise OSError("connection refused")

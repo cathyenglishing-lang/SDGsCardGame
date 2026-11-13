@@ -101,8 +101,25 @@ def _now():
     return datetime.now(TW)
 
 
+# The providers bill by calendar month in US Pacific time. The budget month turns over at 00:00 UTC-8,
+# which is never earlier than Google's (Pacific, 00:00 UTC-8 or UTC-7 in summer), so a new month here can
+# never spend characters that the provider still counts in the old one.
+BILLING_TZ = timezone(timedelta(hours=-8))
+# Hard ceilings under each free monthly allowance (Google: 1,000,000 characters per voice type, counted
+# here for all its voices together; Azure: 500,000). No setting can raise a budget above these.
+HARD_CAP = {"google": 950_000, "azure": 480_000}
+
+
 def _month():
-    return _now().strftime("%Y-%m")
+    return datetime.now(BILLING_TZ).strftime("%Y-%m")
+
+
+def billed_chars(provider, voice, say):
+    """Characters the provider bills for this request: Google counts SSML tags except <mark>, so the
+    <speak> wrapper and the XML escapes sent for Neural2 / WaveNet / Standard voices are counted too."""
+    if provider == "google" and voice and any(k in voice for k in ("Neural2", "Wavenet", "Standard")):
+        return len("<speak></speak>") + len(" ".join(xml_escape(w) for w in str(say).split()))
+    return len(say)
 
 
 def _dir():
@@ -238,7 +255,7 @@ def clean_settings(s):
     budget = {}
     for p in PROVIDERS:
         try:
-            budget[p] = max(0, min(int((s.get("budget") or {}).get(p, DEFAULT_SETTINGS["budget"][p])), 50_000_000))
+            budget[p] = max(0, min(int((s.get("budget") or {}).get(p, DEFAULT_SETTINGS["budget"][p])), HARD_CAP[p]))
         except (TypeError, ValueError):
             budget[p] = DEFAULT_SETTINGS["budget"][p]
     return {"accents": accents, "default": default, "order": order, "budget": budget, "highlight": highlight}
@@ -331,7 +348,8 @@ def make_clip(text, accent, st=None):
             if _paused.get(p, 0) > time.time():
                 reason = "provider_error"
                 continue
-            if used.get(p, {}).get("chars", 0) + len(say) > st["budget"][p]:
+            cost = billed_chars(p, voice, say)
+            if used.get(p, {}).get("chars", 0) + cost > min(st["budget"][p], HARD_CAP[p]):
                 reason = "budget_used_up"
                 continue
             try:
@@ -357,13 +375,13 @@ def make_clip(text, accent, st=None):
                 words_file.write_text(json.dumps(times), encoding="utf-8")
             elif words_file.exists():
                 words_file.unlink()
-            _count(cur, p, len(say))
+            _count(cur, p, cost)
             try:
                 cur.execute("INSERT INTO tts_clips (clip_hash, accent, provider, voice, chars, bytes, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)",
                             (h, accent, p, voice, len(say), len(audio), _now().isoformat(timespec="seconds")))
             except Exception:
                 conn.rollback()             # another worker stored the same clip a moment ago
-                _count(cur, p, len(say))    # …but the characters were still paid for
+                _count(cur, p, cost)        # …but the characters were still paid for
             conn.commit()
             return path, None
         return None, reason
