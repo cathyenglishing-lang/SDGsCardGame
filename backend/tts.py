@@ -61,10 +61,18 @@ PREPARE_BATCH = 8                    # clips per /prepare call: the page repeats
 #  Google: https://cloud.google.com/text-to-speech/docs/chirp3-hd — both can be changed with the
 #  TTS_VOICES_JSON environment variable without touching the code.)
 ACCENTS = [
-    {"code": "en-US", "label": "美式 American", "azure": "en-US-JennyNeural", "google": "en-US-Chirp3-HD-Aoede"},
-    {"code": "en-GB", "label": "英式 British", "azure": "en-GB-SoniaNeural", "google": "en-GB-Chirp3-HD-Aoede"},
-    {"code": "en-AU", "label": "澳洲 Australian", "azure": "en-AU-NatashaNeural", "google": "en-AU-Chirp3-HD-Aoede"},
-    {"code": "en-IN", "label": "印度 Indian", "azure": "en-IN-NeerjaNeural", "google": "en-IN-Chirp3-HD-Aoede"},
+    # Google Neural2 (2026-11-13, owner): SSML marks give the start of every word, so the word-by-word
+    # highlight follows the voice exactly. The code says which voice set; "locale" is the language sent.
+    {"code": "en-US-N2", "locale": "en-US", "label": "美式 American", "azure": None, "google": "en-US-Neural2-F"},
+    {"code": "en-GB-N2", "locale": "en-GB", "label": "英式 British", "azure": None, "google": "en-GB-Neural2-A"},
+    {"code": "en-AU-N2", "locale": "en-AU", "label": "澳洲 Australian", "azure": None, "google": "en-AU-Neural2-A"},
+    {"code": "en-IN-N2", "locale": "en-IN", "label": "印度 Indian", "azure": None, "google": "en-IN-Neural2-A"},
+    # Chirp 3 HD: the most natural Google voices, but no word times (the browser estimates the highlight).
+    # The clips already made with them are kept.
+    {"code": "en-US", "label": "美式 American HD", "azure": "en-US-JennyNeural", "google": "en-US-Chirp3-HD-Aoede"},
+    {"code": "en-GB", "label": "英式 British HD", "azure": "en-GB-SoniaNeural", "google": "en-GB-Chirp3-HD-Aoede"},
+    {"code": "en-AU", "label": "澳洲 Australian HD", "azure": "en-AU-NatashaNeural", "google": "en-AU-Chirp3-HD-Aoede"},
+    {"code": "en-IN", "label": "印度 Indian HD", "azure": "en-IN-NeerjaNeural", "google": "en-IN-Chirp3-HD-Aoede"},
     {"code": "en-CA", "label": "加拿大 Canadian", "azure": "en-CA-ClaraNeural", "google": None},
     {"code": "en-IE", "label": "愛爾蘭 Irish", "azure": "en-IE-EmilyNeural", "google": None},
     {"code": "en-NZ", "label": "紐西蘭 New Zealand", "azure": "en-NZ-MollyNeural", "google": None},
@@ -167,8 +175,22 @@ def google_key():
 
 
 def synth_google(text, voice, locale):
+    """mp3 bytes; for voices that accept SSML marks (Neural2, WaveNet, Standard) also the start of every word:
+    (mp3 bytes, [(seconds, word), …]) — one mark before each word, read back as time points."""
+    headers = {"Content-Type": "application/json", "X-Goog-Api-Key": google_key()}
+    if any(k in voice for k in ("Neural2", "Wavenet", "Standard")):
+        words = str(text).split()
+        ssml = "<speak>" + " ".join(f'<mark name="w{i}"/>{xml_escape(w)}' for i, w in enumerate(words)) + "</speak>"
+        body = json.dumps({"input": {"ssml": ssml}, "voice": {"languageCode": locale, "name": voice},
+                           "audioConfig": {"audioEncoding": "MP3"}, "enableTimePointing": ["SSML_MARK"]}).encode("utf-8")
+        out = json.loads(_http("https://texttospeech.googleapis.com/v1beta1/text:synthesize", body, headers))
+        audio = base64.b64decode(out["audioContent"])
+        at = {tp.get("markName"): float(tp.get("timeSeconds", 0)) for tp in out.get("timepoints") or []}
+        # a word with no letters or digits (a dash) gets a stand-in so the count still lines up with the text
+        marks = [(at[f"w{i}"], w if any(c.isalnum() for c in w) else "x") for i, w in enumerate(words) if f"w{i}" in at]
+        return (audio, marks) if len(marks) == len(words) else audio
     body = json.dumps({"input": {"text": text}, "voice": {"languageCode": locale, "name": voice}, "audioConfig": {"audioEncoding": "MP3"}}).encode("utf-8")
-    out = _http("https://texttospeech.googleapis.com/v1/text:synthesize", body, {"Content-Type": "application/json", "X-Goog-Api-Key": google_key()})
+    out = _http("https://texttospeech.googleapis.com/v1/text:synthesize", body, headers)
     return base64.b64decode(json.loads(out)["audioContent"])
 
 
@@ -245,13 +267,13 @@ def clip_hash(accent, spoken_text):
     return hashlib.sha256(f"{accent}\x01{spoken_text}".encode("utf-8")).hexdigest()[:32]
 
 
-_ACCENT_CODE = re.compile(r"[a-z]{2}-[A-Z]{2}")
+_ACCENT_CODE = re.compile(r"[a-z]{2}-[A-Z]{2}(-[A-Z0-9]{2})?")   # en-US, or a voice set such as en-US-N2
 _HASH = re.compile(r"[0-9a-f]{32}")
 
 
 def clip_path(accent, h):
     # Both parts come from code (a known accent, a sha256), but they are checked anyway: a clip's file is always
-    # <TTS_DIR>/<xx-YY>/<32 hex>.mp3 and never anything a request could steer.
+    # <TTS_DIR>/<xx-YY or xx-YY-N2>/<32 hex>.mp3 and never anything a request could steer.
     if not _ACCENT_CODE.fullmatch(str(accent)) or not _HASH.fullmatch(str(h)):
         raise HTTPException(status_code=400, detail="bad clip")
     base = _dir().resolve()
@@ -313,7 +335,7 @@ def make_clip(text, accent, st=None):
                 reason = "budget_used_up"
                 continue
             try:
-                audio = PROVIDERS[p]["synth"](say, voice, accent)
+                audio = PROVIDERS[p]["synth"](say, voice, BY_CODE[accent].get("locale") or accent)
                 marks = None
                 if isinstance(audio, tuple):
                     audio, marks = audio
