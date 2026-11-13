@@ -3349,6 +3349,11 @@ classroom.configure(
 )
 app.include_router(classroom.router)
 
+# Course detail: meeting time, class sessions, who played each session, calendar, one-student accounts
+from backend import course_plan
+course_plan.init_db()
+app.include_router(course_plan.router)
+
 from backend import recordings
 recordings.configure(
     get_db=get_db,

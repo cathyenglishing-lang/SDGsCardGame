@@ -1637,6 +1637,41 @@ body{ background:var(--page); }
       #coursesModule .tc-fold > summary{display:flex;align-items:baseline;gap:12px;cursor:pointer;list-style:none}
       #coursesModule .tc-fold > summary::before{content:"▸";transition:transform .25s;display:inline-block}
       #coursesModule .tc-fold[open] > summary::before{transform:rotate(90deg)}
+      /* course detail: calendar, meeting time, sessions, who played (frontend/js/teacher-schedule.js) */
+      #coursesModule .ts-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px}
+      #coursesModule .ts-wd{font-size:12.5px;font-weight:800;color:var(--muted);text-align:center;padding:4px 0}
+      #coursesModule .ts-cell{min-height:84px;border:1px solid var(--line);border-radius:10px;padding:4px;display:flex;flex-direction:column;gap:3px;background:#fff}
+      #coursesModule .ts-cell.off{border:0;background:none}
+      #coursesModule .ts-cell.past{background:#f8fafc}
+      #coursesModule .ts-cell.today{border:2px solid #2563eb}
+      #coursesModule .ts-dn{font-size:12px;font-weight:800;color:#64748b}
+      #coursesModule .ts-chip{all:unset;cursor:pointer;display:block;border-left:4px solid var(--c);background:color-mix(in srgb,var(--c) 10%,#fff);border-radius:6px;padding:3px 6px;font-size:12px;line-height:1.35}
+      #coursesModule .ts-chip:hover{background:color-mix(in srgb,var(--c) 20%,#fff)}
+      #coursesModule .ts-chip:focus-visible{outline:3px solid #f59e0b}
+      #coursesModule .ts-chip small{color:#475569}
+      #coursesModule .ts-chip .ts-cnt{display:block;font-weight:800;color:var(--c)}
+      #coursesModule .ts-legend{display:flex;flex-wrap:wrap;gap:6px 16px;margin:4px 0 10px;font-size:13px}
+      #coursesModule .ts-legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+      #coursesModule .ts-month{min-width:110px;text-align:center}
+      #coursesModule .ts-meet{display:flex;flex-wrap:wrap;gap:10px;align-items:end;margin:8px 0}
+      #coursesModule .ts-meet label,#coursesModule .ts-form label,#coursesModule .tc-edit label{display:grid;gap:4px;font-weight:700;font-size:13.5px}
+      #coursesModule .ts-form,#coursesModule .tc-edit{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:10px 14px;margin:10px 0;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:#fbfdff}
+      #coursesModule .ts-form .wide,#coursesModule .tc-edit .wide{grid-column:1/-1}
+      #coursesModule .ts-lv{display:flex;flex-wrap:wrap;gap:12px;align-items:center;font-weight:700;font-size:13.5px}
+      #coursesModule .ts-weekly{margin:8px 0;padding:8px 12px;border:1px dashed #94a3b8;border-radius:12px}
+      #coursesModule .ts-weekly summary{cursor:pointer}
+      #coursesModule .ts-weekly summary small{color:var(--muted);margin-left:6px}
+      #coursesModule .ts-table tr.ts-today td{background:#eff6ff}
+      #coursesModule .ts-table tr.ts-future td{color:#64748b}
+      #coursesModule .ts-reprow > td{background:#f8fafc}
+      #coursesModule .ts-bar{display:inline-block;width:70px;height:8px;border-radius:99px;background:#e2e8f0;overflow:hidden;vertical-align:middle}
+      #coursesModule .ts-bar i{display:block;height:100%;background:#16a34a}
+      #coursesModule .ts-sum{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:8px;margin:6px 0}
+      #coursesModule .ts-sum div{border:1px solid var(--line);border-radius:10px;padding:8px 10px;background:#fff}
+      #coursesModule .ts-sum b{font-size:20px}
+      #coursesModule .ts-sum small{display:block;color:var(--muted);font-size:12px}
+      #coursesModule .ts-filter .btn{min-height:32px;padding:0 10px;font-size:12.5px}
+      @media (max-width:760px){#coursesModule .ts-cell{min-height:60px}#coursesModule .ts-chip small{display:none}#coursesModule .ts-chip .ts-cnt{display:block}}
       #coursesModule .tc-fold > summary h3{margin:0}#coursesModule .tc-fold > summary small{color:var(--muted)}
       #coursesModule .tc-danger{color:#b91c1c;font-weight:700}
       #coursesModule .tc-delete{margin:10px 0;padding:14px 16px;border:1px solid #fecaca;border-left:5px solid #ef4444;border-radius:14px;background:#fffafa}
@@ -1708,6 +1743,7 @@ body{ background:var(--page); }
 <script src="/static/js/api.js"></script>
 <script src="/static/js/unlocks.js"></script>
 <script src="/static/js/pk-content.js"></script>
+<script src="/static/js/teacher-schedule.js"></script>
 <script src="/static/js/teacher-courses.js"></script>
 <script src="/static/js/teacher-records.js"></script>
 <script src="/static/js/teacher-resources.js"></script>

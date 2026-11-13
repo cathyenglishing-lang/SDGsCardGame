@@ -287,7 +287,7 @@ def course_delete(course_id: int, confirm: str = "", authorization: str | None =
         conn.close()
         raise HTTPException(status_code=400, detail=f"請輸入課號 {c['code']} 確認刪除。")
     counts = _course_counts(cur, course_id)
-    for table in ("course_activities", "enrollments", "course_sections", "roster_imports"):
+    for table in ("course_sessions", "course_activities", "enrollments", "course_sections", "roster_imports"):   # course_sessions: backend/course_plan.py
         cur.execute(f"DELETE FROM {table} WHERE course_id = ?", (course_id,))
     cur.execute("DELETE FROM courses WHERE id = ?", (course_id,))
     conn.commit(); conn.close()
