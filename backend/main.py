@@ -3438,7 +3438,7 @@ content_library.configure(
     now_taipei=now_taipei,
     load_xlsx_rows=load_question_bank_rows,
     frontend_dir=FRONTEND_DIR,
-    locked_topics=["9-2", "9-3", "13-2"],   # as in frontend/js/unlocks.js when the library was first filled
+    locked_topics=["13-2"],   # as in frontend/js/unlocks.js when the library was first filled
 )
 learning._auth["titles"] = content_library.card_titles
 learning._auth["profile"] = classroom.profile_for_report   # who a student is, for the teacher's drill-down   # card code -> slide title, for the Excel export

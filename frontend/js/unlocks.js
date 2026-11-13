@@ -4,7 +4,7 @@
 // The SDGs Pecha Kucha question bank stores the three SDG 9 AI topics as sdg_level 1, 2, 3;
 // DB_TOPIC maps them to the topic they really are, for the rule and for display.
 window.CARDLEARN_UNLOCKS = {
-  locked: ["9-2", "9-3", "13-2"],
+  locked: ["13-2"],   // 9-2, 9-3 opened 2026-11-13 (scripts revised 11-11)
   SDG_NAMES: {
     4: { en: "Quality Education", zh: "優質教育" },
     5: { en: "Gender Equality", zh: "性別平權" },
