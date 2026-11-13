@@ -758,7 +758,7 @@ body{ background:var(--page); }
   </div>
   <div class="console-main">
 
-  <section id="overviewModule">
+  <section id="overviewModule" hidden>
     <section class="panel">
       <div class="section-h"><h2>總覽 Overview</h2><div class="row"><button class="btn" type="button" onclick="loadOverview()">↻ 重新整理</button></div></div>
       <p style="color:var(--muted);margin:4px 0 0;">整體使用與遊戲數據摘要。</p>
@@ -996,7 +996,7 @@ body{ background:var(--page); }
     <section class="panel chart-card"><h4>最近遊玩</h4><div class="cap">點一列展開事件紀錄</div><div id="saRecent" class="sa-scroll"></div><div id="saRunDetail"></div></section>
   </section>
 
-  <section id="sdgsCardGameModule">
+  <section id="sdgsCardGameModule" hidden>
     <section class="panel">
       <div class="section-h"><h2>題庫管理 Card Bank</h2><div class="row"><button class="btn" type="button" onclick="loadContent()">↻ 重新整理</button></div></div>
       <p style="color:var(--muted);margin:4px 0 12px;">SDGs Pecha Kucha 卡牌題庫：瀏覽與編輯內容、檢視涵蓋率、匯入教材。</p>
@@ -1386,7 +1386,7 @@ body{ background:var(--page); }
   </section>
 
   <!-- Learning records: by game, by student, by run, and the voice recordings (frontend/js/teacher-records.js) -->
-  <section id="recordsModule" hidden>
+  <section id="recordsModule">
     <style>
       #recordsModule .panel{margin-bottom:16px;min-width:0;overflow-x:auto}
       #recordsModule .tr-two > *{min-width:0}
@@ -3001,11 +3001,13 @@ async function init() {
     bindModules();
     bindGameTabs();
     bindForms();
-    await loadContent();
-    setGameTab("browse");
+    // The first page (Card Game records) opens right away; the old question bank loads behind it.
+    // Every old section starts hidden in the HTML, so the first second never shows the old pages.
     if (currentTeacher && currentTeacher.role === "admin") document.querySelectorAll("[data-admin-only]").forEach((el) => { el.hidden = false; });
     setModule("records", "pecha_kucha");
     placeNavIndicator(false);
+    await loadContent();
+    setGameTab("browse");
   } catch (error) {
     alert(error.message || "Failed to load the teacher dashboard.");
     window.location.href = "/pages/member_index.html";
