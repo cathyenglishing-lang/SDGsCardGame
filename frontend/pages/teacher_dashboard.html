@@ -1638,6 +1638,9 @@ body{ background:var(--page); }
       #coursesModule .tc-fold > summary::before{content:"▸";transition:transform .25s;display:inline-block}
       #coursesModule .tc-fold[open] > summary::before{transform:rotate(90deg)}
       #coursesModule .tc-fold > summary h3{margin:0}#coursesModule .tc-fold > summary small{color:var(--muted)}
+      #coursesModule .tc-danger{color:#b91c1c;font-weight:700}
+      #coursesModule .tc-delete{margin:10px 0;padding:14px 16px;border:1px solid #fecaca;border-left:5px solid #ef4444;border-radius:14px;background:#fffafa}
+      #coursesModule .tc-delete p{margin:6px 0 10px;line-height:1.7}#coursesModule .tc-delete input{margin-left:8px;width:160px}
       @media (max-width:720px){#coursesModule .tc-form{grid-template-columns:1fr}#coursesModule #tcCourse{min-width:0;width:100%}}
       /* one message bar for 教材管理, 學習紀錄 and 課程與名單 (window.teacherToast) */
       .tt-toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%);z-index:9000;display:flex;align-items:center;gap:14px;max-width:min(720px,92vw);padding:12px 16px;border-radius:12px;background:#0f172a;color:#fff;font-size:14.5px;line-height:1.5;box-shadow:0 14px 40px rgba(0,0,0,.35)}

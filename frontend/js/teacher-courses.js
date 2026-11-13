@@ -99,6 +99,32 @@ window.teacherToast = window.teacherToast || function (text, undo) {
     } catch (e) { $("tcBody").innerHTML = `<p class="tc-msg bad">${esc(e.message)}</p>`; }
   }
 
+  // 刪除課程: show what goes and what stays, and ask for the course code (a deleted course cannot be undone).
+  async function askDelete(c) {
+    const box = $("tcDeleteBox");
+    const auth_ = { Authorization: "Bearer " + auth.getToken() };
+    const API_ = String(window.CARDLEARN_API_BASE_URL || "").replace(/\/+$/, "");
+    let p;
+    try { const r = await fetch(`${API_}/teacher/courses/${Number(c.id)}/delete-preview`, { headers: auth_ }); p = await r.json(); if (!r.ok) throw new Error(p.detail || "讀取失敗"); }
+    catch (err) { box.innerHTML = `<p class="tc-msg bad">${esc(err.message)}</p>`; return; }
+    box.innerHTML = `<div class="tc-delete" role="alertdialog" aria-label="刪除課程">
+      <b>刪除「${esc(c.term)} · ${esc(c.name)}」？</b>
+      <p>會刪掉：${p.sections} 個系級、${p.students} 筆修課名單、${p.topics} 個開放的主題、${p.imports} 次匯入紀錄。<br>
+      <b>會保留：</b>學生帳號、玩過的每一局、錄音、籌碼（只是不再歸在任何課程下，選「全部」還看得到）。刪除後不能復原。</p>
+      <label>輸入課號 <b>${esc(c.code)}</b> 確認 <input id="tcDelCode" autocomplete="off"></label>
+      <div class="tc-row"><button class="btn danger" type="button" id="tcDelGo" disabled>刪除這門課</button><button class="btn" type="button" id="tcDelNo">取消</button><span class="tc-msg" id="tcDelMsg"></span></div></div>`;
+    $("tcDelCode").oninput = e => { $("tcDelGo").disabled = e.target.value.trim() !== c.code; };
+    $("tcDelNo").onclick = () => { box.innerHTML = ""; };
+    $("tcDelGo").onclick = async () => {
+      try {
+        const r = await fetch(`${API_}/teacher/courses/${Number(c.id)}?confirm=${encodeURIComponent($("tcDelCode").value.trim())}`, { method: "DELETE", headers: auth_ });
+        const d = await r.json(); if (!r.ok) throw new Error(d.detail || "刪除失敗");
+        current = null; window.teacherToast(`已刪除課程 ${c.term} · ${c.name}。學生帳號和學習紀錄都還在。`); load();
+      } catch (err) { $("tcDelMsg").textContent = err.message; $("tcDelMsg").className = "tc-msg bad"; }
+    };
+    $("tcDelCode").focus();
+  }
+
   function render() {
     preview = null;
     const opts = courses.map(c => `<option value="${Number(c.id)}" ${current && c.id === current.id ? "selected" : ""}>${esc(c.term)} · ${esc(c.name)}（${esc(c.code)}）${c.active ? "" : " · 已停用"}</option>`).join("");
@@ -123,7 +149,7 @@ window.teacherToast = window.teacherToast || function (text, undo) {
           <p class="tc-msg bad wide" id="tcFormMsg" role="alert"></p>
           <div class="tc-row wide"><button class="btn btn-primary" type="submit">儲存課程</button>${c ? `<button class="btn" type="button" id="tcCancel">取消</button>` : ""}</div>
         </form>
-        ${c ? `<p class="tc-hint"><a href="#" id="tcEdit">編輯這門課（名稱、學期、停用）</a></p>` : `<p class="tc-hint">先建立一門課，再匯入名單。</p>`}
+        ${c ? `<p class="tc-hint"><a href="#" id="tcEdit">編輯這門課（名稱、學期、停用）</a> · <a href="#" id="tcDelete" class="tc-danger">刪除這門課</a></p><div id="tcDeleteBox"></div>` : `<p class="tc-hint">先建立一門課，再匯入名單。</p>`}
       </section>
       <section class="panel tc-import ${c ? "" : "wait"}" id="tcImportPanel">
         <h3 class="tc-h"><span class="tc-no">2</span>匯入名單${c ? `：${esc(c.name)}` : ""}</h3>
@@ -162,6 +188,7 @@ window.teacherToast = window.teacherToast || function (text, undo) {
     if ($("tcCourse")) $("tcCourse").onchange = async e => { await flushActs(); current = courses.find(x => x.id === Number(e.target.value)) || null; render(); if (current) loadRoster(); };
     $("tcNew").onclick = () => { fillForm(null); $("tcForm").hidden = false; $("tcTerm").focus(); };
     if ($("tcEdit")) $("tcEdit").onclick = e => { e.preventDefault(); fillForm(c); $("tcForm").hidden = false; $("tcName").focus(); };
+    if ($("tcDelete")) $("tcDelete").onclick = async e => { e.preventDefault(); await askDelete(c); };
     if ($("tcCancel")) $("tcCancel").onclick = () => { $("tcForm").hidden = true; };
     $("tcForm").onsubmit = saveCourse;
     if (c) {

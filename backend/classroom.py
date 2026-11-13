@@ -258,6 +258,42 @@ def save_course(data: CourseIn, authorization: str | None = Header(default=None)
     return {"course": out}
 
 
+def _course_counts(cur, course_id):
+    q = lambda sql: (cur.execute(sql, (course_id,)), cur.fetchone()["c"])[1]
+    return {"sections": q("SELECT COUNT(*) AS c FROM course_sections WHERE course_id = ?"),
+            "students": q("SELECT COUNT(*) AS c FROM enrollments WHERE course_id = ?"),
+            "topics": q("SELECT COUNT(*) AS c FROM course_activities WHERE course_id = ?"),
+            "imports": q("SELECT COUNT(*) AS c FROM roster_imports WHERE course_id = ?")}
+
+
+@router.get("/teacher/courses/{course_id}/delete-preview")
+def course_delete_preview(course_id: int, authorization: str | None = Header(default=None)):
+    D.require_teacher(authorization)
+    conn = D.get_db(); cur = conn.cursor()
+    c = _course_or_404(cur, course_id)
+    out = {"course": {"id": c["id"], "term": c["term"], "code": c["code"], "name": c["name"]}, **_course_counts(cur, course_id)}
+    conn.close()
+    return out
+
+
+@router.delete("/teacher/courses/{course_id}")
+def course_delete(course_id: int, confirm: str = "", authorization: str | None = Header(default=None)):
+    """Delete a course: its 系級 groups, enrolments, opened topics and import log. Student accounts, games
+    played, recordings and chips stay (they keep the old course number, so they are no longer listed under any course)."""
+    D.require_teacher(authorization)
+    conn = D.get_db(); cur = conn.cursor()
+    c = _course_or_404(cur, course_id)
+    if confirm.strip() != c["code"]:
+        conn.close()
+        raise HTTPException(status_code=400, detail=f"請輸入課號 {c['code']} 確認刪除。")
+    counts = _course_counts(cur, course_id)
+    for table in ("course_activities", "enrollments", "course_sections", "roster_imports"):
+        cur.execute(f"DELETE FROM {table} WHERE course_id = ?", (course_id,))
+    cur.execute("DELETE FROM courses WHERE id = ?", (course_id,))
+    conn.commit(); conn.close()
+    return {"deleted": {"id": course_id, "code": c["code"], "name": c["name"]}, **counts}
+
+
 @router.put("/teacher/courses/{course_id}/activities")
 def save_activities(course_id: int, data: ActivitiesIn, authorization: str | None = Header(default=None)):
     D.require_teacher(authorization)
