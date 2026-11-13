@@ -423,9 +423,19 @@ def options():
     cur = conn.cursor()
     st = settings(cur)
     conn.close()
-    on = bool(available(st)) and bool(st["accents"])
-    return {"available": on, "accents": [{"code": a, "label": BY_CODE[a]["label"]} for a in st["accents"]] if on else [], "default": st["default"] if on else None,
+    # With no provider (no key, or the key taken out to be sure nothing is billed) the clips already on disk
+    # still play: an accent is offered when a provider can make its clips or when it already has clips.
+    live = bool(available(st))
+    accents = [a for a in st["accents"] if live or _has_clips(a)]
+    on = bool(accents)
+    default = st["default"] if st["default"] in accents else (accents[0] if accents else None)
+    return {"available": on, "accents": [{"code": a, "label": BY_CODE[a]["label"]} for a in accents], "default": default,
             "highlight": st["highlight"]}      # also used with the device's own voice
+
+
+def _has_clips(accent):
+    folder = _dir() / accent
+    return folder.exists() and any(folder.glob("*.mp3"))
 
 
 @router.get("/content/tts")

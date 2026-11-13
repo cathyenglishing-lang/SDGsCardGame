@@ -691,6 +691,11 @@ client.put("/teacher/tts", json={"budget": {"azure": 450000, "google": 900000}},
 r = client.put("/teacher/tts", json={"budget": {"azure": 50_000_000, "google": 50_000_000}}, headers=admin)
 check("no setting can raise a budget above the free allowance", TTS.clean_settings({"budget": {"google": 50_000_000, "azure": 9_000_000}})["budget"] == {"google": 950_000, "azure": 480_000})
 client.put("/teacher/tts", json={"budget": {"azure": 450000, "google": 900000}}, headers=admin)
+_keys = (os.environ.get("GOOGLE_TTS_API_KEY"), os.environ.get("AZURE_SPEECH_KEY"))
+os.environ["GOOGLE_TTS_API_KEY"] = ""; os.environ["AZURE_SPEECH_KEY"] = ""
+_opt = client.get("/content/tts/options").json()
+check("with every key taken out, accents that already have clips are still offered (nothing new is made)", _opt["available"] and all(TTS._has_clips(a["code"]) for a in _opt["accents"]), str(_opt))
+os.environ["GOOGLE_TTS_API_KEY"], os.environ["AZURE_SPEECH_KEY"] = (_keys[0] or ""), (_keys[1] or "")
 check("Neural2 is counted with its SSML wrapper and escapes, like the provider bills it", TTS.billed_chars("google", "en-US-Neural2-F", "A & B") == 15 + len("A &amp; B") and TTS.billed_chars("google", "en-US-Chirp3-HD-Aoede", "A & B") == 5)
 check("the budget month follows the provider's (US Pacific) calendar", TTS._month() == __import__("datetime").datetime.now(TTS.BILLING_TZ).strftime("%Y-%m"))
 # a provider that fails is skipped for a while
@@ -719,7 +724,8 @@ client.post("/teacher/speech/reset", headers=admin)
 for k_, v_ in real.items():
     TTS.PROVIDERS[k_].update(v_)
 client.put("/teacher/tts", json=TTS.DEFAULT_SETTINGS, headers=admin)
-check("with the keys gone again the game is told to use the device's voice, and stored clips still play", client.get("/content/tts/options").json()["available"] is False and client.get("/content/tts", params={"text": s1, "accent": "en-GB"}).status_code == 200)
+_o = client.get("/content/tts/options").json()
+check("with the keys gone again only accents with stored clips are offered, and stored clips still play", all(TTS._has_clips(a["code"]) for a in _o["accents"]) and client.get("/content/tts", params={"text": s1, "accent": "en-GB"}).status_code == 200, str(_o))
 
 section("Chinese titles must be Chinese (5-1 and 5-2 had the English script there)")
 bad12 = [{**c_, "title_zh": "Think about a beautiful bird.", "keywords": "x"} for c_ in twelve]
