@@ -114,13 +114,16 @@ API_RATE_LIMIT_PREFIXES = ("/auth", "/content", "/game", "/teacher", "/learning"
 
 
 def get_client_ip(request: Request):
-    forwarded_for = request.headers.get("x-forwarded-for", "")
-    if forwarded_for:
-        return forwarded_for.split(",", 1)[0].strip()
-
+    # X-Real-IP is written by the proxy in front of the app (it replaces whatever the browser sent). The FIRST
+    # X-Forwarded-For entry is whatever the browser claims, so trusting it let anyone dodge the per-IP limits
+    # (2026-11-13 audit); the LAST entry is the one the proxy added.
     real_ip = request.headers.get("x-real-ip", "").strip()
     if real_ip:
         return real_ip
+
+    forwarded_for = [x.strip() for x in request.headers.get("x-forwarded-for", "").split(",") if x.strip()]
+    if forwarded_for:
+        return forwarded_for[-1]
 
     if request.client:
         return request.client.host
@@ -197,6 +200,8 @@ async def path_guard(request: Request, call_next):
         return JSONResponse(status_code=404, content={"detail": "Not Found"})
     response = await call_next(request)
     response.headers.setdefault("X-Content-Type-Options", "nosniff")
+    response.headers.setdefault("X-Frame-Options", "SAMEORIGIN")          # no other site may frame the pages (clickjacking)
+    response.headers.setdefault("Referrer-Policy", "strict-origin-when-cross-origin")
     return response
 
 

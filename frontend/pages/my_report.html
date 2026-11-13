@@ -41,7 +41,8 @@
     const r = await fetch(API + "/me/reports", { headers: head() });
     const d = r.ok ? await r.json() : { reports: [] };
     if (!d.reports.length) { out.innerHTML = '<p class="msg">老師還沒有傳學習報告給你。</p>'; return; }
-    pick.innerHTML = d.reports.map(x => `<option value="${x.id}">${x.title}${x.seen_at ? "" : "（新）"}</option>`).join("");
+    const esc = v => String(v ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+    pick.innerHTML = d.reports.map(x => `<option value="${Number(x.id)}">${esc(x.title)}${x.seen_at ? "" : "（新）"}</option>`).join("");
     pick.hidden = d.reports.length < 2;
     const want = new URLSearchParams(location.search).get("id");
     if (want) pick.value = want;
