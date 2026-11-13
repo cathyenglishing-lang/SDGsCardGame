@@ -2035,6 +2035,7 @@ function pkCycleAccent(){
 // estimate from how long the words are, stretched over the clip's length. The teacher chooses the levels
 // (老師後台 › 語音念法 › 逐字高亮); with "reduce motion" on, nothing moves and the text is simply shown.
 function pkHiOn(){
+  if(PK_LINK.embed) return false;   // the card-game station inside the 3D game: no word highlight (owner, 2026-11-13)
   if(window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) return false;
   const lv = (typeof SELECTED !== "undefined" && SELECTED) ? SELECTED.level : null;
   return !!lv && PK_TTS.highlight.includes(lv);

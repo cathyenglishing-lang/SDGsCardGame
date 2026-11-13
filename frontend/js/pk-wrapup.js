@@ -352,9 +352,10 @@
          ${res.heard != null ? `<p class="pkw-note">The computer heard about ${Math.round(res.heard * 100)}% of the words (for your information only, not scored).</p>` : ""}
          ${R.url ? `<audio controls src="${R.url}" class="pkw-audio"></audio>` : ""}${sentLine}` : ""}</div>
        <p class="pkw-feedback" id="pkwFb"></p>`,
-      (res ? "" : `<button class="pkw-btn ghost" type="button" id="pkwSkip">Skip this time</button>`) + nextBtn("Next ▸", res ? "" : "disabled"));
+      // No skipping the reading (owner, 2026-11-13). Without a microphone the student still reads and the time is
+      // measured ("Done reading"), so nobody is stuck here.
+      nextBtn("Next ▸", res ? "" : "disabled"));
     on("#pkwModel", () => { if (!rec) ctx.speak(R.slide.script); });
-    on("#pkwSkip", () => { ctx.log("wrap.read.skip", { clip: label }); stopRecording(true); go(); });
     on("#pkwNext", () => { stopRecording(true); go(); });
     on("#pkwResend", () => upload());
     on("#pkwRelogin", relogin);
