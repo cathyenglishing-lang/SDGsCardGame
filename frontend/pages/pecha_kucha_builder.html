@@ -1993,7 +1993,7 @@ function pkAccent(){
 function pkAccEn(label){ return String(label||"").replace(/^[^\x00-\x7f]+\s*/, "") || String(label||""); }   // "美式 American" → "American"
 // Two kinds of cloud voice (backend/tts.py): "-N2" codes are Google Neural2, whose word times are exact, so the
 // highlight follows the voice; the others are the most natural (Chirp 3 HD), with an estimated highlight.
-const PK_KIND = { n2:{ name:"Clear · exact highlight", short:"Clear" }, hd:{ name:"HD · most natural", short:"HD" } };
+const PK_KIND = { n2:{ name:"Clear · words light up", short:"Clear" }, hd:{ name:"HD · most natural (no highlight)", short:"HD" } };
 const pkKindOf = code => /-N2$/.test(String(code||"")) ? "n2" : "hd";
 const pkBaseOf = code => String(code||"").replace(/-N2$/, "");
 function pkKinds(){ return ["n2","hd"].filter(k=>PK_TTS.accents.some(a=>pkKindOf(a.code)===k)); }
@@ -2036,6 +2036,7 @@ function pkCycleAccent(){
 // (老師後台 › 語音念法 › 逐字高亮); with "reduce motion" on, nothing moves and the text is simply shown.
 function pkHiOn(){
   if(PK_LINK.embed) return false;   // the card-game station inside the 3D game: no word highlight (owner, 2026-11-13)
+  { const acc = pkAccent(); if(acc && pkKindOf(acc) === "hd") return false; }   // HD voices have no word times: no highlight (owner, 2026-11-13)
   if(window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) return false;
   const lv = (typeof SELECTED !== "undefined" && SELECTED) ? SELECTED.level : null;
   return !!lv && PK_TTS.highlight.includes(lv);
