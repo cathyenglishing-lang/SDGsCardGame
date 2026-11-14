@@ -3004,14 +3004,11 @@ async function init() {
     bindForms();
     // The first page (Card Game records) opens right away; the old question bank loads behind it.
     // Every old section starts hidden in the HTML, so the first second never shows the old pages.
-    if (currentTeacher && currentTeacher.role === "admin") document.querySelectorAll("[data-admin-only]").forEach((el) => { el.hidden = false; });
-    // Observer: read-only, no course access. The server refuses everything else; here we only hide what it would refuse.
+    if (currentTeacher && ["admin", "observer"].includes(currentTeacher.role)) document.querySelectorAll("[data-admin-only]").forEach((el) => { el.hidden = false; });
+    // Observer: the whole back office read-only, except 班級 (courses, rosters, accounts). The server refuses
+    // those and every change or export; here we only hide the menu it would refuse.
     if (currentTeacher && currentTeacher.role === "observer") {
-      document.querySelectorAll('.tn-item:not([data-menu="content"])').forEach((el) => { el.hidden = true; });
-      document.querySelectorAll('.tn-item[data-menu="content"] a.nav-item').forEach((el) => { el.hidden = true; });
-      setModule("library");
-      placeNavIndicator(false);
-      return;
+      document.querySelectorAll('.tn-item[data-menu="class"]').forEach((el) => { el.hidden = true; });
     }
     setModule("records", "pecha_kucha");
     placeNavIndicator(false);

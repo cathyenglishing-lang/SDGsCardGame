@@ -994,15 +994,20 @@ def get_current_user(authorization: str | None):
     return dict(user)
 
 
-# "observer" = read-only back-office account with no course access: it may open the teaching materials and the
-# pronunciation / TTS settings, nothing that names a student (rosters, users, records, recordings, reports,
-# analytics), no exports, no system pages, and it can never change anything. Deny by default: a teacher
-# endpoint is closed to observers unless it is a GET listed here.
-OBSERVER_READ_PATHS = re.compile(r"^(?:/api)?/teacher/(?:library(?:/[^/]+/[^/]+)?|content|speech|tts)/?$")
+# "observer" = read-only back-office account without the class side: it may open every back-office page
+# (game data, teaching materials, voice settings, system pages) except 班級 — courses, rosters, enrolments,
+# sessions / calendar, chips, account management — and it can never change or export anything.
+# Only GET is ever allowed, and only outside OBSERVER_CLOSED.
+OBSERVER_CLOSED = re.compile(
+    r"^(?:/api)?(?:"
+    r"/teacher/(?:courses|enrollments|sessions|calendar|roster|users|chips|user-anomalies)(?:/.*)?"
+    r"|.*\.(?:xlsx|csv|zip)"
+    r")/?$"
+)
 
 
 def observer_may(method: str, path: str) -> bool:
-    return method == "GET" and bool(OBSERVER_READ_PATHS.match(path or ""))
+    return method == "GET" and not OBSERVER_CLOSED.match(path or "")
 
 
 def require_teacher(authorization: str | None):

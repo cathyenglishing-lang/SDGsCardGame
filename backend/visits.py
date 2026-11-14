@@ -183,7 +183,7 @@ def _tally(items, key):
 @router.get("/teacher/visitors")
 def visitors(days: int = 30, authorization: str | None = Header(default=None)):
     user = D.require_teacher(authorization)
-    if user.get("role") != "admin":
+    if user.get("role") not in ("admin", "observer"):   # observer: read-only, GET only (see main.observer_may)
         raise HTTPException(status_code=403, detail="admin only")
     days = max(1, min(365, days))
     since = (datetime.now(timezone.utc) - timedelta(days=days)).strftime("%Y-%m-%dT%H:%M:%SZ")

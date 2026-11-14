@@ -4,21 +4,24 @@ Date: 2026-11-14. Owner approved both items.
 
 ## 1. Observer role — shipped
 
-`users.role = 'observer'`: a read-only back-office account with **no course access**. Use it for people who
-should see how the back office and the teaching materials work, but must not see students.
+`users.role = 'observer'`: the whole back office **read-only**, except the class side (班級). Use it for
+people who should watch how the system is used without managing courses or accounts.
 
-| | Observer may | Observer may not |
+| | Observer may (GET only) | Observer may not |
 |---|---|---|
-| Pages | 教材 › 教材管理 (library, read only), 語音念法 / TTS settings (read only), the old question bank data the dashboard loads (`/teacher/content`) | 遊戲數據, 班級 (courses, rosters, accounts), 系統, story editor |
-| API | `GET /teacher/library`, `GET /teacher/library/{game}/{topic_id}`, `GET /teacher/content`, `GET /teacher/speech`, `GET /teacher/tts` | every other `/teacher/*` and `/learning/*` endpoint that calls `require_teacher`, every non-GET request, every export (`export.xlsx`, `metrics.csv`, `download.zip`) |
+| Pages | 遊戲數據 (Card Game, 3D Harbor, SDG 4 Stage, story routes, recording playback), 教材, 語音念法, 系統 (resources, visitors, database ER, login records, settings) | 班級: 課程與名單, 帳號管理; course meeting times, sessions, calendar, who-played reports; chips |
+| API | every `require_teacher` GET outside `OBSERVER_CLOSED` | `/teacher/courses*`, `enrollments`, `sessions`, `calendar`, `roster`, `users*`, `chips`, `user-anomalies`; every `.xlsx` / `.csv` / `.zip`; every non-GET request |
+
+Owner approved (2026-11-14) that game data and login records still show student names and e-mails.
 
 How it works: middleware `remember_request_line` stores the request method and path in a context variable;
-`require_teacher()` admits `observer` only when `observer_may(method, path)` matches `OBSERVER_READ_PATHS`
-(GET only). Deny by default: a new teacher endpoint is closed to observers unless it is added to that regex.
-The dashboard hides the closed menus and opens on 教材管理; that is cosmetic, the server is the gate.
+`require_teacher()` admits `observer` only when `observer_may(method, path)`: GET and not matching
+`OBSERVER_CLOSED`. The admin-only read checks in `metrics.py` and `visits.py` also admit observer. The dashboard
+shows the 系統 menu to observers and hides 班級; that is cosmetic, the server is the gate. When you add a new
+class-side endpoint, add its path to `OBSERVER_CLOSED`.
 
 Create one: 帳號管理 › role dropdown › "Observer（唯讀）", or `POST /teacher/users/bulk` with `role: observer`
-(admin only). Tests: `python scripts/test_observer.py` (48 checks).
+(admin only). Tests: `python scripts/test_observer.py`.
 
 ## 2. Several teachers, each with their own classes — design for after the 11/18 and 11/23 trials
 

@@ -319,7 +319,7 @@ def start():
 # ── reading it back (admin) ──
 def _admin(authorization):
     user = D.require_teacher(authorization)
-    if user.get("role") != "admin":
+    if user.get("role") not in ("admin", "observer"):   # observer: read-only, GET only (see main.observer_may)
         raise HTTPException(status_code=403, detail="admin only")
     return user
 

@@ -1,5 +1,5 @@
-"""Self-test for the read-only "observer" role: may open teaching materials and pronunciation / TTS settings,
-nothing that names a student, no exports, no system pages, and never a change.
+"""Self-test for the read-only "observer" role: may open the whole back office except 班級 (courses, rosters, accounts),
+no exports, and never a change.
 
 Runs the real app against throw-away SQLite files (CARDLEARN_SQLITE_DIR), never sql/app.db:
     python scripts/test_observer.py
@@ -157,14 +157,22 @@ if item:
 check("export path under library is closed even for a made-up topic → 403",
       client.get("/teacher/library/pecha_kucha/9-1/export.xlsx", headers=obs).status_code == 403)
 
-section("Observer sees nothing about courses or students")
+section("Observer may read game data and the system pages")
+open_gets = [
+    "/teacher/game-records", "/teacher/pk-analytics", "/teacher/recordings", "/teacher/reports", "/teacher/feedback",
+    "/learning/records/games", "/learning/sdg4/overview",
+    "/teacher/metrics", "/teacher/visitors", "/teacher/system-info", "/teacher/db-schema", "/teacher/user-analytics",
+]
+for path in open_gets:
+    r = client.get(path, headers=obs)
+    check(f"GET {path} → 200", r.status_code == 200, f"{r.status_code} {r.text[:120]}")
+
+section("Observer sees nothing of 班級 (courses, rosters, accounts) and exports nothing")
 closed_gets = [
-    "/teacher/courses", f"/teacher/courses/{course_id}/roster", f"/teacher/courses/{course_id}/sessions", "/teacher/calendar",
-    "/teacher/users", "/teacher/game-records", "/teacher/user-analytics", "/teacher/pk-analytics",
-    "/teacher/metrics", "/teacher/metrics.csv", "/teacher/user-anomalies", "/teacher/recordings", "/teacher/recordings/download.zip",
-    "/teacher/reports", "/teacher/feedback", "/teacher/chips", "/teacher/visitors",
-    "/teacher/system-info", "/teacher/db-schema",
-    "/learning/records/games", "/learning/records/export.xlsx", "/learning/sdg4/overview",
+    "/teacher/courses", f"/teacher/courses/{course_id}/roster", f"/teacher/courses/{course_id}/sessions",
+    f"/teacher/courses/{course_id}/delete-preview", "/teacher/calendar", "/teacher/sessions/1/report",
+    "/teacher/users", "/teacher/user-anomalies", "/teacher/chips",
+    "/teacher/metrics.csv", "/teacher/recordings/download.zip", "/learning/records/export.xlsx", "/learning/sdg4/export.xlsx",
 ]
 for path in closed_gets:
     r = client.get(path, headers=obs)
