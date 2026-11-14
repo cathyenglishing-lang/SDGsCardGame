@@ -14,6 +14,7 @@ import sqlite3
 import hashlib
 import jwt
 import re
+import contextvars
 import os
 import secrets
 import time
@@ -190,6 +191,20 @@ def unsafe_path(raw_path: str) -> bool:
         return True
     last = parts[-1].lower() if parts else ""
     return last.endswith(_BLOCKED_SUFFIXES) or last.endswith("~")
+
+
+# The method and path of the request being served, so require_teacher() can decide what an observer may see
+# without every one of its ~100 callers passing the request in.
+_request_line: contextvars.ContextVar[tuple[str, str]] = contextvars.ContextVar("request_line", default=("", ""))
+
+
+@app.middleware("http")
+async def remember_request_line(request: Request, call_next):
+    token = _request_line.set((request.method, request.url.path))
+    try:
+        return await call_next(request)
+    finally:
+        _request_line.reset(token)
 
 
 @app.middleware("http")
@@ -979,11 +994,27 @@ def get_current_user(authorization: str | None):
     return dict(user)
 
 
+# "observer" = read-only back-office account with no course access: it may open the teaching materials and the
+# pronunciation / TTS settings, nothing that names a student (rosters, users, records, recordings, reports,
+# analytics), no exports, no system pages, and it can never change anything. Deny by default: a teacher
+# endpoint is closed to observers unless it is a GET listed here.
+OBSERVER_READ_PATHS = re.compile(r"^(?:/api)?/teacher/(?:library(?:/[^/]+/[^/]+)?|content|speech|tts)/?$")
+
+
+def observer_may(method: str, path: str) -> bool:
+    return method == "GET" and bool(OBSERVER_READ_PATHS.match(path or ""))
+
+
 def require_teacher(authorization: str | None):
     user = get_current_user(authorization)
-    if user.get("role") not in ("teacher", "admin"):
-        raise HTTPException(status_code=403, detail="teacher permission required")
-    return user
+    role = user.get("role")
+    if role in ("teacher", "admin"):
+        return user
+    if role == "observer":
+        if observer_may(*_request_line.get()):
+            return user
+        raise HTTPException(status_code=403, detail="observer accounts are read-only and cannot open this page")
+    raise HTTPException(status_code=403, detail="teacher permission required")
 
 
 def can_access_game_session(session, current_user: dict):
@@ -3031,7 +3062,7 @@ def teacher_users(authorization: str | None = Header(default=None)):
 def update_teacher_user_role(user_id: int, data: UserRoleIn, authorization: str | None = Header(default=None)):
     current_user = require_teacher(authorization)
     new_role = data.role.strip().lower()
-    if new_role not in ("student", "teacher", "admin"):
+    if new_role not in ("student", "observer", "teacher", "admin"):
         raise HTTPException(status_code=400, detail="invalid role")
     if user_id == current_user["id"]:
         raise HTTPException(status_code=400, detail="cannot change your own role")
@@ -3068,7 +3099,7 @@ def create_users_bulk(data: BulkUsersIn, authorization: str | None = Header(defa
     for u in data.users:
         email = normalize_email(u.email)
         role = (u.role or "student").strip().lower()
-        if role not in ("student", "teacher", "admin"):
+        if role not in ("student", "observer", "teacher", "admin"):
             skipped.append({"email": email, "reason": "invalid role"}); continue
         if not u.name.strip():
             skipped.append({"email": email, "reason": "name required"}); continue

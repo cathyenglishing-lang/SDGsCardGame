@@ -1860,13 +1860,13 @@ function downloadMaterialJsonTemplate() {
 async function verifyTeacher() {
   if (!auth.requireLogin().access_token) return false; // logged out or guest: already redirecting to login
   const user = await api.auth.me();
-  if (!["teacher", "admin"].includes(user.role)) {
+  if (!["observer", "teacher", "admin"].includes(user.role)) {
     alert("This account does not have teacher dashboard access.");
     window.location.href = "/pages/member_index.html";
     return false;
   }
   currentTeacher = user;
-  $("teacherName").textContent = `${user.name || user.email} (${user.role})`;
+  $("teacherName").textContent = `${user.name || user.email} (${user.role === "observer" ? "觀察者・唯讀" : user.role})`;
   return true;
 }
 
@@ -2662,6 +2662,7 @@ function statPercent(value, maxValue) {
 function roleOptions(selectedRole, canManageAdmin) {
   const roles = [
     ["student", "Student"],
+    ["observer", "Observer（唯讀）"],
     ["teacher", "Teacher"],
     ["admin", "Admin"]
   ];
@@ -3004,6 +3005,14 @@ async function init() {
     // The first page (Card Game records) opens right away; the old question bank loads behind it.
     // Every old section starts hidden in the HTML, so the first second never shows the old pages.
     if (currentTeacher && currentTeacher.role === "admin") document.querySelectorAll("[data-admin-only]").forEach((el) => { el.hidden = false; });
+    // Observer: read-only, no course access. The server refuses everything else; here we only hide what it would refuse.
+    if (currentTeacher && currentTeacher.role === "observer") {
+      document.querySelectorAll('.tn-item:not([data-menu="content"])').forEach((el) => { el.hidden = true; });
+      document.querySelectorAll('.tn-item[data-menu="content"] a.nav-item').forEach((el) => { el.hidden = true; });
+      setModule("library");
+      placeNavIndicator(false);
+      return;
+    }
     setModule("records", "pecha_kucha");
     placeNavIndicator(false);
     await loadContent();
